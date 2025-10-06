@@ -1,14 +1,12 @@
-import LeadForm from "@/components/LeadForm";
+'use client';
 
-export const metadata = {
-  title: "QuickBooks Migration — Dominus Foundry",
-  description:
-    "Zero-drama, audit-ready QuickBooks migrations with reconciliation and training.",
-  alternates: { canonical: "/qb-migration" }
-};
+import { useSearchParams } from 'next/navigation';
+import LeadForm from '@/components/LeadForm';
 
-export default function QB({ searchParams }) {
-  const ppc = searchParams?.ppc === "1"; // still usable for conditional UI
+export default function QB() {
+  const searchParams = useSearchParams();
+  const ppc = searchParams.get('ppc') === '1';
+
   return (
     <section className="py-12">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
