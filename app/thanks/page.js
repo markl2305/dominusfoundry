@@ -1,4 +1,4 @@
-export const metadata = { title: "Thanks — Dominus Foundry" };
+'use client';
 
 export default function Thanks() {
   return (
