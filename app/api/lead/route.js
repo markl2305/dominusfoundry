@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     const payload = await req.json();
-
     const {
       firstName = "", lastName = "", email = "", phone = "",
       company = "", sourceSystem = "", history = "", timeline = "",
@@ -33,7 +32,6 @@ export async function POST(req) {
     } else {
       console.log("Lead (email not configured)\\n" + body);
     }
-
     return NextResponse.json({ ok: true });
   } catch (e) {
     return NextResponse.json({ ok: false, error: e?.message || "Bad Request" }, { status: 400 });
