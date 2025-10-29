@@ -4,25 +4,7 @@ import SiteFooter from '@/components/SiteFooter';
 
 export const metadata = {
   title: 'Dominus Foundry — Systems & QuickBooks Migration',
-  description:
-    'We build calm operations and deliver zero-drama, audit-ready QuickBooks migrations.',
-  openGraph: {
-    title: 'Dominus Foundry',
-    description:
-      'Zero-drama, audit-ready QuickBooks migrations and operational systems.',
-    url: 'https://dominusfoundry.com',
-    siteName: 'Dominus Foundry',
-    images: [{ url: '/og-default.png', width: 1200, height: 630 }],
-    locale: 'en_US',
-    type: 'website'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dominus Foundry',
-    description:
-      'Zero-drama, audit-ready QuickBooks migrations and operational systems.',
-    images: ['/og-default.png']
-  }
+  description: 'Zero-drama, audit-ready QuickBooks migrations and simple operating systems.'
 };
 
 export default function RootLayout({ children }) {
