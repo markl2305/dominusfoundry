@@ -1,7 +1,6 @@
 export const metadata = {
   title: 'About — Dominus Foundry',
-  description:
-    'We build reliable operating systems for small teams and deliver audit-ready QuickBooks migrations.'
+  description: 'We build reliable operating systems for small teams and deliver audit-ready QuickBooks migrations.'
 };
 
 export default function About() {
@@ -15,7 +14,7 @@ export default function About() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
-          ['Principle #1', 'Make the next person&apos;s job easy.'],
+          ['Principle #1', 'Make the next person’s job easy.'],
           ['Principle #2', 'Favor clarity over cleverness.'],
           ['Principle #3', 'Leave systems cleaner than you found them.']
         ].map(([title, body]) => (
@@ -27,10 +26,7 @@ export default function About() {
       </div>
 
       <div className="mt-12">
-        <a
-          href="/qb-migration"
-          className="inline-flex items-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow"
-        >
+        <a href="/qb-migration" className="inline-flex items-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow">
           See our QB migration work
         </a>
       </div>
