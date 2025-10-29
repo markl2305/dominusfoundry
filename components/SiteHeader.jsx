@@ -1,5 +1,4 @@
 'use client';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -39,15 +38,11 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Link
-            href="/qb-migration"
-            className="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow"
-          >
+          <Link href="/qb-migration" className="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow">
             Get a quote
           </Link>
         </div>
 
-        {/* mobile */}
         <button
           className="md:hidden inline-flex items-center rounded-lg border px-3 py-2 text-sm"
           onClick={() => setOpen((v) => !v)}
@@ -62,20 +57,11 @@ export default function SiteHeader() {
         <div id="mobile-nav" className="md:hidden border-t border-neutral-200">
           <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2">
             {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-sm font-medium text-neutral-800"
-              >
+              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-neutral-800">
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/qb-migration"
-              onClick={() => setOpen(false)}
-              className="mt-1 inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow w-max"
-            >
+            <Link href="/qb-migration" onClick={() => setOpen(false)} className="mt-1 inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow w-max">
               Get a quote
             </Link>
           </div>
