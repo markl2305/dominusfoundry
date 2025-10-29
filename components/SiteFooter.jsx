@@ -9,7 +9,7 @@ export default function SiteFooter() {
             Dominus<span className="text-indigo-600">Foundry</span>
           </div>
           <p className="mt-3 text-sm text-neutral-600">
-            Operational systems & QuickBooks migrations—done right.
+            Operational systems & audit-ready QuickBooks migrations—done right.
           </p>
         </div>
 
@@ -37,4 +37,3 @@ export default function SiteFooter() {
     </footer>
   );
 }
-
