@@ -1,6 +1,7 @@
 // app/layout.js
 import './globals.css'
 import Script from 'next/script'
+import { Suspense } from 'react'
 import GA4PageView from './ga.pageview'
 import SiteHeader from '@/components/SiteHeader'
 import SiteFooter from '@/components/SiteFooter'
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         <SiteFooter />
 
         {/* SPA page_view tracking on route changes */}
-        <GA4PageView />
+        <Suspense fallback={null}>
+          <GA4PageView />
+        </Suspense>
 
         {/* GA4 base tag */}
         {GA_ID && (
