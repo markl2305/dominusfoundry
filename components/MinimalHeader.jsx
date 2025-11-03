@@ -1,8 +1,12 @@
 import Link from 'next/link';
 
 export default function MinimalHeader() {
+  // TODO: Replace with Google Voice number tomorrow
+  const phoneNumber = '(555) 123-4567';
+  const phoneHref = 'tel:+15551234567';
+
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-40 backdrop-blur bg-white/95">
       <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="font-black tracking-tight text-lg text-gray-900 hover:text-blue-900 transition-colors">
@@ -19,11 +23,11 @@ export default function MinimalHeader() {
           </Link>
           
           <a 
-            href="tel:+15551234567" 
-            className="text-sm font-semibold text-gray-900 flex items-center gap-2"
+            href={phoneHref}
+            className="text-sm font-semibold text-gray-900 flex items-center gap-2 hover:text-blue-900 transition-colors"
           >
             <span className="text-lg">📞</span>
-            <span>(555) 123-4567</span>
+            <span>{phoneNumber}</span>
           </a>
 
           <a 
@@ -34,20 +38,20 @@ export default function MinimalHeader() {
           </a>
         </div>
 
-        {/* Mobile: Just phone and CTA */}
+        {/* Mobile: Phone icon + CTA */}
         <div className="md:hidden flex items-center gap-3">
           <a 
-            href="tel:+15551234567" 
-            className="text-2xl"
+            href={phoneHref}
+            className="text-2xl hover:scale-110 transition-transform"
             aria-label="Call us"
           >
             📞
           </a>
           <a 
             href="#get-quote" 
-            className="inline-flex items-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white"
+            className="inline-flex items-center rounded-xl bg-orange-600 px-3 py-2 text-sm font-semibold text-white"
           >
-            Get Quote
+            Quote
           </a>
         </div>
       </div>
