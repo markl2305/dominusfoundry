@@ -1,4 +1,5 @@
 import LeadForm from '@/components/LeadForm';
+import StickyQuoteButton from '@/components/StickyQuoteButton';
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',
@@ -491,6 +492,9 @@ export default function QBMigration() {
           </p>
         </div>
       </section>
+
+      {/* Sticky floating CTA */}
+      <StickyQuoteButton />
     </>
   );
 }
