@@ -2,6 +2,8 @@
 import './globals.css'
 import Script from 'next/script'
 import GA4PageView from './ga-pageview'
+import SiteHeader from '@/components/SiteHeader'
+import SiteFooter from '@/components/SiteFooter'
 
 export const metadata = {
   title: 'Dominus Foundry',
@@ -13,9 +15,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className="min-h-screen bg-neutral-950 text-white">
-        {/* Page content */}
+      <body className="min-h-screen bg-neutral-50 text-neutral-900">
+        <SiteHeader />
+        
         <div className="min-h-screen flex flex-col">{children}</div>
+        
+        <SiteFooter />
 
         {/* SPA page_view tracking on route changes */}
         <GA4PageView />
@@ -27,3 +32,17 @@ export default function RootLayout({ children }) {
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="afterInteractive"
             />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </body>
+    </html>
+  )
+}
