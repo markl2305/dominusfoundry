@@ -1,7 +1,7 @@
 // app/layout.js
 import './globals.css'
 import Script from 'next/script'
-import GA4PageView from './ga-pageview'
+import GA4PageView from './ga.pageview'
 import SiteHeader from '@/components/SiteHeader'
 import SiteFooter from '@/components/SiteFooter'
 
