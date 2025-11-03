@@ -1,44 +1,131 @@
-14:29:20.113 Running build in Washington, D.C., USA (East) – iad1
-14:29:20.114 Build machine configuration: 4 cores, 8 GB
-14:29:20.226 Cloning github.com/markl2305/dominusfoundry (Branch: main, Commit: fb82387)
-14:29:20.467 Cloning completed: 241.000ms
-14:29:20.966 Restored build cache from previous deployment (7Yr9tDVcP7H2yeHp4vd3SpPFewTe)
-14:29:21.435 Running "vercel build"
-14:29:21.851 Vercel CLI 48.8.0
-14:29:22.364 Installing dependencies...
-14:29:23.271 
-14:29:23.271 up to date in 637ms
-14:29:23.271 
-14:29:23.272 47 packages are looking for funding
-14:29:23.272   run `npm fund` for details
-14:29:23.302 Detected Next.js version: 14.2.5
-14:29:23.306 Running "npm run build"
-14:29:23.423 
-14:29:23.424 > dominus-foundry@0.1.0 build
-14:29:23.424 > next build
-14:29:23.424 
-14:29:24.162   ▲ Next.js 14.2.5
-14:29:24.162 
-14:29:24.190    Creating an optimized production build ...
-14:29:24.945  ⚠ Found lockfile missing swc dependencies, run next locally to automatically patch
-14:29:27.737 Failed to compile.
-14:29:27.737 
-14:29:27.737 ./components/LeadForm.jsx
-14:29:27.737 Error: 
-14:29:27.737   [31mx[0m Unexpected eof
-14:29:27.738     ,-[[36;1;4m/vercel/path0/components/LeadForm.jsx[0m:74:1]
-14:29:27.738  [2m74[0m |             name="sourceSystem" 
-14:29:27.738  [2m75[0m |             className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
-14:29:27.738  [2m76[0m |           >
-14:29:27.738     `----
-14:29:27.738 
-14:29:27.738 Caused by:
-14:29:27.738     Syntax Error
-14:29:27.738 
-14:29:27.738 Import trace for requested module:
-14:29:27.738 ./components/LeadForm.jsx
-14:29:27.738 ./app/qb-migration/page.js
-14:29:27.738 
-14:29:27.746 
-14:29:27.747 > Build failed because of webpack errors
-14:29:27.769 Error: Command "npm run build" exited with 1
+"use client";
+import { useState } from "react";
+
+export default function LeadForm({ ppc = false }) {
+  const [sending, setSending] = useState(false);
+  
+  async function submit(e) {
+    e.preventDefault();
+    setSending(true);
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const res = await fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data, ppc })
+    });
+    if (res.ok) {
+      window.location.href = "/thanks";
+    } else {
+      setSending(false);
+    }
+  }
+
+  return (
+    <form onSubmit={submit} className="grid gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium">First name</label>
+          <input 
+            name="firstName" 
+            required 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium">Last name</label>
+          <input 
+            name="lastName" 
+            required 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium">Email</label>
+          <input 
+            name="email" 
+            type="email" 
+            required 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium">Phone (optional)</label>
+          <input 
+            name="phone" 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium">Company</label>
+          <input 
+            name="company" 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium">Current system</label>
+          <select 
+            name="sourceSystem" 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          >
+            <option>QuickBooks Desktop</option>
+            <option>QuickBooks Online (consolidation)</option>
+            <option>Xero</option>
+            <option>Wave</option>
+            <option>Zoho Books</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium">Historical depth</label>
+          <select 
+            name="history" 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          >
+            <option>Lists only</option>
+            <option>1 year</option>
+            <option>2–3 years</option>
+            <option>4+ years</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-sm font-medium">Timeline</label>
+          <select 
+            name="timeline" 
+            className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+          >
+            <option>ASAP</option>
+            <option>This month</option>
+            <option>This quarter</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label className="text-sm font-medium">Notes</label>
+        <textarea 
+          name="notes" 
+          rows={4} 
+          className="mt-1 w-full rounded-xl border border-neutral-300 px-3 py-2"
+        />
+      </div>
+
+      <button 
+        disabled={sending} 
+        className="rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {sending ? "Sending…" : "Request Quote"}
+      </button>
+    </form>
+  );
+}
