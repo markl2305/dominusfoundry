@@ -1,0 +1,22 @@
+{
+  "name": "Dominus Foundry",
+  "short_name": "Dominus",
+  "description": "Helping traditional New Mexico businesses survive technological change with patience and personal care",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8efe0",
+  "theme_color": "#2f434a",
+  "icons": [
+    {
+      "src": "/logo-crest.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
