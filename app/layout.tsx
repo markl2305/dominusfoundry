@@ -2,7 +2,6 @@
 // Root layout with metadata, favicon configuration, and analytics
 
 import { Inter } from 'next/font/google'
-import { Suspense } from 'react'
 import Script from 'next/script'
 import SiteHeader from '@/components/SiteHeader'
 import SiteFooter from '@/components/SiteFooter'
