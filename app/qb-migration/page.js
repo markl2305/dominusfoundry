@@ -1,5 +1,5 @@
-import LeadForm from '@/components/LeadForm';
-import StickyQuoteButton from '@/components/StickyQuoteButton';
+import LeadForm from "../../components/LeadForm";
+import StickyQuoteButton from "../../components/StickyQuoteButton";
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',

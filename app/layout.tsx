@@ -3,8 +3,8 @@
 
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
-import SiteHeader from '@/components/SiteHeader'
-import SiteFooter from '@/components/SiteFooter'
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
