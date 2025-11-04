@@ -7,12 +7,12 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-tan-200 to-tan-100 py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-navy-900">
             We Build Bridges Through Technological Change
           </h1>
-          <p className="mt-6 text-xl text-gray-700">
+          <p className="mt-6 text-xl text-navy-700">
             Most business owners didn't sign up for constant tech disruption. They signed up to run their business. 
             We help them survive the changes they didn't ask for—starting with QuickBooks Desktop going away.
           </p>
@@ -21,8 +21,8 @@ export default function About() {
 
       {/* Why We Exist */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Why We Started Dominus Foundry</h2>
-        <div className="mt-6 space-y-4 text-lg text-gray-700">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Why We Started Dominus Foundry</h2>
+        <div className="mt-6 space-y-4 text-lg text-navy-700">
           <p>
             Technology changes faster than most businesses can adapt. AI, cloud software, platform migrations—it's 
             relentless. And the people selling these changes rarely understand what it's like to run a traditional 
@@ -41,11 +41,11 @@ export default function About() {
       </section>
 
       {/* Who We Are */}
-      <section className="bg-gray-50 py-12 md:py-16">
+      <section className="bg-tan-100 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">Who We Are</h2>
           
-          <div className="space-y-6 text-lg text-gray-700">
+          <div className="space-y-6 text-lg text-navy-700">
             <p>
               Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque, New Mexico. 
               We're building this for the long haul, eventually bringing in our daughter Belle as she 
@@ -61,9 +61,9 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mt-8 p-6 bg-blue-50 border-l-4 border-blue-900 rounded-r-xl">
-            <p className="text-lg font-semibold text-gray-900">Based in Albuquerque, serving New Mexico first</p>
-            <p className="mt-2 text-gray-700">
+          <div className="mt-8 p-6 bg-tan-200 border-l-4 border-navy-500 rounded-r-xl">
+            <p className="text-lg font-semibold text-navy-900">Based in Albuquerque, serving New Mexico first</p>
+            <p className="mt-2 text-navy-700">
               We're focused on serving local businesses in ABQ and across New Mexico before expanding nationally. 
               If you're a New Mexico business owner facing the QB Desktop crisis, we're your neighbors.
             </p>
@@ -73,30 +73,30 @@ export default function About() {
 
       {/* Our Principles */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">How We Work</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-8">How We Work</h2>
         
         <div className="space-y-8">
-          <div className="bg-white rounded-2xl border-2 border-blue-900 p-6 md:p-8">
-            <h3 className="text-2xl font-bold text-blue-900">We have patience for people who don't love change</h3>
-            <p className="mt-3 text-lg text-gray-700">
+          <div className="bg-white rounded-2xl border-2 border-navy-500 p-6 md:p-8">
+            <h3 className="text-2xl font-bold text-navy-500">We have patience for people who don't love change</h3>
+            <p className="mt-3 text-lg text-navy-700">
               You didn't ask for QuickBooks Desktop to go away. You didn't ask for AI to disrupt your workflows. 
               We understand that frustration. We take the time to explain what's happening, why it matters, and 
               what your options are—without talking down to you.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
-            <h3 className="text-2xl font-bold text-blue-900">We partner with you, not at you</h3>
-            <p className="mt-3 text-lg text-gray-700">
+          <div className="bg-white rounded-2xl border border-bronze-300 p-6 md:p-8">
+            <h3 className="text-2xl font-bold text-navy-500">We partner with you, not at you</h3>
+            <p className="mt-3 text-lg text-navy-700">
               Most tech vendors are impersonal and rushed. We're not. You get direct access to us throughout 
               the project. We answer questions, walk you through decisions, and make sure you understand what's 
               happening to your business-critical systems.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
-            <h3 className="text-2xl font-bold text-blue-900">We don't rush the work</h3>
-            <p className="mt-3 text-lg text-gray-700">
+          <div className="bg-white rounded-2xl border border-bronze-300 p-6 md:p-8">
+            <h3 className="text-2xl font-bold text-navy-500">We don't rush the work</h3>
+            <p className="mt-3 text-lg text-navy-700">
               Quality over speed. We reconcile everything, document our work, and hand off systems that the 
               next person can understand. Your CPA shouldn't have to decode mysteries when they open your books.
             </p>
@@ -105,10 +105,10 @@ export default function About() {
       </section>
 
       {/* Who We Serve */}
-      <section className="bg-blue-900 text-white py-12 md:py-16">
+      <section className="bg-navy-500 text-white py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Who We Work With</h2>
-          <div className="text-lg text-blue-100 space-y-4">
+          <div className="text-lg text-bronze-300 space-y-4">
             <p>
               We work with established business owners who've been running their companies for 15-25 years. 
               You're profitable, you employ 5-50 people, and you've built something lasting. But the rapid pace 
@@ -133,7 +133,7 @@ export default function About() {
                 <span>You've built something you're proud of and want to protect it</span>
               </li>
             </ul>
-            <p className="mt-6 text-blue-100">
+            <p className="mt-6 text-bronze-300">
               If you're extremely price-sensitive or completely unwilling to adapt to necessary changes, 
               we're probably not the right fit. But if you want a partner who understands your frustration 
               and will guide you through unavoidable transitions with patience and care, let's talk.
@@ -144,8 +144,8 @@ export default function About() {
 
       {/* The Name */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About the Name</h2>
-        <div className="text-lg text-gray-700 space-y-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">About the Name</h2>
+        <div className="text-lg text-navy-700 space-y-4">
           <p>
             "Dominus" is Latin for "Lord"—our family name. A foundry is where raw materials are forged into 
             durable, functional tools that last for generations.
@@ -156,17 +156,17 @@ export default function About() {
             businesses that will serve people for decades, potentially with our daughter Belle joining as she 
             builds her own ventures.
           </p>
-          <p className="font-semibold text-gray-900">
+          <p className="font-semibold text-navy-900">
             Technology changes rapidly, but good businesses are built to last. That's what we're forging here.
           </p>
         </div>
       </section>
 
       {/* Our Services Path */}
-      <section className="bg-gray-50 py-12 md:py-16">
+      <section className="bg-tan-100 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Service Philosophy</h2>
-          <div className="text-lg text-gray-700 space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-6">Our Service Philosophy</h2>
+          <div className="text-lg text-navy-700 space-y-4">
             <p>
               We're building Dominus Foundry one service at a time, starting with immediate crises and expanding 
               to help businesses navigate the broader technology landscape.
@@ -177,7 +177,7 @@ export default function About() {
               traditional businesses stay competitive. Then technology roadmapping to help you see what's coming. 
               And eventually exit planning support for owners thinking about succession or sale.
             </p>
-            <p className="font-semibold text-gray-900">
+            <p className="font-semibold text-navy-900">
               Each service builds on the last. Each one helps traditional businesses survive change with their 
               dignity and their data intact.
             </p>
@@ -187,9 +187,9 @@ export default function About() {
 
       {/* CTA */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <div className="rounded-2xl border-2 border-blue-900 bg-gradient-to-br from-blue-50 to-white p-8 md:p-10 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Let's Work Together</h2>
-          <p className="mt-4 text-lg text-gray-700">
+        <div className="rounded-2xl border-2 border-navy-500 bg-gradient-to-br from-tan-200 to-white p-8 md:p-10 text-center">
+          <h2 className="text-3xl font-bold text-navy-900">Let's Work Together</h2>
+          <p className="mt-4 text-lg text-navy-700">
             If you're facing the QuickBooks Desktop crisis and need someone who will take the time to do it right, 
             start here.
           </p>
@@ -199,11 +199,11 @@ export default function About() {
           >
             Get Your Migration Quote
           </a>
-          <p className="mt-6 text-sm text-gray-600">
+          <p className="mt-6 text-sm text-navy-600">
             Based in Albuquerque, New Mexico • Serving NM businesses first
           </p>
-          <p className="mt-2 text-sm text-gray-600">
-            Questions? Email <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold text-blue-900">hello@dominusfoundry.com</a>
+          <p className="mt-2 text-sm text-navy-600">
+            Questions? Email <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold text-navy-500">hello@dominusfoundry.com</a>
           </p>
         </div>
       </section>
