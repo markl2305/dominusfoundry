@@ -26,10 +26,10 @@ export default function SiteHeader() {
         <div className="flex lg:flex-1">
           <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
             <Image 
-              src="/og-image.png" 
+              src="/apple-touch-icon.png" 
               alt="Dominus Foundry" 
-              width={40} 
-              height={40}
+              width={80} 
+              height={80}
               className="h-10 w-auto"
             />
             <span className="text-lg font-bold text-white">
