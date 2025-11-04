@@ -14,10 +14,10 @@ export default function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="font-black tracking-tight text-lg">
-          Dominus<span className="text-indigo-600">Foundry</span>
+        <Link href="/" className="font-black tracking-tight text-lg text-gray-900 hover:text-blue-900 transition-colors">
+          Dominus<span className="text-blue-900">Foundry</span>
         </Link>
 
         <nav className="hidden md:flex gap-6">
@@ -27,8 +27,8 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium hover:text-neutral-900 ${
-                  active ? 'text-neutral-900' : 'text-neutral-600'
+                className={`text-sm font-medium transition-colors ${
+                  active ? 'text-blue-900 font-semibold' : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
                 {item.label}
@@ -38,13 +38,13 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/qb-migration" className="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow">
-            Get a quote
+          <Link href="/qb-migration" className="inline-flex items-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-700 transition-colors">
+            Get a Quote
           </Link>
         </div>
 
         <button
-          className="md:hidden inline-flex items-center rounded-lg border px-3 py-2 text-sm"
+          className="md:hidden inline-flex items-center rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -54,15 +54,24 @@ export default function SiteHeader() {
       </div>
 
       {open && (
-        <div id="mobile-nav" className="md:hidden border-t border-neutral-200">
+        <div id="mobile-nav" className="md:hidden border-t border-gray-200 bg-white">
           <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2">
             {nav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="py-2 text-sm font-medium text-neutral-800">
+              <Link 
+                key={item.href} 
+                href={item.href} 
+                onClick={() => setOpen(false)} 
+                className="py-2 text-sm font-medium text-gray-800 hover:text-blue-900 transition-colors"
+              >
                 {item.label}
               </Link>
             ))}
-            <Link href="/qb-migration" onClick={() => setOpen(false)} className="mt-1 inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow w-max">
-              Get a quote
+            <Link 
+              href="/qb-migration" 
+              onClick={() => setOpen(false)} 
+              className="mt-1 inline-flex items-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow w-max hover:bg-orange-700 transition-colors"
+            >
+              Get a Quote
             </Link>
           </div>
         </div>
