@@ -8,7 +8,7 @@ export default function QBMigrationLayout({ children }) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <>
+    <div data-landing-page>
       <MinimalHeader />
       
       <main className="min-h-screen bg-white">
@@ -48,6 +48,6 @@ export default function QBMigrationLayout({ children }) {
           </Script>
         </>
       )}
-    </>
+    </div>
   );
 }
