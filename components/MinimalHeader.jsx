@@ -23,22 +23,13 @@ export default function MinimalHeader() {
 
           {/* Phone Number - Click-to-call on mobile */}
           <a 
-            href="tel:+15055551234"  {/* REPLACE WITH YOUR GOOGLE VOICE NUMBER */}
+            href="tel:+15052261457"
             className="text-sm font-semibold text-white hover:text-bronze-400 transition-colors"
           >
-            (505) XXX-XXXX  {/* REPLACE WITH YOUR GOOGLE VOICE NUMBER */}
+            (505) 226-1457
           </a>
         </div>
       </div>
     </header>
   )
 }
-
-/* 
-USAGE NOTES:
-1. Replace phone number in TWO places: href and display text
-2. Format: href="tel:+1XXXXXXXXXX" (include +1, no spaces/dashes)
-3. Display: Use any format you prefer: (505) 555-1234
-4. This header is intentionally minimal - no nav menu to reduce exit points
-5. Logo links home but doesn't draw attention (conversion best practice)
-*/
