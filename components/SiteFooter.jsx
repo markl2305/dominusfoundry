@@ -93,18 +93,18 @@ export default function SiteFooter() {
               <ul role="list" className="mt-4 space-y-3">
                 <li>
                   <a 
-                    href="tel:+15055551234"  {/* REPLACE WITH YOUR GOOGLE VOICE NUMBER */}
+                    href="tel:+15052261457"
                     className="text-sm text-bronze-300 hover:text-white transition-colors"
                   >
-                    (505) XXX-XXXX  {/* REPLACE WITH YOUR GOOGLE VOICE NUMBER */}
+                    (505) 226-1457
                   </a>
                 </li>
                 <li>
                   <a 
-                    href="mailto:info@dominusfoundry.com"  {/* REPLACE WITH YOUR EMAIL */}
+                    href="mailto:hello@dominusfoundry.com"
                     className="text-sm text-bronze-300 hover:text-white transition-colors"
                   >
-                    info@dominusfoundry.com
+                    hello@dominusfoundry.com
                   </a>
                 </li>
                 <li className="text-sm text-bronze-300">
@@ -126,13 +126,3 @@ export default function SiteFooter() {
     </footer>
   )
 }
-
-/*
-USAGE NOTES:
-1. Replace phone number in TWO places: href and display text
-2. Replace email address with your actual business email
-3. Navigation links can be adjusted in the `navigation` object
-4. "Fide et Familia" motto is displayed prominently
-5. Footer uses bronze-300/400 for text to maintain hierarchy
-6. All links have hover states for better UX
-*/
