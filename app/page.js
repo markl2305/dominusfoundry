@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Dominus Foundry — Helping Traditional Businesses Survive Technological Change',
-  description: 'Based in Albuquerque, NM. We help established businesses navigate unavoidable tech transitions—starting with QuickBooks Desktop migrations.',
+  description: 'We help established businesses navigate unavoidable tech transitions—starting with QuickBooks Desktop migrations.',
 };
 
 export default function Home() {
@@ -10,9 +10,6 @@ export default function Home() {
       <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4">
           <div className="max-w-3xl">
-            <div className="inline-block rounded-lg bg-blue-900 text-white px-4 py-2 text-sm font-semibold mb-6">
-              Based in Albuquerque, NM • Serving New Mexico First
-            </div>
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900">
               Traditional Businesses Shouldn't Have to Navigate Tech Change Alone
             </h1>
