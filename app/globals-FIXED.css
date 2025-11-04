@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
-html { scroll-behavior: smooth; }
-body { @apply bg-neutral-50 text-neutral-900 antialiased; }
+:root { 
+  color-scheme: light; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  @apply bg-tan-200 text-navy-800 antialiased; 
+}
 
 /* Hide global header on landing pages with their own layout */
 body:has([data-landing-page]) > header:first-of-type {
