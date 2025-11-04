@@ -14,7 +14,7 @@ export default function Home() {
               We Build Operating Systems for Small Businesses
             </h1>
             <p className="mt-6 text-xl text-gray-700">
-              Clean data. Clear processes. Zero drama. We help operators move fast without breaking finance.
+              Clean data. Clear processes. Zero drama. We help operators move fast without breaking the bank.
             </p>
           </div>
         </div>
