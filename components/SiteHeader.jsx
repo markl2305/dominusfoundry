@@ -1,4 +1,6 @@
 // components/SiteHeader.jsx
+// One-row header with large left logo that overhangs the header
+
 'use client'
 
 import Image from 'next/image'
@@ -17,28 +19,34 @@ export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="border-b border-bronze-300 bg-navy-500">
-      {/* Brand bar: BIG logo, left aligned */}
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-4 lg:pt-6 -mb-3 md:-mb-4">
-        <Link href="/" className="inline-flex items-center group">
-          <Image
-            src="/logo-full.svg"
-            alt="Dominus Foundry - Fide et Familia"
-            width={900}
-            height={280}
-            // ~2–2.5x bigger on md+ so it reads on 13" screens
-            className="h-20 w-auto sm:h-24 md:h-32 lg:h-40 xl:h-44 transition-opacity group-hover:opacity-80"
-            priority
-            sizes="(min-width: 1024px) 600px, 75vw"
-          />
-        </Link>
-      </div>
+    // overflow-visible is the key that allows the logo to extend past the header
+    <header className="relative overflow-visible bg-navy-500 border-b border-bronze-300">
+      <nav className="mx-auto max-w-7xl px-4 lg:px-8" aria-label="Global">
+        <div className="flex items-center justify-between gap-4 py-3 lg:py-4">
 
-      {/* Nav row: left logo space is gone; center nav + right CTA still balanced */}
-      <nav className="mx-auto max-w-7xl border-t border-bronze-300/20" aria-label="Global">
-        <div className="flex items-center justify-between px-4 py-3 lg:px-8">
-          {/* Mobile menu button */}
-          <div className="flex lg:hidden">
+          {/* Left: big logo that overhangs the bottom edge */}
+          <div className="relative flex items-center flex-shrink-0">
+            <Link href="/" className="block group">
+              <Image
+                src="/logo-full.svg"
+                alt="Dominus Foundry - Fide et Familia"
+                width={960}
+                height={300}
+                /* Readable on 13” screens; overhang with translate-y */
+                className="
+                  w-auto
+                  h-16 sm:h-20 md:h-28 lg:h-36 xl:h-40
+                  translate-y-1 md:translate-y-2
+                  transition-opacity group-hover:opacity-85
+                "
+                priority
+                sizes="(min-width: 1280px) 640px, (min-width: 1024px) 560px, (min-width: 768px) 480px, 60vw"
+              />
+            </Link>
+          </div>
+
+          {/* Mobile: hamburger */}
+          <div className="flex items-center lg:hidden">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
@@ -49,8 +57,8 @@ export default function SiteHeader() {
             </button>
           </div>
 
-          {/* Desktop nav (centered) */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-center lg:gap-x-8">
+          {/* Desktop: centered nav */}
+          <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:gap-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -62,7 +70,7 @@ export default function SiteHeader() {
             ))}
           </div>
 
-          {/* Desktop CTA (right) */}
+          {/* Desktop: CTA on right */}
           <div className="hidden lg:flex lg:flex-none lg:justify-end">
             <Link
               href="/qb-migration"
@@ -74,7 +82,7 @@ export default function SiteHeader() {
         </div>
       </nav>
 
-      {/* Mobile drawer unchanged */}
+      {/* Mobile drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -98,6 +106,7 @@ export default function SiteHeader() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
+
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-bronze-300/20">
                 <div className="space-y-2 py-6">
