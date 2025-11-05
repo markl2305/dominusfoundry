@@ -38,12 +38,12 @@ module.exports = {
           900: '#7a6143',
         },
         bronze: {
-          DEFAULT: '#cdbda9',
+          DEFAULT: '#C2B9A3',
           50: '#f9f7f4',
           100: '#f0ebe3',
           200: '#e4dace',
           300: '#d8cbb8',
-          400: '#cdbda9', // Primary accent color
+          400: '#C2B9A3', // Primary accent color
           500: '#baa890',
           600: '#a89376',
           700: '#8f7b60',
