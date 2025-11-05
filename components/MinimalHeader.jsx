@@ -1,6 +1,6 @@
 // components/MinimalHeader.jsx
 // Minimal header for conversion-optimized landing pages (e.g., /qb-migration)
-// Navy header with prominent logo + phone, no navigation distractions
+// Navy header with prominent logo + phone + email, no navigation distractions
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -21,13 +21,21 @@ export default function MinimalHeader() {
             />
           </Link>
 
-          {/* Phone Number - Click-to-call on mobile */}
-          <a 
-            href="tel:+15052261457"
-            className="text-base font-semibold text-white hover:text-bronze-300 transition-colors"
-          >
-            (505) 226-1457
-          </a>
+          {/* Contact Info - Phone & Email */}
+          <div className="flex flex-col items-end gap-1">
+            <a 
+              href="tel:+15052261457"
+              className="text-base font-semibold text-white hover:text-bronze-300 transition-colors"
+            >
+              (505) 226-1457
+            </a>
+            <a 
+              href="mailto:hello@dominusfoundry.com"
+              className="text-sm text-bronze-300 hover:text-white transition-colors"
+            >
+              hello@dominusfoundry.com
+            </a>
+          </div>
         </div>
       </div>
     </header>
