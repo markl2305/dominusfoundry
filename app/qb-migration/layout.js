@@ -3,7 +3,7 @@
 
 import '../globals.css';
 import Script from 'next/script';
-import MinimalHeader from '@/components/MinimalHeader';
+import MinimalHeader from '../../components/MinimalHeader';
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',
