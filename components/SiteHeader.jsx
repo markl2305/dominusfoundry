@@ -26,7 +26,7 @@ export default function SiteHeader() {
         <div className="flex lg:flex-1">
           <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
             <Image 
-              src="/logo-crest.svg" 
+              src="/og-image.png" 
               alt="Dominus Foundry" 
               width={40} 
               height={40}
