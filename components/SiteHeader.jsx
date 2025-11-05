@@ -1,6 +1,5 @@
 // components/SiteHeader.jsx
-// Full navigation header with banner-width logo
-// Logo spans full container width for maximum prominence and background blend
+// Full navigation header with properly-sized logo
 
 'use client'
 
@@ -21,23 +20,21 @@ export default function SiteHeader() {
 
   return (
     <header className="border-b border-bronze-300 bg-navy-500">
-      {/* Full-width logo banner */}
+      {/* Centered logo section */}
       <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 lg:px-8 lg:pt-8 lg:pb-5">
-        <Link href="/" className="block group">
-          <div className="relative w-full flex items-center justify-center">
-            <Image 
-              src="/logo-full.svg" 
-              alt="Dominus Foundry - Fide et Familia" 
-              width={1200}
-              height={200}
-              className="h-32 w-full object-contain transition-opacity group-hover:opacity-80 lg:h-40"
-              priority
-            />
-          </div>
+        <Link href="/" className="flex justify-center group">
+          <Image 
+            src="/logo-full.svg" 
+            alt="Dominus Foundry - Fide et Familia" 
+            width={600}
+            height={200}
+            className="h-32 w-auto transition-opacity group-hover:opacity-80 lg:h-40"
+            priority
+          />
         </Link>
       </div>
 
-      {/* Navigation bar below logo */}
+      {/* Navigation bar */}
       <nav className="mx-auto max-w-7xl border-t border-bronze-300/20" aria-label="Global">
         <div className="flex items-center justify-between px-4 py-3 lg:px-8">
           
