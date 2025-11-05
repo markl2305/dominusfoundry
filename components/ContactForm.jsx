@@ -13,8 +13,22 @@ export default function ContactForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
+    
     if (res.ok) {
-      window.location.href = "/thanks";
+      // Fire GA4 event for general contact form
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'contact_form_submit', {
+          'event_category': 'Contact',
+          'event_label': 'General Contact Form',
+          'value': 0.5, // Lower value than lead form
+          'currency': 'USD'
+        });
+      }
+      
+      // Small delay to ensure GA4 event fires before redirect
+      setTimeout(() => {
+        window.location.href = "/thanks";
+      }, 300);
     } else {
       setSending(false);
     }
