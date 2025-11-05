@@ -1,6 +1,14 @@
+// app/qb-migration/layout.js
+// Dedicated layout for QB migration landing page with minimal header/footer
+
 import '../globals.css';
 import Script from 'next/script';
 import MinimalHeader from '@/components/MinimalHeader';
+
+export const metadata = {
+  title: 'QuickBooks Desktop Migration — Dominus Foundry',
+  description: 'Migrate from QuickBooks Desktop to Online in 5-7 days. Zero data loss. Audit-ready. Your CPA will thank you.',
+};
 
 export default function QBMigrationLayout({ children }) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -25,7 +33,7 @@ export default function QBMigrationLayout({ children }) {
         </div>
       </footer>
 
-      {/* GA4 tracking - uses same setup as main layout */}
+      {/* GA4 tracking */}
       {GA_ID && (
         <>
           <Script
