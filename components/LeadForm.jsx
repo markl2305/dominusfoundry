@@ -126,6 +126,13 @@ export default function LeadForm({ ppc = false }) {
       >
         {sending ? "Sending…" : "Request Quote"}
       </button>
+
+      <p className="text-xs text-navy-600 text-center">
+        By submitting this form, you agree to our{' '}
+        <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
+          Privacy Policy
+        </a>.
+      </p>
     </form>
   );
 }
