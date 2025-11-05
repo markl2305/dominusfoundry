@@ -25,10 +25,10 @@ module.exports = {
           900: '#121d20',
         },
         tan: {
-          DEFAULT: '#f8efe0',
+          DEFAULT: '#33454E',
           50: '#fefdfb',
           100: '#faf5ec',
-          200: '#f8efe0', // Primary background color
+          200: '#33454E', // Primary background color
           300: '#f0e3d0',
           400: '#e5d3bb',
           500: '#d8c1a3',
