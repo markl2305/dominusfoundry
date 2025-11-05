@@ -13,10 +13,10 @@ export default function MinimalHeader() {
           {/* Logo - Prominent display */}
           <Link href="/" className="flex items-center group">
             <Image 
-              src="/logo-crest.svg" 
+              src="/logo-full.svg" 
               alt="Dominus Foundry" 
-              width={60} 
-              height={60}
+              width={1000} 
+              height={80}
               className="h-14 w-auto transition-opacity group-hover:opacity-80"
             />
           </Link>
