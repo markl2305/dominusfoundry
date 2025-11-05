@@ -1,6 +1,6 @@
 // components/SiteHeader.jsx
 // Full navigation header for main site pages (home, about, services)
-// Features prominent logo with optional tagline on larger screens
+// Features prominent full logo for maximum readability
 
 'use client'
 
@@ -21,21 +21,18 @@ export default function SiteHeader() {
 
   return (
     <header className="border-b border-bronze-300 bg-navy-500">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-        {/* Logo - Prominent, clean display */}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 px-4 lg:py-5 lg:px-8" aria-label="Global">
+        {/* Logo - Full version with integrated "Fide et Familia" */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="flex items-center space-x-4 -m-1.5 p-1.5 group">
+          <Link href="/" className="-m-1.5 p-1.5 group">
             <Image 
-              src="/logo-crest.svg" 
-              alt="Dominus Foundry" 
-              width={80} 
-              height={80}
-              className="h-16 w-auto transition-opacity group-hover:opacity-80"
+              src="/logo-full.svg" 
+              alt="Dominus Foundry - Fide et Familia" 
+              width={280}
+              height={100}
+              className="h-20 w-auto transition-opacity group-hover:opacity-80 lg:h-24"
+              priority
             />
-            {/* Optional tagline on larger screens */}
-            <span className="hidden xl:block text-sm italic text-bronze-300">
-              Fide et Familia
-            </span>
           </Link>
         </div>
 
@@ -81,17 +78,14 @@ export default function SiteHeader() {
           <div className="fixed inset-0 z-50" />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-navy-500 px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-bronze-300">
             <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
+              <Link href="/" className="-m-1.5 p-1.5">
                 <Image 
-                  src="/logo-crest.svg" 
-                  alt="Dominus Foundry" 
-                  width={60} 
-                  height={60}
-                  className="h-12 w-auto"
+                  src="/logo-full.svg" 
+                  alt="Dominus Foundry - Fide et Familia" 
+                  width={240}
+                  height={86}
+                  className="h-16 w-auto"
                 />
-                <span className="text-sm italic text-bronze-300">
-                  Fide et Familia
-                </span>
               </Link>
               <button
                 type="button"
