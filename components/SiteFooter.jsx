@@ -1,5 +1,5 @@
 // components/SiteFooter.jsx
-// Footer for all site pages with prominent logo, contact info, and family motto
+// Footer for all site pages with prominent crest icon, contact info, and navigation
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,20 +24,17 @@ export default function SiteFooter() {
       </h2>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Brand Section - Prominent Logo */}
+          {/* Brand Section - Prominent Crest Icon */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center space-x-4 group">
+            <Link href="/" className="flex items-center justify-start group">
               <Image 
                 src="/logo-crest.svg" 
-                alt="Dominus Foundry" 
-                width={100} 
-                height={100}
-                className="h-20 w-auto transition-opacity group-hover:opacity-80"
+                alt="Dominus Foundry - Fide et Familia" 
+                width={160} 
+                height={160}
+                className="h-32 w-auto transition-opacity group-hover:opacity-80"
               />
             </Link>
-            <p className="text-lg italic text-bronze-300 font-semibold">
-              Fide et Familia
-            </p>
             <p className="text-sm text-bronze-300 leading-relaxed">
               Helping traditional New Mexico businesses survive technological change with patience and personal care.
             </p>
