@@ -1,5 +1,5 @@
 // components/SiteFooter.jsx
-// Footer for all site pages with contact info, links, and family motto
+// Footer for all site pages with prominent logo, contact info, and family motto
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,21 +24,18 @@ export default function SiteFooter() {
       </h2>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
+          {/* Brand Section - Prominent Logo */}
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center space-x-4 group">
               <Image 
-                src="/apple-touch-icon.png" 
+                src="/logo-crest.svg" 
                 alt="Dominus Foundry" 
-                width={80} 
-                height={80}
-                className="h-10 w-auto"
+                width={100} 
+                height={100}
+                className="h-20 w-auto transition-opacity group-hover:opacity-80"
               />
-              <span className="text-xl font-bold text-white">
-                Dominus Foundry
-              </span>
-            </div>
-            <p className="text-sm text-bronze-400 italic">
+            </Link>
+            <p className="text-lg italic text-bronze-300 font-semibold">
               Fide et Familia
             </p>
             <p className="text-sm text-bronze-300 leading-relaxed">
