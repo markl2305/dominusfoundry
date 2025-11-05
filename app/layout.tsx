@@ -41,12 +41,10 @@ export const metadata = {
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo-crest.svg', type: 'image/svg+xml' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: ['/favicon.ico'],
   },
   manifest: '/site.webmanifest',
   metadataBase: new URL('https://dominusfoundry.com'),
@@ -61,11 +59,6 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Additional favicon fallbacks for better browser support */}
-        <link rel="icon" type="image/svg+xml" href="/logo-crest.svg" />
-        <link rel="alternate icon" type="image/png" href="/favicon-32x32.png" />
-      </head>
       <body className={`${inter.className} min-h-screen bg-tan-200 text-navy-800 antialiased`}>
         <SiteHeader />
         
