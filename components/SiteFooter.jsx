@@ -28,10 +28,10 @@ export default function SiteFooter() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <Image 
-                src="/logo-crest.svg" 
+                src="/apple-touch-icon.png" 
                 alt="Dominus Foundry" 
-                width={40} 
-                height={40}
+                width={80} 
+                height={80}
                 className="h-10 w-auto"
               />
               <span className="text-xl font-bold text-white">
