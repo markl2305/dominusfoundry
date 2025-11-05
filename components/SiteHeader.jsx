@@ -1,6 +1,6 @@
 // components/SiteHeader.jsx
-// Full navigation header for main site pages (home, about, services)
-// Features prominent full logo for maximum readability
+// Full navigation header with banner-width logo
+// Logo spans full container width for maximum prominence and background blend
 
 'use client'
 
@@ -21,54 +21,60 @@ export default function SiteHeader() {
 
   return (
     <header className="border-b border-bronze-300 bg-navy-500">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 px-4 lg:py-5 lg:px-8" aria-label="Global">
-        {/* Logo - Full version with integrated "Fide et Familia" */}
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 group">
+      {/* Full-width logo banner */}
+      <div className="mx-auto max-w-7xl px-4 pt-6 pb-4 lg:px-8 lg:pt-8 lg:pb-5">
+        <Link href="/" className="block group">
+          <div className="relative w-full flex items-center justify-center">
             <Image 
               src="/logo-full.svg" 
               alt="Dominus Foundry - Fide et Familia" 
-              width={280}
-              height={100}
-              className="h-20 w-auto transition-opacity group-hover:opacity-80 lg:h-24"
+              width={1200}
+              height={200}
+              className="h-32 w-full object-contain transition-opacity group-hover:opacity-80 lg:h-40"
               priority
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
+      </div>
 
-        {/* Mobile menu button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-white hover:text-bronze-300 transition-colors"
+      {/* Navigation bar below logo */}
+      <nav className="mx-auto max-w-7xl border-t border-bronze-300/20" aria-label="Global">
+        <div className="flex items-center justify-between px-4 py-3 lg:px-8">
+          
+          {/* Mobile menu button */}
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
+              onClick={() => setMobileMenuOpen(true)}
             >
-              {item.name}
-            </Link>
-          ))}
-        </div>
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            href="/qb-migration"
-            className="rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
-          >
-            Get Started →
-          </Link>
+          {/* Desktop navigation - centered */}
+          <div className="hidden lg:flex lg:flex-1 lg:justify-center lg:gap-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-white hover:text-bronze-300 transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="flex lg:justify-end">
+            <Link
+              href="/qb-migration"
+              className="rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
+            >
+              Get Started →
+            </Link>
+          </div>
         </div>
       </nav>
 
