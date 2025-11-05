@@ -12,13 +12,13 @@ module.exports = {
       colors: {
         // Dominus Foundry Brand Colors
         navy: {
-          DEFAULT: '2A3A4B',
+          DEFAULT: '#2A3A4B',
           50: '#f6f7f8',
           100: '#e1e5e7',
           200: '#c3cdd2',
           300: '#9ba9b1',
           400: '#6f838b',
-          500: '2A3A4B', // Primary shield color
+          500: '#2A3A4B', // Primary shield color
           600: '#273a40',
           700: '#1f2f34',
           800: '#18262a',
