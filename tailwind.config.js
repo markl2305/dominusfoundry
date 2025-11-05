@@ -12,23 +12,23 @@ module.exports = {
       colors: {
         // Dominus Foundry Brand Colors
         navy: {
-          DEFAULT: '#2f434a',
+          DEFAULT: '2A3A4B',
           50: '#f6f7f8',
           100: '#e1e5e7',
           200: '#c3cdd2',
           300: '#9ba9b1',
           400: '#6f838b',
-          500: '#2f434a', // Primary shield color
+          500: '2A3A4B', // Primary shield color
           600: '#273a40',
           700: '#1f2f34',
           800: '#18262a',
           900: '#121d20',
         },
         tan: {
-          DEFAULT: '#33454E',
+          DEFAULT: '#E7DFCF',
           50: '#fefdfb',
           100: '#faf5ec',
-          200: '#33454E', // Primary background color
+          200: '#E7DFCF', // Primary background color
           300: '#f0e3d0',
           400: '#e5d3bb',
           500: '#d8c1a3',
