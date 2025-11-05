@@ -18,26 +18,27 @@ export default function SiteHeader() {
 
   return (
     <header className="border-b border-bronze-300 bg-navy-500">
-      {/* Single row header with left logo / center nav / right CTA */}
-      <nav className="mx-auto max-w-7xl px-4 lg:px-8" aria-label="Global">
-        <div className="flex items-center justify-between py-3 lg:py-4">
-          
-          {/* Left: Logo */}
-          <div className="flex items-center flex-shrink-0">
-            <Link href="/" className="block group">
-              <Image
-                src="/logo-full.svg"
-                alt="Dominus Foundry - Fide et Familia"
-                width={320}
-                height={100}
-                className="h-16 w-auto lg:h-20 transition-opacity group-hover:opacity-80"
-                priority
-              />
-            </Link>
-          </div>
+      {/* Brand bar: BIG logo, left aligned */}
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-4 lg:pt-6 -mb-3 md:-mb-4">
+        <Link href="/" className="inline-flex items-center group">
+          <Image
+            src="/logo-full.svg"
+            alt="Dominus Foundry - Fide et Familia"
+            width={900}
+            height={280}
+            // ~2–2.5x bigger on md+ so it reads on 13" screens
+            className="h-20 w-auto sm:h-24 md:h-32 lg:h-40 xl:h-44 transition-opacity group-hover:opacity-80"
+            priority
+            sizes="(min-width: 1024px) 600px, 75vw"
+          />
+        </Link>
+      </div>
 
-          {/* Mobile: hamburger (right side) */}
-          <div className="flex items-center lg:hidden">
+      {/* Nav row: left logo space is gone; center nav + right CTA still balanced */}
+      <nav className="mx-auto max-w-7xl border-t border-bronze-300/20" aria-label="Global">
+        <div className="flex items-center justify-between px-4 py-3 lg:px-8">
+          {/* Mobile menu button */}
+          <div className="flex lg:hidden">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
@@ -48,8 +49,8 @@ export default function SiteHeader() {
             </button>
           </div>
 
-          {/* Desktop: center nav */}
-          <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:gap-x-8">
+          {/* Desktop nav (centered) */}
+          <div className="hidden lg:flex lg:flex-1 lg:justify-center lg:gap-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -61,7 +62,7 @@ export default function SiteHeader() {
             ))}
           </div>
 
-          {/* Right: CTA */}
+          {/* Desktop CTA (right) */}
           <div className="hidden lg:flex lg:flex-none lg:justify-end">
             <Link
               href="/qb-migration"
@@ -73,7 +74,7 @@ export default function SiteHeader() {
         </div>
       </nav>
 
-      {/* Mobile menu drawer */}
+      {/* Mobile drawer unchanged */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -83,9 +84,9 @@ export default function SiteHeader() {
                 <Image
                   src="/logo-full.svg"
                   alt="Dominus Foundry - Fide et Familia"
-                  width={240}
-                  height={86}
-                  className="h-14 w-auto"
+                  width={320}
+                  height={110}
+                  className="h-16 w-auto"
                 />
               </Link>
               <button
@@ -97,7 +98,6 @@ export default function SiteHeader() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-bronze-300/20">
                 <div className="space-y-2 py-6">
