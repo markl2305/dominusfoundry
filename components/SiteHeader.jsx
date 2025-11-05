@@ -1,6 +1,6 @@
 // components/SiteHeader.jsx
 // Full navigation header for main site pages (home, about, services)
-// Navy header with logo, company name, and navigation
+// Features prominent logo with optional tagline on larger screens
 
 'use client'
 
@@ -22,18 +22,19 @@ export default function SiteHeader() {
   return (
     <header className="border-b border-bronze-300 bg-navy-500">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-        {/* Logo + Company Name */}
+        {/* Logo - Prominent, clean display */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
+          <Link href="/" className="flex items-center space-x-4 -m-1.5 p-1.5 group">
             <Image 
-              src="/apple-touch-icon.png" 
+              src="/logo-crest.svg" 
               alt="Dominus Foundry" 
               width={80} 
               height={80}
-              className="h-10 w-auto"
+              className="h-16 w-auto transition-opacity group-hover:opacity-80"
             />
-            <span className="text-lg font-bold text-white">
-              Dominus Foundry
+            {/* Optional tagline on larger screens */}
+            <span className="hidden xl:block text-sm italic text-bronze-300">
+              Fide et Familia
             </span>
           </Link>
         </div>
@@ -56,7 +57,7 @@ export default function SiteHeader() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-white hover:text-bronze-400 transition-colors"
+              className="text-sm font-semibold leading-6 text-white hover:text-bronze-300 transition-colors"
             >
               {item.name}
             </Link>
@@ -84,12 +85,12 @@ export default function SiteHeader() {
                 <Image 
                   src="/logo-crest.svg" 
                   alt="Dominus Foundry" 
-                  width={40} 
-                  height={40}
-                  className="h-10 w-auto"
+                  width={60} 
+                  height={60}
+                  className="h-12 w-auto"
                 />
-                <span className="text-lg font-bold text-white">
-                  Dominus Foundry
+                <span className="text-sm italic text-bronze-300">
+                  Fide et Familia
                 </span>
               </Link>
               <button
@@ -132,12 +133,3 @@ export default function SiteHeader() {
     </header>
   )
 }
-
-/*
-USAGE NOTES:
-1. This header is for main site pages (not landing pages)
-2. Adjust navigation items in the `navigation` array as needed
-3. CTA button links to QB Migration - adjust if you add other services
-4. Mobile menu slides in from right on smaller screens
-5. All hover states use bronze accent color for brand consistency
-*/
