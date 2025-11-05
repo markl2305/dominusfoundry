@@ -76,4 +76,56 @@ export default function SiteHeader() {
       {/* Mobile menu drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
-          <div className="fixed inset
+          <div className="fixed inset-0 z-50" />
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-navy-500 px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-bronze-300">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="-m-1.5 p-1.5">
+                <Image
+                  src="/logo-full.svg"
+                  alt="Dominus Foundry - Fide et Familia"
+                  width={240}
+                  height={86}
+                  className="h-14 w-auto"
+                />
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-white hover:text-bronze-400"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-bronze-300/20">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-navy-600"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <Link
+                    href="/qb-migration"
+                    className="block rounded-md bg-orange-600 px-4 py-2.5 text-center text-base font-semibold text-white shadow-sm hover:bg-orange-700"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get Started →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
