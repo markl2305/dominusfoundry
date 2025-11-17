@@ -1,6 +1,5 @@
 // components/SiteHeader.jsx
-// Full navigation header for main site pages (home, about, services)
-// Navy header with logo, company name, and navigation
+// One-row header with large left logo that overhangs the header
 
 'use client'
 
@@ -20,77 +19,83 @@ export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="border-b border-bronze-300 bg-navy-500">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-        {/* Logo + Company Name */}
-        <div className="flex lg:flex-1">
-          <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
-            <Image 
-              src="/og-image.png" 
-              alt="Dominus Foundry" 
-              width={40} 
-              height={40}
-              className="h-10 w-auto"
-            />
-            <span className="text-lg font-bold text-white">
-              Dominus Foundry
-            </span>
-          </Link>
-        </div>
+    // overflow-visible is the key that allows the logo to extend past the header
+    <header className="relative overflow-visible bg-navy-500 border-b border-bronze-300">
+      <nav className="mx-auto max-w-7xl px-4 lg:px-8" aria-label="Global">
+        <div className="flex items-center justify-between gap-4 py-3 lg:py-4">
 
-        {/* Mobile menu button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-white hover:text-bronze-400 transition-colors"
-            >
-              {item.name}
+          {/* Left: big logo that overhangs the bottom edge */}
+          <div className="relative flex items-center flex-shrink-0">
+            <Link href="/" className="block group">
+              <Image
+                src="/logo-full.svg"
+                alt="Dominus Foundry - Fide et Familia"
+                width={960}
+                height={300}
+                /* Readable on 13” screens; overhang with translate-y */
+                className="
+                  w-auto
+                  h-16 sm:h-20 md:h-28 lg:h-36 xl:h-40
+                  translate-y-1 md:translate-y-2
+                  transition-opacity group-hover:opacity-85
+                "
+                priority
+                sizes="(min-width: 1280px) 640px, (min-width: 1024px) 560px, (min-width: 768px) 480px, 60vw"
+              />
             </Link>
-          ))}
-        </div>
+          </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            href="/qb-migration"
-            className="rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
-          >
-            Get Started →
-          </Link>
+          {/* Mobile: hamburger */}
+          <div className="flex items-center lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-bronze-400"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+
+          {/* Desktop: centered nav */}
+          <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:gap-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-white hover:text-bronze-300 transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop: CTA on right */}
+          <div className="hidden lg:flex lg:flex-none lg:justify-end">
+            <Link
+              href="/qb-migration"
+              className="rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
+            >
+              Get Started →
+            </Link>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50" />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-navy-500 px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-bronze-300">
             <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center space-x-3 -m-1.5 p-1.5">
-                <Image 
-                  src="/logo-crest.svg" 
-                  alt="Dominus Foundry" 
-                  width={40} 
-                  height={40}
-                  className="h-10 w-auto"
+              <Link href="/" className="-m-1.5 p-1.5">
+                <Image
+                  src="/logo-full.svg"
+                  alt="Dominus Foundry - Fide et Familia"
+                  width={320}
+                  height={110}
+                  className="h-16 w-auto"
                 />
-                <span className="text-lg font-bold text-white">
-                  Dominus Foundry
-                </span>
               </Link>
               <button
                 type="button"
@@ -101,6 +106,7 @@ export default function SiteHeader() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
+
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-bronze-300/20">
                 <div className="space-y-2 py-6">
@@ -132,12 +138,3 @@ export default function SiteHeader() {
     </header>
   )
 }
-
-/*
-USAGE NOTES:
-1. This header is for main site pages (not landing pages)
-2. Adjust navigation items in the `navigation` array as needed
-3. CTA button links to QB Migration - adjust if you add other services
-4. Mobile menu slides in from right on smaller screens
-5. All hover states use bronze accent color for brand consistency
-*/

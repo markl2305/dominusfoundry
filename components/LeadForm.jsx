@@ -13,8 +13,30 @@ export default function LeadForm({ ppc = false }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...data, ppc })
     });
+    
     if (res.ok) {
-      window.location.href = "/thanks";
+      // Fire GA4 conversion events BEFORE redirect
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        // Google Ads Conversion Tracking (uncomment after setting up conversion action)
+        // window.gtag('event', 'conversion', {
+        //   'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL', // Replace with your actual conversion ID
+        //   'value': 1.0,
+        //   'currency': 'USD'
+        // });
+        
+        // Standard GA4 Lead Event (for reporting and Smart Bidding)
+        window.gtag('event', 'generate_lead', {
+          'event_category': 'Lead',
+          'event_label': ppc ? 'QB Migration - PPC' : 'QB Migration - Organic',
+          'value': 1,
+          'currency': 'USD'
+        });
+      }
+      
+      // Small delay to ensure GA4 events fire before redirect
+      setTimeout(() => {
+        window.location.href = "/thanks";
+      }, 300);
     } else {
       setSending(false);
     }
@@ -126,6 +148,13 @@ export default function LeadForm({ ppc = false }) {
       >
         {sending ? "Sending…" : "Request Quote"}
       </button>
+
+      <p className="text-xs text-navy-600 text-center">
+        By submitting this form, you agree to our{' '}
+        <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
+          Privacy Policy
+        </a>.
+      </p>
     </form>
   );
 }

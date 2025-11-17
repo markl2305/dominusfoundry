@@ -1,3 +1,5 @@
+import ContactForm from "../components/ContactForm";
+
 export const metadata = {
   title: 'Dominus Foundry — Helping Traditional Businesses Survive Technological Change',
   description: 'We help established businesses navigate unavoidable tech transitions—starting with QuickBooks Desktop migrations.',
@@ -263,25 +265,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-navy-500 text-white py-16 md:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Facing the QuickBooks Desktop Crisis?</h2>
-          <p className="mt-4 text-xl text-bronze-300">
-            Desktop support is ending. Don't wait until the last minute to migrate.
-          </p>
-          <a 
-            href="/qb-migration" 
-            className="mt-8 inline-flex items-center rounded-xl bg-orange-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
-          >
-            Get Your Free Migration Quote
-          </a>
-          <p className="mt-6 text-sm text-bronze-400">
-            Based in Albuquerque • Serving New Mexico businesses first
-          </p>
-          <p className="mt-2 text-sm text-bronze-400">
-            Questions? <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold">hello@dominusfoundry.com</a>
-          </p>
+      {/* Contact Section */}
+      <section id="contact" className="bg-tan-100 py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Get In Touch</h2>
+            <p className="mt-4 text-lg text-navy-700">
+              Have questions? Need help with a technology challenge? Let's talk.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
+            <ContactForm />
+          </div>
+
+          <div className="mt-8 text-center text-navy-600">
+            <p className="text-sm">Based in Albuquerque, New Mexico • Serving NM businesses first</p>
+            <p className="mt-2 text-sm">
+              Or call us directly: <a href="tel:+15052261457" className="font-semibold underline">(505) 226-1457</a>
+            </p>
+          </div>
         </div>
       </section>
     </>

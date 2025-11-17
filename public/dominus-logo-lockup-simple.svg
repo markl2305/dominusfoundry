@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 560" width="1700" height="560">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#2A3A4B" flood-opacity="0.25"/>
+    </filter>
+    <style>
+      .word { font-family: Georgia, 'Times New Roman', serif; fill: #2A3A4B; font-weight: 700; letter-spacing: 3px; }
+    </style>
+  </defs>
+  <!-- Crest (scaled to fit) -->
+  <g transform="translate(40,20) scale(1)">
+    <path d="M210 20 C130 20, 70 45, 70 45 L70 230 c0 110,70 170,140 200 c70-30,140-90,140-200 L350 45 C350 45, 290 20, 210 20 Z"
+          fill="none" stroke="#2A3A4B" stroke-width="18" filter="url(#softShadow)"/>
+    <path d="M210 48 C140 48, 92 68, 92 68 L92 230 c0 95,60 148,118 175 c58-27,118-80,118-175 L328 68 C328 68, 280 48, 210 48 Z"
+          fill="none" stroke="#2A3A4B" stroke-width="10"/>
+    <rect x="198" y="120" width="24" height="170" rx="6" fill="#2A3A4B"/>
+    <rect x="135" y="185" width="150" height="24" rx="6" fill="#2A3A4B"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(560,0)">
+    <text x="0" y="240" class="word" font-size="160">DOMINUS</text>
+    <text x="0" y="440" class="word" font-size="160">FOUNDRY</text>
+  </g>
+</svg>
