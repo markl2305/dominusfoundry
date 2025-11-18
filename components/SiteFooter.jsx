@@ -3,7 +3,10 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'QuickBooks Desktop Migration', href: '/qb-migration' },
+  { name: 'QuickBooks Migration', href: '/qb-migration' },
+  { name: 'InvoiceFlow', href: '/invoiceflow' },
+  { name: 'Voice Concierge', href: '/voice-concierge' },
+  { name: 'Contact', href: '/#talk' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
 ]
@@ -17,19 +20,19 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-md space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3">
+            <Link href="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600 rounded-md">
               <Image
                 src="/logo-crest.svg"
                 alt="Dominus Foundry - Fide et Familia"
                 width={96}
                 height={96}
-                className="h-16 w-auto"
+                className="h-20 w-auto"
               />
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="text-sm leading-relaxed text-navy-700">
-              We help traditional businesses migrate from QuickBooks Desktop and navigate tech transitions with
-              patience, precision, and personal ownership from Mark &amp; Bri Lord.
+              A systems foundry for operators. We build and run QuickBooks migrations, InvoiceFlow invoicing systems,
+              and Voice Concierge phone agents that keep revenue and relationships on track.
             </p>
           </div>
 

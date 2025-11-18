@@ -1,224 +1,298 @@
 import Button from "../../components/Button";
+import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
-import ContactForm from "../../components/ContactForm";
 
 export const metadata = {
-  title: 'Dominus Foundry — Helping Traditional Businesses Survive Technological Change',
-  description: 'We help established businesses navigate unavoidable tech transitions—starting with QuickBooks Desktop migrations.',
+  title: "Dominus Foundry | Systems that outwork you",
+  description:
+    "Dominus Foundry builds operator-grade systems for small businesses: QuickBooks migrations, InvoiceFlow invoicing automation, and Foundry Voice Concierge AI phone agents.",
 };
+
+const pillars = [
+  {
+    label: "Pillar 1",
+    title: "QuickBooks Migration & Cleanup",
+    body: "For when your QuickBooks file needs a clean slate or a new structure - without risking history or operations.",
+    bullets: ["Entity and file migrations", "Chart-of-accounts redesign", "Historical cleanup and mapping"],
+    cta: "Explore QuickBooks Migration",
+    href: "/qb-migration",
+  },
+  {
+    label: "Pillar 2",
+    title: "InvoiceFlow - Automated Invoicing Around QuickBooks",
+    body: "We build a clean, automated invoicing system around QuickBooks so invoices go out, reminders happen, and payments land without constant chasing.",
+    bullets: ["Migration from spreadsheets and legacy tools", "Automated reminders and follow-up", "Clean AR inside QuickBooks"],
+    cta: "Explore InvoiceFlow",
+    href: "/invoiceflow",
+  },
+  {
+    label: "Pillar 3",
+    title: "Foundry Voice Concierge - AI Phone Agent",
+    body: "An AI phone agent that answers, books, and qualifies in your brand's voice - so missed calls stop costing you bookings.",
+    bullets: ["24/7 call handling", "Booking and lead capture", "Configured to your scripts and rules"],
+    cta: "Explore Voice Concierge",
+    href: "/voice-concierge",
+  },
+];
+
+const principles = [
+  {
+    title: "System-first, not feature-first",
+    body: "Every build starts from your real workflows and constraints, then we choose tools and integrations to match.",
+  },
+  {
+    title: "Operator-speed",
+    body: "You shouldn't need a full-time admin to keep a system alive. Our builds are designed to run light and stay understandable.",
+  },
+  {
+    title: "Done-with-you, then done-for-you",
+    body: "We design with you, launch with you, and keep systems tuned as your business evolves.",
+  },
+];
+
+const steps = [
+  {
+    title: "Assess",
+    body: "We map your current reality - numbers, calls, tools, and bottlenecks.",
+  },
+  {
+    title: "Architect",
+    body: "We design a simple, durable system that fits your team and tech stack.",
+  },
+  {
+    title: "Build & Launch",
+    body: "We implement, migrate, and test until it's safe to hand off.",
+  },
+  {
+    title: "Support & Iterate",
+    body: "We stay available for tuning, adjustments, and future builds.",
+  },
+];
+
+const useCases = [
+  {
+    title: "Service owner with messy QuickBooks",
+    body: "Needs clean books and reconciled history without downtime.",
+  },
+  {
+    title: "Ops lead at a membership club",
+    body: "Missing calls during peak hours and losing bookings.",
+  },
+  {
+    title: "GM juggling invoicing and AR",
+    body: "Wants invoices, reminders, and payments to run without chasing.",
+  },
+  {
+    title: "Small team living in spreadsheets",
+    body: "Ready to replace ad hoc workflows with durable systems.",
+  },
+  {
+    title: "Owner tired of interruptions",
+    body: "Needs calls handled and questions answered without pulling staff.",
+  },
+  {
+    title: "Operator planning the next change",
+    body: "Wants a partner who can build, run, and adjust as the business shifts.",
+  },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-tan-200 to-tan-100 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="max-w-3xl space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-orange-700">Owner-led tech transitions</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-navy-900">
-              Traditional businesses shouldn't have to navigate forced tech change alone.
-            </h1>
-            <p className="text-lg md:text-xl text-navy-700 leading-relaxed">
-              We move you off QuickBooks Desktop in 5-7 days and guide future transitions with the patience and personal care you expect from owners.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="/qb-migration#get-quote">Review My QuickBooks File</Button>
-              <Button href="/qb-migration#how-it-works" variant="secondary">See how it works</Button>
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-800 via-navy-700 to-navy-600 text-white">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_25%_20%,#f97316,transparent_25%),radial-gradient(circle_at_80%_30%,#f97316,transparent_22%)]" aria-hidden />
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 relative">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="space-y-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-orange-200">The Foundry</p>
+              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                Systems that let your business outwork you - not the other way around.
+              </h1>
+              <p className="text-lg md:text-xl text-bronze-100 leading-relaxed">
+                Dominus Foundry builds and runs operator-grade systems for small businesses - from clean QuickBooks migrations
+                to automated invoicing and AI phone agents that never miss a call.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button href="#talk" className="justify-center">
+                  Talk to the Foundry
+                </Button>
+                <Button href="#solutions" variant="secondary" className="justify-center border-white/50 text-white hover:border-white">
+                  Explore our solutions
+                </Button>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3 text-sm text-bronze-100">
+                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Owner-led builds</div>
+                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Done-with-you then done-for-you</div>
+                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Clean numbers, captured revenue</div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-6 text-sm text-navy-700">
-              <div><span className="font-semibold text-navy-900">5-7 days</span> from kickoff to go-live</div>
-              <div><span className="font-semibold text-navy-900">Fixed price</span> before work starts</div>
-              <div><span className="font-semibold text-navy-900">Direct access</span> to Mark &amp; Bri Lord</div>
+
+            <div className="rounded-2xl border border-white/20 bg-white/5 p-6 shadow-xl space-y-4">
+              <h2 className="text-2xl font-bold text-white">Three pillars. One systems foundry.</h2>
+              <p className="text-sm text-bronze-100">
+                QuickBooks migrations, InvoiceFlow, and Foundry Voice Concierge - built and run with the same operator mindset.
+              </p>
+              <div className="space-y-3">
+                {pillars.map((pillar) => (
+                  <div key={pillar.title} className="rounded-xl border border-white/20 bg-white/10 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-orange-200">{pillar.label}</p>
+                    <p className="mt-1 text-base font-semibold text-white">{pillar.title}</p>
+                    <p className="text-xs text-bronze-100 mt-1">{pillar.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Progression */}
-      <section className="bg-tan-100 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 space-y-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">QuickBooks Desktop migration is the priority</h2>
-            <p className="mt-4 text-lg text-navy-700">
-              We start where the risk is highest. Once you're stable in QuickBooks Online, we can plan the rest of your roadmap together.
-            </p>
+      <section id="solutions" className="bg-tan-100">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Choose the system that fits.</h2>
+            <p className="text-lg text-navy-700">Every pillar is built to relieve a core operational drag and keep revenue predictable.</p>
           </div>
-
-          <div className="rounded-3xl border border-navy-500 bg-gradient-to-br from-navy-600 to-navy-500 text-white p-8 md:p-12 shadow-xl">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1 space-y-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold shadow">
-                  Available now
+          <div className="grid gap-6 md:grid-cols-3">
+            {pillars.map((pillar) => (
+              <div key={pillar.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm flex flex-col gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-orange-700">{pillar.label}</p>
+                  <h3 className="mt-2 text-xl font-bold text-navy-900">{pillar.title}</h3>
+                  <p className="mt-2 text-sm text-navy-700 leading-relaxed">{pillar.body}</p>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold">QuickBooks Desktop Migration</h3>
-                <p className="text-lg text-bronze-200 leading-relaxed">
-                  Move to QuickBooks Online in 5-7 days without risking your history. We work from copies, reconcile every balance,
-                  and hand everything to your CPA with clear documentation.
-                </p>
-                <div className="grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl bg-white/10 p-4 shadow-inner">
-                    <div className="text-3xl font-bold">5-7 days</div>
-                    <p className="text-sm text-bronze-200 mt-1">From kickoff to go-live</p>
-                  </div>
-                  <div className="rounded-2xl bg-white/10 p-4 shadow-inner">
-                    <div className="text-3xl font-bold">Direct</div>
-                    <p className="text-sm text-bronze-200 mt-1">You work with Mark &amp; Bri</p>
-                  </div>
-                  <div className="rounded-2xl bg-white/10 p-4 shadow-inner">
-                    <div className="text-3xl font-bold">Fixed price</div>
-                    <p className="text-sm text-bronze-200 mt-1">No hourly surprises</p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button href="/qb-migration#get-quote" className="justify-center">Review My QuickBooks File</Button>
-                  <Button href="/qb-migration#how-it-works" variant="secondary" className="justify-center">See how it works</Button>
-                </div>
-              </div>
-              <div className="w-full lg:w-80 rounded-2xl bg-white/10 border border-bronze-200/50 p-6 shadow-inner space-y-3">
-                <h4 className="text-xl font-semibold">What you get</h4>
-                <ul className="space-y-2 text-sm text-bronze-100">
-                  <li className="flex gap-3"><span className="text-orange-200 font-bold">✓</span><span>Desktop file stays intact</span></li>
-                  <li className="flex gap-3"><span className="text-orange-200 font-bold">✓</span><span>Reconciled reports &amp; CPA packet</span></li>
-                  <li className="flex gap-3"><span className="text-orange-200 font-bold">✓</span><span>Training + 30-day guidance</span></li>
-                  <li className="flex gap-3"><span className="text-orange-200 font-bold">✓</span><span>Owner-led communication</span></li>
+                <ul className="space-y-2 text-sm text-navy-800">
+                  {pillar.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-2">
+                      <span className="text-green-600 font-bold">✓</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
                 </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-6 border-t border-bronze-300 pt-8">
-            <h3 className="text-2xl font-bold text-navy-900 text-center">What's coming next</h3>
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <div className="inline-block rounded-full bg-bronze-200 text-navy-700 px-3 py-1 text-xs font-semibold mb-3">
-                  Coming 2026
+                <div className="mt-auto">
+                  <Button href={pillar.href} className="w-full justify-center">
+                    {pillar.cta}
+                  </Button>
                 </div>
-                <h4 className="text-xl font-bold text-navy-900">AI automation, built for skeptical teams</h4>
-                <p className="mt-3 text-navy-700 text-sm leading-relaxed">
-                  No black boxes. We deploy automation that matches the people you have and document every step.
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-10">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Why a foundry?</h2>
+            <p className="text-lg text-navy-700 max-w-3xl mx-auto">
+              We don't ship random tools. We forge systems that clean up your numbers, capture more revenue, and free you from living inside every process.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {principles.map((principle) => (
+              <div key={principle.title} className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-navy-900">{principle.title}</h3>
+                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{principle.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-tan-100 to-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">How we work across any build.</h2>
+            <p className="text-lg text-navy-700">Same operator-grade approach for every pillar.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, index) => (
+              <div key={step.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
+                <p className="text-sm font-semibold text-orange-700">Step {index + 1}</p>
+                <h3 className="mt-2 text-xl font-bold text-navy-900">{step.title}</h3>
+                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
+          <div className="grid gap-8 md:grid-cols-3 md:items-start">
+            <div className="md:col-span-1 space-y-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Operators behind the systems.</h2>
+              <p className="text-lg text-navy-700">
+                Built and run by Mark &amp; Bri Lord - operators who balance code, finance, and day-to-day small business realities.
+              </p>
+              <p className="text-sm text-navy-600">
+                TODO: Replace sample quotes below with real testimonials once available.
+              </p>
+            </div>
+            <div className="md:col-span-2 grid gap-4">
+              <div className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
+                <p className="text-sm text-navy-700 leading-relaxed">
+                  "Sample placeholder: The Foundry team actually cleans up the mess before automating anything. The system just works, and I'm not chasing invoices anymore."
                 </p>
+                <p className="mt-3 text-sm font-semibold text-navy-900">Owner, service business - TODO replace with real client</p>
               </div>
               <div className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <div className="inline-block rounded-full bg-bronze-200 text-navy-700 px-3 py-1 text-xs font-semibold mb-3">
-                  Coming 2025
-                </div>
-                <h4 className="text-xl font-bold text-navy-900">Technology roadmapping</h4>
-                <p className="mt-3 text-navy-700 text-sm leading-relaxed">
-                  See what's changing before it hits. Plan budgets, risks, and options with someone who speaks finance and code.
+                <p className="text-sm text-navy-700 leading-relaxed">
+                  "Sample placeholder: Calls are answered, bookings are logged, and I can see exactly what was said without managing another employee."
                 </p>
-              </div>
-              <div className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <div className="inline-block rounded-full bg-bronze-200 text-navy-700 px-3 py-1 text-xs font-semibold mb-3">
-                  Future
-                </div>
-                <h4 className="text-xl font-bold text-navy-900">Exit planning support</h4>
-                <p className="mt-3 text-navy-700 text-sm leading-relaxed">
-                  Operational cleanup for sale, succession, or wind-down so you can hand over clean systems with confidence.
-                </p>
+                <p className="mt-3 text-sm font-semibold text-navy-900">GM, membership club - TODO replace with real client</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Problem */}
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-        <div className="max-w-4xl space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">The technology gap is growing</h2>
-          <p className="text-lg text-navy-700 leading-relaxed">
-            If you've been running your business for 15-25 years, you've seen the pace of change accelerate. Software that worked for a decade suddenly goes away. Vendors push migrations you didn't ask for. AI threatens to disrupt everything.
-          </p>
-          <p className="text-lg text-navy-700 leading-relaxed">
-            You didn't sign up to be a technology expert—you signed up to serve customers and build something lasting. We bridge the gap so you don't have to choose between compliance and sanity.
-          </p>
-        </div>
-      </section>
-
-      {/* Why Us */}
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Why work with us</h2>
-          <p className="mt-4 text-lg text-navy-700">
-            Most tech vendors are impersonal and rushed. We're the opposite.
-          </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="bg-white rounded-2xl border border-navy-500 p-6 shadow-sm">
-            <div className="text-4xl mb-4">🤝</div>
-            <h3 className="text-xl font-bold text-navy-900">You work directly with us</h3>
-            <p className="mt-3 text-navy-700">
-              Mark and Bri handle every project personally. When you hand over your financial data, you get responsive owners—not a ticket queue.
-            </p>
+      <section className="bg-tan-100">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Who we serve.</h2>
+            <p className="text-lg text-navy-700">If you're an owner or operator carrying the weight of systems, we're built for you.</p>
           </div>
-
-          <div className="bg-white rounded-2xl border border-navy-500 p-6 shadow-sm">
-            <div className="text-4xl mb-4">⏱️</div>
-            <h3 className="text-xl font-bold text-navy-900">Patience for change-resistant teams</h3>
-            <p className="mt-3 text-navy-700">
-              You didn't ask for QuickBooks to force a migration. We explain what's happening and why without jargon or pressure.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-navy-500 p-6 shadow-sm">
-            <div className="text-4xl mb-4">🏠</div>
-            <h3 className="text-xl font-bold text-navy-900">Local to New Mexico</h3>
-            <p className="mt-3 text-navy-700">
-              Based in Albuquerque, serving New Mexico businesses first. We're your neighbors, not a faceless national firm.
-            </p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {useCases.map((useCase) => (
+              <div key={useCase.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-navy-900">{useCase.title}</h3>
+                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{useCase.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Who We Serve */}
-      <section className="bg-navy-500 text-white py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center max-w-3xl mx-auto mb-8 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold">Who we work with</h2>
-            <p className="text-lg text-bronze-200">Established owners who value stability and clear answers.</p>
+      <section id="talk" className="bg-white">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
+          <span id="contact" className="block h-0 w-0" aria-hidden />
+          <div className="space-y-3 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Tell us where your systems are breaking.</h2>
+            <p className="text-lg text-navy-700 max-w-3xl mx-auto">
+              Share a bit about your business and where things feel heavy. We'll point you to the right Foundry build - QuickBooks migration, InvoiceFlow, Voice Concierge, or a combination.
+            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="bg-navy-600 rounded-2xl p-6">
-              <h3 className="font-bold text-white text-xl mb-4">You're a good fit if:</h3>
-              <ul className="space-y-3 text-bronze-200">
-                <li className="flex gap-2"><span className="text-orange-300">✓</span><span>You employ 5-50 people and rely on accurate books.</span></li>
-                <li className="flex gap-2"><span className="text-orange-300">✓</span><span>You use tech because you have to, not because you love it.</span></li>
-                <li className="flex gap-2"><span className="text-orange-300">✓</span><span>You're frustrated by forced changes but willing to adapt with a plan.</span></li>
-                <li className="flex gap-2"><span className="text-orange-300">✓</span><span>You prefer doing it right once over doing it cheap twice.</span></li>
-              </ul>
-            </div>
-            <div className="bg-white/10 border border-bronze-400/50 rounded-2xl p-6">
-              <h3 className="font-bold text-white text-xl mb-4">Maybe not the right fit if:</h3>
-              <ul className="space-y-3 text-bronze-200">
-                <li className="flex gap-2"><span className="text-orange-200">!</span><span>You just opened a Desktop file and only need lists.</span></li>
-                <li className="flex gap-2"><span className="text-orange-200">!</span><span>You want the cheapest option with no time for review.</span></li>
-                <li className="flex gap-2"><span className="text-orange-200">!</span><span>You won't engage in approvals or training.</span></li>
-              </ul>
-              <p className="mt-4 text-sm text-bronze-200">If that's you, reach out anyway and we'll point you to resources that fit.</p>
-            </div>
+          <div className="rounded-2xl border-2 border-navy-500 bg-tan-50 p-6 md:p-10 shadow-xl">
+            <FoundryLeadForm />
+          </div>
+          <p className="text-sm text-navy-600 text-center">
+            Prefer a direct call? <a className="underline font-semibold" href="tel:+15052261457">(505) 226-1457</a>. We respond within one business day.
+          </p>
+          <div className="flex justify-center">
+            <ContactCTA />
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="bg-tan-100 py-16 md:py-20">
-        <div className="mx-auto max-w-5xl px-4 space-y-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Ready for patient, owner-led help?</h2>
-            <p className="mt-4 text-lg text-navy-700">
-              Tell us what you're facing. We'll respond within one business day with next steps or a clear referral.
-            </p>
-          </div>
-
-          <ContactCTA />
-
-          <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
-            <ContactForm />
-          </div>
-
-          <div className="text-center text-sm text-navy-600">
-            Based in Albuquerque, New Mexico • Serving NM businesses first
-          </div>
+      <section className="bg-navy-500 text-white">
+        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-3">
+          <h2 className="text-3xl md:text-4xl font-bold">Your business deserves systems that outwork you.</h2>
+          <p className="text-lg text-bronze-200">
+            If your books, invoicing, or phones are costing you time and sleep, it's time to build something better in the Foundry.
+          </p>
+          <Button href="#talk" className="justify-center">
+            Talk to the Foundry
+          </Button>
         </div>
       </section>
     </>

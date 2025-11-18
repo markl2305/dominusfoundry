@@ -11,27 +11,27 @@ import Button from './Button'
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'QuickBooks Migration', href: '/qb-migration' },
   { name: 'InvoiceFlow', href: '/invoiceflow' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
-  { name: 'QuickBooks Desktop Migration', href: '/qb-migration' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Contact', href: '/#talk' },
 ]
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="relative border-b border-bronze-300 bg-white/90 backdrop-blur">
+    <header className="relative border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 lg:px-6" aria-label="Global">
         <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-md">
             <Image
               src="/logo-full.svg"
               alt="Dominus Foundry - Fide et Familia"
-              width={420}
-              height={120}
-              className="h-14 w-auto md:h-16"
+              width={520}
+              height={140}
+              className="h-16 w-auto md:h-20"
               priority
             />
           </Link>
@@ -40,7 +40,7 @@ export default function SiteHeader() {
         <div className="flex items-center lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-navy-800 hover:text-orange-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -53,7 +53,7 @@ export default function SiteHeader() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold text-navy-800 transition-colors hover:text-orange-700"
+              className="text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800 rounded-md px-1.5 py-0.5"
             >
               {item.name}
             </Link>
@@ -61,7 +61,7 @@ export default function SiteHeader() {
         </div>
 
         <div className="hidden lg:flex">
-          <Button href="/qb-migration" className="shadow-md">
+          <Button href="/qb-migration" className="shadow-md" variant="secondary">
             QuickBooks Desktop Migration
           </Button>
         </div>
@@ -83,7 +83,7 @@ export default function SiteHeader() {
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-navy-800 hover:text-orange-700"
+                className="-m-2.5 rounded-md p-2.5 text-navy-800 hover:text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-700"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
