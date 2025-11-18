@@ -1,4 +1,5 @@
-import ContactForm from "../../components/ContactForm";
+import ContactCTA from "../../../components/ContactCTA";
+import ContactForm from "../../../components/ContactForm";
 
 export const metadata = {
   title: 'About — Dominus Foundry',
@@ -189,24 +190,21 @@ export default function About() {
 
       {/* Contact Section */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Let's Work Together</h2>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Let's work together</h2>
           <p className="mt-4 text-lg text-navy-700">
-            Have questions about your technology needs? Ready to talk about QuickBooks migration? 
-            We're here to help.
+            Have questions about your technology needs? Ready to talk about QuickBooks migration? We're here to help.
           </p>
         </div>
+
+        <ContactCTA className="mb-8" />
 
         <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
           <ContactForm />
         </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-navy-600">Based in Albuquerque, New Mexico • Serving NM businesses first</p>
-          <p className="mt-2 text-sm text-navy-600">
-            Questions? Email <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold text-navy-500">hello@dominusfoundry.com</a>
-            {' '}or call <a href="tel:+15052261457" className="underline font-semibold text-navy-500">(505) 226-1457</a>
-          </p>
+        <div className="mt-6 text-center text-sm text-navy-600">
+          Based in Albuquerque, New Mexico • Serving NM businesses first
         </div>
       </section>
     </>

@@ -1,57 +1,34 @@
-// app/qb-migration/layout.js
-// Dedicated layout for QB migration landing page with minimal header/footer
-
-import '../globals.css';
-import Script from 'next/script';
 import MinimalHeader from '../../components/MinimalHeader';
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',
-  description: 'Migrate from QuickBooks Desktop to Online in 5-7 days. Zero data loss. Audit-ready. Your CPA will thank you.',
+  description: 'Move from QuickBooks Desktop to Online in 5-7 days with zero data loss and CPA-ready reports.',
 };
 
 export default function QBMigrationLayout({ children }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
   return (
-    <div data-landing-page>
+    <div className="min-h-screen bg-white flex flex-col">
       <MinimalHeader />
-      
-      <main className="min-h-screen bg-white">
+
+      <main className="flex-1">
         {children}
       </main>
 
-      {/* Minimal footer for landing page */}
       <footer className="border-t border-bronze-300 bg-tan-200 py-8">
-        <div className="mx-auto max-w-6xl px-4 text-center text-sm text-navy-600">
-          <p>© {new Date().getFullYear()} Dominus Foundry. All rights reserved.</p>
-          <p className="mt-2">
-            <a href="mailto:hello@dominusfoundry.com" className="underline hover:text-navy-900">
+        <div className="mx-auto max-w-6xl px-4 text-center text-sm text-navy-600 space-y-2">
+          <p className="font-semibold text-navy-800">Dominus Foundry — QuickBooks Desktop Migration</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-navy-700">
+            <a href="tel:+15052261457" className="hover:text-navy-900 font-medium">
+              (505) 226-1457
+            </a>
+            <span className="hidden sm:inline text-bronze-400">•</span>
+            <a href="mailto:hello@dominusfoundry.com" className="hover:text-navy-900 underline">
               hello@dominusfoundry.com
             </a>
-          </p>
+          </div>
+          <p className="text-xs text-navy-600/80">© {new Date().getFullYear()} Dominus Foundry. All rights reserved.</p>
         </div>
       </footer>
-
-      {/* GA4 tracking */}
-      {GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics-qb" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}', {
-                page_path: window.location.pathname,
-              });
-            `}
-          </Script>
-        </>
-      )}
     </div>
   );
 }

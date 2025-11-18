@@ -1,10 +1,5 @@
-// app/layout.tsx
-// Root layout with metadata, comprehensive favicon configuration, and analytics
-
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
-import SiteHeader from "../components/SiteHeader";
-import SiteFooter from "../components/SiteFooter";
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -59,16 +54,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen bg-tan-200 text-navy-800 antialiased`}>
-        <SiteHeader />
-        
-        <div className="min-h-screen flex flex-col">
-          {children}
-        </div>
-        
-        <SiteFooter />
+      <body className={`${inter.className} bg-tan-200 text-navy-800 antialiased`}>
+        {children}
 
-        {/* Google Analytics 4 */}
+        {/* Google Analytics 4 - loaded globally once */}
         {GA_ID && (
           <>
             <Script

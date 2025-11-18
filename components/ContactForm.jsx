@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Button from "./Button";
 
 export default function ContactForm() {
   const [sending, setSending] = useState(false);
@@ -85,12 +86,13 @@ export default function ContactForm() {
         />
       </div>
 
-      <button 
-        disabled={sending} 
-        className="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      <Button 
+        type="submit"
+        disabled={sending}
+        className="justify-center"
       >
         {sending ? "Sending…" : "Send Message"}
-      </button>
+      </Button>
 
       <p className="text-xs text-navy-600 text-center">
         By submitting this form, you agree to our{' '}

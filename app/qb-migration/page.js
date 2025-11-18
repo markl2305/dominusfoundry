@@ -1,499 +1,343 @@
+import Button from "../../components/Button";
+import ContactCTA from "../../components/ContactCTA";
 import LeadForm from "../../components/LeadForm";
 import StickyQuoteButton from "../../components/StickyQuoteButton";
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',
-  description: 'Migrate from QuickBooks Desktop to Online in 5-7 days. Zero data loss. Audit-ready. Your CPA will thank you.'
+  description: 'Move from QuickBooks Desktop to Online in 5-7 days with zero data loss, reconciled reports, and owner-led guidance.',
 };
 
 export default function QBMigration() {
   return (
     <>
-      {/* Urgency Bar */}
       <div className="bg-orange-600 text-white py-3">
-        <div className="mx-auto max-w-6xl px-4 text-center">
-          <p className="text-sm md:text-base font-semibold">
-            ⚠️ QuickBooks Desktop 2022 support ended May 31, 2025. Desktop 2024 ends in 2027. Migrate before year-end close.
-          </p>
+        <div className="mx-auto max-w-6xl px-4 text-center text-sm md:text-base font-semibold">
+          QuickBooks Desktop 2022 support has ended. Desktop 2024 ends in 2027. Protect your history before bank feeds and payroll shut off.
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-tan-200 to-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-navy-900">
-              QuickBooks Desktop Is Going Away. <span className="text-navy-500">Your Financial History Doesn't Have To.</span>
+      <section className="bg-gradient-to-b from-tan-200 to-white py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="space-y-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-orange-700">QuickBooks Desktop Migration</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-navy-900">
+              Move QuickBooks Desktop to Online without losing your history or your mind.
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-navy-700">
-              Migrate to QuickBooks Online in 5-7 days with zero data loss, full reconciliation, and audit-ready handoff to your CPA.
+            <p className="text-lg md:text-xl text-navy-700 leading-relaxed">
+              5-7 day turnaround. Desktop file stays intact. Reconciled reports, CPA-friendly handoff, and personal guidance the whole way.
             </p>
-            <div className="mt-8">
-              <a 
-                href="#get-quote" 
-                className="inline-flex items-center rounded-xl bg-orange-600 px-6 py-4 text-lg font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
-              >
-                Get Your Free Migration Quote
-              </a>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button href="#get-quote">Review My QuickBooks File</Button>
+              <Button href="tel:+15052261457" variant="secondary">Call Mark now</Button>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="flex items-start gap-3 rounded-xl border border-bronze-200 bg-white/70 p-3 shadow-sm">
+                <span className="mt-0.5 text-green-600 font-bold">✓</span>
+                <p className="text-sm text-navy-800">Your Desktop file remains untouched — we work from secure copies.</p>
+              </div>
+              <div className="flex items-start gap-3 rounded-xl border border-bronze-200 bg-white/70 p-3 shadow-sm">
+                <span className="mt-0.5 text-green-600 font-bold">✓</span>
+                <p className="text-sm text-navy-800">Fixed price quoted upfront so you know the exact cost.</p>
+              </div>
+              <div className="flex items-start gap-3 rounded-xl border border-bronze-200 bg-white/70 p-3 shadow-sm">
+                <span className="mt-0.5 text-green-600 font-bold">✓</span>
+                <p className="text-sm text-navy-800">Direct access to Mark &amp; Bri. No anonymous call center.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-lg space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="text-3xl">🛡️</div>
+              <div>
+                <p className="text-sm text-navy-600">Owner-led migration</p>
+                <p className="text-lg font-semibold text-navy-900">You work directly with Mark &amp; Bri.</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-tan-100 p-4">
+                <div className="text-3xl font-bold text-navy-900">5-7</div>
+                <p className="text-sm text-navy-700">Business days from kickoff to go-live.</p>
+              </div>
+              <div className="rounded-xl bg-tan-100 p-4">
+                <div className="text-3xl font-bold text-navy-900">0</div>
+                <p className="text-sm text-navy-700">Production risk to your Desktop file.</p>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-navy-600">What you leave with</p>
+              <ul className="space-y-2 text-sm text-navy-800">
+                <li>• Clean QuickBooks Online company file.</li>
+                <li>• Reconciliation reports your CPA can rely on.</li>
+                <li>• Written checklist for your team.</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What's Happening - Education Block */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy-900">
-            Why QuickBooks Desktop Is Going Away
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 text-orange-600 text-2xl">✗</div>
-              <div>
-                <div className="font-semibold text-navy-900">New licenses stopped</div>
-                <p className="mt-1 text-navy-700">Intuit stopped selling Desktop licenses September 2024. You can't buy it anymore.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 text-orange-600 text-2xl">✗</div>
-              <div>
-                <div className="font-semibold text-navy-900">Support ending on rolling schedule</div>
-                <p className="mt-1 text-navy-700">Desktop 2022 ended May 2025. Desktop 2024 ends 2027. Your version's clock is ticking.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 text-orange-600 text-2xl">✗</div>
-              <div>
-                <div className="font-semibold text-navy-900">Critical features shut down</div>
-                <p className="mt-1 text-navy-700">No more bank feeds, payroll processing, or payment integrations. Manual entry only.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 text-orange-600 text-2xl">✗</div>
-              <div>
-                <div className="font-semibold text-navy-900">Security vulnerabilities</div>
-                <p className="mt-1 text-navy-700">No security patches after support ends. Your financial data becomes a target.</p>
-              </div>
-            </div>
-          </div>
-          <p className="mt-6 text-sm text-navy-600">
-            The longer you wait, the more painful the migration becomes. Don't migrate during tax season or year-end close.
+      <section className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+        <div className="space-y-6 rounded-2xl border border-bronze-300 bg-white p-6 md:p-8 shadow-sm">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Why QuickBooks Desktop is ending</h2>
+          <p className="text-lg text-navy-700 leading-relaxed">
+            Intuit stopped selling new Desktop licenses in 2024 and is retiring support on a rolling schedule. When support ends for your version, bank feeds, payroll, and payment integrations shut off, leaving you with manual entry and security risks.
           </p>
+          <details className="group rounded-xl border border-bronze-200 bg-tan-50 p-4">
+            <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold text-navy-900">
+              <span>Show the technical details</span>
+              <span className="text-navy-500 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <ul className="mt-3 space-y-2 text-sm text-navy-700 leading-relaxed">
+              <li>• Desktop 2022 support ended May 31, 2025; Desktop 2024 ends in 2027.</li>
+              <li>• Bank feeds, payroll tax tables, and payments stop working once support ends.</li>
+              <li>• No future security patches, increasing audit and ransomware risk.</li>
+              <li>• Converting under deadline increases the chance of errors and downtime.</li>
+            </ul>
+          </details>
         </div>
       </section>
 
-      {/* How It Works - Risk Mitigation */}
-      <section className="bg-tan-100 py-12 md:py-16">
+      <section id="how-it-works" className="bg-tan-100 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">How It Works</h2>
-            <p className="mt-4 text-lg text-navy-700">
-              Simple process. Clear timeline. Your old system stays intact until you approve the switch.
-            </p>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">How the migration works</h2>
+            <p className="text-lg text-navy-700">Clear steps, fixed price, and your Desktop file stays intact until you approve the switch.</p>
           </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-bronze-300">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-navy-500 text-white text-xl font-bold mb-4">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-navy-900">We Export Your Data</h3>
-              <p className="mt-3 text-navy-700">
-                Secure extraction of your complete financial history—transactions, customers, vendors, chart of accounts.
-              </p>
-              <p className="mt-2 text-sm font-semibold text-navy-500">Days 1-2</p>
+          <div className="grid gap-6 md:grid-cols-4">
+            <div className="rounded-2xl bg-white p-5 border border-bronze-200 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-500 text-white font-bold">1</div>
+              <h3 className="mt-4 text-lg font-semibold text-navy-900">Review &amp; quote</h3>
+              <p className="mt-2 text-sm text-navy-700">You send a Desktop backup copy. We assess complexity and give a fixed price with target dates.</p>
             </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-bronze-300">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-navy-500 text-white text-xl font-bold mb-4">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-navy-900">We Reconcile & Test</h3>
-              <p className="mt-3 text-navy-700">
-                Map your chart of accounts, verify balances, run reconciliation reports. Everything must match perfectly.
-              </p>
-              <p className="mt-2 text-sm font-semibold text-navy-500">Days 3-5</p>
+            <div className="rounded-2xl bg-white p-5 border border-bronze-200 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-500 text-white font-bold">2</div>
+              <h3 className="mt-4 text-lg font-semibold text-navy-900">Build a clean copy</h3>
+              <p className="mt-2 text-sm text-navy-700">We work from copies—export, transform, and import into QuickBooks Online without touching production.</p>
             </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-bronze-300">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-navy-500 text-white text-xl font-bold mb-4">
-                3
-              </div>
-              <h3 className="text-xl font-bold text-navy-900">You Approve & Go Live</h3>
-              <p className="mt-3 text-navy-700">
-                Review everything, ask questions, then flip the switch. We stay with you for 30 days of post-migration support.
-              </p>
-              <p className="mt-2 text-sm font-semibold text-navy-500">Days 6-7</p>
+            <div className="rounded-2xl bg-white p-5 border border-bronze-200 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-500 text-white font-bold">3</div>
+              <h3 className="mt-4 text-lg font-semibold text-navy-900">Reconcile &amp; prove</h3>
+              <p className="mt-2 text-sm text-navy-700">We reconcile balances, generate side-by-side reports, and prepare a CPA packet.</p>
+            </div>
+            <div className="rounded-2xl bg-white p-5 border border-bronze-200 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-500 text-white font-bold">4</div>
+              <h3 className="mt-4 text-lg font-semibold text-navy-900">Approve &amp; go live</h3>
+              <p className="mt-2 text-sm text-navy-700">You review the proof, we train your team, and you switch when you're ready—no surprises.</p>
             </div>
           </div>
-
           <div className="mt-10 text-center">
-            <p className="text-lg font-semibold text-navy-900">
-              Your old QuickBooks Desktop file stays intact and accessible—forever.
-            </p>
-            <p className="mt-2 text-navy-600">
-              We don't delete anything. You keep your backup. Zero risk of data loss.
-            </p>
+            <p className="text-lg font-semibold text-navy-900">Your original Desktop file stays accessible forever.</p>
+            <p className="text-navy-700">We work from backups and never overwrite your production data.</p>
           </div>
         </div>
       </section>
 
-      {/* Service Tiers */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Choose Your Migration Tier</h2>
-          <p className="mt-4 text-lg text-navy-700">
-            All tiers include zero data loss, reconciliation, and CPA-ready handoff. Pick the level of support you need.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* Essential */}
-          <div className="rounded-2xl border-2 border-bronze-300 bg-white p-6 md:p-8">
-            <div className="text-sm font-semibold text-navy-600 uppercase tracking-wide">Essential</div>
-            <div className="mt-2 text-3xl font-bold text-navy-900">$500-750</div>
-            <p className="mt-2 text-navy-600">For simple books and DIY owners</p>
-            
-            <ul className="mt-6 space-y-3">
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Lists migration (customers, vendors, items)</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Current year transactions only</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Email support</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Basic reconciliation report</span>
-              </li>
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-navy-500 bg-white p-6 md:p-8 shadow-sm">
+            <h3 className="text-2xl font-bold text-navy-900">You're in the right place if…</h3>
+            <ul className="mt-5 space-y-3 text-navy-700">
+              <li className="flex gap-3"><span className="text-green-600 font-bold">✓</span><span>You're on QuickBooks Desktop with 5-50 employees.</span></li>
+              <li className="flex gap-3"><span className="text-green-600 font-bold">✓</span><span>You rely on historical data for taxes, audits, or lender reporting.</span></li>
+              <li className="flex gap-3"><span className="text-green-600 font-bold">✓</span><span>You want owners involved—not a nameless support queue.</span></li>
+              <li className="flex gap-3"><span className="text-green-600 font-bold">✓</span><span>You prefer a fixed price and clear dates.</span></li>
             </ul>
-
-            <a 
-              href="#get-quote" 
-              className="mt-8 block text-center rounded-xl border-2 border-bronze-300 px-5 py-3 font-semibold text-navy-900 hover:bg-tan-100 transition-colors"
-            >
-              Get Quote
-            </a>
           </div>
-
-          {/* Professional - Recommended */}
-          <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-8 relative shadow-lg">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-              Most Popular
-            </div>
-            <div className="text-sm font-semibold text-navy-500 uppercase tracking-wide">Professional</div>
-            <div className="mt-2 text-3xl font-bold text-navy-900">$1,200-1,800</div>
-            <p className="mt-2 text-navy-600">For most businesses</p>
-            
-            <ul className="mt-6 space-y-3">
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Everything in Essential, plus:</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700"><strong>3 years</strong> of historical data</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Full reconciliation report</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Phone support</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">CPA handoff packet</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">30-day post-migration support</span>
-              </li>
+          <div className="rounded-2xl border border-bronze-300 bg-white p-6 md:p-8 shadow-sm">
+            <h3 className="text-2xl font-bold text-navy-900">This may not be for you if…</h3>
+            <ul className="mt-5 space-y-3 text-navy-700">
+              <li className="flex gap-3"><span className="text-orange-600 font-bold">!</span><span>You opened Desktop in the last few months and only need lists.</span></li>
+              <li className="flex gap-3"><span className="text-orange-600 font-bold">!</span><span>You want the cheapest option regardless of data quality.</span></li>
+              <li className="flex gap-3"><span className="text-orange-600 font-bold">!</span><span>You won't be available to review or approve reports.</span></li>
             </ul>
-
-            <a 
-              href="#get-quote" 
-              className="mt-8 block text-center rounded-xl bg-navy-500 px-5 py-3 font-semibold text-white hover:bg-navy-600 transition-colors"
-            >
-              Get Quote
-            </a>
-          </div>
-
-          {/* Enterprise */}
-          <div className="rounded-2xl border-2 border-bronze-300 bg-white p-6 md:p-8">
-            <div className="text-sm font-semibold text-navy-600 uppercase tracking-wide">Enterprise</div>
-            <div className="mt-2 text-3xl font-bold text-navy-900">$2,500-4,000</div>
-            <p className="mt-2 text-navy-600">For complex books</p>
-            
-            <ul className="mt-6 space-y-3">
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Everything in Professional, plus:</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700"><strong>5+ years</strong> of historical data</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Custom chart of accounts mapping</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Direct CPA coordination call</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">2-hour training session</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-navy-700">Priority support</span>
-              </li>
-            </ul>
-
-            <a 
-              href="#get-quote" 
-              className="mt-8 block text-center rounded-xl border-2 border-bronze-300 px-5 py-3 font-semibold text-navy-900 hover:bg-tan-100 transition-colors"
-            >
-              Get Quote
-            </a>
+            <p className="mt-4 text-sm text-navy-700">If you still need advice, reach out—we'll point you in the right direction even if we're not the fit.</p>
           </div>
         </div>
-
-        <p className="mt-8 text-center text-sm text-navy-600">
-          Final pricing depends on transaction volume, data complexity, and timeline. All quotes are fixed-price with no surprises.
-        </p>
       </section>
 
-      {/* What's Included - Clarity */}
-      <section className="bg-navy-500 text-white py-12 md:py-16">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What's Included in Every Migration</h2>
-          
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Complete data export & import</div>
-                <p className="mt-1 text-bronze-300 text-sm">All transactions, lists, balances</p>
-              </div>
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Choose your migration tier</h2>
+            <p className="text-lg text-navy-700">All tiers include zero data loss, reconciliation, and CPA-ready handoff. Pick the level of support you need.</p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-bronze-300 bg-white p-6 md:p-8 shadow-sm">
+              <div className="text-sm font-semibold text-navy-600 uppercase tracking-wide">Essential</div>
+              <div className="mt-2 text-3xl font-bold text-navy-900">$500-750</div>
+              <p className="mt-2 text-sm italic text-navy-700">Choose Essential if your books are simple and you only need a current-year move.</p>
+              <ul className="mt-6 space-y-3 text-sm text-navy-800">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Lists migration and current-year transactions</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Email support</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Basic reconciliation report</span></li>
+              </ul>
+              <Button href="#get-quote" variant="secondary" className="mt-8 w-full justify-center">Review My QuickBooks File</Button>
             </div>
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Chart of accounts mapping</div>
-                <p className="mt-1 text-bronze-300 text-sm">Logical structure preserved</p>
-              </div>
+
+            <div className="relative rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-8 shadow-lg">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-orange-600 px-4 py-1 text-sm font-semibold text-white shadow">Most Popular</div>
+              <div className="text-sm font-semibold text-navy-600 uppercase tracking-wide">Professional</div>
+              <div className="mt-2 text-3xl font-bold text-navy-900">$1,200-1,800</div>
+              <p className="mt-2 text-sm italic text-navy-700">Choose Professional if you're a typical established business that needs history and hands-on support.</p>
+              <ul className="mt-6 space-y-3 text-sm text-navy-800">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Everything in Essential</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Up to 3 years of historical data</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>CPA handoff packet and phone support</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>30-day post-migration support</span></li>
+              </ul>
+              <Button href="#get-quote" className="mt-8 w-full justify-center">Review My QuickBooks File</Button>
             </div>
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Historical reconciliation</div>
-                <p className="mt-1 text-bronze-300 text-sm">Every penny accounted for</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Verification report</div>
-                <p className="mt-1 text-bronze-300 text-sm">Proof everything matches</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Post-migration support</div>
-                <p className="mt-1 text-bronze-300 text-sm">30 days included</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="text-2xl">✓</div>
-              <div>
-                <div className="font-semibold">Your old files stay intact</div>
-                <p className="mt-1 text-bronze-300 text-sm">Zero risk of data loss</p>
-              </div>
+
+            <div className="rounded-2xl border border-bronze-300 bg-white p-6 md:p-8 shadow-sm">
+              <div className="text-sm font-semibold text-navy-600 uppercase tracking-wide">Enterprise</div>
+              <div className="mt-2 text-3xl font-bold text-navy-900">$2,500-4,000</div>
+              <p className="mt-2 text-sm italic text-navy-700">Choose Enterprise if you have multi-entity, inventory, or complex clean up needs.</p>
+              <ul className="mt-6 space-y-3 text-sm text-navy-800">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Everything in Professional</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>5+ years of historical data</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Custom chart mapping and priority support</span></li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✓</span><span>Direct CPA coordination and training</span></li>
+              </ul>
+              <Button href="#get-quote" variant="secondary" className="mt-8 w-full justify-center">Review My QuickBooks File</Button>
             </div>
           </div>
 
-          <div className="mt-12 border-t border-navy-600 pt-8">
-            <h3 className="text-xl font-bold mb-4">What's NOT Included</h3>
-            <p className="text-bronze-300">
-              Custom report recreation, third-party app integrations, or ongoing bookkeeping services. 
-              We focus on one thing: getting your data moved correctly. If you need ongoing support, we can refer trusted partners.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Signals */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="rounded-2xl border border-bronze-300 bg-tan-100 p-8 md:p-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-8 text-center">Our Process Guarantees</h2>
-          
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 text-3xl">🔒</div>
-              <div>
-                <div className="font-bold text-navy-900 text-lg">Zero Data Loss</div>
-                <p className="mt-2 text-navy-700">
-                  Your original Desktop file stays untouched. We work from copies. If anything goes wrong, you lose nothing.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 text-3xl">📊</div>
-              <div>
-                <div className="font-bold text-navy-900 text-lg">CPA-Ready Reports</div>
-                <p className="mt-2 text-navy-700">
-                  We provide reconciliation documentation your accountant can verify. No surprises at tax time.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 text-3xl">💰</div>
-              <div>
-                <div className="font-bold text-navy-900 text-lg">Fixed Price, No Surprises</div>
-                <p className="mt-2 text-navy-700">
-                  We quote the project upfront. That's what you pay. No hourly billing, no scope creep.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 text-3xl">⏱️</div>
-              <div>
-                <div className="font-bold text-navy-900 text-lg">Clear Timeline</div>
-                <p className="mt-2 text-navy-700">
-                  5-7 business days from kickoff to go-live. We give you status updates every 48 hours.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead Form */}
-      <section id="get-quote" className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Get Your Migration Quote</h2>
-          <p className="mt-3 text-lg text-navy-700">
-            Tell us about your QuickBooks setup. We'll reply within one business day with a fixed price and next steps.
+          <p className="mt-8 text-center text-sm text-navy-600">
+            Final pricing depends on transaction volume, data complexity, and timeline. All quotes are fixed-price with no surprises.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-navy-500 text-white py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">What you receive in every migration</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">Complete data export &amp; import</p>
+              <p className="text-sm text-bronze-300">Transactions, lists, balances, and mappings moved with care.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">Chart of accounts mapping</p>
+              <p className="text-sm text-bronze-300">We preserve what works and document any improvements.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">Historical reconciliation</p>
+              <p className="text-sm text-bronze-300">Side-by-side proof that balances match.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">Payroll and sales tax considerations</p>
+              <p className="text-sm text-bronze-300">Guidance so filings stay accurate post-migration.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">Training &amp; walkthrough</p>
+              <p className="text-sm text-bronze-300">Live review so your team knows exactly how to proceed.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-2xl">✓</p>
+              <p className="font-semibold">30-day support window</p>
+              <p className="text-sm text-bronze-300">Questions answered quickly while you settle into QBO.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-quote" className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+        <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Review My QuickBooks File</h2>
+          <p className="mt-3 text-lg text-navy-700">
+            After you submit, you'll get:
+          </p>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-navy-700">
+            <li>Fixed price quote based on file complexity and your timeline.</li>
+            <li>Project dates for kickoff and completion.</li>
+            <li>Calendar link to schedule a kickoff call if you're ready.</li>
+          </ol>
 
           <div className="mt-8">
             <LeadForm />
           </div>
 
           <p className="mt-6 text-sm text-navy-600">
-            We will never share your information. You'll get a straightforward quote with no pressure to buy.
+            We never share your information. You'll get a straightforward quote with no pressure to buy.
           </p>
+        </div>
+
+        <div className="mt-6">
+          <ContactCTA />
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-8 text-center">Common Questions</h2>
-        
+      <section className="mx-auto max-w-5xl px-4 py-12 md:py-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-8 text-center">Common questions</h2>
         <div className="space-y-4">
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
+          <details className="group rounded-xl border border-bronze-300 bg-white p-6 shadow-sm">
             <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
-              <span>What if I don't migrate and just keep using Desktop?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
+              <span>What happens if I just keep using Desktop?</span>
+              <span className="text-navy-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="mt-4 text-navy-700">
-              When your Desktop version loses support, you'll lose bank feeds, payroll processing, and security updates. 
-              Your software will still open, but you'll be manually entering everything and vulnerable to security breaches. 
-              The IRS and your CPA won't be happy with outdated, insecure books.
+              When your Desktop version loses support, bank feeds, payroll, and payment integrations stop. You'll be stuck with manual entry and no security patches. It's better to migrate during a calm period than under pressure.
             </div>
           </details>
-
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
+          <details className="group rounded-xl border border-bronze-300 bg-white p-6 shadow-sm">
             <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
-              <span>Will my CPA be able to access everything they need?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
+              <span>Will my CPA be able to access everything?</span>
+              <span className="text-navy-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="mt-4 text-navy-700">
-              Yes. We provide a CPA handoff packet with reconciliation reports, chart mapping documentation, and access instructions. 
-              QuickBooks Online has built-in accountant access that's often easier than Desktop file sharing.
+              Yes. We provide reconciliation reports, chart mapping documentation, and instructions for your CPA to access QuickBooks Online securely.
             </div>
           </details>
-
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
+          <details className="group rounded-xl border border-bronze-300 bg-white p-6 shadow-sm">
             <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
               <span>How long does migration actually take?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
+              <span className="text-navy-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="mt-4 text-navy-700">
-              5-7 business days from the moment we get your Desktop file to the moment you're running live in QuickBooks Online. 
-              This includes data export, reconciliation, testing, and your final approval. Rush service available if needed.
+              5-7 business days from receiving your Desktop file to running live in QuickBooks Online, including reconciliation and your final approval. Rush service is available if needed.
             </div>
           </details>
-
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
-            <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
-              <span>What if I need help after the migration is complete?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-            <div className="mt-4 text-navy-700">
-              All tiers include 30 days of post-migration support via email or phone (depending on your tier). 
-              After that, we can provide ongoing support on a retainer basis, or refer you to trusted QBO bookkeepers.
-            </div>
-          </details>
-
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
+          <details className="group rounded-xl border border-bronze-300 bg-white p-6 shadow-sm">
             <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
               <span>Do you migrate payroll data?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
+              <span className="text-navy-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="mt-4 text-navy-700">
-              We migrate historical payroll transactions for reporting purposes. Active payroll setup in QuickBooks Online 
-              requires its own subscription and configuration. We can guide you through that process or coordinate with your payroll provider.
+              We migrate historical payroll transactions for reporting. Active payroll setup in QuickBooks Online requires its own subscription and configuration—we guide you or coordinate with your payroll provider.
             </div>
           </details>
-
-          <details className="group rounded-xl border border-bronze-300 bg-white p-6">
+          <details className="group rounded-xl border border-bronze-300 bg-white p-6 shadow-sm">
             <summary className="flex cursor-pointer items-center justify-between font-semibold text-navy-900">
-              <span>What if my file is really old or really messy?</span>
-              <span className="text-navy-400 group-open:rotate-180 transition-transform">▼</span>
+              <span>What if my file is really old or messy?</span>
+              <span className="text-navy-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="mt-4 text-navy-700">
-              That's why we offer three tiers. Enterprise tier is built for complex, multi-year, messy books. 
-              We'll assess your file during the quote process and recommend the right level of service. 
-              Sometimes messy books need cleanup before migration—we'll tell you upfront if that's the case.
+              That's why we offer three tiers. Enterprise is designed for multi-entity, inventory, and complex cleanups. We'll assess your file during quoting and recommend the right level—even if that means clean-up before migrating.
             </div>
           </details>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-gradient-to-b from-white to-tan-100 py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Ready to Migrate With Confidence?</h2>
-          <p className="mt-4 text-lg text-navy-700">
-            Don't wait until tax season or year-end close. Get your quote today and schedule your migration during a calm period.
+      <section className="bg-gradient-to-b from-white to-tan-100 py-14 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Ready to migrate with confidence?</h2>
+          <p className="text-lg text-navy-700">
+            We limit migrations so we can stay personally involved in every project. Month-end and tax season fill fastest.
           </p>
-          <a 
-            href="#get-quote" 
-            className="mt-8 inline-flex items-center rounded-xl bg-orange-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
-          >
-            Get Your Free Quote Now
-          </a>
-          <p className="mt-4 text-sm text-navy-600">
-            Or email us directly: <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold">hello@dominusfoundry.com</a>
+          <Button href="#get-quote" className="justify-center">Review My QuickBooks File</Button>
+          <p className="text-sm text-navy-700">
+            Prefer email? <a href="mailto:hello@dominusfoundry.com" className="underline font-semibold">hello@dominusfoundry.com</a>
           </p>
         </div>
       </section>
 
-      {/* Sticky floating CTA */}
       <StickyQuoteButton />
     </>
   );
