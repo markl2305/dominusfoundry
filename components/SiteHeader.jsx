@@ -11,6 +11,8 @@ import Button from './Button'
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'InvoiceFlow', href: '/invoiceflow' },
+  { name: 'Voice Concierge', href: '/voice-concierge' },
   { name: 'QuickBooks Desktop Migration', href: '/qb-migration' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/#contact' },
