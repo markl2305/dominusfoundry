@@ -116,7 +116,11 @@ export default function Home() {
                 <Button href="#talk" className="justify-center">
                   Talk to the Foundry
                 </Button>
-                <Button href="#solutions" variant="secondary" className="justify-center border-white/50 text-white hover:border-white">
+                <Button
+                  href="#solutions"
+                  variant="ghost"
+                  className="justify-center border border-white/70 bg-transparent text-white hover:border-white hover:bg-white/10"
+                >
                   Explore our solutions
                 </Button>
               </div>

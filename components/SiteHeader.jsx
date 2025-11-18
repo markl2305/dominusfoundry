@@ -7,7 +7,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Button from './Button'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -24,7 +23,7 @@ export default function SiteHeader() {
   return (
     <header className="relative border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 lg:px-6" aria-label="Global">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mr-4">
           <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-md">
             <Image
               src="/logo-full.svg"
@@ -48,7 +47,7 @@ export default function SiteHeader() {
           </button>
         </div>
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden lg:flex items-center gap-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -58,12 +57,6 @@ export default function SiteHeader() {
               {item.name}
             </Link>
           ))}
-        </div>
-
-        <div className="hidden lg:flex">
-          <Button href="/qb-migration" className="shadow-md" variant="secondary">
-            QuickBooks Desktop Migration
-          </Button>
         </div>
       </nav>
 
@@ -104,15 +97,6 @@ export default function SiteHeader() {
                       {item.name}
                     </Link>
                   ))}
-                </div>
-                <div className="py-6">
-                  <Button
-                    href="/qb-migration"
-                    className="w-full justify-center"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    QuickBooks Desktop Migration
-                  </Button>
                 </div>
               </div>
             </div>
