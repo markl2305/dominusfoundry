@@ -5,17 +5,18 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
+const NAV_ITEMS = Object.freeze([
   { name: 'Home', href: '/' },
   { name: 'QuickBooks Migration', href: '/qb-migration' },
   { name: 'InvoiceFlow', href: '/invoiceflow' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/#talk' },
-]
+])
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navItems = NAV_ITEMS.length ? NAV_ITEMS : []
 
   return (
     <header className="relative border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
@@ -50,7 +51,7 @@ export default function SiteHeader() {
 
         {/* Desktop navigation */}
         <div className="hidden items-center gap-6 lg:flex">
-          {navigation.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -96,7 +97,7 @@ export default function SiteHeader() {
 
             <nav className="flow-root">
               <div className="space-y-1">
-                {navigation.map((item) => (
+                {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
