@@ -73,7 +73,7 @@ export default function SiteHeader() {
           />
 
           {/* Menu panel */}
-          <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-navy-900 px-6 py-6 lg:hidden sm:ring-1 sm:ring-white/10">
+          <div className="fixed inset-0 z-50 bg-navy-900 px-6 py-6 lg:hidden sm:ring-1 sm:ring-white/10 overflow-y-auto">
             {/* Header */}
             <div className="mb-8 flex items-center justify-between">
               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
@@ -97,12 +97,12 @@ export default function SiteHeader() {
 
             {/* Navigation links */}
             <nav className="flow-root">
-              <div className="space-y-1">
+              <div className="space-y-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                    className="block rounded-lg px-4 py-3 text-lg font-semibold text-tan-100 transition-colors hover:bg-forge-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
