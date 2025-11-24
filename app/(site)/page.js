@@ -125,11 +125,6 @@ export default function Home() {
                   Explore our solutions
                 </Button>
               </div>
-              <div className="grid gap-3 sm:grid-cols-3 text-sm text-forge-50/90">
-                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Owner-led builds</div>
-                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Done-with-you then done-for-you</div>
-                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Clean numbers, captured revenue</div>
-              </div>
             </div>
 
             <div className="card-forged-premium rounded-2xl p-6 shadow-xl bg-gradient-to-br from-forge-50/70 to-white text-slate-900 space-y-4">
