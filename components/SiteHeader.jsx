@@ -1,6 +1,3 @@
-// components/SiteHeader.jsx
-// One-row header with large left logo that overhangs the header
-
 'use client'
 
 import Image from 'next/image'
@@ -22,37 +19,42 @@ export default function SiteHeader() {
 
   return (
     <header className="relative border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 lg:px-6" aria-label="Global">
-        <div className="flex items-center gap-3 mr-4">
-          <Link href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-md">
-            <Image
-              src="/logo-full.svg"
-              alt="Dominus Foundry - Fide et Familia"
-              width={520}
-              height={140}
-              className="h-16 w-auto md:h-20"
-              priority
-            />
-          </Link>
-        </div>
+      <nav
+        className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6"
+        aria-label="Global"
+      >
+        {/* Logo - Responsive sizing */}
+        <Link
+          href="/"
+          className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        >
+          <Image
+            src="/logo-full.svg"
+            alt="Dominus Foundry - Fide et Familia"
+            width={520}
+            height={140}
+            className="h-12 w-auto sm:h-14 md:h-16 lg:h-20"
+            priority
+          />
+        </Link>
 
-        <div className="flex items-center lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-md p-2.5 text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:hidden"
+          onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open main menu"
+        >
+          <Bars3Icon className="h-7 w-7" aria-hidden="true" />
+        </button>
 
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Desktop navigation */}
+        <div className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800 rounded-md px-1.5 py-0.5"
+              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
             >
               {item.name}
             </Link>
@@ -60,48 +62,56 @@ export default function SiteHeader() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden">
-          <div className="fixed inset-0 z-40 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto border-l border-forge-700 bg-navy-900 px-4 py-4 shadow-xl text-[#E7DFCF]">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Menu panel */}
+          <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-navy-900 px-6 py-6 lg:hidden sm:ring-1 sm:ring-white/10">
+            {/* Header */}
+            <div className="mb-8 flex items-center justify-between">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                 <Image
                   src="/logo-full.svg"
                   alt="Dominus Foundry - Fide et Familia"
                   width={240}
                   height={80}
-                  className="h-12 w-auto"
+                  className="h-10 w-auto"
                 />
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-[#E7DFCF] hover:text-forge-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-200"
+                className="rounded-md p-2.5 text-tan-200 transition-colors hover:bg-navy-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
               >
-                <span className="sr-only">Close menu</span>
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
 
-            <nav className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-forge-700/60">
-                <div className="space-y-2 py-6 flex flex-col text-lg font-semibold">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 flex items-center justify-between rounded-lg px-3 py-3 text-[#E7DFCF] hover:bg-forge-800"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span>{item.name}</span>
-                    </Link>
-                  ))}
-                </div>
+            {/* Navigation links */}
+            <nav className="flow-root">
+              <div className="space-y-1">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </nav>
           </div>
-        </div>
+        </>
       )}
     </header>
   )
