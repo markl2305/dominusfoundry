@@ -13,12 +13,25 @@ const variantStyles = {
     'border border-navy-200 bg-white text-navy-800 hover:border-navy-300 hover:bg-tan-100 focus-visible:outline-navy-500',
   ghost:
     'text-navy-800 hover:text-navy-900 hover:bg-tan-100 focus-visible:outline-navy-500',
+  forge:
+    'bg-gradient-to-b from-forge-500 to-forge-700 text-white ' +
+    'border-2 border-forge-800 border-b-4 ' +
+    'shadow-[0_2px_0_rgba(0,0,0,0.15)] ' +
+    'hover:from-forge-600 hover:to-forge-800 ' +
+    'active:border-b-2 active:translate-y-[2px] active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] ' +
+    'font-semibold tracking-wide uppercase text-xs md:text-sm',
+  forgeSecondary:
+    'bg-white text-forge-800 ' +
+    'border-2 border-forge-600 border-b-4 ' +
+    'hover:bg-forge-50 hover:border-forge-700 ' +
+    'active:border-b-2 active:translate-y-[2px] ' +
+    'font-semibold tracking-wide uppercase text-xs md:text-sm',
 }
 
 export default function Button({
   href,
   children,
-  variant = 'primary',
+  variant = 'forge',
   className = '',
   type = 'button',
   ...props

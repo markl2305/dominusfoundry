@@ -4,6 +4,9 @@ import Button from "./Button";
 
 export default function LeadForm({ ppc = false }) {
   const [sending, setSending] = useState(false);
+  const inputClass =
+    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
+  const labelClass = "text-sm font-semibold text-slate-900";
   
   async function submit(e) {
     e.preventDefault();
@@ -37,55 +40,55 @@ export default function LeadForm({ ppc = false }) {
     <form onSubmit={submit} className="grid gap-4">
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">First name</label>
+          <label className={labelClass}>First name</label>
           <input 
             name="firstName" 
             required 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Last name</label>
+          <label className={labelClass}>Last name</label>
           <input 
             name="lastName" 
             required 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Email</label>
+          <label className={labelClass}>Email</label>
           <input 
             name="email" 
             type="email" 
             required 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Phone (optional)</label>
+          <label className={labelClass}>Phone (optional)</label>
           <input 
             name="phone" 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Company</label>
+          <label className={labelClass}>Company</label>
           <input 
             name="company" 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Current system</label>
+          <label className={labelClass}>Current system</label>
           <select 
             name="sourceSystem" 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           >
             <option>QuickBooks Desktop</option>
             <option>QuickBooks Online (consolidation)</option>
@@ -99,39 +102,39 @@ export default function LeadForm({ ppc = false }) {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Historical depth</label>
+          <label className={labelClass}>Historical depth</label>
           <select 
             name="history" 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           >
             <option>Lists only</option>
             <option>1 year</option>
             <option>2-3 years</option>
             <option>4+ years</option>
           </select>
-          <p className="mt-1 text-xs text-navy-600">Most businesses migrate 2-3 years for tax and trend analysis.</p>
+          <p className="mt-1 text-xs text-slate-700">Most businesses migrate 2-3 years for tax and trend analysis.</p>
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Timeline</label>
+          <label className={labelClass}>Timeline</label>
           <select 
             name="timeline" 
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           >
             <option>ASAP</option>
             <option>This month</option>
             <option>This quarter</option>
             <option>Flexible</option>
           </select>
-          <p className="mt-1 text-xs text-navy-600">We recommend avoiding year-end close and tax season when possible.</p>
+          <p className="mt-1 text-xs text-slate-700">We recommend avoiding year-end close and tax season when possible.</p>
         </div>
       </div>
 
       <div>
-        <label className="text-sm font-medium text-navy-900">Notes</label>
+        <label className={labelClass}>Notes</label>
         <textarea 
           name="notes" 
           rows={4} 
-          className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+          className={inputClass}
           placeholder="Tell us about payroll, inventory, or anything that worries you most."
         />
       </div>
@@ -144,9 +147,9 @@ export default function LeadForm({ ppc = false }) {
         {sending ? "Sending…" : "Send My Migration Details"}
       </Button>
 
-      <p className="text-xs text-navy-600 text-center">
+      <p className="text-xs text-slate-700 text-center">
         By submitting this form, you agree to our{' '}
-        <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
+        <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
         </a>.
       </p>

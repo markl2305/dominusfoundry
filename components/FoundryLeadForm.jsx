@@ -5,6 +5,9 @@ import Button from "./Button";
 
 export default function FoundryLeadForm() {
   const [sending, setSending] = useState(false);
+  const inputClass =
+    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
+  const labelClass = "text-sm font-semibold text-slate-900";
 
   async function submit(e) {
     e.preventDefault();
@@ -60,52 +63,52 @@ export default function FoundryLeadForm() {
   return (
     <form onSubmit={submit} className="grid gap-4">
       <div>
-        <label className="text-sm font-medium text-navy-900">Full name</label>
+        <label className={labelClass}>Full name</label>
         <input
           name="fullName"
           required
-          className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+          className={inputClass}
           autoComplete="name"
-        />
+          />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Business name</label>
+          <label className={labelClass}>Business name</label>
           <input
             name="company"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="organization"
-          />
+            />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Work email</label>
+          <label className={labelClass}>Work email</label>
           <input
             name="email"
             type="email"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="email"
-          />
+            />
         </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Phone</label>
+          <label className={labelClass}>Phone</label>
           <input
             name="phone"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="tel"
-          />
+            />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">What are you most interested in?</label>
+          <label className={labelClass}>What are you most interested in?</label>
           <select
             name="interest"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             defaultValue="QuickBooks Migration"
           >
             <option>QuickBooks Migration</option>
@@ -117,11 +120,11 @@ export default function FoundryLeadForm() {
       </div>
 
       <div>
-        <label className="text-sm font-medium text-navy-900">What&apos;s breaking or too heavy right now?</label>
+        <label className={labelClass}>What&apos;s breaking or too heavy right now?</label>
         <textarea
           name="problems"
           rows={4}
-          className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+          className={inputClass}
           placeholder="Tell us about your books, invoicing, call volume, or other bottlenecks."
         />
       </div>
@@ -130,9 +133,9 @@ export default function FoundryLeadForm() {
         {sending ? "Sending…" : "Talk to the Foundry"}
       </Button>
 
-      <p className="text-xs text-navy-600 text-center">
+      <p className="text-xs text-slate-700 text-center">
         By submitting this form, you agree to our{" "}
-        <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
+        <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
         </a>.
       </p>

@@ -1,8 +1,13 @@
-import { Inter } from 'next/font/google'
+import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const crimson = Crimson_Pro({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-crimson',
+})
 
 export const metadata = {
   title: 'Dominus Foundry | QuickBooks Desktop Migration & Tech Transitions',
@@ -53,8 +58,8 @@ export default function RootLayout({
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-tan-200 text-navy-800 antialiased`}>
+    <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
+      <body className="bg-tan-200 text-navy-800 antialiased font-inter">
         {children}
 
         {/* Google Analytics 4 - loaded globally once */}

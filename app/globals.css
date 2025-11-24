@@ -13,3 +13,45 @@ html {
 body { 
   @apply bg-tan-200 text-navy-800 antialiased; 
 }
+
+.heading-forge-xl {
+  @apply font-crimson text-5xl md:text-7xl font-bold text-slate-900 tracking-tight;
+}
+
+.heading-forge-lg {
+  @apply font-crimson text-4xl md:text-5xl font-bold text-slate-900 tracking-tight;
+}
+
+.heading-forge-md {
+  @apply font-crimson text-3xl md:text-4xl font-semibold text-slate-900;
+}
+
+.body-foundry {
+  @apply text-base md:text-lg text-slate-800 leading-relaxed;
+}
+
+.label-foundry {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-forge-600;
+}
+
+.card-forged {
+  @apply border-2 border-forge-500 border-b-4 bg-white shadow-sm;
+}
+
+.card-forged-premium {
+  @apply border-[3px] border-forge-600 border-b-[6px] bg-gradient-to-br from-forge-50 to-[#f0ebe3] shadow-md;
+}
+
+.divider-forged {
+  @apply h-[2px] w-full bg-gradient-to-r from-transparent via-forge-500 to-transparent;
+}
+
+.bg-foundry-texture {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.02) 2px,
+    rgba(0, 0, 0, 0.02) 4px
+  );
+}

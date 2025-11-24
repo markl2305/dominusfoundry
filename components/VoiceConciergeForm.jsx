@@ -5,6 +5,9 @@ import Button from "./Button";
 
 export default function VoiceConciergeForm() {
   const [sending, setSending] = useState(false);
+  const inputClass =
+    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
+  const labelClass = "text-sm font-semibold text-slate-900";
 
   async function submit(e) {
     e.preventDefault();
@@ -58,32 +61,32 @@ export default function VoiceConciergeForm() {
   return (
     <form onSubmit={submit} className="grid gap-4">
       <div>
-        <label className="text-sm font-medium text-navy-900">Full name</label>
+        <label className={labelClass}>Full name</label>
         <input
           name="fullName"
           required
-          className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+          className={inputClass}
           autoComplete="name"
         />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Business name</label>
+          <label className={labelClass}>Business name</label>
           <input
             name="company"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="organization"
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Work email</label>
+          <label className={labelClass}>Work email</label>
           <input
             name="email"
             type="email"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="email"
           />
         </div>
@@ -91,19 +94,19 @@ export default function VoiceConciergeForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Phone</label>
+          <label className={labelClass}>Phone</label>
           <input
             name="phone"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="tel"
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Business type</label>
+          <label className={labelClass}>Business type</label>
           <select
             name="businessType"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             defaultValue="Club / Event Space"
           >
             <option>Club / Event Space</option>
@@ -117,10 +120,10 @@ export default function VoiceConciergeForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Approximate monthly call volume</label>
+          <label className={labelClass}>Approximate monthly call volume</label>
           <select
             name="callVolume"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             defaultValue="200-500"
           >
             <option>&lt;200</option>
@@ -130,12 +133,12 @@ export default function VoiceConciergeForm() {
           </select>
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">What matters most?</label>
+          <label className={labelClass}>What matters most?</label>
           <textarea
             name="priorities"
             rows={3}
             placeholder="No missed calls, better booking rate, member experience, staff interruptions..."
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
       </div>
@@ -144,9 +147,9 @@ export default function VoiceConciergeForm() {
         {sending ? "Sending…" : "Request a Live Demo"}
       </Button>
 
-      <p className="text-xs text-navy-600 text-center">
+      <p className="text-xs text-slate-700 text-center">
         By submitting this form, you agree to our{" "}
-        <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
+        <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
         </a>.
       </p>

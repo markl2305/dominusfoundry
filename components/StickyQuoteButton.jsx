@@ -30,7 +30,7 @@ export default function StickyQuoteButton() {
   return (
     <button
       onClick={scrollToForm}
-      className="fixed bottom-6 right-6 z-50 rounded-xl bg-orange-600 px-6 py-4 font-semibold text-white shadow-2xl hover:bg-orange-700 transition-all duration-300 hover:scale-105 md:px-8"
+      className="fixed bottom-6 right-6 z-50 rounded-xl bg-gradient-to-b from-forge-500 to-forge-700 border-2 border-forge-800 border-b-4 px-6 py-4 font-semibold uppercase tracking-wide text-white shadow-[0_6px_16px_rgba(0,0,0,0.25)] transition-all duration-300 hover:from-forge-600 hover:to-forge-800 active:border-b-2 active:translate-y-[2px] md:px-8"
       aria-label="Review my QuickBooks file"
     >
       <span className="hidden md:inline">Review My QuickBooks File</span>

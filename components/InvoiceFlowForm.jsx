@@ -5,6 +5,9 @@ import Button from "./Button";
 
 export default function InvoiceFlowForm() {
   const [sending, setSending] = useState(false);
+  const inputClass =
+    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
+  const labelClass = "text-sm font-semibold text-slate-900";
 
   async function submit(e) {
     e.preventDefault();
@@ -58,32 +61,32 @@ export default function InvoiceFlowForm() {
   return (
     <form onSubmit={submit} className="grid gap-4">
       <div>
-        <label className="text-sm font-medium text-navy-900">Full name</label>
+        <label className={labelClass}>Full name</label>
         <input
           name="fullName"
           required
-          className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+          className={inputClass}
           autoComplete="name"
         />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Business name</label>
+          <label className={labelClass}>Business name</label>
           <input
             name="company"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="organization"
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Work email</label>
+          <label className={labelClass}>Work email</label>
           <input
             name="email"
             type="email"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="email"
           />
         </div>
@@ -91,19 +94,19 @@ export default function InvoiceFlowForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Phone</label>
+          <label className={labelClass}>Phone</label>
           <input
             name="phone"
             required
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             autoComplete="tel"
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Current accounting tool</label>
+          <label className={labelClass}>Current accounting tool</label>
           <select
             name="accountingTool"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             defaultValue="QuickBooks Online"
           >
             <option>QuickBooks Online</option>
@@ -116,10 +119,10 @@ export default function InvoiceFlowForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="text-sm font-medium text-navy-900">Monthly invoice volume</label>
+          <label className={labelClass}>Monthly invoice volume</label>
           <select
             name="invoiceVolume"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
             defaultValue="50-250"
           >
             <option>&lt;50</option>
@@ -129,12 +132,12 @@ export default function InvoiceFlowForm() {
           </select>
         </div>
         <div>
-          <label className="text-sm font-medium text-navy-900">Biggest frustration</label>
+          <label className={labelClass}>Biggest frustration</label>
           <textarea
             name="frustrations"
             rows={3}
             placeholder="Late payments, data mess, chasing people, something else?"
-            className="mt-1 w-full rounded-xl border border-bronze-300 px-3 py-2 focus:border-navy-500 focus:outline-none focus:ring-1 focus:ring-navy-500"
+            className={inputClass}
           />
         </div>
       </div>

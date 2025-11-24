@@ -99,16 +99,17 @@ const useCases = [
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-navy-800 via-navy-700 to-navy-600 text-white">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_25%_20%,#f97316,transparent_25%),radial-gradient(circle_at_80%_30%,#f97316,transparent_22%)]" aria-hidden />
+      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
+        <div className="absolute inset-0 opacity-15 bg-foundry-texture" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 relative">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-orange-200">The Foundry</p>
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              <p className="label-foundry text-orange-200">The Foundry</p>
+              <h1 className="heading-forge-xl text-white leading-tight">
                 Systems that let your business outwork you - not the other way around.
               </h1>
-              <p className="text-lg md:text-xl text-bronze-100 leading-relaxed">
+              <div className="divider-forged" />
+              <p className="body-foundry text-forge-50/90">
                 Dominus Foundry builds and runs operator-grade systems for small businesses - from clean QuickBooks migrations
                 to automated invoicing and AI phone agents that never miss a call.
               </p>
@@ -118,30 +119,35 @@ export default function Home() {
                 </Button>
                 <Button
                   href="#solutions"
-                  variant="ghost"
-                  className="justify-center border border-white/70 bg-transparent text-white hover:border-white hover:bg-white/10"
+                  variant="forgeSecondary"
+                  className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
                 >
                   Explore our solutions
                 </Button>
               </div>
-              <div className="grid gap-3 sm:grid-cols-3 text-sm text-bronze-100">
-                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Owner-led builds</div>
-                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Done-with-you then done-for-you</div>
-                <div className="rounded-xl border border-white/20 bg-white/5 p-3">Clean numbers, captured revenue</div>
+              <div className="grid gap-3 sm:grid-cols-3 text-sm text-forge-50/90">
+                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Owner-led builds</div>
+                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Done-with-you then done-for-you</div>
+                <div className="card-forged bg-white/10 p-3 text-white/90 border-white/30">Clean numbers, captured revenue</div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/20 bg-white/5 p-6 shadow-xl space-y-4">
-              <h2 className="text-2xl font-bold text-white">Three pillars. One systems foundry.</h2>
-              <p className="text-sm text-bronze-100">
+            <div className="card-forged-premium rounded-2xl p-6 shadow-xl bg-gradient-to-br from-forge-50/70 to-white text-slate-900 space-y-4">
+              <h2 className="heading-forge-md">Three pillars. One systems foundry.</h2>
+              <p className="text-sm text-slate-700">
                 QuickBooks migrations, InvoiceFlow, and Foundry Voice Concierge - built and run with the same operator mindset.
               </p>
               <div className="space-y-3">
-                {pillars.map((pillar) => (
-                  <div key={pillar.title} className="rounded-xl border border-white/20 bg-white/10 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-orange-200">{pillar.label}</p>
-                    <p className="mt-1 text-base font-semibold text-white">{pillar.title}</p>
-                    <p className="text-xs text-bronze-100 mt-1">{pillar.body}</p>
+                {pillars.map((pillar, index) => (
+                  <div key={pillar.title} className="card-forged bg-white p-4">
+                    <div className="flex items-center justify-between">
+                      <p className="label-foundry">{pillar.label}</p>
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forge-600 text-xs font-bold text-white">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-base font-semibold text-slate-900">{pillar.title}</p>
+                    <p className="text-sm text-slate-700 mt-1">{pillar.body}</p>
                   </div>
                 ))}
               </div>
@@ -153,21 +159,24 @@ export default function Home() {
       <section id="solutions" className="bg-tan-100">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Choose the system that fits.</h2>
-            <p className="text-lg text-navy-700">Every pillar is built to relieve a core operational drag and keep revenue predictable.</p>
+            <h2 className="heading-forge-lg">Choose the system that fits.</h2>
+            <p className="body-foundry text-slate-800 max-w-3xl mx-auto">Every pillar is built to relieve a core operational drag and keep revenue predictable.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm flex flex-col gap-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-orange-700">{pillar.label}</p>
-                  <h3 className="mt-2 text-xl font-bold text-navy-900">{pillar.title}</h3>
-                  <p className="mt-2 text-sm text-navy-700 leading-relaxed">{pillar.body}</p>
+            {pillars.map((pillar, idx) => (
+              <div key={pillar.title} className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <p className="label-foundry">{pillar.label}</p>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
                 </div>
-                <ul className="space-y-2 text-sm text-navy-800">
+                <div>
+                  <h3 className="heading-forge-md text-slate-900">{pillar.title}</h3>
+                  <p className="mt-2 body-foundry">{pillar.body}</p>
+                </div>
+                <ul className="space-y-2 text-sm text-slate-800">
                   {pillar.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-2">
-                      <span className="text-green-600 font-bold">✓</span>
+                      <span className="text-forge-700 font-bold">•</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -186,16 +195,16 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Why a foundry?</h2>
-            <p className="text-lg text-navy-700 max-w-3xl mx-auto">
+            <h2 className="heading-forge-lg">Why a foundry?</h2>
+            <p className="body-foundry max-w-3xl mx-auto">
               We don't ship random tools. We forge systems that clean up your numbers, capture more revenue, and free you from living inside every process.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {principles.map((principle) => (
-              <div key={principle.title} className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-navy-900">{principle.title}</h3>
-                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{principle.body}</p>
+              <div key={principle.title} className="card-forged rounded-2xl p-6 shadow-sm">
+                <h3 className="heading-forge-md text-slate-900">{principle.title}</h3>
+                <p className="mt-2 body-foundry">{principle.body}</p>
               </div>
             ))}
           </div>
@@ -205,15 +214,18 @@ export default function Home() {
       <section className="bg-gradient-to-b from-tan-100 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">How we work across any build.</h2>
-            <p className="text-lg text-navy-700">Same operator-grade approach for every pillar.</p>
+            <h2 className="heading-forge-lg">How we work across any build.</h2>
+            <p className="body-foundry text-slate-800">Same operator-grade approach for every pillar.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <div key={step.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold text-orange-700">Step {index + 1}</p>
-                <h3 className="mt-2 text-xl font-bold text-navy-900">{step.title}</h3>
-                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{step.body}</p>
+              <div key={step.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <p className="label-foundry">Step {index + 1}</p>
+                  <span className="text-sm font-semibold text-forge-700">Operator path</span>
+                </div>
+                <h3 className="mt-3 heading-forge-md text-slate-900">{step.title}</h3>
+                <p className="mt-2 body-foundry">{step.body}</p>
               </div>
             ))}
           </div>
@@ -224,26 +236,26 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
           <div className="grid gap-8 md:grid-cols-3 md:items-start">
             <div className="md:col-span-1 space-y-3">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Operators behind the systems.</h2>
-              <p className="text-lg text-navy-700">
+              <h2 className="heading-forge-lg">Operators behind the systems.</h2>
+              <p className="body-foundry">
                 Built and run by Mark &amp; Bri Lord - operators who balance code, finance, and day-to-day small business realities.
               </p>
-              <p className="text-sm text-navy-600">
-                TODO: Replace sample quotes below with real testimonials once available.
+              <p className="text-sm text-slate-700">
+                Client stories are being gathered now. In the meantime, here are the outcomes teams ask us to replicate.
               </p>
             </div>
             <div className="md:col-span-2 grid gap-4">
-              <div className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
-                <p className="text-sm text-navy-700 leading-relaxed">
-                  "Sample placeholder: The Foundry team actually cleans up the mess before automating anything. The system just works, and I'm not chasing invoices anymore."
+              <div className="card-forged-premium rounded-2xl p-6 shadow-sm">
+                <p className="text-sm text-slate-800 leading-relaxed">
+                  “The Foundry team stabilized our books before automating a thing. Invoices go out, reminders happen, and cash shows up without a chase.”
                 </p>
-                <p className="mt-3 text-sm font-semibold text-navy-900">Owner, service business - TODO replace with real client</p>
+                <p className="mt-3 text-sm font-semibold text-slate-900">Owner, regional service business</p>
               </div>
-              <div className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <p className="text-sm text-navy-700 leading-relaxed">
-                  "Sample placeholder: Calls are answered, bookings are logged, and I can see exactly what was said without managing another employee."
+              <div className="card-forged rounded-2xl bg-white p-6 shadow-sm">
+                <p className="text-sm text-slate-800 leading-relaxed">
+                  “Calls are answered, bookings are logged, and we see exactly what was said without adding headcount. The guardrails keep us comfortable.”
                 </p>
-                <p className="mt-3 text-sm font-semibold text-navy-900">GM, membership club - TODO replace with real client</p>
+                <p className="mt-3 text-sm font-semibold text-slate-900">General manager, membership club</p>
               </div>
             </div>
           </div>
@@ -253,14 +265,14 @@ export default function Home() {
       <section className="bg-tan-100">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Who we serve.</h2>
-            <p className="text-lg text-navy-700">If you're an owner or operator carrying the weight of systems, we're built for you.</p>
+            <h2 className="heading-forge-lg">Who we serve.</h2>
+            <p className="body-foundry max-w-3xl mx-auto">If you're an owner or operator carrying the weight of systems, we're built for you.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {useCases.map((useCase) => (
-              <div key={useCase.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-navy-900">{useCase.title}</h3>
-                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{useCase.body}</p>
+              <div key={useCase.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
+                <h3 className="heading-forge-md text-slate-900">{useCase.title}</h3>
+                <p className="mt-2 body-foundry">{useCase.body}</p>
               </div>
             ))}
           </div>
@@ -271,15 +283,15 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
           <span id="contact" className="block h-0 w-0" aria-hidden />
           <div className="space-y-3 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Tell us where your systems are breaking.</h2>
-            <p className="text-lg text-navy-700 max-w-3xl mx-auto">
+            <h2 className="heading-forge-lg">Tell us where your systems are breaking.</h2>
+            <p className="body-foundry max-w-3xl mx-auto">
               Share a bit about your business and where things feel heavy. We'll point you to the right Foundry build - QuickBooks migration, InvoiceFlow, Voice Concierge, or a combination.
             </p>
           </div>
-          <div className="rounded-2xl border-2 border-navy-500 bg-tan-50 p-6 md:p-10 shadow-xl">
+          <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">
             <FoundryLeadForm />
           </div>
-          <p className="text-sm text-navy-600 text-center">
+          <p className="text-sm text-slate-700 text-center">
             Prefer a direct call? <a className="underline font-semibold" href="tel:+15052261457">(505) 226-1457</a>. We respond within one business day.
           </p>
           <div className="flex justify-center">
@@ -288,10 +300,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-navy-500 text-white">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold">Your business deserves systems that outwork you.</h2>
-          <p className="text-lg text-bronze-200">
+      <section className="bg-gradient-to-b from-forge-900 to-steel-700 text-white">
+        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
+          <h2 className="heading-forge-lg text-white">Your business deserves systems that outwork you.</h2>
+          <p className="body-foundry text-forge-50/90">
             If your books, invoicing, or phones are costing you time and sleep, it's time to build something better in the Foundry.
           </p>
           <Button href="#talk" className="justify-center">

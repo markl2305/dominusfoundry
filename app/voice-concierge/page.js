@@ -14,49 +14,48 @@ export default function VoiceConciergePage() {
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-teal-700">
-                Foundry Voice Concierge
-              </p>
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-navy-900">
+              <p className="label-foundry">Foundry Voice Concierge</p>
+              <h1 className="heading-forge-xl text-slate-900">
                 Never Miss a Call Again - Without Hiring Another Receptionist.
               </h1>
-              <p className="text-lg md:text-xl text-navy-700 leading-relaxed">
+              <div className="divider-forged" />
+              <p className="body-foundry">
                 Foundry Voice Concierge is an AI phone agent that answers, books, and qualifies in your brand&apos;s voice - so every call is handled, even when your team is busy or offline.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#voice-concierge-form" className="justify-center">
                   Request a Live Demo
                 </Button>
-                <Button href="tel:+15052261457" variant="secondary">
+                <Button href="tel:+15052261457" variant="forgeSecondary">
                   Talk with us
                 </Button>
               </div>
               <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-bronze-300 bg-white p-4 shadow-sm">
-                  <p className="text-sm text-navy-600">24/7 coverage</p>
-                  <p className="text-base font-semibold text-navy-900">No more missed calls</p>
+                <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
+                  <p className="label-foundry">24/7 coverage</p>
+                  <p className="text-base font-semibold text-slate-900">No more missed calls</p>
                 </div>
-                <div className="rounded-xl border border-bronze-300 bg-white p-4 shadow-sm">
-                  <p className="text-sm text-navy-600">Brand-safe scripts</p>
-                  <p className="text-base font-semibold text-navy-900">Guardrails + human override</p>
+                <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
+                  <p className="label-foundry">Brand-safe scripts</p>
+                  <p className="text-base font-semibold text-slate-900">Guardrails + human override</p>
                 </div>
-                <div className="rounded-xl border border-bronze-300 bg-white p-4 shadow-sm">
-                  <p className="text-sm text-navy-600">Actionable outcomes</p>
-                  <p className="text-base font-semibold text-navy-900">Bookings and notes captured</p>
+                <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
+                  <p className="label-foundry">Actionable outcomes</p>
+                  <p className="text-base font-semibold text-slate-900">Bookings and notes captured</p>
                 </div>
               </div>
             </div>
 
-            <div id="voice-concierge-form" className="rounded-2xl border-2 border-teal-600 bg-white p-6 shadow-xl">
+            <div id="voice-concierge-form" className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 shadow-xl">
               <div className="space-y-2 mb-4">
-                <p className="text-sm font-semibold text-navy-600">Tell us about your call volume</p>
-                <h2 className="text-2xl font-bold text-navy-900">We&apos;ll map a pilot that fits</h2>
-                <p className="text-sm text-navy-700">
+                <p className="label-foundry">Tell us about your call volume</p>
+                <h2 className="heading-forge-md text-slate-900">We&apos;ll map a pilot that fits</h2>
+                <p className="text-sm text-slate-700">
                   Your script, escalation rules, and booking tools - built into one AI concierge.
                 </p>
               </div>
               <VoiceConciergeForm />
-              <p className="mt-4 text-xs text-navy-600">
+              <p className="mt-4 text-xs text-slate-700">
                 Response within one business day. Transparent scope before you decide.
               </p>
             </div>
@@ -67,8 +66,8 @@ export default function VoiceConciergePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Every missed call is a missed booking.</h2>
-            <p className="text-lg text-navy-700">Voice Concierge keeps callers on track while your team stays on task.</p>
+            <h2 className="heading-forge-lg">Every missed call is a missed booking.</h2>
+            <p className="body-foundry text-slate-800">Voice Concierge keeps callers on track while your team stays on task.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -88,10 +87,10 @@ export default function VoiceConciergePage() {
                 icon: "📝",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
+              <div key={item.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
                 <div className="text-3xl" aria-hidden="true">{item.icon}</div>
-                <h3 className="mt-3 text-xl font-semibold text-navy-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{item.body}</p>
+                <h3 className="mt-3 heading-forge-md text-slate-900">{item.title}</h3>
+                <p className="mt-2 body-foundry">{item.body}</p>
               </div>
             ))}
           </div>
@@ -101,8 +100,8 @@ export default function VoiceConciergePage() {
       <section className="bg-gradient-to-b from-tan-100 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Your script. Your rules. Our AI handles the rest.</h2>
-            <p className="text-lg text-navy-700">A transparent flow with human override options baked in.</p>
+            <h2 className="heading-forge-lg">Your script. Your rules. Our AI handles the rest.</h2>
+            <p className="body-foundry text-slate-800">A transparent flow with human override options baked in.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
@@ -123,11 +122,11 @@ export default function VoiceConciergePage() {
                 body: "We review call logs, tune responses, and update flows as your business evolves.",
               },
             ].map((step, index) => (
-              <div key={step.title} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold text-teal-700">Step {index + 1}</p>
-                <h3 className="mt-2 text-xl font-bold text-navy-900">{step.title}</h3>
-                <p className="mt-2 text-sm text-navy-700 leading-relaxed">{step.body}</p>
-                <p className="mt-3 text-xs text-navy-600">Human override available at every step.</p>
+              <div key={step.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
+                <p className="label-foundry">Step {index + 1}</p>
+                <h3 className="mt-2 heading-forge-md text-slate-900">{step.title}</h3>
+                <p className="mt-2 body-foundry">{step.body}</p>
+                <p className="mt-3 text-xs text-slate-700">Human override available at every step.</p>
               </div>
             ))}
           </div>
@@ -137,8 +136,8 @@ export default function VoiceConciergePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">What your AI concierge can do on day one.</h2>
-            <p className="text-lg text-navy-700">A few written back-and-forths to show tone and control.</p>
+            <h2 className="heading-forge-lg">What your AI concierge can do on day one.</h2>
+            <p className="body-foundry text-slate-800">A few written back-and-forths to show tone and control.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {[
@@ -171,12 +170,12 @@ export default function VoiceConciergePage() {
                 ],
               },
             ].map((useCase) => (
-              <div key={useCase.title} className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm space-y-3">
-                <h3 className="text-xl font-semibold text-navy-900">{useCase.title}</h3>
-                <div className="space-y-2 text-sm text-navy-800">
+              <div key={useCase.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm space-y-3">
+                <h3 className="heading-forge-md text-slate-900">{useCase.title}</h3>
+                <div className="space-y-2 text-sm text-slate-800">
                   {useCase.script.map((line, idx) => (
                     <p key={idx}>
-                      <span className="font-semibold text-navy-900">{line.speaker}:</span> {line.line}
+                      <span className="font-semibold text-slate-900">{line.speaker}:</span> {line.line}
                     </p>
                   ))}
                 </div>
@@ -189,8 +188,8 @@ export default function VoiceConciergePage() {
       <section className="bg-gradient-to-b from-navy-50 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Safe, on-brand, and always under your control.</h2>
-            <p className="text-lg text-navy-700">Guardrails for skeptical operators who can&apos;t risk brand damage.</p>
+            <h2 className="heading-forge-lg">Safe, on-brand, and always under your control.</h2>
+            <p className="body-foundry text-slate-800">Guardrails for skeptical operators who can&apos;t risk brand damage.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -201,9 +200,9 @@ export default function VoiceConciergePage() {
               "Versioned scripts so you always know what's live.",
               "We co-manage updates as your offers, hours, or policies change.",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-bronze-300 bg-white p-6 shadow-sm flex gap-3">
-                <span className="text-teal-700 font-bold mt-1">✓</span>
-                <p className="text-sm text-navy-800 leading-relaxed">{item}</p>
+              <div key={item} className="card-forged rounded-2xl bg-white p-6 shadow-sm flex gap-3">
+                <span className="text-forge-700 font-bold mt-1">✓</span>
+                <p className="text-sm text-slate-800 leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -213,18 +212,18 @@ export default function VoiceConciergePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">What operators are aiming for with Voice Concierge.</h2>
-            <p className="text-lg text-navy-700">Realistic targets, not hype. Replace with validated results as pilots grow.</p>
+            <h2 className="heading-forge-lg">What operators are aiming for with Voice Concierge.</h2>
+            <p className="body-foundry text-slate-800">Realistic targets, not hype. Replace with validated results as pilots grow.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { value: "Reduce missed calls by 60-90%.", note: "Placeholder range - update with real pilot data." },
-              { value: "Increase booking rate from inbound calls by 15-30%.", note: "Placeholder range - update with real pilot data." },
-              { value: "Free 10-20 hours of staff time per month.", note: "Placeholder range - update with real pilot data." },
+              { value: "Reduce missed calls by 60-90%.", note: "Targets depend on call routing and hours; we right-size expectations together." },
+              { value: "Increase booking rate from inbound calls by 15-30%.", note: "Pilot results will confirm and refine this range." },
+              { value: "Free 10-20 hours of staff time per month.", note: "Varies with call volume and scheduling complexity." },
             ].map((metric) => (
-              <div key={metric.value} className="rounded-2xl border border-bronze-300 bg-tan-50 p-6 shadow-sm">
-                <p className="text-xl font-semibold text-navy-900">{metric.value}</p>
-                <p className="mt-2 text-xs text-navy-600">{metric.note}</p>
+              <div key={metric.value} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
+                <p className="text-xl font-semibold text-slate-900">{metric.value}</p>
+                <p className="mt-2 text-xs text-slate-700">{metric.note}</p>
               </div>
             ))}
           </div>
@@ -234,18 +233,18 @@ export default function VoiceConciergePage() {
       <section className="bg-gradient-to-b from-tan-100 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-6">
           <div className="space-y-3 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900">Fast to launch, simple to test.</h2>
-            <p className="text-lg text-navy-700">Short onboarding, pilot options, and clear pricing before you commit.</p>
+            <h2 className="heading-forge-lg">Fast to launch, simple to test.</h2>
+            <p className="body-foundry text-slate-800">Short onboarding, pilot options, and clear pricing before you commit.</p>
           </div>
-          <div className="rounded-2xl border border-bronze-300 bg-white p-6 md:p-8 shadow-sm space-y-4">
-            <ul className="space-y-3 text-navy-800">
-              <li className="flex gap-3"><span className="text-teal-700 font-bold">✓</span><span>1-2 week onboarding to design flows, connect tools, and test.</span></li>
-              <li className="flex gap-3"><span className="text-teal-700 font-bold">✓</span><span>Pilot or limited rollout so you see outcomes before wider use.</span></li>
-              <li className="flex gap-3"><span className="text-teal-700 font-bold">✓</span><span>Pricing as base fee + usage - no secrets, defined before launch.</span></li>
+          <div className="card-forged rounded-2xl bg-white p-6 md:p-8 shadow-sm space-y-4">
+            <ul className="space-y-3 text-slate-800">
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>1-2 week onboarding to design flows, connect tools, and test.</span></li>
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Pilot or limited rollout so you see outcomes before wider use.</span></li>
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Pricing as base fee + usage - no secrets, defined before launch.</span></li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <Button href="#voice-concierge-form" className="justify-center">Talk About a Pilot</Button>
-              <Button href="tel:+15052261457" variant="secondary" className="justify-center">Call the team</Button>
+              <Button href="tel:+15052261457" variant="forgeSecondary" className="justify-center">Call the team</Button>
             </div>
           </div>
         </div>
@@ -253,7 +252,7 @@ export default function VoiceConciergePage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 text-center">FAQs for cautious teams</h2>
+          <h2 className="heading-forge-lg text-center">FAQs for cautious teams</h2>
           <div className="space-y-4">
             {[
               {
@@ -293,10 +292,10 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-teal-700 text-white">
+      <section className="bg-gradient-to-b from-forge-900 to-steel-700 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">Your phones never have to go unanswered again.</h2>
-          <p className="text-lg text-teal-100">
+          <h2 className="heading-forge-lg text-white">Your phones never have to go unanswered again.</h2>
+          <p className="body-foundry text-forge-50/90">
             If missed calls are costing you bookings or member happiness, it&apos;s time to test an AI concierge built around your brand.
           </p>
           <Button href="#voice-concierge-form" className="justify-center">

@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        crimson: ['var(--font-crimson)'],
+      },
       colors: {
         // Dominus Foundry Brand Colors
         navy: {
@@ -62,6 +66,23 @@ module.exports = {
           700: '#c2410c',
           800: '#9a3412',
           900: '#7c2d12',
+        },
+        forge: {
+          50: '#f7f6f4',
+          100: '#e8e4dc',
+          200: '#d4cab9',
+          300: '#bfad92',
+          400: '#a8926f',
+          500: '#8b7655',
+          600: '#6e5d45',
+          700: '#594a38',
+          800: '#4a3e30',
+          900: '#3d342a',
+        },
+        steel: {
+          500: '#4A5568',
+          600: '#374151',
+          700: '#2D3748',
         },
       },
     },

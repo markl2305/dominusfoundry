@@ -13,7 +13,7 @@ const links = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-bronze-300 bg-tan-200" aria-labelledby="footer-heading">
+    <footer className="border-t-4 border-forge-600 bg-tan-200" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -30,7 +30,7 @@ export default function SiteFooter() {
               />
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
-            <p className="text-sm leading-relaxed text-navy-700">
+            <p className="body-foundry">
               A systems foundry for operators. We build and run QuickBooks migrations, InvoiceFlow invoicing systems,
               and Voice Concierge phone agents that keep revenue and relationships on track.
             </p>
@@ -38,13 +38,13 @@ export default function SiteFooter() {
 
           <div className="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2">
             <div>
-              <h3 className="text-sm font-semibold text-navy-900 uppercase tracking-[0.08em]">Navigate</h3>
+              <h3 className="label-foundry text-forge-700">Navigate</h3>
               <ul className="mt-4 space-y-3">
                 {links.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm font-medium text-navy-700 transition-colors hover:text-orange-700"
+                      className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
                     >
                       {item.name}
                     </Link>
@@ -54,15 +54,15 @@ export default function SiteFooter() {
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-navy-900 uppercase tracking-[0.08em]">Contact</h3>
+              <h3 className="label-foundry text-forge-700">Contact</h3>
               <ul className="mt-4 space-y-3 text-sm text-navy-700">
                 <li>
-                  <a href="mailto:hello@dominusfoundry.com" className="font-medium hover:text-orange-700">
+                  <a href="mailto:hello@dominusfoundry.com" className="font-medium hover:text-forge-700">
                     hello@dominusfoundry.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+15052261457" className="font-medium hover:text-orange-700">
+                  <a href="tel:+15052261457" className="font-medium hover:text-forge-700">
                     (505) 226-1457
                   </a>
                 </li>
@@ -73,8 +73,11 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-bronze-300 pt-6 text-xs text-navy-700 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family.</p>
-          <p className="text-navy-600">Fide et Familia.</p>
+          <p className="body-foundry text-sm">&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family.</p>
+          <div className="flex items-center gap-2 text-sm text-navy-700">
+            <Image src="/logo-crest.svg" alt="Dominus Foundry crest" width={28} height={28} className="h-7 w-7" />
+            <span className="label-foundry text-forge-700">Fide et Familia</span>
+          </div>
         </div>
       </div>
     </footer>
