@@ -1,5 +1,4 @@
 import SiteFooter from '../../components/SiteFooter'
-import SiteHeader from '../../components/SiteHeader'
 
 export default function SiteLayout({
   children,
@@ -8,7 +7,6 @@ export default function SiteLayout({
 }) {
   return (
     <div className="min-h-screen bg-tan-200 text-navy-800 flex flex-col">
-      <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
     </div>

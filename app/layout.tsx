@@ -1,5 +1,6 @@
 import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
+import AppShell from '../components/AppShell'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -60,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
       <body className="bg-tan-200 text-navy-800 antialiased font-inter">
-        {children}
+        <AppShell>{children}</AppShell>
 
         {/* Google Analytics 4 - loaded globally once */}
         {GA_ID && (
