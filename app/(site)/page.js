@@ -109,7 +109,7 @@ export default function Home() {
                 Systems that let your business outwork you - not the other way around.
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry text-forge-50/90">
+              <p className="body-foundry text-[#E7DFCF]">
                 Dominus Foundry builds and runs operator-grade systems for small businesses - from clean QuickBooks migrations
                 to automated invoicing and AI phone agents that never miss a call.
               </p>

@@ -63,7 +63,7 @@ export default function SiteHeader() {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-40 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto border-l border-bronze-300 bg-white px-4 py-4 shadow-xl">
+          <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto border-l border-forge-700 bg-navy-900 px-4 py-4 shadow-xl text-[#E7DFCF]">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <Image
@@ -76,7 +76,7 @@ export default function SiteHeader() {
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-navy-800 hover:text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-700"
+                className="-m-2.5 rounded-md p-2.5 text-[#E7DFCF] hover:text-forge-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-200"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
@@ -84,22 +84,22 @@ export default function SiteHeader() {
               </button>
             </div>
 
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-bronze-300/60">
-                <div className="space-y-2 py-6">
+            <nav className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-forge-700/60">
+                <div className="space-y-2 py-6 flex flex-col text-lg font-semibold">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-3 text-base font-semibold text-navy-800 hover:bg-tan-100"
+                      className="-mx-3 flex items-center justify-between rounded-lg px-3 py-3 text-[#E7DFCF] hover:bg-forge-800"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {item.name}
+                      <span>{item.name}</span>
                     </Link>
                   ))}
                 </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       )}
