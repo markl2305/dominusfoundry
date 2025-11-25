@@ -1,4 +1,3 @@
-import MinimalHeader from '../../components/MinimalHeader';
 
 export const metadata = {
   title: 'Foundry Voice Concierge — AI Phone Agent by Dominus Foundry',
@@ -8,8 +7,6 @@ export const metadata = {
 export default function VoiceConciergeLayout({ children }) {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <MinimalHeader />
-
       <main className="flex-1">
         {children}
       </main>

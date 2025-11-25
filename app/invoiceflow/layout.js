@@ -1,4 +1,3 @@
-import MinimalHeader from '../../components/MinimalHeader';
 
 export const metadata = {
   title: 'InvoiceFlow — Clean, Automated Invoicing by Dominus Foundry',
@@ -8,8 +7,6 @@ export const metadata = {
 export default function InvoiceFlowLayout({ children }) {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <MinimalHeader />
-
       <main className="flex-1">
         {children}
       </main>
