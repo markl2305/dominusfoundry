@@ -26,7 +26,7 @@ export default function InvoiceFlowPage() {
                 <Button href="#invoiceflow-form" className="justify-center">
                   Get My InvoiceFlow Plan
                 </Button>
-                <Button href="tel:+15052261457" variant="forgeSecondary">
+                <Button href="tel:+18667103313" variant="forgeSecondary">
                   Talk now
                 </Button>
               </div>
@@ -199,7 +199,7 @@ export default function InvoiceFlowPage() {
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <Button href="#invoiceflow-form" className="justify-center">Plan My InvoiceFlow Build</Button>
-              <Button href="tel:+15052261457" variant="forgeSecondary" className="justify-center">Call to discuss scope</Button>
+              <Button href="tel:+18667103313" variant="forgeSecondary" className="justify-center">Call to discuss scope</Button>
             </div>
           </div>
         </div>
