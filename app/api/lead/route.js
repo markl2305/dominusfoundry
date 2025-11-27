@@ -10,7 +10,7 @@ export async function POST(req) {
     } = payload ?? {};
 
     const to = process.env.LEADS_TO_EMAIL;
-    const from = process.env.LEADS_FROM_EMAIL || "noreply@dominusfoundry.com";
+    const from = process.env.LEADS_FROM_EMAIL || "foundry@dominusfoundry.com";
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
     const body = [

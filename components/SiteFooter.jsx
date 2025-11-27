@@ -57,13 +57,13 @@ export default function SiteFooter() {
               <h3 className="label-foundry text-forge-700">Contact</h3>
               <ul className="mt-4 space-y-3 text-sm text-navy-700">
                 <li>
-                  <a href="mailto:hello@dominusfoundry.com" className="font-medium hover:text-forge-700">
-                    hello@dominusfoundry.com
+                  <a href="mailto:foundry@dominusfoundry.com" className="font-medium hover:text-forge-700">
+                    foundry@dominusfoundry.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+15052261457" className="font-medium hover:text-forge-700">
-                    (505) 226-1457
+                  <a href="tel:+18667103313" className="font-medium hover:text-forge-700">
+                    (866) 710-3313
                   </a>
                 </li>
                 <li>Albuquerque, New Mexico</li>
@@ -73,7 +73,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-bronze-300 pt-6 text-xs text-navy-700 sm:flex-row sm:items-center sm:justify-between">
-          <p className="body-foundry text-sm">&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family.</p>
+          <p className="body-foundry text-sm">&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information.</p>
           <div className="flex items-center gap-2 text-sm text-navy-700">
             <Image src="/logo-crest.svg" alt="Dominus Foundry crest" width={28} height={28} className="h-7 w-7" />
             <span className="label-foundry text-forge-700">Fide et Familia</span>

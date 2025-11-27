@@ -16,11 +16,11 @@ export default function ContactCTA({ className = '' }) {
           </p>
         </div>
         <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row">
-          <Button href="tel:+15052261457" variant="forgeSecondary" className="w-full md:w-auto">
-            Call (505) 226-1457
+          <Button href="tel:+18667103313" variant="forgeSecondary" className="w-full md:w-auto">
+            Call (866) 710-3313
           </Button>
-          <Button href="mailto:hello@dominusfoundry.com" className="w-full md:w-auto">
-            Email hello@dominusfoundry.com
+          <Button href="mailto:foundry@dominusfoundry.com" className="w-full md:w-auto">
+            Email foundry@dominusfoundry.com
           </Button>
         </div>
       </div>

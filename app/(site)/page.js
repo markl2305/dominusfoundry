@@ -287,7 +287,7 @@ export default function Home() {
             <FoundryLeadForm />
           </div>
           <p className="text-sm text-slate-700 text-center">
-            Prefer a direct call? <a className="underline font-semibold" href="tel:+15052261457">(505) 226-1457</a>. We respond within one business day.
+            Prefer a direct call? <a className="underline font-semibold" href="tel:+18667103313">(866) 710-3313</a>. We respond within one business day.
           </p>
           <div className="flex justify-center">
             <ContactCTA />

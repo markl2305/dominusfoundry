@@ -147,10 +147,11 @@ export default function InvoiceFlowForm() {
       </Button>
 
       <p className="text-xs text-navy-600 text-center">
-        By submitting this form, you agree to our{" "}
+        By submitting, you agree to our{" "}
         <a href="/privacy" className="underline font-semibold text-navy-500 hover:text-navy-600">
           Privacy Policy
-        </a>.
+        </a>{" "}
+        and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may apply. Reply STOP to opt out. We do not sell your personal information.
       </p>
     </form>
   );

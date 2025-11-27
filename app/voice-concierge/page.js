@@ -26,7 +26,7 @@ export default function VoiceConciergePage() {
                 <Button href="#voice-concierge-form" className="justify-center">
                   Request a Live Demo
                 </Button>
-                <Button href="tel:+15052261457" variant="forgeSecondary">
+                <Button href="tel:+18667103313" variant="forgeSecondary">
                   Talk with us
                 </Button>
               </div>
@@ -244,7 +244,7 @@ export default function VoiceConciergePage() {
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <Button href="#voice-concierge-form" className="justify-center">Talk About a Pilot</Button>
-              <Button href="tel:+15052261457" variant="forgeSecondary" className="justify-center">Call the team</Button>
+              <Button href="tel:+18667103313" variant="forgeSecondary" className="justify-center">Call the team</Button>
             </div>
           </div>
         </div>

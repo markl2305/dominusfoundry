@@ -148,10 +148,11 @@ export default function LeadForm({ ppc = false }) {
       </Button>
 
       <p className="text-xs text-slate-700 text-center">
-        By submitting this form, you agree to our{' '}
+        By submitting, you agree to our{' '}
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
-        </a>.
+        </a>
+        {' '}and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may apply. Reply STOP to opt out. We do not sell your personal information.
       </p>
     </form>
   );

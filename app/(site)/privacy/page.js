@@ -160,6 +160,22 @@ export default function Privacy() {
             </div>
 
             <div>
+              <h2 className="text-2xl font-bold text-navy-900 mb-4">SMS/Text Messaging Consent</h2>
+              <p>
+                When you submit a form or request information, you may opt in to receive text messages from us. 
+                By providing your phone number, you agree that we may contact you via SMS for service updates and 
+                follow-ups related to your inquiry.
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li><strong>Opt-in:</strong> You opt in by providing your phone number and submitting a form or requesting contact.</li>
+                <li><strong>Opt-out:</strong> You can reply STOP to any message to stop SMS communications. Reply HELP for help.</li>
+                <li><strong>Frequency:</strong> Messages are sent as needed to respond to your request; we do not send recurring marketing blasts.</li>
+                <li><strong>Rates:</strong> Message and data rates may apply depending on your carrier and plan.</li>
+                <li><strong>Privacy:</strong> We do not sell or rent your personal information, including phone numbers.</li>
+              </ul>
+            </div>
+
+            <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Data Security</h2>
               <p>
                 We implement reasonable security measures to protect your personal information from unauthorized 
@@ -200,10 +216,10 @@ export default function Privacy() {
               <p className="mt-4">
                 To exercise any of these rights, please contact us at{' '}
                 <a 
-                  href="mailto:hello@dominusfoundry.com" 
+                  href="mailto:foundry@dominusfoundry.com" 
                   className="text-navy-500 underline font-semibold"
                 >
-                  hello@dominusfoundry.com
+                  foundry@dominusfoundry.com
                 </a>.
               </p>
             </div>
@@ -247,8 +263,8 @@ export default function Privacy() {
               </p>
               <div className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">
                 <p className="font-semibold text-navy-900">Dominus Foundry</p>
-                <p className="mt-2">Email: <a href="mailto:hello@dominusfoundry.com" className="text-navy-500 underline">hello@dominusfoundry.com</a></p>
-                <p>Phone: <a href="tel:+15052261457" className="text-navy-500 underline">(505) 226-1457</a></p>
+                <p className="mt-2">Email: <a href="mailto:foundry@dominusfoundry.com" className="text-navy-500 underline">foundry@dominusfoundry.com</a></p>
+                <p>Phone: <a href="tel:+18667103313" className="text-navy-500 underline">(866) 710-3313</a></p>
                 <p className="mt-2">Albuquerque, New Mexico</p>
               </div>
             </div>
