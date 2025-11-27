@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { event as gaEvent } from "@/lib/gtag";
+import { event as gaEvent } from "../lib/gtag";
 
 export default function FoundryLeadForm() {
   const [sending, setSending] = useState(false);
