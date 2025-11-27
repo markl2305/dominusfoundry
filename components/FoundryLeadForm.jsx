@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import { event as gaEvent } from "@/lib/gtag";
 
 export default function FoundryLeadForm() {
   const [sending, setSending] = useState(false);
@@ -49,6 +50,14 @@ export default function FoundryLeadForm() {
           event_label: "Foundry Home",
           value: 1,
           currency: "USD",
+        });
+      }
+
+      if (typeof window !== "undefined") {
+        gaEvent("lead_submit", {
+          form_id: "callord_main_contact",
+          page_location: window.location.href,
+          page_path: window.location.pathname,
         });
       }
 
