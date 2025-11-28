@@ -28,7 +28,7 @@ export async function POST(req) {
     if (RESEND_API_KEY && to) {
       const { Resend } = await import("resend");
       const resend = new Resend(RESEND_API_KEY);
-      await resend.emails.send({ from, to, subject: "New QB Lead", text: body });
+      await resend.emails.send({ from, to, subject: "New Foundry Lead", text: body });
 
       // Send a copy to the submitter if they provided an email
       if (email) {
