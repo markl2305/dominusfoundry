@@ -56,7 +56,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
@@ -76,6 +76,7 @@ export default function RootLayout({
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', {
+                  send_page_view: true,
                   page_path: window.location.pathname,
                 });
               `}

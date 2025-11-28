@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { event as gaEvent } from "../lib/gtag";
+import { event as gaEvent } from "@/lib/gtag";
 
 export default function FoundryLeadForm() {
   const [sending, setSending] = useState(false);
@@ -53,13 +53,11 @@ export default function FoundryLeadForm() {
         });
       }
 
-      if (typeof window !== "undefined") {
-        gaEvent("lead_submit", {
-          form_id: "callord_main_contact",
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-        });
-      }
+      gaEvent("lead_submit", {
+        form_id: "callord_main_contact",
+        page_location: typeof window !== "undefined" ? window.location.href : "",
+        page_path: typeof window !== "undefined" ? window.location.pathname : "",
+      });
 
       setTimeout(() => {
         window.location.href = "/thanks";
