@@ -99,7 +99,6 @@ export default function VoiceConciergeLeadForm() {
       utmCampaign: utms.utmCampaign,
       utmContent: utms.utmContent,
       utmTerm: utms.utmTerm,
-      // Extras to keep existing email payloads populated
       firstName: name,
       lastName: '',
       phone: '',
@@ -205,12 +204,7 @@ export default function VoiceConciergeLeadForm() {
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Industry</label>
-          <select
-            name="industry"
-            value={values.industry}
-            onChange={handleChange}
-            className={inputClass()}
-          >
+          <select name="industry" value={values.industry} onChange={handleChange} className={inputClass()}>
             <option value="">Select</option>
             <option>Med Spa / Aesthetics</option>
             <option>Salon / Spa</option>
@@ -256,12 +250,7 @@ export default function VoiceConciergeLeadForm() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Timeline</label>
-          <select
-            name="timeline"
-            value={values.timeline}
-            onChange={handleChange}
-            className={inputClass()}
-          >
+          <select name="timeline" value={values.timeline} onChange={handleChange} className={inputClass()}>
             <option value="">Select</option>
             <option>ASAP</option>
             <option>1–3 months</option>

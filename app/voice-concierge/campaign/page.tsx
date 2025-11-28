@@ -61,9 +61,7 @@ function Hero() {
             >
               Request a Voice Concierge Demo
             </a>
-            <p className="text-xs text-neutral-400">
-              Or call our demo line to hear it in action: (505) 555-0123
-            </p>
+            <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 555-0123</p>
           </div>
         </div>
 
@@ -148,16 +146,11 @@ function CallFlow() {
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-12 md:px-6 md:py-16">
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold text-white md:text-3xl">What Happens When a Call Comes In</h2>
-          <p className="text-sm text-neutral-400">
-            A transparent call journey you can audit, refine, and trust.
-          </p>
+          <p className="text-sm text-neutral-400">A transparent call journey you can audit, refine, and trust.</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {steps.map((step, idx) => (
-            <div
-              key={step.title}
-              className="flex gap-3 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4"
-            >
+            <div key={step.title} className="flex gap-3 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-semibold text-emerald-200">
                 {idx + 1}
               </div>
@@ -283,10 +276,7 @@ function Implementation() {
         </div>
         <div className="grid gap-4 md:grid-cols-4">
           {steps.map((step, idx) => (
-            <div
-              key={step.title}
-              className="space-y-2 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4"
-            >
+            <div key={step.title} className="space-y-2 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold uppercase tracking-wide text-emerald-300">{`Step ${idx + 1}`}</span>
               </div>
@@ -349,10 +339,7 @@ function AudioDemos() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {demos.map((demo) => (
-            <div
-              key={demo.title}
-              className="space-y-2 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4"
-            >
+            <div key={demo.title} className="space-y-2 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4">
               <h3 className="text-sm font-semibold text-neutral-100">{demo.title}</h3>
               <p className="text-xs text-neutral-400">{demo.desc}</p>
               <audio controls className="mt-2 w-full">
