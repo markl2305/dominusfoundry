@@ -68,7 +68,7 @@ function Hero() {
             >
               Request a Voice Concierge Demo
             </a>
-            <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 555-0123</p>
+            <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 273-2847</p>
           </div>
         </div>
 
