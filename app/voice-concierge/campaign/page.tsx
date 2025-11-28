@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import VoiceConciergeLeadForm from '@/components/voice-concierge/VoiceConciergeLeadForm'
 
 export const metadata: Metadata = {
@@ -439,7 +440,9 @@ export default function VoiceConciergeCampaignPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-6 md:p-8">
-              <VoiceConciergeLeadForm />
+              <Suspense fallback={<div className="text-sm text-neutral-400">Loading form…</div>}>
+                <VoiceConciergeLeadForm />
+              </Suspense>
             </div>
           </div>
         </section>
