@@ -49,7 +49,7 @@ export default function SiteHeader() {
             alt="Dominus Foundry - Fide et Familia"
             width={520}
             height={140}
-            className="h-12 w-auto sm:h-14 md:h-16 lg:h-20"
+            className="h-16 w-auto sm:h-18 md:h-20 lg:h-20 object-contain"
             priority
           />
         </Link>
