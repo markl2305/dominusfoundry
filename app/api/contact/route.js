@@ -33,6 +33,16 @@ export async function POST(req) {
         subject: "New Contact Form Submission", 
         text: body 
       });
+
+      // Send a copy/receipt to the submitter if they provided an email
+      if (email) {
+        await resend.emails.send({
+          from,
+          to: email,
+          subject: "We received your message — Dominus Foundry",
+          text: `Thanks for reaching out. Here’s a copy of what you sent:\n\n${body}\n\nWe’ll reply within one business day.`,
+        });
+      }
     } else {
       console.log("Contact form submission (email not configured):\n" + body);
     }

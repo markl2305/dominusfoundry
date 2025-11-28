@@ -29,6 +29,16 @@ export async function POST(req) {
       const { Resend } = await import("resend");
       const resend = new Resend(RESEND_API_KEY);
       await resend.emails.send({ from, to, subject: "New QB Lead", text: body });
+
+      // Send a copy to the submitter if they provided an email
+      if (email) {
+        await resend.emails.send({
+          from,
+          to: email,
+          subject: "We received your request — Dominus Foundry",
+          text: `Thanks for reaching out. Here’s a copy of what you sent:\\n\\n${body}\\n\\nWe’ll reply within one business day.`,
+        });
+      }
     } else {
       console.log("Lead (email not configured)\\n" + body);
     }
