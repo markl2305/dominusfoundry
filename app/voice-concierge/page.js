@@ -4,7 +4,7 @@ import VoiceConciergeForm from "../../components/VoiceConciergeForm";
 export const metadata = {
   title: "Foundry Voice Concierge - AI Phone Agent | Dominus Foundry",
   description:
-    "Never miss a call again. Foundry Voice Concierge answers, books, and qualifies callers in your brand voice with human-safe guardrails.",
+    "Never miss a booking call again. Foundry Voice Concierge answers every call, checks your live calendar, books, sends confirmations, and transfers when it should—always on-brand.",
 };
 
 export default function VoiceConciergePage() {
@@ -16,11 +16,11 @@ export default function VoiceConciergePage() {
             <div className="space-y-6">
               <p className="label-foundry">Foundry Voice Concierge</p>
               <h1 className="heading-forge-xl text-slate-900">
-                Never Miss a Call Again - Without Hiring Another Receptionist.
+                Never Miss a Booking Call Again - Without Hiring Another Receptionist.
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry">
-                Foundry Voice Concierge is an AI phone agent that answers, books, and qualifies in your brand&apos;s voice - so every call is handled, even when your team is busy or offline.
+                Foundry Voice Concierge is an AI phone agent that answers every call, speaks like a trained staff member, checks your live calendar, books appointments, sends confirmations, and hands off to your team when it should—24/7.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#voice-concierge-form" className="justify-center">
@@ -33,15 +33,15 @@ export default function VoiceConciergePage() {
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
                   <p className="label-foundry">24/7 coverage</p>
-                  <p className="text-base font-semibold text-slate-900">No more missed calls</p>
+                  <p className="text-base font-semibold text-slate-900">No more missed booking calls</p>
+                </div>
+                <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
+                  <p className="label-foundry">Calendar aware</p>
+                  <p className="text-base font-semibold text-slate-900">Offers times with buffers + rules</p>
                 </div>
                 <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
                   <p className="label-foundry">Brand-safe scripts</p>
-                  <p className="text-base font-semibold text-slate-900">Guardrails + human override</p>
-                </div>
-                <div className="card-forged rounded-xl bg-white p-4 shadow-sm">
-                  <p className="label-foundry">Actionable outcomes</p>
-                  <p className="text-base font-semibold text-slate-900">Bookings and notes captured</p>
+                  <p className="text-base font-semibold text-slate-900">Guardrails, confirmations, transcripts</p>
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function VoiceConciergePage() {
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Every missed call is a missed booking.</h2>
-            <p className="body-foundry text-slate-800">Voice Concierge keeps callers on track while your team stays on task.</p>
+            <p className="body-foundry text-slate-800">Voice Concierge answers, books, and transfers with your rules so callers stay on track and your team stays on task.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -114,12 +114,12 @@ export default function VoiceConciergePage() {
                 body: "Connect to your booking tool or intake workflow so the agent can take action, not just talk.",
               },
               {
-                title: "We launch a branded concierge",
-                body: "Your number routes to the Voice Concierge, which handles calls 24/7 within your guardrails.",
+                title: "Safe pilot",
+                body: "Start with limited hours or call types, monitor real calls, and refine until you’re comfortable.",
               },
               {
-                title: "You monitor, we refine",
-                body: "We review call logs, tune responses, and update flows as your business evolves.",
+                title: "Full rollout & stewardship",
+                body: "Expand coverage, keep transcripts flowing, and adapt the concierge as your business changes.",
               },
             ].map((step, index) => (
               <div key={step.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
@@ -213,13 +213,13 @@ export default function VoiceConciergePage() {
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">What operators are aiming for with Voice Concierge.</h2>
-            <p className="body-foundry text-slate-800">Realistic targets, not hype. Replace with validated results as pilots grow.</p>
+            <p className="body-foundry text-slate-800">Realistic, defensible outcomes—no hype.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { value: "Reduce missed calls by 60-90%.", note: "Targets depend on call routing and hours; we right-size expectations together." },
-              { value: "Increase booking rate from inbound calls by 15-30%.", note: "Pilot results will confirm and refine this range." },
-              { value: "Free 10-20 hours of staff time per month.", note: "Varies with call volume and scheduling complexity." },
+              { value: "Fewer missed calls during peak and after-hours windows.", note: "We start with coverage where you’re losing the most bookings." },
+              { value: "More calendar slots filled without pulling staff off in-person work.", note: "Calendar-aware booking with your buffers and blackout dates." },
+              { value: "Reduced front-desk call load.", note: "Concierge handles the routine, your team handles the high-value conversations." },
             ].map((metric) => (
               <div key={metric.value} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
                 <p className="text-xl font-semibold text-slate-900">{metric.value}</p>

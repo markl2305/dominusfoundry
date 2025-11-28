@@ -20,7 +20,13 @@ function MinimalHeader() {
     <header className="border-b border-neutral-800 bg-black/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo-full.svg" alt="Dominus Foundry" width={140} height={48} className="h-8 w-auto" />
+          <Image
+            src="/logo-full.svg"
+            alt="Dominus Foundry"
+            width={280}
+            height={96}
+            className="h-16 w-auto md:h-18"
+          />
         </Link>
         <div className="flex flex-col items-end gap-1 text-xs md:text-sm">
           <a href="tel:+18667103313" className="font-medium text-neutral-100 hover:text-emerald-400">
