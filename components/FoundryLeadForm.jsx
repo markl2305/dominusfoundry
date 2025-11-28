@@ -54,7 +54,7 @@ export default function FoundryLeadForm() {
       }
 
       gaEvent("lead_submit", {
-        form_id: "callord_main_contact",
+        form_id: "dominusfoundry_main",
         page_location: typeof window !== "undefined" ? window.location.href : "",
         page_path: typeof window !== "undefined" ? window.location.pathname : "",
       });

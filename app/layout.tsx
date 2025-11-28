@@ -1,6 +1,7 @@
 import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
 import AppShell from '../components/AppShell'
+import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -56,7 +57,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const GA_ID = GA_MEASUREMENT_ID
+  const hasRealGaId = GA_ID && GA_ID !== 'G-XXXXXXXXXX'
 
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
@@ -64,7 +66,7 @@ export default function RootLayout({
         <AppShell>{children}</AppShell>
 
         {/* Google Analytics 4 - loaded globally once */}
-        {GA_ID && (
+        {hasRealGaId && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -74,6 +76,7 @@ export default function RootLayout({
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
+                window.gtag = window.gtag || gtag;
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', {
                   send_page_view: true,
