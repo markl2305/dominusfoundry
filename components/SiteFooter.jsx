@@ -73,7 +73,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-bronze-300 pt-6 text-xs text-navy-700 sm:flex-row sm:items-center sm:justify-between">
-          <p className="body-foundry text-sm">&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information.</p>
+          <p className="body-foundry text-sm">&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information. <Link href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">Privacy &amp; Data Use</Link></p>
           <div className="flex items-center gap-2 text-sm text-navy-700">
             <Image src="/logo-crest.svg" alt="Dominus Foundry crest" width={28} height={28} className="h-7 w-7" />
             <span className="label-foundry text-forge-700">Fide et Familia</span>

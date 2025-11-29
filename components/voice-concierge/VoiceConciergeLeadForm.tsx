@@ -282,6 +282,15 @@ export default function VoiceConciergeLeadForm() {
       >
         {isSubmitting ? 'Submitting…' : 'Request Demo'}
       </button>
+
+      <p className="text-xs text-neutral-400">
+        By submitting, you agree to our{' '}
+        <a href="/privacy" className="underline font-semibold text-emerald-300 hover:text-emerald-200">
+          Privacy Policy
+        </a>
+        {' '}and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may
+        apply. Reply STOP to opt out. We do not sell your personal information.
+      </p>
     </form>
   )
 }
