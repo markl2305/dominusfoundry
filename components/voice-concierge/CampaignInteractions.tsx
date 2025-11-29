@@ -22,7 +22,7 @@ export function DemoWidgetLoader() {
     if (document.querySelector('script[data-elevenlabs-convai="true"]')) return
 
     const widget = document.createElement('elevenlabs-convai')
-    widget.setAttribute('agent-id', 'agent_7201kaj49yw7fm59vways61p4tqg')
+    widget.setAttribute('agent-id', 'agent_3001kb72g41pex2sq74tavnbze70')
     widget.setAttribute('style', 'position:fixed;bottom:16px;right:16px;z-index:50;')
     document.body.appendChild(widget)
 
