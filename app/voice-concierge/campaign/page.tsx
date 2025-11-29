@@ -110,7 +110,9 @@ function Hero() {
         </div>
 
         <div className="md:col-span-2">
-          <MiniHeroForm />
+          <Suspense fallback={<div className="text-sm text-neutral-400">Loading quick access…</div>}>
+            <MiniHeroForm />
+          </Suspense>
         </div>
       </div>
     </section>
