@@ -39,13 +39,9 @@ export function DemoWidgetLoader() {
 export function HeroCTAButtons() {
   return (
     <div className="flex flex-col gap-2">
-      <button
-        onClick={openElevenLabsWidget}
-        className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400 md:w-auto"
-      >
-        Talk to Voice Concierge Now
-      </button>
-      <p className="text-xs text-neutral-400">No phone needed—chat with our AI concierge right in your browser.</p>
+      <p className="text-sm text-neutral-200">
+        Talk to Voice Concierge now using the widget in the bottom-right (voice + text, no phone needed).
+      </p>
       <a
         href="#demo-form"
         className="inline-flex w-full items-center justify-center rounded-md bg-white/10 px-5 py-3 text-sm font-semibold text-emerald-200 ring-1 ring-emerald-400/40 transition hover:bg-white/15 md:w-auto"
@@ -77,14 +73,8 @@ export function StickyCTABars() {
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-40 hidden bg-black/70 px-4 py-3 text-sm text-white backdrop-blur md:flex md:items-center md:justify-center md:gap-4">
-        <button
-          onClick={openElevenLabsWidget}
-          className="rounded-md bg-emerald-500 px-4 py-2 font-semibold text-black shadow hover:bg-emerald-400"
-        >
-          Try Demo in Browser
-        </button>
         <a href="tel:+15052732847" className="text-emerald-200 underline">
-          Or Call: (505) 273-2847
+          Call Demo: (505) 273-2847
         </a>
         <button
           onClick={scrollToForm}
@@ -102,10 +92,10 @@ export function StickyCTABars() {
           📞 Call Demo
         </a>
         <button
-          onClick={openElevenLabsWidget}
+          onClick={scrollToForm}
           className="flex flex-1 items-center justify-center gap-2 rounded-md bg-emerald-500 px-3 py-3 font-semibold text-black"
         >
-          💬 Try in Browser
+          ✉️ Strategy Call
         </button>
       </div>
     </>
