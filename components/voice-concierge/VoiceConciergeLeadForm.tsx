@@ -29,7 +29,7 @@ const initialState: LeadState = {
 }
 
 function inputClass(extra = '') {
-  return `w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 ${extra}`
+  return `w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-3 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 ${extra}`
 }
 
 export default function VoiceConciergeLeadForm() {
@@ -38,6 +38,7 @@ export default function VoiceConciergeLeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
 
   const utms = useMemo(() => {
     const get = (key: string) => searchParams?.get(key) || ''
@@ -51,6 +52,9 @@ export default function VoiceConciergeLeadForm() {
   }, [searchParams])
 
   const leadSource = utms.utmSource || 'direct'
+  const requiredFilled =
+    Number(Boolean(values.name)) + Number(Boolean(values.email)) + Number(Boolean(values.company))
+  const progressText = `Progress: ${requiredFilled}/3 required fields complete`
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -63,6 +67,7 @@ export default function VoiceConciergeLeadForm() {
     e.preventDefault()
     setError(null)
     setIsSubmitting(true)
+    setFieldErrors({})
 
     const {
       name,
@@ -76,8 +81,13 @@ export default function VoiceConciergeLeadForm() {
       timeline,
     } = values
 
-    if (!name || !email || !company) {
-      setError('Name, email, and company are required.')
+    const errors: Record<string, string> = {}
+    if (!name) errors.name = 'Name is required'
+    if (!email) errors.email = 'Email is required'
+    if (!company) errors.company = 'Company is required'
+    if (Object.keys(errors).length) {
+      setFieldErrors(errors)
+      setError('Please complete required fields.')
       setIsSubmitting(false)
       return
     }
@@ -150,6 +160,7 @@ export default function VoiceConciergeLeadForm() {
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
+      <p className="text-xs text-neutral-400">{progressText}</p>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Name *</label>
@@ -161,6 +172,7 @@ export default function VoiceConciergeLeadForm() {
             className={inputClass()}
             autoComplete="name"
           />
+          {fieldErrors.name && <p className="text-xs text-rose-300">{fieldErrors.name}</p>}
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Email *</label>
@@ -173,6 +185,7 @@ export default function VoiceConciergeLeadForm() {
             className={inputClass()}
             autoComplete="email"
           />
+          {fieldErrors.email && <p className="text-xs text-rose-300">{fieldErrors.email}</p>}
         </div>
       </div>
 
@@ -187,6 +200,7 @@ export default function VoiceConciergeLeadForm() {
             className={inputClass()}
             autoComplete="organization"
           />
+          {fieldErrors.company && <p className="text-xs text-rose-300">{fieldErrors.company}</p>}
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Website</label>
@@ -278,10 +292,19 @@ export default function VoiceConciergeLeadForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center justify-center rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400 disabled:opacity-60"
+        className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-4 py-3 text-sm font-semibold text-black transition hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
       >
-        {isSubmitting ? 'Submitting…' : 'Request Demo'}
+        {isSubmitting ? 'Submitting…' : 'Get My Strategy Call Scheduled'}
       </button>
+
+      <div className="rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-xs text-neutral-300">
+        <p className="font-semibold text-neutral-100">What happens next?</p>
+        <ol className="mt-2 space-y-1 list-decimal list-inside">
+          <li>We review your answers the same day.</li>
+          <li>You get demo access within 24 hours.</li>
+          <li>We schedule a 30-min strategy call if it&apos;s a fit.</li>
+        </ol>
+      </div>
 
       <p className="text-xs text-neutral-400">
         By submitting, you agree to our{' '}

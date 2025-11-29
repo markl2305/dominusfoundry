@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import VoiceConciergeLeadForm from '@/components/voice-concierge/VoiceConciergeLeadForm'
+import { DemoWidgetLoader, HeroCTAButtons, MiniHeroForm, StickyCTABars } from '@/components/voice-concierge/CampaignInteractions'
 
 export const metadata: Metadata = {
   title: 'Voice Concierge Campaign | Dominus Foundry',
@@ -61,15 +62,7 @@ function Hero() {
             Built and battle-tested with real venues and service businesses, now available as a fully managed solution
             from Dominus Foundry.
           </p>
-          <div className="flex flex-col gap-2">
-            <a
-              href="#demo-form"
-              className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400 md:w-auto"
-            >
-              Request a Voice Concierge Demo
-            </a>
-            <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 273-2847</p>
-          </div>
+          <HeroCTAButtons />
         </div>
 
         <div className="rounded-2xl border border-neutral-800 bg-neutral-950/70 p-5 shadow-xl">
@@ -114,6 +107,10 @@ function Hero() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="md:col-span-2">
+          <MiniHeroForm />
         </div>
       </div>
     </section>
@@ -172,6 +169,44 @@ function CallFlow() {
           Every call is logged. You can review transcripts, see bookings, and continuously refine the script as your
           business evolves.
         </p>
+      </div>
+    </section>
+  )
+}
+
+function SocialProof() {
+  return (
+    <section className="bg-neutral-950">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-6 text-center text-sm text-neutral-200 md:flex-row md:justify-center md:gap-6">
+        <p className="font-semibold text-neutral-100">Trusted by appointment-based businesses across New Mexico</p>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-emerald-300">
+          <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Event Venues</span>
+          <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Medical Practices</span>
+          <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Professional Services</span>
+          <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Salons & Spas</span>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function PhoneCTA() {
+  return (
+    <section className="bg-neutral-950">
+      <div className="mx-auto max-w-4xl px-4 py-6">
+        <a
+          href="tel:+15052732847"
+          className="flex items-center justify-between gap-3 rounded-2xl border border-emerald-500/40 bg-neutral-900/70 px-4 py-4 text-left shadow-lg ring-1 ring-emerald-500/20 transition hover:border-emerald-400"
+        >
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15 text-lg">📞</span>
+            <div>
+              <p className="text-sm font-semibold text-white">Call Our Demo Line</p>
+              <p className="text-lg font-bold text-emerald-300">(505) 273-2847</p>
+            </div>
+          </div>
+          <span className="text-sm text-emerald-200">Lower friction: hear it live</span>
+        </a>
       </div>
     </section>
   )
@@ -323,17 +358,20 @@ function AudioDemos() {
     {
       title: 'New Booking Call',
       desc: 'A first-time caller wants to book a service. Voice Concierge handles the greeting, offers times, books the slot, and sends a confirmation text.',
-      src: '/audio/voice-concierge-demo-new-booking.mp3',
+      src: '/audio/demo-new-booking.mp3',
+      duration: '0:45',
     },
     {
       title: 'Reschedule Request',
       desc: 'Caller needs to move an appointment. The concierge checks conflicts, reschedules, and updates the calendar with notes.',
-      src: '/audio/voice-concierge-demo-reschedule.mp3',
+      src: '/audio/demo-reschedule.mp3',
+      duration: '0:38',
     },
     {
       title: 'Edge Case → Transfer to Human',
       desc: 'A VIP asks for a custom request. The concierge gathers context and live-transfers to a manager with a quick summary.',
-      src: '/audio/voice-concierge-demo-transfer.mp3',
+      src: '/audio/demo-transfer.mp3',
+      duration: '0:52',
     },
   ]
 
@@ -349,6 +387,7 @@ function AudioDemos() {
             <div key={demo.title} className="space-y-2 rounded-xl border border-neutral-800 bg-neutral-900/70 p-4">
               <h3 className="text-sm font-semibold text-neutral-100">{demo.title}</h3>
               <p className="text-xs text-neutral-400">{demo.desc}</p>
+              <p className="text-xs text-neutral-500">Duration: {demo.duration}</p>
               <audio controls className="mt-2 w-full">
                 <source src={demo.src} type="audio/mpeg" />
                 Your browser does not support the audio element.
@@ -417,7 +456,7 @@ function FinalCTA() {
           href="#demo-form"
           className="inline-flex items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400"
         >
-          Request My Voice Concierge Demo
+          Get My Strategy Call
         </a>
       </div>
     </section>
@@ -426,11 +465,15 @@ function FinalCTA() {
 
 export default function VoiceConciergeCampaignPage() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 pb-20 md:pb-0">
+      <DemoWidgetLoader />
+      <StickyCTABars />
       <MinimalHeader />
       <main className="space-y-12 md:space-y-16">
         <Hero />
+        <SocialProof />
         <CallFlow />
+        <PhoneCTA />
         <Qualification />
         <Outcomes />
         <Implementation />
