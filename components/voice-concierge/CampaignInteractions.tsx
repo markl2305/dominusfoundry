@@ -200,7 +200,8 @@ export function MiniHeroForm() {
       We’ll send the demo line and a strategy call link. We do not sell your information. See our{' '}
       <a href="/privacy" className="underline text-emerald-300 hover:text-emerald-200">
         Privacy Policy
-      </a>.
+      </a>
+      .
     </p>
   )
 }
