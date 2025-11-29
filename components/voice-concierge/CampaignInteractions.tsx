@@ -6,28 +6,31 @@ import { useSearchParams } from 'next/navigation'
 function openElevenLabsWidget() {
   if (typeof window === 'undefined') return
   const anyWin = window as any
-  if (anyWin?.ElevenLabs?.open) {
-    anyWin.ElevenLabs.open()
-  } else if (anyWin?.elevenlabs?.open) {
-    anyWin.elevenlabs.open()
-  } else {
-    console.warn('ElevenLabs widget not ready')
+  if (anyWin?.ElevenLabs?.open) return anyWin.ElevenLabs.open()
+  if (anyWin?.elevenlabs?.open) return anyWin.elevenlabs.open()
+  const widgetEl = document.querySelector('elevenlabs-convai') as HTMLElement | null
+  if (widgetEl) {
+    widgetEl.dispatchEvent(new Event('click'))
+    return
   }
+  console.warn('ElevenLabs widget not ready')
 }
 
 export function DemoWidgetLoader() {
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (document.getElementById('elevenlabs-conversational-widget')) return
+    if (document.querySelector('script[data-elevenlabs-convai="true"]')) return
+
+    const widget = document.createElement('elevenlabs-convai')
+    widget.setAttribute('agent-id', 'agent_7201kaj49yw7fm59vways61p4tqg')
+    widget.setAttribute('style', 'position:fixed;bottom:16px;right:16px;z-index:50;')
+    document.body.appendChild(widget)
+
     const script = document.createElement('script')
-    script.id = 'elevenlabs-conversational-widget'
-    script.src = 'https://cdn.elevenlabs.io/speech-synthesis-widget/1.2.0/dist/elevenlabs-widget.umd.js'
+    script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed'
     script.async = true
-    script.dataset.botId = 'VOICE_CONCIERGE_BOT_ID'
-    script.dataset.showWidget = 'true'
-    script.dataset.mode = 'voice+text'
-    script.dataset.firstMessage =
-      "Hi! I'm the Voice Concierge demo. Want to see how I'd handle a booking call for your business? Just tell me you'd like to book an appointment."
+    script.type = 'text/javascript'
+    script.dataset.elevenlabsConvai = 'true'
     document.body.appendChild(script)
   }, [])
   return <div id="elevenlabs-widget-root" />
