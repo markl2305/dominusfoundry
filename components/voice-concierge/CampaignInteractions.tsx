@@ -170,38 +170,43 @@ export function MiniHeroForm() {
   }
 
   return (
-    <form onSubmit={submit} className="flex flex-col gap-2 rounded-lg border border-neutral-800 bg-neutral-900/70 p-3 md:flex-row md:items-center md:gap-3">
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-        className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-        required
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Work email"
-        className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-        required
-      />
-      <button
-        type="submit"
-        disabled={status === 'submitting'}
-        className="w-full rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black shadow hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
+    <>
+      <form
+        onSubmit={submit}
+        className="flex flex-col gap-2 rounded-lg border border-neutral-800 bg-neutral-900/70 p-3 md:flex-row md:items-center md:gap-3"
       >
-        {status === 'submitting' ? 'Sending…' : 'Get Demo Access'}
-      </button>
-      {error && <p className="text-xs text-rose-300">{error}</p>}
-    </form>
-    <p className="mt-1 text-[11px] text-neutral-400">
-      We’ll send the demo line and a strategy call link. We do not sell your information. See our{' '}
-      <a href="/privacy" className="underline text-emerald-300 hover:text-emerald-200">
-        Privacy Policy
-      </a>
-      .
-    </p>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
+          required
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Work email"
+          className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
+          required
+        />
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className="w-full rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black shadow hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
+        >
+          {status === 'submitting' ? 'Sending…' : 'Get Demo Access'}
+        </button>
+        {error && <p className="text-xs text-rose-300">{error}</p>}
+      </form>
+      <p className="mt-1 text-[11px] text-neutral-400">
+        We’ll send the demo line and a strategy call link. We do not sell your information. See our{' '}
+        <a href="/privacy" className="underline text-emerald-300 hover:text-emerald-200">
+          Privacy Policy
+        </a>
+        .
+      </p>
+    </>
   )
 }
