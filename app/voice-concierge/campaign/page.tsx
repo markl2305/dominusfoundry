@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import VoiceConciergeLeadForm from '@/components/voice-concierge/VoiceConciergeLeadForm'
-import { DemoWidgetLoader, HeroCTAButtons, MiniHeroForm, StickyCTABars } from '@/components/voice-concierge/CampaignInteractions'
+import { DemoWidgetLoader, HeroCTAButtons, StickyCTABars } from '@/components/voice-concierge/CampaignInteractions'
 
 export const metadata: Metadata = {
   title: 'Voice Concierge Campaign | Dominus Foundry',
@@ -107,12 +107,6 @@ function Hero() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="md:col-span-2">
-          <Suspense fallback={<div className="text-sm text-neutral-400">Loading quick access…</div>}>
-            <MiniHeroForm />
-          </Suspense>
         </div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 function openElevenLabsWidget() {
   if (typeof window === 'undefined') return
@@ -98,108 +97,6 @@ export function StickyCTABars() {
           ✉️ Strategy Call
         </button>
       </div>
-    </>
-  )
-}
-
-export function MiniHeroForm() {
-  const searchParams = useSearchParams()
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle')
-  const [error, setError] = useState<string | null>(null)
-
-  const utms = useMemo(() => {
-    const get = (key: string) => searchParams?.get(key) || ''
-    return {
-      utmSource: get('utm_source'),
-      utmMedium: get('utm_medium'),
-      utmCampaign: get('utm_campaign'),
-      utmContent: get('utm_content'),
-      utmTerm: get('utm_term'),
-    }
-  }, [searchParams])
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email || !name) {
-      setError('Name and email are required.')
-      return
-    }
-    setStatus('submitting')
-    setError(null)
-    try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          source: 'voice-concierge-campaign-mini',
-          product: 'voice_concierge',
-          email,
-          firstName: name,
-          lastName: '',
-          company: '',
-          notes: 'Mini form: send demo line + schedule strategy call',
-          utmSource: utms.utmSource,
-          utmMedium: utms.utmMedium,
-          utmCampaign: utms.utmCampaign,
-          utmContent: utms.utmContent,
-          utmTerm: utms.utmTerm,
-        }),
-      })
-      if (!res.ok) throw new Error('Failed to submit')
-      setStatus('done')
-      setEmail('')
-      setName('')
-    } catch (err) {
-      console.error(err)
-      setStatus('error')
-      setError('Please try again or call the demo line.')
-    }
-  }
-
-  if (status === 'done') {
-    return <p className="text-sm text-emerald-200">Thanks—check your inbox for demo details.</p>
-  }
-
-  return (
-    <>
-      <form
-        onSubmit={submit}
-        className="flex flex-col gap-2 rounded-lg border border-neutral-800 bg-neutral-900/70 p-3 md:flex-row md:items-center md:gap-3"
-      >
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Work email"
-          className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-          required
-        />
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-          className="w-full rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-black shadow hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
-        >
-          {status === 'submitting' ? 'Sending…' : 'Get Demo Access'}
-        </button>
-        {error && <p className="text-xs text-rose-300">{error}</p>}
-      </form>
-      <p className="mt-1 text-[11px] text-neutral-400">
-        We’ll send the demo line and a strategy call link. We do not sell your information. See our{' '}
-        <a href="/privacy" className="underline text-emerald-300 hover:text-emerald-200">
-          Privacy Policy
-        </a>
-        .
-      </p>
     </>
   )
 }
