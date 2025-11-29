@@ -197,14 +197,14 @@ function PhoneCTA() {
     <section className="bg-neutral-950">
       <div className="mx-auto max-w-4xl px-4 py-6">
         <a
-          href="tel:+15052732847"
+          href="tel:+15052075211"
           className="flex items-center justify-between gap-3 rounded-2xl border border-emerald-500/40 bg-neutral-900/70 px-4 py-4 text-left shadow-lg ring-1 ring-emerald-500/20 transition hover:border-emerald-400"
         >
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15 text-lg">📞</span>
             <div>
               <p className="text-sm font-semibold text-white">Call Our Demo Line</p>
-              <p className="text-lg font-bold text-emerald-300">(505) 273-2847</p>
+              <p className="text-lg font-bold text-emerald-300">(505) 207-5211</p>
             </div>
           </div>
           <span className="text-sm text-emerald-200">Lower friction: hear it live</span>
