@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import SiteHeader from './SiteHeader'
+import { DemoWidgetLoader } from './voice-concierge/CampaignInteractions'
 
 export default function AppShell({ children }) {
   const pathname = usePathname()
@@ -11,6 +12,7 @@ export default function AppShell({ children }) {
     <>
       {!hideHeader && <SiteHeader />}
       {children}
+      <DemoWidgetLoader />
     </>
   )
 }

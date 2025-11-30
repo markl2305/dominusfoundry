@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import VoiceConciergeLeadForm from '@/components/voice-concierge/VoiceConciergeLeadForm'
-import { DemoWidgetLoader, HeroCTAButtons, StickyCTABars } from '@/components/voice-concierge/CampaignInteractions'
+import { HeroCTAButtons, StickyCTABars } from '@/components/voice-concierge/CampaignInteractions'
 
 export const metadata: Metadata = {
   title: 'Voice Concierge Campaign | Dominus Foundry',
@@ -462,7 +462,6 @@ function FinalCTA() {
 export default function VoiceConciergeCampaignPage() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 pb-20 md:pb-0">
-      <DemoWidgetLoader />
       <StickyCTABars />
       <MinimalHeader />
       <main className="space-y-12 md:space-y-16">
