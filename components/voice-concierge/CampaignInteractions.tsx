@@ -47,7 +47,7 @@ export function HeroCTAButtons() {
       >
         Request Strategy Call
       </a>
-      <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 207-5211</p>
+      <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 273-2847</p>
     </div>
   )
 }
@@ -72,8 +72,8 @@ export function StickyCTABars() {
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-40 hidden bg-black/70 px-4 py-3 text-sm text-white backdrop-blur md:flex md:items-center md:justify-center md:gap-4">
-        <a href="tel:+15052075211" className="text-emerald-200 underline">
-          Call Demo: (505) 207-5211
+        <a href="tel:+15052732847" className="text-emerald-200 underline">
+          Call Demo: (505) 273-2847
         </a>
         <button
           onClick={scrollToForm}
@@ -85,7 +85,7 @@ export function StickyCTABars() {
 
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-2 bg-black/80 px-4 py-3 text-sm text-white backdrop-blur md:hidden">
         <a
-          href="tel:+15052075211"
+          href="tel:+15052732847"
           className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white/10 px-3 py-3 font-semibold text-white ring-1 ring-white/20"
         >
           📞 Call Demo
