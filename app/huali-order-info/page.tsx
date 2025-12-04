@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import HualiPoster from '@/public/images/huali-lager-poster.png';
 import HualiHeader from '@/public/Huali.png';
+import { HualiAgentActions } from './HualiAgentActions';
 
 export const metadata: Metadata = {
   title: 'Huali Order Info | Dominus Foundry',
@@ -45,21 +46,7 @@ export default function HualiOrderInfoPage() {
                 order line directly if you prefer phone.
               </p>
 
-              <div className="space-y-3">
-                <button
-                  id="huali-call-agent"
-                  type="button"
-                  className="w-full rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-black shadow-lg shadow-amber-900/40 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-black"
-                >
-                  Call Huali Order Line
-                </button>
-                <a
-                  href="tel:5053374443"
-                  className="block text-center text-sm text-gray-300 underline underline-offset-4 hover:text-amber-200"
-                >
-                  Or call 505-337-4443 from your phone
-                </a>
-              </div>
+              <HualiAgentActions />
 
               <div className="space-y-2 text-sm text-gray-100">
                 <p className="font-semibold text-amber-100">By phone (fallback)</p>
