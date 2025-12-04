@@ -49,9 +49,6 @@ export default function HualiOrderInfoPage() {
                 <button
                   id="huali-call-agent"
                   type="button"
-                  onClick={() => {
-                    /* TODO: wire to ElevenLabs widget */
-                  }}
                   className="w-full rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-black shadow-lg shadow-amber-900/40 transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-black"
                 >
                   Call Huali Order Line
