@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Button from '../Button'
 
 function openElevenLabsWidget() {
   if (typeof window === 'undefined') return
@@ -38,14 +39,10 @@ export function DemoWidgetLoader() {
 export function HeroCTAButtons() {
   return (
     <div className="flex flex-col gap-3">
-      <button
-        type="submit"
-        form="vc-fit-call-form"
-        className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400 md:w-auto"
-      >
+      <Button href="#vc-fit-call-form" className="w-full justify-center md:w-auto">
         Book a 15-Minute Fit Call
-      </button>
-      <p className="text-xs text-neutral-400">
+      </Button>
+      <p className="text-xs sm:text-sm text-tan-200/70">
         Or click the Voice Concierge icon in the bottom-right corner to hear a live demo.
       </p>
     </div>
@@ -71,19 +68,19 @@ export function StickyCTABars() {
 
   return (
     <>
-      <div className="fixed inset-x-0 top-0 z-40 hidden bg-black/70 px-4 py-3 text-sm text-white backdrop-blur md:flex md:items-center md:justify-center">
+      <div className="fixed inset-x-0 top-0 z-40 hidden bg-navy-900/80 px-4 py-3 text-sm text-tan-100 shadow-lg backdrop-blur md:flex md:items-center md:justify-center">
         <button
           onClick={scrollToForm}
-          className="rounded-md bg-emerald-500 px-4 py-2 font-semibold text-black shadow-lg ring-1 ring-emerald-400/40 transition hover:bg-emerald-400"
+          className="rounded-lg bg-orange-600 px-5 py-2 font-semibold text-white shadow-lg ring-1 ring-orange-400/40 transition hover:bg-orange-700"
         >
           Book a 15-Minute Fit Call
         </button>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-2 bg-black/80 px-4 py-3 text-sm text-white backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-2 bg-navy-900/90 px-4 py-3 text-sm text-white backdrop-blur md:hidden">
         <button
           onClick={scrollToForm}
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-emerald-500 px-3 py-3 font-semibold text-black shadow-lg"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-orange-600 px-3 py-3 font-semibold text-white shadow-lg ring-1 ring-orange-400/40"
         >
           ✉️ Book a 15-Minute Fit Call
         </button>

@@ -302,13 +302,16 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
 
       {error && <p className="text-sm text-red-400">{error}</p>}
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-4 py-3 text-sm font-semibold text-black transition hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
-      >
-        {isSubmitting ? 'Submitting…' : 'Book My 15-Minute Fit Call'}
-      </button>
+      <div className="space-y-2">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="inline-flex w-full items-center justify-center rounded-lg bg-orange-600 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-700 disabled:opacity-60 md:w-auto"
+        >
+          {isSubmitting ? 'Submitting…' : 'Request My Fit Call'}
+        </button>
+        <p className="text-[11px] text-neutral-500">Typical calls last 15 minutes.</p>
+      </div>
 
       <div className="rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-xs text-neutral-300">
         <p className="font-semibold text-neutral-100">What happens next?</p>
