@@ -37,17 +37,17 @@ export function DemoWidgetLoader() {
 
 export function HeroCTAButtons() {
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-sm text-neutral-200">
-        Talk to Voice Concierge now using the widget in the bottom-right (voice + text, no phone needed).
-      </p>
-      <a
-        href="#demo-form"
-        className="inline-flex w-full items-center justify-center rounded-md bg-white/10 px-5 py-3 text-sm font-semibold text-emerald-200 ring-1 ring-emerald-400/40 transition hover:bg-white/15 md:w-auto"
+    <div className="flex flex-col gap-3">
+      <button
+        type="submit"
+        form="vc-fit-call-form"
+        className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400 md:w-auto"
       >
-        Request Strategy Call
-      </a>
-      <p className="text-xs text-neutral-400">Or call our demo line to hear it in action: (505) 273-2847</p>
+        Book a 15-Minute Fit Call
+      </button>
+      <p className="text-xs text-neutral-400">
+        Or click the Voice Concierge icon in the bottom-right corner to hear a live demo.
+      </p>
     </div>
   )
 }
@@ -64,37 +64,28 @@ export function StickyCTABars() {
 
   const scrollToForm = () => {
     if (typeof document === 'undefined') return
-    document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('vc-fit-call-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   if (!show) return null
 
   return (
     <>
-      <div className="fixed inset-x-0 top-0 z-40 hidden bg-black/70 px-4 py-3 text-sm text-white backdrop-blur md:flex md:items-center md:justify-center md:gap-4">
-        <a href="tel:+15052732847" className="text-emerald-200 underline">
-          Call Demo: (505) 273-2847
-        </a>
+      <div className="fixed inset-x-0 top-0 z-40 hidden bg-black/70 px-4 py-3 text-sm text-white backdrop-blur md:flex md:items-center md:justify-center">
         <button
           onClick={scrollToForm}
-          className="rounded-md bg-white/10 px-4 py-2 font-semibold text-white ring-1 ring-emerald-400/40 hover:bg-white/15"
+          className="rounded-md bg-emerald-500 px-4 py-2 font-semibold text-black shadow-lg ring-1 ring-emerald-400/40 transition hover:bg-emerald-400"
         >
-          Request Strategy Call
+          Book a 15-Minute Fit Call
         </button>
       </div>
 
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-2 bg-black/80 px-4 py-3 text-sm text-white backdrop-blur md:hidden">
-        <a
-          href="tel:+15052732847"
-          className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white/10 px-3 py-3 font-semibold text-white ring-1 ring-white/20"
-        >
-          📞 Call Demo
-        </a>
         <button
           onClick={scrollToForm}
-          className="flex flex-1 items-center justify-center gap-2 rounded-md bg-emerald-500 px-3 py-3 font-semibold text-black"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-emerald-500 px-3 py-3 font-semibold text-black shadow-lg"
         >
-          ✉️ Strategy Call
+          ✉️ Book a 15-Minute Fit Call
         </button>
       </div>
     </>

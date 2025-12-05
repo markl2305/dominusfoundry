@@ -4,6 +4,11 @@ import { FormEvent, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { event as gaEvent } from '@/lib/gtag'
 
+type VoiceConciergeLeadFormProps = {
+  variant?: 'full' | 'condensed'
+  id?: string
+}
+
 type LeadState = {
   name: string
   email: string
@@ -32,13 +37,14 @@ function inputClass(extra = '') {
   return `w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-3 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 ${extra}`
 }
 
-export default function VoiceConciergeLeadForm() {
+export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceConciergeLeadFormProps) {
   const searchParams = useSearchParams()
   const [values, setValues] = useState<LeadState>(initialState)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
+  const isCondensed = variant === 'condensed'
 
   const utms = useMemo(() => {
     const get = (key: string) => searchParams?.get(key) || ''
@@ -144,7 +150,7 @@ export default function VoiceConciergeLeadForm() {
       })
     } catch (err) {
       console.error(err)
-      setError('Something went wrong. Please try again, or call us directly.')
+      setError('Something went wrong. Please try again, or email foundry@dominusfoundry.com.')
     } finally {
       setIsSubmitting(false)
     }
@@ -153,14 +159,15 @@ export default function VoiceConciergeLeadForm() {
   if (submitted) {
     return (
       <div className="rounded-xl border border-emerald-500/40 bg-emerald-900/20 px-4 py-5 text-sm text-emerald-100">
-        Thanks—your details are in. We&apos;ll review and follow up within one business day with a demo and next steps if it&apos;s a fit.
+        Thanks—your details are in. We&apos;ll review and follow up within one business day with a live demo link and a
+        15-minute fit call if it&apos;s a match.
       </div>
     )
   }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
-      <p className="text-xs text-neutral-400">{progressText}</p>
+    <form className="space-y-4" onSubmit={handleSubmit} id={id}>
+      {!isCondensed && <p className="text-xs text-neutral-400">{progressText}</p>}
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Name *</label>
@@ -191,7 +198,7 @@ export default function VoiceConciergeLeadForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Company *</label>
+          <label className="text-sm font-medium text-neutral-200">Business name *</label>
           <input
             name="company"
             value={values.company}
@@ -201,34 +208,6 @@ export default function VoiceConciergeLeadForm() {
             autoComplete="organization"
           />
           {fieldErrors.company && <p className="text-xs text-rose-300">{fieldErrors.company}</p>}
-        </div>
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Website</label>
-          <input
-            name="website"
-            value={values.website}
-            onChange={handleChange}
-            placeholder="https://"
-            className={inputClass()}
-            autoComplete="url"
-          />
-        </div>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Industry</label>
-          <select name="industry" value={values.industry} onChange={handleChange} className={inputClass()}>
-            <option value="">Select</option>
-            <option>Med Spa / Aesthetics</option>
-            <option>Salon / Spa</option>
-            <option>Clinic / Practice</option>
-            <option>Event Venue</option>
-            <option>Home Services</option>
-            <option>Hospitality</option>
-            <option>Professional Services</option>
-            <option>Other</option>
-          </select>
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-neutral-200">Monthly call volume</label>
@@ -247,42 +226,76 @@ export default function VoiceConciergeLeadForm() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Avg appointment value</label>
-          <select
-            name="avgAppointmentValue"
-            value={values.avgAppointmentValue}
-            onChange={handleChange}
-            className={inputClass()}
-          >
-            <option value="">Select</option>
-            <option>{'<$100'}</option>
-            <option>$100–$500</option>
-            <option>$500+</option>
-          </select>
+      {!isCondensed && (
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-neutral-200">Website</label>
+            <input
+              name="website"
+              value={values.website}
+              onChange={handleChange}
+              placeholder="https://"
+              className={inputClass()}
+              autoComplete="url"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-neutral-200">Industry</label>
+            <select name="industry" value={values.industry} onChange={handleChange} className={inputClass()}>
+              <option value="">Select</option>
+              <option>Med Spa / Aesthetics</option>
+              <option>Salon / Spa</option>
+              <option>Clinic / Practice</option>
+              <option>Event Venue</option>
+              <option>Home Services</option>
+              <option>Hospitality</option>
+              <option>Professional Services</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Timeline</label>
-          <select name="timeline" value={values.timeline} onChange={handleChange} className={inputClass()}>
-            <option value="">Select</option>
-            <option>ASAP</option>
-            <option>1–3 months</option>
-            <option>3–6 months</option>
-            <option>Just exploring</option>
-          </select>
+      )}
+
+      {!isCondensed && (
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-neutral-200">Avg appointment value</label>
+            <select
+              name="avgAppointmentValue"
+              value={values.avgAppointmentValue}
+              onChange={handleChange}
+              className={inputClass()}
+            >
+              <option value="">Select</option>
+              <option>{'<$100'}</option>
+              <option>$100–$500</option>
+              <option>$500+</option>
+            </select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium text-neutral-200">Timeline</label>
+            <select name="timeline" value={values.timeline} onChange={handleChange} className={inputClass()}>
+              <option value="">Select</option>
+              <option>ASAP</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="flex flex-col gap-1">
         <label className="text-sm font-medium text-neutral-200">
-          What&apos;s the most painful part of how your phone and bookings work today?
+          {isCondensed
+            ? 'Where do missed calls or long holds hurt you most?'
+            : 'What&apos;s the most painful part of how your phone and bookings work today?'}
         </label>
         <textarea
           name="biggestIssue"
           value={values.biggestIssue}
           onChange={handleChange}
-          rows={4}
+          rows={isCondensed ? 3 : 4}
           className={inputClass()}
         />
       </div>
@@ -294,15 +307,15 @@ export default function VoiceConciergeLeadForm() {
         disabled={isSubmitting}
         className="inline-flex w-full items-center justify-center rounded-md bg-emerald-500 px-4 py-3 text-sm font-semibold text-black transition hover:bg-emerald-400 disabled:opacity-60 md:w-auto"
       >
-        {isSubmitting ? 'Submitting…' : 'Get My Strategy Call Scheduled'}
+        {isSubmitting ? 'Submitting…' : 'Book My 15-Minute Fit Call'}
       </button>
 
       <div className="rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-xs text-neutral-300">
         <p className="font-semibold text-neutral-100">What happens next?</p>
         <ol className="mt-2 space-y-1 list-decimal list-inside">
           <li>We review your answers the same day.</li>
-          <li>You get demo access within 24 hours.</li>
-          <li>We schedule a 30-min strategy call if it&apos;s a fit.</li>
+          <li>You get a live demo link within 24 hours.</li>
+          <li>We schedule a 15-minute fit call if it&apos;s a match.</li>
         </ol>
       </div>
 

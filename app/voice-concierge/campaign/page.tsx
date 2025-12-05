@@ -8,7 +8,7 @@ import { HeroCTAButtons, StickyCTABars } from '@/components/voice-concierge/Camp
 export const metadata: Metadata = {
   title: 'Voice Concierge Campaign | Dominus Foundry',
   description:
-    "High-intent landing page for Dominus Foundry's Voice Concierge: an AI phone concierge that answers calls, checks calendars, books appointments, and hands off to humans when needed.",
+    "High-intent landing page for Dominus Foundry's Voice Concierge: an AI receptionist and answering service that answers calls, checks calendars, books appointments, and hands off to humans when needed.",
   robots: {
     index: false,
     follow: false,
@@ -30,9 +30,7 @@ function MinimalHeader() {
           />
         </Link>
         <div className="flex flex-col items-end gap-1 text-xs md:text-sm">
-          <a href="tel:+18667103313" className="font-medium text-neutral-100 hover:text-emerald-400">
-            Call: (866) 710-3313
-          </a>
+          <span className="font-semibold uppercase tracking-[0.2em] text-emerald-300/90">AI Receptionist</span>
           <a href="mailto:foundry@dominusfoundry.com" className="text-neutral-400 hover:text-emerald-300">
             Email: foundry@dominusfoundry.com
           </a>
@@ -46,66 +44,58 @@ function MinimalHeader() {
 function Hero() {
   return (
     <section className="bg-gradient-to-b from-black via-neutral-950 to-neutral-900">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:items-center md:px-6 md:py-20">
-        <div className="space-y-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300/90">
-            AI Voice Concierge for Appointment-Driven Businesses
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:items-start md:px-6 md:py-20">
+        <div className="space-y-6">
+          <p className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-200">
+            AI Receptionist & Answering Service
           </p>
-          <h1 className="text-3xl font-bold leading-tight text-white md:text-4xl">
-            Never Miss a Booking Call Again.
-          </h1>
-          <p className="text-lg text-neutral-200">
-            Voice Concierge answers every call, speaks like a trained staff member, checks your live calendar, books
-            appointments, sends confirmations, and hands off to your team when it should—24/7.
-          </p>
-          <p className="text-sm text-neutral-400">
-            Built and battle-tested with real venues and service businesses, now available as a fully managed solution
-            from Dominus Foundry.
-          </p>
+          <div className="space-y-3">
+            <h1 className="text-3xl font-bold leading-tight text-white md:text-4xl">
+              AI Receptionist & Booking Agent for Appointment-Driven Businesses
+            </h1>
+            <p className="text-lg text-neutral-200">
+              Never miss a booking call again. We answer every call, qualify the caller, book appointments on your
+              calendar, and escalate the ones that matter — without hiring extra staff.
+            </p>
+            <p className="text-sm text-neutral-300">
+              Designed for appointment-driven businesses: med + wellness clinics, salons, private clubs, and other
+              venues that live and die by phone calls.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <p className="text-sm font-semibold text-white">24/7 coverage</p>
+              <p className="text-xs text-neutral-400">Overflow, after-hours, and holiday answering without voicemails.</p>
+            </div>
+            <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <p className="text-sm font-semibold text-white">Books directly</p>
+              <p className="text-xs text-neutral-400">Checks your live calendar, enforces rules, and sends confirmations.</p>
+            </div>
+            <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <p className="text-sm font-semibold text-white">Escalates smartly</p>
+              <p className="text-xs text-neutral-400">VIPs and sensitive calls get summarized and routed to your team.</p>
+            </div>
+            <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+              <p className="text-sm font-semibold text-white">Auditable transcripts</p>
+              <p className="text-xs text-neutral-400">Every call is logged so you can refine scripts and QA performance.</p>
+            </div>
+          </div>
           <HeroCTAButtons />
         </div>
 
-        <div className="rounded-2xl border border-neutral-800 bg-neutral-950/70 p-5 shadow-xl">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300">
-                📞
-              </div>
-              <div>
-                <p className="text-sm text-neutral-300">Caller rings your business</p>
-                <p className="text-xs text-neutral-500">After-hours, peak time, or overflow</p>
-              </div>
-            </div>
-            <div className="h-px bg-neutral-800" />
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/15 text-blue-200">
-                🗓️
-              </div>
-              <div>
-                <p className="text-sm text-neutral-300">Concierge checks your live calendar</p>
-                <p className="text-xs text-neutral-500">Rules, buffers, and blackout dates enforced</p>
-              </div>
-            </div>
-            <div className="h-px bg-neutral-800" />
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500/15 text-amber-200">
-                ✅
-              </div>
-              <div>
-                <p className="text-sm text-neutral-300">Books, confirms, and summarizes</p>
-                <p className="text-xs text-neutral-500">Texts/email confirmations + transcript log</p>
-              </div>
-            </div>
-            <div className="h-px bg-neutral-800" />
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/15 text-purple-200">
-                👥
-              </div>
-              <div>
-                <p className="text-sm text-neutral-300">Transfers when needed</p>
-                <p className="text-xs text-neutral-500">Edge cases, VIPs, or sensitive situations</p>
-              </div>
-            </div>
+        <div className="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 shadow-xl md:sticky md:top-8">
+          <div className="space-y-2 pb-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Start here</p>
+            <h2 className="text-xl font-semibold text-white md:text-2xl">Request Your 15-Minute Fit Call</h2>
+            <p className="text-sm text-neutral-400">
+              Share a few details and we’ll walk you through whether Voice Concierge will actually make you money — and
+              show you how it plugs into your existing calendar and tools.
+            </p>
+          </div>
+          <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <Suspense fallback={<div className="text-sm text-neutral-400">Loading form…</div>}>
+              <VoiceConciergeLeadForm variant="condensed" id="vc-fit-call-form" />
+            </Suspense>
           </div>
         </div>
       </div>
@@ -174,35 +164,13 @@ function SocialProof() {
   return (
     <section className="bg-neutral-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-6 text-center text-sm text-neutral-200 md:flex-row md:justify-center md:gap-6">
-        <p className="font-semibold text-neutral-100">Trusted by appointment-based businesses across New Mexico</p>
+        <p className="font-semibold text-neutral-100">Trusted by appointment-based businesses and private venues</p>
         <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-emerald-300">
           <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Event Venues</span>
           <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Medical Practices</span>
           <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Professional Services</span>
           <span className="rounded-full border border-emerald-500/40 px-3 py-1">✓ Salons & Spas</span>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function PhoneCTA() {
-  return (
-    <section className="bg-neutral-950">
-      <div className="mx-auto max-w-4xl px-4 py-6">
-        <a
-          href="tel:+15052732847"
-          className="flex items-center justify-between gap-3 rounded-2xl border border-emerald-500/40 bg-neutral-900/70 px-4 py-4 text-left shadow-lg ring-1 ring-emerald-500/20 transition hover:border-emerald-400"
-        >
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15 text-lg">📞</span>
-            <div>
-              <p className="text-sm font-semibold text-white">Call Our Demo Line</p>
-              <p className="text-lg font-bold text-emerald-300">(505) 273-2847</p>
-            </div>
-          </div>
-          <span className="text-sm text-emerald-200">Lower friction: hear it live</span>
-        </a>
       </div>
     </section>
   )
@@ -449,10 +417,10 @@ function FinalCTA() {
           for it—just without the system.
         </h2>
         <a
-          href="#demo-form"
+          href="#vc-fit-call-form"
           className="inline-flex items-center justify-center rounded-md bg-emerald-500 px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-emerald-400"
         >
-          Get My Strategy Call
+          Book My 15-Minute Fit Call
         </a>
       </div>
     </section>
@@ -468,28 +436,11 @@ export default function VoiceConciergeCampaignPage() {
         <Hero />
         <SocialProof />
         <CallFlow />
-        <PhoneCTA />
         <Qualification />
         <Outcomes />
         <Implementation />
         <CaseStory />
         <AudioDemos />
-        <section id="demo-form" className="bg-neutral-950">
-          <div className="mx-auto max-w-5xl space-y-4 px-4 py-12 md:px-6 md:py-16">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold text-white md:text-3xl">Request a Voice Concierge Demo & Strategy Call</h2>
-              <p className="text-sm text-neutral-400">
-                Tell us a bit about your phones, your calendar, and your bookings. We&apos;ll review your answers,
-                confirm fit, and send you a link to a live demo plus a 30–45 minute strategy call if it makes sense.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-6 md:p-8">
-              <Suspense fallback={<div className="text-sm text-neutral-400">Loading form…</div>}>
-                <VoiceConciergeLeadForm />
-              </Suspense>
-            </div>
-          </div>
-        </section>
         <FAQ />
         <FinalCTA />
       </main>
