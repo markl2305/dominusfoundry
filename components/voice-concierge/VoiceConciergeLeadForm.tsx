@@ -34,7 +34,7 @@ const initialState: LeadState = {
 }
 
 function inputClass(extra = '') {
-  return `w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-3 text-sm text-neutral-100 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 ${extra}`
+  return `w-full rounded-md border border-gray-300 bg-white px-3 py-3 text-sm text-gray-900 placeholder-gray-500 outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 ${extra}`
 }
 
 export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceConciergeLeadFormProps) {
@@ -170,25 +170,27 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
       {!isCondensed && <p className="text-xs text-neutral-400">{progressText}</p>}
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Name *</label>
+          <label className="text-sm font-medium text-gray-800">Name *</label>
           <input
             name="name"
             value={values.name}
             onChange={handleChange}
             required
+            placeholder="John Doe"
             className={inputClass()}
             autoComplete="name"
           />
           {fieldErrors.name && <p className="text-xs text-rose-300">{fieldErrors.name}</p>}
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Email *</label>
+          <label className="text-sm font-medium text-gray-800">Email *</label>
           <input
             type="email"
             name="email"
             value={values.email}
             onChange={handleChange}
             required
+            placeholder="you@company.com"
             className={inputClass()}
             autoComplete="email"
           />
@@ -198,26 +200,27 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Business name *</label>
+          <label className="text-sm font-medium text-gray-800">Business name *</label>
           <input
             name="company"
             value={values.company}
             onChange={handleChange}
             required
+            placeholder="Acme Plumbing"
             className={inputClass()}
             autoComplete="organization"
           />
           {fieldErrors.company && <p className="text-xs text-rose-300">{fieldErrors.company}</p>}
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-neutral-200">Monthly call volume</label>
+          <label className="text-sm font-medium text-gray-800">Monthly call volume</label>
           <select
             name="monthlyCallVolume"
             value={values.monthlyCallVolume}
             onChange={handleChange}
             className={inputClass()}
           >
-            <option value="">Select</option>
+            <option value="">Select volume</option>
             <option>{'<100'}</option>
             <option>100–300</option>
             <option>300–1,000</option>
@@ -229,7 +232,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
       {!isCondensed && (
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-neutral-200">Website</label>
+            <label className="text-sm font-medium text-gray-800">Website</label>
             <input
               name="website"
               value={values.website}
@@ -240,7 +243,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-neutral-200">Industry</label>
+            <label className="text-sm font-medium text-gray-800">Industry</label>
             <select name="industry" value={values.industry} onChange={handleChange} className={inputClass()}>
               <option value="">Select</option>
               <option>Med Spa / Aesthetics</option>
@@ -259,7 +262,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
       {!isCondensed && (
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-neutral-200">Avg appointment value</label>
+            <label className="text-sm font-medium text-gray-800">Avg appointment value</label>
             <select
               name="avgAppointmentValue"
               value={values.avgAppointmentValue}
@@ -273,7 +276,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
             </select>
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-neutral-200">Timeline</label>
+            <label className="text-sm font-medium text-gray-800">Timeline</label>
             <select name="timeline" value={values.timeline} onChange={handleChange} className={inputClass()}>
               <option value="">Select</option>
               <option>ASAP</option>
@@ -286,7 +289,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
       )}
 
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-neutral-200">
+        <label className="text-sm font-medium text-gray-800">
           {isCondensed
             ? 'Where do missed calls or long holds hurt you most?'
             : 'What&apos;s the most painful part of how your phone and bookings work today?'}
@@ -296,6 +299,7 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
           value={values.biggestIssue}
           onChange={handleChange}
           rows={isCondensed ? 3 : 4}
+          placeholder="Describe where missed calls or long holds cost you"
           className={inputClass()}
         />
       </div>
