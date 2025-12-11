@@ -17,7 +17,7 @@ export default function About() {
           </h1>
           <p className="mt-6 body-foundry">
             Most business owners didn't sign up for constant tech disruption. They signed up to run their business. 
-            We help them survive the changes they didn't ask for—starting with QuickBooks Desktop going away.
+            We help them survive the changes they didn't ask for—starting with the forced platform shifts that caught many teams off guard.
           </p>
         </div>
       </section>
@@ -74,8 +74,8 @@ export default function About() {
               Based in Albuquerque, serving New Mexico first
             </p>
             <p className="mt-2 body-foundry">
-              We're focused on serving local businesses in ABQ and across New Mexico before expanding nationally. 
-              If you're a New Mexico business owner facing the QB Desktop crisis, we're your neighbors.
+            We're focused on serving local businesses in ABQ and across New Mexico before expanding nationally. 
+              If you're a New Mexico business owner facing platform changes you didn't ask for, we're your neighbors.
             </p>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function About() {
           <div className="card-forged-premium bg-white rounded-2xl p-6 md:p-8">
             <h3 className="heading-forge-md text-slate-900">We have patience for people who don't love change</h3>
             <p className="mt-3 body-foundry">
-              You didn't ask for QuickBooks Desktop to go away. You didn't ask for AI to disrupt your workflows. 
+              You didn't ask for your core tools to be retired. You didn't ask for AI to disrupt your workflows. 
               We understand that frustration. We take the time to explain what's happening, why it matters, and 
               what your options are—without talking down to you.
             </p>
@@ -182,10 +182,7 @@ export default function About() {
               to help businesses navigate the broader technology landscape.
             </p>
             <p className="body-foundry">
-              Right now, that's QuickBooks Desktop migrations—because it's urgent, it fits our values, and most 
-              providers do it poorly. The revenue from QB migrations will fund AI automation services to help 
-              traditional businesses stay competitive. Then technology roadmapping to help you see what's coming. 
-              And eventually exit planning support for owners thinking about succession or sale.
+              Today that means stabilizing finance, invoicing, and communications systems when platforms change, then layering in AI-backed automation and roadmapping to keep you ahead of the next shift. Over time, we’ll add more guidance for succession and exit planning so operators can plan with confidence.
             </p>
             <p className="font-semibold text-slate-900">
               Each service builds on the last. Each one helps traditional businesses survive change with their 
@@ -212,7 +209,7 @@ export default function About() {
         <div className="text-center mb-8">
           <h2 className="heading-forge-lg">Let's work together</h2>
           <p className="mt-4 body-foundry">
-            Have questions about your technology needs? Ready to talk about QuickBooks migration? We're here to help.
+            Have questions about your technology needs? Ready to talk about where to modernize next? We're here to help.
           </p>
         </div>
 

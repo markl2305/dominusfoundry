@@ -58,7 +58,7 @@ export default function MentisPage() {
           <ul className="space-y-3 body-foundry">
             <li className="flex gap-3">
               <span className="text-forge-700 font-bold">•</span>
-              <span>QuickBooks migration and cleanup workflows that retain context about how your books are structured.</span>
+              <span>QuickBooks-aware cleanup and context that keep your books aligned with the rest of your systems.</span>
             </li>
             <li className="flex gap-3">
               <span className="text-forge-700 font-bold">•</span>

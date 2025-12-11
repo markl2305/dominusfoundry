@@ -7,9 +7,9 @@ import { createPortal } from 'react-dom'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const PRODUCTS = Object.freeze([
-  { name: 'Foundry Voice Concierge – Automated Phone Concierge', href: '/voice-concierge' },
-  { name: 'InvoiceFlow – Automated Invoicing Around QuickBooks', href: '/invoiceflow' },
-  { name: 'Orderline – Voice Ordering Capture', href: '/orderline' },
+  { name: 'Foundry Voice Concierge', href: '/voice-concierge' },
+  { name: 'InvoiceFlow', href: '/invoiceflow' },
+  { name: 'Orderline', href: '/orderline' },
 ])
 
 const NAV_ITEMS = Object.freeze([

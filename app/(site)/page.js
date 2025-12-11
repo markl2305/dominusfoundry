@@ -296,7 +296,7 @@ export default function Home() {
           <div className="space-y-3 text-center">
             <h2 className="heading-forge-lg">Tell us where your systems are breaking.</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              Share a bit about your business and where things feel heavy. We'll point you to the right Foundry build - QuickBooks migration, InvoiceFlow, Voice Concierge, or a combination.
+              Share a bit about your business and where things feel heavy. We'll point you to the right Foundry build - InvoiceFlow, Voice Concierge, Orderline, or a combination.
             </p>
           </div>
           <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">
