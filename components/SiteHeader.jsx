@@ -2,15 +2,20 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
+const SYSTEMS = Object.freeze([
+  { name: 'QuickBooks Migration & Cleanup', href: '/qb-migration' },
+  { name: 'InvoiceFlow – Automated Invoicing', href: '/invoiceflow' },
+  { name: 'Voice Concierge – Automated Phone Concierge', href: '/voice-concierge' },
+])
+
 const NAV_ITEMS = Object.freeze([
   { name: 'Home', href: '/' },
-  { name: 'QuickBooks Migration', href: '/qb-migration' },
-  { name: 'InvoiceFlow', href: '/invoiceflow' },
-  { name: 'Voice Concierge', href: '/voice-concierge' },
+  { name: 'Systems', children: SYSTEMS },
+  { name: 'Mentis', href: '/mentis' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/#talk' },
 ])
@@ -66,15 +71,34 @@ export default function SiteHeader() {
 
         {/* Desktop navigation */}
         <div className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.children ? (
+              <div key={item.name} className="relative group">
+                <span className="cursor-pointer rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
+                  {item.name}
+                </span>
+                <div className="absolute left-0 mt-2 hidden w-72 rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl backdrop-blur group-hover:block">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.name}
+                      href={child.href}
+                      className="block rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+              >
+                {item.name}
+              </Link>
+            ),
+          )}
         </div>
       </nav>
 
@@ -114,16 +138,34 @@ export default function SiteHeader() {
 
               <nav className="flow-root">
                 <div className="space-y-1">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {navItems.map((item) =>
+                    item.children ? (
+                      <Fragment key={item.name}>
+                        <p className="px-4 py-3 text-sm font-semibold text-tan-200 uppercase tracking-wide">{item.name}</p>
+                        <div className="space-y-1 pl-2">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              href={child.href}
+                              className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </Fragment>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ),
+                  )}
                 </div>
               </nav>
             </div>

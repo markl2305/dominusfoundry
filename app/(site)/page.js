@@ -5,14 +5,14 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | Systems that outwork you",
   description:
-    "Dominus Foundry builds operator-grade systems for small businesses: QuickBooks migrations, InvoiceFlow invoicing automation, and Foundry Voice Concierge AI phone agents.",
+    "Dominus Foundry builds AI-backed systems for small businesses: QuickBooks migrations, InvoiceFlow invoicing automation, and Foundry Voice Concierge automated phone concierge.",
 };
 
 const pillars = [
   {
     label: "Pillar 1",
     title: "QuickBooks Migration & Cleanup",
-    body: "For when your QuickBooks file needs a clean slate or a new structure - without risking history or operations.",
+    body: "QuickBooks Migration & Cleanup – move off legacy setups and clean up your books with a system built for how you actually operate.",
     bullets: ["Entity and file migrations", "Chart-of-accounts redesign", "Historical cleanup and mapping"],
     cta: "Explore QuickBooks Migration",
     href: "/qb-migration",
@@ -20,15 +20,15 @@ const pillars = [
   {
     label: "Pillar 2",
     title: "InvoiceFlow - Automated Invoicing Around QuickBooks",
-    body: "We build a clean, automated invoicing system around QuickBooks so invoices go out, reminders happen, and payments land without constant chasing.",
+    body: "InvoiceFlow – automated invoicing and follow-up so cash flow doesn’t depend on you chasing every bill.",
     bullets: ["Migration from spreadsheets and legacy tools", "Automated reminders and follow-up", "Clean AR inside QuickBooks"],
     cta: "Explore InvoiceFlow",
     href: "/invoiceflow",
   },
   {
     label: "Pillar 3",
-    title: "Foundry Voice Concierge - AI Phone Agent",
-    body: "An AI phone agent that answers, books, and qualifies in your brand's voice - so missed calls stop costing you bookings.",
+    title: "Foundry Voice Concierge - Automated Phone Concierge",
+    body: "Voice Concierge – an automated phone concierge that answers, qualifies, and books from your live calendar like a reliable employee.",
     bullets: ["24/7 call handling", "Booking and lead capture", "Configured to your scripts and rules"],
     cta: "Explore Voice Concierge",
     href: "/voice-concierge",
@@ -106,12 +106,11 @@ export default function Home() {
             <div className="space-y-6">
               <p className="label-foundry text-orange-200">The Foundry</p>
               <h1 className="heading-forge-xl text-white leading-tight">
-                Systems that let your business outwork you - not the other way around.
+                AI-backed systems that let your business outwork you — not the other way around.
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry font-semibold md:text-xl text-[#E7DFCF]">
-                Dominus Foundry builds and runs operator-grade systems for small businesses - from clean QuickBooks migrations
-                to automated invoicing and AI phone agents that never miss a call.
+                Dominus Foundry builds and runs AI-backed systems for small teams: clean QuickBooks migrations, automated invoicing, and an automated phone concierge that behaves like a reliable employee. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#talk" className="justify-center">
@@ -155,7 +154,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Choose the system that fits.</h2>
-            <p className="body-foundry text-slate-800 max-w-3xl mx-auto">Every pillar is built to relieve a core operational drag and keep revenue predictable.</p>
+            <p className="body-foundry text-slate-800 max-w-3xl mx-auto">Each system we offer runs on the same underlying operations intelligence, so your books, billing, and phones stay in sync instead of fighting each other.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar, idx) => (

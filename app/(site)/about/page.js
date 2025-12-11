@@ -32,6 +32,9 @@ export default function About() {
             business that's been doing things the same way for 20 years.
           </p>
           <p className="body-foundry">
+            QuickBooks Desktop going away was one of the early shocks that pushed us to build Dominus Foundry. It wasn’t just about one piece of software — it was about the pattern: tools and platforms changing under small teams, and ‘AI’ features being bolted on without any real operational thinking.
+          </p>
+          <p className="body-foundry">
             We built Dominus Foundry because we saw the gap growing. Business owners who built successful companies 
             through hard work and relationships suddenly facing forced software migrations, AI disruption, and 
             technology vendors who don't have the patience to explain what's actually happening.
@@ -189,6 +192,18 @@ export default function About() {
               dignity and their data intact.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+        <h2 className="heading-forge-lg mb-6">Why we built Mentis</h2>
+        <div className="body-foundry space-y-4">
+          <p className="body-foundry">
+            We kept seeing the same two problems: tools that didn’t talk to each other, and ‘AI’ that forgot everything you’d already done. Small teams were being told to adopt more apps and more automation, but nobody was responsible for how it all worked together.
+          </p>
+          <p className="body-foundry">
+            Mentis is our answer to that gap — an operations intelligence layer that learns from the way you actually run your business. It’s what keeps our systems coherent behind the scenes, so your books, billing, and phones feel like parts of the same whole instead of separate projects you have to manage by hand.
+          </p>
         </div>
       </section>
 
