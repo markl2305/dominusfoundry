@@ -78,16 +78,19 @@ export default function SiteHeader() {
                 <span className="cursor-pointer rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
                   {item.name}
                 </span>
-                <div className="invisible absolute left-0 top-full mt-1 min-w-[20rem] translate-y-1 rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl opacity-0 backdrop-blur transition duration-150 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.name}
-                      href={child.href}
-                      className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
-                    >
-                      {child.name}
-                    </Link>
-                  ))}
+                <div className="invisible absolute left-0 top-full mt-0 min-w-[20rem] rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl opacity-0 backdrop-blur transition duration-150 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto">
+                  <ul className="py-1">
+                    {item.children.map((child) => (
+                      <li key={child.name}>
+                        <Link
+                          href={child.href}
+                          className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+                        >
+                          {child.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ) : (
