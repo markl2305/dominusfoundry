@@ -100,7 +100,7 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="absolute inset-0 opacity-15 bg-foundry-texture" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 opacity-15 bg-foundry-texture" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 relative">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">

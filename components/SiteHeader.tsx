@@ -28,7 +28,7 @@ export default function SiteHeader() {
   const closeMobile = () => setIsMobileOpen(false)
 
   return (
-    <header className="relative border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
+    <header className="relative z-50 border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6">
         <Link
           href="/"
