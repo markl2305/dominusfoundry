@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import VoiceConciergeForm from "../../components/VoiceConciergeForm";
+import ProductInquiryForm from "../../components/ProductInquiryForm";
 
 export const metadata = {
   title: "Foundry Voice Concierge – Automated Phone Concierge | Dominus Foundry",
@@ -54,7 +54,7 @@ export default function VoiceConciergePage() {
                   Your script, escalation rules, and booking tools - built into one AI concierge.
                 </p>
               </div>
-              <VoiceConciergeForm />
+              <ProductInquiryForm product="Foundry Voice Concierge" />
               <p className="mt-4 text-xs text-slate-700">
                 Response within one business day. Transparent scope before you decide.
               </p>

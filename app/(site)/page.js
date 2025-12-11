@@ -5,7 +5,7 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | Systems that outwork you",
   description:
-    "Dominus Foundry builds AI-backed systems for small businesses: Foundry Voice Concierge, InvoiceFlow automated invoicing, Orderline voice ordering capture, and QuickBooks migrations.",
+    "Dominus Foundry builds AI-backed systems for small businesses: Foundry Voice Concierge, InvoiceFlow automated invoicing, and Orderline voice ordering capture.",
 };
 
 const pillars = [
@@ -110,7 +110,7 @@ export default function Home() {
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry font-semibold md:text-xl text-white">
-                Dominus Foundry builds and runs AI-backed systems for small teams: clean QuickBooks migrations, automated invoicing, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
+                Dominus Foundry builds and runs AI-backed systems for small teams: automated invoicing around your books, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#talk" className="justify-center">
@@ -182,20 +182,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-          <div className="card-forged rounded-2xl bg-tan-50 p-6 md:p-8 shadow-sm space-y-3">
-            <h3 className="heading-forge-md text-slate-900">QuickBooks Migration &amp; Cleanup – the foundation under everything else</h3>
-            <p className="body-foundry text-slate-900">
-              We still handle the hard part: moving off legacy setups and cleaning up tangled QuickBooks files so that InvoiceFlow, Voice Concierge, and Orderline have solid data to work from.
-            </p>
-            <div>
-              <Button href="/qb-migration" className="justify-center">Explore QuickBooks Migration</Button>
-            </div>
           </div>
         </div>
       </section>

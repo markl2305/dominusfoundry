@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { event as gaEvent } from "@/lib/gtag";
 
-export default function FoundryLeadForm() {
+export default function ProductInquiryForm({ product }) {
   const [sending, setSending] = useState(false);
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
@@ -18,23 +17,22 @@ export default function FoundryLeadForm() {
     const fullName = (formData.get("fullName") || "").trim();
     const [firstName, ...rest] = fullName.split(" ");
 
-    const interest = formData.get("interest") || "Not sure / need guidance";
-    const notes = [
-      "Foundry home inquiry",
-      `Interest: ${interest}`,
-      `What feels heavy: ${formData.get("problems")?.trim() || "Not provided"}`,
-    ].join("\n");
-
     const payload = {
       firstName: firstName || fullName,
       lastName: rest.join(" "),
       email: formData.get("email")?.trim() || "",
       phone: formData.get("phone")?.trim() || "",
       company: formData.get("company")?.trim() || "",
-      sourceSystem: interest,
-      history: "",
-      timeline: "Foundry home lead",
-      notes,
+      sourceSystem: formData.get("businessType") || "",
+      history: formData.get("callVolume") || "",
+      timeline: `${product} lead`,
+      notes: [
+        `${product} inquiry`,
+        `Business type: ${formData.get("businessType") || "Not provided"}`,
+        `Volume / demand: ${formData.get("callVolume") || "Not provided"}`,
+        `What matters most: ${formData.get("priorities")?.trim() || "Not provided"}`,
+      ].join("\n"),
+      product,
     };
 
     const res = await fetch("/api/lead", {
@@ -47,17 +45,11 @@ export default function FoundryLeadForm() {
       if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
         window.gtag("event", "generate_lead", {
           event_category: "Lead",
-          event_label: "Foundry Home",
+          event_label: product,
           value: 1,
           currency: "USD",
         });
       }
-
-      gaEvent("lead_submit", {
-        form_id: "dominusfoundry_main",
-        page_location: typeof window !== "undefined" ? window.location.href : "",
-        page_path: typeof window !== "undefined" ? window.location.pathname : "",
-      });
 
       setTimeout(() => {
         window.location.href = "/thanks";
@@ -76,7 +68,7 @@ export default function FoundryLeadForm() {
           required
           className={inputClass}
           autoComplete="name"
-          />
+        />
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -87,7 +79,7 @@ export default function FoundryLeadForm() {
             required
             className={inputClass}
             autoComplete="organization"
-            />
+          />
         </div>
         <div>
           <label className={labelClass}>Work email</label>
@@ -97,7 +89,7 @@ export default function FoundryLeadForm() {
             required
             className={inputClass}
             autoComplete="email"
-            />
+          />
         </div>
       </div>
 
@@ -109,35 +101,52 @@ export default function FoundryLeadForm() {
             required
             className={inputClass}
             autoComplete="tel"
-            />
+          />
         </div>
         <div>
-          <label className={labelClass}>What are you most interested in?</label>
+          <label className={labelClass}>What type of business do you run?</label>
           <select
-            name="interest"
+            name="businessType"
             className={inputClass}
-            defaultValue="InvoiceFlow"
+            defaultValue="Club / Event Space"
           >
-            <option>InvoiceFlow</option>
-            <option>Foundry Voice Concierge</option>
-            <option>Orderline</option>
-            <option>Not sure / need guidance</option>
+            <option>Club / Event Space</option>
+            <option>Salon</option>
+            <option>Medspa</option>
+            <option>Clinic</option>
+            <option>Restaurant / Hospitality</option>
+            <option>Other Service</option>
           </select>
         </div>
       </div>
 
-      <div>
-        <label className={labelClass}>What&apos;s breaking or too heavy right now?</label>
-        <textarea
-          name="problems"
-          rows={4}
-          className={inputClass}
-          placeholder="Tell us about your books, invoicing, call volume, or other bottlenecks."
-        />
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <label className={labelClass}>Volume / demand</label>
+          <select
+            name="callVolume"
+            className={inputClass}
+            defaultValue="200-500"
+          >
+            <option>&lt;200</option>
+            <option>200-500</option>
+            <option>500-1,500</option>
+            <option>1,500+</option>
+          </select>
+        </div>
+        <div>
+          <label className={labelClass}>What matters most?</label>
+          <textarea
+            name="priorities"
+            rows={3}
+            placeholder="Less manual work, fewer errors, faster ordering, better customer experience..."
+            className={inputClass}
+          />
+        </div>
       </div>
 
       <Button type="submit" disabled={sending} className="justify-center">
-        {sending ? "Sending…" : "Talk to the Foundry"}
+        {sending ? "Sending…" : "Request a call"}
       </Button>
 
       <p className="text-xs text-slate-700 text-center">

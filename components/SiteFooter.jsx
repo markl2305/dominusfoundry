@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'QuickBooks Migration', href: '/qb-migration' },
   { name: 'InvoiceFlow', href: '/invoiceflow' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
+  { name: 'Orderline', href: '/orderline' },
   { name: 'Contact', href: '/#talk' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
@@ -31,8 +31,8 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              A systems foundry for operators. We build and run QuickBooks migrations, InvoiceFlow invoicing systems,
-              and Voice Concierge phone agents that keep revenue and relationships on track.
+              A systems foundry for operators. We build and run InvoiceFlow invoicing systems,
+              Voice Concierge phone agents, and Orderline for voice-driven ordering to keep revenue and relationships on track.
             </p>
           </div>
 

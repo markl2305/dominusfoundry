@@ -1,4 +1,5 @@
 import Button from "../../components/Button";
+import ProductInquiryForm from "../../components/ProductInquiryForm";
 
 export const metadata = {
   title: "Orderline – Voice Ordering Capture | Dominus Foundry",
@@ -26,6 +27,18 @@ export default function OrderlinePage() {
               Book a call
             </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+          <div className="max-w-2xl">
+            <h2 className="heading-forge-lg text-slate-900 mb-4">Talk to us about Orderline</h2>
+            <p className="body-foundry text-slate-900 mb-6">
+              Share a bit about how you handle re-ordering today and we’ll walk you through how Orderline could fit into your operations.
+            </p>
+            <ProductInquiryForm product="Orderline" />
           </div>
         </div>
       </section>
