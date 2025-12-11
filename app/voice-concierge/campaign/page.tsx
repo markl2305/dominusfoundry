@@ -52,15 +52,15 @@ function Hero() {
           </p>
           <div className="space-y-4">
             <h1 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
-              AI Receptionist & Booking Agent for Appointment-Driven Businesses
+              AI Phone Concierge for Appointment-Driven Small Businesses
             </h1>
             <p className="text-base text-tan-100/90 md:text-lg">
-              Never miss a booking call again. We answer every call, qualify the caller, book appointments on your
-              calendar, and escalate the ones that matter — without hiring extra staff.
+              A managed AI “employee” that answers every call, checks your live calendar, books appointments, and
+              escalates the ones that matter—without hiring extra staff.
             </p>
             <p className="text-sm text-tan-100/70">
-              Designed for appointment-driven businesses: med + wellness clinics, salons, private clubs, and other
-              venues that live and die by phone calls.
+              Designed for appointment-driven small businesses: med + wellness clinics, salons, private clubs, home
+              services, and other teams that live and die by phone calls.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-sm text-tan-100/80">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-bronze-100">
@@ -99,6 +99,10 @@ function Hero() {
             </p>
             <p className="text-xs text-navy-600">
               No spam. No pressure. Just a practical walkthrough of whether AI answering will actually make you money.
+            </p>
+            <p className="text-xs text-navy-600">
+              This page is for owners and operators evaluating Voice Concierge for real businesses—not for testing AI
+              just for fun.
             </p>
           </div>
           <div className="rounded-xl border border-black/10 bg-white/80 p-4 shadow">
@@ -337,6 +341,37 @@ function Implementation() {
   )
 }
 
+function FoundryStack() {
+  return (
+    <section className="bg-tan-50">
+      <div className="mx-auto max-w-6xl space-y-4 px-4 py-12 md:px-6 md:py-16">
+        <h2 className="text-2xl font-semibold text-navy-900 md:text-3xl">Part of the Dominus Foundry systems stack</h2>
+        <p className="text-sm text-navy-800">
+          Voice Concierge is one pillar in the systems we build for small businesses:
+        </p>
+        <ul className="space-y-2 text-sm text-navy-800">
+          <li className="flex gap-2">
+            <span className="text-navy-700">•</span>
+            <span>Clean QuickBooks migrations and invoice flows that actually reconcile.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-navy-700">•</span>
+            <span>AI phone concierge that answers every call and books from your live calendar.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-navy-700">•</span>
+            <span>Voice-driven ordering capture that turns spoken orders into structured CSV-ready inventory lists.</span>
+          </li>
+        </ul>
+        <p className="text-sm text-navy-800">
+          On your fit call, we’ll stay focused on your phone problem—but if it’s helpful, we can flag where the rest of
+          the stack could take weight off your team later.
+        </p>
+      </div>
+    </section>
+  )
+}
+
 function CaseStory() {
   return (
     <section className="bg-tan-50">
@@ -489,6 +524,7 @@ export default function VoiceConciergeCampaignPage() {
         <Qualification />
         <Outcomes />
         <Implementation />
+        <FoundryStack />
         <CaseStory />
         <AudioDemos />
         <FAQ />
