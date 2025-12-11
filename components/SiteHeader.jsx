@@ -1,17 +1,17 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const mainNav = Object.freeze([
   { label: 'Home', href: '/' },
   { label: 'Mentis', href: '/mentis' },
-  { label: 'Products', href: '#products', isProducts: true },
+  { label: 'Products', href: '#products-menu', isProducts: true },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/#talk' },
+  { label: 'Contact', href: '/contact' },
 ])
 
 const products = Object.freeze([
@@ -59,17 +59,19 @@ export default function SiteHeader() {
                   className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
                   aria-haspopup="true"
                   aria-expanded={isProductsOpen}
+                  onClick={() => setIsProductsOpen((prev) => !prev)}
                 >
                   {item.label}
                 </button>
                 {isProductsOpen && (
                   <div className="absolute left-0 top-full z-40 mt-0 min-w-[20rem] rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl backdrop-blur">
-                    <ul className="py-1">
+                    <ul className="py-1" id="products-menu">
                       {products.map((prod) => (
                         <li key={prod.href}>
                           <Link
                             href={prod.href}
                             className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+                            onClick={() => setIsProductsOpen(false)}
                           >
                             {prod.label}
                           </Link>
