@@ -8,6 +8,15 @@ export default function ProductInquiryForm({ product }) {
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
   const labelClass = "text-sm font-semibold text-slate-900";
+  const isOrderline = product === "Orderline";
+  const volumeLabel = isOrderline ? "Order volume / re-order frequency" : "Volume / demand";
+  const volumePlaceholder = isOrderline
+    ? "Weekly restocks, 3-4 vendors, seasonal spikes..."
+    : "200-500 calls/month, busy weekends...";
+  const prioritiesLabel = isOrderline ? "How are you handling re-ordering and inventory today?" : "What matters most?";
+  const prioritiesPlaceholder = isOrderline
+    ? "E.g., we reorder via email and spreadsheets; 3–4 vendors; weekly stock checks..."
+    : "Less manual work, fewer errors, faster ordering, better customer experience...";
 
   async function submit(e) {
     e.preventDefault();
@@ -61,6 +70,7 @@ export default function ProductInquiryForm({ product }) {
 
   return (
     <form onSubmit={submit} className="grid gap-4">
+      <input type="hidden" name="product" value={product} />
       <div>
         <label className={labelClass}>Full name</label>
         <input
@@ -122,7 +132,7 @@ export default function ProductInquiryForm({ product }) {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className={labelClass}>Volume / demand</label>
+          <label className={labelClass}>{volumeLabel}</label>
           <select
             name="callVolume"
             className={inputClass}
@@ -135,11 +145,11 @@ export default function ProductInquiryForm({ product }) {
           </select>
         </div>
         <div>
-          <label className={labelClass}>What matters most?</label>
+          <label className={labelClass}>{prioritiesLabel}</label>
           <textarea
             name="priorities"
             rows={3}
-            placeholder="Less manual work, fewer errors, faster ordering, better customer experience..."
+            placeholder={prioritiesPlaceholder}
             className={inputClass}
           />
         </div>
