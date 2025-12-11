@@ -10,12 +10,13 @@ const SYSTEMS = Object.freeze([
   { name: 'QuickBooks Migration & Cleanup', href: '/qb-migration' },
   { name: 'InvoiceFlow – Automated Invoicing', href: '/invoiceflow' },
   { name: 'Voice Concierge – Automated Phone Concierge', href: '/voice-concierge' },
+  { name: 'Voice Ordering – Spoken Order Capture', href: '/voice-ordering' },
 ])
 
 const NAV_ITEMS = Object.freeze([
   { name: 'Home', href: '/' },
-  { name: 'Systems', children: SYSTEMS },
   { name: 'Mentis', href: '/mentis' },
+  { name: 'Products', children: SYSTEMS },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/#talk' },
 ])
