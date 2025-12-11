@@ -2,9 +2,9 @@ import Button from "../../components/Button";
 import InvoiceFlowForm from "../../components/InvoiceFlowForm";
 
 export const metadata = {
-  title: "InvoiceFlow - Automated Invoicing Built on QuickBooks | Dominus Foundry",
+  title: "InvoiceFlow – Automated Invoicing Around QuickBooks | Dominus Foundry",
   description:
-    "Stop chasing invoices. InvoiceFlow migrates and automates your invoicing around QuickBooks so payments land on time without babysitting.",
+    "InvoiceFlow automates invoicing and follow-up around QuickBooks so cash flow doesn’t depend on manual chasing, with context shared through Mentis.",
 };
 
 export default function InvoiceFlowPage() {
@@ -16,11 +16,11 @@ export default function InvoiceFlowPage() {
             <div className="space-y-6">
               <p className="label-foundry">InvoiceFlow Implementation</p>
               <h1 className="heading-forge-xl text-slate-900">
-                Stop Chasing Invoices. Let InvoiceFlow Clean Up Your Cash Flow.
+                InvoiceFlow – Automated Invoicing Around QuickBooks
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry">
-                We migrate your invoicing into a clean, automated system built around QuickBooks - so every invoice, payment, and reminder happens on time without you babysitting it.
+              <p className="body-foundry text-slate-900">
+                InvoiceFlow sits on top of your QuickBooks data and automates sending, reminders, and follow-up so cash flow doesn’t depend on you chasing every bill by hand. Because InvoiceFlow shares context with Voice Concierge and Orderline through Mentis, your invoicing can reflect what’s actually happening in your sales and operations, not just what’s inside QuickBooks.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#invoiceflow-form" className="justify-center">

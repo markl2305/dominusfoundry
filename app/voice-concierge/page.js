@@ -2,9 +2,9 @@ import Button from "../../components/Button";
 import VoiceConciergeForm from "../../components/VoiceConciergeForm";
 
 export const metadata = {
-  title: "Foundry Voice Concierge - AI Phone Agent | Dominus Foundry",
+  title: "Foundry Voice Concierge – Automated Phone Concierge | Dominus Foundry",
   description:
-    "Never miss a booking call again. Foundry Voice Concierge answers every call, checks your live calendar, books, sends confirmations, and transfers when it should—always on-brand.",
+    "Foundry Voice Concierge is an automated phone concierge that answers, qualifies, books on your live calendar, and escalates high-value calls for appointment-driven small businesses.",
 };
 
 export default function VoiceConciergePage() {
@@ -16,11 +16,11 @@ export default function VoiceConciergePage() {
             <div className="space-y-6">
               <p className="label-foundry">Foundry Voice Concierge</p>
               <h1 className="heading-forge-xl text-slate-900">
-                Never Miss a Booking Call Again - Without Hiring Another Receptionist.
+                Foundry Voice Concierge – Automated Phone Concierge
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry">
-                Foundry Voice Concierge is an AI phone agent that answers every call, speaks like a trained staff member, checks your live calendar, books appointments, sends confirmations, and hands off to your team when it should—24/7.
+              <p className="body-foundry text-slate-900">
+                A managed phone concierge for appointment-driven small businesses. Voice Concierge answers, qualifies, and books from your live calendar so you stop missing calls and start treating the phone like a real channel again.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#voice-concierge-form" className="justify-center">
@@ -66,31 +66,27 @@ export default function VoiceConciergePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Every missed call is a missed booking.</h2>
-            <p className="body-foundry text-slate-800">Voice Concierge answers, books, and transfers with your rules so callers stay on track and your team stays on task.</p>
+            <h2 className="heading-forge-lg">Who it’s for</h2>
+            <p className="body-foundry text-slate-800">For teams who need calls handled like a reliable employee would.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Missed calls during peak hours",
-                body: "Calls answered instantly with the right script - even when your front desk is slammed.",
-                icon: "📞",
+                title: "Appointment-driven businesses",
+                body: "Businesses that live and die by the phone and need every caller greeted and routed correctly.",
               },
               {
-                title: "Staff pulled off higher-value tasks",
-                body: "Routine questions handled by the concierge so humans focus on revenue-driving work.",
-                icon: "🎯",
+                title: "Owners without a full-time receptionist",
+                body: "Leaders who can’t add headcount but can’t afford to let calls drop.",
               },
               {
-                title: "No record of what callers asked",
-                body: "Call outcomes and details logged so follow-up never falls through the cracks.",
-                icon: "📝",
+                title: "Teams that want systems, not AI toys",
+                body: "Operators who expect clear guardrails, logs, and reliable behavior every day.",
               },
             ].map((item) => (
-              <div key={item.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
-                <div className="text-3xl" aria-hidden="true">{item.icon}</div>
-                <h3 className="mt-3 heading-forge-md text-slate-900">{item.title}</h3>
-                <p className="mt-2 body-foundry">{item.body}</p>
+              <div key={item.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm space-y-2">
+                <h3 className="heading-forge-md text-slate-900">{item.title}</h3>
+                <p className="body-foundry text-slate-800">{item.body}</p>
               </div>
             ))}
           </div>
@@ -100,33 +96,36 @@ export default function VoiceConciergePage() {
       <section className="bg-gradient-to-b from-tan-100 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Your script. Your rules. Our AI handles the rest.</h2>
-            <p className="body-foundry text-slate-800">A transparent flow with human override options baked in.</p>
+            <h2 className="heading-forge-lg">What it does</h2>
+            <p className="body-foundry text-slate-800">Clear, auditable behaviors tuned to your business.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                title: "We design your call flows",
-                body: "Greetings, FAQs, booking rules, and escalation paths designed with you.",
+                title: "Answers every call",
+                body: "Consistent, professional greeting every time—no voicemails or missed rings.",
               },
               {
-                title: "We plug into your systems",
-                body: "Connect to your booking tool or intake workflow so the agent can take action, not just talk.",
+                title: "Asks focused questions",
+                body: "Understands why the caller is reaching out and keeps the conversation on track.",
               },
               {
-                title: "Safe pilot",
-                body: "Start with limited hours or call types, monitor real calls, and refine until you’re comfortable.",
+                title: "Books on your live calendar",
+                body: "Offers times, respects buffers and rules, and confirms details on the spot.",
               },
               {
-                title: "Full rollout & stewardship",
-                body: "Expand coverage, keep transcripts flowing, and adapt the concierge as your business changes.",
+                title: "Collects and escalates",
+                body: "Captures name, phone, and email, flags high-value calls, and escalates instead of burying them.",
+              },
+              {
+                title: "Shares context",
+                body: "Transcripts and outcomes logged so follow-up is straightforward and training is easy.",
               },
             ].map((step, index) => (
               <div key={step.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
-                <p className="label-foundry">Step {index + 1}</p>
+                <p className="label-foundry">Item {index + 1}</p>
                 <h3 className="mt-2 heading-forge-md text-slate-900">{step.title}</h3>
-                <p className="mt-2 body-foundry">{step.body}</p>
-                <p className="mt-3 text-xs text-slate-700">Human override available at every step.</p>
+                <p className="mt-2 body-foundry text-slate-800">{step.body}</p>
               </div>
             ))}
           </div>
@@ -136,49 +135,32 @@ export default function VoiceConciergePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">What your AI concierge can do on day one.</h2>
-            <p className="body-foundry text-slate-800">A few written back-and-forths to show tone and control.</p>
+            <h2 className="heading-forge-lg">How it works</h2>
+            <p className="body-foundry text-slate-800">A straightforward rollout with human oversight.</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                title: "Answer FAQs about hours, pricing, and directions.",
-                script: [
-                  { speaker: "Caller", line: "Are you open past 6pm on Thursdays?" },
-                  { speaker: "Voice Concierge", line: "We're open until 7pm on Thursdays and can book you then. Would you like that time?" },
-                ],
+                title: "Connect your calendar and number",
+                body: "We connect Voice Concierge to your calendar and phone number.",
               },
               {
-                title: "Book and reschedule appointments.",
-                script: [
-                  { speaker: "Caller", line: "I need to move my appointment to next week." },
-                  { speaker: "Voice Concierge", line: "I can help with that. Is Tuesday or Wednesday better? I'll confirm via text once it's set." },
-                ],
+                title: "Define qualification and escalation",
+                body: "We define your qualification rules and escalation paths.",
               },
               {
-                title: "Capture lead details for private events.",
-                script: [
-                  { speaker: "Caller", line: "Do you host private events for 50 people?" },
-                  { speaker: "Voice Concierge", line: "Yes. I'll gather your date, headcount, and budget, then send it to the events lead for a quick follow-up." },
-                ],
+                title: "Route calls and log outcomes",
+                body: "Calls start routing through the concierge, with transcripts and outcomes logged.",
               },
               {
-                title: "Pre-qualify callers before a human jumps in.",
-                script: [
-                  { speaker: "Caller", line: "I'm interested in your membership options." },
-                  { speaker: "Voice Concierge", line: "Great. Are you looking for weekday access or full access? I can also connect you to a person right now if you prefer." },
-                ],
+                title: "Review, tune, and learn",
+                body: "You review results and we tune messaging over time, with Mentis pulling patterns from what’s working.",
               },
-            ].map((useCase) => (
-              <div key={useCase.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm space-y-3">
-                <h3 className="heading-forge-md text-slate-900">{useCase.title}</h3>
-                <div className="space-y-2 text-sm text-slate-800">
-                  {useCase.script.map((line, idx) => (
-                    <p key={idx}>
-                      <span className="font-semibold text-slate-900">{line.speaker}:</span> {line.line}
-                    </p>
-                  ))}
-                </div>
+            ].map((step, index) => (
+              <div key={step.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
+                <p className="label-foundry">Step {index + 1}</p>
+                <h3 className="mt-2 heading-forge-md text-slate-900">{step.title}</h3>
+                <p className="mt-2 body-foundry text-slate-800">{step.body}</p>
               </div>
             ))}
           </div>

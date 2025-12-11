@@ -1,20 +1,20 @@
 export const metadata = {
-  title: 'Metis QuickBooks Integration – Privacy Policy',
+  title: 'Mentis QuickBooks Integration – Privacy Policy',
   robots: {
     index: false,
     follow: false,
   },
 }
 
-export default function MetisQboPrivacyPage() {
+export default function MentisQboPrivacyPage() {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 space-y-10">
         <div className="space-y-3">
-          <p className="label-foundry text-forge-700">Metis &amp; QuickBooks</p>
-          <h1 className="heading-forge-xl text-slate-900">Metis QuickBooks Integration – Privacy Policy</h1>
+          <p className="label-foundry text-forge-700">Mentis &amp; QuickBooks</p>
+          <h1 className="heading-forge-xl text-slate-900">Mentis QuickBooks Integration – Privacy Policy</h1>
           <p className="body-foundry text-slate-700">
-            This integration connects our internal automation system (“Metis”) to our QuickBooks Online account in order to read and process accounting data such as customers,
+            This integration connects our internal automation system (“Mentis”) to our QuickBooks Online account in order to read and process accounting data such as customers,
             invoices, and payments.
           </p>
         </div>

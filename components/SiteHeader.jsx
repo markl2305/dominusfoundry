@@ -6,17 +6,18 @@ import { Fragment, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const SYSTEMS = Object.freeze([
+const PRODUCTS = Object.freeze([
+  { name: 'Foundry Voice Concierge – Automated Phone Concierge', href: '/voice-concierge' },
+  { name: 'InvoiceFlow – Automated Invoicing Around QuickBooks', href: '/invoiceflow' },
+  { name: 'Orderline – Voice Ordering Capture', href: '/orderline' },
   { name: 'QuickBooks Migration & Cleanup', href: '/qb-migration' },
-  { name: 'InvoiceFlow – Automated Invoicing', href: '/invoiceflow' },
-  { name: 'Voice Concierge – Automated Phone Concierge', href: '/voice-concierge' },
-  { name: 'Voice Ordering – Spoken Order Capture', href: '/voice-ordering' },
 ])
 
 const NAV_ITEMS = Object.freeze([
   { name: 'Home', href: '/' },
   { name: 'Mentis', href: '/mentis' },
-  { name: 'Products', children: SYSTEMS },
+  { name: 'Products', children: PRODUCTS },
+  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/#talk' },
 ])

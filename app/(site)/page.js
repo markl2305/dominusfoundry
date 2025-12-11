@@ -5,33 +5,33 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | Systems that outwork you",
   description:
-    "Dominus Foundry builds AI-backed systems for small businesses: QuickBooks migrations, InvoiceFlow invoicing automation, and Foundry Voice Concierge automated phone concierge.",
+    "Dominus Foundry builds AI-backed systems for small businesses: Foundry Voice Concierge, InvoiceFlow automated invoicing, Orderline voice ordering capture, and QuickBooks migrations.",
 };
 
 const pillars = [
   {
     label: "Pillar 1",
-    title: "QuickBooks Migration & Cleanup",
-    body: "QuickBooks Migration & Cleanup – move off legacy setups and clean up your books with a system built for how you actually operate.",
-    bullets: ["Entity and file migrations", "Chart-of-accounts redesign", "Historical cleanup and mapping"],
-    cta: "Explore QuickBooks Migration",
-    href: "/qb-migration",
+    title: "Foundry Voice Concierge – Automated Phone Concierge",
+    body: "Voice Concierge is an automated phone concierge that answers calls, qualifies callers, and books directly from your live calendar like a reliable employee, instead of another chatbot.",
+    bullets: ["24/7 call handling", "Booking and lead capture", "Configured to your scripts and rules"],
+    cta: "Explore Voice Concierge",
+    href: "/voice-concierge",
   },
   {
     label: "Pillar 2",
-    title: "InvoiceFlow - Automated Invoicing Around QuickBooks",
-    body: "InvoiceFlow – automated invoicing and follow-up so cash flow doesn’t depend on you chasing every bill.",
+    title: "InvoiceFlow – Automated Invoicing Around QuickBooks",
+    body: "InvoiceFlow automates invoicing and follow-up so cash flow doesn’t depend on you chasing every bill, and stays aligned with the way your QuickBooks data is actually structured.",
     bullets: ["Migration from spreadsheets and legacy tools", "Automated reminders and follow-up", "Clean AR inside QuickBooks"],
     cta: "Explore InvoiceFlow",
     href: "/invoiceflow",
   },
   {
     label: "Pillar 3",
-    title: "Foundry Voice Concierge - Automated Phone Concierge",
-    body: "Voice Concierge – an automated phone concierge that answers, qualifies, and books from your live calendar like a reliable employee.",
-    bullets: ["24/7 call handling", "Booking and lead capture", "Configured to your scripts and rules"],
-    cta: "Explore Voice Concierge",
-    href: "/voice-concierge",
+    title: "Orderline – Voice Ordering Capture",
+    body: "Orderline lets you talk through what needs to be ordered, turns that into structured line items, and aligns it with your inventory lists or CSVs so re-ordering runs from your own words instead of another spreadsheet.",
+    bullets: ["Voice-to-line-item capture", "Matches your inventory lists", "Exports clean structured data"],
+    cta: "Explore Orderline",
+    href: "/orderline",
   },
 ];
 
@@ -109,8 +109,8 @@ export default function Home() {
                 AI-backed systems that let your business outwork you — not the other way around.
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry font-semibold md:text-xl text-[#E7DFCF]">
-                Dominus Foundry builds and runs AI-backed systems for small teams: clean QuickBooks migrations, automated invoicing, and an automated phone concierge that behaves like a reliable employee. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
+              <p className="body-foundry font-semibold md:text-xl text-white">
+                Dominus Foundry builds and runs AI-backed systems for small teams: clean QuickBooks migrations, automated invoicing, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#talk" className="justify-center">
@@ -128,8 +128,8 @@ export default function Home() {
 
             <div className="card-forged-premium rounded-2xl p-6 shadow-xl bg-gradient-to-br from-forge-50/70 to-white text-slate-900 space-y-4">
               <h2 className="heading-forge-md">Three pillars. One systems foundry.</h2>
-              <p className="text-sm text-slate-700">
-                QuickBooks migrations, InvoiceFlow, and Foundry Voice Concierge - built and run with the same operator mindset.
+              <p className="text-sm text-slate-900">
+                Foundry Voice Concierge, InvoiceFlow, and Orderline – each built and run with the same operator mindset and tied together by Mentis.
               </p>
               <div className="space-y-3">
                 {pillars.map((pillar, index) => (
@@ -141,7 +141,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="mt-2 text-base font-semibold text-slate-900">{pillar.title}</p>
-                    <p className="text-sm text-slate-700 mt-1">{pillar.body}</p>
+                    <p className="text-sm text-slate-900 mt-1">{pillar.body}</p>
                   </div>
                 ))}
               </div>
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Choose the system that fits.</h2>
-            <p className="body-foundry text-slate-800 max-w-3xl mx-auto">Each system we offer runs on the same underlying operations intelligence, so your books, billing, and phones stay in sync instead of fighting each other.</p>
+            <p className="body-foundry text-slate-900 max-w-3xl mx-auto">Each system we offer runs on the same underlying operations intelligence, so your books, billing, and phones stay in sync instead of fighting each other.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar, idx) => (
@@ -165,9 +165,9 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="heading-forge-md text-slate-900">{pillar.title}</h3>
-                  <p className="mt-2 body-foundry">{pillar.body}</p>
+                  <p className="mt-2 body-foundry text-slate-900">{pillar.body}</p>
                 </div>
-                <ul className="space-y-2 text-sm text-slate-800">
+                <ul className="space-y-2 text-sm text-slate-900">
                   {pillar.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-2">
                       <span className="text-forge-700 font-bold">•</span>
@@ -182,6 +182,37 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+          <div className="card-forged rounded-2xl bg-tan-50 p-6 md:p-8 shadow-sm space-y-3">
+            <h3 className="heading-forge-md text-slate-900">QuickBooks Migration &amp; Cleanup – the foundation under everything else</h3>
+            <p className="body-foundry text-slate-900">
+              We still handle the hard part: moving off legacy setups and cleaning up tangled QuickBooks files so that InvoiceFlow, Voice Concierge, and Orderline have solid data to work from.
+            </p>
+            <div>
+              <Button href="/qb-migration" className="justify-center">Explore QuickBooks Migration</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-tan-100 to-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
+          <div className="space-y-3 text-center">
+            <h2 className="heading-forge-lg text-slate-900">Mentis — the operations intelligence under your systems</h2>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              Most tools and “AI features” treat every interaction like the first time. Mentis is different. It remembers how your team actually runs: which calls mattered, how invoices got paid, which orders repeat. That context quietly shapes how our systems behave.
+            </p>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              You don’t log in to Mentis all day. You feel it when your phone concierge, invoicing, and ordering start to act like parts of a single brain instead of separate projects you have to manage by hand.
+            </p>
+            <p className="text-sm text-slate-800 max-w-3xl mx-auto">
+              Mentis is available today through Foundry Voice Concierge, InvoiceFlow, and Orderline, and will grow into a fuller virtual operations brain for small teams over time.
+            </p>
           </div>
         </div>
       </section>
