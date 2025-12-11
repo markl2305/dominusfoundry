@@ -79,12 +79,12 @@ export default function SiteHeader() {
                 <span className="cursor-pointer rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
                   {item.name}
                 </span>
-                <div className="absolute left-0 mt-2 hidden min-w-[18rem] rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl backdrop-blur group-hover:block">
+                <div className="absolute left-0 mt-2 hidden min-w-[20rem] rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl backdrop-blur group-hover:block">
                   {item.children.map((child) => (
                     <Link
                       key={child.name}
                       href={child.href}
-                      className="block rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800 whitespace-normal break-words leading-snug"
+                      className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
                     >
                       {child.name}
                     </Link>
@@ -149,7 +149,7 @@ export default function SiteHeader() {
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800 whitespace-normal break-words leading-snug"
+                              className="block w-full whitespace-normal break-words leading-snug rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               {child.name}
