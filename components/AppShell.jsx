@@ -11,10 +11,10 @@ export default function AppShell({ children }) {
   const hideWidget = isHualiOrderInfo
 
   return (
-    <>
+    <div className="min-h-screen bg-tan-200 text-navy-800">
       {!hideHeader && <SiteHeader />}
-      {children}
+      <main>{children}</main>
       {!hideWidget && <DemoWidgetLoader />}
-    </>
+    </div>
   )
 }
