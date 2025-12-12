@@ -11,7 +11,7 @@ export default function OrderlinePage() {
   return (
     <>
       <section className="bg-gradient-to-b from-tan-200 to-tan-100 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2 md:items-start">
           <div className="space-y-6">
             <p className="label-foundry text-forge-800">Orderline</p>
             <h1 className="heading-forge-xl text-slate-900">Orderline – Voice Ordering Capture</h1>
@@ -20,24 +20,22 @@ export default function OrderlinePage() {
               Orderline lets you speak through what needs to be ordered, then turns that into structured line items mapped to your inventory lists or CSVs. You keep talking like a human; Orderline handles the formatting.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href="/#talk" className="justify-center">
-              Talk to the Foundry
-            </Button>
-            <Button href="/#talk" variant="forgeSecondary" className="justify-center">
-              Book a call
-            </Button>
+              <Button href="/#talk" className="justify-center">
+                Talk to the Foundry
+              </Button>
+              <Button href="/#talk" variant="forgeSecondary" className="justify-center">
+                Book a call
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-          <div className="max-w-2xl">
-            <h2 className="heading-forge-lg text-slate-900 mb-4">Talk to us about Orderline</h2>
-            <p className="body-foundry text-slate-900 mb-6">
-              Share a bit about how you handle re-ordering today and we’ll walk you through how Orderline could fit into your operations.
-            </p>
+          <div className="card-forged-premium rounded-2xl bg-white p-6 md:p-8 shadow-xl">
+            <div className="space-y-3 mb-4">
+              <h2 className="heading-forge-lg text-slate-900">Talk to us about Orderline</h2>
+              <p className="body-foundry text-slate-900">
+                Share how you handle re-ordering today—who places orders, how you track inventory, and which vendors you depend on. We’ll show you how Orderline can capture those orders by voice and return clean line items.
+              </p>
+            </div>
             <ProductInquiryForm product="Orderline" />
           </div>
         </div>
