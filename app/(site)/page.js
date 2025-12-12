@@ -134,16 +134,18 @@ export default function Home() {
               </p>
               <div className="space-y-3">
                 {pillars.map((pillar, index) => (
-                  <div key={pillar.title} className="card-forged bg-white p-4">
-                    <div className="flex items-center justify-between">
-                      <p className="label-foundry">{pillar.label}</p>
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forge-600 text-xs font-bold text-white">
-                        {index + 1}
-                      </span>
+                  <Link key={pillar.title} href={pillar.href} className="block group">
+                    <div className="card-forged bg-white p-4 transition-transform transition-colors cursor-pointer group-hover:-translate-y-0.5 group-hover:border-forge-200 group-hover:bg-white/90">
+                      <div className="flex items-center justify-between">
+                        <p className="label-foundry">{pillar.label}</p>
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forge-600 text-xs font-bold text-white">
+                          {index + 1}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-base font-semibold text-slate-900">{pillar.title}</p>
+                      <p className="text-sm text-slate-900 mt-1">{pillar.body}</p>
                     </div>
-                    <p className="mt-2 text-base font-semibold text-slate-900">{pillar.title}</p>
-                    <p className="text-sm text-slate-900 mt-1">{pillar.body}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
