@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../../components/Button";
 import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
@@ -158,29 +159,31 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar, idx) => (
-              <div key={pillar.title} className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <p className="label-foundry">{pillar.label}</p>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
+              <Link key={pillar.title} href={pillar.href} className="block group">
+                <div className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors cursor-pointer group-hover:bg-white/70 group-hover:border-forge-200">
+                  <div className="flex items-center justify-between">
+                    <p className="label-foundry">{pillar.label}</p>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="heading-forge-md text-slate-900">{pillar.title}</h3>
+                    <p className="mt-2 body-foundry text-slate-900">{pillar.body}</p>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-900">
+                    {pillar.bullets.map((bullet) => (
+                      <li key={bullet} className="flex gap-2">
+                        <span className="text-forge-700 font-bold">•</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto">
+                    <Button href={pillar.href} className="w-full justify-center">
+                      {pillar.cta}
+                    </Button>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="heading-forge-md text-slate-900">{pillar.title}</h3>
-                  <p className="mt-2 body-foundry text-slate-900">{pillar.body}</p>
-                </div>
-                <ul className="space-y-2 text-sm text-slate-900">
-                  {pillar.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-2">
-                      <span className="text-forge-700 font-bold">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto">
-                  <Button href={pillar.href} className="w-full justify-center">
-                    {pillar.cta}
-                  </Button>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
