@@ -8,6 +8,12 @@ export const metadata = {
 
 const posts = [
   {
+    title: "Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action",
+    href: "/blog/synthetic-intelligence-mentis",
+    excerpt:
+      "Synthetic intelligence is AI that executes with memory, policies, verification, and audit trails. Here’s what’s coming and how Mentis fits.",
+  },
+  {
     title: "Beyond Chatbots: Why Small Teams Need Operations Intelligence",
     href: "/blog/operations-intelligence-for-small-teams",
     excerpt:
