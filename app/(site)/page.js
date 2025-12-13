@@ -111,7 +111,7 @@ export default function Home() {
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry font-semibold md:text-xl text-white">
-                Dominus Foundry builds and runs AI-backed systems for small teams: automated invoicing around your books, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
+                Dominus Foundry builds and runs AI-backed systems for founder-led teams: automated invoicing around your books, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#talk" className="justify-center">
@@ -202,7 +202,7 @@ export default function Home() {
               You don’t log in to Mentis all day. You feel it when your phone concierge, invoicing, and ordering start to act like parts of a single brain instead of separate projects you have to manage by hand.
             </p>
             <p className="text-sm text-slate-800 max-w-3xl mx-auto">
-              Mentis is available today through Foundry Voice Concierge, InvoiceFlow, and Orderline, and will grow into a fuller virtual operations brain for small teams over time.
+              Mentis is available today through Foundry Voice Concierge, InvoiceFlow, and Orderline, and will grow into a fuller virtual operations brain for modern teams over time.
             </p>
           </div>
         </div>
