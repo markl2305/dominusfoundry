@@ -8,6 +8,12 @@ export const metadata = {
 
 const posts = [
   {
+    title: "The Case for Constitutional Synthetic Intelligence",
+    href: "/blog/the-case-for-constitutional-synthetic-intelligence",
+    excerpt:
+      "The AI industry is racing toward capability. Almost no one is racing toward accountability. What if we built the governance layer first?",
+  },
+  {
     title: "Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action",
     href: "/blog/synthetic-intelligence-mentis",
     excerpt:
