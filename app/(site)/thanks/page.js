@@ -1,3 +1,11 @@
+export const metadata = {
+  title: "Thanks — Dominus Foundry",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default function Thanks() {
   return (
     <section className="mx-auto max-w-3xl px-4 py-24 text-center">

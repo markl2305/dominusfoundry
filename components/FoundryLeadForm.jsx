@@ -1,14 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Button from "./Button";
 import { event as gaEvent } from "@/lib/gtag";
 
 export default function FoundryLeadForm() {
   const [sending, setSending] = useState(false);
+  const searchParams = useSearchParams();
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
   const labelClass = "text-sm font-semibold text-slate-900";
+
+  const interestOptions = [
+    "Voice Concierge (Flagship)",
+    "Lead Intake to Booking",
+    "Client Onboarding Engine",
+    "Lead-to-Cash (Invoicing + AR)",
+    "Support Triage Desk",
+    "Ops Reporting & Intelligence",
+    "Document & Compliance Automations",
+    "Recruiting & Hiring Pipeline",
+    "Vendor & Purchasing Workflow",
+    "Mentis Standard (OS upgrade)",
+    "Not sure / need guidance",
+  ];
+  const interestParam = searchParams?.get("interest");
+  const interestDefault = interestOptions.includes(interestParam)
+    ? interestParam
+    : "Not sure / need guidance";
 
   async function submit(e) {
     e.preventDefault();
@@ -116,12 +136,11 @@ export default function FoundryLeadForm() {
           <select
             name="interest"
             className={inputClass}
-            defaultValue="InvoiceFlow"
+            defaultValue={interestDefault}
           >
-            <option>InvoiceFlow</option>
-            <option>Foundry Voice Concierge</option>
-            <option>Orderline</option>
-            <option>Not sure / need guidance</option>
+            {interestOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </div>
       </div>

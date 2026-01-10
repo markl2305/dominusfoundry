@@ -12,13 +12,15 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: 'Dominus Foundry | QuickBooks Desktop Migration & Tech Transitions',
-  description: 'Helping traditional New Mexico businesses survive technological change with patience and personal care. Expert QuickBooks Desktop migration, AI automation, and tech roadmapping for family-owned businesses.',
-  keywords: ['QuickBooks Desktop migration', 'Albuquerque business technology', 'New Mexico tech consulting', 'small business automation', 'family business technology'],
+  title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+  description:
+    'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
+  keywords: ['business tools', 'operator-grade systems', 'governed automation', 'audit trails', 'Mentis'],
   authors: [{ name: 'Mark & Bri Lord' }],
   openGraph: {
-    title: 'Dominus Foundry | Tech Transitions for Traditional Businesses',
-    description: 'Expert guidance for family-owned businesses navigating technological change in New Mexico.',
+    title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+    description:
+      'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry',
     images: [
@@ -34,8 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry | Tech Transitions for Traditional Businesses',
-    description: 'Expert guidance for family-owned businesses navigating technological change in New Mexico.',
+    title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+    description:
+      'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
     images: ['/og-image.png'],
   },
   icons: {

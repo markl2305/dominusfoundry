@@ -195,7 +195,7 @@ Many agents can *take actions.* Synthetic intelligence emphasizes **governance, 
 ### Where does Mentis fit?
 Mentis is operations intelligence: a context + orchestration layer designed to reduce operational drag and keep execution coherent as your business grows.
 
-### Is this just for small teams?
+### Is this just for teams?
 No. The same intelligence layer that keeps founder-led operations coherent can scale into enterprise environments—because the core problem is coordination across tools and time.
 
 ---
@@ -207,4 +207,3 @@ The future of AI in business isn’t louder promises. It’s quieter reliability
 Synthetic intelligence is the move from answers to outcomes—coordinated execution under policy, with verification and audit trails. That’s the direction Mentis is being built for.
 
 If you’re building for durability—operations that don’t collapse under growth—this is the layer to watch.
-

@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Foundry Notes | Dominus Foundry Blog",
   description:
-    "Short essays on operations intelligence, AI-backed systems, and how small teams can stay in control as tools change.",
+    "Short essays on operations intelligence, AI-backed systems, and how teams can stay in control as tools change.",
 };
 
 const posts = [
@@ -20,10 +20,10 @@ const posts = [
       "Synthetic intelligence is AI that executes with memory, policies, verification, and audit trails. Here’s what’s coming and how Mentis fits.",
   },
   {
-    title: "Beyond Chatbots: Why Small Teams Need Operations Intelligence",
+    title: "Beyond Chatbots: Why Teams Need Operations Intelligence",
     href: "/blog/operations-intelligence-for-small-teams",
     excerpt:
-      "Most “AI features” don’t understand how your business works. Operations intelligence is the layer that remembers the story across calls, invoices, and orders.",
+      "Most “AI features” don’t understand how your operation works. Operations intelligence is the layer that remembers the story across calls, invoices, and orders.",
   },
 ];
 
@@ -34,8 +34,8 @@ export default function BlogIndexPage() {
         <div className="space-y-3">
           <h1 className="heading-forge-lg text-slate-900">Foundry Notes</h1>
           <p className="body-foundry text-slate-900">
-            Short essays on where operations, AI-backed systems, and small teams are headed — and how to stay in control
-            as the tools keep changing.
+            Short essays on where operations, AI-backed systems, and teams are headed — and how to stay in control as the
+            tools keep changing.
           </p>
         </div>
         <div className="space-y-4">

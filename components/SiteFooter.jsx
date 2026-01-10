@@ -3,12 +3,14 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'InvoiceFlow', href: '/invoiceflow' },
+  { name: 'Business Tools', href: '/business-tools' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
-  { name: 'Orderline', href: '/orderline' },
-  { name: 'Contact', href: '/#talk' },
+  { name: 'Mentis', href: '/mentis' },
+  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
   { name: 'Privacy', href: '/privacy' },
+  { name: 'Mentis Login', href: 'https://metis.dominusfoundry.com', external: true },
 ]
 
 export default function SiteFooter() {
@@ -31,8 +33,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              A systems foundry for operators. We build and run InvoiceFlow invoicing systems,
-              Voice Concierge phone agents, and Orderline for voice-driven ordering to keep revenue and relationships on track.
+              We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.
             </p>
           </div>
 
@@ -42,12 +43,23 @@ export default function SiteFooter() {
               <ul className="mt-4 space-y-3">
                 {links.map((item) => (
                   <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
-                    >
-                      {item.name}
-                    </Link>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

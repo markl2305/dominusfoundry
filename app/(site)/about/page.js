@@ -3,7 +3,7 @@ import ContactForm from "../../../components/ContactForm";
 
 export const metadata = {
   title: 'About — Dominus Foundry',
-  description: 'We help traditional businesses survive technological change. Based in Albuquerque, built for the long haul.'
+  description: 'A business tool foundry built by the Lord family. Based in Albuquerque, built for the long haul.'
 };
 
 export default function About() {
@@ -16,8 +16,8 @@ export default function About() {
             We Build Bridges Through Technological Change
           </h1>
           <p className="mt-6 body-foundry">
-            Most business owners didn't sign up for constant tech disruption. They signed up to run their business. 
-            We help them survive the changes they didn't ask for—starting with the forced platform shifts that caught many teams off guard.
+            Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
+            We help them cross the changes they didn&apos;t ask for—with governed tools that preserve human sovereignty and operational clarity.
           </p>
         </div>
       </section>
@@ -27,21 +27,21 @@ export default function About() {
         <h2 className="heading-forge-lg text-slate-900">Why We Started Dominus Foundry</h2>
         <div className="mt-6 space-y-4 body-foundry">
           <p className="body-foundry">
-            Technology changes faster than most businesses can adapt. AI, cloud software, platform migrations—it's 
-            relentless. And the people selling these changes rarely understand what it's like to run a traditional 
-            business that's been doing things the same way for 20 years.
+            Technology changes faster than most teams can adapt. AI, cloud platforms, forced migrations—it&apos;s relentless.
+            And the people selling these shifts rarely understand what it takes to run a real operation under pressure.
           </p>
           <p className="body-foundry">
-            QuickBooks Desktop going away was one of the early shocks that pushed us to build Dominus Foundry. It wasn’t just about one piece of software — it was about the pattern: tools and platforms changing under small teams, and ‘AI’ features being bolted on without any real operational thinking.
+            QuickBooks Desktop going away was one early shock that pushed us to build Dominus Foundry. It wasn&apos;t about
+            one piece of software—it was the pattern: tools changing underneath operators and &quot;AI&quot; features being bolted
+            on without governance or ownership.
           </p>
           <p className="body-foundry">
-            We built Dominus Foundry because we saw the gap growing. Business owners who built successful companies 
-            through hard work and relationships suddenly facing forced software migrations, AI disruption, and 
-            technology vendors who don't have the patience to explain what's actually happening.
+            We built Dominus Foundry to close that gap. Operators who built durable businesses deserve tools that are
+            governed, auditable, and built to last—not hype projects that drift when stakes rise.
           </p>
           <p className="body-foundry">
-            QuickBooks Desktop going away is just the first crisis. There will be more. We're here to help traditional 
-            business owners navigate these transitions without losing their financial history, their sanity, or their business.
+            There will be more shifts ahead. We&apos;re here to help teams navigate them without losing their financial
+            history, their clarity, or their control.
           </p>
         </div>
       </section>
@@ -53,8 +53,8 @@ export default function About() {
           
           <div className="space-y-6 body-foundry">
             <p className="body-foundry">
-              Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque, New Mexico. 
-              We're building this for the long haul, eventually bringing in our daughter Belle as she 
+              Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque. 
+              We&apos;re building this for the long haul, eventually bringing in our daughter Belle as she 
               builds her own ventures.
             </p>
             <p className="body-foundry">
@@ -71,11 +71,10 @@ export default function About() {
             <p className="heading-forge-md text-slate-900">Founder panel</p>
             <p className="text-sm text-slate-700">Portrait coming soon.</p>
             <p className="mt-4 body-foundry">
-              Based in Albuquerque, serving New Mexico first
+              Based in Albuquerque, building for teams nationwide
             </p>
             <p className="mt-2 body-foundry">
-            We're focused on serving local businesses in ABQ and across New Mexico before expanding nationally. 
-              If you're a New Mexico business owner facing platform changes you didn't ask for, we're your neighbors.
+              We work with operators who need governed tools that can stand up to real usage and real accountability.
             </p>
           </div>
         </div>
@@ -120,33 +119,31 @@ export default function About() {
           <h2 className="heading-forge-lg text-white mb-6">Who We Work With</h2>
           <div className="text-lg text-bronze-200 space-y-4">
             <p className="body-foundry text-bronze-100">
-              We work with established business owners who've been running their companies for 15-25 years. 
-              You're profitable, you employ 5-50 people, and you've built something lasting. But the rapid pace 
-              of technological change is exhausting.
+              We work with owner-operators and ops leads who&apos;ve built something lasting. You&apos;re profitable,
+              you run real teams, and you&apos;re tired of tools that create chaos instead of clarity.
             </p>
             <p className="font-semibold text-white text-xl mt-6">You're a good fit if:</p>
             <ul className="space-y-3 ml-6 mt-4">
               <li className="flex gap-3">
                 <span className="text-forge-100 font-bold text-xl">✓</span>
-                <span>You use technology because you have to, not because you love it</span>
+                <span>You want governed tools, not hype or experiments</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-forge-100 font-bold text-xl">✓</span>
-                <span>Change frustrates you, but you're willing to adapt when necessary</span>
+                <span>You value audit trails, clear ownership, and reliable handoffs</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-forge-100 font-bold text-xl">✓</span>
-                <span>You value quality work and personal service over the cheapest option</span>
+                <span>You value quality work and long-term stewardship</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-forge-100 font-bold text-xl">✓</span>
-                <span>You've built something you're proud of and want to protect it</span>
+                <span>You&apos;ve built something you&apos;re proud of and want to protect it</span>
               </li>
             </ul>
             <p className="mt-6 text-bronze-200">
-              If you're extremely price-sensitive or completely unwilling to adapt to necessary changes, 
-              we're probably not the right fit. But if you want a partner who understands your frustration 
-              and will guide you through unavoidable transitions with patience and care, let's talk.
+              If you&apos;re extremely price-sensitive or want to outsource responsibility entirely, we&apos;re probably not the right fit.
+              But if you want a partner who understands operational reality and will forge tools with governance, let&apos;s talk.
             </p>
           </div>
         </div>
@@ -178,15 +175,14 @@ export default function About() {
           <h2 className="heading-forge-lg mb-6">Our Service Philosophy</h2>
           <div className="body-foundry space-y-4">
             <p className="body-foundry">
-              We're building Dominus Foundry one service at a time, starting with immediate crises and expanding 
-              to help businesses navigate the broader technology landscape.
+              We forge one tool at a time, focused on the bottleneck that matters most right now.
             </p>
             <p className="body-foundry">
-              Today that means stabilizing finance, invoicing, and communications systems when platforms change, then layering in AI-backed automation and roadmapping to keep you ahead of the next shift. Over time, we’ll add more guidance for succession and exit planning so operators can plan with confidence.
+              When multiple tools must coordinate, we upgrade the operating model with Mentis so governance, memory, and
+              accountability stay intact across the suite.
             </p>
             <p className="font-semibold text-slate-900">
-              Each service builds on the last. Each one helps traditional businesses survive change with their 
-              dignity and their data intact.
+              Each build is durable, documented, and built to last.
             </p>
           </div>
         </div>
@@ -196,10 +192,12 @@ export default function About() {
         <h2 className="heading-forge-lg mb-6">Why we built Mentis</h2>
         <div className="body-foundry space-y-4">
           <p className="body-foundry">
-            We kept seeing the same two problems: tools that didn’t talk to each other, and ‘AI’ that forgot everything you’d already done. Small teams were being told to adopt more apps and more automation, but nobody was responsible for how it all worked together.
+            We kept seeing the same two problems: tools that didn’t talk to each other, and automation that forgot everything
+            you’d already done. Teams were told to add more apps, but nobody owned how it all worked together.
           </p>
           <p className="body-foundry">
-            Mentis is our answer to that gap — an operations intelligence layer that learns from the way you actually run your business. It’s what keeps our systems coherent behind the scenes, so your books, billing, and phones feel like parts of the same whole instead of separate projects you have to manage by hand.
+            Mentis is our answer — the Human-Governed Intelligence layer that keeps multiple tools coherent behind the scenes,
+            so calls, cash flow, onboarding, and reporting behave like one governed system.
           </p>
         </div>
       </section>
@@ -221,7 +219,7 @@ export default function About() {
 
         <p className="text-sm text-slate-700 text-center mt-3">We respond within one business day.</p>
         <div className="mt-6 text-center text-sm text-navy-600">
-          Based in Albuquerque, New Mexico • Serving NM businesses first
+          Based in Albuquerque, New Mexico
         </div>
       </section>
     </>

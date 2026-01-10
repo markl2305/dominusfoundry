@@ -59,8 +59,8 @@ function Hero() {
               escalates the ones that matter—without hiring extra staff.
             </p>
             <p className="text-sm text-tan-100/70">
-              Designed for appointment-driven small businesses: med + wellness clinics, salons, private clubs, home
-              services, and other teams that live and die by phone calls.
+              Designed for appointment-driven teams: med + wellness clinics, salons, private clubs, home services, and
+              other operators who live and die by phone calls.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-sm text-tan-100/80">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-bronze-100">
@@ -347,7 +347,7 @@ function FoundryStack() {
       <div className="mx-auto max-w-6xl space-y-4 px-4 py-12 md:px-6 md:py-16">
         <h2 className="text-2xl font-semibold text-navy-900 md:text-3xl">Part of the Dominus Foundry systems stack</h2>
         <p className="text-sm text-navy-800">
-          Voice Concierge is one pillar in the systems we build for small businesses:
+          Voice Concierge is the flagship live tool in the systems we build for teams:
         </p>
         <ul className="space-y-2 text-sm text-navy-800">
           <li className="flex gap-2">

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Beyond Chatbots: Why Small Teams Need Operations Intelligence",
+  title: "Beyond Chatbots: Why Teams Need Operations Intelligence",
   description:
-    "Why small teams need an operations intelligence layer instead of more chatbots—memory, context, and behavior across calls, invoices, and orders.",
+    "Why teams need an operations intelligence layer instead of more chatbots—memory, context, and behavior across calls, invoices, and orders.",
 };
 
 export default function OperationsIntelligenceArticle() {
@@ -11,7 +11,7 @@ export default function OperationsIntelligenceArticle() {
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4 space-y-6">
         <p className="label-foundry text-forge-700">Foundry Notes</p>
-        <h1 className="heading-forge-lg text-slate-900">Beyond Chatbots: Why Small Teams Need Operations Intelligence</h1>
+        <h1 className="heading-forge-lg text-slate-900">Beyond Chatbots: Why Teams Need Operations Intelligence</h1>
         <h2 className="heading-forge-md text-slate-800">
           The next step isn’t another assistant — it’s a brain that understands your operations.
         </h2>
@@ -19,9 +19,9 @@ export default function OperationsIntelligenceArticle() {
         <div className="body-foundry space-y-4 text-slate-900">
           <p>There’s no shortage of “AI” right now.</p>
           <p>
-            Inbox copilots, chat bubbles on every website, auto-generated summaries — it’s all everywhere. For small
-            teams, that can sound promising. If a tool can write a paragraph or answer a question, surely it can take
-            some pressure off the business.
+            Inbox copilots, chat bubbles on every website, auto-generated summaries — it’s all everywhere. For teams,
+            that can sound promising. If a tool can write a paragraph or answer a question, surely it can take some
+            pressure off the business.
           </p>
           <p>
             But after the novelty wears off, something becomes obvious: most of these tools don’t really understand how
@@ -31,7 +31,7 @@ export default function OperationsIntelligenceArticle() {
           <p>That gap is where operations intelligence lives.</p>
 
           <h3 className="heading-forge-md text-slate-900">Tools vs. operations</h3>
-          <p>A typical small team is already surrounded by tools:</p>
+          <p>A typical team is already surrounded by tools:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>a bookkeeping system</li>
             <li>invoicing or billing</li>
@@ -94,9 +94,9 @@ export default function OperationsIntelligenceArticle() {
             operations and nudges your systems accordingly.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">What this looks like in practice for small teams</h3>
+          <h3 className="heading-forge-md text-slate-900">What this looks like in practice for operator teams</h3>
           <p>
-            For a small business, operations intelligence doesn’t need to be a giant platform. It can start with a few
+            For a lean team, operations intelligence doesn’t need to be a giant platform. It can start with a few
             concrete behaviors:
           </p>
           <ul className="list-disc pl-6 space-y-2">
@@ -120,7 +120,7 @@ export default function OperationsIntelligenceArticle() {
 
           <h3 className="heading-forge-md text-slate-900">Why this matters now</h3>
           <p>
-            The number of tools isn’t going down. Neither is the pressure on small teams. It’s easy to end up with a
+            The number of tools isn’t going down. Neither is the pressure on teams. It’s easy to end up with a
             stack of disconnected products, each promising help, while the real weight — keeping the whole thing
             coherent — still falls on you.
           </p>

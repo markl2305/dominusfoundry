@@ -4,7 +4,7 @@ import ProductInquiryForm from "../../components/ProductInquiryForm";
 export const metadata = {
   title: "Foundry Voice Concierge – Automated Phone Concierge | Dominus Foundry",
   description:
-    "Foundry Voice Concierge is an automated phone concierge that answers, qualifies, books on your live calendar, and escalates high-value calls for appointment-driven small businesses.",
+    "Foundry Voice Concierge is an automated phone concierge that answers, qualifies, books on your live calendar, and escalates high-value calls for appointment-driven teams.",
 };
 
 export default function VoiceConciergePage() {
@@ -20,7 +20,7 @@ export default function VoiceConciergePage() {
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry text-slate-900">
-                A managed phone concierge for appointment-driven small businesses. Voice Concierge answers, qualifies, and books from your live calendar so you stop missing calls and start treating the phone like a real channel again.
+                A managed phone concierge for appointment-driven teams and operators. Voice Concierge answers, qualifies, and books from your live calendar so you stop missing calls and start treating the phone like a real channel again.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#voice-concierge-form" className="justify-center">
@@ -72,8 +72,8 @@ export default function VoiceConciergePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Appointment-driven businesses",
-                body: "Businesses that live and die by the phone and need every caller greeted and routed correctly.",
+                title: "Appointment-driven teams",
+                body: "Operators who live and die by the phone and need every caller greeted and routed correctly.",
               },
               {
                 title: "Owners without a full-time receptionist",
@@ -170,17 +170,17 @@ export default function VoiceConciergePage() {
       <section className="bg-gradient-to-b from-navy-50 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Safe, on-brand, and always under your control.</h2>
-            <p className="body-foundry text-slate-800">Guardrails for skeptical operators who can&apos;t risk brand damage.</p>
+            <h2 className="heading-forge-lg">Integration-ready and operator-controlled.</h2>
+            <p className="body-foundry text-slate-800">Calendars, CRM logging, and routing options that keep the phone channel grounded.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              "Agent uses only scripts and policies you approve.",
-              "Sensitive questions or edge cases escalate to humans immediately.",
-              "Human override option for callers who want a person right away.",
-              "Call logs and transcripts available for review and training.",
-              "Versioned scripts so you always know what's live.",
-              "We co-manage updates as your offers, hours, or policies change.",
+              "Calendar connections with buffers and booking rules intact.",
+              "CRM logging with call outcomes and transcripts for accountability.",
+              "Routing options: forward your existing number or use IVR handoff.",
+              "After-hours and overflow coverage without disrupting your front desk.",
+              "Live transfer or callback escalation when stakes are high.",
+              "Disposition tagging for QA, reporting, and coaching.",
             ].map((item) => (
               <div key={item} className="card-forged rounded-2xl bg-white p-6 shadow-sm flex gap-3">
                 <span className="text-forge-700 font-bold mt-1">✓</span>
@@ -228,6 +228,51 @@ export default function VoiceConciergePage() {
               <Button href="#voice-concierge-form" className="justify-center">Talk About a Pilot</Button>
               <Button href="tel:+18667103313" variant="forgeSecondary" className="justify-center">Call the team</Button>
             </div>
+          </div>
+          <div className="card-forged rounded-2xl bg-white p-6 md:p-8 shadow-sm space-y-4">
+            <div className="space-y-2">
+              <p className="label-foundry">Pilot design</p>
+              <h3 className="heading-forge-md text-slate-900">Start small, prove outcomes.</h3>
+            </div>
+            <ul className="space-y-3 text-slate-800">
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Start after-hours or limited hours to reduce risk.</span></li>
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Define success metrics: missed call reduction, bookings captured, escalation rate.</span></li>
+              <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Review transcripts and outcomes before expanding coverage.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="heading-forge-lg">Governance guardrails</h2>
+            <p className="body-foundry text-slate-800">Clear disclosure, escalation, and auditability before you go live.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Disclosure policy",
+                body: "You choose how and when callers are told they&apos;re speaking with an AI concierge.",
+              },
+              {
+                title: "Escalation rules",
+                body: "Edge cases route to humans immediately with clear handoff expectations.",
+              },
+              {
+                title: "Audit trail",
+                body: "Every call is logged with transcripts, outcomes, and disposition tags.",
+              },
+              {
+                title: "Versioned scripts",
+                body: "Every script update is tracked so you always know what&apos;s live.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm space-y-2">
+                <h3 className="heading-forge-md text-slate-900">{item.title}</h3>
+                <p className="body-foundry text-slate-800">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

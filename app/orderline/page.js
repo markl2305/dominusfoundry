@@ -5,6 +5,10 @@ export const metadata = {
   title: "Orderline – Voice Ordering Capture | Dominus Foundry",
   description:
     "Orderline lets you speak through orders, turning voice into structured line items aligned to your inventory lists so re-ordering runs from your own words.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function OrderlinePage() {

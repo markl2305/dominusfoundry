@@ -1,5 +1,3 @@
-import SiteFooter from '../../components/SiteFooter'
-
 export default function SiteLayout({
   children,
 }: {
@@ -8,7 +6,6 @@ export default function SiteLayout({
   return (
     <div className="min-h-screen bg-tan-200 text-navy-800 flex flex-col">
       <main className="flex-1">{children}</main>
-      <SiteFooter />
     </div>
   )
 }

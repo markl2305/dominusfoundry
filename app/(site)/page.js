@@ -1,38 +1,51 @@
-import Link from "next/link";
 import Button from "../../components/Button";
 import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Systems that outwork you",
+  title: "Dominus Foundry | Business tools forged for the AI era",
   description:
-    "Dominus Foundry builds AI-backed systems for small businesses: Foundry Voice Concierge, InvoiceFlow automated invoicing, and Orderline voice ordering capture.",
+    "Business tools forged for the AI era. Operator-grade systems that reduce operational drag while staying governed and auditable.",
 };
 
-const pillars = [
+const outcomes = [
   {
-    label: "Pillar 1",
-    title: "Foundry Voice Concierge – Automated Phone Concierge",
-    body: "Voice Concierge is an automated phone concierge that answers calls, qualifies callers, and books directly from your live calendar like a reliable employee, instead of another chatbot.",
-    bullets: ["24/7 call handling", "Booking and lead capture", "Configured to your scripts and rules"],
-    cta: "Explore Voice Concierge",
-    href: "/voice-concierge",
+    title: "Calls handled without dropped bookings",
   },
   {
-    label: "Pillar 2",
-    title: "InvoiceFlow – Automated Invoicing Around QuickBooks",
-    body: "InvoiceFlow automates invoicing and follow-up so cash flow doesn’t depend on you chasing every bill, and stays aligned with the way your QuickBooks data is actually structured.",
-    bullets: ["Migration from spreadsheets and legacy tools", "Automated reminders and follow-up", "Clean AR inside QuickBooks"],
-    cta: "Explore InvoiceFlow",
-    href: "/invoiceflow",
+    title: "Cash collection without daily chasing",
   },
   {
-    label: "Pillar 3",
-    title: "Orderline – Voice Ordering Capture",
-    body: "Orderline lets you talk through what needs to be ordered, turns that into structured line items, and aligns it with your inventory lists or CSVs so re-ordering runs from your own words instead of another spreadsheet.",
-    bullets: ["Voice-to-line-item capture", "Matches your inventory lists", "Exports clean structured data"],
-    cta: "Explore Orderline",
-    href: "/orderline",
+    title: "Onboarding that stays clean from signed to live",
+  },
+  {
+    title: "Operator reporting that flags exceptions fast",
+  },
+  {
+    title: "Support triage that protects focus and SLAs",
+  },
+];
+
+const toolFamilyPreview = [
+  {
+    title: "Voice Concierge (Flagship)",
+    body: "Answer, qualify, book, and route calls with governed scripts and audit-ready transcripts.",
+  },
+  {
+    title: "Lead Intake to Booking",
+    body: "Capture and book inbound demand before it cools off, with escalation rules that keep owners in control.",
+  },
+  {
+    title: "Lead-to-Cash (Invoicing + AR)",
+    body: "Keep invoicing, reminders, and payments flowing with fewer manual touches and cleaner handoffs.",
+  },
+  {
+    title: "Client Onboarding Engine",
+    body: "Move from signed to launched without chaos, with clear ownership, tasks, and timelines.",
+  },
+  {
+    title: "Ops Reporting & Intelligence",
+    body: "Unified scoreboards and weekly operator briefings that surface the signals you need.",
   },
 ];
 
@@ -72,7 +85,7 @@ const steps = [
 
 const useCases = [
   {
-    title: "Service owner with messy QuickBooks",
+    title: "Service founder with messy finances",
     body: "Needs clean books and reconciled history without downtime.",
   },
   {
@@ -84,8 +97,8 @@ const useCases = [
     body: "Wants invoices, reminders, and payments to run without chasing.",
   },
   {
-    title: "Small team living in spreadsheets",
-    body: "Ready to replace ad hoc workflows with durable systems.",
+    title: "Lean team living in spreadsheets",
+    body: "Ready to replace ad hoc workflows with durable tools.",
   },
   {
     title: "Owner tired of interruptions",
@@ -93,7 +106,7 @@ const useCases = [
   },
   {
     title: "Operator planning the next change",
-    body: "Wants a partner who can build, run, and adjust as the business shifts.",
+    body: "Wants a partner who can build, run, and adjust as the operation shifts.",
   },
 ];
 
@@ -107,47 +120,48 @@ export default function Home() {
             <div className="space-y-6">
               <p className="label-foundry text-orange-200">The Foundry</p>
               <h1 className="heading-forge-xl text-white leading-tight">
-                AI-backed systems that let your business outwork you — not the other way around.
+                Business tools forged for the AI era.
               </h1>
               <div className="divider-forged" />
+              <p className="body-foundry text-white md:text-lg">
+                Operator-grade systems that reduce operational drag (calls, cash flow, onboarding, reporting) while staying governed and auditable.
+              </p>
               <p className="body-foundry font-semibold md:text-xl text-white">
-                Dominus Foundry builds and runs AI-backed systems for founder-led teams: automated invoicing around your books, an automated phone concierge that behaves like a reliable employee, and a voice-driven ordering system for inventory and supplies. Under the surface, everything is coordinated by our operations intelligence layer, Mentis.
+                We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href="#talk" className="justify-center">
                   Talk to the Foundry
                 </Button>
                 <Button
-                  href="#solutions"
+                  href="/voice-concierge"
                   variant="forgeSecondary"
                   className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
                 >
-                  Explore our solutions
+                  See Voice Concierge
                 </Button>
               </div>
             </div>
 
             <div className="card-forged-premium rounded-2xl p-6 shadow-xl bg-gradient-to-br from-forge-50/70 to-white text-slate-900 space-y-4">
-              <h2 className="heading-forge-md">Three pillars. One systems foundry.</h2>
+              <h2 className="heading-forge-md">Tool families, forged on demand.</h2>
               <p className="text-sm text-slate-900">
-                Foundry Voice Concierge, InvoiceFlow, and Orderline – each built and run with the same operator mindset and tied together by Mentis.
+                A catalog of operator-grade tools designed to clean up the friction that slows teams down.
               </p>
-              <div className="space-y-3">
-                {pillars.map((pillar, index) => (
-                  <Link key={pillar.title} href={pillar.href} className="block group">
-                    <div className="card-forged bg-white p-4 transition-transform transition-colors cursor-pointer group-hover:-translate-y-0.5 group-hover:border-forge-200 group-hover:bg-white/90">
-                      <div className="flex items-center justify-between">
-                        <p className="label-foundry">{pillar.label}</p>
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forge-600 text-xs font-bold text-white">
-                          {index + 1}
-                        </span>
-                      </div>
-                      <p className="mt-2 text-base font-semibold text-slate-900">{pillar.title}</p>
-                      <p className="text-sm text-slate-900 mt-1">{pillar.body}</p>
-                    </div>
-                  </Link>
+              <ul className="space-y-2 text-sm text-slate-900">
+                {outcomes.map((outcome) => (
+                  <li key={outcome.title} className="flex gap-2">
+                    <span className="text-forge-700 font-bold">•</span>
+                    <span>{outcome.title}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
+              <p className="text-sm text-slate-900">
+                Voice Concierge is the flagship live tool. The rest are forged on demand.
+              </p>
+              <Button href="/business-tools" className="w-full justify-center">
+                See the Business Tools catalog
+              </Button>
             </div>
           </div>
         </div>
@@ -156,37 +170,34 @@ export default function Home() {
       <section id="solutions" className="bg-tan-100">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Choose the system that fits.</h2>
-            <p className="body-foundry text-slate-900 max-w-3xl mx-auto">Each system we offer runs on the same underlying operations intelligence, so your books, billing, and phones stay in sync instead of fighting each other.</p>
+            <h2 className="heading-forge-lg">Tool families, built for operator outcomes.</h2>
+            <p className="body-foundry text-slate-900 max-w-3xl mx-auto">
+              A catalog preview of the tools we forge for teams who want speed without sacrificing governance.
+            </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {pillars.map((pillar, idx) => (
-              <Link key={pillar.title} href={pillar.href} className="block group">
+            {toolFamilyPreview.map((tool, idx) => (
+              <div key={tool.title} className="group">
                 <div className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors cursor-pointer group-hover:bg-white/70 group-hover:border-forge-200">
                   <div className="flex items-center justify-between">
-                    <p className="label-foundry">{pillar.label}</p>
+                    <p className="label-foundry">Tool family {idx + 1}</p>
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
                   </div>
                   <div>
-                    <h3 className="heading-forge-md text-slate-900">{pillar.title}</h3>
-                    <p className="mt-2 body-foundry text-slate-900">{pillar.body}</p>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-900">
-                    {pillar.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-2">
-                        <span className="text-forge-700 font-bold">•</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto">
-                    <Button href={pillar.href} className="w-full justify-center">
-                      {pillar.cta}
-                    </Button>
+                    <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                    <p className="mt-2 body-foundry text-slate-900">{tool.body}</p>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
+          </div>
+          <div className="text-center space-y-4">
+            <p className="body-foundry text-slate-900">
+              Voice Concierge is the flagship live tool. The rest are forged on demand.
+            </p>
+            <Button href="/business-tools" className="justify-center">
+              Explore the full catalog
+            </Button>
           </div>
         </div>
       </section>
@@ -196,13 +207,13 @@ export default function Home() {
           <div className="space-y-3 text-center">
             <h2 className="heading-forge-lg text-slate-900">Mentis — the operations intelligence under your systems</h2>
             <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Most tools and “AI features” treat every interaction like the first time. Mentis is different. It remembers how your team actually runs: which calls mattered, how invoices got paid, which orders repeat. That context quietly shapes how our systems behave.
+              Mentis is the Human-Governed Intelligence upgrade when multiple tools must coordinate. It keeps delegation accountable with permissions, audit trails, and clear ownership over what each tool can do.
             </p>
             <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              You don’t log in to Mentis all day. You feel it when your phone concierge, invoicing, and ordering start to act like parts of a single brain instead of separate projects you have to manage by hand.
+              You don’t log in all day. You feel it when calls, cash flow, onboarding, and reporting behave like one governed system instead of isolated automations.
             </p>
             <p className="text-sm text-slate-800 max-w-3xl mx-auto">
-              Mentis is available today through Foundry Voice Concierge, InvoiceFlow, and Orderline, and will grow into a fuller virtual operations brain for modern teams over time.
+              Mentis is the upgrade path once two or more tool families need to interlock.
             </p>
           </div>
         </div>
@@ -213,7 +224,7 @@ export default function Home() {
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Why a foundry?</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              We don't ship random tools. We forge systems that clean up your numbers, capture more revenue, and free you from living inside every process.
+              We don't ship random tools. We forge operator-grade systems with clear inputs, clear outputs, and clear ownership.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -231,7 +242,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">How we work across any build.</h2>
-            <p className="body-foundry text-slate-800">Same operator-grade approach for every pillar.</p>
+            <p className="body-foundry text-slate-800">Same operator-grade approach for every tool family.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
@@ -254,7 +265,7 @@ export default function Home() {
             <div className="md:col-span-1 space-y-3">
               <h2 className="heading-forge-lg">Operators behind the systems.</h2>
               <p className="body-foundry">
-                Built and run by Mark &amp; Bri Lord - operators who balance code, finance, and day-to-day small business realities.
+                Built and run by Mark &amp; Bri Lord - operators who balance code, finance, and day-to-day operations.
               </p>
               <p className="text-sm text-slate-700">
                 Client stories are being gathered now. In the meantime, here are the outcomes teams ask us to replicate.
@@ -301,7 +312,7 @@ export default function Home() {
           <div className="space-y-3 text-center">
             <h2 className="heading-forge-lg">Tell us where your systems are breaking.</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              Share a bit about your business and where things feel heavy. We'll point you to the right Foundry build - InvoiceFlow, Voice Concierge, Orderline, or a combination.
+              Share a bit about your operation and where things feel heavy. We'll point you to the right tool family or a Mentis-led build.
             </p>
           </div>
           <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">
@@ -318,9 +329,9 @@ export default function Home() {
 
       <section className="bg-gradient-to-b from-forge-900 to-steel-700 text-white">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
-          <h2 className="heading-forge-lg text-white">Your business deserves systems that outwork you.</h2>
+          <h2 className="heading-forge-lg text-white">Your business deserves tools that hold up under pressure.</h2>
           <p className="body-foundry text-forge-50/90">
-            If your books, invoicing, or phones are costing you time and sleep, it's time to build something better in the Foundry.
+            If calls, cash flow, or onboarding are costing you time and sleep, it's time to forge something better in the Foundry.
           </p>
           <Button href="#talk" className="justify-center">
             Talk to the Foundry

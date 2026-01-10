@@ -5,6 +5,10 @@ export const metadata = {
   title: "InvoiceFlow – Automated Invoicing Around QuickBooks | Dominus Foundry",
   description:
     "InvoiceFlow automates invoicing and follow-up around QuickBooks so cash flow doesn’t depend on manual chasing, with context shared through Mentis.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function InvoiceFlowPage() {

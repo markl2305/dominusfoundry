@@ -2,6 +2,10 @@ export const metadata = {
   title: 'Voice Ordering – Spoken Order Capture',
   description:
     'Voice Ordering lets operators speak through what needs to be ordered and turns it into structured lists that match your inventory.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function VoiceOrderingPage() {

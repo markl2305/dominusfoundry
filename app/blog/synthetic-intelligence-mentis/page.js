@@ -228,7 +228,7 @@ export default function SyntheticIntelligenceMentisPage() {
             keep execution coherent as your business grows.
           </p>
 
-          <h4 className="heading-forge-md text-slate-900">Is this just for small teams?</h4>
+          <h4 className="heading-forge-md text-slate-900">Is this just for teams?</h4>
           <p>
             No. The same intelligence layer that keeps founder-led operations coherent can scale into enterprise
             environments—because the core problem is coordination across tools and time.
