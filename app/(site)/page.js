@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Button from "../../components/Button";
 import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
@@ -316,7 +317,9 @@ export default function Home() {
             </p>
           </div>
           <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">
-            <FoundryLeadForm />
+            <Suspense fallback={null}>
+              <FoundryLeadForm />
+            </Suspense>
           </div>
           <p className="text-sm text-slate-700 text-center">
             Prefer a direct call? <a className="underline font-semibold" href="tel:+18667103313">(866) 710-3313</a>. We respond within one business day.
