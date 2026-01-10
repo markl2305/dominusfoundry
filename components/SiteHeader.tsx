@@ -13,8 +13,7 @@ const mainNav = Object.freeze([
 ])
 
 const toolNav = Object.freeze([
-  { label: 'Business Tools Catalog', href: '/business-tools' },
-  { label: 'Voice Concierge (Flagship)', href: '/voice-concierge' },
+  { label: 'Voice Concierge', href: '/voice-concierge' },
   { label: 'Lead Intake to Booking', href: '/business-tools#lead-intake' },
   { label: 'Client Onboarding Engine', href: '/business-tools#client-onboarding' },
   { label: 'Lead-to-Cash', href: '/business-tools#lead-to-cash' },
@@ -51,13 +50,13 @@ export default function SiteHeader() {
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           <div className="relative group">
-                <button
-                  type="button"
-                  className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
-                  aria-haspopup="true"
-                >
-                  Business Tools
-                </button>
+            <Link
+              href="/business-tools"
+              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+              aria-haspopup="true"
+            >
+              Business Tools
+            </Link>
                 <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border border-white/10 foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
               <ul className="py-1" id="business-tools-menu">
                 {toolNav.map((tool) => (
