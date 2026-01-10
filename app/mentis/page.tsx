@@ -103,7 +103,7 @@ export default function MentisPage() {
         </ul>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 space-y-4">
           <h2 className="heading-forge-lg text-slate-900">Ready for governed scale?</h2>
           <p className="body-foundry text-slate-800">

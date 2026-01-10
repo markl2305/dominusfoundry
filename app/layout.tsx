@@ -41,6 +41,10 @@ export const metadata = {
       'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
     images: ['/og-image.png'],
   },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#F4EBDD' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B0F14' },
+  ],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -65,7 +69,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
-      <body className="bg-tan-200 text-navy-800 antialiased font-inter">
+      <body className="antialiased font-inter">
         <AppShell>{children}</AppShell>
 
         {/* Google Analytics 4 - loaded globally once */}

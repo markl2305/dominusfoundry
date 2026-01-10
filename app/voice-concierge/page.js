@@ -63,7 +63,7 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Who it’s for</h2>
@@ -132,7 +132,7 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">How it works</h2>
@@ -191,7 +191,7 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">What operators are aiming for with Voice Concierge.</h2>
@@ -243,7 +243,7 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Governance guardrails</h2>
@@ -277,7 +277,7 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg text-center">FAQs for cautious teams</h2>
           <div className="space-y-4">

@@ -32,7 +32,7 @@ export default function SiteHeader() {
   const closeMobile = () => setIsMobileOpen(false)
 
   return (
-    <header className="relative z-50 border-b border-bronze-400 bg-navy-800/95 backdrop-blur">
+    <header className="relative z-50 border-b border-bronze-400 foundry-nav backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6">
         <Link
           href="/"
@@ -51,14 +51,14 @@ export default function SiteHeader() {
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           <div className="relative group">
-            <button
-              type="button"
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
-              aria-haspopup="true"
-            >
-              Business Tools
-            </button>
-            <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border border-white/10 bg-navy-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
+                <button
+                  type="button"
+                  className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+                  aria-haspopup="true"
+                >
+                  Business Tools
+                </button>
+                <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border border-white/10 foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
               <ul className="py-1" id="business-tools-menu">
                 {toolNav.map((tool) => (
                   <li key={tool.href}>
@@ -96,7 +96,7 @@ export default function SiteHeader() {
       </div>
 
       {isMobileOpen && (
-        <nav className="border-t border-white/10 bg-navy-900 lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-white/10 foundry-nav lg:hidden" aria-label="Mobile">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-1">
             <div className="space-y-1">
               <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-tan-200">Business Tools</p>

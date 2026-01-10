@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function QBMigrationRetired() {
   return (
-    <section className="bg-[var(--foundry-sand)]">
+    <section className="bg-[var(--foundry-bg-alt)]">
       <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-4">
         <h1 className="heading-forge-xl text-slate-900">QuickBooks Migration &amp; Cleanup (Retired Offering)</h1>
         <p className="body-foundry text-slate-800">

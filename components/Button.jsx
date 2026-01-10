@@ -8,22 +8,22 @@ function classNames(...classes) {
 
 const variantStyles = {
   primary:
-    'bg-orange-600 text-white shadow-lg hover:bg-orange-700 focus-visible:outline-orange-600',
+    'bg-[var(--foundry-accent)] text-[var(--foundry-button-text)] shadow-lg hover:bg-[var(--foundry-accent-2)] focus-visible:outline-[var(--foundry-accent-2)]',
   secondary:
-    'border border-navy-200 bg-white text-navy-800 hover:border-navy-300 hover:bg-tan-100 focus-visible:outline-navy-500',
+    'border border-[var(--foundry-accent)] bg-transparent text-[var(--foundry-accent)] hover:border-[var(--foundry-accent-2)] hover:text-[var(--foundry-accent-2)] hover:bg-transparent focus-visible:outline-[var(--foundry-accent-2)]',
   ghost:
-    'text-navy-800 hover:text-navy-900 hover:bg-tan-100 focus-visible:outline-navy-500',
+    'text-[var(--foundry-text)] hover:text-[var(--foundry-heading)] hover:bg-[var(--foundry-surface-2)] focus-visible:outline-[var(--foundry-accent-2)]',
   forge:
-    'bg-gradient-to-b from-forge-500 to-forge-700 text-white ' +
-    'border-2 border-forge-800 border-b-4 ' +
+    'bg-gradient-to-b from-[var(--foundry-accent)] to-[var(--foundry-accent-2)] text-[var(--foundry-button-text)] ' +
+    'border-2 border-[var(--foundry-accent-2)] border-b-4 ' +
     'shadow-[0_2px_0_rgba(0,0,0,0.15)] ' +
-    'hover:from-forge-600 hover:to-forge-800 ' +
+    'hover:from-[var(--foundry-accent-2)] hover:to-[var(--foundry-accent-2)] ' +
     'active:border-b-2 active:translate-y-[2px] active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] ' +
     'font-semibold tracking-wide uppercase text-xs md:text-sm',
   forgeSecondary:
-    'bg-white text-forge-800 ' +
-    'border-2 border-forge-600 border-b-4 ' +
-    'hover:bg-forge-50 hover:border-forge-700 ' +
+    'bg-transparent text-[var(--foundry-accent-2)] ' +
+    'border-2 border-[var(--foundry-accent)] border-b-4 ' +
+    'hover:border-[var(--foundry-accent-2)] ' +
     'active:border-b-2 active:translate-y-[2px] ' +
     'font-semibold tracking-wide uppercase text-xs md:text-sm',
 }

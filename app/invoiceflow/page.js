@@ -67,7 +67,7 @@ export default function InvoiceFlowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="space-y-4 text-center">
             <h2 className="heading-forge-lg">Built for owners and operators who can&apos;t babysit their books.</h2>
@@ -136,7 +136,7 @@ export default function InvoiceFlowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Why operators trust InvoiceFlow.</h2>
@@ -189,7 +189,7 @@ export default function InvoiceFlowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-6">
           <div className="space-y-3 text-center">
             <h2 className="heading-forge-lg">Simple, project-based implementation with optional ongoing support.</h2>

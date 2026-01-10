@@ -3,50 +3,206 @@
 @tailwind utilities;
 
 :root { 
-  color-scheme: light; 
-  --foundry-sand: #E7DFCF;
-  --foundry-sand-light: color-mix(in srgb, var(--foundry-sand) 85%, white);
-  --foundry-sand-dark: color-mix(in srgb, var(--foundry-sand) 85%, black);
+  --foundry-bg: #F4EBDD;
+  --foundry-bg-alt: #EADCC6;
+  --foundry-surface: #FFF8EC;
+  --foundry-surface-2: #F2E6D2;
+  --foundry-border: rgba(40, 34, 24, 0.18);
+  --foundry-text: #111827;
+  --foundry-text-muted: rgba(17, 24, 39, 0.72);
+  --foundry-heading: #0B1220;
+  --foundry-hero-overlay: rgba(20, 24, 32, 0.35);
+  --foundry-nav: #1F2A33;
+  --foundry-nav-text: rgba(255, 255, 255, 0.90);
+  --foundry-accent: #C9B087;
+  --foundry-accent-2: #A98B5A;
+  --foundry-button-text: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foundry-bg: #0B0F14;
+    --foundry-bg-alt: #0F1722;
+    --foundry-surface: #111B26;
+    --foundry-surface-2: #152233;
+    --foundry-border: rgba(201, 176, 135, 0.22);
+    --foundry-text: rgba(245, 248, 252, 0.92);
+    --foundry-text-muted: rgba(245, 248, 252, 0.70);
+    --foundry-heading: #FFFFFF;
+    --foundry-hero-overlay: rgba(0, 0, 0, 0.25);
+    --foundry-nav: #0E1620;
+    --foundry-nav-text: rgba(255, 255, 255, 0.90);
+    --foundry-accent: #D6BF97;
+    --foundry-accent-2: #B89563;
+    --foundry-button-text: #0B0F14;
+  }
 }
 
 html { 
+  color-scheme: light dark;
   scroll-behavior: smooth; 
 }
 
 body { 
-  @apply bg-tan-200 text-navy-800 antialiased; 
+  background: var(--foundry-bg);
+  color: var(--foundry-text);
+  @apply antialiased;
+}
+
+body,
+header,
+section,
+footer {
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .heading-forge-xl {
-  @apply font-crimson text-5xl md:text-7xl font-bold text-slate-900 tracking-tight;
+  color: var(--foundry-heading);
+  @apply font-crimson text-5xl md:text-7xl font-bold tracking-tight;
 }
 
 .heading-forge-lg {
-  @apply font-crimson text-4xl md:text-5xl font-bold text-slate-900 tracking-tight;
+  color: var(--foundry-heading);
+  @apply font-crimson text-4xl md:text-5xl font-bold tracking-tight;
 }
 
 .heading-forge-md {
-  @apply font-crimson text-3xl md:text-4xl font-semibold text-slate-900;
+  color: var(--foundry-heading);
+  @apply font-crimson text-3xl md:text-4xl font-semibold;
 }
 
 .body-foundry {
-  @apply text-base md:text-lg text-slate-800 leading-relaxed;
+  color: var(--foundry-text);
+  @apply text-base md:text-lg leading-relaxed;
 }
 
 .label-foundry {
-  @apply text-xs font-semibold uppercase tracking-[0.2em] text-forge-600;
+  color: var(--foundry-accent-2);
+  @apply text-xs font-semibold uppercase tracking-[0.2em];
 }
 
 .card-forged {
-  @apply border-2 border-forge-500 border-b-4 bg-white shadow-sm;
+  background-color: var(--foundry-surface);
+  border-color: var(--foundry-border);
+  @apply border-2 border-b-4 shadow-sm;
 }
 
 .card-forged-premium {
-  @apply border-[3px] border-forge-600 border-b-[6px] bg-gradient-to-br from-forge-50 to-[#f0ebe3] shadow-md;
+  background: linear-gradient(135deg, var(--foundry-surface) 0%, var(--foundry-surface-2) 100%);
+  border-color: var(--foundry-border);
+  @apply border-[3px] border-b-[6px] shadow-md;
 }
 
 .divider-forged {
-  @apply h-[2px] w-full bg-gradient-to-r from-transparent via-forge-500 to-transparent;
+  background-image: linear-gradient(90deg, transparent, var(--foundry-accent), transparent);
+  @apply h-[2px] w-full;
+}
+
+.foundry-hero-overlay {
+  background-color: var(--foundry-hero-overlay);
+}
+
+.foundry-nav {
+  background-color: color-mix(in srgb, var(--foundry-nav) 95%, transparent);
+}
+
+.foundry-nav-panel {
+  background-color: color-mix(in srgb, var(--foundry-nav) 95%, transparent);
+}
+
+.foundry-nav-text {
+  color: var(--foundry-nav-text);
+}
+
+.bg-white {
+  background-color: var(--foundry-surface) !important;
+}
+
+.bg-tan-50 {
+  background-color: var(--foundry-surface-2) !important;
+}
+
+.bg-tan-100 {
+  background-color: var(--foundry-bg) !important;
+}
+
+.bg-tan-200 {
+  background-color: var(--foundry-bg-alt) !important;
+}
+
+.from-white {
+  --tw-gradient-from: var(--foundry-bg) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--foundry-bg) 70%, transparent) !important;
+}
+
+.to-white {
+  --tw-gradient-to: var(--foundry-bg) !important;
+}
+
+.from-tan-100 {
+  --tw-gradient-from: var(--foundry-bg) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--foundry-bg) 70%, transparent) !important;
+}
+
+.via-tan-100 {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--foundry-bg), var(--tw-gradient-to) !important;
+}
+
+.to-tan-100 {
+  --tw-gradient-to: var(--foundry-bg) !important;
+}
+
+.from-tan-200 {
+  --tw-gradient-from: var(--foundry-bg-alt) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--foundry-bg-alt) 70%, transparent) !important;
+}
+
+.to-tan-200 {
+  --tw-gradient-to: var(--foundry-bg-alt) !important;
+}
+
+.from-navy-50 {
+  --tw-gradient-from: var(--foundry-bg-alt) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--foundry-bg-alt) 70%, transparent) !important;
+}
+
+.via-teal-50 {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--foundry-bg), var(--tw-gradient-to) !important;
+}
+
+.text-slate-900,
+.text-navy-900 {
+  color: var(--foundry-heading) !important;
+}
+
+.text-slate-800,
+.text-navy-800 {
+  color: var(--foundry-text) !important;
+}
+
+.text-slate-700,
+.text-navy-700,
+.text-navy-600 {
+  color: var(--foundry-text-muted) !important;
+}
+
+.text-forge-700,
+.text-forge-600,
+.text-forge-800 {
+  color: var(--foundry-accent-2) !important;
+}
+
+.text-tan-100,
+.text-tan-200,
+.text-bronze-200 {
+  color: var(--foundry-text-muted) !important;
+}
+
+.border-bronze-300,
+.border-bronze-200,
+.border-forge-500,
+.border-forge-600 {
+  border-color: var(--foundry-border) !important;
 }
 
 .bg-foundry-texture {

@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function InvoiceFlowLayout({ children }) {
   return (
-    <div className="min-h-screen bg-[var(--foundry-sand)] flex flex-col">
+    <div className="min-h-screen bg-[var(--foundry-bg-alt)] flex flex-col">
       <main className="flex-1">
         {children}
       </main>

@@ -67,7 +67,7 @@ export default function BusinessToolsPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="label-foundry text-orange-200">Business Tools Catalog</p>
           <h1 className="heading-forge-xl text-white">Tool families forged for operators.</h1>
@@ -80,7 +80,7 @@ export default function BusinessToolsPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-sand-light)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Choose a tool family to forge.</h2>

@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function Privacy() {
   return (
-    <div className="bg-[var(--foundry-sand)] min-h-screen">
+    <div className="bg-[var(--foundry-bg-alt)] min-h-screen">
       <section className="bg-gradient-to-b from-tan-200 to-tan-100 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-navy-900">

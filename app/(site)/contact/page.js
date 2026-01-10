@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section id="contact" className="bg-[var(--foundry-sand)]">
+    <section id="contact" className="bg-[var(--foundry-bg-alt)]">
       <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
         <div className="space-y-3 text-center">
           <h1 className="heading-forge-lg">Talk to the Foundry</h1>

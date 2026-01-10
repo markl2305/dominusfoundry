@@ -12,7 +12,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const hideWidget = isHualiOrderInfo
 
   return (
-    <div className="min-h-screen bg-tan-200 text-navy-800">
+    <div className="min-h-screen">
       {!hideHeader && <SiteHeader />}
       <main>{children}</main>
       <SiteFooter />
