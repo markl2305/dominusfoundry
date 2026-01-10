@@ -71,7 +71,7 @@ export default function BusinessToolsPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="label-foundry text-orange-200">Business Tools Catalog</p>
           <h1 className="heading-forge-xl text-white">Tool families forged for operators.</h1>
-          <p className="body-foundry text-white md:text-lg">
+          <p className="body-foundry text-white md:text-lg foundry-hero-lead">
             We forge operator-grade tools that reduce operational drag while staying governed and auditable.
           </p>
           <p className="body-foundry font-semibold md:text-xl text-white">

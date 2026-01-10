@@ -13,7 +13,7 @@ export default function MentisPage() {
         <div className="mx-auto max-w-4xl px-4 space-y-6">
           <p className="label-foundry text-forge-800">Mentis</p>
           <h1 className="heading-forge-lg text-slate-900">Mentis - Human-Governed Intelligence</h1>
-          <p className="body-foundry text-slate-900">
+          <p className="body-foundry text-slate-900 foundry-hero-lead">
             Mentis is the upgrade when multiple tool families must coordinate. It keeps delegation accountable with governance,
             audit trails, and clear ownership across every handoff.
           </p>

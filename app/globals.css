@@ -114,6 +114,16 @@ footer {
   color: var(--foundry-nav-text);
 }
 
+.foundry-hero-lead {
+  color: var(--foundry-accent-2) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .foundry-hero-lead {
+    color: var(--foundry-text-muted) !important;
+  }
+}
+
 .bg-white {
   background-color: var(--foundry-surface) !important;
 }

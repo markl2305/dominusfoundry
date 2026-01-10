@@ -124,7 +124,7 @@ export default function Home() {
                 Business tools forged for the AI era.
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry text-white md:text-lg">
+              <p className="body-foundry text-white md:text-lg foundry-hero-lead">
                 Operator-grade systems that reduce operational drag (calls, cash flow, onboarding, reporting) while staying governed and auditable.
               </p>
               <p className="body-foundry font-semibold md:text-xl text-white">

@@ -19,7 +19,7 @@ export default function VoiceConciergePage() {
                 Foundry Voice Concierge – Automated Phone Concierge
               </h1>
               <div className="divider-forged" />
-              <p className="body-foundry text-slate-900">
+              <p className="body-foundry text-slate-900 foundry-hero-lead">
                 A managed phone concierge for appointment-driven teams and operators. Voice Concierge answers, qualifies, and books from your live calendar so you stop missing calls and start treating the phone like a real channel again.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
