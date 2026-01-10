@@ -8,46 +8,55 @@ export const metadata = {
 
 const toolFamilies = [
   {
+    id: "voice-concierge",
     title: "Voice Concierge (Flagship)",
     what: "Phone answering, qualification, booking, routing, transcripts, and escalation with governed scripts.",
     bestFit: "Appointment-driven operators; membership clubs; clinics; service teams.",
   },
   {
+    id: "lead-intake",
     title: "Lead Intake to Booking",
     what: "Capture inbound leads, qualify, route, and book with guardrails that protect your reputation.",
     bestFit: "Founders and ops leads who lose leads to slow follow-up.",
   },
   {
+    id: "client-onboarding",
     title: "Client Onboarding Engine",
     what: "From signed deal to fully onboarded: tasks, docs, billing, project setup, and kickoff scheduling.",
     bestFit: "Agencies, professional services, and B2B teams.",
   },
   {
+    id: "lead-to-cash",
     title: "Lead-to-Cash (Invoicing + AR)",
     what: "Quote, invoice, reminders, and payments aligned to accounting source-of-truth with fewer touches.",
     bestFit: "Service + light product teams with recurring invoices.",
   },
   {
+    id: "support-triage",
     title: "Support Triage Desk",
     what: "Intake, classification, retrieval, escalation, and SLA tracking across email, chat, and voice.",
     bestFit: "Teams drowning in repetitive support and internal requests.",
   },
   {
+    id: "ops-reporting",
     title: "Ops Reporting & Intelligence",
     what: "Unified scoreboards across sales, delivery, finance; anomaly detection; weekly operator briefings.",
     bestFit: "Owners wanting clarity without living in dashboards.",
   },
   {
+    id: "doc-compliance",
     title: "Document & Compliance Automations",
     what: "Generate, route, sign, archive, and audit documents with version control and policy rules.",
     bestFit: "Regulated-ish ops and teams that live in PDFs and approvals.",
   },
   {
+    id: "recruiting",
     title: "Recruiting & Hiring Pipeline",
     what: "Applicant intake to screening, scheduling, scorecards, and offer workflows under governance.",
     bestFit: "Companies hiring without HR overhead.",
   },
   {
+    id: "vendor-purchasing",
     title: "Vendor & Purchasing Workflow",
     what: "Request -> approve -> order -> reconcile -> restock triggers with structured purchasing.",
     bestFit: "Ops-heavy teams; hospitality; multi-location.",
@@ -58,7 +67,7 @@ export default function BusinessToolsPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-15 bg-foundry-texture" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="label-foundry text-orange-200">Business Tools Catalog</p>
           <h1 className="heading-forge-xl text-white">Tool families forged for operators.</h1>
@@ -71,7 +80,7 @@ export default function BusinessToolsPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[var(--foundry-sand-light)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Choose a tool family to forge.</h2>
@@ -83,7 +92,7 @@ export default function BusinessToolsPage() {
             {toolFamilies.map((tool) => {
               const interest = encodeURIComponent(tool.title);
               return (
-                <div key={tool.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                <div key={tool.title} id={tool.id} className="card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
                   <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                   <p className="body-foundry text-slate-800">{tool.what}</p>
                   <p className="text-sm text-slate-700">

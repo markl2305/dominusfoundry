@@ -115,7 +115,7 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-15 bg-foundry-texture" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 relative">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="space-y-6">
@@ -220,7 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[var(--foundry-sand-light)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Why a foundry?</h2>
@@ -260,7 +260,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[var(--foundry-sand)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
           <div className="grid gap-8 md:grid-cols-3 md:items-start">
             <div className="md:col-span-1 space-y-3">
@@ -307,7 +307,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="talk" className="bg-white">
+      <section id="talk" className="bg-[var(--foundry-sand-light)]">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
           <span id="contact" className="block h-0 w-0" aria-hidden />
           <div className="space-y-3 text-center">

@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function VoiceConciergeLayout({ children }) {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-[var(--foundry-sand)] flex flex-col">
       <main className="flex-1">
         {children}
       </main>

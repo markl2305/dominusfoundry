@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function MentisQboEulaPage() {
   return (
-    <section className="bg-white">
+    <section className="bg-[var(--foundry-sand-light)]">
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 space-y-10">
         <div className="space-y-3">
           <p className="label-foundry text-forge-700">Mentis &amp; QuickBooks</p>

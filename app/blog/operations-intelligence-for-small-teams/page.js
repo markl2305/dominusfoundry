@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function OperationsIntelligenceArticle() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-[var(--foundry-sand-light)] py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4 space-y-6">
         <p className="label-foundry text-forge-700">Foundry Notes</p>
         <h1 className="heading-forge-lg text-slate-900">Beyond Chatbots: Why Teams Need Operations Intelligence</h1>

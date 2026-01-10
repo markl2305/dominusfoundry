@@ -4,6 +4,9 @@
 
 :root { 
   color-scheme: light; 
+  --foundry-sand: #E7DFCF;
+  --foundry-sand-light: color-mix(in srgb, var(--foundry-sand) 85%, white);
+  --foundry-sand-dark: color-mix(in srgb, var(--foundry-sand) 85%, black);
 }
 
 html { 

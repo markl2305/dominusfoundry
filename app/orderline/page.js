@@ -45,7 +45,7 @@ export default function OrderlinePage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[var(--foundry-sand-light)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg text-slate-900">The problem</h2>
           <p className="body-foundry text-slate-900">
@@ -78,7 +78,7 @@ export default function OrderlinePage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[var(--foundry-sand)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg text-slate-900">How it fits with Mentis</h2>
           <p className="body-foundry text-slate-900">
