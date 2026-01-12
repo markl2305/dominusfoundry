@@ -104,7 +104,7 @@ export default function BusinessToolsPage() {
               return (
                 <div key={tool.title} id={tool.id}>
                   {isVoiceConcierge ? (
-                    <Link href="/business-tools/voice-concierge" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/voice-concierge" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -112,7 +112,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isLeadIntake ? (
-                    <Link href="/business-tools/lead-intake-booking" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/lead-intake-booking" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -120,7 +120,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isClientOnboarding ? (
-                    <Link href="/business-tools/client-onboarding-engine" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/client-onboarding-engine" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -128,7 +128,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isLeadToCash ? (
-                    <Link href="/business-tools/lead-to-cash" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/lead-to-cash" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -136,7 +136,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isSupportTriage ? (
-                    <Link href="/business-tools/support-triage-desk" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/support-triage-desk" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -144,7 +144,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isOpsReporting ? (
-                    <Link href="/business-tools/ops-reporting-intelligence" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/ops-reporting-intelligence" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -152,7 +152,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isDocCompliance ? (
-                    <Link href="/business-tools/document-compliance-automations" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/document-compliance-automations" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -160,7 +160,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isRecruiting ? (
-                    <Link href="/business-tools/recruiting-hiring-pipeline" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/recruiting-hiring-pipeline" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
@@ -168,7 +168,7 @@ export default function BusinessToolsPage() {
                       </p>
                     </Link>
                   ) : isVendorPurchasing ? (
-                    <Link href="/business-tools/vendor-purchasing-workflow" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                    <Link href="/business-tools/vendor-purchasing-workflow" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">

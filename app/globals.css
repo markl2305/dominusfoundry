@@ -114,6 +114,31 @@ footer {
   color: var(--foundry-nav-text);
 }
 
+.foundry-tile-link {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
+  cursor: pointer;
+}
+
+.foundry-tile-link:hover,
+.foundry-tile-link:focus-visible {
+  background-color: color-mix(in srgb, var(--foundry-surface) 85%, var(--foundry-accent) 15%);
+  border-color: var(--foundry-accent-2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  .foundry-tile-link:hover,
+  .foundry-tile-link:focus-visible {
+    background-color: color-mix(in srgb, var(--foundry-surface) 85%, white 15%);
+    border-color: var(--foundry-accent);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  }
+}
+
 .foundry-hero-lead {
   color: var(--foundry-accent-2) !important;
 }
