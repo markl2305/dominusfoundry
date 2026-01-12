@@ -97,6 +97,7 @@ export default function BusinessToolsPage() {
               const isClientOnboarding = tool.id === "client-onboarding";
               const isLeadToCash = tool.id === "lead-to-cash";
               const isSupportTriage = tool.id === "support-triage";
+              const isOpsReporting = tool.id === "ops-reporting";
               return (
                 <div key={tool.title} id={tool.id}>
                   {isVoiceConcierge ? (
@@ -133,6 +134,14 @@ export default function BusinessToolsPage() {
                     </Link>
                   ) : isSupportTriage ? (
                     <Link href="/business-tools/support-triage-desk" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                      <p className="body-foundry text-slate-800">{tool.what}</p>
+                      <p className="text-sm text-slate-700">
+                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
+                      </p>
+                    </Link>
+                  ) : isOpsReporting ? (
+                    <Link href="/business-tools/ops-reporting-intelligence" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">

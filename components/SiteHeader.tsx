@@ -18,7 +18,7 @@ const toolNav = Object.freeze([
   { label: 'Client Onboarding Engine', href: '/business-tools/client-onboarding-engine' },
   { label: 'Lead-to-Cash', href: '/business-tools/lead-to-cash' },
   { label: 'Support Triage Desk', href: '/business-tools/support-triage-desk' },
-  { label: 'Ops Reporting & Intelligence', href: '/business-tools#ops-reporting' },
+  { label: 'Ops Reporting & Intelligence', href: '/business-tools/ops-reporting-intelligence' },
   { label: 'Document & Compliance Automations', href: '/business-tools#doc-compliance' },
   { label: 'Recruiting & Hiring Pipeline', href: '/business-tools#recruiting' },
   { label: 'Vendor & Purchasing Workflow', href: '/business-tools#vendor-purchasing' },
