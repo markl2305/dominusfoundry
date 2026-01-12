@@ -98,6 +98,7 @@ export default function BusinessToolsPage() {
               const isLeadToCash = tool.id === "lead-to-cash";
               const isSupportTriage = tool.id === "support-triage";
               const isOpsReporting = tool.id === "ops-reporting";
+              const isDocCompliance = tool.id === "doc-compliance";
               return (
                 <div key={tool.title} id={tool.id}>
                   {isVoiceConcierge ? (
@@ -142,6 +143,14 @@ export default function BusinessToolsPage() {
                     </Link>
                   ) : isOpsReporting ? (
                     <Link href="/business-tools/ops-reporting-intelligence" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                      <p className="body-foundry text-slate-800">{tool.what}</p>
+                      <p className="text-sm text-slate-700">
+                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
+                      </p>
+                    </Link>
+                  ) : isDocCompliance ? (
+                    <Link href="/business-tools/document-compliance-automations" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
