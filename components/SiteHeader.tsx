@@ -13,7 +13,7 @@ const mainNav = Object.freeze([
 ])
 
 const toolNav = Object.freeze([
-  { label: 'Voice Concierge', href: '/voice-concierge' },
+  { label: 'Voice Concierge', href: '/business-tools/voice-concierge' },
   { label: 'Lead Intake to Booking', href: '/business-tools#lead-intake' },
   { label: 'Client Onboarding Engine', href: '/business-tools#client-onboarding' },
   { label: 'Lead-to-Cash', href: '/business-tools#lead-to-cash' },
