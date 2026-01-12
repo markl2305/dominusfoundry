@@ -16,7 +16,7 @@ const toolFamilies = [
   },
   {
     id: "lead-intake",
-    title: "Lead Intake to Booking",
+    title: "Lead Intake → Booking",
     what: "Capture inbound leads, qualify, route, and book with guardrails that protect your reputation.",
     bestFit: "Founders and ops leads who lose leads to slow follow-up.",
   },
@@ -93,10 +93,19 @@ export default function BusinessToolsPage() {
             {toolFamilies.map((tool) => {
               const interest = encodeURIComponent(tool.title);
               const isVoiceConcierge = tool.id === "voice-concierge";
+              const isLeadIntake = tool.id === "lead-intake";
               return (
                 <div key={tool.title} id={tool.id}>
                   {isVoiceConcierge ? (
                     <Link href="/business-tools/voice-concierge" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
+                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                      <p className="body-foundry text-slate-800">{tool.what}</p>
+                      <p className="text-sm text-slate-700">
+                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
+                      </p>
+                    </Link>
+                  ) : isLeadIntake ? (
+                    <Link href="/business-tools/lead-intake-booking" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
                       <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                       <p className="body-foundry text-slate-800">{tool.what}</p>
                       <p className="text-sm text-slate-700">
