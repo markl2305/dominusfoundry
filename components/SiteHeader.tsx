@@ -21,7 +21,7 @@ const toolNav = Object.freeze([
   { label: 'Ops Reporting & Intelligence', href: '/business-tools/ops-reporting-intelligence' },
   { label: 'Document & Compliance Automations', href: '/business-tools/document-compliance-automations' },
   { label: 'Recruiting & Hiring Pipeline', href: '/business-tools/recruiting-hiring-pipeline' },
-  { label: 'Vendor & Purchasing Workflow', href: '/business-tools#vendor-purchasing' },
+  { label: 'Vendor & Purchasing Workflow', href: '/business-tools/vendor-purchasing-workflow' },
 ])
 
 export default function SiteHeader() {
