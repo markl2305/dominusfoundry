@@ -15,7 +15,7 @@ const mainNav = Object.freeze([
 const toolNav = Object.freeze([
   { label: 'Voice Concierge', href: '/business-tools/voice-concierge' },
   { label: 'Lead Intake → Booking', href: '/business-tools/lead-intake-booking' },
-  { label: 'Client Onboarding Engine', href: '/business-tools#client-onboarding' },
+  { label: 'Client Onboarding Engine', href: '/business-tools/client-onboarding-engine' },
   { label: 'Lead-to-Cash', href: '/business-tools#lead-to-cash' },
   { label: 'Support Triage Desk', href: '/business-tools#support-triage' },
   { label: 'Ops Reporting & Intelligence', href: '/business-tools#ops-reporting' },
