@@ -32,7 +32,7 @@ export default function SiteHeader() {
 
   return (
     <header className="relative z-50 border-b border-bronze-400 foundry-nav backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-1 lg:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6">
         <Link
           href="/"
           className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600"
@@ -41,9 +41,9 @@ export default function SiteHeader() {
           <Image
             src="/logo-full.svg"
             alt="Dominus Foundry - Fide et Familia"
-            width={1560}
-            height={420}
-            className="h-48 w-auto sm:h-52 md:h-60 lg:h-60 object-contain"
+            width={520}
+            height={140}
+            className="h-16 w-auto sm:h-18 md:h-20 lg:h-20 object-contain"
             priority
           />
         </Link>
