@@ -106,9 +106,27 @@ footer {
   background-color: #F4EBDD;
 }
 
+.foundry-nav .text-navy-800,
+.foundry-nav .text-navy-900 {
+  color: #18262a !important;
+}
+
+.foundry-nav .text-forge-700 {
+  color: #A98B5A !important;
+}
+
 @media (prefers-color-scheme: dark) {
   .foundry-nav {
     background-color: #E8DBC8;
+  }
+
+  .foundry-nav .text-navy-800,
+  .foundry-nav .text-navy-900 {
+    color: #18262a !important;
+  }
+
+  .foundry-nav .text-forge-700 {
+    color: #8B7348 !important;
   }
 }
 
@@ -117,10 +135,18 @@ footer {
   border-color: rgba(40, 34, 24, 0.18);
 }
 
+.foundry-nav-panel .text-navy-800 {
+  color: #18262a !important;
+}
+
 @media (prefers-color-scheme: dark) {
   .foundry-nav-panel {
     background-color: #F4EBDD;
     border-color: rgba(40, 34, 24, 0.25);
+  }
+
+  .foundry-nav-panel .text-navy-800 {
+    color: #18262a !important;
   }
 }
 
