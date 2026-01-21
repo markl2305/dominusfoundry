@@ -103,12 +103,25 @@ footer {
 }
 
 .foundry-nav {
-  background-color: var(--foundry-bg);
+  background-color: #F4EBDD;
+}
+
+@media (prefers-color-scheme: dark) {
+  .foundry-nav {
+    background-color: #E8DBC8;
+  }
 }
 
 .foundry-nav-panel {
-  background-color: var(--foundry-surface);
-  border-color: var(--foundry-border);
+  background-color: #FFF8EC;
+  border-color: rgba(40, 34, 24, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  .foundry-nav-panel {
+    background-color: #F4EBDD;
+    border-color: rgba(40, 34, 24, 0.25);
+  }
 }
 
 .foundry-nav-text {
