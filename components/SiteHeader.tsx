@@ -41,9 +41,9 @@ export default function SiteHeader() {
           <Image
             src="/logo-full.svg"
             alt="Dominus Foundry - Fide et Familia"
-            width={520}
-            height={140}
-            className="h-16 w-auto sm:h-18 md:h-20 lg:h-20 object-contain"
+            width={1560}
+            height={420}
+            className="h-48 w-auto sm:h-52 md:h-60 lg:h-60 object-contain"
             priority
           />
         </Link>
