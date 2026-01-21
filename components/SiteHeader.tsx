@@ -32,7 +32,7 @@ export default function SiteHeader() {
 
   return (
     <header className="relative z-50 border-b border-bronze-400 foundry-nav backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-1 lg:px-6">
         <Link
           href="/"
           className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600"
