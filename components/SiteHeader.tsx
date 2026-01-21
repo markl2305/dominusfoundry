@@ -35,7 +35,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 lg:px-6">
         <Link
           href="/"
-          className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600"
           aria-label="Dominus Foundry home"
         >
           <Image
@@ -52,18 +52,18 @@ export default function SiteHeader() {
           <div className="relative group">
             <Link
               href="/business-tools"
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
               aria-haspopup="true"
             >
               What We Build
             </Link>
-                <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border border-white/10 foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
+                <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
               <ul className="py-1" id="business-tools-menu">
                 {toolNav.map((tool) => (
                   <li key={tool.href}>
                     <Link
                       href={tool.href}
-                      className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+                      className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-navy-800 transition-colors hover:bg-forge-100 hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
                     >
                       {tool.label}
                     </Link>
@@ -76,7 +76,7 @@ export default function SiteHeader() {
             <Link
               key={item.label}
               href={item.href}
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
+              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
             >
               {item.label}
             </Link>
@@ -85,7 +85,7 @@ export default function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2.5 text-white transition-colors hover:bg-navy-700 hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2.5 text-navy-800 transition-colors hover:bg-forge-100 hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600 lg:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileOpen}
           onClick={toggleMobile}
@@ -95,15 +95,15 @@ export default function SiteHeader() {
       </div>
 
       {isMobileOpen && (
-        <nav className="border-t border-white/10 foundry-nav lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-bronze-300 foundry-nav lg:hidden" aria-label="Mobile">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-1">
             <div className="space-y-1">
-              <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-tan-200">What We Build</p>
+              <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-forge-700">What We Build</p>
               {toolNav.map((tool) => (
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                  className="block rounded-lg px-4 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-forge-100"
                   onClick={closeMobile}
                 >
                   {tool.label}
@@ -114,7 +114,7 @@ export default function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block rounded-lg px-4 py-3 text-base font-semibold text-tan-100 transition-colors hover:bg-forge-800"
+                className="block rounded-lg px-4 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-forge-100"
                 onClick={closeMobile}
               >
                 {item.label}

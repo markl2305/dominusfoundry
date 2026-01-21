@@ -103,11 +103,12 @@ footer {
 }
 
 .foundry-nav {
-  background-color: color-mix(in srgb, var(--foundry-nav) 95%, transparent);
+  background-color: var(--foundry-bg);
 }
 
 .foundry-nav-panel {
-  background-color: color-mix(in srgb, var(--foundry-nav) 95%, transparent);
+  background-color: var(--foundry-surface);
+  border-color: var(--foundry-border);
 }
 
 .foundry-nav-text {
