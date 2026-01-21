@@ -3,12 +3,12 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'Business Tools', href: '/business-tools' },
+  { name: 'What We Build', href: '/business-tools' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
   { name: 'Mentis', href: '/mentis' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Get Started', href: '/start' },
   { name: 'Privacy', href: '/privacy' },
   { name: 'Mentis Login', href: 'https://metis.dominusfoundry.com', external: true },
 ]
@@ -33,7 +33,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.
+              Custom AI systems that plug into how your business actually runs — governed, auditable, and built to last.
             </p>
           </div>
 

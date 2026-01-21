@@ -4,9 +4,9 @@ import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Business tools forged for the AI era",
+  title: "Dominus Foundry | Custom AI systems that plug into how your business runs",
   description:
-    "Business tools forged for the AI era. Operator-grade systems that reduce operational drag while staying governed and auditable.",
+    "Operator-grade AI infrastructure for businesses that are done with tools that don't actually work. Voice agents, booking systems, and workflows designed around your operations.",
 };
 
 const outcomes = [
@@ -29,7 +29,7 @@ const outcomes = [
 
 const toolFamilyPreview = [
   {
-    title: "Voice Concierge (Flagship)",
+    title: "Voice Concierge",
     body: "Answer, qualify, book, and route calls with governed scripts and audit-ready transcripts.",
   },
   {
@@ -121,33 +121,33 @@ export default function Home() {
             <div className="space-y-6">
               <p className="label-foundry text-orange-200">The Foundry</p>
               <h1 className="heading-forge-xl text-white leading-tight">
-                Business tools forged for the AI era.
+                Custom AI systems that plug into how your business actually runs
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-                Operator-grade systems that reduce operational drag (calls, cash flow, onboarding, reporting) while staying governed and auditable.
+                Operator-grade AI infrastructure for businesses that are done with tools that don&apos;t actually work.
               </p>
               <p className="body-foundry font-semibold md:text-xl text-white">
-                We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.
+                Voice agents that connect to Square. Booking systems that notify the right person. Workflows that run without babysitting.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button href="#talk" className="justify-center">
-                  Talk to the Foundry
+                <Button href="/start" className="justify-center">
+                  Tell us what&apos;s broken
                 </Button>
                 <Button
-                  href="/voice-concierge"
+                  href="#social-club"
                   variant="forgeSecondary"
                   className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
                 >
-                  See Voice Concierge
+                  See what we built
                 </Button>
               </div>
             </div>
 
             <div className="card-forged-premium rounded-2xl p-6 shadow-xl bg-gradient-to-br from-forge-50/70 to-white text-slate-900 space-y-4">
-              <h2 className="heading-forge-md">Tool families, forged on demand.</h2>
+              <h2 className="heading-forge-md">Custom systems, forged on demand.</h2>
               <p className="text-sm text-slate-900">
-                A catalog of operator-grade tools designed to clean up the friction that slows teams down.
+                These are examples of systems we&apos;ve built. Yours will be designed around how your business actually operates — your POS, calendar, and workflows.
               </p>
               <ul className="space-y-2 text-sm text-slate-900">
                 {outcomes.map((outcome) => (
@@ -158,10 +158,10 @@ export default function Home() {
                 ))}
               </ul>
               <p className="text-sm text-slate-900">
-                Voice Concierge is the flagship live tool. The rest are forged on demand.
+                Voice Concierge is our flagship example system. Every build is custom to your operation.
               </p>
               <Button href="/business-tools" className="w-full justify-center">
-                See the Business Tools catalog
+                See example systems
               </Button>
             </div>
           </div>
@@ -171,9 +171,9 @@ export default function Home() {
       <section id="solutions" className="bg-tan-100">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Tool families, built for operator outcomes.</h2>
+            <h2 className="heading-forge-lg">Example systems we&apos;ve built</h2>
             <p className="body-foundry text-slate-900 max-w-3xl mx-auto">
-              A catalog preview of the tools we forge for teams who want speed without sacrificing governance.
+              These are examples of systems we&apos;ve built. Yours will be designed around how your business actually operates — your POS, calendar, and workflows.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -181,7 +181,7 @@ export default function Home() {
               <div key={tool.title} className="group">
                 <div className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors cursor-pointer group-hover:bg-white/70 group-hover:border-forge-200">
                   <div className="flex items-center justify-between">
-                    <p className="label-foundry">Tool family {idx + 1}</p>
+                    <p className="label-foundry">Example {idx + 1}</p>
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
                   </div>
                   <div>
@@ -194,27 +194,59 @@ export default function Home() {
           </div>
           <div className="text-center space-y-4">
             <p className="body-foundry text-slate-900">
-              Voice Concierge is the flagship live tool. The rest are forged on demand.
+              Voice Concierge is our flagship example system. Every build is custom to your operation.
             </p>
             <Button href="/business-tools" className="justify-center">
-              Explore the full catalog
+              See more examples
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-tan-100 to-white">
+      {/* Social Proof Section */}
+      <section id="social-club" className="bg-gradient-to-b from-tan-100 to-tan-200">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
+          <div className="text-center space-y-3">
+            <p className="label-foundry text-forge-700">Example build</p>
+            <h2 className="heading-forge-lg text-slate-900">Social club + Square</h2>
+          </div>
+          <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl max-w-4xl mx-auto">
+            <p className="body-foundry text-slate-900 text-lg leading-relaxed">
+              We built a system for a private social club that takes beer orders by voice and sends them straight into Square — and books private parties with automatic owner notification. No app to check. No dashboard to babysit. It just works.
+            </p>
+            <ul className="mt-6 space-y-3">
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">Voice beer orders → Square</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">Private party bookings → owner notified automatically</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">No dashboard babysitting</span>
+              </li>
+            </ul>
+            <div className="mt-8">
+              <Button href="/start" className="justify-center">
+                Tell us what&apos;s broken
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mentis Section */}
+      <section className="bg-gradient-to-b from-tan-200 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
           <div className="space-y-3 text-center">
-            <h2 className="heading-forge-lg text-slate-900">Mentis — the operations intelligence under your systems</h2>
+            <h2 className="heading-forge-lg text-slate-900">Mentis — governance under the hood when systems interlock</h2>
             <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Mentis is the Human-Governed Intelligence upgrade when multiple tools must coordinate. It keeps delegation accountable with permissions, audit trails, and clear ownership over what each tool can do.
-            </p>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              You don’t log in all day. You feel it when calls, cash flow, onboarding, and reporting behave like one governed system instead of isolated automations.
+              Mentis is the Human-Governed Intelligence layer we use when multiple systems must coordinate. Permissions, audit trails, and clear ownership — so delegation stays accountable.
             </p>
             <p className="text-sm text-slate-800 max-w-3xl mx-auto">
-              Mentis is the upgrade path once two or more tool families need to interlock.
+              You won&apos;t see Mentis as a dashboard you log into. You&apos;ll feel it when your systems behave like one governed operation instead of isolated automations.
             </p>
           </div>
         </div>
@@ -332,12 +364,12 @@ export default function Home() {
 
       <section className="bg-gradient-to-b from-forge-900 to-steel-700 text-white">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
-          <h2 className="heading-forge-lg text-white">Your business deserves tools that hold up under pressure.</h2>
+          <h2 className="heading-forge-lg text-white">Your business deserves systems that hold up under pressure.</h2>
           <p className="body-foundry text-forge-50/90">
-            If calls, cash flow, or onboarding are costing you time and sleep, it's time to forge something better in the Foundry.
+            If calls, cash flow, or onboarding are costing you time and sleep, it&apos;s time to forge something better.
           </p>
-          <Button href="#talk" className="justify-center">
-            Talk to the Foundry
+          <Button href="/start" className="justify-center">
+            Tell us what&apos;s broken
           </Button>
         </div>
       </section>

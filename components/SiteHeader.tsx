@@ -9,7 +9,7 @@ const mainNav = Object.freeze([
   { label: 'Mentis', href: '/mentis' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Get Started', href: '/start', highlight: true },
 ])
 
 const toolNav = Object.freeze([
@@ -55,7 +55,7 @@ export default function SiteHeader() {
               className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-white transition-colors hover:text-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800"
               aria-haspopup="true"
             >
-              Business Tools
+              What We Build
             </Link>
                 <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border border-white/10 foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
               <ul className="py-1" id="business-tools-menu">
@@ -98,7 +98,7 @@ export default function SiteHeader() {
         <nav className="border-t border-white/10 foundry-nav lg:hidden" aria-label="Mobile">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-1">
             <div className="space-y-1">
-              <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-tan-200">Business Tools</p>
+              <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-tan-200">What We Build</p>
               {toolNav.map((tool) => (
                 <Link
                   key={tool.href}

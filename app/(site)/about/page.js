@@ -1,9 +1,9 @@
+import Button from "../../../components/Button";
 import ContactCTA from "../../../components/ContactCTA";
-import ContactForm from "../../../components/ContactForm";
 
 export const metadata = {
   title: 'About — Dominus Foundry',
-  description: 'A business tool foundry built by the Lord family. Based in Albuquerque, built for the long haul.'
+  description: 'Operator-grade AI infrastructure built by the Lord family. Based in Albuquerque, building for the long haul.'
 };
 
 export default function About() {
@@ -17,7 +17,7 @@ export default function About() {
           </h1>
           <p className="mt-6 body-foundry">
             Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
-            We help them cross the changes they didn&apos;t ask for—with governed tools that preserve human sovereignty and operational clarity.
+            We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
           </p>
         </div>
       </section>
@@ -27,21 +27,19 @@ export default function About() {
         <h2 className="heading-forge-lg text-slate-900">Why We Started Dominus Foundry</h2>
         <div className="mt-6 space-y-4 body-foundry">
           <p className="body-foundry">
-            Technology changes faster than most teams can adapt. AI, cloud platforms, forced migrations—it&apos;s relentless.
+            Technology changes faster than most teams can adapt. AI, cloud platforms, new integrations—it&apos;s relentless.
             And the people selling these shifts rarely understand what it takes to run a real operation under pressure.
           </p>
           <p className="body-foundry">
-            QuickBooks Desktop going away was one early shock that pushed us to build Dominus Foundry. It wasn&apos;t about
-            one piece of software—it was the pattern: tools changing underneath operators and &quot;AI&quot; features being bolted
-            on without governance or ownership.
+            We kept seeing the same pattern: tools that don&apos;t talk to each other, &quot;AI&quot; features bolted on without governance,
+            and operators stuck babysitting dashboards instead of running their business.
           </p>
           <p className="body-foundry">
-            We built Dominus Foundry to close that gap. Operators who built durable businesses deserve tools that are
-            governed, auditable, and built to last—not hype projects that drift when stakes rise.
+            Dominus Foundry builds operator-grade AI infrastructure—custom systems that plug into how your business actually runs.
+            Your POS, your calendar, your workflows. Governed, auditable, and built to last.
           </p>
           <p className="body-foundry">
-            There will be more shifts ahead. We&apos;re here to help teams navigate them without losing their financial
-            history, their clarity, or their control.
+            There will be more shifts ahead. We&apos;re here to help teams navigate them without losing their clarity or their control.
           </p>
         </div>
       </section>
@@ -50,20 +48,21 @@ export default function About() {
       <section className="bg-tan-100 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="heading-forge-lg mb-6">Who We Are</h2>
-          
+
           <div className="space-y-6 body-foundry">
             <p className="body-foundry">
-              Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque. 
-              We&apos;re building this for the long haul, eventually bringing in our daughter Belle as she 
+              Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque.
+              We&apos;re building this for the long haul, eventually bringing in our daughter Belle as she
               builds her own ventures.
             </p>
             <p className="body-foundry">
-              Mark brings decades of software expertise and three years of accounting and bookkeeping experience. 
-              He's built and run businesses, so he understands what it's like when technology forces change on you.
+              We&apos;re operators, not a startup selling dashboards. Mark brings decades of software expertise and
+              has built and run businesses. Bri keeps operations grounded. Together we understand what it&apos;s like
+              when technology forces change on you—and what it takes to build systems that actually help.
             </p>
             <p className="body-foundry">
-              When you work with us, you're working directly with us—not offshore staff, not junior consultants. 
-              We handle every project personally because we understand that handing over your financial data requires trust.
+              When you work with us, you&apos;re working directly with us—not offshore staff, not junior consultants.
+              We handle every project personally because building custom infrastructure for your business requires trust.
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export default function About() {
               Based in Albuquerque, building for teams nationwide
             </p>
             <p className="mt-2 body-foundry">
-              We work with operators who need governed tools that can stand up to real usage and real accountability.
+              We work with operators who need governed systems that can stand up to real usage and real accountability.
             </p>
           </div>
         </div>
@@ -205,20 +204,21 @@ export default function About() {
       {/* Contact Section */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <div className="text-center mb-8">
-          <h2 className="heading-forge-lg">Let's work together</h2>
+          <h2 className="heading-forge-lg">Let&apos;s work together</h2>
           <p className="mt-4 body-foundry">
-            Have questions about your technology needs? Ready to talk about where to modernize next? We're here to help.
+            Have questions about your systems? Ready to talk about what needs to work better? We&apos;re here to help.
           </p>
         </div>
 
-        <ContactCTA className="mb-8" />
-
-        <div className="rounded-2xl border-2 border-navy-500 bg-white p-6 md:p-10 shadow-xl">
-          <ContactForm />
+        <div className="flex flex-col items-center gap-6">
+          <Button href="/start" className="justify-center">
+            Tell us what&apos;s broken
+          </Button>
+          <ContactCTA />
         </div>
 
-        <p className="text-sm text-slate-700 text-center mt-3">We respond within one business day.</p>
-        <div className="mt-6 text-center text-sm text-navy-600">
+        <p className="text-sm text-slate-700 text-center mt-6">We respond within one business day.</p>
+        <div className="mt-3 text-center text-sm text-navy-600">
           Based in Albuquerque, New Mexico
         </div>
       </section>

@@ -2,9 +2,9 @@ import Button from "../../components/Button";
 import ProductInquiryForm from "../../components/ProductInquiryForm";
 
 export const metadata = {
-  title: "Foundry Voice Concierge – Automated Phone Concierge | Dominus Foundry",
+  title: "Foundry Voice Concierge – Custom AI Phone System | Dominus Foundry",
   description:
-    "Foundry Voice Concierge is an automated phone concierge that answers, qualifies, books on your live calendar, and escalates high-value calls for appointment-driven teams.",
+    "Voice Concierge is a custom-built AI phone system we design around your business — your scripts, your integrations, your rules. Answers, qualifies, and books on your live calendar.",
 };
 
 export default function VoiceConciergePage() {
@@ -16,15 +16,18 @@ export default function VoiceConciergePage() {
             <div className="space-y-6">
               <p className="label-foundry">Foundry Voice Concierge</p>
               <h1 className="heading-forge-xl text-slate-900">
-                Foundry Voice Concierge – Automated Phone Concierge
+                Foundry Voice Concierge – Custom AI Phone System
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry text-slate-900 foundry-hero-lead">
                 A managed phone concierge for appointment-driven teams and operators. Voice Concierge answers, qualifies, and books from your live calendar so you stop missing calls and start treating the phone like a real channel again.
               </p>
+              <p className="body-foundry text-slate-800 bg-forge-50 border-l-4 border-forge-600 p-4 rounded-r-lg">
+                Voice Concierge isn&apos;t a product you buy off the shelf. It&apos;s a custom-built system we design around your business — your scripts, your integrations, your rules.
+              </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button href="#voice-concierge-form" className="justify-center">
-                  Request a Live Demo
+                <Button href="/start?interest=voice-concierge" className="justify-center">
+                  Tell us what&apos;s broken
                 </Button>
                 <Button href="tel:+18667103313" variant="forgeSecondary">
                   Talk with us
@@ -225,7 +228,7 @@ export default function VoiceConciergePage() {
               <li className="flex gap-3"><span className="text-forge-700 font-bold">✓</span><span>Pricing as base fee + usage - no secrets, defined before launch.</span></li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <Button href="#voice-concierge-form" className="justify-center">Talk About a Pilot</Button>
+              <Button href="/start?interest=voice-concierge" className="justify-center">Tell us what&apos;s broken</Button>
               <Button href="tel:+18667103313" variant="forgeSecondary" className="justify-center">Call the team</Button>
             </div>
           </div>
@@ -277,6 +280,40 @@ export default function VoiceConciergePage() {
         </div>
       </section>
 
+      {/* Social Club Case Study */}
+      <section className="bg-tan-100">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
+          <div className="text-center space-y-3">
+            <p className="label-foundry text-forge-700">Example build</p>
+            <h2 className="heading-forge-lg text-slate-900">Social club + Square</h2>
+          </div>
+          <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl max-w-4xl mx-auto">
+            <p className="body-foundry text-slate-900 text-lg leading-relaxed">
+              We built a system for a private social club that takes beer orders by voice and sends them straight into Square — and books private parties with automatic owner notification. No app to check. No dashboard to babysit. It just works.
+            </p>
+            <ul className="mt-6 space-y-3">
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">Voice beer orders → Square</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">Private party bookings → owner notified automatically</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-forge-700 font-bold">✓</span>
+                <span className="body-foundry text-slate-800">No dashboard babysitting</span>
+              </li>
+            </ul>
+            <div className="mt-8">
+              <Button href="/start?interest=voice-concierge" className="justify-center">
+                Tell us what&apos;s broken
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg text-center">FAQs for cautious teams</h2>
@@ -323,10 +360,10 @@ export default function VoiceConciergePage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 text-center space-y-4">
           <h2 className="heading-forge-lg text-white">Your phones never have to go unanswered again.</h2>
           <p className="body-foundry text-forge-50/90">
-            If missed calls are costing you bookings or member happiness, it&apos;s time to test an AI concierge built around your brand.
+            If missed calls are costing you bookings or member happiness, it&apos;s time to build an AI concierge around your brand.
           </p>
-          <Button href="#voice-concierge-form" className="justify-center">
-            Request a Live Demo
+          <Button href="/start?interest=voice-concierge" className="justify-center">
+            Tell us what&apos;s broken
           </Button>
         </div>
       </section>
