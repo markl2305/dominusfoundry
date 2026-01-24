@@ -120,13 +120,6 @@ export default function VendorPurchasingWorkflowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Mentis</h2>
-          <p className="body-foundry text-slate-800">Mentis.</p>
-        </div>
-      </section>
-
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>

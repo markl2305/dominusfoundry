@@ -75,9 +75,6 @@ export default function BusinessToolsPage() {
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
             We forge operator-grade tools that reduce operational drag while staying governed and auditable.
           </p>
-          <p className="body-foundry font-semibold md:text-xl text-white">
-            Voice Concierge is the flagship live tool. The rest are forged on demand.
-          </p>
         </div>
       </section>
 
@@ -191,12 +188,7 @@ export default function BusinessToolsPage() {
               );
             })}
           </div>
-          <div className="text-center space-y-4">
-            <p className="body-foundry text-slate-900">Mentis.</p>
-            <Button href="/mentis" variant="forgeSecondary" className="justify-center">
-              Learn about Mentis
-            </Button>
-          </div>
+          <p className="text-xs text-slate-700 text-center">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

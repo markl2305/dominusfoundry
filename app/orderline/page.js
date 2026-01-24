@@ -80,8 +80,6 @@ export default function OrderlinePage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg text-slate-900">Mentis</h2>
-          <p className="body-foundry text-slate-900">Mentis.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
             <Button href="/#talk" className="justify-center">
               Plan an Orderline pilot

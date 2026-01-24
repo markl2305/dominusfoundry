@@ -13,7 +13,7 @@ export default function FoundryLeadForm() {
   const labelClass = "text-sm font-semibold text-slate-900";
 
   const interestOptions = [
-    "Voice Concierge (Flagship)",
+    "Voice Concierge",
     "Lead Intake to Booking",
     "Client Onboarding Engine",
     "Lead-to-Cash (Invoicing + AR)",

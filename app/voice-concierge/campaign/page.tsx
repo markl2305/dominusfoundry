@@ -346,9 +346,6 @@ function FoundryStack() {
     <section className="bg-tan-50">
       <div className="mx-auto max-w-6xl space-y-4 px-4 py-12 md:px-6 md:py-16">
         <h2 className="text-2xl font-semibold text-navy-900 md:text-3xl">Part of the Dominus Foundry systems stack</h2>
-        <p className="text-sm text-navy-800">
-          Voice Concierge is the flagship live tool in the systems we build for teams:
-        </p>
         <ul className="space-y-2 text-sm text-navy-800">
           <li className="flex gap-2">
             <span className="text-navy-700">•</span>

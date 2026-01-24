@@ -11,14 +11,18 @@ export default function MentisPage() {
           <p className="body-foundry text-slate-900">Mentis™</p>
           <p className="body-foundry text-slate-900">Mentis is a Human-Governed Operating System.</p>
           <p className="body-foundry text-slate-900">
-            It coordinates how decisions are made, how authority is maintained,
+            It provides the architectural foundation for coordinating decisions, maintaining authority, and aligning execution across organizational systems.
+          </p>
+          <p className="body-foundry text-slate-900">Dominus Foundry systems are designed to this architecture by default.</p>
+          <p className="body-foundry text-slate-900">
+            For some organizations, Mentis remains implicit — expressed through systems that share its standards.
             <br />
-            and how execution occurs across organizational systems.
+            For others, it becomes explicit — serving as the operating layer that unifies the whole.
           </p>
           <p className="body-foundry text-slate-900">
-            Some organizations use Mentis directly.
+            Mentis is not a tool.
             <br />
-            Most encounter it through systems that share its architecture.
+            It is the system that tools are built to belong to.
           </p>
         </div>
       </section>

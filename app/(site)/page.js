@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import Button from "../../components/Button";
 import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
@@ -39,14 +40,6 @@ const toolFamilyPreview = [
   {
     title: "Lead-to-Cash (Invoicing + AR)",
     body: "Keep invoicing, reminders, and payments flowing with fewer manual touches and cleaner handoffs.",
-  },
-  {
-    title: "Client Onboarding Engine",
-    body: "Move from signed to launched without chaos, with clear ownership, tasks, and timelines.",
-  },
-  {
-    title: "Ops Reporting & Intelligence",
-    body: "Unified scoreboards and weekly operator briefings that surface the signals you need.",
   },
 ];
 
@@ -125,12 +118,7 @@ export default function Home() {
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-                Operator-grade AI infrastructure for businesses that are done with tools that don&apos;t actually work.
-              </p>
-              <p className="body-foundry text-white md:text-lg">
-                Systems don&apos;t fail all at once.
-                <br />
-                They drift — unless they were designed not to.
+                Custom systems, built to Dominus Foundry architectural standards — governed, auditable, and designed to hold up over time.
               </p>
               <p className="body-foundry font-semibold md:text-xl text-white">
                 Voice agents that connect to Square. Booking systems that notify the right person. Workflows that run without babysitting.
@@ -162,9 +150,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-slate-900">
-                Voice Concierge is our flagship example system. Every build is custom to your operation.
-              </p>
               <Button href="/business-tools" className="w-full justify-center">
                 See example systems
               </Button>
@@ -176,34 +161,43 @@ export default function Home() {
       <section id="solutions" className="bg-tan-100">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-20 space-y-10">
           <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Example systems we&apos;ve built</h2>
-            <p className="body-foundry text-slate-900 max-w-3xl mx-auto">
-              These are examples of systems we&apos;ve built. Yours will be designed around how your business actually operates — your POS, calendar, and workflows.
-            </p>
+            <h2 className="heading-forge-lg">Example systems built to Dominus Foundry standards</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {toolFamilyPreview.map((tool, idx) => (
-              <div key={tool.title} className="group">
-                <div className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors cursor-pointer group-hover:bg-white/70 group-hover:border-forge-200">
-                  <div className="flex items-center justify-between">
-                    <p className="label-foundry">Example {idx + 1}</p>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-forge-700 text-white font-semibold">{idx + 1}</span>
-                  </div>
-                  <div>
-                    <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                    <p className="mt-2 body-foundry text-slate-900">{tool.body}</p>
-                  </div>
+            {toolFamilyPreview.map((tool) => (
+              <div key={tool.title} className="card-forged-premium rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+                <div>
+                  <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                  <p className="mt-2 body-foundry text-slate-900">{tool.body}</p>
                 </div>
+                <p className="text-sm text-slate-700">Built to Dominus Foundry architectural standards.</p>
               </div>
             ))}
           </div>
-          <div className="text-center space-y-4">
-            <p className="body-foundry text-slate-900">
-              Voice Concierge is our flagship example system. Every build is custom to your operation.
+          <div className="text-center">
+            <Link href="/business-tools" className="body-foundry text-slate-900 underline">
+              Additional systems are available in our Business Tools library.
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-tan-200 to-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
+          <div className="space-y-4 text-center">
+            <h2 className="heading-forge-lg text-slate-900">Mentis™</h2>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              Mentis is the Human-Governed Operating System that informs how Dominus Foundry designs systems.
             </p>
-            <Button href="/business-tools" className="justify-center">
-              See more examples
-            </Button>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              It defines how decisions are coordinated, how authority is maintained, and how execution remains aligned as systems scale.
+            </p>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              Some organizations encounter Mentis implicitly — through systems built to its architecture.
+            </p>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
+              Others engage it directly, when operational complexity demands a unifying operating layer.
+            </p>
           </div>
         </div>
       </section>
@@ -242,22 +236,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mentis Section */}
-      <section className="bg-gradient-to-b from-tan-200 to-white">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
-          <div className="space-y-3 text-center">
-            <h2 className="heading-forge-lg text-slate-900">Mentis</h2>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">Mentis.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-10">
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Why a foundry?</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              We don't ship random tools. We forge operator-grade systems with clear inputs, clear outputs, and clear ownership.
+              We don't ship random tools. We forge operator-grade systems with clear inputs, clear outputs, and clear ownership. Our systems are not assembled. They are designed — to standards that allow them to work alone or as part of something larger.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -268,6 +252,16 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18">
+          <p className="body-foundry text-center text-slate-900 md:text-lg">
+            Systems don&apos;t fail all at once.
+            <br />
+            They drift — unless they were designed not to.
+          </p>
         </div>
       </section>
 
@@ -371,6 +365,7 @@ export default function Home() {
           <Button href="/start" className="justify-center">
             Tell us what&apos;s broken
           </Button>
+          <p className="text-xs text-forge-50/90">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

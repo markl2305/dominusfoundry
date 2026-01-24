@@ -176,18 +176,10 @@ export default function About() {
             <p className="body-foundry">
               We forge one tool at a time, focused on the bottleneck that matters most right now.
             </p>
-            <p className="body-foundry">Mentis.</p>
             <p className="font-semibold text-slate-900">
               Each build is durable, documented, and built to last.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="heading-forge-lg mb-6">Mentis</h2>
-        <div className="body-foundry space-y-4">
-          <p className="body-foundry">Mentis.</p>
         </div>
       </section>
 
