@@ -176,10 +176,7 @@ export default function About() {
             <p className="body-foundry">
               We forge one tool at a time, focused on the bottleneck that matters most right now.
             </p>
-            <p className="body-foundry">
-              When multiple tools must coordinate, we upgrade the operating model with Mentis so governance, memory, and
-              accountability stay intact across the suite.
-            </p>
+            <p className="body-foundry">Mentis.</p>
             <p className="font-semibold text-slate-900">
               Each build is durable, documented, and built to last.
             </p>
@@ -188,16 +185,9 @@ export default function About() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <h2 className="heading-forge-lg mb-6">Why we built Mentis</h2>
+        <h2 className="heading-forge-lg mb-6">Mentis</h2>
         <div className="body-foundry space-y-4">
-          <p className="body-foundry">
-            We kept seeing the same two problems: tools that didn’t talk to each other, and automation that forgot everything
-            you’d already done. Teams were told to add more apps, but nobody owned how it all worked together.
-          </p>
-          <p className="body-foundry">
-            Mentis is our answer — the Human-Governed Intelligence layer that keeps multiple tools coherent behind the scenes,
-            so calls, cash flow, onboarding, and reporting behave like one governed system.
-          </p>
+          <p className="body-foundry">Mentis.</p>
         </div>
       </section>
 

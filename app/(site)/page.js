@@ -127,6 +127,11 @@ export default function Home() {
               <p className="body-foundry text-white md:text-lg foundry-hero-lead">
                 Operator-grade AI infrastructure for businesses that are done with tools that don&apos;t actually work.
               </p>
+              <p className="body-foundry text-white md:text-lg">
+                Systems don&apos;t fail all at once.
+                <br />
+                They drift — unless they were designed not to.
+              </p>
               <p className="body-foundry font-semibold md:text-xl text-white">
                 Voice agents that connect to Square. Booking systems that notify the right person. Workflows that run without babysitting.
               </p>
@@ -241,13 +246,8 @@ export default function Home() {
       <section className="bg-gradient-to-b from-tan-200 to-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
           <div className="space-y-3 text-center">
-            <h2 className="heading-forge-lg text-slate-900">Mentis — governance under the hood when systems interlock</h2>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Mentis is the Human-Governed Intelligence layer we use when multiple systems must coordinate. Permissions, audit trails, and clear ownership — so delegation stays accountable.
-            </p>
-            <p className="text-sm text-slate-800 max-w-3xl mx-auto">
-              You won&apos;t see Mentis as a dashboard you log into. You&apos;ll feel it when your systems behave like one governed operation instead of isolated automations.
-            </p>
+            <h2 className="heading-forge-lg text-slate-900">Mentis</h2>
+            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">Mentis.</p>
           </div>
         </div>
       </section>
@@ -345,7 +345,7 @@ export default function Home() {
           <div className="space-y-3 text-center">
             <h2 className="heading-forge-lg">Tell us where your systems are breaking.</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              Share a bit about your operation and where things feel heavy. We'll point you to the right tool family or a Mentis-led build.
+              Share a bit about your operation and where things feel heavy. We&apos;ll point you to the right tool family or build.
             </p>
           </div>
           <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">

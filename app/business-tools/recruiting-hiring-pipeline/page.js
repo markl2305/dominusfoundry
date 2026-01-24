@@ -122,26 +122,8 @@ export default function RecruitingHiringPipelinePage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Structured Hiring — Optional Intelligence</h2>
-          <p className="body-foundry text-slate-800">
-            Recruiting &amp; Hiring Pipeline can operate as a standalone hiring workflow system.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, it gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Cross-candidate context",
-              "Policy enforcement across hiring decisions",
-              "Pattern recognition on hiring outcomes",
-              "Long-term optimization of hiring quality",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -171,6 +153,7 @@ export default function RecruitingHiringPipelinePage() {
           <Button href="/contact?interest=Recruiting%20%26%20Hiring%20Pipeline#contact" className="justify-center">
             Talk to Us About Recruiting &amp; Hiring Pipeline
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

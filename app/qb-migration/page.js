@@ -24,6 +24,7 @@ export default function QBMigrationRetired() {
         >
           Contact the team
         </a>
+        <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
       </div>
     </section>
   );

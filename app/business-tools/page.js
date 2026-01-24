@@ -192,9 +192,7 @@ export default function BusinessToolsPage() {
             })}
           </div>
           <div className="text-center space-y-4">
-            <p className="body-foundry text-slate-900">
-              If you want 2+ tool families, you&apos;re a Mentis candidate (OS upgrade).
-            </p>
+            <p className="body-foundry text-slate-900">Mentis.</p>
             <Button href="/mentis" variant="forgeSecondary" className="justify-center">
               Learn about Mentis
             </Button>

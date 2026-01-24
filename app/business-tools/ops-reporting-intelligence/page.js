@@ -121,26 +121,8 @@ export default function OpsReportingIntelligencePage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Reporting Alone — Intelligence with Mentis</h2>
-          <p className="body-foundry text-slate-800">
-            Ops Reporting &amp; Intelligence can operate as a standalone reporting and alerting system.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, it gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Cross-domain context",
-              "Pattern recognition over time",
-              "Policy-aware alerting",
-              "Continuous improvement of signal quality",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -170,6 +152,7 @@ export default function OpsReportingIntelligencePage() {
           <Button href="/contact?interest=Ops%20Reporting%20%26%20Intelligence#contact" className="justify-center">
             Talk to Us About Ops Reporting &amp; Intelligence
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

@@ -122,26 +122,8 @@ export default function SupportTriageDeskPage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Operates Alone — Improves with Mentis</h2>
-          <p className="body-foundry text-slate-800">
-            Support Triage Desk can operate as a standalone support intake and routing system.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, it gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Cross-issue context",
-              "Policy enforcement on escalation and response",
-              "Pattern recognition across recurring problems",
-              "Long-term optimization of support operations",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -171,6 +153,7 @@ export default function SupportTriageDeskPage() {
           <Button href="/contact?interest=Support%20Triage%20Desk#contact" className="justify-center">
             Talk to Us About Support Triage Desk
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

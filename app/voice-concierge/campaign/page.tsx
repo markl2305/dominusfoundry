@@ -507,6 +507,7 @@ function ClosingBand() {
         <Button href="#vc-fit-call-form" variant="forgeSecondary" className="justify-center">
           Book your 15-minute fit call →
         </Button>
+        <p className="text-xs text-bronze-100">Built to Dominus Foundry architectural standards.</p>
       </div>
     </section>
   )

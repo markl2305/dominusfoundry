@@ -18,6 +18,7 @@ export default function VoiceOrderingPage() {
           Voice Ordering lets you speak through what needs to be ordered, turns it into structured data, and aligns it
           with your inventory lists so ordering runs from your own words instead of another spreadsheet.
         </p>
+        <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
       </div>
     </section>
   )

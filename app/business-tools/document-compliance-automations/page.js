@@ -122,26 +122,8 @@ export default function DocumentComplianceAutomationsPage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Structured Alone — Governed with Mentis</h2>
-          <p className="body-foundry text-slate-800">
-            Document &amp; Compliance Automations can operate as a standalone system with its own document workflows.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, it gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Policy enforcement across document types",
-              "Historical compliance context",
-              "Cross-system awareness",
-              "Long-term optimization of document processes",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -170,6 +152,7 @@ export default function DocumentComplianceAutomationsPage() {
           <Button href="/contact?interest=Document%20%26%20Compliance%20Automations#contact" className="justify-center">
             Talk to Us About Document &amp; Compliance Automations
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

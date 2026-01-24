@@ -102,26 +102,8 @@ export default function VoiceConciergeToolPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Works Alone. Scales With Mentis.</h2>
-          <p className="body-foundry text-slate-800">
-            Voice Concierge can run as a standalone system with its own workflows and integrations.
-          </p>
-          <p className="body-foundry text-slate-800">
-            For organizations that require deeper governance, institutional memory, and cross-system intelligence, Voice Concierge can be upgraded to operate under Mentis, adding:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Persistent operational memory",
-              "Policy enforcement",
-              "Cross-tool intelligence",
-              "Long-term optimization",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -150,6 +132,7 @@ export default function VoiceConciergeToolPage() {
           <Button href="/contact?interest=Voice%20Concierge#contact" className="justify-center">
             Talk to Us About Voice Concierge
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

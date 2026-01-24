@@ -122,26 +122,8 @@ export default function VendorPurchasingWorkflowPage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Disciplined Purchasing — Optional Intelligence</h2>
-          <p className="body-foundry text-slate-800">
-            Vendor &amp; Purchasing Workflow can operate as a standalone purchasing automation system.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, it gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Cross-vendor spending context",
-              "Policy enforcement across purchasing categories",
-              "Pattern detection on costs and suppliers",
-              "Long-term optimization of purchasing behavior",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -171,6 +153,7 @@ export default function VendorPurchasingWorkflowPage() {
           <Button href="/contact?interest=Vendor%20%26%20Purchasing%20Workflow#contact" className="justify-center">
             Talk to Us About Vendor &amp; Purchasing Workflow
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

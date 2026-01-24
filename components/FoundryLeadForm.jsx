@@ -22,7 +22,7 @@ export default function FoundryLeadForm() {
     "Document & Compliance Automations",
     "Recruiting & Hiring Pipeline",
     "Vendor & Purchasing Workflow",
-    "Mentis Standard (OS upgrade)",
+    "Mentis",
     "Not sure / need guidance",
   ];
   const interestParam = searchParams?.get("interest");

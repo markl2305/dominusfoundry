@@ -80,10 +80,8 @@ export default function OrderlinePage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg text-slate-900">How it fits with Mentis</h2>
-          <p className="body-foundry text-slate-900">
-            Because Orderline shares an operations intelligence layer with your other Foundry systems, it can learn which items tend to go together, which orders repeat, and where mistakes happen—so your re-ordering process gets smoother over time.
-          </p>
+          <h2 className="heading-forge-lg text-slate-900">Mentis</h2>
+          <p className="body-foundry text-slate-900">Mentis.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
             <Button href="/#talk" className="justify-center">
               Plan an Orderline pilot
@@ -92,6 +90,7 @@ export default function OrderlinePage() {
               Call to discuss
             </Button>
           </div>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

@@ -157,7 +157,7 @@ export default function VoiceConciergePage() {
               },
               {
                 title: "Review, tune, and learn",
-                body: "You review results and we tune messaging over time, with Mentis pulling patterns from what’s working.",
+                body: "You review results and we tune messaging over time.",
               },
             ].map((step, index) => (
               <div key={step.title} className="card-forged rounded-2xl bg-tan-50 p-6 shadow-sm">
@@ -365,6 +365,7 @@ export default function VoiceConciergePage() {
           <Button href="/start?interest=voice-concierge" className="justify-center">
             Tell us what&apos;s broken
           </Button>
+          <p className="text-xs text-forge-50/90">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

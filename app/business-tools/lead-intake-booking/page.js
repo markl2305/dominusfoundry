@@ -121,26 +121,8 @@ export default function LeadIntakeBookingPage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Works Independently — Scales with Mentis</h2>
-          <p className="body-foundry text-slate-800">
-            Lead Intake → Booking can operate as a standalone automation with its own workflows and integrations.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, the system gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Context-aware qualification",
-              "Cross-channel learning",
-              "Policy enforcement",
-              "Long-term optimization across tools",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -170,6 +152,7 @@ export default function LeadIntakeBookingPage() {
           <Button href="/contact?interest=Lead%20Intake%20%E2%86%92%20Booking#contact" className="justify-center">
             Talk to Us About Lead Intake → Booking
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

@@ -121,26 +121,8 @@ export default function ClientOnboardingEnginePage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Modular by Design — Governed by Choice</h2>
-          <p className="body-foundry text-slate-800">
-            Client Onboarding Engine can operate as a standalone automation system with its own workflows and integrations.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When operated under Mentis, onboarding gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Persistent client context",
-              "Policy enforcement across engagements",
-              "Cross-tool coordination",
-              "Long-term optimization of onboarding performance",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -169,6 +151,7 @@ export default function ClientOnboardingEnginePage() {
           <Button href="/contact?interest=Client%20Onboarding%20Engine#contact" className="justify-center">
             Talk to Us About Client Onboarding
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

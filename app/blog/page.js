@@ -17,7 +17,7 @@ const posts = [
     title: "Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action",
     href: "/blog/synthetic-intelligence-mentis",
     excerpt:
-      "Synthetic intelligence is AI that executes with memory, policies, verification, and audit trails. Here’s what’s coming and how Mentis fits.",
+      "Synthetic intelligence is AI that executes with memory, policies, verification, and audit trails. Here’s what’s coming.",
   },
   {
     title: "Beyond Chatbots: Why Teams Need Operations Intelligence",

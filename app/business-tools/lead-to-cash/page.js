@@ -121,26 +121,8 @@ export default function LeadToCashPage() {
 
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Financial Discipline — With Optional Intelligence</h2>
-          <p className="body-foundry text-slate-800">
-            Lead-to-Cash can operate as a standalone automation layer tied directly to your accounting platform.
-          </p>
-          <p className="body-foundry text-slate-800">
-            When governed by Mentis, the system gains:
-          </p>
-          <ul className="space-y-3 body-foundry text-slate-800">
-            {[
-              "Cross-client financial context",
-              "Policy enforcement around billing behavior",
-              "Historical pattern analysis",
-              "Operational intelligence layered on top of cash flow",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 className="heading-forge-lg">Mentis</h2>
+          <p className="body-foundry text-slate-800">Mentis.</p>
         </div>
       </section>
 
@@ -169,6 +151,7 @@ export default function LeadToCashPage() {
           <Button href="/contact?interest=Lead-to-Cash#contact" className="justify-center">
             Talk to Us About Lead-to-Cash
           </Button>
+          <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>
