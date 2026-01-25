@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Vendor & Purchasing Workflow | Dominus Foundry",
   description:
-    "Vendor & Purchasing Workflow controls purchasing from request to reconciliation without bottlenecks, overspend, or surprises.",
+    "Request → Approve → Order → Reconcile → Restock — with structured purchasing.",
 };
 
 export default function VendorPurchasingWorkflowPage() {
@@ -14,9 +14,9 @@ export default function VendorPurchasingWorkflowPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Vendor &amp; Purchasing Workflow</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Control purchasing from request to reconciliation — without bottlenecks, overspend, or surprises.
+            Request → Approve → Order → Reconcile → Restock — with structured purchasing.
           </p>
-          <Button href="#vendor-purchasing-how" className="justify-center">
+          <Button href="#purchasing-cta" className="justify-center">
             See How It Works
           </Button>
         </div>
@@ -24,12 +24,15 @@ export default function VendorPurchasingWorkflowPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Purchasing Fails in the Gaps</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Without structure, purchasing becomes reactive. Requests arrive inconsistently, approvals get bypassed, vendors drift out of sync, and costs creep without visibility.
+            Purchasing without structure leaks money and time.
           </p>
           <p className="body-foundry text-slate-800">
-            Vendor &amp; Purchasing Workflow restores discipline by treating purchasing as an operational system — not an email thread.
+            Requests scattered across channels. Approvals inconsistent. Orders duplicated or forgotten. Reconciliation manual.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Vendor &amp; Purchasing Workflow enforces discipline across the procurement cycle.
           </p>
         </div>
       </section>
@@ -39,12 +42,12 @@ export default function VendorPurchasingWorkflowPage() {
           <h2 className="heading-forge-lg">What This System Does</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Captures purchase requests in a structured format",
-              "Routes requests through defined approval paths",
-              "Generates purchase orders when approved",
-              "Tracks vendor fulfillment and delivery status",
-              "Reconciles purchases against invoices",
-              "Maintains a complete purchasing audit trail",
+              "Captures purchase requests from any channel",
+              "Routes for approval based on rules",
+              "Submits orders to vendors",
+              "Tracks delivery and receipt",
+              "Reconciles against invoices",
+              "Triggers restocking based on thresholds",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,20 +58,20 @@ export default function VendorPurchasingWorkflowPage() {
         </div>
       </section>
 
-      <section id="vendor-purchasing-how" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Designed as a Controlled Flow</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Vendor &amp; Purchasing Workflow is built as a governed lifecycle — from request to reconciliation.
+            Every purchase follows defined approval and tracking rules.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Requests are validated at intake",
-              "Approval logic enforces spending authority",
-              "Purchase orders are generated programmatically",
-              "Status updates are tracked explicitly",
-              "Exceptions are surfaced early instead of buried",
+              "Request intake feeds structured data",
+              "Approval routing enforced programmatically",
+              "Vendor orders submitted automatically",
+              "Receipt and reconciliation tracked",
+              "Restock triggers based on inventory thresholds",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -77,7 +80,7 @@ export default function VendorPurchasingWorkflowPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, allowing purchasing logic to remain explicit, auditable, and adaptable.
+            Orchestration via n8n — purchasing stays controlled without procurement staff.
           </p>
         </div>
       </section>
@@ -103,7 +106,7 @@ export default function VendorPurchasingWorkflowPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Operations teams",
@@ -120,7 +123,7 @@ export default function VendorPurchasingWorkflowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -140,9 +143,9 @@ export default function VendorPurchasingWorkflowPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="purchasing-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Bring Discipline to Spending</h2>
+          <h2 className="heading-forge-lg">Purchasing under control.</h2>
           <Button href="/contact?interest=Vendor%20%26%20Purchasing%20Workflow#contact" className="justify-center">
             Talk to Us About Vendor &amp; Purchasing Workflow
           </Button>

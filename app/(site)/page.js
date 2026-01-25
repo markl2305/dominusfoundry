@@ -10,24 +10,6 @@ export const metadata = {
     "Operator-grade AI infrastructure for businesses that are done with tools that don't actually work. Voice agents, booking systems, and workflows designed around your operations.",
 };
 
-const outcomes = [
-  {
-    title: "Calls handled without dropped bookings",
-  },
-  {
-    title: "Cash collection without daily chasing",
-  },
-  {
-    title: "Onboarding that stays clean from signed to live",
-  },
-  {
-    title: "Operator reporting that flags exceptions fast",
-  },
-  {
-    title: "Support triage that protects focus and SLAs",
-  },
-];
-
 const toolFamilyPreview = [
   {
     title: "Voice Concierge",
@@ -118,7 +100,7 @@ export default function Home() {
               </h1>
               <div className="divider-forged" />
               <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-                Custom systems, built to Dominus Foundry architectural standards — governed, auditable, and designed to hold up over time.
+                Governed, auditable, and designed to hold up over time.
               </p>
               <p className="body-foundry font-semibold md:text-xl text-white">
                 Voice agents that connect to Square. Booking systems that notify the right person. Workflows that run without babysitting.
@@ -128,11 +110,11 @@ export default function Home() {
                   Tell us what&apos;s broken
                 </Button>
                 <Button
-                  href="#social-club"
+                  href="/business-tools"
                   variant="forgeSecondary"
                   className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
                 >
-                  See what we built
+                  See what we build
                 </Button>
               </div>
             </div>
@@ -143,18 +125,35 @@ export default function Home() {
                 These are examples of systems we&apos;ve built. Yours will be designed around how your business actually operates — your POS, calendar, and workflows.
               </p>
               <ul className="space-y-2 text-sm text-slate-900">
-                {outcomes.map((outcome) => (
-                  <li key={outcome.title} className="flex gap-2">
-                    <span className="text-forge-700 font-bold">•</span>
-                    <span>{outcome.title}</span>
-                  </li>
-                ))}
+                <li className="flex gap-2">
+                  <span className="text-forge-700 font-bold">•</span>
+                  <span>Calls handled without dropped bookings</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-forge-700 font-bold">•</span>
+                  <span>Cash collection without daily chasing</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-forge-700 font-bold">•</span>
+                  <span>Onboarding that stays clean from signed to live</span>
+                </li>
               </ul>
               <Button href="/business-tools" className="w-full justify-center">
                 See example systems
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* The Drift Statement - Standalone */}
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18">
+          <p className="body-foundry text-center text-slate-900 md:text-lg font-medium">
+            Systems don&apos;t fail all at once.
+            <br />
+            They drift — unless they were designed not to.
+          </p>
         </div>
       </section>
 
@@ -170,34 +169,14 @@ export default function Home() {
                   <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
                   <p className="mt-2 body-foundry text-slate-900">{tool.body}</p>
                 </div>
-                <p className="text-sm text-slate-700">Built to Dominus Foundry architectural standards.</p>
               </div>
             ))}
           </div>
+          <p className="text-sm text-slate-700 text-center">Built to Dominus Foundry architectural standards.</p>
           <div className="text-center">
             <Link href="/business-tools" className="body-foundry text-slate-900 underline">
               Additional systems are available in our Business Tools library.
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-b from-tan-200 to-white">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-6">
-          <div className="space-y-4 text-center">
-            <h2 className="heading-forge-lg text-slate-900">Mentis™</h2>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Mentis is the Human-Governed Operating System that informs how Dominus Foundry designs systems.
-            </p>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              It defines how decisions are coordinated, how authority is maintained, and how execution remains aligned as systems scale.
-            </p>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Some organizations encounter Mentis implicitly — through systems built to its architecture.
-            </p>
-            <p className="body-foundry text-slate-900 max-w-4xl mx-auto">
-              Others engage it directly, when operational complexity demands a unifying operating layer.
-            </p>
           </div>
         </div>
       </section>
@@ -241,7 +220,7 @@ export default function Home() {
           <div className="text-center space-y-3">
             <h2 className="heading-forge-lg">Why a foundry?</h2>
             <p className="body-foundry max-w-3xl mx-auto">
-              We don't ship random tools. We forge operator-grade systems with clear inputs, clear outputs, and clear ownership. Our systems are not assembled. They are designed — to standards that allow them to work alone or as part of something larger.
+              We don&apos;t ship random tools. We forge operator-grade systems with clear inputs, clear outputs, and clear ownership.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -252,16 +231,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18">
-          <p className="body-foundry text-center text-slate-900 md:text-lg">
-            Systems don&apos;t fail all at once.
-            <br />
-            They drift — unless they were designed not to.
-          </p>
         </div>
       </section>
 
@@ -301,13 +270,13 @@ export default function Home() {
             <div className="md:col-span-2 grid gap-4">
               <div className="card-forged-premium rounded-2xl p-6 shadow-sm">
                 <p className="text-sm text-slate-800 leading-relaxed">
-                  “The Foundry team stabilized our books before automating a thing. Invoices go out, reminders happen, and cash shows up without a chase.”
+                  "The Foundry team stabilized our books before automating a thing. Invoices go out, reminders happen, and cash shows up without a chase."
                 </p>
                 <p className="mt-3 text-sm font-semibold text-slate-900">Owner, regional service business</p>
               </div>
               <div className="card-forged rounded-2xl bg-white p-6 shadow-sm">
                 <p className="text-sm text-slate-800 leading-relaxed">
-                  “Calls are answered, bookings are logged, and we see exactly what was said without adding headcount. The guardrails keep us comfortable.”
+                  "Calls are answered, bookings are logged, and we see exactly what was said without adding headcount. The guardrails keep us comfortable."
                 </p>
                 <p className="mt-3 text-sm font-semibold text-slate-900">General manager, membership club</p>
               </div>

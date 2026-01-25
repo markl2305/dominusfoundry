@@ -79,16 +79,59 @@ export default function About() {
         </div>
       </section>
 
+      {/* How We Build */}
+      <section className="bg-[var(--foundry-bg-alt)] py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="heading-forge-lg mb-8">How We Build</h2>
+
+          <div className="space-y-6 body-foundry">
+            <p className="body-foundry">
+              Every system we ship follows the same architectural discipline — regardless of scope.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="card-forged bg-white rounded-2xl p-6">
+              <h3 className="heading-forge-md text-slate-900">Workflow orchestration</h3>
+              <p className="mt-3 body-foundry">
+                Built on n8n — explicit, inspectable, and adaptable. No black boxes.
+              </p>
+            </div>
+
+            <div className="card-forged bg-white rounded-2xl p-6">
+              <h3 className="heading-forge-md text-slate-900">Governed AI</h3>
+              <p className="mt-3 body-foundry">
+                LLM calls are constrained, logged, and recoverable. No hallucination, no drift.
+              </p>
+            </div>
+
+            <div className="card-forged bg-white rounded-2xl p-6">
+              <h3 className="heading-forge-md text-slate-900">Integration-first</h3>
+              <p className="mt-3 body-foundry">
+                We connect to Square, Google, QuickBooks, calendars, and internal tools — not replace them.
+              </p>
+            </div>
+
+            <div className="card-forged bg-white rounded-2xl p-6">
+              <h3 className="heading-forge-md text-slate-900">Audit-ready</h3>
+              <p className="mt-3 body-foundry">
+                Every action logged. Every decision traceable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Principles */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <h2 className="heading-forge-lg mb-8">How We Work</h2>
-        
+
         <div className="space-y-8">
           <div className="card-forged-premium bg-white rounded-2xl p-6 md:p-8">
             <h3 className="heading-forge-md text-slate-900">We have patience for people who don't love change</h3>
             <p className="mt-3 body-foundry">
-              You didn't ask for your core tools to be retired. You didn't ask for AI to disrupt your workflows. 
-              We understand that frustration. We take the time to explain what's happening, why it matters, and 
+              You didn't ask for your core tools to be retired. You didn't ask for AI to disrupt your workflows.
+              We understand that frustration. We take the time to explain what's happening, why it matters, and
               what your options are—without talking down to you.
             </p>
           </div>
@@ -96,8 +139,8 @@ export default function About() {
           <div className="card-forged bg-white rounded-2xl p-6 md:p-8">
             <h3 className="heading-forge-md text-slate-900">We partner with you, not at you</h3>
             <p className="mt-3 body-foundry">
-              Most tech vendors are impersonal and rushed. We're not. You get direct access to us throughout 
-              the project. We answer questions, walk you through decisions, and make sure you understand what's 
+              Most tech vendors are impersonal and rushed. We're not. You get direct access to us throughout
+              the project. We answer questions, walk you through decisions, and make sure you understand what's
               happening to your business-critical systems.
             </p>
           </div>
@@ -105,7 +148,7 @@ export default function About() {
           <div className="card-forged bg-white rounded-2xl p-6 md:p-8">
             <h3 className="heading-forge-md text-slate-900">We don't rush the work</h3>
             <p className="mt-3 body-foundry">
-              Quality over speed. We reconcile everything, document our work, and hand off systems that the 
+              Quality over speed. We reconcile everything, document our work, and hand off systems that the
               next person can understand. Your CPA shouldn't have to decode mysteries when they open your books.
             </p>
           </div>
@@ -153,13 +196,13 @@ export default function About() {
         <h2 className="heading-forge-lg mb-6">About the Name</h2>
         <div className="body-foundry space-y-4">
           <p className="body-foundry">
-            "Dominus" is Latin for "Lord"—our family name. A foundry is where raw materials are forged into 
+            "Dominus" is Latin for "Lord"—our family name. A foundry is where raw materials are forged into
             durable, functional tools that last for generations.
           </p>
           <p className="body-foundry">
-            We chose the name because we're building this for legacy. The Foundry is where the Lord family's 
-            ideas take form and come to life. We're not looking for quick exits or venture capital. We're building 
-            businesses that will serve people for decades, potentially with our daughter Belle joining as she 
+            We chose the name because we're building this for legacy. The Foundry is where the Lord family's
+            ideas take form and come to life. We're not looking for quick exits or venture capital. We're building
+            businesses that will serve people for decades, potentially with our daughter Belle joining as she
             builds her own ventures.
           </p>
           <p className="font-semibold text-slate-900">

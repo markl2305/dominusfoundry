@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Support Triage Desk | Dominus Foundry",
   description:
-    "Support Triage Desk intakes, classifies, routes, and resolves support requests without chaos, backlog, or missed escalation.",
+    "Intake, classify, route, and resolve support requests — without chaos.",
 };
 
 export default function SupportTriageDeskPage() {
@@ -14,9 +14,9 @@ export default function SupportTriageDeskPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Support Triage Desk</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Intake, classify, route, and resolve support requests — without chaos, backlog, or missed escalation.
+            Intake, classify, route, and resolve support requests — without chaos.
           </p>
-          <Button href="#support-triage-how" className="justify-center">
+          <Button href="#support-cta" className="justify-center">
             See How It Works
           </Button>
         </div>
@@ -24,12 +24,15 @@ export default function SupportTriageDeskPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Support Breaks When Everything Is “Urgent”</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Most support systems fail at intake. Requests arrive through multiple channels, priorities are unclear, and urgent issues compete with routine noise.
+            Support breaks when everything feels urgent.
           </p>
           <p className="body-foundry text-slate-800">
-            Support Triage Desk introduces structure at the front door — before tickets pile up and customers get frustrated.
+            Requests arrive through multiple channels. Priorities are unclear. Urgent issues compete with routine noise.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Support Triage Desk introduces structure at the front door — before tickets pile up.
           </p>
         </div>
       </section>
@@ -39,12 +42,12 @@ export default function SupportTriageDeskPage() {
           <h2 className="heading-forge-lg">What This System Does</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Captures support requests across email, chat, and voice",
-              "Classifies issues by type, urgency, and impact",
-              "Routes requests based on defined rules",
-              "Tracks status and resolution progress",
+              "Captures requests across email, chat, and voice",
+              "Classifies by type, urgency, and impact",
+              "Routes based on defined rules",
+              "Tracks status and resolution",
               "Escalates critical issues automatically",
-              "Maintains a complete support audit trail",
+              "Maintains support audit trail",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,9 +58,9 @@ export default function SupportTriageDeskPage() {
         </div>
       </section>
 
-      <section id="support-triage-how" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Designed as a Front-Line Control Layer</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
             Support Triage Desk is built as a deterministic intake and routing system — not just a ticket inbox.
           </p>
@@ -65,10 +68,9 @@ export default function SupportTriageDeskPage() {
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Intake sources feed structured request data",
-              "Classification rules apply consistently",
-              "Routing logic assigns ownership immediately",
+              "Classification rules applied consistently",
+              "Routing assigns ownership immediately",
               "Escalation paths activate without manual intervention",
-              "Every action is logged for visibility and accountability",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -77,7 +79,7 @@ export default function SupportTriageDeskPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, allowing the system to adapt to different support models without rebuilding the core logic.
+            Orchestration via n8n — adaptable to different support models without rebuilding core logic.
           </p>
         </div>
       </section>
@@ -103,7 +105,7 @@ export default function SupportTriageDeskPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Service businesses",
@@ -120,7 +122,7 @@ export default function SupportTriageDeskPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -140,9 +142,9 @@ export default function SupportTriageDeskPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="support-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Bring Order to Support</h2>
+          <h2 className="heading-forge-lg">Bring order to support.</h2>
           <Button href="/contact?interest=Support%20Triage%20Desk#contact" className="justify-center">
             Talk to Us About Support Triage Desk
           </Button>

@@ -1,66 +1,74 @@
 import Link from "next/link";
-import Button from "../../components/Button";
 
 export const metadata = {
   title: "Business Tools | Dominus Foundry",
   description:
-    "A catalog of tool families forged for operators -- governed, auditable, and built to last.",
+    "Operator-grade systems that reduce drag while staying governed and auditable.",
 };
 
 const toolFamilies = [
   {
     id: "voice-concierge",
     title: "Voice Concierge",
-    what: "Phone answering, qualification, booking, routing, transcripts, and escalation with governed scripts.",
+    what: "Answers, qualifies, books, and routes calls.",
     bestFit: "Appointment-driven operators; membership clubs; clinics; service teams.",
+    href: "/business-tools/voice-concierge",
   },
   {
     id: "lead-intake",
     title: "Lead Intake → Booking",
-    what: "Capture inbound leads, qualify, route, and book with guardrails that protect your reputation.",
+    what: "Captures leads, qualifies, routes, and books.",
     bestFit: "Founders and ops leads who lose leads to slow follow-up.",
-  },
-  {
-    id: "client-onboarding",
-    title: "Client Onboarding Engine",
-    what: "From signed deal to fully onboarded: tasks, docs, billing, project setup, and kickoff scheduling.",
-    bestFit: "Agencies, professional services, and B2B teams.",
+    href: "/business-tools/lead-intake-booking",
   },
   {
     id: "lead-to-cash",
     title: "Lead-to-Cash (Invoicing + AR)",
-    what: "Quote, invoice, reminders, and payments aligned to accounting source-of-truth with fewer touches.",
+    what: "Automates the path from closed deal to collected revenue.",
     bestFit: "Service + light product teams with recurring invoices.",
+    href: "/business-tools/lead-to-cash",
+  },
+  {
+    id: "client-onboarding",
+    title: "Client Onboarding Engine",
+    what: "Moves from signed deal to operational client.",
+    bestFit: "Agencies, professional services, and B2B teams.",
+    href: "/business-tools/client-onboarding-engine",
   },
   {
     id: "support-triage",
     title: "Support Triage Desk",
-    what: "Intake, classification, retrieval, escalation, and SLA tracking across email, chat, and voice.",
+    what: "Intakes, classifies, routes, and resolves support requests.",
     bestFit: "Teams drowning in repetitive support and internal requests.",
+    href: "/business-tools/support-triage-desk",
   },
   {
     id: "ops-reporting",
     title: "Ops Reporting & Intelligence",
-    what: "Unified scoreboards across sales, delivery, finance; anomaly detection; weekly operator briefings.",
+    what: "Unified visibility across sales, delivery, finance, and operations.",
     bestFit: "Owners wanting clarity without living in dashboards.",
+    href: "/business-tools/ops-reporting-intelligence",
   },
   {
     id: "doc-compliance",
     title: "Document & Compliance Automations",
-    what: "Generate, route, sign, archive, and audit documents with version control and policy rules.",
+    what: "Generates, routes, signs, archives, and audits documents.",
     bestFit: "Regulated-ish ops and teams that live in PDFs and approvals.",
+    href: "/business-tools/document-compliance-automations",
   },
   {
     id: "recruiting",
     title: "Recruiting & Hiring Pipeline",
-    what: "Applicant intake to screening, scheduling, scorecards, and offer workflows under governance.",
+    what: "Applicant intake to offer with governance at every step.",
     bestFit: "Companies hiring without HR overhead.",
+    href: "/business-tools/recruiting-hiring-pipeline",
   },
   {
     id: "vendor-purchasing",
     title: "Vendor & Purchasing Workflow",
-    what: "Request -> approve -> order -> reconcile -> restock triggers with structured purchasing.",
+    what: "Request, approve, order, reconcile, and restock.",
     bestFit: "Ops-heavy teams; hospitality; multi-location.",
+    href: "/business-tools/vendor-purchasing-workflow",
   },
 ];
 
@@ -73,122 +81,29 @@ export default function BusinessToolsPage() {
           <p className="label-foundry text-orange-200">Business Tools Catalog</p>
           <h1 className="heading-forge-xl text-white">Tool families forged for operators.</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            We forge operator-grade tools that reduce operational drag while staying governed and auditable.
+            Operator-grade systems that reduce drag while staying governed and auditable. Each ships as a durable system with clear inputs, outputs, and ownership boundaries.
           </p>
         </div>
       </section>
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Choose a tool family to forge.</h2>
-            <p className="body-foundry text-slate-800 max-w-3xl mx-auto">
-              Each tool family ships as a durable system with clear inputs, outputs, documentation, and ownership boundaries.
-            </p>
-          </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {toolFamilies.map((tool) => {
-              const interest = encodeURIComponent(tool.title);
-              const isVoiceConcierge = tool.id === "voice-concierge";
-              const isLeadIntake = tool.id === "lead-intake";
-              const isClientOnboarding = tool.id === "client-onboarding";
-              const isLeadToCash = tool.id === "lead-to-cash";
-              const isSupportTriage = tool.id === "support-triage";
-              const isOpsReporting = tool.id === "ops-reporting";
-              const isDocCompliance = tool.id === "doc-compliance";
-              const isRecruiting = tool.id === "recruiting";
-              const isVendorPurchasing = tool.id === "vendor-purchasing";
-              return (
-                <div key={tool.title} id={tool.id}>
-                  {isVoiceConcierge ? (
-                    <Link href="/business-tools/voice-concierge" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isLeadIntake ? (
-                    <Link href="/business-tools/lead-intake-booking" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isClientOnboarding ? (
-                    <Link href="/business-tools/client-onboarding-engine" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isLeadToCash ? (
-                    <Link href="/business-tools/lead-to-cash" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isSupportTriage ? (
-                    <Link href="/business-tools/support-triage-desk" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isOpsReporting ? (
-                    <Link href="/business-tools/ops-reporting-intelligence" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isDocCompliance ? (
-                    <Link href="/business-tools/document-compliance-automations" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isRecruiting ? (
-                    <Link href="/business-tools/recruiting-hiring-pipeline" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : isVendorPurchasing ? (
-                    <Link href="/business-tools/vendor-purchasing-workflow" className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                    </Link>
-                  ) : (
-                    <div className="card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
-                      <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
-                      <p className="body-foundry text-slate-800">{tool.what}</p>
-                      <p className="text-sm text-slate-700">
-                        <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
-                      </p>
-                      <Button href={`/contact?interest=${interest}#contact`} className="w-full justify-center">
-                        Forge this tool
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {toolFamilies.map((tool) => (
+              <Link
+                key={tool.id}
+                href={tool.href}
+                className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link"
+              >
+                <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                <p className="body-foundry text-slate-800">{tool.what}</p>
+                <p className="text-sm text-slate-700">
+                  <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
+                </p>
+              </Link>
+            ))}
           </div>
-          <p className="text-xs text-slate-700 text-center">Built to Dominus Foundry architectural standards.</p>
+          <p className="text-sm text-slate-700 text-center">Built to Dominus Foundry architectural standards.</p>
         </div>
       </section>
     </>

@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Lead-to-Cash | Dominus Foundry",
   description:
-    "Lead-to-Cash automates the path from closed deal to collected revenue with discipline, visibility, and control.",
+    "Automate the path from closed deal to collected revenue.",
 };
 
 export default function LeadToCashPage() {
@@ -14,9 +14,9 @@ export default function LeadToCashPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Lead-to-Cash</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Automate the path from closed deal to collected revenue — with discipline, visibility, and control.
+            Automate the path from closed deal to collected revenue.
           </p>
-          <Button href="#lead-to-cash-how" className="justify-center">
+          <Button href="#lead-to-cash-cta" className="justify-center">
             See How It Works
           </Button>
         </div>
@@ -24,9 +24,12 @@ export default function LeadToCashPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Revenue Breaks Down After the Sale</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Many businesses close deals efficiently — then lose momentum. Quotes stall, invoices go out late, follow-ups are inconsistent, and accounts receivable becomes a guessing game.
+            Revenue breaks down after the sale.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Quotes stall. Invoices go out late. Follow-ups are inconsistent. Accounts receivable becomes a guessing game.
           </p>
           <p className="body-foundry text-slate-800">
             Lead-to-Cash restores structure from agreement to payment.
@@ -40,11 +43,11 @@ export default function LeadToCashPage() {
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Generates quotes and invoices automatically",
-              "Delivers invoices through defined channels",
+              "Delivers through defined channels",
               "Tracks payment status and aging",
               "Sends structured follow-ups and reminders",
               "Flags exceptions and overdue accounts",
-              "Maintains a complete financial activity trail",
+              "Maintains complete financial activity trail",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,17 +58,17 @@ export default function LeadToCashPage() {
         </div>
       </section>
 
-      <section id="lead-to-cash-how" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Built Around Accounting as the Source of Truth</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Lead-to-Cash is designed to work with your accounting system — not around it.
+            Lead-to-Cash works with your accounting system — not around it.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Workflow logic orchestrates quote-to-invoice transitions",
-              "Payment states are monitored continuously",
+              "Payment states monitored continuously",
               "Reminder cadence follows defined rules",
               "Exceptions trigger alerts instead of silent delays",
             ].map((item) => (
@@ -76,7 +79,7 @@ export default function LeadToCashPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, allowing financial processes to remain consistent without manual intervention.
+            Orchestration via n8n — financial processes stay consistent without manual intervention.
           </p>
         </div>
       </section>
@@ -102,7 +105,7 @@ export default function LeadToCashPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Service businesses",
@@ -119,7 +122,7 @@ export default function LeadToCashPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -138,9 +141,9 @@ export default function LeadToCashPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="lead-to-cash-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Close the Loop on Revenue</h2>
+          <h2 className="heading-forge-lg">Close the loop on revenue.</h2>
           <Button href="/contact?interest=Lead-to-Cash#contact" className="justify-center">
             Talk to Us About Lead-to-Cash
           </Button>

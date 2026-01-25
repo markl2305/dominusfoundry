@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Ops Reporting & Intelligence | Dominus Foundry",
   description:
-    "Ops Reporting & Intelligence turns operational data into timely signals without dashboards you never open.",
+    "Unified visibility across sales, delivery, finance, and operations.",
 };
 
 export default function OpsReportingIntelligencePage() {
@@ -14,9 +14,9 @@ export default function OpsReportingIntelligencePage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Ops Reporting &amp; Intelligence</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            See what matters, when it matters — without dashboards you never open.
+            Unified visibility across sales, delivery, finance, and operations.
           </p>
-          <Button href="#ops-reporting-how" className="justify-center">
+          <Button href="#ops-cta" className="justify-center">
             See How It Works
           </Button>
         </div>
@@ -24,12 +24,15 @@ export default function OpsReportingIntelligencePage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Data Exists. Insight Doesn’t.</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Most organizations are drowning in data but starving for clarity. Metrics live across tools, reports lag reality, and leadership finds out too late when something breaks.
+            Operators shouldn&apos;t live in dashboards.
           </p>
           <p className="body-foundry text-slate-800">
-            Ops Reporting &amp; Intelligence turns operational data into timely signals you can actually act on.
+            But without clear reporting, exceptions hide until they become crises.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Ops Reporting &amp; Intelligence surfaces what matters — anomalies, trends, blockers — without requiring you to hunt.
           </p>
         </div>
       </section>
@@ -39,12 +42,11 @@ export default function OpsReportingIntelligencePage() {
           <h2 className="heading-forge-lg">What This System Does</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Aggregates operational data across systems",
-              "Produces clear, role-appropriate summaries",
-              "Surfaces anomalies and exceptions automatically",
-              "Generates recurring operational briefings",
-              "Tracks trends over time",
-              "Maintains an auditable record of reported insights",
+              "Aggregates data across sales, delivery, and finance",
+              "Detects anomalies and flags exceptions",
+              "Generates weekly operator briefings",
+              "Tracks KPIs without manual compilation",
+              "Surfaces trends before they become problems",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,19 +57,19 @@ export default function OpsReportingIntelligencePage() {
         </div>
       </section>
 
-      <section id="ops-reporting-how" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Built for Signal, Not Noise</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Ops Reporting &amp; Intelligence is designed to reduce cognitive load, not increase it.
+            This system pulls from your existing tools and synthesizes — it doesn&apos;t replace your stack.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Data is pulled from defined systems of record",
-              "Metrics are normalized and contextualized",
-              "Rules determine what rises to attention",
-              "Reports and alerts are delivered on cadence or exception",
+              "Data connectors to CRM, accounting, and operations systems",
+              "Anomaly detection rules tuned to your thresholds",
+              "Briefings generated and delivered on schedule",
+              "Exceptions highlighted, not buried",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -76,7 +78,7 @@ export default function OpsReportingIntelligencePage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, ensuring reporting logic is explicit, repeatable, and adaptable.
+            Orchestration via n8n — reporting stays current without manual refresh.
           </p>
         </div>
       </section>
@@ -102,7 +104,7 @@ export default function OpsReportingIntelligencePage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Operators and founders",
@@ -119,7 +121,7 @@ export default function OpsReportingIntelligencePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -139,9 +141,9 @@ export default function OpsReportingIntelligencePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="ops-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Know What’s Happening — Before It Hurts</h2>
+          <h2 className="heading-forge-lg">See what matters. Ignore what doesn&apos;t.</h2>
           <Button href="/contact?interest=Ops%20Reporting%20%26%20Intelligence#contact" className="justify-center">
             Talk to Us About Ops Reporting &amp; Intelligence
           </Button>

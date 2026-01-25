@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Document & Compliance Automations | Dominus Foundry",
   description:
-    "Document & Compliance Automations generate, route, approve, and retain critical documents with discipline, traceability, and control.",
+    "Generate, route, sign, archive, and audit documents — with version control and policy enforcement.",
 };
 
 export default function DocumentComplianceAutomationsPage() {
@@ -14,9 +14,9 @@ export default function DocumentComplianceAutomationsPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Document &amp; Compliance Automations</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Generate, route, approve, and retain critical documents — with discipline, traceability, and control.
+            Generate, route, sign, archive, and audit documents — with version control and policy enforcement.
           </p>
-          <Button href="#document-compliance-how" className="justify-center">
+          <Button href="#doc-cta" className="justify-center">
             See How It Works
           </Button>
         </div>
@@ -24,12 +24,15 @@ export default function DocumentComplianceAutomationsPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Documents Become Liabilities Without Structure</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Manual document handling introduces risk. Versions drift, approvals stall, signatures get missed, and compliance becomes an afterthought rather than a system.
+            Documents are liabilities when handled manually.
           </p>
           <p className="body-foundry text-slate-800">
-            Document &amp; Compliance Automations replaces ad-hoc document handling with governed workflows that stand up to scrutiny.
+            Version confusion. Missing signatures. Inconsistent approval chains. Audit requests that require reconstruction.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Document &amp; Compliance Automations enforces structure across the document lifecycle.
           </p>
         </div>
       </section>
@@ -39,12 +42,12 @@ export default function DocumentComplianceAutomationsPage() {
           <h2 className="heading-forge-lg">What This System Does</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Generates documents from structured templates",
-              "Routes documents for review and approval",
-              "Enforces version control",
-              "Tracks signatures and completion",
-              "Stores documents with clear retention rules",
-              "Maintains a complete compliance audit trail",
+              "Generates documents from templates and data",
+              "Routes for review and approval",
+              "Captures signatures electronically",
+              "Archives with version history",
+              "Enforces retention and compliance rules",
+              "Produces audit trails on demand",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,20 +58,19 @@ export default function DocumentComplianceAutomationsPage() {
         </div>
       </section>
 
-      <section id="document-compliance-how" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Built for Repeatability and Accountability</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            This system is designed as a controlled document lifecycle — from creation to archive.
+            Every document follows defined policy — creation to archive.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Inputs populate governed document templates",
-              "Approval paths are enforced automatically",
-              "State changes are tracked explicitly",
-              "Exceptions are flagged immediately",
-              "All actions are logged for compliance and review",
+              "Template logic generates documents from structured data",
+              "Approval workflows enforced programmatically",
+              "Signatures captured with legal validity",
+              "Archival and retention rules applied automatically",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -77,7 +79,7 @@ export default function DocumentComplianceAutomationsPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, allowing document flows to remain explicit, inspectable, and adaptable.
+            Orchestration via n8n — compliance built in, not bolted on.
           </p>
         </div>
       </section>
@@ -103,7 +105,7 @@ export default function DocumentComplianceAutomationsPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Regulated industries",
@@ -120,7 +122,7 @@ export default function DocumentComplianceAutomationsPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -139,9 +141,9 @@ export default function DocumentComplianceAutomationsPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="doc-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Bring Order to Documents</h2>
+          <h2 className="heading-forge-lg">Documents under control.</h2>
           <Button href="/contact?interest=Document%20%26%20Compliance%20Automations#contact" className="justify-center">
             Talk to Us About Document &amp; Compliance Automations
           </Button>

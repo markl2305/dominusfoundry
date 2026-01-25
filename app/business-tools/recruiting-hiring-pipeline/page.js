@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Recruiting & Hiring Pipeline | Dominus Foundry",
   description:
-    "Recruiting & Hiring Pipeline moves candidates from application to decision with structure, consistency, and accountability.",
+    "Applicant intake to offer — with governance at every step.",
 };
 
 export default function RecruitingHiringPipelinePage() {
@@ -14,9 +14,9 @@ export default function RecruitingHiringPipelinePage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <h1 className="heading-forge-xl text-white">Recruiting &amp; Hiring Pipeline</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Move candidates from application to decision with structure, consistency, and accountability.
+            Applicant intake to offer — with governance at every step.
           </p>
-          <Button href="#hiring-flow" className="justify-center">
+          <Button href="#hiring-cta" className="justify-center">
             See the Hiring Flow
           </Button>
         </div>
@@ -24,12 +24,15 @@ export default function RecruitingHiringPipelinePage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Hiring Breaks Without Process</h2>
+          <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Unstructured hiring leads to delays, inconsistent evaluation, and costly mis-hires. Resumes get lost, interviews drift, and decisions rely more on memory than evidence.
+            Hiring without structure creates liability and inconsistency.
           </p>
           <p className="body-foundry text-slate-800">
-            Recruiting &amp; Hiring Pipeline replaces guesswork with a disciplined hiring system.
+            Resumes lost in inboxes. Interview scheduling chaos. Scorecards missing or inconsistent. Offers delayed.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Recruiting &amp; Hiring Pipeline enforces discipline from application to signed offer.
           </p>
         </div>
       </section>
@@ -39,12 +42,12 @@ export default function RecruitingHiringPipelinePage() {
           <h2 className="heading-forge-lg">What This System Does</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Captures applications from multiple sources",
-              "Standardizes candidate intake",
-              "Coordinates interview scheduling",
-              "Applies structured evaluation criteria",
-              "Tracks hiring stages and decisions",
-              "Maintains a complete hiring audit trail",
+              "Captures applicants from job boards and referrals",
+              "Screens against defined criteria",
+              "Schedules interviews automatically",
+              "Collects scorecards and feedback",
+              "Routes approvals for offers",
+              "Maintains hiring audit trail",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -55,20 +58,20 @@ export default function RecruitingHiringPipelinePage() {
         </div>
       </section>
 
-      <section id="hiring-flow" className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Built as a Decision Pipeline</h2>
+          <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Recruiting &amp; Hiring Pipeline is designed as a repeatable evaluation system — not an inbox of resumes.
+            Every candidate moves through the same governed process.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Candidate data is structured at intake",
-              "Interview stages follow defined sequences",
-              "Evaluation criteria are enforced consistently",
-              "Decisions are logged with supporting context",
-              "Exceptions and delays are surfaced early",
+              "Intake sources feed structured applicant data",
+              "Screening criteria applied consistently",
+              "Interview scheduling coordinated automatically",
+              "Scorecards collected and aggregated",
+              "Offer approvals routed with accountability",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -77,7 +80,7 @@ export default function RecruitingHiringPipelinePage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration is handled via n8n, allowing hiring processes to adapt to different roles without losing discipline.
+            Orchestration via n8n — hiring stays compliant without HR overhead.
           </p>
         </div>
       </section>
@@ -103,7 +106,7 @@ export default function RecruitingHiringPipelinePage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <h2 className="heading-forge-lg">Who It’s For</h2>
+          <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Growing businesses",
@@ -120,7 +123,7 @@ export default function RecruitingHiringPipelinePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg)]">
+      <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -140,9 +143,9 @@ export default function RecruitingHiringPipelinePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section id="hiring-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
-          <h2 className="heading-forge-lg">Hire with Confidence</h2>
+          <h2 className="heading-forge-lg">Hire with discipline.</h2>
           <Button href="/contact?interest=Recruiting%20%26%20Hiring%20Pipeline#contact" className="justify-center">
             Talk to Us About Recruiting &amp; Hiring Pipeline
           </Button>
