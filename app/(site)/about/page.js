@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../../../components/Button";
 import ContactCTA from "../../../components/ContactCTA";
 
@@ -75,6 +76,29 @@ export default function About() {
             <p className="mt-2 body-foundry">
               We work with operators who need governed systems that can stand up to real usage and real accountability.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Mentis — Our Architecture */}
+      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="heading-forge-lg text-white mb-6">Mentis — The Architecture Behind Everything</h2>
+          <div className="space-y-4 body-foundry text-white/90">
+            <p>
+              Every system we build follows the same architectural discipline. We call it Mentis.
+            </p>
+            <p>
+              Mentis isn&apos;t a product you buy separately — it&apos;s the design philosophy that makes every tool work the way it does. Human authority preserved. Complete audit trails. No drift over time. Unified intelligence when systems connect.
+            </p>
+            <p>
+              Start with one tool and it works beautifully on its own. Add another and they integrate naturally. Eventually, you realize your entire operation runs on one coherent platform — that&apos;s when everything clicks.
+            </p>
+          </div>
+          <div className="mt-6">
+            <Link href="/mentis" className="text-forge-300 font-semibold underline hover:text-white">
+              Learn more about Mentis →
+            </Link>
           </div>
         </div>
       </section>

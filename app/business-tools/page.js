@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Business Tools | Dominus Foundry",
   description:
-    "Operator-grade systems that reduce drag while staying governed and auditable.",
+    "Operator-grade systems designed with Mentis — governed, auditable, and ready to connect.",
 };
 
 const toolFamilies = [
@@ -81,7 +81,7 @@ export default function BusinessToolsPage() {
           <p className="label-foundry text-orange-200">Business Tools Catalog</p>
           <h1 className="heading-forge-xl text-white">Tool families forged for operators.</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Operator-grade systems that reduce drag while staying governed and auditable. Each ships as a durable system with clear inputs, outputs, and ownership boundaries.
+            Each system is complete on its own — a star in its own right. Every one shares the same architecture, the same governance, and the same commitment to human authority. Start with one. Add more when you&apos;re ready. Watch everything connect.
           </p>
         </div>
       </section>
@@ -95,15 +95,23 @@ export default function BusinessToolsPage() {
                 href={tool.href}
                 className="block card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3 foundry-tile-link"
               >
-                <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="heading-forge-md text-slate-900">{tool.title}</h3>
+                </div>
                 <p className="body-foundry text-slate-800">{tool.what}</p>
                 <p className="text-sm text-slate-700">
                   <span className="label-foundry text-slate-700">Best fit:</span> {tool.bestFit}
                 </p>
+                <p className="text-sm font-medium text-forge-700">Designed with Mentis</p>
               </Link>
             ))}
           </div>
-          <p className="text-sm text-slate-700 text-center">Built to Dominus Foundry architectural standards.</p>
+          <div className="text-center space-y-2">
+            <p className="text-sm text-slate-700">Every system designed with Mentis architecture — governed, auditable, and integration-ready.</p>
+            <Link href="/mentis" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              Learn about Mentis →
+            </Link>
+          </div>
         </div>
       </section>
     </>
