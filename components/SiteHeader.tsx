@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const mainNav = Object.freeze([
-  { label: 'Mentis', href: '/mentis' },
+  { label: 'Dominus OS', href: '/dominus-os' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Get Started', href: '/start', highlight: true },

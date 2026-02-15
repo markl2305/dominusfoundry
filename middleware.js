@@ -8,6 +8,14 @@ export function middleware(req) {
     url.searchParams.set("ppc", "1"); // serve slim, noindex variant
     return NextResponse.rewrite(url);
   }
+
+  // Redirect old /mentis path to /dominus-os
+  if (req.nextUrl.pathname === "/mentis") {
+    const url = req.nextUrl.clone();
+    url.pathname = "/dominus-os";
+    return NextResponse.redirect(url, 301);
+  }
+
   return NextResponse.next();
 }
 

@@ -5,12 +5,12 @@ const links = [
   { name: 'Home', href: '/' },
   { name: 'What We Build', href: '/business-tools' },
   { name: 'Voice Concierge', href: '/voice-concierge' },
-  { name: 'Mentis', href: '/mentis' },
+  { name: 'Dominus OS', href: '/dominus-os' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Get Started', href: '/start' },
   { name: 'Privacy', href: '/privacy' },
-  { name: 'Mentis Login', href: 'https://metis.dominusfoundry.com', external: true },
+  { name: 'Dominus OS', href: 'https://dominusos.ai', external: true },
 ]
 
 export default function SiteFooter() {

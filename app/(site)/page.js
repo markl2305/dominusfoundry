@@ -5,7 +5,7 @@ import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Operator-grade AI systems designed with Mentis",
+  title: "Dominus Foundry | Operator-grade AI systems powered by Dominus OS",
   description:
     "We believe operators deserve systems that don't drift. Voice agents, booking systems, invoicing, and workflows — each one complete, all designed to connect.",
 };
@@ -136,7 +136,7 @@ export default function Home() {
                   <p className="body-foundry text-slate-700">{product.body}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-forge-200">
-                  <span className="text-sm text-slate-600">Designed with Mentis</span>
+                  <span className="text-sm text-slate-600">Powered by Dominus OS</span>
                 </div>
               </Link>
             ))}
@@ -153,7 +153,7 @@ export default function Home() {
                   {product.title}
                 </h3>
                 <p className="mt-2 body-foundry text-slate-700">{product.body}</p>
-                <p className="mt-3 text-sm text-slate-500">Designed with Mentis</p>
+                <p className="mt-3 text-sm text-slate-500">Powered by Dominus OS</p>
               </Link>
             ))}
           </div>
@@ -187,7 +187,7 @@ export default function Home() {
               <span>•</span>
               <span>Square integration</span>
               <span>•</span>
-              <span>All designed with Mentis</span>
+              <span>All powered by Dominus OS</span>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function Home() {
               When you add a second system, something changes. Handoffs disappear. Data flows. Your operation starts to feel like one thing instead of twenty.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              We call this design philosophy <Link href="/mentis" className="text-forge-300 underline hover:text-white">Mentis</Link>. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
+              This is <Link href="/dominus-os" className="text-forge-300 underline hover:text-white">Dominus OS</Link> — a human-governed operating system for AI workforces. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
             </p>
           </div>
 
@@ -227,8 +227,8 @@ export default function Home() {
           </div>
 
           <div className="pt-4">
-            <Link href="/mentis" className="text-forge-300 font-semibold underline hover:text-white">
-              Learn about Mentis →
+            <Link href="/dominus-os" className="text-forge-300 font-semibold underline hover:text-white">
+              Learn about Dominus OS →
             </Link>
           </div>
         </div>
@@ -318,11 +318,11 @@ export default function Home() {
               Explore the systems
             </Button>
             <Button
-              href="/mentis"
+              href="/dominus-os"
               variant="forgeSecondary"
               className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
             >
-              Learn about Mentis
+              Learn about Dominus OS
             </Button>
           </div>
         </div>
