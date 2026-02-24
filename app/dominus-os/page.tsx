@@ -98,7 +98,7 @@ export default function DominusOSPage() {
             <p className="body-foundry text-white/80 md:text-lg">
               Dominus OS is the complete operational intelligence layer — the full realization of everything Dominus Foundry builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
             </p>
-            <p className="body-foundry text-white/80 md:text-lg">Read the <a href="https://dominusos.ai/whitepaper" className="text-forge-300 underline hover:text-white">public thesis</a> or explore the <a href="https://github.com/markl2305/dominus-os" className="text-forge-300 underline hover:text-white">specification repository</a>.</p>
+            <p className="body-foundry text-white/80 md:text-lg">Read the <a href="/Dominus_OS_White_Paper_v1.pdf" download className="text-forge-300 underline hover:text-white">white paper</a> or explore the <a href="https://github.com/markl2305/dominus-os" className="text-forge-300 underline hover:text-white">specification repository</a>.</p>
           </div>
         </div>
       </section>
