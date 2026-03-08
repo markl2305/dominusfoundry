@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Dominus OS | AI Employees Under Human Authority | Dominus Foundry",
+  title: "DominusOS | AI Employees Under Human Authority | Dominus Foundry",
   description:
     "A governed workforce layer for organizations that require accountability at the speed of execution. AI employees that operate under bounded, auditable, human authority.",
 };
@@ -135,7 +135,7 @@ export default function DominusOSPage() {
               className="mb-10 text-[0.7rem] font-normal uppercase tracking-[0.25em]"
               style={{ color: "var(--dos-accent)" }}
             >
-              Dominus OS
+              DominusOS
             </p>
             <h1
               className="font-crimson text-[clamp(2.8rem,6vw,4.5rem)] font-light leading-[1.15]"
@@ -197,7 +197,7 @@ export default function DominusOSPage() {
                 className="mt-8 font-crimson text-[clamp(1.4rem,3vw,1.8rem)] font-normal leading-[1.7]"
                 style={{ color: "var(--dos-text-secondary)" }}
               >
-                Dominus OS closes that gap — not with policy, but with
+                DominusOS closes that gap — not with policy, but with
                 architecture. A mandatory control layer beneath every AI action.{" "}
                 <em
                   className="not-italic"
@@ -316,7 +316,7 @@ export default function DominusOSPage() {
               className="mt-8 block font-mono text-[0.65rem] not-italic uppercase tracking-[0.2em]"
               style={{ color: "var(--dos-text-muted)" }}
             >
-              Dominus OS White Paper, §2
+              DominusOS White Paper, §2
             </cite>
           </div>
         </section>
@@ -337,7 +337,7 @@ export default function DominusOSPage() {
               className="mb-8 max-w-[580px] font-crimson text-[clamp(1.8rem,4vw,2.5rem)] font-light leading-[1.3]"
               style={{ color: "var(--dos-text)" }}
             >
-              Dominus OS is not available for general&nbsp;purchase.
+              DominusOS is not available for general&nbsp;purchase.
             </h2>
             <p
               className="mb-6 max-w-[520px] text-[0.95rem] leading-[1.8]"
@@ -453,7 +453,7 @@ export default function DominusOSPage() {
               </a>
               <span>·</span>
               <Link
-                href="/business-tools"
+                href="/systems"
                 className="transition-colors duration-300"
                 style={{ color: "var(--dos-text-secondary)" }}
               >

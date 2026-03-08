@@ -28,41 +28,26 @@ const capabilities = [
 
 const systemsOnMentis = [
   {
-    title: "Voice Concierge",
-    what: "Calls answered, qualified, booked, and routed.",
-    href: "/business-tools/voice-concierge",
+    title: "Intake Engine",
+    what: "Every lead captured, qualified, and booked — across every channel.",
+    href: "/systems/intake",
   },
   {
-    title: "Lead-to-Cash",
-    what: "Invoices, reminders, and payments — on autopilot.",
-    href: "/business-tools/lead-to-cash",
+    title: "Revenue Engine",
+    what: "Onboarding, invoicing, and collections — without chasing.",
+    href: "/systems/revenue",
   },
   {
-    title: "Client Onboarding Engine",
-    what: "Signed to operational without missed steps.",
-    href: "/business-tools/client-onboarding-engine",
-  },
-  {
-    title: "Support Triage Desk",
-    what: "Requests classified, routed, and resolved.",
-    href: "/business-tools/support-triage-desk",
-  },
-  {
-    title: "Ops Reporting & Intelligence",
-    what: "Visibility across your entire operation.",
-    href: "/business-tools/ops-reporting-intelligence",
-  },
-  {
-    title: "Lead Intake → Booking",
-    what: "Capture to calendar without friction.",
-    href: "/business-tools/lead-intake-booking",
+    title: "Ops Engine",
+    what: "Support, reporting, compliance, hiring, and vendors — governed.",
+    href: "/systems/ops",
   },
 ];
 
 const journeySteps = [
   {
     stage: "Start anywhere",
-    description: "Pick the system that solves your most pressing problem. Voice Concierge for calls. Lead-to-Cash for invoicing. Each one works beautifully on its own.",
+    description: "Pick the engine that solves your most pressing problem. Intake Engine for leads. Revenue Engine for invoicing. Each one works beautifully on its own.",
   },
   {
     stage: "Add when ready",
@@ -153,7 +138,7 @@ export default function MentisPage() {
           </div>
 
           <div className="pt-4">
-            <Link href="/business-tools" className="text-forge-300 font-semibold underline hover:text-white">
+            <Link href="/systems" className="text-forge-300 font-semibold underline hover:text-white">
               See all systems →
             </Link>
           </div>
@@ -197,7 +182,7 @@ export default function MentisPage() {
 
           <div className="card-forged-premium rounded-2xl bg-white p-8 md:p-10 shadow-lg space-y-6">
             <p className="body-foundry text-slate-800 text-lg">
-              A call comes in. Voice Concierge answers, qualifies the caller, and books an appointment. The booking triggers a task in Client Onboarding. Documents are collected automatically. When the engagement starts, Lead-to-Cash generates the invoice. Reminders go out on schedule. Payment is tracked. Ops Reporting surfaces the trend.
+              A call comes in. Intake Engine answers, qualifies the caller, and books an appointment. The booking triggers onboarding in Revenue Engine. Documents are collected automatically. Invoicing starts on schedule. Reminders go out. Payment is tracked. Ops Engine surfaces the trend.
             </p>
             <p className="body-foundry text-slate-800">
               No manual handoffs. No dashboard babysitting. No wondering what happened to that lead from last Tuesday. One operation, fully connected, completely governed.
@@ -225,7 +210,7 @@ export default function MentisPage() {
               <p className="body-foundry text-slate-700">
                 Most organizations begin here. Pick the system that solves your most urgent problem. Experience the quality. Add more when you&apos;re ready. Mentis emerges naturally as your systems grow.
               </p>
-              <Button href="/business-tools" variant="forgeSecondary" className="w-full justify-center mt-4">
+              <Button href="/systems" variant="forgeSecondary" className="w-full justify-center mt-4">
                 Explore systems
               </Button>
             </div>

@@ -5,74 +5,56 @@ import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Operator-grade AI systems powered by Dominus OS",
+  title: "Dominus Foundry | Operator-grade AI systems powered by DominusOS",
   description:
     "We believe operators deserve systems that don't drift. Voice agents, booking systems, invoicing, and workflows — each one complete, all designed to connect.",
 };
 
 const featuredProducts = [
   {
-    title: "Voice Concierge",
-    tagline: "Your front desk, governed.",
-    body: "Answers calls. Qualifies leads. Books appointments. Routes to humans when it matters. Every interaction logged, every decision traceable.",
-    href: "/business-tools/voice-concierge",
+    title: "Intake Engine",
+    tagline: "Every lead. Every channel. One engine.",
+    body: "Phone, web, chat, email, social — captured, qualified, and booked before leads go cold. Powered by DominusOS.",
+    href: "/systems/intake",
   },
   {
-    title: "Lead-to-Cash",
-    tagline: "From closed deal to collected revenue.",
-    body: "Invoices go out on time. Reminders follow a cadence. Payments get tracked. Exceptions surface before they become problems.",
-    href: "/business-tools/lead-to-cash",
+    title: "Revenue Engine",
+    tagline: "From signed deal to collected cash.",
+    body: "Onboarding, invoicing, and collections running without you chasing. Powered by DominusOS.",
+    href: "/systems/revenue",
   },
   {
-    title: "Client Onboarding Engine",
-    tagline: "Signed to operational. No chaos.",
-    body: "Documents collected. Kickoffs scheduled. Tasks assigned. Every client follows the same disciplined path — unless you explicitly route them otherwise.",
-    href: "/business-tools/client-onboarding-engine",
-  },
-];
-
-const moreProducts = [
-  {
-    title: "Lead Intake → Booking",
-    body: "Capture, qualify, route, and book — before leads cool off.",
-    href: "/business-tools/lead-intake-booking",
-  },
-  {
-    title: "Support Triage Desk",
-    body: "Intake, classify, route, and resolve — without the chaos.",
-    href: "/business-tools/support-triage-desk",
-  },
-  {
-    title: "Ops Reporting & Intelligence",
-    body: "See what matters across sales, delivery, and finance.",
-    href: "/business-tools/ops-reporting-intelligence",
+    title: "Ops Engine",
+    tagline: "Your operation — visible and governed.",
+    body: "Support, reporting, compliance, hiring, vendors — running without you as the bottleneck. Powered by DominusOS.",
+    href: "/systems/ops",
   },
 ];
 
 const useCases = [
   {
     title: "Service founder with messy finances",
-    body: "Lead-to-Cash brings order to invoicing and AR.",
+    body: "Revenue Engine brings order to invoicing and AR.",
   },
   {
     title: "Ops lead at a membership club",
-    body: "Voice Concierge handles calls and books parties.",
+    body: "Intake Engine handles calls and books parties.",
   },
   {
     title: "GM juggling invoicing and AR",
-    body: "Lead-to-Cash runs the cadence without chasing.",
+    body: "Revenue Engine runs the cadence without chasing.",
   },
   {
     title: "Lean team living in spreadsheets",
-    body: "Any of our systems replaces ad-hoc with durable.",
+    body: "Any of our engines replaces ad-hoc with durable.",
   },
   {
     title: "Owner tired of interruptions",
-    body: "Voice Concierge answers and routes without pulling staff.",
+    body: "Intake Engine answers and routes without pulling staff.",
   },
   {
     title: "Operator planning the next change",
-    body: "Start with one system. Add more. Everything connects.",
+    body: "Start with one engine. Add more. Everything connects.",
   },
 ];
 
@@ -85,18 +67,17 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 relative">
           <div className="max-w-3xl space-y-6">
             <h1 className="heading-forge-xl text-white leading-tight">
-              Operator-grade AI systems.<br />
-              Each one complete.<br />
-              All designed to connect.
+              Most operations leak in three places.<br />
+              We built three engines to seal them.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
               We believe operators deserve systems that don&apos;t drift — where humans stay in control and every decision is traceable.
             </p>
             <p className="body-foundry text-white md:text-lg">
-              Start with Voice Concierge to handle your calls. Add Lead-to-Cash when invoicing needs structure. Watch them work together without friction — because they were designed with the same philosophy from day one.
+              Start with Intake Engine to handle your front door. Add Revenue Engine when invoicing needs structure. Watch them work together without friction — because they were designed with the same philosophy from day one.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-4">
-              <Button href="/business-tools" className="justify-center">
+              <Button href="/systems" className="justify-center">
                 Explore the systems
               </Button>
               <Button
@@ -136,30 +117,14 @@ export default function Home() {
                   <p className="body-foundry text-slate-700">{product.body}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-forge-200">
-                  <span className="text-sm text-slate-600">Powered by Dominus OS</span>
+                  <span className="text-sm text-slate-600">Powered by DominusOS</span>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {moreProducts.map((product) => (
-              <Link
-                key={product.title}
-                href={product.href}
-                className="group card-forged rounded-xl p-6 bg-white hover:bg-forge-50 transition-colors"
-              >
-                <h3 className="heading-forge-md text-slate-900 group-hover:text-forge-700 transition-colors">
-                  {product.title}
-                </h3>
-                <p className="mt-2 body-foundry text-slate-700">{product.body}</p>
-                <p className="mt-3 text-sm text-slate-500">Powered by Dominus OS</p>
-              </Link>
-            ))}
-          </div>
-
           <div className="text-center">
-            <Link href="/business-tools" className="text-forge-700 font-semibold underline hover:text-forge-900">
+            <Link href="/systems" className="text-forge-700 font-semibold underline hover:text-forge-900">
               See all systems →
             </Link>
           </div>
@@ -171,23 +136,23 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-8">
           <div className="text-center space-y-3">
             <p className="label-foundry text-forge-700">In practice</p>
-            <h2 className="heading-forge-lg text-slate-900">A private club runs on three systems</h2>
+            <h2 className="heading-forge-lg text-slate-900">A private club runs on three engines</h2>
           </div>
           <div className="card-forged-premium rounded-2xl bg-white p-8 md:p-10 shadow-lg space-y-6">
             <p className="body-foundry text-slate-800 text-lg">
-              Voice Concierge takes beer orders by voice and sends them straight to Square. It books private parties and notifies the owner automatically. Lead-to-Cash handles member invoicing and follows up on outstanding balances.
+              Intake Engine handles calls by voice and books private parties automatically. Revenue Engine manages member invoicing and follows up on outstanding balances. Ops Engine keeps the day-to-day running without the owner in the loop.
             </p>
             <p className="body-foundry text-slate-800">
-              No dashboard to babysit. No manual handoffs. Three systems, one operation, zero friction.
+              No dashboard to babysit. No manual handoffs. Three engines, one operation, zero friction.
             </p>
             <div className="pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-sm text-slate-600">
-              <span>Voice Concierge</span>
+              <span>Intake Engine</span>
               <span>•</span>
-              <span>Lead-to-Cash</span>
+              <span>Revenue Engine</span>
               <span>•</span>
-              <span>Square integration</span>
+              <span>Ops Engine</span>
               <span>•</span>
-              <span>All powered by Dominus OS</span>
+              <span>All powered by DominusOS</span>
             </div>
           </div>
         </div>
@@ -207,7 +172,7 @@ export default function Home() {
               When you add a second system, something changes. Handoffs disappear. Data flows. Your operation starts to feel like one thing instead of twenty.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              This is <Link href="/dominus-os" className="text-forge-300 underline hover:text-white">Dominus OS</Link> — a human-governed operating system for AI workforces. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
+              This is <Link href="/dominus-os" className="text-forge-300 underline hover:text-white">DominusOS</Link> — a human-governed operating system for AI workforces. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
             </p>
           </div>
 
@@ -228,7 +193,7 @@ export default function Home() {
 
           <div className="pt-4">
             <Link href="/dominus-os" className="text-forge-300 font-semibold underline hover:text-white">
-              Learn about Dominus OS →
+              Learn about DominusOS →
             </Link>
           </div>
         </div>
@@ -314,7 +279,7 @@ export default function Home() {
             Start with one. Add more when you&apos;re ready. Watch everything connect.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button href="/business-tools" className="justify-center">
+            <Button href="/systems" className="justify-center">
               Explore the systems
             </Button>
             <Button
@@ -322,7 +287,7 @@ export default function Home() {
               variant="forgeSecondary"
               className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
             >
-              Learn about Dominus OS
+              Learn about DominusOS
             </Button>
           </div>
         </div>

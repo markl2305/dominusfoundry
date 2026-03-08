@@ -6,22 +6,16 @@ import Link from 'next/link'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const mainNav = Object.freeze([
-  { label: 'Dominus OS', href: '/dominus-os' },
+  { label: 'DominusOS', href: '/dominus-os' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Get Started', href: '/start', highlight: true },
 ])
 
 const toolNav = Object.freeze([
-  { label: 'Voice Concierge', href: '/business-tools/voice-concierge' },
-  { label: 'Lead Intake → Booking', href: '/business-tools/lead-intake-booking' },
-  { label: 'Client Onboarding Engine', href: '/business-tools/client-onboarding-engine' },
-  { label: 'Lead-to-Cash', href: '/business-tools/lead-to-cash' },
-  { label: 'Support Triage Desk', href: '/business-tools/support-triage-desk' },
-  { label: 'Ops Reporting & Intelligence', href: '/business-tools/ops-reporting-intelligence' },
-  { label: 'Document & Compliance Automations', href: '/business-tools/document-compliance-automations' },
-  { label: 'Recruiting & Hiring Pipeline', href: '/business-tools/recruiting-hiring-pipeline' },
-  { label: 'Vendor & Purchasing Workflow', href: '/business-tools/vendor-purchasing-workflow' },
+  { label: 'Intake Engine', href: '/systems/intake' },
+  { label: 'Revenue Engine', href: '/systems/revenue' },
+  { label: 'Ops Engine', href: '/systems/ops' },
 ])
 
 export default function SiteHeader() {
@@ -51,7 +45,7 @@ export default function SiteHeader() {
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           <div className="relative group">
             <Link
-              href="/business-tools"
+              href="/systems"
               className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
               aria-haspopup="true"
             >

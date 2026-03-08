@@ -3,14 +3,16 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'What We Build', href: '/business-tools' },
-  { name: 'Voice Concierge', href: '/voice-concierge' },
-  { name: 'Dominus OS', href: '/dominus-os' },
+  { name: 'Systems', href: '/systems' },
+  { name: 'Intake Engine', href: '/systems/intake' },
+  { name: 'Revenue Engine', href: '/systems/revenue' },
+  { name: 'Ops Engine', href: '/systems/ops' },
+  { name: 'DominusOS', href: '/dominus-os' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Get Started', href: '/start' },
   { name: 'Privacy', href: '/privacy' },
-  { name: 'Dominus OS', href: 'https://dominusos.ai', external: true },
+  { name: 'DominusOS', href: 'https://dominusos.ai', external: true },
 ]
 
 export default function SiteFooter() {
