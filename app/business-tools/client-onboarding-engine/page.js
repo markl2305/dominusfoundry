@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Client Onboarding Engine | Dominus Foundry",
   description:
-    "Move from signed deal to operational client — without chaos or missed steps.",
+    "Move from signed deal to operational client — without chaos, missed steps, or eroded trust.",
 };
 
 export default function ClientOnboardingEnginePage() {
@@ -14,16 +14,16 @@ export default function ClientOnboardingEnginePage() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="text-sm font-medium text-forge-300">
-            <Link href="/mentis" className="hover:text-white transition-colors">
-              Designed with Mentis
+            <Link href="/business-tools" className="hover:text-white transition-colors">
+              Operational Control System
             </Link>
           </p>
           <h1 className="heading-forge-xl text-white">Client Onboarding Engine</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
             Move from signed deal to operational client — without chaos or missed steps.
           </p>
-          <Button href="#onboarding-cta" className="justify-center">
-            See the Onboarding Flow
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See what chaotic onboarding costs
           </Button>
         </div>
       </section>
@@ -32,13 +32,13 @@ export default function ClientOnboardingEnginePage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Winning a deal is only half the battle.
+            Winning the deal is only half the battle.
           </p>
           <p className="body-foundry text-slate-800">
-            Poor onboarding introduces confusion, delays delivery, and erodes trust before value is ever delivered.
+            Chaotic onboarding erodes trust and delays revenue. Every missed step, forgotten document, or unclear handoff is a client who doubts whether they made the right choice.
           </p>
           <p className="body-foundry text-slate-800">
-            Client Onboarding Engine replaces ad-hoc handoffs with a structured, repeatable system.
+            Client Onboarding Engine replaces ad-hoc handoffs with a structured, repeatable system that starts working the moment the deal closes.
           </p>
         </div>
       </section>
@@ -68,15 +68,15 @@ export default function ClientOnboardingEnginePage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Every client follows the same disciplined process unless explicitly routed otherwise.
+            Every client follows the same disciplined process.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
               "Intake requirements enforced automatically",
-              "Tasks and milestones generated programmatically",
+              "Tasks generated and assigned",
               "Exceptions flagged early",
-              "All actions logged for accountability",
+              "Every action logged for accountability",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -85,7 +85,7 @@ export default function ClientOnboardingEnginePage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Orchestration via n8n — adaptable to different services without rebuilding.
+            Adaptable to different services without rebuilding.
           </p>
         </div>
       </section>
@@ -106,6 +106,34 @@ export default function ClientOnboardingEnginePage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">What Changes When This Runs</h2>
+          <ul className="space-y-3 body-foundry text-slate-800">
+            {[
+              "Onboarding starts the day the deal closes — not when someone creates a checklist",
+              "Every client gets the same experience regardless of who manages them",
+              "Documents collected before the kickoff meeting — not during it",
+              "Nothing falls through the cracks because the system enforces every step",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-forge-700 font-bold">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">How It Fits</h2>
+          <p className="body-foundry text-slate-800">
+            Client Onboarding Engine runs as a standalone system from day one. When you&apos;re ready, it connects directly to Lead-to-Cash for invoicing after onboarding, Support Triage Desk when onboarding transitions to ongoing service, and Document Compliance for regulated onboarding requirements.
+          </p>
         </div>
       </section>
 
@@ -152,10 +180,10 @@ export default function ClientOnboardingEnginePage() {
           <div className="card-forged rounded-2xl bg-white p-6 md:p-8 space-y-4">
             <h3 className="heading-forge-md text-slate-900">Part of something larger</h3>
             <p className="body-foundry text-slate-700">
-              Client Onboarding Engine is designed with Mentis — the same architecture that powers all our systems. Use it standalone, or connect it with Lead-to-Cash, Support Triage, and more. When you&apos;re ready to run your entire operation on one unified platform, everything clicks.
+              Client Onboarding Engine works on its own — but when you&apos;re ready, it connects naturally with Lead-to-Cash, Support Triage Desk, Document Compliance, and more. Same architecture. No re-integration work.
             </p>
-            <Link href="/mentis" className="text-forge-700 font-semibold underline hover:text-forge-900">
-              Learn about Mentis →
+            <Link href="/business-tools" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              See all business tools →
             </Link>
           </div>
         </div>
@@ -164,10 +192,15 @@ export default function ClientOnboardingEnginePage() {
       <section id="onboarding-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
           <h2 className="heading-forge-lg">Onboard once. Deliver consistently.</h2>
-          <Button href="/contact?interest=Client%20Onboarding%20Engine#contact" className="justify-center">
-            Talk to Us About Client Onboarding
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What Chaotic Onboarding Costs
           </Button>
-          <p className="text-sm text-slate-600">Designed with Mentis. Governed, auditable, and integration-ready.</p>
+          <p className="text-sm text-slate-600">
+            <Link href="/contact?interest=Client%20Onboarding%20Engine#contact" className="text-forge-700 underline hover:text-forge-900">
+              Or talk to us directly
+            </Link>
+          </p>
+          <p className="text-sm text-slate-600">Operational control system — accountable and integration-ready.</p>
         </div>
       </section>
     </>

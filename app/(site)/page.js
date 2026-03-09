@@ -5,38 +5,39 @@ import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Operator-grade AI systems powered by Dominus OS",
+  title: "Dominus Foundry | Operational Control Systems for Growing Businesses",
   description:
-    "We believe operators deserve systems that don't drift. Voice agents, booking systems, invoicing, and workflows — each one complete, all designed to connect.",
+    "We install operational control systems that enforce revenue capture, follow-up, and internal execution — without increasing headcount.",
 };
 
 const featuredProducts = [
   {
     title: "Voice Concierge",
-    tagline: "Your front desk, governed.",
-    body: "Answers calls. Qualifies leads. Books appointments. Routes to humans when it matters. Every interaction logged, every decision traceable.",
+    tagline: "Every call answered. Every lead captured.",
+    body: "Answers calls. Qualifies leads. Books appointments. Routes to humans when it matters. No more missed opportunities after hours or during busy periods.",
     href: "/business-tools/voice-concierge",
+  },
+  {
+    title: "Lead Intake → Booking",
+    tagline: "Capture, qualify, route, and book.",
+    body: "Leads come in from any channel. They get qualified, routed, and booked — before they cool off. No more revenue lost to slow follow-up.",
+    href: "/business-tools/lead-intake-booking",
   },
   {
     title: "Lead-to-Cash",
     tagline: "From closed deal to collected revenue.",
-    body: "Invoices go out on time. Reminders follow a cadence. Payments get tracked. Exceptions surface before they become problems.",
+    body: "Invoices go out on time. Reminders follow a cadence. Payments get tracked. Exceptions surface before they become write-offs.",
     href: "/business-tools/lead-to-cash",
   },
   {
     title: "Client Onboarding Engine",
     tagline: "Signed to operational. No chaos.",
-    body: "Documents collected. Kickoffs scheduled. Tasks assigned. Every client follows the same disciplined path — unless you explicitly route them otherwise.",
+    body: "Documents collected. Kickoffs scheduled. Tasks assigned. Every client follows the same disciplined path — no steps skipped, no balls dropped.",
     href: "/business-tools/client-onboarding-engine",
   },
 ];
 
 const moreProducts = [
-  {
-    title: "Lead Intake → Booking",
-    body: "Capture, qualify, route, and book — before leads cool off.",
-    href: "/business-tools/lead-intake-booking",
-  },
   {
     title: "Support Triage Desk",
     body: "Intake, classify, route, and resolve — without the chaos.",
@@ -51,27 +52,27 @@ const moreProducts = [
 
 const useCases = [
   {
-    title: "Service founder with messy finances",
-    body: "Lead-to-Cash brings order to invoicing and AR.",
+    title: "Service founder losing revenue to slow follow-up",
+    body: "Lead-to-Cash enforces invoicing cadence and collections.",
   },
   {
     title: "Ops lead at a membership club",
-    body: "Voice Concierge handles calls and books parties.",
+    body: "Voice Concierge handles calls and books events automatically.",
   },
   {
-    title: "GM juggling invoicing and AR",
-    body: "Lead-to-Cash runs the cadence without chasing.",
+    title: "GM juggling invoicing and AR manually",
+    body: "Lead-to-Cash runs the cadence — no more chasing payments.",
   },
   {
     title: "Lean team living in spreadsheets",
-    body: "Any of our systems replaces ad-hoc with durable.",
+    body: "Any of our systems replaces manual processes with enforced ones.",
   },
   {
-    title: "Owner tired of interruptions",
-    body: "Voice Concierge answers and routes without pulling staff.",
+    title: "Owner tired of babysitting operations",
+    body: "Voice Concierge answers and routes without pulling staff off real work.",
   },
   {
-    title: "Operator planning the next change",
+    title: "Operator planning for growth",
     body: "Start with one system. Add more. Everything connects.",
   },
 ];
@@ -85,43 +86,42 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 relative">
           <div className="max-w-3xl space-y-6">
             <h1 className="heading-forge-xl text-white leading-tight">
-              Operator-grade AI systems.<br />
-              Each one complete.<br />
-              All designed to connect.
+              Operational Control Systems<br />
+              for Growing Businesses.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
-              We believe operators deserve systems that don&apos;t drift — where humans stay in control and every decision is traceable.
+              Regain control over revenue, follow-up, and internal execution — without increasing headcount.
             </p>
             <p className="body-foundry text-white md:text-lg">
-              Start with Voice Concierge to handle your calls. Add Lead-to-Cash when invoicing needs structure. Watch them work together without friction — because they were designed with the same philosophy from day one.
+              Most growing businesses lose money to missed leads, late invoices, and manual processes that depend on memory. We install systems that enforce the things your operation can&apos;t afford to leave to chance.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-4">
-              <Button href="/business-tools" className="justify-center">
-                Explore the systems
+              <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+                Run the Free Operations Assessment
               </Button>
               <Button
-                href="/start"
+                href="/business-tools"
                 variant="forgeSecondary"
                 className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
               >
-                Tell us what&apos;s broken
+                Explore what we build
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Products - Each a Star */}
+      {/* Featured Products */}
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
           <div className="text-center space-y-4">
             <h2 className="heading-forge-lg">Complete systems. Ready to work.</h2>
             <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
-              Each system solves a real operational problem — beautifully, reliably, and with full governance. Use one. Use several. They&apos;re designed to work alone or together.
+              Each system solves a real operational problem — reliably and with full accountability. Use one. Use several. They&apos;re designed to work alone or together.
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2">
             {featuredProducts.map((product) => (
               <Link
                 key={product.title}
@@ -136,13 +136,13 @@ export default function Home() {
                   <p className="body-foundry text-slate-700">{product.body}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-forge-200">
-                  <span className="text-sm text-slate-600">Powered by Dominus OS</span>
+                  <span className="text-sm text-slate-600">Operational control system</span>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {moreProducts.map((product) => (
               <Link
                 key={product.title}
@@ -153,7 +153,7 @@ export default function Home() {
                   {product.title}
                 </h3>
                 <p className="mt-2 body-foundry text-slate-700">{product.body}</p>
-                <p className="mt-3 text-sm text-slate-500">Powered by Dominus OS</p>
+                <p className="mt-3 text-sm text-slate-500">Operational control system</p>
               </Link>
             ))}
           </div>
@@ -186,50 +186,48 @@ export default function Home() {
               <span>Lead-to-Cash</span>
               <span>•</span>
               <span>Square integration</span>
-              <span>•</span>
-              <span>All powered by Dominus OS</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Connection */}
+      {/* The Control Gap */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
           <div className="max-w-3xl space-y-4">
             <h2 className="heading-forge-lg text-white">
-              Start with one. Everything connects.
+              Most growing businesses have a control problem.
             </h2>
             <p className="body-foundry text-white/80 md:text-lg">
-              Each system is complete on its own — a star in its own right. But they share the same DNA. The same governance. The same commitment to human authority.
+              It&apos;s not a technology problem. The tools exist. The problem is that nothing enforces what should happen next. Leads slip. Follow-up fades. Admin eats the owner alive. And nobody knows something broke until it costs money.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              When you add a second system, something changes. Handoffs disappear. Data flows. Your operation starts to feel like one thing instead of twenty.
-            </p>
-            <p className="body-foundry text-white/80 md:text-lg">
-              This is <Link href="/dominus-os" className="text-forge-300 underline hover:text-white">Dominus OS</Link> — a human-governed operating system for AI workforces. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
+              We install operational control systems that close those gaps — so processes run the way you designed them, not the way people remember them.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             <div className="space-y-2">
-              <h3 className="font-semibold text-white">Human authority, preserved</h3>
-              <p className="text-sm text-white/70">AI assists. Humans decide. Escalation paths are explicit.</p>
+              <h3 className="font-semibold text-white">Revenue capture, enforced</h3>
+              <p className="text-sm text-white/70">Leads answered. Follow-up on schedule. Invoices out the door. Collections tracked.</p>
             </div>
             <div className="space-y-2">
-              <h3 className="font-semibold text-white">Every action, logged</h3>
+              <h3 className="font-semibold text-white">Every action, accountable</h3>
               <p className="text-sm text-white/70">Full audit trails. Traceable decisions. Answers when questions arise.</p>
             </div>
             <div className="space-y-2">
-              <h3 className="font-semibold text-white">No drift</h3>
-              <p className="text-sm text-white/70">Systems designed to hold their shape over time.</p>
+              <h3 className="font-semibold text-white">No silent failure</h3>
+              <p className="text-sm text-white/70">When something drifts, you know immediately — not three weeks later.</p>
             </div>
           </div>
 
           <div className="pt-4">
-            <Link href="/dominus-os" className="text-forge-300 font-semibold underline hover:text-white">
-              Learn about Dominus OS →
-            </Link>
+            <Button
+              href="https://evaluation.dominusfoundry.com"
+              className="justify-center"
+            >
+              See what yours is costing you
+            </Button>
           </div>
         </div>
       </section>
@@ -287,12 +285,20 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
           <span id="contact" className="block h-0 w-0" aria-hidden />
           <div className="space-y-3 text-center">
-            <h2 className="heading-forge-lg">Ready to see what connects?</h2>
+            <h2 className="heading-forge-lg">See what operational control looks like.</h2>
             <p className="body-foundry max-w-2xl mx-auto">
-              Tell us what&apos;s broken in your operation. We&apos;ll show you which systems can help — and how they work together.
+              Start with the free assessment to see what your operation is leaving on the table — or tell us directly what&apos;s not working.
             </p>
+            <div className="pt-2">
+              <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+                Run the Free Assessment
+              </Button>
+            </div>
           </div>
           <div className="card-forged-premium rounded-2xl bg-white p-6 md:p-10 shadow-xl">
+            <div className="text-center mb-6">
+              <p className="text-sm text-slate-600">Or tell us what&apos;s broken directly:</p>
+            </div>
             <Suspense fallback={null}>
               <FoundryLeadForm />
             </Suspense>
@@ -309,20 +315,20 @@ export default function Home() {
       {/* Footer CTA */}
       <section className="bg-forge-900 text-white">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
-          <h2 className="heading-forge-lg text-white">Your operation deserves systems that don&apos;t drift.</h2>
+          <h2 className="heading-forge-lg text-white">Your operation deserves systems that enforce themselves.</h2>
           <p className="body-foundry text-forge-100/80">
             Start with one. Add more when you&apos;re ready. Watch everything connect.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button href="/business-tools" className="justify-center">
-              Explore the systems
+            <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+              Run the Free Assessment
             </Button>
             <Button
-              href="/dominus-os"
+              href="/business-tools"
               variant="forgeSecondary"
               className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
             >
-              Learn about Dominus OS
+              Explore the systems
             </Button>
           </div>
         </div>

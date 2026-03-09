@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Ops Reporting & Intelligence | Dominus Foundry",
   description:
-    "Unified visibility across sales, delivery, finance, and operations.",
+    "Automated operator briefings, anomaly detection, and KPI tracking across your entire business — without manual compilation.",
 };
 
 export default function OpsReportingIntelligencePage() {
@@ -14,16 +14,16 @@ export default function OpsReportingIntelligencePage() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="text-sm font-medium text-forge-300">
-            <Link href="/mentis" className="hover:text-white transition-colors">
-              Designed with Mentis
+            <Link href="/business-tools" className="hover:text-white transition-colors">
+              Operational Control System
             </Link>
           </p>
           <h1 className="heading-forge-xl text-white">Ops Reporting &amp; Intelligence</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
             Unified visibility across sales, delivery, finance, and operations.
           </p>
-          <Button href="#ops-cta" className="justify-center">
-            See How It Works
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What You&apos;re Missing
           </Button>
         </div>
       </section>
@@ -32,13 +32,13 @@ export default function OpsReportingIntelligencePage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Operators shouldn&apos;t live in dashboards.
+            Operators shouldn&apos;t live in dashboards. But most do — because nothing else surfaces what actually matters.
           </p>
           <p className="body-foundry text-slate-800">
-            But without clear reporting, exceptions hide until they become crises.
+            The problem isn&apos;t data. You have plenty. The problem is that nobody surfaces the right information until it&apos;s too late — until the anomaly becomes a fire, until the trend becomes a loss, until the miss becomes a pattern.
           </p>
           <p className="body-foundry text-slate-800">
-            Ops Reporting &amp; Intelligence surfaces what matters — anomalies, trends, blockers — without requiring you to hunt.
+            Ops Reporting &amp; Intelligence exists so the important things come to you — anomalies, trends, blockers — without requiring you to hunt.
           </p>
         </div>
       </section>
@@ -69,10 +69,9 @@ export default function OpsReportingIntelligencePage() {
           <p className="body-foundry text-slate-800">
             This system pulls from your existing tools and synthesizes — it doesn&apos;t replace your stack.
           </p>
-          <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Data connectors to CRM, accounting, and operations systems",
+              "Data connectors to your CRM, accounting, and operations systems",
               "Anomaly detection rules tuned to your thresholds",
               "Briefings generated and delivered on schedule",
               "Exceptions highlighted, not buried",
@@ -83,9 +82,6 @@ export default function OpsReportingIntelligencePage() {
               </li>
             ))}
           </ul>
-          <p className="body-foundry text-slate-800">
-            Orchestration via n8n — reporting stays current without manual refresh.
-          </p>
         </div>
       </section>
 
@@ -110,6 +106,25 @@ export default function OpsReportingIntelligencePage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">What Changes When This Runs</h2>
+          <ul className="space-y-3 body-foundry text-slate-800">
+            {[
+              "Weekly operator briefings delivered automatically — no one has to build them",
+              "Anomalies surface the day they happen — not at month-end",
+              "KPIs tracked without manual spreadsheet compilation",
+              "One place to see everything that matters across the business",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-forge-700 font-bold">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
@@ -124,6 +139,21 @@ export default function OpsReportingIntelligencePage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">How It Fits</h2>
+          <p className="body-foundry text-slate-800">
+            Ops Reporting &amp; Intelligence works on its own to give you visibility across your business. It also connects directly to{" "}
+            <Link href="/business-tools/lead-to-cash" className="text-forge-700 underline hover:text-forge-900">Lead-to-Cash</Link> for financial visibility,{" "}
+            <Link href="/business-tools/support-triage" className="text-forge-700 underline hover:text-forge-900">Support Triage</Link> for support volume trends, and{" "}
+            <Link href="/business-tools/voice-concierge" className="text-forge-700 underline hover:text-forge-900">Voice Concierge</Link> for call volume and conversion data.
+          </p>
+          <p className="body-foundry text-slate-800">
+            Each connection adds depth to your briefings — no extra integration work required.
+          </p>
         </div>
       </section>
 
@@ -152,10 +182,10 @@ export default function OpsReportingIntelligencePage() {
           <div className="card-forged rounded-2xl bg-white p-6 md:p-8 space-y-4">
             <h3 className="heading-forge-md text-slate-900">Part of something larger</h3>
             <p className="body-foundry text-slate-700">
-              Ops Reporting &amp; Intelligence is designed with Mentis — the same architecture that powers all our systems. Use it standalone, or connect it with Lead-to-Cash, Support Triage, and more. When you&apos;re ready to run your entire operation on one unified platform, everything clicks.
+              Ops Reporting &amp; Intelligence works on its own — but becomes even more powerful when connected to Lead-to-Cash, Support Triage, Voice Concierge, and more. Same architecture. No re-integration work.
             </p>
-            <Link href="/mentis" className="text-forge-700 font-semibold underline hover:text-forge-900">
-              Learn about Mentis →
+            <Link href="/business-tools" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              Explore the full system →
             </Link>
           </div>
         </div>
@@ -164,10 +194,15 @@ export default function OpsReportingIntelligencePage() {
       <section id="ops-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
           <h2 className="heading-forge-lg">See what matters. Ignore what doesn&apos;t.</h2>
-          <Button href="/contact?interest=Ops%20Reporting%20%26%20Intelligence#contact" className="justify-center">
-            Talk to Us About Ops Reporting &amp; Intelligence
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What You&apos;re Missing
           </Button>
-          <p className="text-sm text-slate-600">Designed with Mentis. Governed, auditable, and integration-ready.</p>
+          <p className="body-foundry text-slate-700">
+            <Link href="/contact" className="text-forge-700 underline hover:text-forge-900">
+              Or talk to us directly
+            </Link>
+          </p>
+          <p className="text-sm text-slate-600">Operational control system — accountable and integration-ready.</p>
         </div>
       </section>
     </>

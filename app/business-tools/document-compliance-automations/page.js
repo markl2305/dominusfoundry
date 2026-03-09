@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Document & Compliance Automations | Dominus Foundry",
   description:
-    "Generate, route, sign, archive, and audit documents — with version control and policy enforcement.",
+    "Enforce the full document lifecycle — generate, route, sign, archive, and audit — with version control and policy enforcement built in.",
 };
 
 export default function DocumentComplianceAutomationsPage() {
@@ -14,16 +14,16 @@ export default function DocumentComplianceAutomationsPage() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="text-sm font-medium text-forge-300">
-            <Link href="/mentis" className="hover:text-white transition-colors">
-              Designed with Mentis
+            <Link href="/business-tools" className="hover:text-white transition-colors">
+              Operational Control System
             </Link>
           </p>
           <h1 className="heading-forge-xl text-white">Document &amp; Compliance Automations</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
             Generate, route, sign, archive, and audit documents — with version control and policy enforcement.
           </p>
-          <Button href="#doc-cta" className="justify-center">
-            See How It Works
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What Manual Document Handling Costs
           </Button>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function DocumentComplianceAutomationsPage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            Every document follows defined policy — creation to archive.
+            Every document follows defined policy from creation to archive.
           </p>
           <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -85,7 +85,7 @@ export default function DocumentComplianceAutomationsPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Orchestration via n8n — compliance built in, not bolted on.
+            Compliance built in, not bolted on.
           </p>
         </div>
       </section>
@@ -111,6 +111,25 @@ export default function DocumentComplianceAutomationsPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">What Changes When This Runs</h2>
+          <ul className="space-y-3 body-foundry text-slate-800">
+            {[
+              "Documents generated from templates — no more copy-paste errors",
+              "Approval chains enforced automatically — no more chasing signatures",
+              "Version history maintained without manual tracking",
+              "Audit-ready records available on demand — not after a week of reconstruction",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-forge-700 font-bold">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
@@ -125,6 +144,15 @@ export default function DocumentComplianceAutomationsPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">How It Fits</h2>
+          <p className="body-foundry text-slate-800">
+            Document &amp; Compliance Automations works standalone for any team that needs structured document handling. It also connects directly to Client Onboarding for document collection during onboarding, to Recruiting &amp; Hiring for offer letters and hiring documents, and to Vendor &amp; Purchasing for purchase orders and contracts. Same architecture across every system — no re-integration work required.
+          </p>
         </div>
       </section>
 
@@ -152,10 +180,10 @@ export default function DocumentComplianceAutomationsPage() {
           <div className="card-forged rounded-2xl bg-white p-6 md:p-8 space-y-4">
             <h3 className="heading-forge-md text-slate-900">Part of something larger</h3>
             <p className="body-foundry text-slate-700">
-              Document &amp; Compliance Automations is designed with Mentis — the same architecture that powers all our systems. Use it standalone, or connect it with Client Onboarding, Ops Reporting, and more. When you&apos;re ready to run your entire operation on one unified platform, everything clicks.
+              Document &amp; Compliance Automations works on its own — but connects naturally with Client Onboarding, Recruiting &amp; Hiring, and Vendor &amp; Purchasing when you&apos;re ready. Same architecture. No re-integration work.
             </p>
-            <Link href="/mentis" className="text-forge-700 font-semibold underline hover:text-forge-900">
-              Learn about Mentis →
+            <Link href="/business-tools" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              Explore all systems →
             </Link>
           </div>
         </div>
@@ -164,10 +192,15 @@ export default function DocumentComplianceAutomationsPage() {
       <section id="doc-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
           <h2 className="heading-forge-lg">Documents under control.</h2>
-          <Button href="/contact?interest=Document%20%26%20Compliance%20Automations#contact" className="justify-center">
-            Talk to Us About Document &amp; Compliance Automations
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What Manual Document Handling Costs
           </Button>
-          <p className="text-sm text-slate-600">Designed with Mentis. Governed, auditable, and integration-ready.</p>
+          <p className="body-foundry text-slate-700">
+            <Link href="/contact?interest=Document%20%26%20Compliance%20Automations#contact" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              Or talk to us directly
+            </Link>
+          </p>
+          <p className="text-sm text-slate-600">Operational control system — accountable and integration-ready.</p>
         </div>
       </section>
     </>

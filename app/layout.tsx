@@ -15,7 +15,7 @@ export const metadata = {
   title: 'Dominus Foundry | Business Tools Forged for the AI Era',
   description:
     'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
-  keywords: ['business tools', 'operator-grade systems', 'governed automation', 'audit trails', 'Mentis'],
+  keywords: ['business tools', 'operational control systems', 'governed automation', 'audit trails', 'Dominus OS'],
   authors: [{ name: 'Mark & Bri Lord' }],
   openGraph: {
     title: 'Dominus Foundry | Business Tools Forged for the AI Era',

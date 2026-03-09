@@ -10,7 +10,6 @@ const links = [
   { name: 'About', href: '/about' },
   { name: 'Get Started', href: '/start' },
   { name: 'Privacy', href: '/privacy' },
-  { name: 'Dominus OS', href: 'https://dominusos.ai', external: true },
 ]
 
 export default function SiteFooter() {
@@ -33,7 +32,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              Custom AI systems that plug into how your business actually runs — governed, auditable, and built to last.
+              Operational control systems for growing businesses — governed, auditable, and built to last.
             </p>
           </div>
 

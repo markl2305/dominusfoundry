@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 export const metadata = {
   title: "Lead Intake → Booking | Dominus Foundry",
   description:
-    "Turn inbound inquiries into booked conversations — without delays or dropped leads.",
+    "Every hour a lead waits, your close rate drops. This system responds, qualifies, and books — automatically.",
 };
 
 export default function LeadIntakeBookingPage() {
@@ -14,16 +14,16 @@ export default function LeadIntakeBookingPage() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6 relative">
           <p className="text-sm font-medium text-forge-300">
-            <Link href="/mentis" className="hover:text-white transition-colors">
-              Designed with Mentis
+            <Link href="/business-tools" className="hover:text-white transition-colors">
+              Operational Control System
             </Link>
           </p>
           <h1 className="heading-forge-xl text-white">Lead Intake → Booking</h1>
           <p className="body-foundry text-white md:text-lg foundry-hero-lead">
-            Turn inbound inquiries into booked conversations — without delays or dropped leads.
+            Every hour a lead waits, your close rate drops. This system captures inbound interest, qualifies it, and books the conversation — before your competitor picks up the phone.
           </p>
-          <Button href="#lead-intake-cta" className="justify-center">
-            See How It Works
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What Slow Response Costs You
           </Button>
         </div>
       </section>
@@ -32,13 +32,13 @@ export default function LeadIntakeBookingPage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Why This Exists</h2>
           <p className="body-foundry text-slate-800">
-            Speed and consistency close deals.
+            Leads that wait become leads that leave.
           </p>
           <p className="body-foundry text-slate-800">
-            Most businesses don&apos;t lose leads because of demand. They lose them because of friction — slow responses, inconsistent qualification, manual scheduling.
+            Research shows that responding within five minutes makes you 21 times more likely to qualify a lead. After thirty minutes, the odds collapse. Most businesses don&apos;t lose deals because of pricing or product — they lose them because nobody responded fast enough.
           </p>
           <p className="body-foundry text-slate-800">
-            Lead Intake → Booking removes that friction entirely.
+            Lead Intake → Booking eliminates the delay. Every inbound lead gets a consistent, immediate path from first contact to scheduled conversation — no matter when they reach out or who&apos;s available.
           </p>
         </div>
       </section>
@@ -68,15 +68,14 @@ export default function LeadIntakeBookingPage() {
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">How It&apos;s Built</h2>
           <p className="body-foundry text-slate-800">
-            This system is built as an operational pipeline — not a marketing gimmick.
+            This system runs on rules, not guesswork.
           </p>
-          <p className="body-foundry text-slate-800">Behind the scenes:</p>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
-              "Intake sources feed structured data into workflow logic",
-              "Qualification rules enforced consistently",
-              "Routing and booking handled automatically",
-              "Exceptions flagged, not ignored",
+              "Every lead follows a defined path from first touch to booked meeting",
+              "Qualification rules are enforced consistently — regardless of volume or time of day",
+              "Routing and booking happen automatically based on your criteria",
+              "Exceptions are flagged, not ignored — nothing falls through the cracks",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="text-forge-700 font-bold">•</span>
@@ -85,7 +84,7 @@ export default function LeadIntakeBookingPage() {
             ))}
           </ul>
           <p className="body-foundry text-slate-800">
-            Workflow orchestration via n8n — adaptable to different industries without custom code.
+            Adaptable to different industries without starting from scratch. Your rules, your routing, your calendar — handled reliably every time.
           </p>
         </div>
       </section>
@@ -111,6 +110,25 @@ export default function LeadIntakeBookingPage() {
 
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">What Changes When This Runs</h2>
+          <ul className="space-y-3 body-foundry text-slate-800">
+            {[
+              "Leads responded to in minutes instead of hours",
+              "Qualification applied consistently — not based on who answers",
+              "Booking happens automatically — no back-and-forth emails",
+              "Every lead tracked from first touch to scheduled conversation",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-forge-700 font-bold">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Who It&apos;s For</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
             {[
@@ -128,7 +146,7 @@ export default function LeadIntakeBookingPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--foundry-bg-alt)]">
+      <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
           <h2 className="heading-forge-lg">Integrations</h2>
           <ul className="space-y-3 body-foundry text-slate-800">
@@ -148,15 +166,24 @@ export default function LeadIntakeBookingPage() {
         </div>
       </section>
 
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <h2 className="heading-forge-lg">How It Fits</h2>
+          <p className="body-foundry text-slate-800">
+            Lead Intake → Booking works as a standalone system — but it also connects directly to other parts of your operation. If leads come in by phone, it pairs with Voice Concierge. When a deal closes, it hands off to Client Onboarding. For invoicing and payment tracking, it feeds into Lead-to-Cash. Same architecture, no re-integration required.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-tan-100">
         <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
           <div className="card-forged rounded-2xl bg-white p-6 md:p-8 space-y-4">
             <h3 className="heading-forge-md text-slate-900">Part of something larger</h3>
             <p className="body-foundry text-slate-700">
-              Lead Intake → Booking is designed with Mentis — the same architecture that powers all our systems. Use it standalone, or connect it with Voice Concierge, Client Onboarding, and more. When you&apos;re ready to run your entire operation on one unified platform, everything clicks.
+              Lead Intake → Booking works on its own — but connects naturally with Voice Concierge, Client Onboarding, and Lead-to-Cash when you&apos;re ready. Same architecture. No re-integration work.
             </p>
-            <Link href="/mentis" className="text-forge-700 font-semibold underline hover:text-forge-900">
-              Learn about Mentis →
+            <Link href="/business-tools" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              See all business tools →
             </Link>
           </div>
         </div>
@@ -165,10 +192,15 @@ export default function LeadIntakeBookingPage() {
       <section id="lead-intake-cta" className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 text-center space-y-4">
           <h2 className="heading-forge-lg">Stop losing ready buyers.</h2>
-          <Button href="/contact?interest=Lead%20Intake%20%E2%86%92%20Booking#contact" className="justify-center">
-            Talk to Us About Lead Intake → Booking
+          <Button href="https://evaluation.dominusfoundry.com" className="justify-center">
+            See What Slow Response Costs You
           </Button>
-          <p className="text-sm text-slate-600">Designed with Mentis. Governed, auditable, and integration-ready.</p>
+          <p className="body-foundry text-slate-700">
+            <Link href="/contact?interest=Lead%20Intake%20%E2%86%92%20Booking#contact" className="text-forge-700 font-semibold underline hover:text-forge-900">
+              Or talk to us directly
+            </Link>
+          </p>
+          <p className="text-sm text-slate-600">Operational control system — accountable and integration-ready.</p>
         </div>
       </section>
     </>
