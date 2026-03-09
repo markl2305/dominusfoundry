@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Button from "../../components/Button";
 
 export const metadata: Metadata = {
   title: "Systems | Dominus Foundry",
@@ -54,22 +55,21 @@ const systems = [
 
 export default function SystemsPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Header */}
-      <section className="border-b border-stone-200 px-6 py-20 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            What We Build
-          </p>
-          <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-stone-900 md:text-5xl">
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
+        <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
+          <p className="label-foundry text-forge-300 mb-4">What We Build</p>
+          <h1 className="heading-forge-xl text-white leading-tight">
             Three engines.
             <br />
             Every operational problem
             <br />
             maps to one of them.
           </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-stone-500">
-            We don't sell software features. We deploy systems that solve real
+          <p className="mt-6 body-foundry text-white/80 max-w-2xl md:text-lg">
+            We don&apos;t sell software features. We deploy systems that solve real
             operational problems — governed by DominusOS, built to hold their
             shape, designed to work together from day one.
           </p>
@@ -77,46 +77,40 @@ export default function SystemsPage() {
       </section>
 
       {/* Systems */}
-      <section className="px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-5xl space-y-0 divide-y divide-stone-200">
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24 space-y-0 divide-y divide-bronze-300">
           {systems.map((system, i) => (
-            <div key={system.slug} className="group py-16">
+            <div key={system.slug} className="py-16">
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
                 {/* Left */}
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-stone-400">
+                  <p className="label-foundry text-forge-700 mb-3">
                     Engine {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="mb-3 text-3xl font-semibold tracking-tight text-stone-900">
-                    {system.name}
-                  </h2>
-                  <p className="mb-6 text-base font-medium text-stone-500">
+                  <h2 className="heading-forge-lg mb-3">{system.name}</h2>
+                  <p className="mb-6 body-foundry text-slate-700 font-medium">
                     {system.tagline}
                   </p>
-                  <p className="mb-8 text-base leading-relaxed text-stone-600">
+                  <p className="mb-8 body-foundry text-slate-800">
                     {system.description}
                   </p>
-                  <Link
-                    href={`/systems/${system.slug}`}
-                    className="inline-flex items-center gap-2 border border-stone-900 px-6 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
-                  >
+                  <Button href={`/systems/${system.slug}`} className="justify-center">
                     {system.cta}
-                    <span aria-hidden>→</span>
-                  </Link>
+                  </Button>
                 </div>
 
                 {/* Right — problem list */}
                 <div className="lg:pl-10">
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-stone-400">
+                  <p className="label-foundry text-forge-700 mb-4">
                     Signs you need this
                   </p>
                   <ul className="space-y-3">
                     {system.problems.map((problem) => (
                       <li
                         key={problem}
-                        className="flex items-start gap-3 text-sm text-stone-600"
+                        className="flex items-start gap-3 body-foundry text-slate-800"
                       >
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-stone-400" />
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-forge-600" />
                         {problem}
                       </li>
                     ))}
@@ -129,48 +123,42 @@ export default function SystemsPage() {
       </section>
 
       {/* DominusOS connector */}
-      <section className="border-t border-stone-200 bg-stone-950 px-6 py-16 text-white md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            The foundation
-          </p>
-          <h2 className="mb-4 text-3xl font-semibold tracking-tight">
+      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-300 mb-4">The foundation</p>
+          <h2 className="heading-forge-lg text-white mb-4">
             All three engines run on DominusOS.
           </h2>
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-stone-400">
+          <p className="mb-8 max-w-2xl body-foundry text-white/80">
             DominusOS is the governance layer underneath everything we build.
             Human authority preserved. Every action logged. No drift. Start with
-            one engine — they're designed to connect.
+            one engine — they&apos;re designed to connect.
           </p>
-          <Link
+          <Button
             href="/dominus-os"
-            className="inline-flex items-center gap-2 border border-stone-600 px-6 py-3 text-sm font-medium text-stone-300 transition-colors hover:border-white hover:text-white"
+            variant="forgeSecondary"
+            className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
           >
             Learn about DominusOS
-            <span aria-hidden>→</span>
-          </Link>
+          </Button>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="border-t border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-2xl">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+          <h2 className="heading-forge-lg mb-4">
             Not sure which engine fits first?
           </h2>
-          <p className="mb-8 text-base text-stone-500">
-            Tell us what's breaking. We'll tell you which engine fixes it — and
+          <p className="mb-8 body-foundry text-slate-700">
+            Tell us what&apos;s breaking. We&apos;ll tell you which engine fixes it — and
             what the path looks like from there.
           </p>
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-          >
-            Talk with Mark & Bri
-            <span aria-hidden>→</span>
-          </Link>
+          <Button href="/start" className="justify-center">
+            Talk with Mark &amp; Bri
+          </Button>
         </div>
       </section>
-    </main>
+    </>
   );
 }

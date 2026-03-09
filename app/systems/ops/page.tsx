@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Button from "../../../components/Button";
 
 export const metadata: Metadata = {
   title: "Ops Engine | Dominus Foundry",
@@ -37,51 +38,43 @@ const solutions = [
 
 export default function OpsEnginePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       {/* Hero */}
-      <section className="border-b border-stone-200 px-6 py-20 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Engine 03
-          </p>
-          <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-stone-900 md:text-5xl">
-            Ops Engine
-          </h1>
-          <p className="mb-4 text-xl font-medium text-stone-500">
+      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
+        <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
+          <p className="label-foundry text-forge-300 mb-4">Engine 03</p>
+          <h1 className="heading-forge-xl text-white">Ops Engine</h1>
+          <p className="mt-4 text-xl font-medium text-forge-300">
             Your operation — visible, governed, not dependent on you.
           </p>
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-stone-600">
+          <p className="mt-6 max-w-2xl body-foundry text-white/80 md:text-lg">
             Everything that keeps your business running after the money comes
             in. Support gets resolved. Reporting surfaces what matters.
-            Paperwork doesn't pile up. People get hired. Vendors get managed.
+            Paperwork doesn&apos;t pile up. People get hired. Vendors get managed.
             Without you being the person who holds it all together.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-            >
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button href="/start" className="justify-center">
               Govern your operations
-              <span aria-hidden>→</span>
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="/systems"
-              className="inline-flex items-center gap-2 border border-stone-300 px-8 py-4 text-sm font-medium text-stone-600 transition-colors hover:border-stone-900 hover:text-stone-900"
+              variant="forgeSecondary"
+              className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
             >
               See all systems
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* The problem */}
-      <section className="border-b border-stone-200 bg-stone-50 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            What breaks without this
-          </p>
-          <h2 className="mb-6 text-2xl font-semibold tracking-tight text-stone-900">
-            The operation runs on whoever's paying attention.
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">What breaks without this</p>
+          <h2 className="heading-forge-lg mb-6">
+            The operation runs on whoever&apos;s paying attention.
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {[
@@ -94,10 +87,10 @@ export default function OpsEnginePage() {
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-sm border border-stone-200 bg-white p-4"
+                className="flex items-start gap-3 card-forged rounded-xl p-4"
               >
-                <span className="mt-1 text-stone-300">✕</span>
-                <span className="text-sm text-stone-600">{item}</span>
+                <span className="mt-1 text-forge-600 font-bold">&times;</span>
+                <span className="body-foundry text-slate-800">{item}</span>
               </div>
             ))}
           </div>
@@ -105,16 +98,14 @@ export default function OpsEnginePage() {
       </section>
 
       {/* Solutions */}
-      <section className="border-b border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            How it works
-          </p>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">How it works</p>
+          <h2 className="heading-forge-lg mb-4">
             The solutions inside Ops Engine.
           </h2>
-          <p className="mb-10 text-base text-stone-500">
-            Ops Engine isn't one product — it's a collection of operational
+          <p className="mb-10 body-foundry text-slate-700">
+            Ops Engine isn&apos;t one product — it&apos;s a collection of operational
             solutions that deploy together or separately, depending on where
             your operation is breaking.
           </p>
@@ -122,12 +113,12 @@ export default function OpsEnginePage() {
             {solutions.map((solution) => (
               <div
                 key={solution.title}
-                className="border border-stone-200 p-6"
+                className="card-forged rounded-2xl p-6"
               >
-                <h3 className="mb-2 text-base font-semibold text-stone-900">
+                <h3 className="heading-forge-md text-slate-900 text-lg mb-2">
                   {solution.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-stone-600">
+                <p className="body-foundry text-slate-800">
                   {solution.description}
                 </p>
               </div>
@@ -137,55 +128,51 @@ export default function OpsEnginePage() {
       </section>
 
       {/* DominusOS */}
-      <section className="border-b border-stone-200 bg-stone-950 px-6 py-16 text-white md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Powered by DominusOS
-          </p>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight">
-            An operation that doesn't drift.
+      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-300 mb-4">Powered by DominusOS</p>
+          <h2 className="heading-forge-lg text-white mb-4">
+            An operation that doesn&apos;t drift.
           </h2>
-          <p className="mb-6 max-w-2xl text-base leading-relaxed text-stone-400">
+          <p className="mb-6 max-w-2xl body-foundry text-white/80">
             DominusOS means the system holds its shape over time. Processes
-            don't erode when staff turns over. Decisions stay traceable. Humans
+            don&apos;t erode when staff turns over. Decisions stay traceable. Humans
             stay in authority over the things that require human judgment.
           </p>
-          <Link
+          <Button
             href="/dominus-os"
-            className="inline-flex items-center gap-2 border border-stone-600 px-6 py-3 text-sm font-medium text-stone-300 transition-colors hover:border-white hover:text-white"
+            variant="forgeSecondary"
+            className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
           >
             Learn about DominusOS
-            <span aria-hidden>→</span>
-          </Link>
+          </Button>
         </div>
       </section>
 
       {/* Chain */}
-      <section className="border-b border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            The full chain
-          </p>
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">The full chain</p>
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <Link
               href="/systems/intake"
-              className="border border-stone-200 px-4 py-2 text-stone-600 transition-colors hover:border-stone-900 hover:text-stone-900"
+              className="border-2 border-bronze-300 px-4 py-2 text-slate-800 font-medium transition-colors hover:border-forge-600 hover:text-forge-700 rounded-lg"
             >
               Intake Engine
             </Link>
-            <span className="text-stone-300">→</span>
+            <span className="text-forge-600">&rarr;</span>
             <Link
               href="/systems/revenue"
-              className="border border-stone-200 px-4 py-2 text-stone-600 transition-colors hover:border-stone-900 hover:text-stone-900"
+              className="border-2 border-bronze-300 px-4 py-2 text-slate-800 font-medium transition-colors hover:border-forge-600 hover:text-forge-700 rounded-lg"
             >
               Revenue Engine
             </Link>
-            <span className="text-stone-300">→</span>
-            <span className="border border-stone-900 bg-stone-900 px-4 py-2 text-white">
+            <span className="text-forge-600">&rarr;</span>
+            <span className="border-2 border-forge-600 bg-forge-700 px-4 py-2 text-white font-medium rounded-lg">
               Ops Engine
             </span>
           </div>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-stone-500">
+          <p className="mt-6 max-w-xl body-foundry text-slate-700">
             Ops Engine is where stable operations live. It receives clients who
             have been onboarded and paid through Revenue Engine. Together, all
             three engines cover the full arc of your business — from first
@@ -195,24 +182,20 @@ export default function OpsEnginePage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-2xl">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-stone-900">
-            Tell us what's breaking in your operation.
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+          <h2 className="heading-forge-lg mb-4">
+            Tell us what&apos;s breaking in your operation.
           </h2>
-          <p className="mb-8 text-base text-stone-500">
-            We'll identify which part of Ops Engine addresses it first — and
+          <p className="mb-8 body-foundry text-slate-700">
+            We&apos;ll identify which part of Ops Engine addresses it first — and
             map out what governance looks like for your specific business.
           </p>
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-          >
-            Talk with Mark & Bri
-            <span aria-hidden>→</span>
-          </Link>
+          <Button href="/start" className="justify-center">
+            Talk with Mark &amp; Bri
+          </Button>
         </div>
       </section>
-    </main>
+    </>
   );
 }

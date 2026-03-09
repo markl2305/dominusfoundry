@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Button from "../../../components/Button";
 
 export const metadata: Metadata = {
   title: "Intake Engine | Dominus Foundry",
@@ -65,50 +66,42 @@ const solutions = [
 
 export default function IntakeEnginePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
       {/* Hero */}
-      <section className="border-b border-stone-200 px-6 py-20 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Engine 01
-          </p>
-          <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-stone-900 md:text-5xl">
-            Intake Engine
-          </h1>
-          <p className="mb-4 text-xl font-medium text-stone-500">
+      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
+        <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
+          <p className="label-foundry text-forge-300 mb-4">Engine 01</p>
+          <h1 className="heading-forge-xl text-white">Intake Engine</h1>
+          <p className="mt-4 text-xl font-medium text-forge-300">
             Every lead. Every channel. One engine.
           </p>
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-stone-600">
-            Phone rings, form submits, chat opens, email arrives — it doesn't
+          <p className="mt-6 max-w-2xl body-foundry text-white/80 md:text-lg">
+            Phone rings, form submits, chat opens, email arrives — it doesn&apos;t
             matter where they come from. Intake Engine captures, qualifies,
             routes, and books before leads go cold. There is no separate voice
-            product. No separate chat product. It's all intake.
+            product. No separate chat product. It&apos;s all intake.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-            >
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button href="/start" className="justify-center">
               Fix your front door
-              <span aria-hidden>→</span>
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="/systems"
-              className="inline-flex items-center gap-2 border border-stone-300 px-8 py-4 text-sm font-medium text-stone-600 transition-colors hover:border-stone-900 hover:text-stone-900"
+              variant="forgeSecondary"
+              className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
             >
               See all systems
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* The problem */}
-      <section className="border-b border-stone-200 bg-stone-50 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Where businesses bleed
-          </p>
-          <h2 className="mb-6 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">Where businesses bleed</p>
+          <h2 className="heading-forge-lg mb-6">
             Most operations leak at the front door.
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -122,10 +115,10 @@ export default function IntakeEnginePage() {
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-sm border border-stone-200 bg-white p-4"
+                className="flex items-start gap-3 card-forged rounded-xl p-4"
               >
-                <span className="mt-1 text-stone-300">✕</span>
-                <span className="text-sm text-stone-600">{item}</span>
+                <span className="mt-1 text-forge-600 font-bold">&times;</span>
+                <span className="body-foundry text-slate-800">{item}</span>
               </div>
             ))}
           </div>
@@ -133,23 +126,21 @@ export default function IntakeEnginePage() {
       </section>
 
       {/* Channels */}
-      <section className="border-b border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Every channel handled
-          </p>
-          <h2 className="mb-10 text-2xl font-semibold tracking-tight text-stone-900">
-            It doesn't matter where they find you.
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">Every channel handled</p>
+          <h2 className="heading-forge-lg mb-10">
+            It doesn&apos;t matter where they find you.
           </h2>
-          <div className="space-y-0 divide-y divide-stone-200">
+          <div className="space-y-0 divide-y divide-bronze-300">
             {channels.map((channel) => (
               <div key={channel.label} className="flex gap-8 py-6">
                 <div className="w-20 flex-shrink-0">
-                  <span className="text-sm font-semibold text-stone-900">
+                  <span className="text-sm font-semibold text-slate-900">
                     {channel.label}
                   </span>
                 </div>
-                <p className="text-sm leading-relaxed text-stone-600">
+                <p className="body-foundry text-slate-800">
                   {channel.description}
                 </p>
               </div>
@@ -159,24 +150,22 @@ export default function IntakeEnginePage() {
       </section>
 
       {/* Solutions */}
-      <section className="border-b border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium uppercase tracking-widest text-stone-400">
-            How it works
-          </p>
-          <h2 className="mb-10 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-6">How it works</p>
+          <h2 className="heading-forge-lg mb-10">
             The solutions inside Intake Engine.
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {solutions.map((solution) => (
               <div
                 key={solution.title}
-                className="border border-stone-200 p-6"
+                className="card-forged rounded-2xl p-6"
               >
-                <h3 className="mb-2 text-base font-semibold text-stone-900">
+                <h3 className="heading-forge-md text-slate-900 text-lg mb-2">
                   {solution.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-stone-600">
+                <p className="body-foundry text-slate-800">
                   {solution.description}
                 </p>
               </div>
@@ -186,40 +175,36 @@ export default function IntakeEnginePage() {
       </section>
 
       {/* DominusOS */}
-      <section className="border-b border-stone-200 bg-stone-950 px-6 py-16 text-white md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            Powered by DominusOS
-          </p>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight">
+      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-300 mb-4">Powered by DominusOS</p>
+          <h2 className="heading-forge-lg text-white mb-4">
             Human authority, preserved at every step.
           </h2>
-          <p className="mb-6 max-w-2xl text-base leading-relaxed text-stone-400">
+          <p className="mb-6 max-w-2xl body-foundry text-white/80">
             DominusOS governs every decision Intake Engine makes. Escalation
             paths are explicit — not improvised. Every interaction is logged.
             Every booking is traceable. You stay in control of what happens when
-            the system can't make the call.
+            the system can&apos;t make the call.
           </p>
-          <Link
+          <Button
             href="/dominus-os"
-            className="inline-flex items-center gap-2 border border-stone-600 px-6 py-3 text-sm font-medium text-stone-300 transition-colors hover:border-white hover:text-white"
+            variant="forgeSecondary"
+            className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
           >
             Learn about DominusOS
-            <span aria-hidden>→</span>
-          </Link>
+          </Button>
         </div>
       </section>
 
       {/* What connects forward */}
-      <section className="border-b border-stone-200 px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
-            What comes next
-          </p>
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <p className="label-foundry text-forge-700 mb-4">What comes next</p>
+          <h2 className="heading-forge-lg mb-4">
             Intake Engine feeds Revenue Engine.
           </h2>
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-stone-600">
+          <p className="mb-8 max-w-2xl body-foundry text-slate-800">
             Once a lead becomes a client, Revenue Engine takes over — onboarding
             them, invoicing them, and collecting without you chasing. The two
             engines share the same data and the same governance layer. No
@@ -227,33 +212,28 @@ export default function IntakeEnginePage() {
           </p>
           <Link
             href="/systems/revenue"
-            className="inline-flex items-center gap-2 border border-stone-300 px-6 py-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-900 hover:text-stone-900"
+            className="text-forge-700 font-semibold underline hover:text-forge-900"
           >
-            See Revenue Engine
-            <span aria-hidden>→</span>
+            See Revenue Engine &rarr;
           </Link>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-16 md:px-12 lg:px-20">
-        <div className="max-w-2xl">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-stone-900">
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+          <h2 className="heading-forge-lg mb-4">
             Tell us where your leads are dying.
           </h2>
-          <p className="mb-8 text-base text-stone-500">
-            We'll show you exactly how Intake Engine fixes it — and what a
+          <p className="mb-8 body-foundry text-slate-700">
+            We&apos;ll show you exactly how Intake Engine fixes it — and what a
             quality appointment looks like on the other side.
           </p>
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-stone-800"
-          >
-            Talk with Mark & Bri
-            <span aria-hidden>→</span>
-          </Link>
+          <Button href="/start" className="justify-center">
+            Talk with Mark &amp; Bri
+          </Button>
         </div>
       </section>
-    </main>
+    </>
   );
 }
