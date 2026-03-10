@@ -8,6 +8,7 @@ const links = [
   { name: 'Revenue Engine', href: '/systems/revenue' },
   { name: 'Ops Engine', href: '/systems/ops' },
   { name: 'DominusOS', href: '/dominus-os' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Get Started', href: '/start' },
