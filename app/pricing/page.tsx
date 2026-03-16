@@ -12,15 +12,15 @@ const tiers = [
     name: "Forge",
     tagline: "First deployment. One Engine. Fully integrated.",
     price: "5,000",
-    tags: ["1 Engine", "Client's Choice"],
+    tags: ["1 Engine", "Intake Channel"],
     features: [
-      "Single Engine — Intake, Revenue, or Ops (client selects)",
+      "Single Engine — Intake (voice, chat, or SMS lead capture)",
       "Core product configured to your business, fully live",
-      "Up to 2 integrations (CRM, calendar, phone, or accounting)",
-      "Single-channel deployment — voice OR chat OR SMS",
+      "All necessary integrations — CRM, calendar, phone, or accounting",
+      "Single-channel deployment to match your highest-priority intake path",
       "Standard knowledge base trained on your business",
-      "14-day trial included — close target day 7",
-      "Onboarding call + documentation handoff",
+      "7-day trial included",
+      "Full and ongoing support",
     ],
     bestFor: "Solo operators, micro-businesses, first AI deployment",
     featured: false,
@@ -29,34 +29,33 @@ const tiers = [
     name: "Foundry",
     tagline: "The full revenue + intake motion. Built to compound.",
     price: "12,500",
-    tags: ["2 Engines", "Multi-Channel", "Full Integration"],
+    tags: ["2 Engines", "Intake + Revenue Channels"],
     features: [
-      "Two Engines — typically Intake + Revenue (or client-defined)",
-      "Full integration stack — CRM, calendar, QuickBooks, phone, SMS",
+      "Two Engines — Intake + Revenue (or client-defined combination)",
+      "All necessary integrations to connect your existing tools and workflows",
       "Multi-channel: voice agent + chat + SMS running in parallel",
       "Custom trained on your business, services, pricing, and objections",
       "Automated lead capture \u2192 booking \u2192 invoice \u2192 follow-up pipeline",
       "Slack or email alert routing for human escalation",
-      "14-day trial included — close target day 7",
-      "Two onboarding calls + live workflow walkthrough",
+      "7-day trial included",
+      "Full and ongoing support",
     ],
     bestFor: "SMBs with 5\u201325 employees, founder-run service businesses",
     featured: true,
   },
   {
     name: "Dominus",
-    tagline: "Full DominusOS. All Engines. Operator-grade governance.",
+    tagline: "All three Engines. Full operator-grade deployment.",
     price: "20,000",
-    tags: ["All 3 Engines", "DominusOS", "White-Glove"],
+    tags: ["All 3 Engines", "Intake + Revenue + Ops Channels"],
     features: [
       "All three Engines — Intake, Revenue, and Ops deployed together",
-      "Full DominusOS with audit trails, drift prevention, and authority controls",
-      "Complete integration stack — every tool in your stack connected",
+      "All necessary integrations — every tool in your stack connected",
       "Custom AI brain trained on your SOPs, pricing, legal, and ops logic",
       "Vendor management, compliance reporting, and AR automation",
       "Priority build timeline — dedicated build sprint",
-      "Paid discovery session applied toward build ($2,500 credit)",
-      "Three onboarding calls + team training + runbook documentation",
+      "Comprehensive business analysis and system architecture",
+      "Full and ongoing support",
     ],
     bestFor:
       "Mid-market operators, multi-location businesses, 25\u2013200 employees",
@@ -68,14 +67,6 @@ const maintenanceTable = [
   { engines: "1 Engine", monthly: "$500", annual: "$6,000" },
   { engines: "2 Engines", monthly: "$1,000", annual: "$12,000" },
   { engines: "3 Engines", monthly: "$1,500", annual: "$18,000" },
-];
-
-const usageTable = [
-  { scenario: "Minimal usage", raw: "\u2264$17", billed: "$25 floor" },
-  { scenario: "Light (300 min/mo)", raw: "~$40", billed: "~$60" },
-  { scenario: "Moderate (700 min/mo)", raw: "~$80", billed: "~$120" },
-  { scenario: "Heavy (1,500 min/mo)", raw: "~$175", billed: "~$263" },
-  { scenario: "High volume (3,000 min/mo)", raw: "~$350", billed: "~$525" },
 ];
 
 const financingTable = [
@@ -206,6 +197,25 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+
+          {/* DominusOS Teaser */}
+          <div className="mt-10 rounded-xl border border-[var(--foundry-accent)]/30 bg-[var(--foundry-surface)] p-6 md:p-8 text-center">
+            <p className="label-foundry text-[var(--foundry-accent-2)] mb-2">
+              Beyond the Three Tiers
+            </p>
+            <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-3">
+              DominusOS
+            </h3>
+            <p className="body-foundry max-w-2xl mx-auto text-sm">
+              For organizations that need a fully custom AI operating system — audit trails, drift prevention,
+              authority controls, and unlimited Engine configurations built to your exact specification.
+              DominusOS is a ground-up architecture engagement reserved for operators ready to invest
+              in enterprise-grade AI governance.{" "}
+              <strong className="text-[var(--foundry-accent-2)]">
+                Inquire directly for scoping and pricing.
+              </strong>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -304,67 +314,53 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Voice Usage Passthrough */}
+          {/* Telephony Usage */}
           <div className="mt-6 card-forged-premium rounded-2xl p-6 md:p-8">
             <h3 className="label-foundry text-forge-700 mb-4">
-              Voice Agent Clients &mdash; Usage Passthrough
+              Telephony &amp; Voice Usage
             </h3>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               <div>
                 <p className="body-foundry text-sm mb-3">
-                  Voice agent clients pay the $500/month base plus actual usage
-                  costs (ElevenLabs + Twilio) with a{" "}
-                  <strong className="text-[var(--foundry-accent-2)]">
-                    50% markup
-                  </strong>
-                  . The $500 floor already covers your overhead — the markup is
-                  clean margin on a managed, monitored service.
+                  If your system includes voice (AI phone agent, SMS, or call routing),
+                  your monthly maintenance includes the $500 Engine base.
+                  Telephony usage is quoted separately based on your current phone
+                  volume — we review your existing bill and build a transparent
+                  recurring charge that covers the added infrastructure.
                 </p>
                 <p className="text-sm text-[var(--foundry-text-muted)]">
                   <strong className="text-[var(--foundry-accent-2)]">
-                    $25/month minimum usage floor
+                    No markup games.
                   </strong>{" "}
-                  applies to all voice products, even in light-use months.
+                  We quote a flat monthly telephony rate based on your
+                  real usage patterns so there are no surprises. If your volume
+                  changes significantly, we adjust together.
                 </p>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-[var(--foundry-border)]">
-                      <th className="label-foundry pb-3 text-left text-[10px]">
-                        Usage Scenario
-                      </th>
-                      <th className="label-foundry pb-3 text-left text-[10px]">
-                        Raw Cost
-                      </th>
-                      <th className="label-foundry pb-3 text-left text-[10px]">
-                        Client Billed
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {usageTable.map((row) => (
-                      <tr
-                        key={row.scenario}
-                        className="border-b border-[var(--foundry-border)] last:border-0"
-                      >
-                        <td className="py-3 font-medium text-[var(--foundry-heading)]">
-                          {row.scenario}
-                        </td>
-                        <td className="py-3 text-[var(--foundry-text-muted)]">
-                          {row.raw}
-                        </td>
-                        <td className="py-3 font-semibold text-[var(--foundry-accent-2)]">
-                          {row.billed}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <p className="mt-3 text-[11px] text-[var(--foundry-text-muted)]">
-                  Voice base rate ~$0.08&ndash;0.12/min raw. Billed at cost +
-                  50%. All usage invoiced monthly with itemized statement.
-                </p>
+              <div className="flex items-center">
+                <div className="rounded-xl bg-[var(--foundry-surface-2)] p-5 w-full">
+                  <p className="label-foundry text-[10px] text-[var(--foundry-text-muted)] mb-2">
+                    How It Works
+                  </p>
+                  <ul className="space-y-2 text-sm text-[var(--foundry-text)]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[var(--foundry-accent-2)] mt-0.5">&mdash;</span>
+                      We review your current phone bill and call volume
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[var(--foundry-accent-2)] mt-0.5">&mdash;</span>
+                      You receive a clear monthly telephony quote
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[var(--foundry-accent-2)] mt-0.5">&mdash;</span>
+                      Added to your $500/Engine maintenance — one invoice
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[var(--foundry-accent-2)] mt-0.5">&mdash;</span>
+                      Reviewed quarterly and adjusted if volume shifts
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -626,15 +622,27 @@ export default function PricingPage() {
               at 30 days past due.
             </p>
           </div>
+
+          {/* Lifetime Pricing Guarantee */}
+          <div className="mt-6 rounded-xl border-l-4 border-[var(--foundry-accent)] bg-[var(--foundry-surface)] p-5 md:p-6">
+            <p className="text-sm text-[var(--foundry-text)]">
+              <strong className="text-[var(--foundry-accent-2)]">
+                Lifetime pricing guarantee:
+              </strong>{" "}
+              The monthly maintenance rate you sign at is the rate you keep — for
+              the life of your account. We don&apos;t raise prices on existing
+              clients. Period.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 14-Day Trial */}
+      {/* 7-Day Trial */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
           <p className="label-foundry text-forge-300 mb-4">Risk-Free Entry</p>
           <h2 className="heading-forge-lg text-white mb-6">
-            The 14-Day Trial
+            The 7-Day Trial
           </h2>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -643,29 +651,27 @@ export default function PricingPage() {
                 How It Works
               </h3>
               <p className="body-foundry text-white/80 md:text-base">
-                We build the core product of your chosen Engine — fully
-                configured to your business, fully integrated with your tools —
-                and put it to work. No demo environment. No dummy data. Your
-                phone number, your CRM, your customers.
+                We build your Engine — fully configured to your business, fully
+                integrated with your tools — and put it to work. No demo
+                environment. No dummy data. Your phone number, your CRM, your
+                customers.
               </p>
               <p className="mt-4 body-foundry text-white/80 md:text-base">
-                We target a close at{" "}
-                <strong className="text-[var(--foundry-accent)]">day 7</strong>.
-                You have until day 14. If you don&apos;t commit, we take it
-                back. If you do, the product is already live and earning.
+                You have 7 days to see it run.
+                If you commit, the product is already live and earning. If you
+                don&apos;t, we disconnect cleanly and you owe nothing.
               </p>
             </div>
 
             <div>
               <h3 className="label-foundry text-forge-300 mb-3">
-                What &ldquo;Take It Back&rdquo; Means
+                Either Way, You Win
               </h3>
               <p className="body-foundry text-white/80 md:text-base">
-                During the trial, all infrastructure stays under Dominus
-                accounts — ElevenLabs key, Twilio number, Supabase instance, n8n
-                workflows. You&apos;re using access to our system, not owning
-                it. On commit, everything transfers cleanly to your account. No
-                commit, clean disconnect.
+                If you move forward, your system is already live — no waiting for
+                a build after you sign. If you walk away, you&apos;ve seen
+                exactly what AI can do for your operation with zero risk. You
+                leave with clarity either way.
               </p>
             </div>
           </div>
@@ -676,10 +682,35 @@ export default function PricingPage() {
               <strong className="text-[var(--foundry-accent)]">
                 Trial scope:
               </strong>{" "}
-              Core product of one Engine only. Additional Engines, advanced
-              integrations, and full multi-channel deployment are post-commit.
-              Trial is available on Forge and Foundry tiers. Dominus tier begins
-              with a paid discovery session ($2,500, credited at signing).
+              Core product of one Engine. Additional Engines and full
+              multi-channel deployment are post-commit. Trial available on all
+              tiers. Dominus tier begins with a business analysis session.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Dominus Tier — Business Analysis Note */}
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <div className="rounded-2xl card-forged p-6 md:p-8">
+            <p className="label-foundry text-forge-700 mb-3">
+              Dominus Tier — Business Analysis
+            </p>
+            <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-4">
+              $20,000 gets you the full picture before a single line ships.
+            </h3>
+            <p className="body-foundry text-sm mb-4">
+              The Dominus engagement starts with a comprehensive business analysis —
+              we map your operation end to end, identify every system opportunity, and
+              architect the full three-Engine deployment around your actual workflows.
+              This isn&apos;t a slide deck. It&apos;s a working blueprint you own
+              regardless of what happens next.
+            </p>
+            <p className="text-xs text-[var(--foundry-text-muted)] italic">
+              If you choose not to proceed with the full build after the analysis phase,
+              you retain the deliverables. Any time and travel expenses incurred during
+              on-site discovery are invoiced separately at cost.
             </p>
           </div>
         </div>
@@ -703,10 +734,12 @@ export default function PricingPage() {
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-6">
           <p className="text-center text-xs text-[var(--foundry-text-muted)]">
-            All prices in USD. Pricing subject to change with 30-day notice for
-            existing clients. Maintenance invoiced monthly. Build fees invoiced
-            per payment structure above. Usage billed monthly with itemized
-            statement.
+            All prices in USD. Your maintenance rate is locked at signing for the life of your account.
+            Maintenance invoiced monthly. Build fees invoiced per payment structure above.
+            Telephony usage quoted individually and invoiced monthly.
+            Integration scope covers all systems necessary for your Engine to function as designed;
+            integrations requiring exceptional custom development are scoped and quoted transparently
+            before work begins.
           </p>
         </div>
       </section>
