@@ -73,29 +73,32 @@ const financingTable = [
   {
     tier: "Forge",
     standard: "$5,000",
-    payFull: "$4,500",
-    sixDeposit: "$2,500",
-    sixMonthly: "$500 \u00d7 5",
-    twelveDeposit: "$1,313",
-    twelveMonthly: "$341 \u00d7 11",
+    threeDeposit: "$2,500",
+    threeMonthly: "$1,250 \u00d7 2",
+    threeTotal: "$5,000",
+    sixDeposit: "$1,250",
+    sixMonthly: "$787.50 \u00d7 5",
+    sixTotal: "$5,187.50",
   },
   {
     tier: "Foundry",
     standard: "$12,500",
-    payFull: "$11,250",
-    sixDeposit: "$6,250",
-    sixMonthly: "$1,250 \u00d7 5",
-    twelveDeposit: "$3,281",
-    twelveMonthly: "$899 \u00d7 11",
+    threeDeposit: "$6,250",
+    threeMonthly: "$3,125 \u00d7 2",
+    threeTotal: "$12,500",
+    sixDeposit: "$3,125",
+    sixMonthly: "$2,000 \u00d7 5",
+    sixTotal: "$13,125",
   },
   {
     tier: "Dominus",
     standard: "$20,000",
-    payFull: "$18,000",
-    sixDeposit: "$10,000",
-    sixMonthly: "$2,000 \u00d7 5",
-    twelveDeposit: "$5,250",
-    twelveMonthly: "$1,432 \u00d7 11",
+    threeDeposit: "$10,000",
+    threeMonthly: "$5,000 \u00d7 2",
+    threeTotal: "$20,000",
+    sixDeposit: "$5,000",
+    sixMonthly: "$3,150 \u00d7 5",
+    sixTotal: "$20,750",
   },
 ];
 
@@ -375,8 +378,8 @@ export default function PricingPage() {
           </p>
           <h2 className="heading-forge-lg mb-10">How You Can Pay</h2>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Pay In Full */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {/* 3-Month Plan */}
             <div className="relative card-forged-premium rounded-2xl p-6 md:p-8">
               <div className="absolute -top-3 left-6">
                 <span className="label-foundry rounded-full bg-[var(--foundry-accent)] px-3 py-1 text-[10px] text-[var(--foundry-button-text)]">
@@ -384,63 +387,15 @@ export default function PricingPage() {
                 </span>
               </div>
               <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-5">
-                Pay In Full
+                3-Month Plan
               </h3>
               <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
                 <div className="flex items-baseline justify-between py-3 text-sm">
                   <span className="text-[var(--foundry-text-muted)]">
-                    Discount
+                    Price
                   </span>
                   <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    10% off build fee
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Deposit required
-                  </span>
-                  <span className="font-medium text-[var(--foundry-text)]">
-                    100% at signing
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Financing charge
-                  </span>
-                  <span className="font-medium text-[var(--foundry-text)]">
-                    None
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Build priority
-                  </span>
-                  <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    Immediate start
-                  </span>
-                </div>
-              </div>
-              <div className="mt-5 rounded-lg bg-[var(--foundry-surface-2)] p-4 text-sm text-[var(--foundry-text-muted)]">
-                <strong className="text-[var(--foundry-accent-2)]">
-                  Example &mdash; Foundry ($12,500):
-                </strong>
-                <br />
-                Pay $11,250 at signing. Save $1,250. Work begins same week.
-              </div>
-            </div>
-
-            {/* 6-Month Plan */}
-            <div className="card-forged rounded-2xl p-6 md:p-8">
-              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-5">
-                6-Month Plan
-              </h3>
-              <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Discount
-                  </span>
-                  <span className="font-medium text-[var(--foundry-text)]">
-                    None &mdash; standard price
+                    Standard &mdash; no markup
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -456,7 +411,7 @@ export default function PricingPage() {
                     Remaining balance
                   </span>
                   <span className="font-medium text-[var(--foundry-text)]">
-                    5 equal monthly payments
+                    2 equal monthly payments
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -471,7 +426,7 @@ export default function PricingPage() {
                   <span className="text-[var(--foundry-text-muted)]">
                     Build start
                   </span>
-                  <span className="font-medium text-[var(--foundry-text)]">
+                  <span className="font-semibold text-[var(--foundry-accent-2)]">
                     Upon deposit receipt
                   </span>
                 </div>
@@ -483,16 +438,16 @@ export default function PricingPage() {
                 <br />
                 $6,250 deposit. Then{" "}
                 <strong className="text-[var(--foundry-accent-2)]">
-                  5 &times; $1,250/mo
+                  2 &times; $3,125/mo
                 </strong>{" "}
-                = $12,500 total.
+                = $12,500 total. No financing charge.
               </div>
             </div>
 
-            {/* 12-Month Plan */}
+            {/* 6-Month Plan */}
             <div className="card-forged rounded-2xl p-6 md:p-8">
               <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-5">
-                12-Month Plan
+                6-Month Plan
               </h3>
               <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -516,7 +471,7 @@ export default function PricingPage() {
                     Remaining balance
                   </span>
                   <span className="font-medium text-[var(--foundry-text)]">
-                    11 equal monthly payments
+                    5 equal monthly payments
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -541,9 +496,9 @@ export default function PricingPage() {
                   Example &mdash; Foundry ($12,500 &rarr; $13,125):
                 </strong>
                 <br />
-                $3,281 deposit. Then{" "}
+                $3,125 deposit. Then{" "}
                 <strong className="text-[var(--foundry-accent-2)]">
-                  11 &times; $899/mo
+                  5 &times; $2,000/mo
                 </strong>{" "}
                 = $13,125 total.
               </div>
@@ -562,7 +517,13 @@ export default function PricingPage() {
                     Standard
                   </th>
                   <th className="label-foundry pb-3 text-left text-[10px]">
-                    Pay-in-Full
+                    3-Mo Deposit
+                  </th>
+                  <th className="label-foundry pb-3 text-left text-[10px]">
+                    3-Mo Monthly
+                  </th>
+                  <th className="label-foundry pb-3 text-left text-[10px]">
+                    3-Mo Total
                   </th>
                   <th className="label-foundry pb-3 text-left text-[10px]">
                     6-Mo Deposit
@@ -571,10 +532,7 @@ export default function PricingPage() {
                     6-Mo Monthly
                   </th>
                   <th className="label-foundry pb-3 text-left text-[10px]">
-                    12-Mo Deposit
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    12-Mo Monthly
+                    6-Mo Total
                   </th>
                 </tr>
               </thead>
@@ -591,7 +549,13 @@ export default function PricingPage() {
                       {row.standard}
                     </td>
                     <td className="py-3 font-semibold text-[var(--foundry-accent-2)]">
-                      {row.payFull}
+                      {row.threeDeposit}
+                    </td>
+                    <td className="py-3 text-[var(--foundry-text)]">
+                      {row.threeMonthly}
+                    </td>
+                    <td className="py-3 font-semibold text-[var(--foundry-accent-2)]">
+                      {row.threeTotal}
                     </td>
                     <td className="py-3 text-[var(--foundry-text)]">
                       {row.sixDeposit}
@@ -600,10 +564,7 @@ export default function PricingPage() {
                       {row.sixMonthly}
                     </td>
                     <td className="py-3 text-[var(--foundry-text)]">
-                      {row.twelveDeposit}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.twelveMonthly}
+                      {row.sixTotal}
                     </td>
                   </tr>
                 ))}

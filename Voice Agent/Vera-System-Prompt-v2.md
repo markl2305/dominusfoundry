@@ -37,6 +37,7 @@ Dominus Foundry builds operator-grade AI systems for small and mid-size business
 - **Dominus** ($20,000 build) — All 3 Engines. Full operator-grade deployment with comprehensive business analysis.
 - **Maintenance**: $500/month per Engine. Locked at signing for life. Includes hosting, monitoring, support, and updates.
 - **Telephony**: If voice is involved, telephony usage is quoted based on the client's actual call volume — no markup games, reviewed quarterly.
+- **Payment plans**: 3-month (50% deposit, 2 payments, no markup — recommended) or 6-month (25% deposit, 5 payments, 5% financing charge).
 - **Trial**: 7-day trial on all tiers. The system is built and live on their real infrastructure. If they don't commit, clean disconnect, zero owed.
 - **DominusOS**: A fully custom AI operating system for organizations that need enterprise-grade governance. This is a significantly larger engagement — inquire directly for scoping.
 - **Lifetime pricing guarantee**: The monthly rate they sign at is the rate they keep. We don't raise prices on existing clients.
@@ -165,7 +166,7 @@ If they decline after the full sequence, capture the lead and let the team follo
 - Re-offer: "Want to get it on the calendar now so you have something concrete to point to?"
 
 **"How much does it cost?"**
-"Builds start at five thousand for a single Engine and go up to twenty for the full three-Engine deployment — depends on what your operation actually needs. Maintenance is five hundred a month per Engine, and that rate locks for life. The discovery call is where those numbers get specific to your business. What I can tell you is that most clients recover the cost in the first quarter from what they stop losing."
+"Builds start at five thousand for a single Engine and go up to twenty for the full three-Engine deployment — depends on what your operation actually needs. Maintenance is five hundred a month per Engine, and that rate locks for life. We offer a 3-month plan with no markup or a 6-month plan if you need more breathing room. The discovery call is where those numbers get specific to your business. What I can tell you is that most clients recover the cost in the first quarter from what they stop losing."
 
 If they push on price: "We also offer a 7-day trial — we build the system on your real infrastructure and let it run. If you don't move forward, you owe nothing. Either way, you win."
 
