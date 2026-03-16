@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 export const metadata: Metadata = {
   title: "Pricing | Dominus Foundry",
   description:
-    "Three tiers. One standard: it works or it doesn't ship. AI systems forged for operators who can't afford to slow down.",
+    "Three tiers. Simple monthly. One standard: it works or it doesn't ship. AI systems forged for operators who can't afford to slow down.",
 };
 
 const tiers = [
@@ -69,39 +69,6 @@ const maintenanceTable = [
   { engines: "3 Engines", monthly: "$1,500", annual: "$18,000" },
 ];
 
-const financingTable = [
-  {
-    tier: "Forge",
-    standard: "$5,000",
-    threeDeposit: "$2,500",
-    threeMonthly: "$1,250 \u00d7 2",
-    threeTotal: "$5,000",
-    sixDeposit: "$1,250",
-    sixMonthly: "$787.50 \u00d7 5",
-    sixTotal: "$5,187.50",
-  },
-  {
-    tier: "Foundry",
-    standard: "$12,500",
-    threeDeposit: "$6,250",
-    threeMonthly: "$3,125 \u00d7 2",
-    threeTotal: "$12,500",
-    sixDeposit: "$3,125",
-    sixMonthly: "$2,000 \u00d7 5",
-    sixTotal: "$13,125",
-  },
-  {
-    tier: "Dominus",
-    standard: "$20,000",
-    threeDeposit: "$10,000",
-    threeMonthly: "$5,000 \u00d7 2",
-    threeTotal: "$20,000",
-    sixDeposit: "$5,000",
-    sixMonthly: "$3,150 \u00d7 5",
-    sixTotal: "$20,750",
-  },
-];
-
 export default function PricingPage() {
   return (
     <>
@@ -116,12 +83,13 @@ export default function PricingPage() {
             What It Costs
           </h1>
           <p className="mt-4 text-xl font-medium text-forge-300">
-            Three tiers. One standard: it works or it doesn&apos;t ship.
+            One build fee. One monthly price. That&apos;s it.
           </p>
           <p className="mt-6 max-w-2xl body-foundry text-white/80 md:text-lg">
-            AI systems forged for operators who can&apos;t afford to slow down.
-            Pick the tier that matches where you are, pay the way that works for
-            you, and get a live system — not a proposal.
+            Pick the tier that matches where you are today. Pay a one-time build
+            fee to get your AI system live, then a simple monthly price to keep
+            it running, supported, and improving. No hidden costs. No
+            complicated invoices. No surprises.
           </p>
         </div>
       </section>
@@ -130,7 +98,12 @@ export default function PricingPage() {
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
           <p className="label-foundry text-forge-700 mb-6">Build Investment</p>
-          <h2 className="heading-forge-lg mb-10">The Three Tiers</h2>
+          <h2 className="heading-forge-lg mb-4">The Three Tiers</h2>
+          <p className="body-foundry text-sm mb-10 max-w-2xl text-[var(--foundry-text-muted)]">
+            A one-time build fee gets your system live. Choose the tier that fits
+            your operation — every tier includes a 7-day trial, full integration,
+            and ongoing support.
+          </p>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {tiers.map((tier) => (
@@ -202,21 +175,23 @@ export default function PricingPage() {
           </div>
 
           {/* DominusOS Teaser */}
-          <div className="mt-10 rounded-xl border border-[var(--foundry-accent)]/30 bg-[var(--foundry-surface)] p-6 md:p-8 text-center">
-            <p className="label-foundry text-[var(--foundry-accent-2)] mb-2">
-              Beyond the Three Tiers
+          <div className="mt-10 rounded-xl border border-[var(--foundry-accent)]/30 bg-gradient-to-r from-[var(--foundry-surface)] to-[var(--foundry-surface-2)] p-6 md:p-8 text-center">
+            <p className="label-foundry text-[var(--foundry-accent-2)] mb-2 tracking-[0.2em]">
+              Invitation Only
             </p>
             <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-3">
               DominusOS
             </h3>
-            <p className="body-foundry max-w-2xl mx-auto text-sm">
-              For organizations that need a fully custom AI operating system — audit trails, drift prevention,
-              authority controls, and unlimited Engine configurations built to your exact specification.
-              DominusOS is a ground-up architecture engagement reserved for operators ready to invest
-              in enterprise-grade AI governance.{" "}
-              <strong className="text-[var(--foundry-accent-2)]">
-                Inquire directly for scoping and pricing.
-              </strong>
+            <p className="body-foundry max-w-2xl mx-auto text-sm mb-4">
+              Some businesses don&apos;t need an Engine. They need an entire
+              operating system — one that thinks, enforces, and evolves on its
+              own. DominusOS is a fully custom AI architecture built from the
+              ground up for organizations that have outgrown off-the-shelf
+              solutions and are ready for something that doesn&apos;t exist yet.
+            </p>
+            <p className="text-xs text-[var(--foundry-text-muted)] italic max-w-xl mx-auto">
+              DominusOS is not listed, not scoped publicly, and not available on
+              request. If it&apos;s the right fit, we&apos;ll bring it to you.
             </p>
           </div>
         </div>
@@ -232,11 +207,12 @@ export default function PricingPage() {
           <div className="mb-10 rounded-xl border-l-4 border-[var(--foundry-accent-2)] bg-[var(--foundry-surface)] p-5 md:p-6">
             <p className="body-foundry">
               <strong className="text-[var(--foundry-accent-2)]">
-                $500/month per Engine, all-inclusive.
+                $500/month per Engine. Everything included.
               </strong>{" "}
-              Every client pays this — whether your product runs on a $20 Vercel
-              site or a full voice agent stack. This covers hosting, support,
-              monitoring, and maintenance. No surprises, no line-item creep.
+              One flat price covers your entire system — hosting, support,
+              monitoring, maintenance, updates, and fixes. No line items. No
+              usage fees. No surprises on your invoice. Every client pays the
+              same rate, and that rate never goes up.
             </p>
           </div>
 
@@ -244,21 +220,22 @@ export default function PricingPage() {
             {/* What's Included */}
             <div className="card-forged rounded-2xl p-6 md:p-8">
               <h3 className="label-foundry text-forge-700 mb-4">
-                What&apos;s Included &mdash; Every Product
+                What&apos;s Included &mdash; Every Engine
               </h3>
               <p className="body-foundry text-sm mb-4">
-                All costs of keeping your Engine running, monitored, and current.
+                Everything it takes to keep your system running, performing, and
+                current — handled for you so you never have to think about it.
               </p>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "VPS / Supabase Hosting",
-                  "Vercel Deployment",
+                  "Full System Hosting",
                   "24/7 Uptime Monitoring",
                   "Bug Fixes & Patches",
                   "Knowledge Base Updates",
                   "Integration Maintenance",
                   "Monthly Health Report",
                   "Security & Credential Rotation",
+                  "Ongoing Support",
                 ].map((item) => (
                   <span
                     key={item}
@@ -276,8 +253,8 @@ export default function PricingPage() {
                 Multi-Engine Pricing
               </h3>
               <p className="body-foundry text-sm mb-4">
-                Maintenance scales with the number of Engines active on your
-                account.
+                The more Engines you run, the more you save per system. Simple
+                math — no complicated tiers or volume discounts to decode.
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -370,48 +347,47 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Payment Structures */}
+      {/* Payment Options */}
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
           <p className="label-foundry text-forge-700 mb-6">
-            Payment Structures
+            Payment Options
           </p>
-          <h2 className="heading-forge-lg mb-10">How You Can Pay</h2>
+          <h2 className="heading-forge-lg mb-4">How You Pay</h2>
+          <p className="body-foundry text-sm mb-10 max-w-2xl text-[var(--foundry-text-muted)]">
+            Three ways to pay your build fee. Same price no matter which you
+            choose — we never charge interest or financing fees.
+          </p>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {/* 3-Month Plan */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {/* Pay in Full */}
             <div className="relative card-forged-premium rounded-2xl p-6 md:p-8">
               <div className="absolute -top-3 left-6">
                 <span className="label-foundry rounded-full bg-[var(--foundry-accent)] px-3 py-1 text-[10px] text-[var(--foundry-button-text)]">
-                  Recommended
+                  Simplest
                 </span>
               </div>
-              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-5">
-                3-Month Plan
+              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-1">
+                Pay in Full
               </h3>
+              <p className="text-sm text-[var(--foundry-text-muted)] mb-5">
+                One payment. Done.
+              </p>
               <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
                 <div className="flex items-baseline justify-between py-3 text-sm">
                   <span className="text-[var(--foundry-text-muted)]">
-                    Price
+                    Due at signing
                   </span>
                   <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    Standard &mdash; no markup
+                    100% upfront
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
                   <span className="text-[var(--foundry-text-muted)]">
-                    Deposit at signing
-                  </span>
-                  <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    50% upfront
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Remaining balance
+                    Remaining
                   </span>
                   <span className="font-medium text-[var(--foundry-text)]">
-                    2 equal monthly payments
+                    Nothing
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -427,51 +403,41 @@ export default function PricingPage() {
                     Build start
                   </span>
                   <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    Upon deposit receipt
+                    Immediately
                   </span>
                 </div>
               </div>
               <div className="mt-5 rounded-lg bg-[var(--foundry-surface-2)] p-4 text-sm text-[var(--foundry-text-muted)]">
                 <strong className="text-[var(--foundry-accent-2)]">
-                  Example &mdash; Foundry ($12,500):
-                </strong>
-                <br />
-                $6,250 deposit. Then{" "}
-                <strong className="text-[var(--foundry-accent-2)]">
-                  2 &times; $3,125/mo
+                  Forge example:
                 </strong>{" "}
-                = $12,500 total. No financing charge.
+                $5,000 at signing. Build starts same day. Nothing else owed.
               </div>
             </div>
 
-            {/* 6-Month Plan */}
+            {/* 3-Month Plan */}
             <div className="card-forged rounded-2xl p-6 md:p-8">
-              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-5">
-                6-Month Plan
+              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-1">
+                3-Month Plan
               </h3>
+              <p className="text-sm text-[var(--foundry-text-muted)] mb-5">
+                25% down, balance over 3 months.
+              </p>
               <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
                 <div className="flex items-baseline justify-between py-3 text-sm">
                   <span className="text-[var(--foundry-text-muted)]">
-                    Price
-                  </span>
-                  <span className="font-medium text-[var(--foundry-text)]">
-                    Standard + 5%
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between py-3 text-sm">
-                  <span className="text-[var(--foundry-text-muted)]">
-                    Deposit at signing
+                    Due at signing
                   </span>
                   <span className="font-semibold text-[var(--foundry-accent-2)]">
-                    25% upfront
+                    25% deposit
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
                   <span className="text-[var(--foundry-text-muted)]">
-                    Remaining balance
+                    Remaining
                   </span>
                   <span className="font-medium text-[var(--foundry-text)]">
-                    5 equal monthly payments
+                    3 equal monthly payments
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -479,7 +445,7 @@ export default function PricingPage() {
                     Financing charge
                   </span>
                   <span className="font-medium text-[var(--foundry-text)]">
-                    Embedded (5% total)
+                    None
                   </span>
                 </div>
                 <div className="flex items-baseline justify-between py-3 text-sm">
@@ -493,83 +459,61 @@ export default function PricingPage() {
               </div>
               <div className="mt-5 rounded-lg bg-[var(--foundry-surface-2)] p-4 text-sm text-[var(--foundry-text-muted)]">
                 <strong className="text-[var(--foundry-accent-2)]">
-                  Example &mdash; Foundry ($12,500 &rarr; $13,125):
-                </strong>
-                <br />
-                $3,125 deposit. Then{" "}
-                <strong className="text-[var(--foundry-accent-2)]">
-                  5 &times; $2,000/mo
+                  Forge example:
                 </strong>{" "}
-                = $13,125 total.
+                $1,250 deposit + <strong className="text-[var(--foundry-accent-2)]">3 &times; $1,250/mo</strong> = $5,000 total. Zero interest.
               </div>
             </div>
-          </div>
 
-          {/* Full Comparison Table */}
-          <div className="mt-10 overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b-2 border-[var(--foundry-border)]">
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    Tier
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    Standard
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    3-Mo Deposit
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    3-Mo Monthly
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    3-Mo Total
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    6-Mo Deposit
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    6-Mo Monthly
-                  </th>
-                  <th className="label-foundry pb-3 text-left text-[10px]">
-                    6-Mo Total
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {financingTable.map((row) => (
-                  <tr
-                    key={row.tier}
-                    className="border-b border-[var(--foundry-border)] last:border-0"
-                  >
-                    <td className="py-3 font-semibold text-[var(--foundry-heading)]">
-                      {row.tier}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.standard}
-                    </td>
-                    <td className="py-3 font-semibold text-[var(--foundry-accent-2)]">
-                      {row.threeDeposit}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.threeMonthly}
-                    </td>
-                    <td className="py-3 font-semibold text-[var(--foundry-accent-2)]">
-                      {row.threeTotal}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.sixDeposit}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.sixMonthly}
-                    </td>
-                    <td className="py-3 text-[var(--foundry-text)]">
-                      {row.sixTotal}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            {/* 6-Month Plan */}
+            <div className="card-forged rounded-2xl p-6 md:p-8">
+              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-1">
+                6-Month Plan
+              </h3>
+              <p className="text-sm text-[var(--foundry-text-muted)] mb-5">
+                25% down, balance over 6 months.
+              </p>
+              <div className="space-y-0 divide-y divide-[var(--foundry-border)]">
+                <div className="flex items-baseline justify-between py-3 text-sm">
+                  <span className="text-[var(--foundry-text-muted)]">
+                    Due at signing
+                  </span>
+                  <span className="font-semibold text-[var(--foundry-accent-2)]">
+                    25% deposit
+                  </span>
+                </div>
+                <div className="flex items-baseline justify-between py-3 text-sm">
+                  <span className="text-[var(--foundry-text-muted)]">
+                    Remaining
+                  </span>
+                  <span className="font-medium text-[var(--foundry-text)]">
+                    6 equal monthly payments
+                  </span>
+                </div>
+                <div className="flex items-baseline justify-between py-3 text-sm">
+                  <span className="text-[var(--foundry-text-muted)]">
+                    Financing charge
+                  </span>
+                  <span className="font-medium text-[var(--foundry-text)]">
+                    None
+                  </span>
+                </div>
+                <div className="flex items-baseline justify-between py-3 text-sm">
+                  <span className="text-[var(--foundry-text-muted)]">
+                    Build start
+                  </span>
+                  <span className="font-medium text-[var(--foundry-text)]">
+                    Upon deposit receipt
+                  </span>
+                </div>
+              </div>
+              <div className="mt-5 rounded-lg bg-[var(--foundry-surface-2)] p-4 text-sm text-[var(--foundry-text-muted)]">
+                <strong className="text-[var(--foundry-accent-2)]">
+                  Forge example:
+                </strong>{" "}
+                $1,250 deposit + <strong className="text-[var(--foundry-accent-2)]">6 &times; $625/mo</strong> = $5,000 total. Zero interest.
+              </div>
+            </div>
           </div>
 
           {/* Late Payment */}
@@ -601,51 +545,65 @@ export default function PricingPage() {
       {/* 7-Day Trial */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-300 mb-4">Risk-Free Entry</p>
+          <p className="label-foundry text-forge-300 mb-4">Zero Risk</p>
           <h2 className="heading-forge-lg text-white mb-6">
-            The 7-Day Trial
+            7 Days of Free Leads and Revenue
           </h2>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
               <h3 className="label-foundry text-forge-300 mb-3">
-                How It Works
+                Your System Goes Live Before You Pay
               </h3>
               <p className="body-foundry text-white/80 md:text-base">
                 We build your Engine — fully configured to your business, fully
-                integrated with your tools — and put it to work. No demo
-                environment. No dummy data. Your phone number, your CRM, your
-                customers.
+                integrated with your tools — and turn it on. Not a demo. Not a
+                sandbox. Your real phone number, your real CRM, your real
+                customers calling in and getting handled.
               </p>
               <p className="mt-4 body-foundry text-white/80 md:text-base">
-                You have 7 days to see it run.
-                If you commit, the product is already live and earning. If you
-                don&apos;t, we disconnect cleanly and you owe nothing.
+                For 7 days, every lead it captures is yours. Every call it
+                answers is real. Every booking it schedules hits your calendar.
+                You keep all of it — no matter what you decide.
               </p>
             </div>
 
             <div>
               <h3 className="label-foundry text-forge-300 mb-3">
-                Either Way, You Win
+                There Is No Losing Scenario
               </h3>
-              <p className="body-foundry text-white/80 md:text-base">
-                If you move forward, your system is already live — no waiting for
-                a build after you sign. If you walk away, you&apos;ve seen
-                exactly what AI can do for your operation with zero risk. You
-                leave with clarity either way.
-              </p>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white/10 p-4">
+                  <p className="text-sm font-semibold text-[var(--foundry-accent)] mb-1">
+                    You move forward
+                  </p>
+                  <p className="body-foundry text-white/80 text-sm">
+                    Your system is already live and earning. No build wait. No
+                    onboarding delay. You&apos;ve been making money since day one.
+                  </p>
+                </div>
+                <div className="rounded-lg bg-white/10 p-4">
+                  <p className="text-sm font-semibold text-white/90 mb-1">
+                    You walk away
+                  </p>
+                  <p className="body-foundry text-white/80 text-sm">
+                    You keep every lead, every booking, and every dollar the
+                    system generated. We disconnect cleanly. You owe nothing.
+                    You just got a free week of AI-powered revenue.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Trial scope */}
-          <div className="mt-10 rounded-xl border border-white/20 bg-white/5 p-5 md:p-6">
+          {/* Trial CTA */}
+          <div className="mt-10 rounded-xl border border-[var(--foundry-accent)]/40 bg-[var(--foundry-accent)]/10 p-5 md:p-6 text-center">
+            <p className="text-lg font-crimson font-bold text-white mb-2">
+              Free leads. Free revenue. Free clarity. For 7 days.
+            </p>
             <p className="text-sm text-white/70">
-              <strong className="text-[var(--foundry-accent)]">
-                Trial scope:
-              </strong>{" "}
-              Core product of one Engine. Additional Engines and full
-              multi-channel deployment are post-commit. Trial available on all
-              tiers. Dominus tier begins with a business analysis session.
+              Available on all tiers. Dominus tier begins with a business
+              analysis session before the trial deploys.
             </p>
           </div>
         </div>
@@ -683,7 +641,7 @@ export default function PricingPage() {
           <h2 className="heading-forge-lg mb-4">Ready to get started?</h2>
           <p className="mb-8 body-foundry text-slate-700 max-w-2xl mx-auto">
             Tell us what you need. We&apos;ll tell you which tier fits, walk
-            through the financing, and scope a trial if it makes sense.
+            through the payment options, and get your trial scheduled.
           </p>
           <Button href="/start" className="justify-center">
             Talk with Mark &amp; Bri
@@ -696,7 +654,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-5xl px-4 py-6">
           <p className="text-center text-xs text-[var(--foundry-text-muted)]">
             All prices in USD. Your maintenance rate is locked at signing for the life of your account.
-            Maintenance invoiced monthly. Build fees invoiced per payment structure above.
+            Maintenance invoiced monthly. Build fees invoiced per payment option above.
             Telephony usage quoted individually and invoiced monthly.
             Integration scope covers all systems necessary for your Engine to function as designed;
             integrations requiring exceptional custom development are scoped and quoted transparently
