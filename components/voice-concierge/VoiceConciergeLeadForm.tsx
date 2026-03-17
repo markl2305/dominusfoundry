@@ -330,9 +330,14 @@ export default function VoiceConciergeLeadForm({ variant = 'full', id }: VoiceCo
         By submitting, you agree to our{' '}
         <a href="/privacy" className="underline font-semibold text-emerald-300 hover:text-emerald-200">
           Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a href="/sms-terms" className="underline font-semibold text-emerald-300 hover:text-emerald-200">
+          SMS Terms
         </a>
-        {' '}and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may
-        apply. Reply STOP to opt out. We do not sell your personal information.
+        . You consent to receive calls, emails, and texts (including automated) about your request.
+        Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for
+        help. Consent is not required to make a purchase. We do not sell your personal information.
       </p>
     </form>
   )

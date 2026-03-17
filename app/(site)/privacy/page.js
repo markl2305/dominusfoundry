@@ -12,7 +12,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-lg text-navy-700">
-            Last updated: November 5, 2024
+            Last updated: March 16, 2026
           </p>
         </div>
       </section>
@@ -162,17 +162,22 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">SMS/Text Messaging Consent</h2>
               <p>
-                When you submit a form or request information, you may opt in to receive text messages from us. 
-                By providing your phone number, you agree that we may contact you via SMS for service updates and 
-                follow-ups related to your inquiry.
+                When you submit a form or request information, you may opt in to receive text messages from us.
+                By providing your phone number and checking the SMS consent checkbox, you agree that we may
+                contact you via SMS for service updates and follow-ups related to your inquiry.
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
-                <li><strong>Opt-in:</strong> You opt in by providing your phone number and submitting a form or requesting contact.</li>
+                <li><strong>Opt-in:</strong> You opt in by providing your phone number and checking the SMS consent checkbox on our web forms, by verbally agreeing during a phone call, or by texting a keyword to our business number.</li>
                 <li><strong>Opt-out:</strong> You can reply STOP to any message to stop SMS communications. Reply HELP for help.</li>
-                <li><strong>Frequency:</strong> Messages are sent as needed to respond to your request; we do not send recurring marketing blasts.</li>
+                <li><strong>Frequency:</strong> Message frequency varies based on your interactions (typically 1–10 messages per month). We do not send unsolicited marketing blasts.</li>
                 <li><strong>Rates:</strong> Message and data rates may apply depending on your carrier and plan.</li>
-                <li><strong>Privacy:</strong> We do not sell or rent your personal information, including phone numbers.</li>
+                <li><strong>Privacy:</strong> Your mobile phone number and SMS opt-in consent data will not be sold, rented, or shared with any third parties for promotional or marketing purposes.</li>
+                <li><strong>Consent not required:</strong> Consent to receive SMS messages is not required as a condition of purchasing any goods or services.</li>
               </ul>
+              <p className="mt-4">
+                For complete SMS messaging program details, see our{' '}
+                <a href="/sms-terms" className="text-navy-500 underline font-semibold">SMS Messaging Terms</a>.
+              </p>
             </div>
 
             <div>

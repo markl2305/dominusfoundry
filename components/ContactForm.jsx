@@ -89,7 +89,27 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button 
+      <label className="flex items-start gap-2 cursor-pointer">
+        <input
+          type="checkbox"
+          name="smsConsent"
+          className="mt-1 h-4 w-4 rounded border-forge-300 text-forge-600 focus:ring-forge-500"
+        />
+        <span className="text-xs text-slate-700">
+          I agree to receive SMS/text messages from Dominus Foundry at the phone number provided.
+          Message frequency varies. Message and data rates may apply. Reply STOP to opt out,
+          HELP for help. View our{' '}
+          <a href="/sms-terms" className="underline font-semibold text-forge-700 hover:text-forge-800">
+            SMS Terms
+          </a>{' '}
+          and{' '}
+          <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
+            Privacy Policy
+          </a>.
+        </span>
+      </label>
+
+      <Button
         type="submit"
         disabled={sending}
         className="justify-center"
@@ -101,8 +121,7 @@ export default function ContactForm() {
         By submitting, you agree to our{' '}
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
-        </a>{' '}
-        and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may apply. Reply STOP to opt out. We do not sell your personal information.
+        </a>. Consent to receive texts is not required to make a purchase. We do not sell your personal information.
       </p>
     </form>
   );
