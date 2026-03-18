@@ -14,7 +14,7 @@ const tiers = [
     price: "5,000",
     tags: ["1 Engine", "Intake Channel"],
     features: [
-      "Single Engine — Intake (voice, chat, or SMS lead capture)",
+      "Single Engine — Intake Engine for leads for your business",
       "Core product configured to your business, fully live",
       "All necessary integrations — CRM, calendar, phone, or accounting",
       "Single-channel deployment to match your highest-priority intake path",
@@ -109,9 +109,8 @@ export default function PricingPage() {
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`relative rounded-2xl p-6 md:p-8 ${
-                  tier.featured ? "card-forged-premium" : "card-forged"
-                }`}
+                className={`relative rounded-2xl p-6 md:p-8 ${tier.featured ? "card-forged-premium" : "card-forged"
+                  }`}
               >
                 {tier.featured && (
                   <div className="absolute -top-3 left-6">
@@ -417,7 +416,7 @@ export default function PricingPage() {
 
             {/* 3-Month Plan */}
             <div className="card-forged rounded-2xl p-6 md:p-8">
-              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-1">
+              <h3 className="font-crimson text-3xl md:text-4xl font-bold text-[var(--foundry-heading)] mb-1">
                 3-Month Plan
               </h3>
               <p className="text-sm text-[var(--foundry-text-muted)] mb-5">
@@ -467,7 +466,7 @@ export default function PricingPage() {
 
             {/* 6-Month Plan */}
             <div className="card-forged rounded-2xl p-6 md:p-8">
-              <h3 className="font-crimson text-2xl font-bold text-[var(--foundry-heading)] mb-1">
+              <h3 className="font-crimson text-3xl md:text-4xl font-bold text-[var(--foundry-heading)] mb-1">
                 6-Month Plan
               </h3>
               <p className="text-sm text-[var(--foundry-text-muted)] mb-5">
@@ -516,27 +515,15 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Late Payment */}
-          <div className="mt-8 rounded-xl border-l-4 border-[var(--foundry-accent-2)] bg-[var(--foundry-surface)] p-5 md:p-6">
-            <p className="text-sm text-[var(--foundry-text)]">
-              <strong className="text-[var(--foundry-accent-2)]">
-                Late payment:
-              </strong>{" "}
-              Invoices unpaid past Net 15 accrue 1.5%/month (18% annualized).
-              Build work pauses on overdue accounts. Maintenance services suspend
-              at 30 days past due.
-            </p>
-          </div>
-
           {/* Lifetime Pricing Guarantee */}
-          <div className="mt-6 rounded-xl border-l-4 border-[var(--foundry-accent)] bg-[var(--foundry-surface)] p-5 md:p-6">
-            <p className="text-sm text-[var(--foundry-text)]">
-              <strong className="text-[var(--foundry-accent-2)]">
-                Lifetime pricing guarantee:
-              </strong>{" "}
+          <div className="mt-8 rounded-2xl border-l-4 border-[var(--foundry-accent)] bg-[var(--foundry-surface)] p-6 md:p-8">
+            <h3 className="font-crimson text-2xl md:text-3xl font-bold text-[var(--foundry-accent-2)] mb-3">
+              Lifetime Pricing. Zero Risk.
+            </h3>
+            <p className="text-base md:text-lg text-[var(--foundry-text)]">
               The monthly maintenance rate you sign at is the rate you keep — for
               the life of your account. We don&apos;t raise prices on existing
-              clients. Period.
+              clients. Period. There is no losing scenario for you.
             </p>
           </div>
         </div>
@@ -545,10 +532,12 @@ export default function PricingPage() {
       {/* 7-Day Trial */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-300 mb-4">Zero Risk</p>
-          <h2 className="heading-forge-lg text-white mb-6">
-            7 Days of Free Leads and Revenue
+          <h2 className="font-crimson text-4xl md:text-5xl font-bold text-[var(--foundry-accent)] mb-2">
+            Zero Risk
           </h2>
+          <h3 className="heading-forge-lg text-white mb-6">
+            7 Days of Free Leads and Revenue
+          </h3>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
@@ -556,15 +545,15 @@ export default function PricingPage() {
                 Your System Goes Live Before You Pay
               </h3>
               <p className="body-foundry text-white/80 md:text-base">
-                We build your Engine — fully configured to your business, fully
-                integrated with your tools — and turn it on. Not a demo. Not a
-                sandbox. Your real phone number, your real CRM, your real
-                customers calling in and getting handled.
+                This is a genuine trial — not a demo, not a sandbox. We build
+                your Engine fully configured to your business, fully integrated
+                with your tools, and turn it on. Your real phone number, your
+                real CRM, your real customers calling in and getting handled.
               </p>
               <p className="mt-4 body-foundry text-white/80 md:text-base">
-                For 7 days, every lead it captures is yours. Every call it
-                answers is real. Every booking it schedules hits your calendar.
-                You keep all of it — no matter what you decide.
+                For 7 days, every lead it captures is yours. Every booking it
+                schedules hits your calendar. You keep all of it — no matter
+                what you decide. There is no losing scenario for you.
               </p>
             </div>
 
