@@ -12,15 +12,15 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+  title: 'Dominus Foundry | The Company Behind Forge',
   description:
-    'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
-  keywords: ['business tools', 'operator-grade systems', 'governed automation', 'audit trails', 'Mentis'],
+    'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform replacing D-Tools, ServiceTitan, and everything in between.',
+  keywords: ['Forge', 'trades software', 'low voltage', 'roofing', 'project management', 'LiDAR', 'Hyperion', 'SaaS'],
   authors: [{ name: 'Mark & Bri Lord' }],
   openGraph: {
-    title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+    title: 'Dominus Foundry | The Company Behind Forge',
     description:
-      'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
+      'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.',
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry',
     images: [
@@ -36,9 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry | Business Tools Forged for the AI Era',
+    title: 'Dominus Foundry | The Company Behind Forge',
     description:
-      'We forge business tools that let teams operate cleanly in the AI era — governed, auditable, and built to last.',
+      'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.',
     images: ['/og-image.png'],
   },
   themeColor: [

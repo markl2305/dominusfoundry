@@ -6,18 +6,11 @@ import Link from 'next/link'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const mainNav = Object.freeze([
-  { label: 'DominusOS', href: '/dominus-os' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Forge', href: 'https://buildwithforge.app', external: true },
+  { label: 'About', href: '/about' },
   { label: 'Careers', href: '/careers' },
   { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
   { label: 'Get Started', href: '/start', highlight: true },
-])
-
-const toolNav = Object.freeze([
-  { label: 'Intake Engine', href: '/systems/intake' },
-  { label: 'Revenue Engine', href: '/systems/revenue' },
-  { label: 'Ops Engine', href: '/systems/ops' },
 ])
 
 export default function SiteHeader() {
@@ -45,38 +38,27 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
-          <div className="relative group">
-            <Link
-              href="/systems"
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
-              aria-haspopup="true"
-            >
-              What We Build
-            </Link>
-                <div className="absolute left-0 top-full z-40 mt-0 hidden min-w-[20rem] rounded-lg border foundry-nav-panel p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
-              <ul className="py-1" id="business-tools-menu">
-                {toolNav.map((tool) => (
-                  <li key={tool.href}>
-                    <Link
-                      href={tool.href}
-                      className="block w-full whitespace-normal break-words leading-snug rounded-md px-3 py-2 text-sm font-semibold text-navy-800 transition-colors hover:bg-forge-100 hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
-                    >
-                      {tool.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          {mainNav.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {mainNav.map((item) =>
+            item.external ? (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
+              >
+                {item.label} ↗
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="rounded-md px-1.5 py-0.5 text-sm font-semibold text-navy-800 transition-colors hover:text-forge-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-forge-600 focus-visible:ring-offset-2"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <button
@@ -93,29 +75,29 @@ export default function SiteHeader() {
       {isMobileOpen && (
         <nav className="border-t border-bronze-300 foundry-nav lg:hidden" aria-label="Mobile">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-1">
-            <div className="space-y-1">
-              <p className="px-2 py-2 text-xs font-semibold uppercase tracking-wide text-forge-700">What We Build</p>
-              {toolNav.map((tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
+            {mainNav.map((item) =>
+              item.external ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block rounded-lg px-4 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-forge-100"
                   onClick={closeMobile}
                 >
-                  {tool.label}
+                  {item.label} ↗
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block rounded-lg px-4 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-forge-100"
+                  onClick={closeMobile}
+                >
+                  {item.label}
                 </Link>
-              ))}
-            </div>
-            {mainNav.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block rounded-lg px-4 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-forge-100"
-                onClick={closeMobile}
-              >
-                {item.label}
-              </Link>
-            ))}
+              )
+            )}
           </div>
         </nav>
       )}

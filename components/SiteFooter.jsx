@@ -3,17 +3,12 @@ import Link from 'next/link'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'Systems', href: '/systems' },
-  { name: 'Intake Engine', href: '/systems/intake' },
-  { name: 'Revenue Engine', href: '/systems/revenue' },
-  { name: 'Ops Engine', href: '/systems/ops' },
-  { name: 'DominusOS', href: '/dominus-os' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Forge', href: 'https://buildwithforge.app', external: true },
   { name: 'About', href: '/about' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Get Started', href: '/start' },
   { name: 'Privacy', href: '/privacy' },
-  { name: 'DominusOS', href: 'https://dominusos.ai', external: true },
 ]
 
 export default function SiteFooter() {
@@ -36,7 +31,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              Custom AI systems that plug into how your business actually runs — governed, auditable, and built to last.
+              The company behind Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.
             </p>
           </div>
 
@@ -53,7 +48,7 @@ export default function SiteFooter() {
                         rel="noopener noreferrer"
                         className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
                       >
-                        {item.name}
+                        {item.name} ↗
                       </a>
                     ) : (
                       <Link

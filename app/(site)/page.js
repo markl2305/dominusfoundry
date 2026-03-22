@@ -1,67 +1,56 @@
-import { Suspense } from "react";
 import Link from "next/link";
 import Button from "../../components/Button";
-import FoundryLeadForm from "../../components/FoundryLeadForm";
 import ContactCTA from "../../components/ContactCTA";
 
 export const metadata = {
-  title: "Dominus Foundry | Operator-grade AI systems powered by DominusOS",
+  title: "Dominus Foundry | The Company Behind Forge",
   description:
-    "We believe operators deserve systems that don't drift. Voice agents, booking systems, invoicing, and workflows — each one complete, all designed to connect.",
+    "We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
 };
 
-const featuredProducts = [
+const pipeline = [
   {
-    title: "Intake Engine",
-    tagline: "Every lead. Every channel. One engine.",
-    body: "Phone, web, chat, email, social — captured, qualified, and booked before leads go cold. Powered by DominusOS.",
-    href: "/systems/intake",
+    step: "Scan",
+    label: "Walk the building",
+    body: "iPhone LiDAR captures a complete 3D spatial model — walls, doors, windows, dimensions. 10 minutes.",
   },
   {
-    title: "Revenue Engine",
-    tagline: "From signed deal to collected cash.",
-    body: "Onboarding, invoicing, and collections running without you chasing. Powered by DominusOS.",
-    href: "/systems/revenue",
+    step: "Design",
+    label: "Get the design",
+    body: "AI generates a complete system design, bill of materials, and rack elevations from the scan data.",
   },
   {
-    title: "Ops Engine",
-    tagline: "Your operation — visible and governed.",
-    body: "Support, reporting, compliance, hiring, vendors — running without you as the bottleneck. Powered by DominusOS.",
-    href: "/systems/ops",
+    step: "Propose",
+    label: "Send the proposal",
+    body: "Professional proposal with pricing, scope, and e-signature — auto-generated and client-ready.",
+  },
+  {
+    step: "Manage",
+    label: "Run the project",
+    body: "Scheduling, dispatch, tasks, job costing, invoicing, service contracts — full lifecycle in one platform.",
   },
 ];
 
-const useCases = [
-  {
-    title: "Service founder with messy finances",
-    body: "Revenue Engine brings order to invoicing and AR.",
-  },
-  {
-    title: "Ops lead at a membership club",
-    body: "Intake Engine handles calls and books parties.",
-  },
-  {
-    title: "GM juggling invoicing and AR",
-    body: "Revenue Engine runs the cadence without chasing.",
-  },
-  {
-    title: "Lean team living in spreadsheets",
-    body: "Any of our engines replaces ad-hoc with durable.",
-  },
-  {
-    title: "Owner tired of interruptions",
-    body: "Intake Engine answers and routes without pulling staff.",
-  },
-  {
-    title: "Operator planning the next change",
-    body: "Start with one engine. Add more. Everything connects.",
-  },
+const stats = [
+  { value: "9", label: "Pending Patents" },
+  { value: "50", label: "States Compliance" },
+  { value: "10 min", label: "Scan to Proposal" },
+  { value: "$599", label: "Starting Monthly" },
+];
+
+const replaces = [
+  "D-Tools",
+  "ServiceTitan",
+  "ProjX360",
+  "ConnectWise",
+  "Spreadsheets",
+  "Manual Takeoffs",
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Careers Banner — Top of Page */}
+      {/* Careers Banner */}
       <section className="bg-forge-900 border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-3">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -80,234 +69,212 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero */}
+      {/* Hero — Forge First */}
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 relative">
           <div className="max-w-3xl space-y-6">
+            <p className="label-foundry text-orange-200">Dominus Foundry presents</p>
             <h1 className="heading-forge-xl text-white leading-tight">
-              Most operations leak in three places.<br />
-              We built three engines to seal them.
+              Forge — the operating system for the trades.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
-              We believe operators deserve systems that don&apos;t drift — where humans stay in control and every decision is traceable.
+              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 9 pending patents, zero comparable competition.
             </p>
-            <p className="body-foundry text-white md:text-lg">
-              Start with Intake Engine to handle your front door. Add Revenue Engine when invoicing needs structure. Watch them work together without friction — because they were designed with the same philosophy from day one.
+            <p className="body-foundry text-white/70 md:text-lg">
+              Walk the building with your iPhone. Get a complete system design, bill of materials, and client-ready proposal in 10 minutes. Then manage the entire project lifecycle without switching tools.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-4">
-              <Button href="/systems" className="justify-center">
-                Explore the systems
+              <Button
+                href="https://buildwithforge.app"
+                className="justify-center"
+              >
+                See Forge →
               </Button>
               <Button
-                href="/start"
+                href="/about"
                 variant="forgeSecondary"
                 className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
               >
-                Tell us what&apos;s broken
+                About the company
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Products - Each a Star */}
+      {/* What Forge Replaces */}
       <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="heading-forge-lg">Complete systems. Ready to work.</h2>
-            <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
-              Each system solves a real operational problem — beautifully, reliably, and with full governance. Use one. Use several. They&apos;re designed to work alone or together.
-            </p>
+        <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div className="text-center space-y-4 mb-10">
+            <p className="label-foundry">One platform. Not six.</p>
+            <h2 className="heading-forge-lg">What Forge replaces</h2>
           </div>
-
-          <div className="grid gap-8 lg:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <Link
-                key={product.title}
-                href={product.href}
-                className="group card-forged-premium rounded-2xl p-8 bg-gradient-to-br from-white to-forge-50 shadow-lg hover:shadow-xl transition-shadow flex flex-col"
+          <div className="flex flex-wrap justify-center gap-3">
+            {replaces.map((tool) => (
+              <span
+                key={tool}
+                className="inline-flex items-center rounded-full border-2 border-forge-300/40 px-5 py-2.5 text-sm font-semibold text-slate-800 line-through decoration-forge-600 decoration-2"
               >
-                <div className="flex-1 space-y-4">
-                  <h3 className="heading-forge-lg text-slate-900 group-hover:text-forge-700 transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-forge-700 font-semibold">{product.tagline}</p>
-                  <p className="body-foundry text-slate-700">{product.body}</p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-forge-200">
-                  <span className="text-sm text-slate-600">Powered by DominusOS</span>
-                </div>
-              </Link>
+                {tool}
+              </span>
             ))}
           </div>
+          <p className="text-center body-foundry text-slate-700 mt-6 max-w-2xl mx-auto">
+            Flat-rate pricing. Unlimited users. Zero setup fees. Every competitor charges per-user — their pricing works against the customer as they grow. Ours doesn&apos;t.
+          </p>
+        </div>
+      </section>
 
-          <div className="text-center">
-            <Link href="/systems" className="text-forge-700 font-semibold underline hover:text-forge-900">
-              See all systems →
-            </Link>
+      {/* The Pipeline */}
+      <section className="bg-[var(--foundry-bg-alt)]">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20 space-y-12">
+          <div className="text-center space-y-4">
+            <p className="label-foundry">The Pipeline</p>
+            <h2 className="heading-forge-lg">Scan. Design. Propose. Manage.</h2>
+            <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
+              Forge compresses the entire project lifecycle — from walking into a building to collecting the final invoice — into a single, governed workflow.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {pipeline.map((item, i) => (
+              <div key={item.step} className="card-forged rounded-2xl p-6 space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-forge-700 text-white text-sm font-bold">
+                    {i + 1}
+                  </span>
+                  <h3 className="font-crimson text-xl font-bold text-slate-900">{item.step}</h3>
+                </div>
+                <p className="text-forge-700 font-semibold text-sm">{item.label}</p>
+                <p className="text-sm text-slate-700">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Real Example */}
-      <section className="bg-tan-100">
-        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-8">
-          <div className="text-center space-y-3">
-            <p className="label-foundry text-forge-700">In practice</p>
-            <h2 className="heading-forge-lg text-slate-900">A private club runs on three engines</h2>
-          </div>
-          <div className="card-forged-premium rounded-2xl bg-white p-8 md:p-10 shadow-lg space-y-6">
-            <p className="body-foundry text-slate-800 text-lg">
-              Intake Engine handles calls by voice and books private parties automatically. Revenue Engine manages member invoicing and follows up on outstanding balances. Ops Engine keeps the day-to-day running without the owner in the loop.
-            </p>
-            <p className="body-foundry text-slate-800">
-              No dashboard to babysit. No manual handoffs. Three engines, one operation, zero friction.
-            </p>
-            <div className="pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-sm text-slate-600">
-              <span>Intake Engine</span>
-              <span>•</span>
-              <span>Revenue Engine</span>
-              <span>•</span>
-              <span>Ops Engine</span>
-              <span>•</span>
-              <span>All powered by DominusOS</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Connection */}
+      {/* Hyperion — The Differentiator */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-8">
           <div className="max-w-3xl space-y-4">
+            <p className="label-foundry text-forge-300">Patent-Pending Technology</p>
             <h2 className="heading-forge-lg text-white">
-              Start with one. Everything connects.
+              Hyperion Spatial Intelligence
             </h2>
             <p className="body-foundry text-white/80 md:text-lg">
-              Each system is complete on its own — a star in its own right. But they share the same DNA. The same governance. The same commitment to human authority.
+              A technician scans a building with their iPhone. Hyperion generates a complete system design, bill of materials, and client-ready proposal — automatically. No manual takeoff. No spreadsheets. No waiting.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              When you add a second system, something changes. Handoffs disappear. Data flows. Your operation starts to feel like one thing instead of twenty.
-            </p>
-            <p className="body-foundry text-white/80 md:text-lg">
-              This is <Link href="/dominus-os" className="text-forge-300 underline hover:text-white">DominusOS</Link> — a human-governed operating system for AI workforces. It&apos;s not a product you buy — it&apos;s the reason our products work the way they do. And when you&apos;re ready for the full experience, it&apos;s there.
+              No competitor has filed anything comparable. No competitor can replicate it without rebuilding their architecture from scratch. Every scan feeds a compounding intelligence model that gets smarter with scale.
             </p>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="space-y-2">
-              <h3 className="font-semibold text-white">Human authority, preserved</h3>
-              <p className="text-sm text-white/70">AI assists. Humans decide. Escalation paths are explicit.</p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="font-semibold text-white">Every action, logged</h3>
-              <p className="text-sm text-white/70">Full audit trails. Traceable decisions. Answers when questions arise.</p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="font-semibold text-white">No drift</h3>
-              <p className="text-sm text-white/70">Systems designed to hold their shape over time.</p>
-            </div>
-          </div>
-
-          <div className="pt-4">
-            <Link href="/dominus-os" className="text-forge-300 font-semibold underline hover:text-white">
-              Learn about DominusOS →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Serve */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Built for operators</h2>
-            <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
-              If you run a real operation — with real staff, real customers, and real pressure — these systems are for you.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {useCases.map((useCase) => (
-              <div key={useCase.title} className="card-forged rounded-2xl bg-white p-6 shadow-sm">
-                <h3 className="heading-forge-md text-slate-900">{useCase.title}</h3>
-                <p className="mt-2 body-foundry text-slate-700">{useCase.body}</p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { name: "Hyperion Scan", desc: "iPhone LiDAR → 3D model → auto-BOM → auto-proposal" },
+              { name: "Hyperion Vision", desc: "Photo-based dimension estimation and equipment identification" },
+              { name: "Hyperion Blueprint", desc: "Extract spatial models from architectural plans and as-builts" },
+              { name: "Hyperion SiteIQ", desc: "Structured site assessment: ceilings, cables, mounting, environment" },
+            ].map((module) => (
+              <div key={module.name} className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+                <h3 className="font-semibold text-white">{module.name}</h3>
+                <p className="text-sm text-white/60">{module.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Operators */}
+      {/* By the Numbers */}
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center space-y-2">
+                <p className="font-crimson text-5xl md:text-6xl font-bold text-slate-900">{stat.value}</p>
+                <p className="label-foundry">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are */}
       <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:py-18 space-y-8">
-          <div className="grid gap-8 md:grid-cols-3 md:items-start">
-            <div className="md:col-span-1 space-y-3">
-              <h2 className="heading-forge-lg">Operators behind the systems.</h2>
-              <p className="body-foundry">
-                Built and run by Mark &amp; Bri Lord — operators who balance code, finance, and day-to-day operations.
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+            <div className="space-y-4">
+              <p className="label-foundry">The Company</p>
+              <h2 className="heading-forge-lg">Dominus Foundry</h2>
+              <p className="body-foundry text-slate-800">
+                Built and run by Mark &amp; Bri Lord — operators who balance code, finance, and day-to-day operations. We built Forge because we saw an industry running on disconnected tools, manual processes, and per-user pricing models designed to extract maximum revenue from the customer.
               </p>
+              <p className="body-foundry text-slate-800">
+                We believe the trades deserve the same caliber of technology that enterprise companies have — without enterprise pricing or enterprise complexity.
+              </p>
+              <Link href="/about" className="inline-flex text-forge-700 font-semibold underline hover:text-forge-900">
+                More about us →
+              </Link>
             </div>
-            <div className="md:col-span-2 grid gap-4">
+            <div className="space-y-4">
               <div className="card-forged-premium rounded-2xl p-6 shadow-sm">
-                <p className="text-sm text-slate-800 leading-relaxed">
-                  &quot;The Foundry team stabilized our books before automating a thing. Invoices go out, reminders happen, and cash shows up without a chase.&quot;
+                <p className="text-sm text-slate-800 leading-relaxed italic">
+                  &quot;Fide et Familia&quot; — Faith and Family. That&apos;s what the crest says, and that&apos;s how we build. Every system we ship carries the Lord name. If it doesn&apos;t work, it&apos;s our reputation on the line.
                 </p>
-                <p className="mt-3 text-sm font-semibold text-slate-900">Owner, regional service business</p>
+                <p className="mt-3 text-sm font-semibold text-slate-900">Mark Lord, Founder</p>
               </div>
-              <div className="card-forged rounded-2xl bg-white p-6 shadow-sm">
-                <p className="text-sm text-slate-800 leading-relaxed">
-                  &quot;Calls are answered, bookings are logged, and we see exactly what was said without adding headcount. The guardrails keep us comfortable.&quot;
-                </p>
-                <p className="mt-3 text-sm font-semibold text-slate-900">General manager, membership club</p>
+              <div className="card-forged rounded-2xl p-6 shadow-sm">
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div>
+                    <p className="font-crimson text-2xl font-bold text-slate-900">9</p>
+                    <p className="text-xs text-slate-600">Patents Pending</p>
+                  </div>
+                  <div>
+                    <p className="font-crimson text-2xl font-bold text-slate-900">270+</p>
+                    <p className="text-xs text-slate-600">Regulatory Records</p>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-forge-900 text-white">
+        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
+          <h2 className="heading-forge-lg text-white">Stop estimating. Start scanning.</h2>
+          <p className="body-foundry text-forge-100/80">
+            See what Forge can do for your operation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button
+              href="https://buildwithforge.app"
+              className="justify-center"
+            >
+              Visit buildwithforge.app →
+            </Button>
+            <Button
+              href="/careers"
+              variant="forgeSecondary"
+              className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
+            >
+              Join the team
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="talk" className="bg-gradient-to-b from-tan-100 to-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
-          <span id="contact" className="block h-0 w-0" aria-hidden />
-          <div className="space-y-3 text-center">
-            <h2 className="heading-forge-lg">Ready to see what connects?</h2>
-            <p className="body-foundry max-w-2xl mx-auto">
-              Tell us what&apos;s broken in your operation. We&apos;ll show you which systems can help — and how they work together.
+      <section className="bg-[var(--foundry-bg)]">
+        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
+          <div className="text-center space-y-3">
+            <h2 className="heading-forge-lg">Questions?</h2>
+            <p className="body-foundry text-slate-800">
+              Reach out directly. We respond within one business day.
             </p>
           </div>
-          <div className="card-forged-premium rounded-2xl bg-white p-6 md:p-10 shadow-xl">
-            <Suspense fallback={null}>
-              <FoundryLeadForm />
-            </Suspense>
-          </div>
-          <div className="text-center space-y-2">
-            <p className="text-sm text-slate-700">
-              Prefer a direct call? <a className="underline font-semibold" href="tel:+18667103313">(866) 710-3313</a>
-            </p>
+          <div className="flex justify-center">
             <ContactCTA />
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="bg-forge-900 text-white">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-18 text-center space-y-4">
-          <h2 className="heading-forge-lg text-white">Your operation deserves systems that don&apos;t drift.</h2>
-          <p className="body-foundry text-forge-100/80">
-            Start with one. Add more when you&apos;re ready. Watch everything connect.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button href="/systems" className="justify-center">
-              Explore the systems
-            </Button>
-            <Button
-              href="/dominus-os"
-              variant="forgeSecondary"
-              className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
-            >
-              Learn about DominusOS
-            </Button>
           </div>
         </div>
       </section>
