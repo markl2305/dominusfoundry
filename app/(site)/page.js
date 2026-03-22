@@ -92,6 +92,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Careers Callout — Always Visible */}
+      <section className="bg-forge-900 border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-5 md:py-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <span className="hidden sm:inline-flex items-center rounded-full bg-forge-300/20 border border-forge-300/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-forge-300">
+                Hiring
+              </span>
+              <p className="text-white font-semibold text-sm md:text-base">
+                <span className="text-forge-300 font-bold sm:hidden">Now Hiring — </span>
+                Founding Sales Reps · 100% first-month commission · 15% residual forever · 9 pending patents
+              </p>
+            </div>
+            <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
+              View Roles
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Products - Each a Star */}
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
@@ -242,28 +262,6 @@ export default function Home() {
                 </p>
                 <p className="mt-3 text-sm font-semibold text-slate-900">General manager, membership club</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Careers Callout */}
-      <section className="bg-gradient-to-b from-forge-900 to-forge-800">
-        <div className="mx-auto max-w-5xl px-4 py-12 md:py-16">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div className="space-y-2">
-              <p className="label-foundry text-forge-300">We&apos;re Hiring</p>
-              <h2 className="font-crimson text-3xl md:text-4xl font-bold text-white">
-                Join the founding sales team
-              </h2>
-              <p className="body-foundry text-white/70 max-w-xl">
-                9 pending patents. Fully built product. Zero sales team. 100% first-month commission + 15% residual forever. Ground floor of a fast-growing SaaS company.
-              </p>
-            </div>
-            <div className="shrink-0">
-              <Button href="/careers" className="justify-center whitespace-nowrap">
-                View Open Roles
-              </Button>
             </div>
           </div>
         </div>
