@@ -61,6 +61,25 @@ const useCases = [
 export default function Home() {
   return (
     <>
+      {/* Careers Banner — Top of Page */}
+      <section className="bg-forge-900 border-b border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-forge-300/20 border border-forge-300/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-forge-300">
+                Hiring
+              </span>
+              <p className="text-white font-semibold text-sm">
+                Founding Sales Reps · 100% first-month commission · 15% residual forever · 9 pending patents
+              </p>
+            </div>
+            <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
+              View Roles
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
@@ -88,26 +107,6 @@ export default function Home() {
                 Tell us what&apos;s broken
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Careers Callout — Always Visible */}
-      <section className="bg-forge-900 border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-5 md:py-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <span className="hidden sm:inline-flex items-center rounded-full bg-forge-300/20 border border-forge-300/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-forge-300">
-                Hiring
-              </span>
-              <p className="text-white font-semibold text-sm md:text-base">
-                <span className="text-forge-300 font-bold sm:hidden">Now Hiring — </span>
-                Founding Sales Reps · 100% first-month commission · 15% residual forever · 9 pending patents
-              </p>
-            </div>
-            <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
-              View Roles
-            </Button>
           </div>
         </div>
       </section>
