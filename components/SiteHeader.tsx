@@ -8,6 +8,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const mainNav = Object.freeze([
   { label: 'DominusOS', href: '/dominus-os' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Get Started', href: '/start', highlight: true },

@@ -247,6 +247,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Careers Callout */}
+      <section className="bg-gradient-to-b from-forge-900 to-forge-800">
+        <div className="mx-auto max-w-5xl px-4 py-12 md:py-16">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="space-y-2">
+              <p className="label-foundry text-forge-300">We&apos;re Hiring</p>
+              <h2 className="font-crimson text-3xl md:text-4xl font-bold text-white">
+                Join the founding sales team
+              </h2>
+              <p className="body-foundry text-white/70 max-w-xl">
+                9 pending patents. Fully built product. Zero sales team. 100% first-month commission + 15% residual forever. Ground floor of a fast-growing SaaS company.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <Button href="/careers" className="justify-center whitespace-nowrap">
+                View Open Roles
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section id="talk" className="bg-gradient-to-b from-tan-100 to-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20 space-y-6">
