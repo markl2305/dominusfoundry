@@ -12,6 +12,7 @@ export async function POST(req) {
       bestYear = "",
       biggestDeal = "",
       experience = "",
+      resume = null,
     } = payload ?? {};
 
     const to = "bri@dominusfoundry.com";
@@ -25,6 +26,7 @@ export async function POST(req) {
       `Email: ${email}`,
       `Phone: ${phone}`,
       `LinkedIn: ${linkedin || "Not provided"}`,
+      `Resume: ${resume ? "Attached" : "Not provided"}`,
       ``,
       `Best Commission Year (W-2/1099): ${bestYear}`,
       ``,
@@ -35,6 +37,10 @@ export async function POST(req) {
       `${experience}`,
     ].join("\n");
 
+    const attachments = resume
+      ? [{ filename: resume.filename, content: Buffer.from(resume.content, "base64") }]
+      : [];
+
     if (RESEND_API_KEY) {
       const { Resend } = await import("resend");
       const resend = new Resend(RESEND_API_KEY);
@@ -44,6 +50,7 @@ export async function POST(req) {
         to,
         subject: `Sales Rep Application — ${firstName} ${lastName}`,
         text: body,
+        attachments,
       });
 
       // Also CC Mark
@@ -52,6 +59,7 @@ export async function POST(req) {
         to: process.env.LEADS_TO_EMAIL || to,
         subject: `Sales Rep Application — ${firstName} ${lastName}`,
         text: body,
+        attachments,
       });
 
       if (email) {

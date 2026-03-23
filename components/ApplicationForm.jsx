@@ -6,16 +6,35 @@ import Button from "./Button";
 export default function ApplicationForm() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [fileName, setFileName] = useState("");
 
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
   const labelClass = "text-sm font-semibold text-slate-900";
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
 
   async function submit(e) {
     e.preventDefault();
     setSending(true);
 
     const fd = new FormData(e.currentTarget);
+    const resumeFile = fd.get("resume");
+
+    let resumeData = null;
+    if (resumeFile && resumeFile.size > 0) {
+      resumeData = {
+        filename: resumeFile.name,
+        content: await toBase64(resumeFile),
+      };
+    }
 
     const payload = {
       firstName: (fd.get("firstName") || "").trim(),
@@ -26,6 +45,7 @@ export default function ApplicationForm() {
       bestYear: (fd.get("bestYear") || "").trim(),
       biggestDeal: (fd.get("biggestDeal") || "").trim(),
       experience: (fd.get("experience") || "").trim(),
+      resume: resumeData,
     };
 
     const res = await fetch("/api/apply", {
@@ -145,6 +165,28 @@ export default function ApplicationForm() {
           className={inputClass}
           placeholder="B2B SaaS, tech services, trades/construction, field service — whatever applies."
         />
+      </div>
+
+      <div>
+        <label className={labelClass}>Resume *</label>
+        <div className="mt-1 relative">
+          <input
+            name="resume"
+            type="file"
+            required
+            accept=".pdf,.doc,.docx"
+            onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          />
+          <div className={`${inputClass} flex items-center gap-3 cursor-pointer`}>
+            <span className="inline-flex items-center rounded-lg bg-forge-200 px-3 py-1 text-xs font-semibold text-slate-800 shrink-0">
+              Choose File
+            </span>
+            <span className="text-sm text-slate-600 truncate">
+              {fileName || "PDF, DOC, or DOCX — 10MB max"}
+            </span>
+          </div>
+        </div>
       </div>
 
       <Button type="submit" disabled={sending} className="justify-center">
