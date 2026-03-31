@@ -164,7 +164,14 @@ export default function FoundryLeadForm() {
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
         </a>{" "}
-        and consent to receive calls, emails, and texts (including automated) about your request. Message/data rates may apply. Reply STOP to opt out. We do not sell your personal information.
+        and{" "}
+        <a href="/sms-terms" className="underline font-semibold text-forge-700 hover:text-forge-800">
+          SMS Terms
+        </a>
+        , and consent to receive calls, emails, and texts (including automated) about your request.
+        Message frequency varies (typically 1–10 msgs/mo). Message and data rates may apply.
+        Reply STOP to opt out. Reply HELP for help. Consent is not required to make a purchase.
+        We do not sell your personal information.
       </p>
     </form>
   );
