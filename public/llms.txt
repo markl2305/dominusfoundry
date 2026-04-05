@@ -1,0 +1,19 @@
+# Dominus Foundry LLC
+> Technology holding company building AI-powered vertical SaaS for traditional industries. Based in Albuquerque, New Mexico.
+
+## About
+Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry.
+
+## Flagship Product
+- Forge (https://buildwithforge.app): AI operating system for commercial installation contractors. Combines CRM, LiDAR spatial intelligence, compliance automation, payroll, and communication intelligence. 10 provisional patents filed.
+
+## Other Products
+- Foundry Voice Concierge: AI voice assistant for small business phone systems
+- InvoiceFlow: Automated invoicing for service businesses
+
+## Company Details
+- Structure: Wyoming Series LLC
+- Location: Albuquerque, New Mexico
+- Founded by: Mark Lord
+- Philosophy: Multi-generational family business ("Fide et Familia")
+- Contact: foundry@dominusfoundry.com | (866) 710-3313

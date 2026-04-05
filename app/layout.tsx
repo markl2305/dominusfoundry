@@ -12,15 +12,19 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: 'Dominus Foundry | The Company Behind Forge',
+  title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
   description:
-    'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform replacing D-Tools, ServiceTitan, and everything in between.',
-  keywords: ['Forge', 'trades software', 'low voltage', 'roofing', 'project management', 'LiDAR', 'Hyperion', 'SaaS'],
-  authors: [{ name: 'Mark & Bri Lord' }],
+    'Dominus Foundry builds AI-powered vertical SaaS for traditional industries. Flagship product Forge is the AI operating system for commercial installation contractors. 10 provisional patents. Based in Albuquerque, NM.',
+  keywords: ['Dominus Foundry', 'Forge', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion', 'commercial roofing software'],
+  authors: [{ name: 'Mark Lord' }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: 'Dominus Foundry | The Company Behind Forge',
+    title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
     description:
-      'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge, the AI operating system for commercial contractors. 10 provisional patents.',
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry',
     images: [
@@ -36,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry | The Company Behind Forge',
+    title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
     description:
-      'We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge, for commercial contractors.',
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -70,6 +74,44 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
       <body className="antialiased font-inter">
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Dominus Foundry LLC",
+              alternateName: "Dominus Foundry",
+              url: "https://dominusfoundry.com",
+              description:
+                "Technology holding company building AI-powered vertical SaaS for traditional industries. Flagship product is Forge, an AI operating system for commercial installation contractors.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Albuquerque",
+                addressRegion: "NM",
+                addressCountry: "US",
+              },
+              telephone: "+18667103313",
+              email: "foundry@dominusfoundry.com",
+              foundingLocation: "Albuquerque, NM",
+              numberOfEmployees: {
+                "@type": "QuantitativeValue",
+                value: "1-10",
+              },
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "SoftwareApplication",
+                    name: "Forge",
+                    url: "https://buildwithforge.app",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <AppShell>{children}</AppShell>
 
         {/* Google Analytics 4 - loaded globally once */}
