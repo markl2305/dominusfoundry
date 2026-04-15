@@ -12,27 +12,27 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
+  title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
   description:
-    'Dominus Foundry builds AI-powered vertical SaaS for traditional industries. Flagship product Forge is the AI operating system for commercial installation contractors. 10 provisional patents. Based in Albuquerque, NM.',
-  keywords: ['Dominus Foundry', 'Forge', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion', 'commercial roofing software'],
+    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 10 provisional patents. Based in Albuquerque, NM.',
+  keywords: ['Dominus Foundry™', 'Forge™', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
+    title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge, the AI operating system for commercial contractors. 10 provisional patents.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 10 provisional patents.',
     url: 'https://dominusfoundry.com',
-    siteName: 'Dominus Foundry',
+    siteName: 'Dominus Foundry™',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Dominus Foundry - Fide et Familia',
+        alt: 'Dominus Foundry™ - Fide et Familia',
       },
     ],
     locale: 'en_US',
@@ -40,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry — AI-Powered Software for Traditional Industries',
+    title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge, for commercial contractors.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, for commercial contractors.',
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -81,19 +81,26 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Dominus Foundry LLC",
-              alternateName: "Dominus Foundry",
+              name: "Dominus Foundry™ LLC",
+              alternateName: ["Dominus Foundry™", "Dominus Foundry"],
               url: "https://dominusfoundry.com",
+              logo: "https://dominusfoundry.com/logo-full.svg",
               description:
-                "Technology holding company building AI-powered vertical SaaS for traditional industries. Flagship product is Forge, an AI operating system for commercial installation contractors.",
+                "Technology holding company building AI-powered vertical SaaS for traditional industries. Flagship product is Forge™, an AI operating system for commercial installation contractors.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
                 addressRegion: "NM",
                 addressCountry: "US",
               },
-              telephone: "+18667103313",
-              email: "foundry@dominusfoundry.com",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-866-710-3313",
+                contactType: "Sales",
+                email: "foundry@dominusfoundry.com",
+                areaServed: "US",
+                availableLanguage: "English",
+              },
               foundingLocation: "Albuquerque, NM",
               numberOfEmployees: {
                 "@type": "QuantitativeValue",
@@ -104,11 +111,56 @@ export default function RootLayout({
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "SoftwareApplication",
-                    name: "Forge",
+                    name: "Forge™",
                     url: "https://buildwithforge.app",
                   },
                 },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "SoftwareApplication",
+                    name: "Voice Concierge",
+                    url: "https://dominusfoundry.com/voice-concierge",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "SoftwareApplication",
+                    name: "InvoiceFlow",
+                    url: "https://dominusfoundry.com/invoiceflow",
+                  },
+                },
               ],
+              sameAs: [
+                "https://buildwithforge.app",
+                "https://www.linkedin.com/company/dominus-foundry",
+              ],
+            }),
+          }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Dominus Foundry™",
+              url: "https://dominusfoundry.com",
+              publisher: {
+                "@type": "Organization",
+                name: "Dominus Foundry™ LLC",
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate:
+                    "https://dominusfoundry.com/blog?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
