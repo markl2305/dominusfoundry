@@ -9,6 +9,7 @@ const mainNav = Object.freeze([
   { label: 'Forge', href: 'https://buildwithforge.app', external: true },
   { label: 'About', href: '/about' },
   { label: 'Careers', href: '/careers' },
+  { label: 'Press', href: '/press' },
   { label: 'Blog', href: '/blog' },
   { label: 'Get Started', href: '/start', highlight: true },
 ])
@@ -25,11 +26,11 @@ export default function SiteHeader() {
         <Link
           href="/"
           className="flex-shrink-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600"
-          aria-label="Dominus Foundry home"
+          aria-label="Dominus Foundry™ home"
         >
           <Image
             src="/logo-full.svg"
-            alt="Dominus Foundry - Fide et Familia"
+            alt="Dominus Foundry™ - Fide et Familia"
             width={520}
             height={140}
             className="h-24 w-auto sm:h-[108px] md:h-[120px] lg:h-[120px] object-contain"

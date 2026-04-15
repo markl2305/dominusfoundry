@@ -74,6 +74,19 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
         <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 relative">
           <div className="max-w-3xl space-y-6">
+            <Link
+              href="/press/spw"
+              className="inline-flex items-center gap-2 rounded-full border border-forge-300/50 bg-forge-300/10 hover:bg-forge-300/20 hover:border-forge-300/80 px-4 py-1.5 text-xs sm:text-sm text-forge-100 transition"
+              aria-label="Read the Solar Power World feature on Forge"
+            >
+              <span className="inline-flex items-center rounded-full bg-forge-300/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+                Featured
+              </span>
+              <span className="font-medium">
+                As featured in <span className="font-semibold text-white">Solar Power World</span>
+              </span>
+              <span aria-hidden className="text-forge-200">→</span>
+            </Link>
             <p className="label-foundry text-orange-200">Dominus Foundry presents</p>
             <h1 className="heading-forge-xl text-white leading-tight">
               Forge — the operating system for the trades.

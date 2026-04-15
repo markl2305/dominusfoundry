@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import FooterCTA from './FooterCTA'
+import PressRibbon from './PressRibbon'
 import { DemoWidgetLoader } from './voice-concierge/CampaignInteractions'
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
@@ -16,6 +17,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
+      {!hideHeader && <PressRibbon />}
       {!hideHeader && <SiteHeader />}
       <main>{children}</main>
       {!hideFooterCTA && <FooterCTA />}
