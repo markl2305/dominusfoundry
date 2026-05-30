@@ -1,11 +1,16 @@
 {
   "name": "Dominus Foundry",
   "short_name": "Dominus",
-  "description": "Helping traditional New Mexico businesses survive technological change",
+  "description": "A family-owned technology holding company — the parent behind Forge, Hyperion, and Foundry Capital. Fide et Familia.",
   "icons": [
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
@@ -14,13 +19,25 @@
       "type": "image/png"
     },
     {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#2A3A4B",
-  "background_color": "#E7DFCF",
+  "theme_color": "#0c1418",
+  "background_color": "#0c1418",
   "display": "standalone",
   "start_url": "/",
   "scope": "/"
