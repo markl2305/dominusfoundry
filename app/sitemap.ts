@@ -51,6 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       freq: "monthly" as const,
     },
+    {
+      path: "/blog/the-case-for-constitutional-synthetic-intelligence",
+      priority: 0.7,
+      freq: "monthly" as const,
+    },
   ];
 
   return pages.map(({ path, priority, freq }) => ({

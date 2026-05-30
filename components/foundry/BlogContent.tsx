@@ -24,6 +24,12 @@ const NOTES = [
     x: 'Most “AI features” don’t understand how your operation works. Operations intelligence is the layer that remembers the story across calls, invoices, and orders.',
     href: '/blog/operations-intelligence-for-small-teams',
   },
+  {
+    k: 'Reflection',
+    t: 'Between Human and AI — A Preserved Conversation',
+    x: 'What happens when you treat your AI like an employee for 1,000 hours? A founder and his AI on trust, pushback, mortality, and the framework that might prevent the dystopia.',
+    href: '/blog/between-human-and-ai',
+  },
 ]
 
 export default function BlogContent() {
