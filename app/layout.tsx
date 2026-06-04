@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
       <body className="antialiased font-inter">
-        <Script
+        <script
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -140,7 +140,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <Script
+        <script
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
