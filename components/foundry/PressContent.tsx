@@ -18,7 +18,7 @@ export default function PressContent() {
         lead="Coverage of Dominus Foundry and our flagship product, Forge — the operating system for the trades."
         actions={
           <>
-            <a className="btn btn-solid" href="mailto:press@dominusfoundry.com">
+            <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Press inquiries {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="#coverage">
@@ -29,7 +29,7 @@ export default function PressContent() {
         metaLeft={<>Media &amp; analyst relations</>}
         metaRight={
           <>
-            <b>press@dominusfoundry.com</b>
+            <b>foundry@dominusfoundry.com</b>
           </>
         }
       />
@@ -74,8 +74,8 @@ export default function PressContent() {
           </div>
           <p style={{ marginTop: '26px', fontSize: '14.5px', lineHeight: 1.7, color: 'var(--ink-3)', maxWidth: '52ch' }}>
             More coverage as it runs. For interviews, assets, or analyst briefings, reach the team directly at{' '}
-            <a href="mailto:press@dominusfoundry.com" style={{ color: 'var(--gold)' }}>
-              press@dominusfoundry.com
+            <a href="mailto:foundry@dominusfoundry.com" style={{ color: 'var(--gold)' }}>
+              foundry@dominusfoundry.com
             </a>
             .
           </p>
@@ -92,7 +92,7 @@ export default function PressContent() {
         lead="We're glad to help with interviews, product demos, founder commentary, and high-resolution assets. Real person, fast reply."
         actions={
           <>
-            <a className="btn btn-solid" href="mailto:press@dominusfoundry.com">
+            <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Email Press {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="tel:+18667103313">

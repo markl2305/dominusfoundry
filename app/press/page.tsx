@@ -4,7 +4,7 @@ import PressContent from '@/components/foundry/PressContent'
 
 export const metadata: Metadata = {
   title: 'Press — Dominus Foundry',
-  description: 'Coverage of Dominus Foundry and Forge, the operating system for the trades. Press inquiries: press@dominusfoundry.com.',
+  description: 'Coverage of Dominus Foundry and Forge, the operating system for the trades. Press inquiries: foundry@dominusfoundry.com.',
   alternates: { canonical: 'https://dominusfoundry.com/press' },
 }
 
