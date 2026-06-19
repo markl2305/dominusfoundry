@@ -180,7 +180,7 @@ function Hyperion() {
             </p>
             <p className="reveal d2">
               No competitor has filed anything comparable, and none can replicate it without rebuilding from the architecture up. Every scan
-              feeds a model that compounds with scale — the moat beneath everything the Foundry builds.
+              feeds a single integrated record on infrastructure we own — the moat beneath everything the Foundry builds.
             </p>
             <div className="hyperion-modes reveal d2">
               {HMODES.map((m) => (
