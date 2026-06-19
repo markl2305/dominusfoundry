@@ -140,11 +140,11 @@ export default function TechnologyContent() {
             Why it compounds
           </p>
           <p className="big reveal d1">
-            Every scan makes the <em>next one smarter</em>.
+            Every scan feeds <em>one integrated record</em>.
           </p>
           <p className="sub reveal d1">
             Hyperion isn&apos;t a feature — it&apos;s an architecture. No competitor has filed anything comparable, and none can replicate it
-            without rebuilding from the ground up. Every capture feeds a model that improves with scale, and that model carries across every
+            without rebuilding from the ground up. Every capture runs on infrastructure we own at a flat rate, with no per-token vendor exposure — so the marginal cost of intelligence falls as volume grows, across every
             company the Foundry builds. The advantage isn&apos;t the demo. It&apos;s the depth underneath it.
           </p>
         </div>
