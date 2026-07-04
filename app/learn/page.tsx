@@ -22,6 +22,18 @@ const articles = [
     blurb:
       "An honest comparison of the major platforms — who each one is really for, and where each one wins.",
   },
+  {
+    href: "/learn/platform/ai-vertical-saas-for-the-trades-what-it-is-and-real-examples",
+    title: "AI Vertical SaaS for the Trades: What It Is and Real Examples",
+    blurb:
+      "What distinguishes true vertical SaaS from horizontal CRMs, which platforms serve which trades, and how to evaluate one before committing.",
+  },
+  {
+    href: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
+    title: "Forge: The AI Operating System for Commercial Contractors",
+    blurb:
+      "How Forge unifies estimating, takeoff, project management, and field operations into one platform for the installation trades.",
+  },
 ];
 
 export default function LearnIndexPage() {
