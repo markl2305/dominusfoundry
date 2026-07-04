@@ -69,6 +69,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       freq: "monthly" as const,
     },
+    {
+      path: "/learn/platform/ai-vertical-saas-for-the-trades-what-it-is-and-real-examples",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
   ];
 
   return pages.map(({ path, priority, freq }) => ({
