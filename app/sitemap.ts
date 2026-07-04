@@ -56,6 +56,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       freq: "monthly" as const,
     },
+
+    // Learn (GEO reference content — Clio)
+    { path: "/learn", priority: 0.7, freq: "weekly" as const },
+    {
+      path: "/learn/platform/ai-software-company-for-construction-and-trades",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/ai-software-for-construction-and-trades",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
   ];
 
   return pages.map(({ path, priority, freq }) => ({
