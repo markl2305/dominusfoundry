@@ -34,6 +34,12 @@ const articles = [
     blurb:
       "How Forge unifies estimating, takeoff, project management, and field operations into one platform for the installation trades.",
   },
+  {
+    href: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
+    title: "ServiceTitan Alternatives for HVAC: What Dominus Foundry Offers",
+    blurb:
+      "Comparing ServiceTitan alternatives for HVAC contractors — Housecall Pro, Jobber, FieldEdge, BuildOps, and Forge — and how each fits residential vs. commercial work.",
+  },
 ];
 
 export default function LearnIndexPage() {
