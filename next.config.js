@@ -28,6 +28,7 @@ const nextConfig = {
       { source: "/invoiceflow", destination: "/systems/revenue", permanent: true },
       { source: "/orderline", destination: "/systems/ops", permanent: true },
       { source: "/mentis", destination: "/dominus-os", permanent: true },
+      { source: "/voice-ordering", destination: "/systems/ops", permanent: true },
     ]
   },
 }
