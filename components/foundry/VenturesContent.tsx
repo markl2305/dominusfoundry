@@ -1,6 +1,6 @@
 'use client'
 
-/* VenturesContent.tsx — Foundry Capital (the investment arm). Ported from ventures-page.jsx. */
+/* VenturesContent.tsx — Foundry Capital, the long-term thesis. Not yet funded or investing; reframed 2026-07-05 off Mark's ruling that Dominus Foundry is family-funded only, no outside money. */
 import { Icon } from './Marks'
 import { CTA, PageHero } from './FoundryShell'
 
@@ -27,23 +27,23 @@ const V_STEPS = [
 ]
 
 const V_MARKS = [
-  { n: '0', l: 'Exit Clocks' },
+  { n: '0', l: 'Exit Clocks Planned' },
   { n: '1', l: 'Shared Patent Estate' },
-  { n: '100', u: '%', l: 'Operator-Led' },
-  { n: '∞', l: 'Time Horizon' },
+  { n: '100', u: '%', l: 'Operator-Led, By Design' },
+  { n: '∞', l: 'Intended Time Horizon' },
 ]
 
 export default function VenturesContent() {
   return (
     <>
       <PageHero
-        eyebrow="Foundry Capital · The Investment Arm"
+        eyebrow="Foundry Capital · The Long-Term Thesis"
         title={
           <>
-            We back the industries that <em>software forgot</em>.
+            We intend to back the industries that <em>software forgot</em>.
           </>
         }
-        lead="Cash flow from the flagship is forged into the next vertical. Foundry Capital invests on the Foundry's own terms — patient, profitable, and led by operators who have done the work, not just modeled it."
+        lead="Foundry Capital isn't funded or investing yet — it's the thesis we're building toward. As cash flow from the flagship compounds, we plan to forge it into the next vertical, on the Foundry's own terms: patient, profitable, and led by operators who have done the work, not just modeled it."
         actions={
           <>
             <a className="btn btn-solid" href="#contact">
@@ -61,7 +61,7 @@ export default function VenturesContent() {
         }
         metaRight={
           <>
-            <b>Cash-flow native</b> · No exit clock
+            <b>Family-funded</b> · Pre-investment
           </>
         }
       />
@@ -72,11 +72,12 @@ export default function VenturesContent() {
             The Model
           </p>
           <p className="big reveal d1">
-            We don&apos;t deploy a fund. <em>We forge companies</em> — and hold them.
+            We won&apos;t deploy a fund. <em>We plan to forge companies</em> — and hold them.
           </p>
           <p className="sub reveal d1">
-            The flagship earns. The cash compounds into the next operator-led vertical. The patent estate carries across all of them. It is a
-            holding company that invests, not a fund that exits.
+            The flagship earns. As it compounds, we intend to put that cash into the next operator-led vertical, with a patent estate that
+            carries across every one of them. The model is a holding company that invests, not a fund that exits — once there&apos;s
+            capital behind it.
           </p>
         </div>
       </section>
@@ -85,16 +86,19 @@ export default function VenturesContent() {
         <div className="wrap">
           <div className="intro-grid">
             <h2 className="i-head reveal">
-              An investment arm with an <em>operator&apos;s instincts</em>.
+              A future investment arm with an <em>operator&apos;s instincts</em>.
             </h2>
             <div className="i-body reveal d1">
               <p>
-                Most capital arrives with a thesis and a timeline. We arrive with a workbench. Because Dominus Foundry runs Forge every day, we
-                know what it takes to turn a broken, paper-run industry into software that earns — and we back founders doing exactly that.
+                Most capital arrives with a thesis and a timeline. We plan to arrive with a workbench instead. Dominus Foundry is
+                family-funded today, with no outside money — but because we run Forge every day, we know what it takes to turn a broken,
+                paper-run industry into software that earns. When Foundry Capital has capital to deploy, that&apos;s the kind of founder
+                we intend to back.
               </p>
               <p>
-                We are not looking for the next thing everyone is chasing. We are looking for the trades, the field services, the physical-world
-                businesses that the platforms wrote off as too small or too hard. That is precisely where durable companies are forged.
+                We won&apos;t be looking for the next thing everyone is chasing. We&apos;ll be looking for the trades, the field services,
+                the physical-world businesses that the platforms wrote off as too small or too hard. That is precisely where durable
+                companies get forged.
               </p>
             </div>
           </div>
@@ -104,7 +108,7 @@ export default function VenturesContent() {
       <section className="pillars section" id="principles">
         <div className="wrap">
           <div className="pillars-head reveal">
-            <h2 className="serif">How we invest.</h2>
+            <h2 className="serif">How we plan to invest.</h2>
             <p className="eyebrow">Four principles</p>
           </div>
           <div className="steps">
@@ -123,9 +127,9 @@ export default function VenturesContent() {
       <section className="section">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '44px' }}>
-            <p className="eyebrow reveal">What we look for</p>
+            <p className="eyebrow reveal">What we&apos;ll look for</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Five things, before anything else.
+              Five things, before anything else — once we&apos;re investing.
             </h2>
           </div>
           <div className="criteria reveal d1">
@@ -142,7 +146,7 @@ export default function VenturesContent() {
       <section className="pillars section">
         <div className="wrap">
           <div className="pillars-head reveal">
-            <h2 className="serif">How we partner.</h2>
+            <h2 className="serif">How we plan to partner.</h2>
             <p className="eyebrow">From first call to long hold</p>
           </div>
           <div className="steps">
@@ -160,6 +164,9 @@ export default function VenturesContent() {
 
       <section className="stats section" style={{ paddingBlock: '0' }}>
         <div className="wrap" style={{ paddingBlock: 'clamp(56px,7vw,96px)' }}>
+          <p className="eyebrow center reveal" style={{ marginBottom: '26px' }}>
+            Commitments, not a track record — Foundry Capital hasn&apos;t invested yet
+          </p>
           <div className="stat-grid">
             {V_MARKS.map((s, i) => (
               <div className={`stat reveal d${i % 4}`} key={s.l}>
@@ -180,11 +187,11 @@ export default function VenturesContent() {
             Building in a <em>forgotten vertical</em>?
           </>
         }
-        lead="If you're an operator turning a physical-world industry into software, we want to hear from you. Real conversation, fast answer, no process theater."
+        lead="Foundry Capital isn't funded or making investments yet — but if you're an operator turning a physical-world industry into software, we'd still like to know you exist. Real conversation, no process theater, no promise of capital today."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
-              Email Foundry Capital {Icon.arr}
+              Introduce yourself {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="tel:+18667103313">
               Call (866) 710-3313 {Icon.arr}

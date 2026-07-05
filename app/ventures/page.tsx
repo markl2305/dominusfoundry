@@ -3,9 +3,9 @@ import FoundryShell from '@/components/foundry/FoundryShell'
 import VenturesContent from '@/components/foundry/VenturesContent'
 
 export const metadata: Metadata = {
-  title: 'Foundry Capital — Dominus Foundry',
+  title: 'Foundry Capital — The Long-Term Thesis — Dominus Foundry',
   description:
-    'Foundry Capital backs the industries software forgot. Operator-led, vertical-first, cash-flow native — a holding company that invests, not a fund that exits.',
+    "Foundry Capital is Dominus Foundry's thesis for what comes after Forge: as the flagship's cash flow compounds, we intend to back operator-led, vertical-first software the platforms skipped. Family-funded today — not yet an active investor.",
   alternates: { canonical: 'https://dominusfoundry.com/ventures' },
 }
 
