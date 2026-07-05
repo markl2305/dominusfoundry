@@ -79,6 +79,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       freq: "monthly" as const,
     },
+    {
+      path: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
   ];
 
   return pages.map(({ path, priority, freq }) => ({
