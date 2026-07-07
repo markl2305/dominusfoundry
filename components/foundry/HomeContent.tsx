@@ -58,8 +58,8 @@ function Thesis() {
           </div>
           <div className="thesis-aside reveal d1">
             <p>
-              Dominus Foundry is the parent above Forge. The flagship earns; the technology compounds into patents; the ventures arm forges
-              what comes next. No outside mandate, no exit clock — only what we&apos;d be proud to run for a generation.
+              Dominus Foundry is the parent above Forge. The flagship earns; the technology compounds into patents; a ventures arm is the
+              thesis for what comes next. No outside mandate, no exit clock — only what we&apos;d be proud to run for a generation.
             </p>
             <p>Built and held by the Lord family. Everything we ship carries the name.</p>
           </div>
@@ -92,9 +92,9 @@ const PILLARS = [
   {
     idx: '03',
     glyph: 'ventures',
-    kicker: 'Ventures · Active',
+    kicker: 'Ventures · The Thesis',
     name: 'Foundry Capital',
-    body: 'The investment arm. Cash flow from the flagship is forged into the next vertical — operator-led, software-forgotten industries, backed by people who’ve run the work themselves.',
+    body: 'Not yet funded or investing. As the flagship’s cash flow compounds, we intend to back operator-led, software-forgotten industries — led by people who’ve run the work themselves.',
     href: '/ventures',
     label: 'The thesis',
   },
@@ -211,10 +211,10 @@ function Ventures() {
   return (
     <section className="ventures section" id="ventures">
       <div className="wrap">
-        <p className="eyebrow reveal">Foundry Capital · The Investment Arm</p>
-        <h2 className="reveal d1">We back the industries that software forgot.</h2>
+        <p className="eyebrow reveal">Foundry Capital · The Long-Term Thesis</p>
+        <h2 className="reveal d1">We intend to back the industries that software forgot.</h2>
         <p className="ventures-lead reveal d1">
-          The flagship throws off cash; the cash is forged into the next vertical. Foundry Capital invests on the Foundry&apos;s own terms —
+          Foundry Capital isn&apos;t funded or investing yet. As the flagship throws off cash, we plan to forge it into the next vertical —
           patient, profitable, and led by operators who have done the work, not just modeled it.
         </p>
         <div className="ventures-rows reveal d2">
