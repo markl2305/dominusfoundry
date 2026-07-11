@@ -4,7 +4,7 @@ import ContactCTA from "../../../components/ContactCTA";
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry",
   description:
-    "Join the founding sales team at Dominus Foundry. 9 pending patents, fully built vertical SaaS for the trades, 100% first-month commission + 15% residual forever. Ground floor opportunity.",
+    "Join the founding sales team at Dominus Foundry. 16 pending patents, fully built vertical SaaS for the trades, 100% first-month commission + 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -21,7 +21,7 @@ const commissionTable = [
     type: "SaaS — First Month",
     rate: "100% of MRR",
     terms:
-      "Full first month\u2019s subscription paid on collection. Close a $2,999 Hyperion deal, you earn $2,999 on day one.",
+      "Full first month\u2019s subscription paid on collection. Close a $2,000/mo Forge deal (Core plus modules), you earn $2,000 on day one.",
   },
   {
     type: "SaaS — Ongoing Residual",
@@ -62,7 +62,7 @@ const disqualifiers = [
 
 const repGets = [
   "A product that exists and works \u2014 not a prototype or a roadmap",
-  "9 pending patents with zero comparable filings from any competitor",
+  "16 pending patents with zero comparable filings from any competitor",
   "Defined pricing, competitive comparison docs, and demo environments",
   "Power dialer, CRM, and AI-assisted sales tools built in-house",
   "Direct founder access for deal strategy and closing support",
@@ -93,7 +93,7 @@ export default function CareersPage() {
                 Commission Only
               </span>
               <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                9 Pending Patents
+                16 Pending Patents
               </span>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function CareersPage() {
               Our flagship technology, <strong>Hyperion</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically. No competitor has filed anything comparable. No competitor can replicate it without rebuilding their architecture from scratch.
             </p>
             <p>
-              <strong>We have 9 pending patents, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              <strong>We have 16 pending patents, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Deals range from <strong>$599/mo to $2,999/mo+</strong> with add-ons. Pricing is flat-rate, unlimited users, zero setup fees. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Deals range from <strong>$599/mo to $3,000/mo+</strong> with modules. Pricing is flat-rate, unlimited users, no per-seat pricing. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -177,7 +177,7 @@ export default function CareersPage() {
               Do the math
             </h3>
             <p className="body-foundry text-slate-800">
-              A rep closing 10 Forge Pro accounts per month builds a residual book that pays <strong>$27,000/month within 12 months</strong> &mdash; on top of upfront commissions. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              A rep closing 10 Forge accounts per month builds a residual book that pays <strong>$27,000/month within 12 months</strong> &mdash; on top of upfront commissions. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.

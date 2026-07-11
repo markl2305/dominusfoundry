@@ -31,7 +31,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
             </Link>
             <p className="body-foundry">
-              The company behind Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform.
+              The company behind Forge — the operating system for the trades. 16 pending patents. From scan to invoice, one platform.
             </p>
           </div>
 
