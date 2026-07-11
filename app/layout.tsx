@@ -116,22 +116,6 @@ export default function RootLayout({
                     url: "https://buildwithforge.app",
                   },
                 },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "Voice Concierge",
-                    url: "https://dominusfoundry.com/voice-concierge",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "InvoiceFlow",
-                    url: "https://dominusfoundry.com/invoiceflow",
-                  },
-                },
               ],
               sameAs: [
                 "https://buildwithforge.app",

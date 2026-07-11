@@ -96,7 +96,7 @@ export default function About() {
             </p>
           </div>
           <div className="mt-6">
-            <Link href="/mentis" className="text-forge-300 font-semibold underline hover:text-white">
+            <Link href="/dominus-os" className="text-forge-300 font-semibold underline hover:text-white">
               Learn more about Mentis →
             </Link>
           </div>

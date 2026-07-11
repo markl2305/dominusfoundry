@@ -22,6 +22,13 @@ const nextConfig = {
 
       // Legacy footer shortcut
       { source: "/voice-concierge", destination: "/systems/intake", permanent: true },
+      { source: "/voice-concierge/campaign", destination: "/systems/intake", permanent: true },
+
+      // Legacy standalone product pages → current systems/chest-family equivalents
+      { source: "/invoiceflow", destination: "/systems/revenue", permanent: true },
+      { source: "/orderline", destination: "/systems/ops", permanent: true },
+      { source: "/mentis", destination: "/dominus-os", permanent: true },
+      { source: "/voice-ordering", destination: "/systems/ops", permanent: true },
     ]
   },
 }
