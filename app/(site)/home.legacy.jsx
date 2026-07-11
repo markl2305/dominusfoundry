@@ -5,7 +5,7 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | The Company Behind Forge",
   description:
-    "We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
+    "We built Forge — the operating system for the trades. 16 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
 };
 
 const pipeline = [
@@ -59,7 +59,7 @@ export default function Home() {
                 Hiring
               </span>
               <p className="text-white font-semibold text-sm">
-                Founding Sales Reps · 100% first-month commission · 15% residual forever · 9 pending patents
+                Founding Sales Reps · 100% first-month commission · 15% residual forever · 16 pending patents
               </p>
             </div>
             <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
@@ -92,7 +92,7 @@ export default function Home() {
               Forge — the operating system for the trades.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
-              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 9 pending patents, zero comparable competition.
+              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 16 pending patents, zero comparable competition.
             </p>
             <p className="body-foundry text-white/70 md:text-lg">
               Walk the building with your iPhone. Get a complete system design, bill of materials, and client-ready proposal in 10 minutes. Then manage the entire project lifecycle without switching tools.

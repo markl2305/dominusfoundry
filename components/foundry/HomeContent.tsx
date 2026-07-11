@@ -37,7 +37,7 @@ function Hero() {
           Est. 2024 · <b>Albuquerque, NM</b>
         </span>
         <span className="col">
-          9 patents pending · <b>Fide et Familia</b>
+          16 patents pending · <b>Fide et Familia</b>
         </span>
       </div>
     </section>
