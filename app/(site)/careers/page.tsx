@@ -21,7 +21,7 @@ const commissionTable = [
     type: "SaaS — First Month",
     rate: "100% of MRR",
     terms:
-      "Full first month\u2019s subscription paid on collection. Close a $2,999 Hyperion deal, you earn $2,999 on day one.",
+      "Full first month\u2019s subscription paid on collection. Close a $2,000/mo Forge deal (Core plus modules), you earn $2,000 on day one.",
   },
   {
     type: "SaaS — Ongoing Residual",
@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Deals range from <strong>$599/mo to $2,999/mo+</strong> with add-ons. Pricing is flat-rate, unlimited users, zero setup fees. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Deals range from <strong>$599/mo to $3,000/mo+</strong> with modules. Pricing is flat-rate, unlimited users, no per-seat pricing. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -177,7 +177,7 @@ export default function CareersPage() {
               Do the math
             </h3>
             <p className="body-foundry text-slate-800">
-              A rep closing 10 Forge Pro accounts per month builds a residual book that pays <strong>$27,000/month within 12 months</strong> &mdash; on top of upfront commissions. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              A rep closing 10 Forge accounts per month builds a residual book that pays <strong>$27,000/month within 12 months</strong> &mdash; on top of upfront commissions. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.
