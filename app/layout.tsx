@@ -87,7 +87,7 @@ export default function RootLayout({
               url: "https://dominusfoundry.com",
               logo: "https://dominusfoundry.com/logo-full.svg",
               description:
-                "Technology holding company building AI-powered vertical SaaS for traditional industries. Flagship product is Forge™, an AI operating system for commercial installation contractors.",
+                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. Its flagship product is Forge™ — a complete AI operations platform (not a CRM) for commercial trade contractors across AV/security, fire/life-safety, roofing, and solar. Forge's current product family includes Hyperion (LiDAR scan-to-proposal), Iris and Calliope (AI voice and customer service), Sigil, Treasury, Mentor, Herald, and Torch. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
@@ -113,23 +113,10 @@ export default function RootLayout({
                   itemOffered: {
                     "@type": "SoftwareApplication",
                     name: "Forge™",
+                    applicationCategory: "BusinessApplication",
+                    description:
+                      "AI operations platform for commercial trade contractors (AV/security, fire/life-safety, roofing, solar). Current modules: Hyperion, Iris, Calliope, Sigil, Treasury, Mentor, Herald, Torch.",
                     url: "https://buildwithforge.app",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "Voice Concierge",
-                    url: "https://dominusfoundry.com/voice-concierge",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "InvoiceFlow",
-                    url: "https://dominusfoundry.com/invoiceflow",
                   },
                 },
               ],
