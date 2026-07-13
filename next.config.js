@@ -22,6 +22,13 @@ const nextConfig = {
 
       // Legacy footer shortcut
       { source: "/voice-concierge", destination: "/systems/intake", permanent: true },
+
+      // Retired pre-Forge product pages → current systems equivalents (2026-07-13).
+      // Mentis intentionally NOT redirected — it remains a current public brand.
+      { source: "/voice-concierge/campaign", destination: "/systems/intake", permanent: true },
+      { source: "/invoiceflow", destination: "/systems/revenue", permanent: true },
+      { source: "/orderline", destination: "/systems/ops", permanent: true },
+      { source: "/voice-ordering", destination: "/systems/ops", permanent: true },
     ]
   },
 }

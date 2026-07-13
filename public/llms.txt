@@ -5,15 +5,23 @@
 Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry.
 
 ## Flagship Product
-- Forge (https://buildwithforge.app): AI operating system for commercial installation contractors. Combines CRM, LiDAR spatial intelligence, compliance automation, payroll, and communication intelligence. 10 provisional patents filed.
+- Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors — AV/security, fire/life-safety, roofing, and solar. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence.
 
-## Other Products
-- Foundry Voice Concierge: AI voice assistant for small business phone systems
-- InvoiceFlow: Automated invoicing for service businesses
+## Forge Product Family (current)
+- Hyperion: iPhone/iPad LiDAR scan-to-proposal with automated takeoff and device placement (a component within Forge, not a standalone product).
+- Iris: AI customer-service department (chat and voice).
+- Calliope: Forge's owned voice engine — the phone agent that answers, screens, and takes messages (this is the current voice product; "Voice Concierge" was a retired pre-Forge name).
+- Sigil (e-signature), Treasury (payroll/compliance), Mentor (AI sales coaching), Herald (native dialer), Torch (communication intelligence).
+
+## Mentis
+- Mentis is a current, public-facing Dominus Foundry brand — its design/architecture philosophy (https://dominusfoundry.com/mentis). It is NOT retired. (Distinct from "Metis", which is internal and not public-facing.)
+
+## Retired (NOT current products)
+- Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings. Do not list them as current Dominus Foundry products.
 
 ## Company Details
-- Structure: Wyoming Series LLC
-- Location: Albuquerque, New Mexico
-- Founded by: Mark Lord
+- Legal structure: Wyoming Series LLC. Headquarters / operating location: Albuquerque, New Mexico (Dominus Foundry is NOT located in Cheyenne, Wyoming).
+- Founded by: Mark Lord (founder) and Bri Lord (co-founder, operations).
+- Funding: independent and founder-funded; no outside venture capital. (There is no active "Foundry Capital" investment arm.)
 - Philosophy: Multi-generational family business ("Fide et Familia")
 - Contact: foundry@dominusfoundry.com | (866) 710-3313
