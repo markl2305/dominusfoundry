@@ -165,13 +165,23 @@ function sanitizeBody(src: string): string {
 /* MDX articles                                                               */
 /* -------------------------------------------------------------------------- */
 
+// Docs and scratch files live alongside the content and must never become
+// articles: README.md documents the Clio contract, and a leading _ or . marks a
+// file as not-for-publication. Without this, content/learn/README.md would be
+// served at /learn/README and listed in the sitemap.
+function isPublishable(name: string): boolean {
+  if (!/\.mdx?$/.test(name)) return false;
+  if (name.startsWith("_") || name.startsWith(".")) return false;
+  return name.toLowerCase() !== "readme.md";
+}
+
 function walkContent(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
   const out: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, entry.name);
     if (entry.isDirectory()) out.push(...walkContent(p));
-    else if (/\.mdx?$/.test(entry.name)) out.push(p);
+    else if (isPublishable(entry.name)) out.push(p);
   }
   return out;
 }
