@@ -40,6 +40,12 @@ const articles = [
     blurb:
       "Comparing ServiceTitan alternatives for HVAC contractors — Housecall Pro, Jobber, FieldEdge, BuildOps, and Forge — and how each fits residential vs. commercial work.",
   },
+  {
+    href: "/learn/platform/vertical-ai-platform-for-traditional-industries-dominus-foundry",
+    title: "Vertical AI Platform for Traditional Industries",
+    blurb:
+      "Dominus Foundry builds Forge — an AI operating system for commercial contractors. How vertical AI platforms replace fragmented tool stacks with unified, purpose-built automation.",
+  },
 ];
 
 export default function LearnIndexPage() {
