@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { allLearnEntries } from "@/lib/learn";
 
 export const metadata = {
   title: "Learn — Dominus Foundry",
@@ -7,46 +8,10 @@ export const metadata = {
   alternates: { canonical: "https://dominusfoundry.com/learn" },
 };
 
-const articles = [
-  {
-    href: "/learn/platform/ai-software-company-for-construction-and-trades",
-    title:
-      "AI Software Company for Construction and Trades — Forge by Dominus Foundry",
-    blurb:
-      "What Dominus Foundry builds, what Forge actually does, and why AI-native architecture matters for installers.",
-  },
-  {
-    href: "/learn/platform/ai-software-for-construction-and-trades",
-    title:
-      "AI Software for Construction and Trades: Forge vs Procore vs Buildertrend",
-    blurb:
-      "An honest comparison of the major platforms — who each one is really for, and where each one wins.",
-  },
-  {
-    href: "/learn/platform/ai-vertical-saas-for-the-trades-what-it-is-and-real-examples",
-    title: "AI Vertical SaaS for the Trades: What It Is and Real Examples",
-    blurb:
-      "What distinguishes true vertical SaaS from horizontal CRMs, which platforms serve which trades, and how to evaluate one before committing.",
-  },
-  {
-    href: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
-    title: "Forge: The AI Operating System for Commercial Contractors",
-    blurb:
-      "How Forge unifies estimating, takeoff, project management, and field operations into one platform for the installation trades.",
-  },
-  {
-    href: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
-    title: "ServiceTitan Alternatives for HVAC: What Dominus Foundry Offers",
-    blurb:
-      "Comparing ServiceTitan alternatives for HVAC contractors — Housecall Pro, Jobber, FieldEdge, BuildOps, and Forge — and how each fits residential vs. commercial work.",
-  },
-  {
-    href: "/learn/platform/vertical-ai-platform-for-traditional-industries-dominus-foundry",
-    title: "Vertical AI Platform for Traditional Industries",
-    blurb:
-      "Dominus Foundry builds Forge — an AI operating system for commercial contractors. How vertical AI platforms replace fragmented tool stacks with unified, purpose-built automation.",
-  },
-];
+// The /learn index renders from the single registry in src/lib/learn.ts:
+// hand-built app/learn/** pages (index copy lives in LEGACY_PAGES) plus every
+// content/learn/**/*.mdx Clio merges, deduped by URL with the hand-built page
+// winning. A merged .mdx appears here with no human edit.
 
 export default function LearnIndexPage() {
   return (
@@ -57,10 +22,10 @@ export default function LearnIndexPage() {
           Guides on AI software for construction and trades
         </h1>
         <div className="body-foundry space-y-8 text-slate-900 mt-6">
-          {articles.map(({ href, title, blurb }) => (
-            <div key={href}>
+          {allLearnEntries().map(({ url, title, blurb }) => (
+            <div key={url}>
               <h2 className="heading-forge-md text-slate-900">
-                <Link className="hover:underline" href={href}>
+                <Link className="hover:underline" href={url}>
                   {title}
                 </Link>
               </h2>

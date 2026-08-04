@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // next-mdx-remote must be BUNDLED, not externalized. Left external, its
+  // `require('react/jsx-runtime')` resolves to the userland react (18.2.0)
+  // while the App Router server renderer uses Next's own vendored React, and
+  // the prerender dies with "A React Element from an older version of React was
+  // rendered". Bundling it puts the package in the react-server layer where
+  // Next's react alias applies, so both sides create elements with the same
+  // React. This is the correct fix — bumping the app to React 19 is NOT
+  // required and is out of scope.
+  transpilePackages: ["next-mdx-remote"],
+
   async redirects() {
     return [
       // Old index → new systems index

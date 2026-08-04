@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { allLearnEntries } from "@/lib/learn";
 
 const BASE = "https://dominusfoundry.com";
 
@@ -59,36 +60,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Learn (GEO reference content — Clio)
     { path: "/learn", priority: 0.7, freq: "weekly" as const },
-    {
-      path: "/learn/platform/ai-software-company-for-construction-and-trades",
+
+    // Individual learn articles are NOT listed here. They come from the single
+    // registry in src/lib/learn.ts — hand-built app/learn/** pages plus every
+    // content/learn/**/*.mdx Clio merges, deduped by URL. A merged .mdx lands
+    // in the sitemap with no human edit.
+    ...allLearnEntries().map(({ url }) => ({
+      path: url,
       priority: 0.8,
       freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/ai-software-for-construction-and-trades",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/ai-vertical-saas-for-the-trades-what-it-is-and-real-examples",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/vertical-ai-platform-for-traditional-industries-dominus-foundry",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
+    })),
   ];
 
   return pages.map(({ path, priority, freq }) => ({
