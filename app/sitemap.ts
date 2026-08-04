@@ -84,6 +84,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       freq: "monthly" as const,
     },
+    {
+      path: "/learn/platform/vertical-ai-platform-for-traditional-industries-dominus-foundry",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
   ];
 
   return pages.map(({ path, priority, freq }) => ({
