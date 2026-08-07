@@ -25,6 +25,12 @@ const nextConfig = {
 
       // Retired: Foundry Capital / ventures arm (removed 2026-08-07)
       { source: "/ventures", destination: "/", permanent: true },
+
+      // Retired: legacy pre-Forge services price sheet (removed 2026-08-07, RULED by Mark).
+      // Published build-fee/per-Engine pricing from the Voice Concierge / InvoiceFlow era and
+      // named "Forge" as a $5,000 one-time tier, which collides with Forge Core ($599/mo).
+      // Those engagements are no longer sold. Forge pricing is published at buildwithforge.app.
+      { source: "/pricing", destination: "/systems", permanent: true },
     ]
   },
 }

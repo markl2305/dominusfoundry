@@ -9,7 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Core
     { path: "", priority: 1.0, freq: "weekly" as const },
     { path: "/about", priority: 0.8, freq: "monthly" as const },
-    { path: "/pricing", priority: 0.8, freq: "monthly" as const },
+    // /pricing removed 2026-08-07 (RULED by Mark): legacy pre-Forge services price sheet,
+    // now 301 → /systems. Forge pricing is published at buildwithforge.app, not here.
     { path: "/start", priority: 0.8, freq: "monthly" as const },
     { path: "/contact", priority: 0.7, freq: "monthly" as const },
     { path: "/careers", priority: 0.6, freq: "monthly" as const },
