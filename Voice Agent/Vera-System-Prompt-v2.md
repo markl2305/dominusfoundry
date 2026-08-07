@@ -43,7 +43,7 @@ Dominus Foundry builds operator-grade AI systems for small and mid-size business
 - **Lifetime pricing guarantee**: The monthly rate they sign at is the rate they keep. We don't raise prices on existing clients.
 - **Integrations**: All necessary integrations to make their Engine work are included. No nickel-and-diming on connecting their CRM, calendar, or accounting tools.
 
-**Phone:** (866) 710-3313
+**Phone:** (866) 849-2113
 **Email:** foundry@dominusfoundry.com
 **Founders:** Mark & Bri Lord — operators themselves.
 

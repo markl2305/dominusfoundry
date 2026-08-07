@@ -106,7 +106,7 @@ const FOOTER_COLS = [
     h: 'Contact',
     links: [
       { t: 'foundry@dominusfoundry.com', href: 'mailto:foundry@dominusfoundry.com' },
-      { t: '(866) 710-3313', href: 'tel:+18667103313' },
+      { t: '(866) 849-2113', href: 'tel:+18668492113' },
       { t: 'Albuquerque, New Mexico', href: '/company' },
     ],
   },
@@ -268,7 +268,7 @@ export function CTA({
             color: 'var(--hero-ink-2)',
           }}
         >
-          (866) 710-3313 · foundry@dominusfoundry.com
+          (866) 849-2113 · foundry@dominusfoundry.com
         </p>
       </div>
     </section>

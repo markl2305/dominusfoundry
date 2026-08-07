@@ -104,8 +104,8 @@ export default function SmsTerms() {
                   foundry@dominusfoundry.com
                 </a>{' '}
                 or{' '}
-                <a href="tel:+18667103313" className="text-navy-500 underline font-semibold">
-                  (866) 710-3313
+                <a href="tel:+18668492113" className="text-navy-500 underline font-semibold">
+                  (866) 849-2113
                 </a>.
               </p>
             </div>
@@ -127,8 +127,8 @@ export default function SmsTerms() {
                 </li>
                 <li>
                   Phone:{' '}
-                  <a href="tel:+18667103313" className="text-navy-500 underline font-semibold">
-                    (866) 710-3313
+                  <a href="tel:+18668492113" className="text-navy-500 underline font-semibold">
+                    (866) 849-2113
                   </a>
                 </li>
               </ul>
@@ -181,8 +181,8 @@ export default function SmsTerms() {
                 </p>
                 <p>
                   Phone:{' '}
-                  <a href="tel:+18667103313" className="text-navy-500 underline">
-                    (866) 710-3313
+                  <a href="tel:+18668492113" className="text-navy-500 underline">
+                    (866) 849-2113
                   </a>
                 </p>
                 <p className="mt-2">Albuquerque, New Mexico</p>

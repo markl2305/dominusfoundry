@@ -16,8 +16,8 @@ export default function ContactCTA({ className = '' }) {
           </p>
         </div>
         <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row">
-          <Button href="tel:+18667103313" variant="forgeSecondary" className="w-full md:w-auto">
-            Call (866) 710-3313
+          <Button href="tel:+18668492113" variant="forgeSecondary" className="w-full md:w-auto">
+            Call (866) 849-2113
           </Button>
           <Button href="mailto:foundry@dominusfoundry.com" className="w-full md:w-auto">
             Email foundry@dominusfoundry.com

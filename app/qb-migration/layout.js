@@ -15,8 +15,8 @@ export default function QBMigrationLayout({ children }) {
         <div className="mx-auto max-w-6xl px-4 text-center text-sm text-navy-600 space-y-2">
           <p className="font-semibold text-navy-800">Dominus Foundry — QuickBooks Desktop Migration</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-navy-700">
-            <a href="tel:+18667103313" className="hover:text-navy-900 font-medium">
-              (866) 710-3313
+            <a href="tel:+18668492113" className="hover:text-navy-900 font-medium">
+              (866) 849-2113
             </a>
             <span className="hidden sm:inline text-bronze-400">•</span>
             <a href="mailto:foundry@dominusfoundry.com" className="hover:text-navy-900 underline">

@@ -72,8 +72,8 @@ export default function SiteFooter() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+18667103313" className="font-medium hover:text-forge-700">
-                    (866) 710-3313
+                  <a href="tel:+18668492113" className="font-medium hover:text-forge-700">
+                    (866) 849-2113
                   </a>
                 </li>
                 <li>Albuquerque, New Mexico</li>

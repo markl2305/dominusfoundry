@@ -96,7 +96,7 @@ export default function RootLayout({
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1-866-710-3313",
+                telephone: "+1-866-849-2113",
                 contactType: "Sales",
                 email: "foundry@dominusfoundry.com",
                 areaServed: "US",

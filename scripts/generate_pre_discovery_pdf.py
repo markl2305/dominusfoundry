@@ -152,7 +152,7 @@ class FooterCanvas(canvas.Canvas):
         self.setFont("Helvetica", 7)
         self.setFillColor(MUTED)
         self.drawCentredString(w / 2, 0.38 * inch,
-            "Dominus Foundry  |  (866) 710-3313  |  foundry@dominusfoundry.com  |  dominusfoundry.com")
+            "Dominus Foundry  |  (866) 849-2113  |  foundry@dominusfoundry.com  |  dominusfoundry.com")
         self.drawCentredString(w / 2, 0.25 * inch,
             f"Page {page_num} of {total}  |  Confidential")
 

@@ -24,10 +24,10 @@ export default function MinimalHeader() {
           {/* Contact Info - Phone & Email */}
           <div className="flex flex-col items-end gap-1">
             <a 
-              href="tel:+18667103313"
+              href="tel:+18668492113"
               className="text-base font-semibold text-white hover:text-bronze-300 transition-colors"
             >
-              (866) 710-3313
+              (866) 849-2113
             </a>
             <a 
               href="mailto:foundry@dominusfoundry.com"

@@ -269,7 +269,7 @@ export default function Privacy() {
               <div className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">
                 <p className="font-semibold text-navy-900">Dominus Foundry</p>
                 <p className="mt-2">Email: <a href="mailto:foundry@dominusfoundry.com" className="text-navy-500 underline">foundry@dominusfoundry.com</a></p>
-                <p>Phone: <a href="tel:+18667103313" className="text-navy-500 underline">(866) 710-3313</a></p>
+                <p>Phone: <a href="tel:+18668492113" className="text-navy-500 underline">(866) 849-2113</a></p>
                 <p className="mt-2">Albuquerque, New Mexico</p>
               </div>
             </div>
