@@ -73,7 +73,29 @@ export default function RootLayout({
   const hasRealGaId = GA_ID && GA_ID !== 'G-XXXXXXXXXX'
 
   return (
-    <html lang="en" className={`${inter.variable} ${crimson.variable} scroll-smooth`}>
+    // suppressHydrationWarning: the pre-paint theme script below writes
+    // data-df-theme onto <html> before React hydrates, so the server markup
+    // legitimately differs from the client DOM by that one attribute.
+    <html
+      lang="en"
+      className={`${inter.variable} ${crimson.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Resolve the FoundryShell theme BEFORE first paint. FoundryShell is a
+            client component that can only read localStorage in an effect, so
+            without this the server-rendered dark theme paints first and a
+            light-preference visitor sees a dark frame flash. foundry.css keys
+            its token blocks off this attribute with higher specificity than
+            .df-site[data-theme], so the pre-paint value wins until hydration. */}
+        <script
+          id="df-theme-preload"
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('df-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-df-theme',t)}catch(e){}",
+          }}
+        />
+      </head>
       <body className="antialiased font-inter">
         <script
           id="organization-schema"
