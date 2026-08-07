@@ -24,21 +24,32 @@
 
 /* ---------------------------------------------------------------- THEMES */
 /* Brand palette — slate #243641 · teal #2E3F45 · stone #CDBFA3 · cream #F0E7D7 */
-.df-site[data-theme="light"] {
+/* Theme selection is keyed to BOTH the html attribute (written pre-paint by the
+   inline script in app/layout.tsx) and .df-site's own attribute (React state).
+   The two selector sets are mutually exclusive — see the :not() on the dark
+   block — so that before hydration the pre-paint html attribute wins outright
+   and a light-preference visitor never paints a dark frame. */
+.df-site[data-theme="light"],
+:root[data-df-theme="light"] .df-site {
   --bg:        #e7e0d3;   /* warm stone-cream ground */
   --bg-2:      #efe9dc;
   --panel:     #f5f0e6;
   --panel-2:   #e2dac9;
   --ink:       #243641;   /* slate */
   --ink-2:     #3d4f59;
-  --ink-3:     #6b7880;
+  --ink-3:     #59646b;   /* AA on cream: 4.61 on --bg, 5.33 on --panel */
   --hair:      #cfc6b3;
   --hair-2:    #ddd5c3;
   --navy:      #243641;   /* slate band */
   --navy-2:    #2e424d;
-  --steel:     #8a8472;
-  --gold:      #8a6a34;   /* bronze — accent that survives on cream */
-  --gold-hi:   #a9853f;
+  --steel:     #676255;
+  /* bronze — accent that survives on cream. Held at 4.6+ against the cream
+     grounds AND against cream darkened by a card's shadow spill (~6%), which is
+     what the eyebrow above .press-feature actually sits on. */
+  --gold:      #6f562a;
+  /* on cream, the "highlight" bronze is the PRESSED/hover step, i.e. deeper than
+     --gold. Dark bands get the stone highlight instead — see the on-dark block. */
+  --gold-hi:   #6b5228;
   --ember:     #b05f24;
   --on-accent: #f5f0e6;
   --hero-bg-a: #1c2a31;   /* hero stays a dark forge even in light mode */
@@ -52,19 +63,20 @@
   color-scheme: light;
 }
 
-.df-site[data-theme="dark"] {
+:root:not([data-df-theme="light"]) .df-site[data-theme="dark"],
+:root[data-df-theme="dark"] .df-site {
   --bg:        #0c1115;   /* teal-tinted near-black */
   --bg-2:      #10171b;
   --panel:     #141d22;
   --panel-2:   #1a242a;
   --ink:       #eef0ec;
   --ink-2:     #b3bbb6;
-  --ink-3:     #7c857f;
+  --ink-3:     #848d87;   /* AA on the darkest panel: 4.60 on --panel-2 */
   --hair:      #232e33;
   --hair-2:    #2d393f;
   --navy:      #0e1519;   /* deep teal band */
   --navy-2:    #142025;
-  --steel:     #5c6a6a;
+  --steel:     #7d8e8e;   /* footer-bottom sits on #050608 — 5.92 there */
   --gold:      #cdbfa3;   /* brand stone — the embers echo this */
   --gold-hi:   #e4d8be;   /* stone-light */
   --ember:     #dd9244;   /* warm amber spark */
@@ -80,6 +92,27 @@
   color-scheme: dark;
 }
 
+/* ------------------------------------------------- DARK BANDS IN LIGHT MODE
+   The hero, CTA, footer, darkband, scan frame and the un-scrolled nav stay a
+   dark forge even when the site is in light mode. Their ground is therefore
+   near-black while the page tokens are tuned for cream — so the accent and the
+   muted inks have to be re-declared inside them, or every eyebrow, kicker,
+   timestamp and footer heading lands at ~3.6:1 against black.
+   Custom properties inherit, so re-declaring here re-points every descendant
+   that reads var(--gold) / var(--ink-*) with no per-component overrides. */
+.df-site[data-theme="light"] :is(.hero, .cta, .footer, .darkband, .on-dark, .scan-frame),
+.df-site[data-theme="light"] .nav:not(.scrolled),
+:root[data-df-theme="light"] .df-site :is(.hero, .cta, .footer, .darkband, .on-dark, .scan-frame),
+:root[data-df-theme="light"] .df-site .nav:not(.scrolled) {
+  --gold:      #cdbfa3;   /* brand stone — 11.17 on the footer black */
+  --gold-hi:   #e4d8be;
+  --ink:       #f0e7d7;
+  --ink-2:     #c3bca9;
+  --ink-3:     #989f9a;
+  --steel:     #91a0a0;
+  --on-accent: #14201f;   /* text on the stone accent, now that it is light */
+}
+
 /* ----------------------------------------------------------------- RESET */
 .df-site *, .df-site *::before, .df-site *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -93,9 +126,25 @@
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  transition: background .6s var(--ease), color .6s var(--ease);
+  /* NO transition on background/color here. Both resolve through var(--bg) /
+     var(--ink), and both flip the instant data-theme changes — a .6s cross-fade
+     on the theme root buys nothing (the ~40 panels, bands and borders beneath it
+     switch instantly regardless, so the root just lags behind them) while
+     leaving a window in which the root's painted ground disagrees with the
+     tokens its own descendants are already reading. */
 }
 @media (prefers-reduced-motion: reduce) { .df-site { scroll-behavior: auto; } }
+
+/* Belt and braces: while the theme is being switched, no element may animate a
+   colour. Several components transition `background` or `all`, and any of those
+   can otherwise smear a stale theme's colour across the swap. FoundryShell adds
+   this class for one frame around the flip. */
+:root.df-theme-switching .df-site,
+:root.df-theme-switching .df-site *,
+:root.df-theme-switching .df-site *::before,
+:root.df-theme-switching .df-site *::after {
+  transition: none !important;
+}
 
 .df-site img, .df-site svg, .df-site canvas { display: block; max-width: 100%; }
 .df-site a { color: inherit; text-decoration: none; }
@@ -232,7 +281,8 @@
   color: var(--ink-2); transition: color .3s; position: relative; padding-block: 6px;
 }
 .df-site .nav-link:hover { color: var(--gold); }
-.df-site .nav-link .ext { font-size: 9px; opacity: .6; margin-left: 3px; }
+/* opacity .6 dropped the glyph to ~4.2:1 against the un-scrolled nav */
+.df-site .nav-link .ext { font-size: 9px; opacity: .85; margin-left: 3px; }
 
 .df-site .nav-right { display: flex; align-items: center; gap: 18px; }
 .df-site .theme-toggle {
@@ -392,7 +442,8 @@
 
 /* ============================================== DARK BAND (governance / feature) */
 .df-site .darkband { background: var(--navy); color: var(--hero-ink); border-block: 1px solid rgba(255,255,255,.06); position: relative; overflow: hidden; }
-.df-site[data-theme="dark"] .darkband { background: #0a121f; }
+:root:not([data-df-theme="light"]) .df-site[data-theme="dark"] .darkband,
+:root[data-df-theme="dark"] .df-site .darkband { background: #0a121f; }
 .df-site .darkband::before {
   content: ""; position: absolute; inset: 0;
   background: radial-gradient(80% 60% at 88% 8%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 60%);
@@ -497,8 +548,10 @@
 .df-site .page-hero-title { max-width: 18ch; }
 .df-site[data-direction="institution"] .page-hero-title { max-width: 17ch; }
 .df-site .page-hero .eyebrow { margin-bottom: 22px; }
-.df-site[data-theme="dark"] .global-embers { opacity: 0.7; }
-.df-site[data-theme="light"] .global-embers { opacity: 0.35; }
+:root:not([data-df-theme="light"]) .df-site[data-theme="dark"] .global-embers,
+:root[data-df-theme="dark"] .df-site .global-embers { opacity: 0.7; }
+.df-site[data-theme="light"] .global-embers,
+:root[data-df-theme="light"] .df-site .global-embers { opacity: 0.35; }
 .df-site.reduce-motion .global-embers { opacity: 0.18; }
 
 /* tiny utility for the crest+lockup in footer */
