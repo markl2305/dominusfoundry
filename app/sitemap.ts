@@ -9,8 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Core
     { path: "", priority: 1.0, freq: "weekly" as const },
     { path: "/about", priority: 0.8, freq: "monthly" as const },
-    // /pricing removed 2026-08-07 (RULED by Mark): legacy pre-Forge services price sheet,
-    // now 301 → /systems. Forge pricing is published at buildwithforge.app, not here.
+    // /pricing stays indexed: 8cdf937 rewrote it as a canon-sourced Forge reference table
+    // (RULED 2026-08-07 by Mark), superseding the earlier retire-and-301 call.
+    { path: "/pricing", priority: 0.8, freq: "monthly" as const },
     { path: "/start", priority: 0.8, freq: "monthly" as const },
     { path: "/contact", priority: 0.7, freq: "monthly" as const },
     { path: "/careers", priority: 0.6, freq: "monthly" as const },
@@ -23,9 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/governance", priority: 0.9, freq: "monthly" as const },
     { path: "/technology", priority: 0.8, freq: "monthly" as const },
 
-    // Products
-    { path: "/voice-concierge", priority: 0.8, freq: "monthly" as const },
-    { path: "/invoiceflow", priority: 0.8, freq: "monthly" as const },
+    // Products (retired pre-Forge product pages deleted + 301'd 2026-08-07, RULED by Mark;
+    // /voice-concierge, /voice-concierge/campaign, /invoiceflow, /orderline, /voice-ordering.
+    // Mentis stays — current public brand.)
     { path: "/dominus-os", priority: 0.9, freq: "monthly" as const },
     { path: "/mentis", priority: 0.8, freq: "monthly" as const },
     { path: "/qb-migration", priority: 0.7, freq: "monthly" as const },

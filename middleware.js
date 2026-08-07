@@ -9,12 +9,12 @@ export function middleware(req) {
     return NextResponse.rewrite(url);
   }
 
-  // Redirect old /mentis path to /dominus-os
-  if (req.nextUrl.pathname === "/mentis") {
-    const url = req.nextUrl.clone();
-    url.pathname = "/dominus-os";
-    return NextResponse.redirect(url, 301);
-  }
+  // /mentis is NOT redirected. A 301 → /dominus-os lived here from 1bee50e (2026-02-15,
+  // "Rename Mentis to Dominus OS across site"), but f462e8e (2026-07-13) — five months
+  // later — ruled the opposite: "Mentis stays live and public per Mark (distinct from
+  // internal Metis)", and deliberately kept /mentis in the sitemap. The stale redirect
+  // meant the sitemap advertised a URL that permanently redirected away, which is exactly
+  // the "page with redirect" defect Search Console flags. Later ruling wins; redirect removed.
 
   return NextResponse.next();
 }

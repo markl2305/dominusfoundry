@@ -26,11 +26,22 @@ const nextConfig = {
       // Retired: Foundry Capital / ventures arm (removed 2026-08-07)
       { source: "/ventures", destination: "/", permanent: true },
 
-      // Retired: legacy pre-Forge services price sheet (removed 2026-08-07, RULED by Mark).
-      // Published build-fee/per-Engine pricing from the Voice Concierge / InvoiceFlow era and
-      // named "Forge" as a $5,000 one-time tier, which collides with Forge Core ($599/mo).
-      // Those engagements are no longer sold. Forge pricing is published at buildwithforge.app.
-      { source: "/pricing", destination: "/systems", permanent: true },
+      // NOTE: /pricing is NOT retired. It briefly was (the legacy build-fee/per-Engine
+      // services sheet), but Mark superseded that on 2026-08-07 — "fix the dominus foundry
+      // pricing to discuss forge and be a range (but an accurate one) - its job is not to
+      // sell" — and 8cdf937 rewrote it as a canon-sourced Forge reference table. Do not add
+      // a /pricing redirect back; it would kill a live, correct page.
+
+      // Retired pre-Forge product pages. Route files DELETED 2026-08-07 (RULED by Mark:
+      // "get rid of them - they are nothing more than artifacts and i dont want them
+      // fucking with seo"). These 301s must stay even though the pages are gone — they
+      // catch already-indexed URLs so search engines see a permanent move instead of a
+      // 404, which is what actually protects the SEO. Mirrors f462e8e (2026-07-13).
+      // Mentis intentionally NOT redirected — it remains a current public brand.
+      { source: "/voice-concierge/campaign", destination: "/systems/intake", permanent: true },
+      { source: "/invoiceflow", destination: "/systems/revenue", permanent: true },
+      { source: "/orderline", destination: "/systems/ops", permanent: true },
+      { source: "/voice-ordering", destination: "/systems/ops", permanent: true },
     ]
   },
 }
