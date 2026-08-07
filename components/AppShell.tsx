@@ -9,7 +9,7 @@ import { DemoWidgetLoader } from './voice-concierge/CampaignInteractions'
 
 // The heraldic Dominus Foundry pages bring their own nav/footer/embers chrome,
 // so AppShell renders them bare (no PressRibbon / SiteHeader / FooterCTA / SiteFooter).
-const FOUNDRY_ROUTES = new Set(['/', '/iris', '/governance', '/technology', '/company', '/press', '/blog'])
+const FOUNDRY_ROUTES = new Set(['/', '/iris', '/governance', '/technology', '/company', '/press', '/blog', '/pricing'])
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
