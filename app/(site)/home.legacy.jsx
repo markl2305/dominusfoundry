@@ -5,7 +5,7 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | The Company Behind Forge",
   description:
-    "We built Forge — the operating system for the trades. 9 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
+    "We built Forge — the operating system for the trades. 17 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
 };
 
 const pipeline = [
@@ -32,7 +32,7 @@ const pipeline = [
 ];
 
 const stats = [
-  { value: "9", label: "Pending Patents" },
+  { value: "17", label: "Pending Patents" },
   { value: "50", label: "States Compliance" },
   { value: "10 min", label: "Scan to Proposal" },
   { value: "$599", label: "Starting Monthly" },
@@ -59,7 +59,7 @@ export default function Home() {
                 Hiring
               </span>
               <p className="text-white font-semibold text-sm">
-                Founding Sales Reps · 100% first-month commission · 15% residual forever · 9 pending patents
+                Founding Sales Reps · 100% first-month commission · 15% residual forever · 17 pending patents
               </p>
             </div>
             <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
@@ -92,7 +92,7 @@ export default function Home() {
               Forge — the operating system for the trades.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
-              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 9 pending patents, zero comparable competition.
+              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 17 pending patents, zero comparable competition.
             </p>
             <p className="body-foundry text-white/70 md:text-lg">
               Walk the building with your iPhone. Get a complete system design, bill of materials, and client-ready proposal in 10 minutes. Then manage the entire project lifecycle without switching tools.
@@ -238,7 +238,7 @@ export default function Home() {
               <div className="card-forged rounded-2xl p-6 shadow-sm">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <p className="font-crimson text-2xl font-bold text-slate-900">9</p>
+                    <p className="font-crimson text-2xl font-bold text-slate-900">17</p>
                     <p className="text-xs text-slate-600">Patents Pending</p>
                   </div>
                   <div>

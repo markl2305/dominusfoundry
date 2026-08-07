@@ -20,7 +20,7 @@ const T_STEPS = [
 ]
 
 const T_STATS = [
-  { n: '9', l: 'Patents Pending' },
+  { n: '17', l: 'Patents Pending' },
   { n: '10', u: 'min', l: 'Scan to Proposal' },
   { n: '50', l: 'States Compliant' },
   { n: '1', l: 'Shared IP Estate' },
@@ -49,7 +49,7 @@ export default function TechnologyContent() {
         }
         metaLeft={
           <>
-            <b>9 patents pending</b> · Albuquerque, NM
+            <b>17 patents pending</b> · Albuquerque, NM
           </>
         }
         metaRight={

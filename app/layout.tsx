@@ -14,7 +14,7 @@ const crimson = Crimson_Pro({
 export const metadata = {
   title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
   description:
-    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 10 provisional patents. Based in Albuquerque, NM.',
+    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 17 provisional patents. Based in Albuquerque, NM.',
   keywords: ['Dominus Foundry™', 'Forge™', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 10 provisional patents.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 17 provisional patents.',
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry™',
     images: [

@@ -5,7 +5,7 @@
 Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry.
 
 ## Flagship Product
-- Forge (https://buildwithforge.app): AI operating system for commercial installation contractors. Combines CRM, LiDAR spatial intelligence, compliance automation, payroll, and communication intelligence. 10 provisional patents filed.
+- Forge (https://buildwithforge.app): AI operating system for commercial installation contractors. Combines CRM, LiDAR spatial intelligence, compliance automation, payroll, and communication intelligence. 17 provisional patents filed.
 
 ## Other Products
 - Foundry Voice Concierge: AI voice assistant for small business phone systems

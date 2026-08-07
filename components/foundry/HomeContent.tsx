@@ -37,7 +37,7 @@ function Hero() {
           Est. 2024 · <b>Albuquerque, NM</b>
         </span>
         <span className="col">
-          9 patents pending · <b>Fide et Familia</b>
+          17 patents pending · <b>Fide et Familia</b>
         </span>
       </div>
     </section>
@@ -275,7 +275,7 @@ function Family() {
 }
 
 const STATS = [
-  { n: '9', l: 'Patents Pending' },
+  { n: '17', l: 'Patents Pending' },
   { n: '50', l: 'States Compliant' },
   { n: '10', u: 'min', l: 'Scan to Proposal' },
   { n: '1', l: 'Family Name' },
