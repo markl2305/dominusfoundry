@@ -5,7 +5,7 @@ import HualiHeader from '@/public/Huali.png';
 import { HualiAgentActions } from './HualiAgentActions';
 
 export const metadata: Metadata = {
-  title: 'Huali Order Info | Dominus Foundry',
+  title: 'Huali™ Order Info | Dominus Foundry™',
   robots: {
     index: false,
     follow: false,
@@ -22,7 +22,7 @@ export default function HualiOrderInfoPage() {
         <header className="flex justify-center">
           <Image
             src={HualiHeader}
-            alt="Huali Lager crest header artwork"
+            alt="Huali™ Lager crest header artwork"
             className="h-24 w-auto md:h-28"
             priority
           />
@@ -31,10 +31,10 @@ export default function HualiOrderInfoPage() {
         <section className="mt-10 grid flex-1 grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
           <div className="space-y-6">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Huali Order Info
+              Huali™ Order Info
             </h1>
             <p className="text-lg text-amber-100">
-              Fast keg ordering for Huali Lager distributors.
+              Fast keg ordering for Huali™ Lager distributors.
             </p>
 
             <div className="space-y-3 rounded-2xl bg-white/5 p-6 shadow-lg shadow-amber-900/30 ring-1 ring-white/10 backdrop-blur">
@@ -42,7 +42,7 @@ export default function HualiOrderInfoPage() {
                 How to place an order
               </h2>
               <p className="text-sm text-gray-200">
-                Use the on-screen Huali agent for the quickest experience, or call the
+                Use the on-screen Huali™ agent for the quickest experience, or call the
                 order line directly if you prefer phone.
               </p>
 
@@ -65,14 +65,14 @@ export default function HualiOrderInfoPage() {
               <ol className="list-decimal space-y-2 pl-5 text-sm text-gray-100">
                 <li>Confirm you’re an authorized distributor.</li>
                 <li>
-                  Click “Call Huali Order Line” to start the on-screen call, or dial
+                  Click “Call Huali™ Order Line” to start the on-screen call, or dial
                   505-337-4443.
                 </li>
                 <li>
-                  Be ready with your phone number on account and the number of Huali
-                  half kegs and Huali pony kegs you want.
+                  Be ready with your phone number on account and the number of Huali™
+                  half kegs and Huali™ pony kegs you want.
                 </li>
-                <li>The Huali agent will read back the order for confirmation.</li>
+                <li>The Huali™ agent will read back the order for confirmation.</li>
               </ol>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function HualiOrderInfoPage() {
               <div className="overflow-hidden rounded-2xl bg-black/60">
                 <Image
                   src={HualiPoster}
-                  alt="Huali Lager promotional poster showing a glass of beer with the Huali logo"
+                  alt="Huali™ Lager promotional poster showing a glass of beer with the Huali™ logo"
                   className="h-full w-full object-cover"
                   priority
                 />
@@ -93,7 +93,7 @@ export default function HualiOrderInfoPage() {
 
         <footer className="mt-10 space-y-2 text-xs text-gray-300">
           <p>
-            Huali Lager is produced by Kaktus Brewing Co. Orders placed here are forwarded
+            Huali™ Lager is produced by Kaktus Brewing Co. Orders placed here are forwarded
             to the brewery team for fulfillment.
           </p>
           <p>21+ only. Please enjoy responsibly.</p>

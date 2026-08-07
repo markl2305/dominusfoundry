@@ -23,15 +23,15 @@ export default function SiteFooter() {
             <Link href="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-600 rounded-md">
               <Image
                 src="/logo-crest.svg"
-                alt="Dominus Foundry - Fide et Familia"
+                alt="Dominus Foundry™ - Fide et Familia"
                 width={96}
                 height={96}
                 className="h-20 w-auto"
               />
-              <span className="text-xl font-semibold text-navy-900">Dominus Foundry</span>
+              <span className="text-xl font-semibold text-navy-900">Dominus Foundry™</span>
             </Link>
             <p className="body-foundry">
-              The company behind Forge — the operating system for the trades. 17 pending patents. From scan to invoice, one platform.
+              The company behind Forge™ — the operating system for the trades. 17 pending patents. From scan to invoice, one platform.
             </p>
           </div>
 

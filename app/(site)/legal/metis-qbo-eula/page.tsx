@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Mentis QuickBooks Integration – End-User License Agreement',
+  title: 'Mentis™ QuickBooks Integration – End-User License Agreement',
   robots: {
     index: false,
     follow: false,
@@ -11,10 +11,10 @@ export default function MentisQboEulaPage() {
     <section className="bg-[var(--foundry-bg)]">
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 space-y-10">
         <div className="space-y-3">
-          <p className="label-foundry text-forge-700">Mentis &amp; QuickBooks</p>
-          <h1 className="heading-forge-xl text-slate-900">Mentis QuickBooks Integration – End-User License Agreement</h1>
+          <p className="label-foundry text-forge-700">Mentis™ &amp; QuickBooks</p>
+          <h1 className="heading-forge-xl text-slate-900">Mentis™ QuickBooks Integration – End-User License Agreement</h1>
           <p className="body-foundry text-slate-700">
-            This integration is owned and operated by Dominus Foundry, LLC and CalLord Unified Technologies, LLC (“we,” “us,” or “our”).
+            This integration is owned and operated by Dominus Foundry™, LLC (“we,” “us,” or “our”).
             It is provided solely for internal business use by our team and authorized contractors.
           </p>
         </div>

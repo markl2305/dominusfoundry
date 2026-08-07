@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Mentis QuickBooks Integration – Privacy Policy',
+  title: 'Mentis™ QuickBooks Integration – Privacy Policy',
   robots: {
     index: false,
     follow: false,
@@ -11,10 +11,10 @@ export default function MentisQboPrivacyPage() {
     <section className="bg-[var(--foundry-bg)]">
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16 space-y-10">
         <div className="space-y-3">
-          <p className="label-foundry text-forge-700">Mentis &amp; QuickBooks</p>
-          <h1 className="heading-forge-xl text-slate-900">Mentis QuickBooks Integration – Privacy Policy</h1>
+          <p className="label-foundry text-forge-700">Mentis™ &amp; QuickBooks</p>
+          <h1 className="heading-forge-xl text-slate-900">Mentis™ QuickBooks Integration – Privacy Policy</h1>
           <p className="body-foundry text-slate-700">
-            This integration connects our internal automation system (“Mentis”) to our QuickBooks Online account in order to read and process accounting data such as customers,
+            This integration connects our internal automation system (“Mentis™”) to our QuickBooks Online account in order to read and process accounting data such as customers,
             invoices, and payments.
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function MentisQboPrivacyPage() {
             <h2 className="heading-forge-md text-slate-900">Who can see the data</h2>
             <ul className="list-disc list-outside space-y-2 pl-5">
               <li>
-                Only authorized team members and contractors of Dominus Foundry, LLC and CalLord Unified Technologies, LLC who already have legitimate access to this accounting data.
+                Only authorized team members and contractors of Dominus Foundry™, LLC who already have legitimate access to this accounting data.
               </li>
               <li>
                 We do not resell or share this data with third parties except service providers that host our systems (e.g., n8n, cloud infrastructure) under appropriate agreements.

@@ -8,6 +8,12 @@ export const metadata = {
 
 const posts = [
   {
+    title: "Between Human and AI — A Preserved Conversation",
+    href: "/blog/between-human-and-ai",
+    excerpt:
+      "What happens when you treat your AI like an employee for 1,000 hours? A founder and his AI on trust, pushback, mortality, and the framework that might prevent the dystopia.",
+  },
+  {
     title: "The Case for Constitutional Synthetic Intelligence",
     href: "/blog/the-case-for-constitutional-synthetic-intelligence",
     excerpt:

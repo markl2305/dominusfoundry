@@ -2,9 +2,9 @@ import Link from "next/link";
 import Button from "../../components/Button";
 
 export const metadata = {
-  title: "Mentis | The Human-Governed Operating System | Dominus Foundry",
+  title: "Mentis™ | The Human-Governed Operating System | Dominus Foundry™",
   description:
-    "Mentis is where everything connects. A complete operational intelligence layer that coordinates decisions, maintains authority, and ensures nothing drifts.",
+    "Mentis™ is where everything connects. A complete operational intelligence layer that coordinates decisions, maintains authority, and ensures nothing drifts.",
 };
 
 const capabilities = [
@@ -58,8 +58,8 @@ const journeySteps = [
     description: "The call that booked the appointment that triggered the invoice that sent the reminder. One operation. Zero handoffs.",
   },
   {
-    stage: "Unlock Mentis",
-    description: "When your operation runs on multiple systems, Mentis becomes the intelligence layer that coordinates everything. The full experience.",
+    stage: "Unlock Mentis™",
+    description: "When your operation runs on multiple systems, Mentis™ becomes the intelligence layer that coordinates everything. The full experience.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function MentisPage() {
         <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
           <div className="max-w-3xl space-y-6">
             <h1 className="heading-forge-xl text-white leading-tight">
-              Mentis
+              Mentis™
             </h1>
             <p className="text-2xl md:text-3xl font-semibold text-white/90">
               The Human-Governed Operating System.
@@ -81,7 +81,7 @@ export default function MentisPage() {
               Where every system connects. Where every decision is traceable. Where humans stay in control and nothing drifts.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              Mentis is the complete operational intelligence layer — the full realization of everything Dominus Foundry builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
+              Mentis™ is the complete operational intelligence layer — the full realization of everything Dominus Foundry™ builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
             </p>
           </div>
         </div>
@@ -91,12 +91,12 @@ export default function MentisPage() {
       <section className="bg-[var(--foundry-bg)]">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24 space-y-12">
           <div className="max-w-3xl space-y-4">
-            <h2 className="heading-forge-lg text-slate-900">What makes Mentis different</h2>
+            <h2 className="heading-forge-lg text-slate-900">What makes Mentis™ different</h2>
             <p className="body-foundry text-slate-700 md:text-lg">
               Most business software starts strong and slowly falls apart. Workflows break. Exceptions get ignored. The humans who should be in control end up chasing the system instead of running it.
             </p>
             <p className="body-foundry text-slate-700 md:text-lg">
-              Mentis was designed to prevent that — not through features, but through architecture. Every capability exists because it serves human authority and operational clarity.
+              Mentis™ was designed to prevent that — not through features, but through architecture. Every capability exists because it serves human authority and operational clarity.
             </p>
           </div>
 
@@ -111,12 +111,12 @@ export default function MentisPage() {
         </div>
       </section>
 
-      {/* Systems Running on Mentis */}
+      {/* Systems Running on Mentis™ */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 space-y-12">
           <div className="max-w-3xl space-y-4">
             <p className="label-foundry text-forge-300">The ecosystem</p>
-            <h2 className="heading-forge-lg text-white">Systems designed with Mentis</h2>
+            <h2 className="heading-forge-lg text-white">Systems designed with Mentis™</h2>
             <p className="body-foundry text-white/80 md:text-lg">
               Each system is complete on its own — a star in its own right. But they all share the same DNA. The same governance. The same commitment to human authority. When you run multiple systems, they work together without friction because they were designed that way from day one.
             </p>
@@ -149,7 +149,7 @@ export default function MentisPage() {
       <section className="bg-[var(--foundry-bg-alt)]">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24 space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="heading-forge-lg text-slate-900">How organizations arrive at Mentis</h2>
+            <h2 className="heading-forge-lg text-slate-900">How organizations arrive at Mentis™</h2>
             <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
               Nobody starts by buying an operating system. They start by solving a problem. Then another. Then they realize everything connects.
             </p>
@@ -173,11 +173,11 @@ export default function MentisPage() {
         </div>
       </section>
 
-      {/* What Full Mentis Looks Like */}
+      {/* What Full Mentis™ Looks Like */}
       <section className="bg-tan-100">
         <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-8">
           <div className="text-center space-y-4">
-            <h2 className="heading-forge-lg text-slate-900">When everything runs on Mentis</h2>
+            <h2 className="heading-forge-lg text-slate-900">When everything runs on Mentis™</h2>
           </div>
 
           <div className="card-forged-premium rounded-2xl bg-white p-8 md:p-10 shadow-lg space-y-6">
@@ -188,7 +188,7 @@ export default function MentisPage() {
               No manual handoffs. No dashboard babysitting. No wondering what happened to that lead from last Tuesday. One operation, fully connected, completely governed.
             </p>
             <p className="body-foundry text-slate-800 font-semibold">
-              That&apos;s Mentis.
+              That&apos;s Mentis™.
             </p>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function MentisPage() {
           <div className="text-center space-y-4">
             <h2 className="heading-forge-lg text-slate-900">For organizations ready for the full experience</h2>
             <p className="body-foundry text-slate-700 max-w-2xl mx-auto">
-              Mentis as a complete deployment is for organizations that want unified operational intelligence from day one. It&apos;s founder-intensive, deeply customized, and built for operators who understand the value of systems that don&apos;t drift.
+              Mentis™ as a complete deployment is for organizations that want unified operational intelligence from day one. It&apos;s founder-intensive, deeply customized, and built for operators who understand the value of systems that don&apos;t drift.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function MentisPage() {
             <div className="card-forged rounded-2xl bg-white p-6 shadow-sm space-y-3">
               <h3 className="heading-forge-md text-slate-900">Start with individual systems</h3>
               <p className="body-foundry text-slate-700">
-                Most organizations begin here. Pick the system that solves your most urgent problem. Experience the quality. Add more when you&apos;re ready. Mentis emerges naturally as your systems grow.
+                Most organizations begin here. Pick the system that solves your most urgent problem. Experience the quality. Add more when you&apos;re ready. Mentis™ emerges naturally as your systems grow.
               </p>
               <Button href="/systems" variant="forgeSecondary" className="w-full justify-center mt-4">
                 Explore systems
@@ -216,12 +216,12 @@ export default function MentisPage() {
             </div>
 
             <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 shadow-lg space-y-3">
-              <h3 className="heading-forge-md text-slate-900">Deploy Mentis directly</h3>
+              <h3 className="heading-forge-md text-slate-900">Deploy Mentis™ directly</h3>
               <p className="body-foundry text-slate-700">
                 For organizations ready for unified operational intelligence from the start. A complete deployment with all systems integrated from day one.
               </p>
               <Button href="/start" className="w-full justify-center mt-4">
-                Talk to us about Mentis
+                Talk to us about Mentis™
               </Button>
             </div>
           </div>
@@ -236,7 +236,7 @@ export default function MentisPage() {
             Start with one. Add more. Watch everything connect.
           </p>
           <p className="body-foundry text-forge-100/80">
-            That&apos;s the Mentis experience.
+            That&apos;s the Mentis™ experience.
           </p>
         </div>
       </section>

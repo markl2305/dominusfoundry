@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Button from "../../../components/Button";
 
 export const metadata: Metadata = {
-  title: "Intake Engine | Dominus Foundry",
+  title: "Intake Engine | Dominus Foundry™",
   description:
     "Every lead. Every channel. One engine. Capture, qualify, route, and book before leads go cold.",
 };

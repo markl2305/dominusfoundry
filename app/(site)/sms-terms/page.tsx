@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'SMS Messaging Terms — Dominus Foundry',
-  description: 'SMS messaging terms, opt-in consent, and mobile messaging program details for Dominus Foundry.',
+  title: 'SMS Messaging Terms — Dominus Foundry™',
+  description: 'SMS messaging terms, opt-in consent, and mobile messaging program details for Dominus Foundry™.',
 };
 
 export default function SmsTerms() {
@@ -12,7 +12,7 @@ export default function SmsTerms() {
             SMS Messaging Terms
           </h1>
           <p className="mt-4 text-lg text-navy-700">
-            Dominus Foundry — Mobile Messaging Program
+            Dominus Foundry™ — Mobile Messaging Program
           </p>
         </div>
       </section>
@@ -24,7 +24,7 @@ export default function SmsTerms() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Program Description</h2>
               <p>
-                Dominus Foundry (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) offers an SMS messaging
+                Dominus Foundry™ (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) offers an SMS messaging
                 program to communicate with customers and prospective clients regarding service inquiries,
                 project updates, appointment confirmations, follow-ups, and customer support. By opting in
                 to our messaging program, you agree to the terms outlined below.
@@ -34,7 +34,7 @@ export default function SmsTerms() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">How to Opt In</h2>
               <p>
-                You may opt in to receive SMS messages from Dominus Foundry by any of the following methods:
+                You may opt in to receive SMS messages from Dominus Foundry™ by any of the following methods:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
                 <li>
@@ -47,7 +47,7 @@ export default function SmsTerms() {
                 </li>
                 <li>
                   <strong>Verbal Consent:</strong> By verbally providing your phone number and agreeing to
-                  receive text messages during a phone call with a Dominus Foundry representative.
+                  receive text messages during a phone call with a Dominus Foundry™ representative.
                 </li>
                 <li>
                   <strong>Text-In:</strong> By texting a keyword (e.g., &ldquo;START&rdquo; or &ldquo;INFO&rdquo;)
@@ -56,7 +56,7 @@ export default function SmsTerms() {
               </ul>
               <p className="mt-4">
                 By opting in, you confirm that you are the owner or authorized user of the mobile phone
-                number provided, and you consent to receive text messages from Dominus Foundry at that number.
+                number provided, and you consent to receive text messages from Dominus Foundry™ at that number.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ export default function SmsTerms() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Message Frequency</h2>
               <p>
-                Message frequency varies based on your interactions with Dominus Foundry. You will only
+                Message frequency varies based on your interactions with Dominus Foundry™. You will only
                 receive messages that are relevant to your inquiry or ongoing project. Typical frequency
                 ranges from 1 to 10 messages per month depending on your level of engagement with our team.
                 You will not receive unsolicited marketing blasts.
@@ -138,7 +138,7 @@ export default function SmsTerms() {
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Consent Not Required for Purchase</h2>
               <p>
                 Consent to receive SMS messages is <strong>not</strong> required as a condition of purchasing
-                any goods or services from Dominus Foundry. You may choose not to opt in and still do
+                any goods or services from Dominus Foundry™. You may choose not to opt in and still do
                 business with us.
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function SmsTerms() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Contact Information</h2>
               <div className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">
-                <p className="font-semibold text-navy-900">Dominus Foundry</p>
+                <p className="font-semibold text-navy-900">Dominus Foundry™</p>
                 <p className="mt-2">
                   Email:{' '}
                   <a href="mailto:foundry@dominusfoundry.com" className="text-navy-500 underline">
@@ -196,7 +196,7 @@ export default function SmsTerms() {
 
             <div className="mt-12 pt-8 border-t border-bronze-300">
               <p className="text-sm text-navy-600">
-                Last updated: March 16, 2026. By opting in to receive SMS messages from Dominus Foundry,
+                Last updated: March 16, 2026. By opting in to receive SMS messages from Dominus Foundry™,
                 you acknowledge that you have read and agree to these SMS Messaging Terms.
               </p>
             </div>

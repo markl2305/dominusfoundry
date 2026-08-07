@@ -43,7 +43,7 @@ export function HeroCTAButtons() {
         Book a 15-Minute Fit Call
       </Button>
       <p className="text-xs sm:text-sm text-tan-200/70">
-        Or click the Voice Concierge icon in the bottom-right corner to hear a live demo.
+        Or click the Voice Concierge™ icon in the bottom-right corner to hear a live demo.
       </p>
     </div>
   )

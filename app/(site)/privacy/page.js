@@ -12,7 +12,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-lg text-navy-700">
-            Last updated: March 16, 2026
+            Last updated: May 6, 2026
           </p>
         </div>
       </section>
@@ -58,6 +58,119 @@ export default function Privacy() {
                 <li>Referring website addresses</li>
                 <li>General location information (city/state level)</li>
               </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-navy-900 mb-4">Information Collected by Our iOS Applications</h2>
+              <p>
+                Our iOS applications, including <strong>Hyperion</strong> and <strong>Hyperion Lite</strong>, collect
+                additional information specific to LiDAR scanning and spatial data capture. This section supplements
+                the categories above and applies in addition to them whenever you use one of our apps.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Account Information</h3>
+              <p>To use the apps, you create an account that includes:</p>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Email address</li>
+                <li>First and last name</li>
+                <li>Company name (optional)</li>
+                <li>Trade vertical selection (e.g., Roofing, HVAC, Solar)</li>
+                <li>An internal user identifier we generate to associate your account with your scans</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Camera and Photo Data</h3>
+              <p>
+                With your permission, the apps access your device's camera and rear-facing photo sensors to capture
+                RGB images and video frames during a scan. These frames are used together with LiDAR depth data to
+                build the 3D model and apply texture to the captured surfaces.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">LiDAR Depth and 3D Scan Data</h3>
+              <p>
+                With your permission, the apps use your device's LiDAR sensor to capture depth information about the
+                physical environment you scan. From this we generate:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Raw point cloud data (3D coordinates of surfaces)</li>
+                <li>Computed 3D mesh reconstructions</li>
+                <li>Derived measurements such as area, pitch, perimeter, and elevation counts</li>
+                <li>AI-generated structural analysis of the scan</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Microphone Data</h3>
+              <p>
+                With your permission, the apps may access the microphone during a scan to provide audio guidance
+                cues and to record contextual ambient information that helps the AI understand the scan environment.
+                We do not record voice conversations.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Precise Location Data</h3>
+              <p>
+                With your permission, the apps capture precise GPS coordinates at the time of each scan so that
+                each scan can be tagged to the specific structure or jobsite it represents. This is more granular
+                than the city/state level location described in the section above and applies only to scans you
+                initiate inside the apps.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Device and Sensor Metadata</h3>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Device model and iOS version</li>
+                <li>Inertial Measurement Unit (IMU) data — accelerometer and gyroscope readings during scanning, used for motion compensation and scan quality assessment</li>
+                <li>Scan duration, coverage percentage, and other quality metrics</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Diagnostics</h3>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Crash logs and stack traces (anonymized — not linked to your account)</li>
+                <li>Performance metrics such as scan processing time and upload success rates</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Usage Data</h3>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Which features you interact with inside the apps</li>
+                <li>Number of scans completed and your monthly scan quota usage</li>
+                <li>Conversion-related events (e.g., taps on upgrade-to-Forge prompts)</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">How We Use Scan Data</h3>
+              <p>
+                Scan data — including LiDAR point clouds, camera frames, and derived 3D models — is used to:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>Render the basic site report inside the app for you to view</li>
+                <li>Sync your scans across devices logged into your account</li>
+                <li>Improve our spatial AI models, with your scan data anonymized and the personal identifiers (your name, email, exact address) stripped from training datasets</li>
+                <li>Compute aggregate, non-personal insights about commercial building stock that may inform our products and services</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">AI Training and Anonymization</h3>
+              <p>
+                When scan data is contributed to our AI training pipeline, it is anonymized at the scan level: no
+                personally identifying information, company attribution, or specific street address is associated
+                with the scan in the training dataset. Your account metadata (email, company, trade) is stored
+                separately from the anonymized scan data and is never sold to third parties.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Encryption and Storage</h3>
+              <p>
+                All data is encrypted in transit using TLS 1.3 and at rest using AES-256. Scans upload to our
+                sovereign database in the background, by default only over WiFi to avoid unexpected cellular charges.
+                You can change the cellular upload setting inside the apps at any time.
+              </p>
+
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Permission Controls</h3>
+              <p>
+                Camera, microphone, and location access are all controlled by iOS-level permissions. You can revoke
+                any of them at any time in iOS Settings. Revoking camera or LiDAR access will disable scanning.
+                Revoking location access will leave new scans untagged. You can sign out of the apps at any time,
+                and you can request deletion of your account and associated data by emailing us at{' '}
+                <a
+                  href="mailto:foundry@dominusfoundry.com"
+                  className="text-navy-500 underline font-semibold"
+                >
+                  foundry@dominusfoundry.com
+                </a>.
+              </p>
             </div>
 
             <div>
