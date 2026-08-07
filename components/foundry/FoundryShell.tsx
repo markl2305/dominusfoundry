@@ -151,7 +151,9 @@ function Footer() {
 export default function FoundryShell({ active = null, children }: { active?: string | null; children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
 
-  // sync stored preference on mount (no system override — dark is the locked default look)
+  // sync stored preference on mount (no system override — dark is the locked default look).
+  // The inline script in app/layout.tsx has already applied this to <html> before
+  // first paint; this only brings React state in line so the crest and toggle icon match.
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem('df-theme') as Theme | null
@@ -161,7 +163,19 @@ export default function FoundryShell({ active = null, children }: { active?: str
     }
   }, [])
 
+  // <html data-df-theme> is what foundry.css actually reads, so it has to track state.
+  useEffect(() => {
+    document.documentElement.setAttribute('data-df-theme', theme)
+  }, [theme])
+
   const toggle = () => {
+    // Kill every colour transition for the duration of the swap. Without this the
+    // components that transition `background` / `all` cross-fade between two
+    // themes' tokens, which is where stale-colour artefacts come from.
+    const root = document.documentElement
+    root.classList.add('df-theme-switching')
+    window.setTimeout(() => root.classList.remove('df-theme-switching'), 60)
+
     setTheme((prev) => {
       const next = prev === 'dark' ? 'light' : 'dark'
       try {
