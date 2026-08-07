@@ -22,6 +22,9 @@ const nextConfig = {
 
       // Legacy footer shortcut
       { source: "/voice-concierge", destination: "/systems/intake", permanent: true },
+
+      // Retired: Foundry Capital / ventures arm (removed 2026-08-07)
+      { source: "/ventures", destination: "/", permanent: true },
     ]
   },
 }

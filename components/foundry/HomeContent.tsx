@@ -20,7 +20,7 @@ function Hero() {
           </h1>
           <p className="hero-lead">
             A family-owned technology holding company forging AI-native operating systems for the industries that build the world — and the
-            ventures, patents, and people standing behind them.
+            governance, patents, and people standing behind them.
           </p>
           <div className="hero-actions">
             <a className="btn btn-solid" href="https://buildwithforge.app" target="_blank" rel="noopener">
@@ -37,7 +37,7 @@ function Hero() {
           Est. 2024 · <b>Albuquerque, NM</b>
         </span>
         <span className="col">
-          17 patents pending · <b>Fide et Familia</b>
+          17 provisional patents filed · <b>Fide et Familia</b>
         </span>
       </div>
     </section>
@@ -58,8 +58,9 @@ function Thesis() {
           </div>
           <div className="thesis-aside reveal d1">
             <p>
-              Dominus Foundry is the parent above Forge. The flagship earns; the technology compounds into patents; the ventures arm forges
-              what comes next. No outside mandate, no exit clock — only what we&apos;d be proud to run for a generation.
+              Dominus Foundry is the parent above Forge. The flagship earns; the technology compounds into patents; the governance underneath
+              is what lets an owner hand real work to software at all. No outside mandate, no exit clock — only what we&apos;d be proud to run
+              for a generation.
             </p>
             <p>Built and held by the Lord family. Everything we ship carries the name.</p>
           </div>
@@ -82,21 +83,21 @@ const PILLARS = [
   },
   {
     idx: '02',
-    glyph: 'hyperion',
-    kicker: 'Technology · Patent estate',
-    name: 'Hyperion',
-    body: 'Patent-pending spatial intelligence. A phone walks a building; Hyperion returns a 3D model, a bill of materials, and a client-ready proposal. The IP layer every venture is built on.',
-    href: '/technology',
-    label: 'The technology',
+    glyph: 'iris',
+    kicker: 'The employee · Live',
+    name: 'Iris',
+    body: 'The front office is one person, and everything waits on her. Iris answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
+    href: '/iris',
+    label: 'Meet Iris',
   },
   {
     idx: '03',
-    glyph: 'ventures',
-    kicker: 'Ventures · Active',
-    name: 'Foundry Capital',
-    body: 'The investment arm. Cash flow from the flagship is forged into the next vertical — operator-led, software-forgotten industries, backed by people who’ve run the work themselves.',
-    href: '/ventures',
-    label: 'The thesis',
+    glyph: 'hyperion',
+    kicker: 'Technology · Patent estate',
+    name: 'Hyperion',
+    body: 'The quote takes days and the job goes to whoever answered first. Scan the site with a phone, price off the captured geometry, sign it in one visit. The IP layer everything else is built on.',
+    href: '/technology',
+    label: 'The technology',
   },
   {
     idx: '04',
@@ -200,25 +201,26 @@ function Hyperion() {
   )
 }
 
-const PRINCIPLES = [
-  { n: '01', nm: 'Operator-owned', ds: 'We only back what we would run ourselves.', tag: 'Conviction' },
-  { n: '02', nm: 'Vertical-first', ds: 'Software for the industries the platforms skipped.', tag: 'Focus' },
-  { n: '03', nm: 'Compounding IP', ds: 'Every venture feeds a single patent estate.', tag: 'Moat' },
-  { n: '04', nm: 'Cash-flow native', ds: 'Built to profit, not to raise.', tag: 'Discipline' },
+const PROPERTIES = [
+  { n: '01', nm: 'Scoped', ds: 'Authority is granted one responsibility at a time, each with a boundary the owner set.', tag: 'Grant' },
+  { n: '02', nm: 'Attributed', ds: 'Every rule carries who wrote it and when. Every action carries the rule it applied.', tag: 'Record' },
+  { n: '03', nm: 'Reversible', ds: 'Any grant can be revoked in one move. The cost of being wrong is one click.', tag: 'Revoke' },
+  { n: '04', nm: 'Structural', ds: 'Not a layer above the model. Nothing executes outside it.', tag: 'Architecture' },
 ]
 
-function Ventures() {
+function Governance() {
   return (
-    <section className="ventures section" id="ventures">
+    <section className="darkband section" id="governance">
       <div className="wrap">
-        <p className="eyebrow reveal">Foundry Capital · The Investment Arm</p>
-        <h2 className="reveal d1">We back the industries that software forgot.</h2>
-        <p className="ventures-lead reveal d1">
-          The flagship throws off cash; the cash is forged into the next vertical. Foundry Capital invests on the Foundry&apos;s own terms —
-          patient, profitable, and led by operators who have done the work, not just modeled it.
+        <p className="eyebrow reveal">Governance · The part nobody else can claim</p>
+        <h2 className="reveal d1">Everyone sells an AI that can act on your business.</h2>
+        <p className="darkband-lead reveal d1">
+          Almost nobody can tell you what it is allowed to do, what it actually did, or how to take an ability back once it has it. That is
+          not a safety footnote — it is the reason an owner cannot hand real work to any of them. Forge was built the other way round: the
+          record first, the governance inside it, and nothing that executes outside it.
         </p>
-        <div className="ventures-rows reveal d2">
-          {PRINCIPLES.map((p) => (
+        <div className="darkband-rows reveal d2">
+          {PROPERTIES.map((p) => (
             <div className="vrow" key={p.n}>
               <span className="yr">{p.n}</span>
               <span className="nm serif">{p.nm}</span>
@@ -227,8 +229,8 @@ function Ventures() {
             </div>
           ))}
         </div>
-        <a className="section-more on-dark-more reveal d2" href="/ventures">
-          The full thesis <span className="arr">→</span>
+        <a className="section-more on-dark-more reveal d2" href="/governance">
+          Write a rule and revoke it yourself <span className="arr">→</span>
         </a>
       </div>
     </section>
@@ -275,7 +277,7 @@ function Family() {
 }
 
 const STATS = [
-  { n: '17', l: 'Patents Pending' },
+  { n: '17', l: 'Provisional Patents Filed' },
   { n: '50', l: 'States Compliant' },
   { n: '10', u: 'min', l: 'Scan to Proposal' },
   { n: '1', l: 'Family Name' },
@@ -308,7 +310,7 @@ export default function HomeContent() {
       <Thesis />
       <Pillars />
       <Hyperion />
-      <Ventures />
+      <Governance />
       <Family />
       <Stats />
       <CTA

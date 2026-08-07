@@ -40,9 +40,12 @@ export const Glyph: Record<string, ReactNode> = {
       <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none" />
     </svg>
   ),
-  ventures: (
-    <svg viewBox="0 0 40 40" fill="currentColor" stroke="none">
-      <path d="M7 14 H24 L25 16.5 L33 17.8 L25 19.6 L23.5 21 L21 23 L22 27 L26 30 H8 L13 27 L14.5 23 L12.5 21 L8 20 L7 19.6 Z" />
+  /* Iris — an aperture: blades that open only as far as they are granted. */
+  iris: (
+    <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="20" cy="20" r="13" opacity="0.75" />
+      <path d="M25.5 20 L22.75 24.76 L17.25 24.76 L14.5 20 L17.25 15.24 L22.75 15.24 Z" />
+      <path d="M25.5 20 L31.26 26.5 M22.75 24.76 L20 33 M17.25 24.76 L8.74 26.5 M14.5 20 L8.74 13.5 M17.25 15.24 L20 7 M22.75 15.24 L31.26 13.5" opacity="0.75" />
     </svg>
   ),
   family: (

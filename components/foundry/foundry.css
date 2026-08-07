@@ -390,19 +390,19 @@
 .df-site .scan-frame .corner.bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; }
 .df-site .scan-frame .corner.br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; }
 
-/* ================================================================= VENTURES */
-.df-site .ventures { background: var(--navy); color: var(--hero-ink); border-block: 1px solid rgba(255,255,255,.06); position: relative; overflow: hidden; }
-.df-site[data-theme="dark"] .ventures { background: #0a121f; }
-.df-site .ventures::before {
+/* ============================================== DARK BAND (governance / feature) */
+.df-site .darkband { background: var(--navy); color: var(--hero-ink); border-block: 1px solid rgba(255,255,255,.06); position: relative; overflow: hidden; }
+.df-site[data-theme="dark"] .darkband { background: #0a121f; }
+.df-site .darkband::before {
   content: ""; position: absolute; inset: 0;
   background: radial-gradient(80% 60% at 88% 8%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 60%);
   pointer-events: none;
 }
-.df-site .ventures .wrap { position: relative; z-index: 2; }
-.df-site .ventures .eyebrow { color: var(--gold-hi); }
-.df-site .ventures h2 { font-family: var(--serif); font-size: clamp(32px, 4.6vw, 60px); color: var(--hero-ink); max-width: 18ch; margin: 16px 0 0; }
-.df-site .ventures-lead { color: var(--hero-ink-2); max-width: 52ch; margin-top: 22px; font-size: 16px; line-height: 1.7; }
-.df-site .ventures-rows { margin-top: 50px; border-top: 1px solid rgba(255,255,255,.12); }
+.df-site .darkband .wrap { position: relative; z-index: 2; }
+.df-site .darkband .eyebrow { color: var(--gold-hi); }
+.df-site .darkband h2 { font-family: var(--serif); font-size: clamp(32px, 4.6vw, 60px); color: var(--hero-ink); max-width: 18ch; margin: 16px 0 0; }
+.df-site .darkband-lead { color: var(--hero-ink-2); max-width: 52ch; margin-top: 22px; font-size: 16px; line-height: 1.7; }
+.df-site .darkband-rows { margin-top: 50px; border-top: 1px solid rgba(255,255,255,.12); }
 .df-site .vrow {
   display: grid; grid-template-columns: 0.5fr 1.4fr 1fr auto; gap: 24px; align-items: center;
   padding: 26px 4px; border-bottom: 1px solid rgba(255,255,255,.12);
@@ -489,8 +489,8 @@
 .df-site .section-more .arr { color: var(--gold); transition: transform .35s var(--ease); }
 .df-site .section-more:hover { color: var(--gold); }
 .df-site .section-more:hover .arr { transform: translateX(5px); }
-.df-site .on-dark-more, .df-site .ventures .section-more { color: var(--hero-ink); border-bottom-color: var(--hero-hair); }
-.df-site .on-dark-more:hover, .df-site .ventures .section-more:hover { color: var(--gold); }
+.df-site .on-dark-more, .df-site .darkband .section-more { color: var(--hero-ink); border-bottom-color: var(--hero-hair); }
+.df-site .on-dark-more:hover, .df-site .darkband .section-more:hover { color: var(--gold); }
 
 /* sub-page heroes — a touch shorter than the home hero */
 .df-site .page-hero { min-height: 80svh; }
@@ -513,9 +513,9 @@
 .df-site[data-direction="institution"] .pillars-head { display: flex; flex-direction: column-reverse; flex-wrap: nowrap; align-items: center; text-align: center; gap: 18px; margin-bottom: clamp(52px, 6vw, 78px); }
 .df-site[data-direction="institution"] .pillars-head .eyebrow { justify-content: center; }
 .df-site[data-direction="institution"] .pillars-head h2 { max-width: 20ch; margin-inline: auto; }
-.df-site[data-direction="institution"] .ventures h2,
-.df-site[data-direction="institution"] .ventures-lead { margin-inline: auto; text-align: center; }
-.df-site[data-direction="institution"] .ventures .eyebrow { justify-content: center; display: flex; }
+.df-site[data-direction="institution"] .darkband h2,
+.df-site[data-direction="institution"] .darkband-lead { margin-inline: auto; text-align: center; }
+.df-site[data-direction="institution"] .darkband .eyebrow { justify-content: center; display: flex; }
 
 /* =================================================== SUB-PAGE PATTERNS (pages.css) */
 /* numbered process steps */
@@ -647,3 +647,191 @@
 .df-site .post .emberline { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: linear-gradient(90deg, var(--ember), var(--gold)); transition: width .6s var(--ease); }
 .df-site .post:hover .emberline { width: 100%; }
 @media (max-width: 900px) { .df-site .post-grid { grid-template-columns: 1fr; } .df-site .post { min-height: auto; } }
+
+/* ================================================== ACCESSIBILITY: SKIP LINK */
+.df-site .skip-link {
+  position: absolute; left: 12px; top: -200px; z-index: 400;
+  background: var(--gold); color: var(--on-accent);
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 14px 20px; min-height: 44px; display: inline-flex; align-items: center;
+  transition: top .2s var(--ease);
+}
+.df-site .skip-link:focus-visible { top: 12px; outline: 2px solid var(--hero-ink); outline-offset: 2px; }
+
+/* visible focus everywhere (the base sheet suppressed nothing, but nothing set it either) */
+.df-site a:focus-visible,
+.df-site button:focus-visible,
+.df-site input:focus-visible,
+.df-site textarea:focus-visible,
+.df-site summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* nav breathing room once the link set grew to seven */
+@media (max-width: 1180px) and (min-width: 921px) {
+  .df-site .nav-links { gap: 14px; }
+  .df-site .nav-link { font-size: 10.5px; letter-spacing: 0.1em; }
+  .df-site .nav-right { gap: 12px; }
+  .df-site .nav-cta { padding: 11px 14px; }
+}
+
+/* ==================================================================== FOUNDERS */
+.df-site .founders {
+  display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 900px) { .df-site .founders { grid-template-columns: 1fr; gap: 36px; } }
+.df-site .founders-photo { margin: 0; }
+.df-site .founders-photo picture { display: block; }
+/* master is a 16:9 close two-shot — it crops to square, never wider */
+.df-site .founders-photo img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 58% 42%;
+  border: 1px solid var(--hair); box-shadow: var(--shadow); background: var(--panel-2);
+}
+.df-site .founders-photo figcaption {
+  margin-top: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-2);
+}
+.df-site .founders-copy h3 { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 40px); font-weight: 600; }
+.df-site .founders-copy p { margin-top: 18px; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 48ch; }
+
+.df-site .founder-bios {
+  margin-top: clamp(48px, 6vw, 78px);
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--hair); border: 1px solid var(--hair);
+}
+@media (max-width: 860px) { .df-site .founder-bios { grid-template-columns: 1fr; } }
+.df-site .fbio { background: var(--panel); padding: clamp(28px, 3.4vw, 42px); }
+.df-site .fbio .fb-name { font-size: 30px; font-weight: 600; }
+.df-site .fbio .fb-role {
+  margin-top: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold);
+}
+.df-site .fbio p { margin-top: 16px; font-size: 15px; line-height: 1.72; color: var(--ink-2); }
+.df-site .fbio .fb-line {
+  font-family: var(--serif); font-style: italic; font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 26px); line-height: 1.3; color: var(--ink);
+  margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--hair);
+}
+
+/* ============================================ IRIS: SOURCED FIGURES + PRICE LINES */
+.df-site .figures-section { background: var(--bg-2); border-block: 1px solid var(--hair); }
+.df-site .figures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+@media (max-width: 900px) { .df-site .figures { grid-template-columns: 1fr; } }
+.df-site .figure { background: var(--panel); padding: 32px 28px; }
+.df-site .figure .fg-n { font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 4vw, 52px); line-height: 1; letter-spacing: -0.02em; }
+.df-site .figure .fg-l { margin-top: 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.df-site .figure .fg-d { margin-top: 16px; font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+.df-site .figure .fg-src { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hair); font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
+
+.df-site .pricelines { border-top: 1px solid var(--hair); }
+.df-site .pline { display: grid; grid-template-columns: 0.6fr auto 1.4fr; gap: 28px; align-items: baseline; padding: 26px 4px; border-bottom: 1px solid var(--hair); }
+.df-site .pline .pl-k { font-family: var(--serif); font-size: 26px; font-weight: 600; }
+.df-site .pline .pl-v { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--gold); white-space: nowrap; }
+.df-site .pline .pl-v .pl-u { font-size: 0.42em; color: var(--ink-3); margin-left: 3px; letter-spacing: 0.06em; }
+.df-site .pline .pl-d { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+@media (max-width: 760px) { .df-site .pline { grid-template-columns: 1fr auto; gap: 8px 18px; } .df-site .pline .pl-d { grid-column: 1 / -1; } }
+.df-site .pricesum { margin-top: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink-2); }
+.df-site .pricesum span { color: var(--ink-2); letter-spacing: 0.04em; }
+.df-site .pricenote { margin-top: 10px; font-size: 13px; line-height: 1.6; color: var(--ink-2); max-width: 56ch; }
+
+/* ============================================ GOVERNANCE: THE RULE LEDGER DEMO */
+.df-site .demo-section { background: var(--bg-2); border-block: 1px solid var(--hair); }
+.df-site .demo-lead { margin-top: 20px; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 64ch; }
+.df-site .demo-foot { margin-top: 26px; font-family: var(--mono); font-size: 11px; line-height: 1.7; letter-spacing: 0.04em; color: var(--ink-2); max-width: 72ch; }
+
+.df-site .ledger { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+@media (max-width: 960px) { .df-site .ledger { grid-template-columns: 1fr; } }
+.df-site .ledger-pane { background: var(--panel); padding: clamp(24px, 3vw, 38px); }
+.df-site .ledger .lp-h { font-family: var(--serif); font-size: 26px; font-weight: 600; }
+.df-site .ledger .lp-h-2 { margin-top: 44px; padding-top: 34px; border-top: 1px solid var(--hair); }
+.df-site .ledger .lp-lead { margin-top: 12px; font-size: 14.5px; line-height: 1.65; color: var(--ink-2); }
+.df-site .ledger .lp-note {
+  margin-top: 20px; padding: 14px 16px; background: var(--panel-2); border-left: 2px solid var(--gold);
+  font-size: 14px; line-height: 1.6; color: var(--ink-2); min-height: 44px;
+}
+
+.df-site .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.df-site .composer { margin-top: 22px; }
+.df-site .composer-line {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-family: var(--serif); font-size: 20px; line-height: 1.9; color: var(--ink);
+}
+.df-site .composer-field {
+  font-family: var(--mono); font-size: 13px; color: var(--ink);
+  background: var(--bg); border: 1px solid var(--hair-2); border-radius: 0;
+  padding: 10px 12px; min-height: 44px; transition: border-color .3s;
+}
+.df-site .composer-field:hover { border-color: var(--gold); }
+.df-site .composer-money { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 15px; color: var(--gold); }
+.df-site .composer-input { width: 9ch; }
+.df-site .composer-error { margin-top: 14px; font-size: 13.5px; line-height: 1.6; color: var(--ember); }
+.df-site .composer .btn { margin-top: 20px; min-height: 44px; }
+
+.df-site .grants { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+.df-site .grant { border: 1px solid var(--hair); border-left: 2px solid var(--gold); background: var(--bg); padding: 18px 20px; }
+.df-site .grant.revoked { border-left-color: var(--ink-3); opacity: 0.85; }
+.df-site .grant-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.df-site .grant-id { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--ink-3); }
+.df-site .grant-state {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 5px 10px; border: 1px solid currentColor;
+}
+.df-site .grant-state.is-active { color: var(--gold); }
+.df-site .grant-state.is-revoked { color: var(--ink-3); }
+.df-site .grant-text { margin-top: 12px; font-family: var(--serif); font-size: 20px; line-height: 1.35; color: var(--ink); }
+.df-site .grant-text s { text-decoration-thickness: 1px; text-decoration-color: var(--ember); color: var(--ink-3); }
+.df-site .grant-meta { margin-top: 10px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--ink-2); line-height: 1.6; }
+.df-site .grant-annot { color: var(--ember); }
+.df-site .grant-btn {
+  margin-top: 16px; min-height: 44px; padding: 12px 16px; cursor: pointer;
+  background: none; border: 1px solid var(--hair-2); color: var(--ink);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  transition: border-color .3s, color .3s;
+}
+.df-site .grant-btn:hover:enabled { border-color: var(--gold); color: var(--gold); }
+.df-site .grant-btn:disabled { cursor: default; color: var(--ink-3); border-style: dashed; }
+
+.df-site .fire { margin-top: 22px; display: grid; gap: 10px; }
+.df-site .fire-btn {
+  text-align: left; min-height: 44px; padding: 13px 16px; cursor: pointer;
+  background: var(--bg); border: 1px solid var(--hair-2); color: var(--ink);
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
+  transition: border-color .3s, color .3s, background .3s;
+}
+.df-site .fire-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.df-site .record { list-style: none; margin-top: 22px; border-top: 1px solid var(--hair); max-height: 420px; overflow-y: auto; }
+.df-site .rec { display: grid; gap: 5px; padding: 15px 0 15px 14px; border-bottom: 1px solid var(--hair); border-left: 2px solid var(--hair-2); }
+.df-site .rec-when { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-3); }
+.df-site .rec-head { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+.df-site .rec-detail { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.df-site .rec-allow { border-left-color: var(--gold); }
+.df-site .rec-allow .rec-head { color: var(--gold); }
+.df-site .rec-refuse { border-left-color: var(--ember); }
+.df-site .rec-refuse .rec-head { color: var(--ember); }
+.df-site .rec-revoke { border-left-color: var(--ink-3); }
+
+/* ============================================ NAV: MOBILE + TOUCH TARGET SIZING */
+/* 44px minimums on the two persistent header controls */
+.df-site .nav-cta { display: inline-flex; align-items: center; min-height: 44px; }
+.df-site .theme-toggle { width: 44px; height: 44px; }
+
+/* below the breakpoint where the link row is hidden, the wordmark crowded the
+   "Get Started" CTA off the right edge — fall back to the crest alone */
+@media (max-width: 620px) {
+  .df-site .brand-text { display: none; }
+  .df-site .nav-right { gap: 12px; }
+  .df-site .nav-cta { padding: 11px 15px; }
+}
+
+/* reduced motion: kill transitions and keyframes across the heraldic system */
+@media (prefers-reduced-motion: reduce) {
+  .df-site *, .df-site *::before, .df-site *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

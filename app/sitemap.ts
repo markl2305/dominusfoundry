@@ -18,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Holding-company pillars (heraldic refresh)
     { path: "/company", priority: 0.8, freq: "monthly" as const },
-    { path: "/ventures", priority: 0.8, freq: "monthly" as const },
+    { path: "/iris", priority: 0.9, freq: "monthly" as const },
+    { path: "/governance", priority: 0.9, freq: "monthly" as const },
     { path: "/technology", priority: 0.8, freq: "monthly" as const },
 
     // Products

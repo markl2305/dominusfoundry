@@ -27,8 +27,9 @@ export const useFoundry = () => useContext(Ctx)
 /* canonical nav — single source of truth across all pages */
 const NAV_LINKS = [
   { id: 'forge', label: 'Forge', href: 'https://buildwithforge.app', ext: true },
-  { id: 'ventures', label: 'Ventures', href: '/ventures' },
-  { id: 'technology', label: 'Technology', href: '/technology' },
+  { id: 'iris', label: 'Iris', href: '/iris' },
+  { id: 'technology', label: 'Hyperion', href: '/technology' },
+  { id: 'governance', label: 'Governance', href: '/governance' },
   { id: 'company', label: 'Company', href: '/company' },
   { id: 'press', label: 'Press', href: '/press' },
   { id: 'blog', label: 'Blog', href: '/blog' },
@@ -83,11 +84,12 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
 
 const FOOTER_COLS = [
   {
-    h: 'Companies',
+    h: 'The Foundry',
     links: [
       { t: 'Forge ↗', href: 'https://buildwithforge.app', ext: true },
+      { t: 'Iris', href: '/iris' },
       { t: 'Hyperion', href: '/technology' },
-      { t: 'Foundry Capital', href: '/ventures' },
+      { t: 'Governance', href: '/governance' },
     ],
   },
   {
@@ -121,7 +123,7 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              A family-owned technology holding company. The parent behind Forge, Hyperion, and Foundry Capital — forging software built to endure.
+              A family-owned technology holding company. The parent behind Forge, Iris, and Hyperion — forging software built to endure.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (
@@ -177,9 +179,12 @@ export default function FoundryShell({ active = null, children }: { active?: str
   return (
     <Ctx.Provider value={ctx}>
       <div className="df-site" data-theme={theme} data-direction={DIRECTION}>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <Embers key={`bg-${theme}`} className="global-embers" intensity={EMBER_INTENSITY} density={0.42} rise={0.6} />
         <Nav theme={theme} active={active} onToggleTheme={toggle} />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </div>
     </Ctx.Provider>

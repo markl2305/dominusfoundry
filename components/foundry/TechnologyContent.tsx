@@ -20,7 +20,7 @@ const T_STEPS = [
 ]
 
 const T_STATS = [
-  { n: '17', l: 'Patents Pending' },
+  { n: '17', l: 'Provisional Patents Filed' },
   { n: '10', u: 'min', l: 'Scan to Proposal' },
   { n: '50', l: 'States Compliant' },
   { n: '1', l: 'Shared IP Estate' },
@@ -36,7 +36,7 @@ export default function TechnologyContent() {
             Hyperion — spatial intelligence for the <em>physical world</em>.
           </>
         }
-        lead="A technician walks a building with a phone. Hyperion returns a complete system design, a bill of materials, and a client-ready proposal — automatically. The IP layer every company under the Foundry is built on."
+        lead="A technician walks a building with a phone. Hyperion returns a complete system design, a bill of materials, and a client-ready proposal — automatically. The IP layer every product under the Foundry is built on."
         actions={
           <>
             <a className="btn btn-solid" href="#how">
@@ -49,7 +49,7 @@ export default function TechnologyContent() {
         }
         metaLeft={
           <>
-            <b>17 patents pending</b> · Albuquerque, NM
+            <b>17 provisional patents filed</b> · Albuquerque, NM
           </>
         }
         metaRight={
