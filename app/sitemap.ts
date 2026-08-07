@@ -24,9 +24,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/governance", priority: 0.9, freq: "monthly" as const },
     { path: "/technology", priority: 0.8, freq: "monthly" as const },
 
-    // Products (retired pre-Forge product pages deleted + 301'd 2026-08-07, RULED by Mark;
-    // /voice-concierge, /voice-concierge/campaign, /invoiceflow, /orderline, /voice-ordering.
-    // Mentis stays — current public brand.)
+    // Products. Retired pre-Forge pages were dropped from the sitemap 2026-07-13 and their
+    // route files DELETED 2026-08-07 (RULED by Mark): /voice-concierge,
+    // /voice-concierge/campaign, /invoiceflow, /orderline, /voice-ordering — all now 301.
+    // Mentis stays — current public brand.
     { path: "/dominus-os", priority: 0.9, freq: "monthly" as const },
     { path: "/mentis", priority: 0.8, freq: "monthly" as const },
     { path: "/qb-migration", priority: 0.7, freq: "monthly" as const },
@@ -57,6 +58,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       path: "/blog/the-case-for-constitutional-synthetic-intelligence",
       priority: 0.7,
+      freq: "monthly" as const,
+    },
+
+    // Learn (GEO reference content — Clio)
+    { path: "/learn", priority: 0.7, freq: "weekly" as const },
+    {
+      path: "/learn/platform/ai-software-company-for-construction-and-trades",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/ai-software-for-construction-and-trades",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/ai-vertical-saas-for-the-trades-what-it-is-and-real-examples",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
+      priority: 0.8,
+      freq: "monthly" as const,
+    },
+    {
+      path: "/learn/platform/vertical-ai-platform-for-traditional-industries-dominus-foundry",
+      priority: 0.8,
       freq: "monthly" as const,
     },
   ];

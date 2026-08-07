@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'QuickBooks Migration & Cleanup (Retired Offering) | Dominus Foundry',
   description:
-    'We currently focus on Voice Concierge and other tool families. If you need QuickBooks migration help as part of a broader build, reach out via Contact.',
+    'We currently focus Dominus Foundry on Forge, our AI operations platform. If you need QuickBooks migration help as part of a broader build, reach out via Contact.',
   robots: {
     index: false,
     follow: false,
@@ -14,7 +14,7 @@ export default function QBMigrationRetired() {
       <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-4">
         <h1 className="heading-forge-xl text-slate-900">QuickBooks Migration &amp; Cleanup (Retired Offering)</h1>
         <p className="body-foundry text-slate-800">
-          We currently focus Dominus Foundry on Voice Concierge and the broader tool family catalog. If you need help with
+          We currently focus Dominus Foundry on Forge, our AI operations platform. If you need help with
           QuickBooks migrations as part of a broader system build, reach out via the contact page and we&apos;ll point you in the
           right direction.
         </p>
