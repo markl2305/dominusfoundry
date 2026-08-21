@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
+import { rateLimit, getClientIp, escapeText, isPlausibleEmail } from "@/lib/mail-guard";
 
 export async function POST(req) {
+  // ⚠ VOLUME BOUND (audit F-0056) — fixed-window, per-isolate, per-IP. Bounds one noisy
+  // sender; does nothing against a distributed one.
+  const ip = getClientIp(req.headers);
+  const ipGate = rateLimit(`apply:ip:${ip}`, 5, 60_000);
+  if (!ipGate.allowed) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((ipGate.resetAt - Date.now()) / 1000)) } }
+    );
+  }
   try {
     const payload = await req.json();
     const {
@@ -63,11 +74,21 @@ export async function POST(req) {
       });
 
       if (email) {
+        // ⚠ CALLER-NAMED RECIPIENT (audit F-0056). `text:` not `html:`, so there is NO HTML
+        // injection on this route — that half of the finding belongs to the other four.
+        // What applies here is the recipient: an unauthenticated caller picks the address
+        // the platform mails from its own sending domain, and firstName is echoed into it.
+        if (!isPlausibleEmail(email)) {
+          return NextResponse.json({ ok: true });
+        }
+        if (!rateLimit(`apply:to:${String(email).toLowerCase()}`, 3, 3_600_000).allowed) {
+          return NextResponse.json({ ok: true });
+        }
         await resend.emails.send({
           from,
           to: email,
           subject: "Application Received — Dominus Foundry",
-          text: `Thanks for applying, ${firstName}. We received your application for the Founding Sales Rep position.\n\nIf your background matches what we're looking for, you'll hear from us within 3 business days.\n\nDominus Foundry\nhttps://dominusfoundry.com`,
+          text: `Thanks for applying, ${escapeText(firstName, 80)}. We received your application for the Founding Sales Rep position.\n\nIf your background matches what we're looking for, you'll hear from us within 3 business days.\n\nDominus Foundry\nhttps://dominusfoundry.com`,
         });
       }
     } else {

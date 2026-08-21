@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
+import { rateLimit, getClientIp, escapeText, isPlausibleEmail } from "@/lib/mail-guard";
 
 export async function POST(req) {
+  // ⚠ VOLUME BOUND (audit F-0056) — fixed-window, per-isolate, per-IP. Bounds one noisy
+  // sender; does nothing against a distributed one.
+  const ip = getClientIp(req.headers);
+  const ipGate = rateLimit(`contact:ip:${ip}`, 5, 60_000);
+  if (!ipGate.allowed) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((ipGate.resetAt - Date.now()) / 1000)) } }
+    );
+  }
   try {
     const payload = await req.json();
     const {
@@ -36,11 +47,25 @@ export async function POST(req) {
 
       // Send a copy/receipt to the submitter if they provided an email
       if (email) {
+      // ⚠ CALLER-NAMED RECIPIENT (audit F-0056). These three routes send `text:`, not
+      // `html:`, so there is NO HTML injection here — the finding's other four routes have
+      // that and these do not. What remains is the half that does apply: an
+      // unauthenticated caller chooses the recipient AND the body is a verbatim echo of
+      // their own submission, so the platform delivers attacker-composed plaintext from
+      // its own sending domain to an address the attacker picked. Validate the address,
+      // window it per-recipient, and cap the echoed body so one field cannot become the
+      // whole message.
+      if (!isPlausibleEmail(email)) {
+        return NextResponse.json({ ok: true });
+      }
+      if (!rateLimit(`contact:to:${String(email).toLowerCase()}`, 3, 3_600_000).allowed) {
+        return NextResponse.json({ ok: true });
+      }
         await resend.emails.send({
           from,
           to: email,
           subject: "We received your message — Dominus Foundry",
-          text: `Thanks for reaching out. Here’s a copy of what you sent:\n\n${body}\n\nWe’ll reply within one business day.`,
+          text: `Thanks for reaching out. Here’s a copy of what you sent:\n\n${escapeText(body, 4000)}\n\nWe’ll reply within one business day.`,
         });
       }
     } else {
