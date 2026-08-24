@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import SmsConsent, { SMS_CONSENT_TEXT, SMS_CONSENT_VERSION, SMS_CONSENT_FIELD } from "./SmsConsent";
+import SmsConsent, { SMS_CONSENT_FIELD } from "./SmsConsent";
 import { event as gaEvent } from "@/lib/gtag";
 
 // Video script for reference (not displayed on page):
@@ -73,11 +73,11 @@ export default function IntakeForm() {
       timeline: formData.get("urgency") || "Intake lead",
       notes,
       form_type: "intake",
-      // SMS consent is its own field, never folded into `notes`. The disclosure
-      // text and version travel with it so the grant can be evidenced later.
-      [SMS_CONSENT_FIELD]: formData.get(SMS_CONSENT_FIELD) === "on",
-      smsConsentVersion: SMS_CONSENT_VERSION,
-      smsConsentText: SMS_CONSENT_TEXT,
+      // SMS consent is its own field, never folded into `notes`. Sent raw —
+      // "on" when ticked, null when not — because lib/sms-consent.js owns what
+      // counts as a grant and stamps the disclosure text/version server-side
+      // rather than trusting the client's copy of them.
+      [SMS_CONSENT_FIELD]: formData.get(SMS_CONSENT_FIELD),
     };
 
     const res = await fetch("/api/lead", {

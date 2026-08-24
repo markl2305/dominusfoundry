@@ -38,20 +38,21 @@ export default function SmsTerms() {
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
                 <li>
-                  <strong>Web Form Submission:</strong> By entering your mobile phone number and checking the
-                  SMS consent checkbox on any form on our website (dominusfoundry.com), including our
-                  contact form at{' '}
-                  <a href="/contact" className="text-navy-500 underline font-semibold">dominusfoundry.com/contact</a>{' '}
-                  and our get-started form at{' '}
+                  <strong>Web Form Submission:</strong> By entering your mobile phone number and ticking the
+                  SMS consent checkbox — which is unchecked by default — on our intake form at{' '}
                   <a href="/start" className="text-navy-500 underline font-semibold">dominusfoundry.com/start</a>.
+                  {' '}(<a href="/contact" className="text-navy-500 underline font-semibold">dominusfoundry.com/contact</a>{' '}
+                  leads to the same form.) Ticking the box is optional and separate from the rest of the
+                  form; submitting without it does not opt you in to text messages.
                 </li>
                 <li>
                   <strong>Verbal Consent:</strong> By verbally providing your phone number and agreeing to
                   receive text messages during a phone call with a Dominus Foundry™ representative.
                 </li>
                 <li>
-                  <strong>Text-In:</strong> By texting a keyword (e.g., &ldquo;START&rdquo; or &ldquo;INFO&rdquo;)
-                  to our business number.
+                  <strong>Text-In:</strong> By replying START to a message from our business number to
+                  re-subscribe after opting out. START is the only opt-in keyword we operate; it is the
+                  same keyword registered for our messaging campaign.
                 </li>
               </ul>
               <p className="mt-4">

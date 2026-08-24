@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { buildConsentRecord, renderConsentForEmail } from "@/lib/sms-consent";
 
 export async function POST(req) {
   try {
@@ -7,29 +8,19 @@ export async function POST(req) {
       firstName = "", lastName = "", email = "", phone = "",
       company = "", sourceSystem = "", history = "", timeline = "",
       notes = "", ppc = false,
-      smsConsent = false, smsConsentVersion = "", smsConsentText = ""
+      smsConsent = false
     } = payload ?? {};
 
-    // 10DLC evidence. Three rules, all deliberate:
-    //  1. Strict === true. Anything else (absent, "", "false", 0) is a refusal,
-    //     so a form that simply omits the field can never manufacture a grant.
-    //  2. A grant needs a number to send to. Phone is optional on the intake
-    //     form, so a checked box with no phone is recorded as NOT granted —
-    //     we will not hold evidence of consent for a number we do not have.
-    //  3. The timestamp is taken server-side; a client clock is not evidence.
-    const consentClaimed = smsConsent === true;
-    const smsConsentGranted = consentClaimed && phone.trim() !== "";
-    const consentRecord = {
-      granted: smsConsentGranted,
-      claimed_without_phone: consentClaimed && !smsConsentGranted,
-      recorded_at: new Date().toISOString(),
-      disclosure_version: smsConsentVersion || "unversioned",
-      disclosure_text: smsConsentText || "(not supplied by form)",
+    // 10DLC evidence. The rules (strict accepted encodings, phone required for
+    // a grant, server-side timestamp) live in src/lib/sms-consent.js next to the
+    // disclosure wording itself, so what we store cannot drift from what we
+    // showed. See that file for why each rule is there.
+    const consentRecord = buildConsentRecord({
+      raw: smsConsent,
       phone,
-      source_form: sourceSystem || "unknown",
-      ip: req.headers.get("x-forwarded-for") || "unknown",
-      user_agent: req.headers.get("user-agent") || "unknown",
-    };
+      sourceForm: sourceSystem,
+      req,
+    });
 
     const to = process.env.LEADS_TO_EMAIL;
     const from = process.env.LEADS_FROM_EMAIL || "foundry@dominusfoundry.com";
@@ -45,18 +36,8 @@ export async function POST(req) {
       `Timeline: ${timeline}`,
       `PPC: ${ppc ? "yes" : "no"}`,
       `Notes: ${notes}`,
-      "",
-      "--- SMS CONSENT (10DLC evidence) ---",
-      `SMS Consent: ${smsConsentGranted ? "GRANTED" : "NOT GRANTED"}`,
-      `Recorded At: ${consentRecord.recorded_at}`,
-      `Disclosure Version: ${consentRecord.disclosure_version}`,
-      `Disclosure Shown: ${consentRecord.disclosure_text}`,
-      consentRecord.claimed_without_phone
-        ? "Note: box was checked but no phone number was supplied — not recorded as consent."
-        : null,
-      `IP: ${consentRecord.ip}`,
-      `User Agent: ${consentRecord.user_agent}`
-    ].filter(Boolean).join("\n");
+      ...renderConsentForEmail(consentRecord)
+    ].join("\n");
 
     // Structured line so consent is greppable in logs independently of the email.
     console.log("sms_consent_record " + JSON.stringify(consentRecord));

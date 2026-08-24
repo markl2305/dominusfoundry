@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import SmsConsent from "./SmsConsent";
+import SmsConsent, { SMS_CONSENT_FIELD } from "./SmsConsent";
 
 export default function ProductInquiryForm({ product }) {
   const [sending, setSending] = useState(false);
@@ -43,6 +43,9 @@ export default function ProductInquiryForm({ product }) {
         `What matters most: ${formData.get("priorities")?.trim() || "Not provided"}`,
       ].join("\n"),
       product,
+      // This form builds its payload field by field, so the checkbox it renders
+      // has to be attached explicitly or its value is silently discarded.
+      [SMS_CONSENT_FIELD]: formData.get(SMS_CONSENT_FIELD),
     };
 
     const res = await fetch("/api/lead", {

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { buildConsentRecord, renderConsentForEmail } from "@/lib/sms-consent";
 
 export async function POST(req) {
   try {
@@ -8,8 +9,20 @@ export async function POST(req) {
       lastName = "", 
       email = "", 
       phone = "",
-      message = ""
+      message = "",
+      smsConsent = false
     } = payload ?? {};
+
+    // This route renders the same SMS consent checkbox as /api/lead, so it must
+    // record the same evidence. A checkbox whose value is discarded is worse
+    // than no checkbox: it shows the visitor an affirmative act that leaves no
+    // trace, while the TCR record asserts the act is captured.
+    const consentRecord = buildConsentRecord({
+      raw: smsConsent,
+      phone,
+      sourceForm: "contact",
+      req,
+    });
 
     const to = process.env.LEADS_TO_EMAIL;
     const from = process.env.LEADS_FROM_EMAIL || "foundry@dominusfoundry.com";
@@ -21,8 +34,12 @@ export async function POST(req) {
       `Phone: ${phone || "Not provided"}`,
       ``,
       `Message:`,
-      `${message}`
+      `${message}`,
+      ...renderConsentForEmail(consentRecord)
     ].join("\n");
+
+    // Structured line so consent is greppable in logs independently of the email.
+    console.log("sms_consent_record " + JSON.stringify(consentRecord));
 
     if (RESEND_API_KEY && to) {
       const { Resend } = await import("resend");
