@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import SmsConsent from "./SmsConsent";
 
 export default function ProductInquiryForm({ product }) {
   const [sending, setSending] = useState(false);
@@ -155,6 +156,8 @@ export default function ProductInquiryForm({ product }) {
         </div>
       </div>
 
+      <SmsConsent />
+
       <Button type="submit" disabled={sending} className="justify-center">
         {sending ? "Sending…" : "Request a call"}
       </Button>
@@ -163,14 +166,10 @@ export default function ProductInquiryForm({ product }) {
         By submitting, you agree to our{" "}
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
-        </a>{" "}
-        and{" "}
-        <a href="/sms-terms" className="underline font-semibold text-forge-700 hover:text-forge-800">
-          SMS Terms
         </a>
-        , and consent to receive calls, emails, and texts (including automated) about your request.
-        Message frequency varies (typically 1–10 msgs/mo). Message and data rates may apply.
-        Reply STOP to opt out. Reply HELP for help. Consent is not required to make a purchase.
+        , and consent to be contacted by phone or email about your request.
+        Consent to receive text messages is separate, optional, and given only by
+        checking the box above. Consent is not required to make a purchase.
         We do not sell your personal information.
       </p>
     </form>

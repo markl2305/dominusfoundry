@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import SmsConsent, { SMS_CONSENT_TEXT, SMS_CONSENT_VERSION, SMS_CONSENT_FIELD } from "./SmsConsent";
 import { event as gaEvent } from "@/lib/gtag";
 
 // Video script for reference (not displayed on page):
@@ -34,6 +35,7 @@ const urgencyOptions = [
 export default function IntakeForm() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
@@ -71,6 +73,11 @@ export default function IntakeForm() {
       timeline: formData.get("urgency") || "Intake lead",
       notes,
       form_type: "intake",
+      // SMS consent is its own field, never folded into `notes`. The disclosure
+      // text and version travel with it so the grant can be evidenced later.
+      [SMS_CONSENT_FIELD]: formData.get(SMS_CONSENT_FIELD) === "on",
+      smsConsentVersion: SMS_CONSENT_VERSION,
+      smsConsentText: SMS_CONSENT_TEXT,
     };
 
     const res = await fetch("/api/lead", {
@@ -152,10 +159,13 @@ export default function IntakeForm() {
           />
         </div>
         <div>
-          <label className={labelClass}>Phone (optional)</label>
+          <label className={labelClass}>
+            {smsConsent ? "Phone *" : "Phone (optional)"}
+          </label>
           <input
             name="phone"
             type="tel"
+            required={smsConsent}
             className={inputClass}
             autoComplete="tel"
           />
@@ -210,6 +220,8 @@ export default function IntakeForm() {
         </div>
       </div>
 
+      <SmsConsent onChange={setSmsConsent} />
+
       <Button type="submit" disabled={sending} className="justify-center">
         {sending ? "Sending…" : "Get my system design"}
       </Button>
@@ -218,14 +230,10 @@ export default function IntakeForm() {
         By submitting, you agree to our{" "}
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
-        </a>{" "}
-        and{" "}
-        <a href="/sms-terms" className="underline font-semibold text-forge-700 hover:text-forge-800">
-          SMS Terms
         </a>
-        , and consent to receive calls, emails, and texts (including automated) about your request.
-        Message frequency varies (typically 1–10 msgs/mo). Message and data rates may apply.
-        Reply STOP to opt out. Reply HELP for help. Consent is not required to make a purchase.
+        , and consent to be contacted by phone or email about your request.
+        Consent to receive text messages is separate, optional, and given only by
+        checking the box above. Consent is not required to make a purchase.
         We do not sell your personal information.
       </p>
     </form>
