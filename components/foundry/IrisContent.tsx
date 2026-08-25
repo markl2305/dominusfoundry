@@ -104,7 +104,7 @@ export default function IrisContent() {
         }
         metaLeft={
           <>
-            A module on Forge Core · <b>Albuquerque, NM</b>
+            A hire, not a module · <b>Albuquerque, NM</b>
           </>
         }
         metaRight={
@@ -217,34 +217,45 @@ export default function IrisContent() {
         </div>
       </section>
 
+      {/* RULED 2026-08-25 (Mark): she is a hire, not a module. One number, Core inside it.
+          The salary she is measured against renders BEFORE the price, in DOM order, on purpose.
+          RETIRED here and never restored: $1,500 as a public price, $2,099 as a public sum,
+          and the additive "$599 + $1,500" presentation. */}
       <section className="section" id="price">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '36px' }}>
             <p className="eyebrow reveal">What she costs</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Two lines, added up in front of you.
+              One number, read against a salary.
             </h2>
+            <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
+              The person she stands in for costs about <strong>$4,000 a month</strong> fully loaded — wage, tax, benefits, the seat. That is the
+              figure Forge publishes as the comparison, and it is the one this price is meant to be read against.
+            </p>
           </div>
           <div className="pricelines reveal d1">
             <div className="pline">
-              <span className="pl-k serif">Forge Core</span>
+              <span className="pl-k serif">The Hire</span>
               <span className="pl-v serif">
-                $599<span className="pl-u">/mo</span>
+                $3,500<span className="pl-u">/mo</span>
               </span>
-              <span className="pl-d">The record. Flat, whole company, unlimited users — no per-seat charge. The required base every module runs on.</span>
+              <span className="pl-d">
+                One tier. Forge Core is included — the record she works inside is not a second line and is never quoted separately. No
+                per-call meter, no per-seat charge.
+              </span>
             </div>
             <div className="pline">
-              <span className="pl-k serif">Iris</span>
+              <span className="pl-k serif">Setup</span>
               <span className="pl-v serif">
-                $1,500<span className="pl-u">/mo*</span>
+                $1,000<span className="pl-u"> one-time</span>
               </span>
-              <span className="pl-d">The employee, added to Core like any other module. No per-call meter.</span>
+              <span className="pl-d">A single one-time charge. Waived for the founding ten.</span>
             </div>
           </div>
-          <p className="pricesum">
-            $2,099 / mo together <span>· Hyperion, Ariadne, Sigil and Torch add to the same bill when you want them.</span>
+          <p className="pricenote">
+            There is no second or third hire package. Hyperion, Ariadne, Sigil and Torch are bought on their own rate card and are quoted
+            separately — this page publishes no combined figure, because none has been set.
           </p>
-          <p className="pricenote">*$1,500 covers typical volume. Very heavy users may move to a higher tier.</p>
         </div>
       </section>
 

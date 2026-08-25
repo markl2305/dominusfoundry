@@ -137,7 +137,7 @@ export default function RootLayout({
                     name: "Forge™",
                     applicationCategory: "BusinessApplication",
                     description:
-                      "AI operations platform for commercial trade contractors (AV/security, fire/life-safety, roofing, solar). Current modules: Hyperion, Iris, Calliope, Sigil, Treasury, Mentor, Herald, Torch.",
+                      "AI operations platform for commercial trade contractors (AV/security, fire/life-safety, roofing, solar). Current modules: Hyperion, Calliope, Sigil, Treasury, Mentor, Herald, Torch. Iris is sold as a hire, not as a module.",
                     url: "https://buildwithforge.app",
                   },
                 },

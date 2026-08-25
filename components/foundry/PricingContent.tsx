@@ -1,59 +1,67 @@
 'use client'
 
-/* PricingContent.tsx — the holding company's reference page for what Forge costs.
+/* PricingContent.tsx - the holding company's reference page for what Forge costs.
    RULED by Mark 2026-08-07: "fix the dominus foundry pricing to discuss forge and be a
-   range (but an accurate one) — its job is not to sell."
+   range (but an accurate one) - its job is not to sell."
 
-   Three constraints follow, and they are load-bearing:
+   SUPERSEDING RULING, Mark 2026-08-25 (PRICING_CANON_2026-08-05.md, block "IRIS IS A HIRE,
+   NOT A MODULE"): Forge is sold on two ladders that are never interleaved.
+     LADDER A - The Hire, $3,500/mo, one tier. Core is INCLUDED and is never a line item.
+                Setup $1,000 once, waived for the founding ten.
+     LADDER B - the tools, a la carte on Core: Core $599, Hyperion $499, Ariadne $499,
+                Sigil $49, Torch $35/number, Treasury coming soon (no price).
+   Iris appears on NO rate card at ANY price. She is only ever sold as The Hire.
+   RETIRED and never restored here: Iris $1,500 as a public price; $2,099 as a public
+   "Core + Iris together" sum; the additive "$599 + $1,500" presentation.
+
+   Constraints that remain load-bearing:
      1. It discusses Forge, using the real product and the real numbers. The legacy
         Engine/tier services sheet is gone, and "Forge" never names a build-fee tier again.
-     2. The range is additive and its endpoints are real configurations: $599/mo (Core
-        alone) to $2,099/mo (Core + Iris). No invented top-end figure.
-     3. Its job is not to sell. No CTA stack, no urgency, no competitor comparison —
+     2. Order of appearance: the ~$4,000 fully-loaded CSR figure published on
+        buildwithforge.app renders BEFORE any Forge price in DOM order. A price seen first
+        is compared to software; a price seen after the salary is compared to payroll.
+     3. Its job is not to sell. No CTA stack, no urgency, no competitor comparison -
         a reference table with exactly one link out, to buildwithforge.app.
 
    Every number here comes from PRICING_CANON_2026-08-05.md and nowhere else. */
 import { PageHero } from './FoundryShell'
 
-/* The range, stated as three real figures. Nothing here is a package or a tier —
-   they are the floor, the common configuration, and the one-time charge. */
-const RANGE = [
+/* LADDER A - the hire. One tier. Core is inside it and is never a line item.
+   The first card is deliberately NOT a Forge price: it is the salary comparison
+   already published on buildwithforge.app, and it renders first on purpose. */
+const HIRE = [
   {
-    n: '$599',
+    n: '~$4,000',
     u: '/mo',
-    l: 'The floor',
-    d: 'Forge Core on its own. Flat for the whole company, unlimited users. Nothing runs below this line, because every module reads and writes to Core.',
-    q: 'Forge Core only',
+    l: 'What it stands in for',
+    d: 'A fully-loaded customer-service rep — wage, tax, benefits, the seat. This is the figure Forge publishes on its own homepage as the comparison, and it is not a Forge price.',
+    q: 'Published on buildwithforge.app',
   },
   {
-    n: '$2,099',
+    n: '$3,500',
     u: '/mo',
-    l: 'The common shape',
-    d: 'The record plus the employee — the configuration most businesses ask about. $599 and $1,500, added up in front of you rather than bundled into one number.',
-    q: 'Forge Core + Iris',
+    l: 'The Hire',
+    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder.',
+    q: 'Core included',
   },
   {
     n: '$1,000',
     u: 'once',
     l: 'Setup',
-    d: 'A single one-time charge. It applies to Core, to à-la-carte builds, and to Iris deals alike. Waived for the founding ten.',
+    d: 'A single one-time charge, unchanged. Waived for the founding ten.',
     q: 'One-time · not monthly',
   },
 ]
 
-/* The rate card. Order: base first, then modules, then the one-time line. */
+/* LADDER B - the tools, bought a la carte on Core. A separate door for an operator
+   who wants the system of record and is not hiring. This card is additive.
+   The Hire does not appear on it, and no hire is priced from it. */
 const LINES = [
   {
     k: 'Forge Core',
     v: '$599',
     u: '/mo',
-    d: 'The record every other product reads and writes. The required base — no module runs without it. Flat for the whole company, unlimited users, no per-seat charge.',
-  },
-  {
-    k: 'Iris',
-    v: '$1,500',
-    u: '/mo*',
-    d: 'The employee, added to Core like any other module. She answers the customer, carries the money conversation, and carries what you hand her to done. No per-call meter.',
+    d: 'The record every other product reads and writes. The required base of this ladder — no module runs without it. Flat for the whole company, unlimited users, no per-seat charge.',
   },
   {
     k: 'Hyperion',
@@ -77,7 +85,7 @@ const LINES = [
     k: 'Torch',
     v: '$35',
     u: '/number/mo',
-    d: 'Telephony. Priced per active phone number, quantity-priced — not per user. Four numbers is four lines of $35.',
+    d: 'Telephony. Priced per active phone number — a provisioned quantity, not a meter and not a per-user charge. Four numbers is four lines of $35.',
   },
   {
     k: 'Treasury',
@@ -89,28 +97,24 @@ const LINES = [
     k: 'Setup',
     v: '$1,000',
     u: 'one-time',
-    d: 'One-time, on Core, à-la-carte builds and Iris deals alike. Waived for the founding ten.',
+    d: 'One-time, on Core and on a-la-carte builds. Waived for the founding ten.',
   },
 ]
 
-/* Worked arithmetic. Every line is a configuration that actually exists, priced
-   from the rate card above — this is what "range" means here. */
+/* Worked arithmetic. Every line is a configuration that actually exists.
+   The Hire is one number and is shown as one number; only Ladder B adds up. */
 const EXAMPLES = [
   {
+    k: 'The Hire',
+    v: '$3,500 / mo, plus $1,000 once at setup. Core is inside that number, not beside it — there is nothing to add up.',
+  },
+  {
     k: 'Core alone',
-    v: '$599 / mo, plus $1,000 once at setup. The floor: the record, the whole company on it, and nothing else added.',
-  },
-  {
-    k: 'Core + Iris',
-    v: '$599 + $1,500 = $2,099 / mo, plus $1,000 once. The top of the range as most businesses buy it.',
-  },
-  {
-    k: 'Core + Iris + Hyperion',
-    v: '$599 + $1,500 + $499 = $2,598 / mo, plus $1,000 once. Past the top of the range, because a module was added — not because a bigger package was bought.',
+    v: '$599 / mo, plus $1,000 once at setup. The floor of the tools ladder: the record, the whole company on it, and nothing else added.',
   },
   {
     k: 'Core + Hyperion + Sigil + four Torch numbers',
-    v: '$599 + $499 + $49 + (4 × $35) = $1,287 / mo, plus $1,000 once. No Iris in this one.',
+    v: '$599 + $499 + $49 + (4 × $35) = $1,287 / mo, plus $1,000 once. The tools ladder, added up.',
   },
 ]
 
@@ -121,7 +125,7 @@ export default function PricingContent() {
         eyebrow="Reference · What Forge costs"
         title={
           <>
-            One base, then <em>lines on top</em>.
+            Two doors, and they <em>are not the same door</em>.
           </>
         }
         lead="Dominus Foundry is the holding company behind Forge. This page is a reference — what the platform costs and how the pricing is put together, so an investor or a partner can read it without a call. Forge itself is bought at buildwithforge.app."
@@ -132,7 +136,7 @@ export default function PricingContent() {
         }
         metaRight={
           <>
-            <b>Additive</b> · no tiers, no packages, no per-seat charge
+            <b>Two ladders</b> · no tiers to climb, no per-seat charge
           </>
         }
       />
@@ -141,33 +145,38 @@ export default function PricingContent() {
         <div className="wrap">
           <div className="intro-grid">
             <h2 className="i-head reveal">
-              A quote is <em>arithmetic</em> you can do yourself.
+              A hire is <em>not</em> a line item.
             </h2>
             <div className="i-body reveal d1">
               <p>
-                Forge Core is the record. It is the required base: every module reads and writes to it, so nothing runs without it. Core is flat
-                for the whole company — unlimited users, no per-seat charge — which means adding people does not change the bill.
+                Forge is sold two ways, and they are quoted separately on purpose. A business either hires the employee or buys the tools.
+                Those are different purchases, read against different budgets, and putting them on one list would misfile both.
               </p>
               <p>
-                Everything else is a line added to that base. There are no tiers to climb and no packages to decode. A business picks the
-                modules it actually needs, and the price is $599 plus those lines.
+                The first way is a hire. One number covers her and the system of record she works inside; the record is not itemised, for the
+                same reason a salary is not quoted as base plus benefits plus payroll tax. The comparison it is meant to be read against is a
+                person, and the figure for that person appears before the price below.
               </p>
               <p>
-                That is why the honest answer to “what does Forge cost” is a range with named endpoints rather than a single headline number —
-                and why there is no ceiling figure on this page. A ceiling would have to be invented, because no configuration produces one.
+                The second way is the tools, bought a line at a time on Forge Core. That ladder is additive and the arithmetic is yours to do:
+                Core is flat for the whole company — unlimited users, no per-seat charge — and each module is a line on top of it.
+              </p>
+              <p>
+                Neither ladder has tiers to climb or packages to decode, and this page publishes no ceiling figure. A ceiling would have to be
+                invented, because no configuration produces one.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section figures-section" id="range">
+      <section className="section figures-section" id="hire">
         <div className="wrap">
           <p className="eyebrow reveal" style={{ marginBottom: '30px' }}>
-            The range, with its endpoints named
+            The first way · a hire, quoted against a salary
           </p>
           <div className="figures reveal d1">
-            {RANGE.map((f) => (
+            {HIRE.map((f) => (
               <div className="figure" key={f.l}>
                 {/* --ink-2, not --ink-3: at this size --ink-3 measures 4.49:1 on --panel, a hair under AA. */}
                 <div className="fg-n serif">
@@ -181,8 +190,8 @@ export default function PricingContent() {
             ))}
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
-            A business that adds Hyperion, Ariadne, Sigil or Torch pays more than $2,099, and the rate card below says exactly how much more.
-            There is no figure above $2,099 to publish as a maximum, because there is no package that produces one.
+            One tier. There is no second or third hire package to move up to. A business that also wants a tool from the rate card below is
+            quoted for it separately — this page publishes no combined figure, because none has been set.
           </p>
         </div>
       </section>
@@ -190,10 +199,14 @@ export default function PricingContent() {
       <section className="section" id="rate-card">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '40px' }}>
-            <p className="eyebrow reveal">The rate card</p>
+            <p className="eyebrow reveal">The second way · the tools</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Every line that can appear on a Forge invoice.
+              Bought a line at a time, on Core.
             </h2>
+            <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
+              A separate door, for an operator who wants the system of record and is not hiring. The hire above is not on this card and is not
+              priced from it.
+            </p>
           </div>
           <div className="pricelines reveal d1">
             {LINES.map((l) => (
@@ -213,7 +226,10 @@ export default function PricingContent() {
               </div>
             ))}
           </div>
-          <p className="pricenote">*$1,500 covers typical volume. Very heavy users may move to a higher tier.</p>
+          <p className="pricenote">
+            Every line above is flat and monthly. Torch is the one that scales with something countable — active phone numbers you have
+            provisioned, not calls placed.
+          </p>
         </div>
       </section>
 
@@ -222,7 +238,7 @@ export default function PricingContent() {
           <div className="section-head" style={{ marginBottom: '40px' }}>
             <p className="eyebrow reveal">Worked out</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Four real configurations, added up.
+              Three real configurations.
             </h2>
           </div>
           <div className="criteria reveal d1">
@@ -241,9 +257,9 @@ export default function PricingContent() {
           <p className="eyebrow reveal">Terms, plainly</p>
           <h2 className="reveal d1">No per-seat charge. No per-call meter.</h2>
           <p className="darkband-lead reveal d1">
-            Core is flat for the whole company, so hiring does not raise the bill. Iris is not metered per call — $1,500 covers typical volume,
-            and a very heavy user moves to a higher tier rather than onto a meter. Torch is the one line that scales with something countable:
-            active phone numbers, at $35 each. Setup is charged once, on every kind of deal, and is waived for the founding ten.
+            The hire is one flat monthly number and is not metered per call. Core is flat for the whole company, so adding people does not
+            raise the bill. Torch is the one line that scales with something countable: active phone numbers you have provisioned, at $35
+            each. Setup is charged once, on either ladder, and is waived for the founding ten.
           </p>
         </div>
       </section>
@@ -271,7 +287,7 @@ export default function PricingContent() {
           </div>
           <p className="pricenote" style={{ marginTop: '44px' }}>
             All prices in USD. Monthly lines bill monthly; setup is a single one-time charge. Torch is billed per active phone number.
-            Treasury is in development and carries no published price.
+            Treasury is in development and carries no published price. The Founding Charter rate is not published here or anywhere else.
           </p>
         </div>
       </section>

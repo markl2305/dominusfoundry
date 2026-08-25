@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Deals start at <strong>$599/mo</strong> for Forge Core and grow from there with add-on modules. Pricing is flat-rate with unlimited users, plus a $1,000 one-time setup fee. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>The Hire at $3,500/mo</strong>, one tier, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $1,000 one-time setup fee. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -177,7 +177,7 @@ export default function CareersPage() {
               Do the math
             </h3>
             <p className="body-foundry text-slate-800">
-              A rep closing 10 Forge™ accounts a month at <strong>$2,099/mo</strong> (Core + Iris) is putting <strong>$20,990/month</strong> of new recurring revenue on the books &mdash; and earns a 15% residual on every one of them, on top of the first-month commission. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              A rep closing 10 Forge™ accounts a month at <strong>$3,500/mo</strong> (The Hire) is putting <strong>$35,000/month</strong> of new recurring revenue on the books &mdash; and earns a 15% residual on every one of them, on top of the first-month commission. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.
