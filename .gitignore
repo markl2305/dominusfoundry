@@ -6,3 +6,16 @@ node_modules/
 .next/
 .next/
 .next/
+
+# --- Secrets Registry policy (self-contained, added 2026-08-24) ---
+# This repo protects its OWN secrets. Do NOT rely on ~/.config/git/ignore:
+# a machine-global excludesFile does not travel with a clone, a restored
+# bundle, a CI checkout, or a fresh machine. Keep this block in-repo.
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+.secrets.map
+.npmrc
+.netrc
