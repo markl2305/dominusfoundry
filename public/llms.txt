@@ -5,7 +5,18 @@
 Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry.
 
 ## Flagship Product
-- Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors — AV/security, fire/life-safety, roofing, and solar. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 17 provisional patents filed.
+- Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 18 provisional patent applications filed — patent-pending, not issued, and never described as "patented".
+
+## Trades Forge serves
+RULED 2026-08-23, and the tier boundary is the point.
+- Live in production today: commercial roofing (All Weather Roofing, in production since March 2026, invoiced and paid — the one arms-length named customer); AV and security, low voltage (in production on a founder-affiliated integrator, disclosed as such — dogfooding, not arms-length proof).
+- Next phase, NOT shipping, no production customer, stated only as roadmap: fire and life safety; solar.
+- Not served and not announced: HVAC; electrical. Earlier copy listed four or six trades as current. Those lists were wrong and are retired.
+
+## Corporate identity
+- Dominus Foundry LLC is the PARENT COMPANY of Forge and Iris. dominusfoundry.com and buildwithforge.app are two web properties of ONE company, not two organizations.
+- In the structured data on both domains the company is one node with one identifier: https://dominusfoundry.com/#organization. Forge (https://buildwithforge.app/#forge) and Iris (https://buildwithforge.app/#iris) are products published by it.
+- Forge is NOT a subsidiary and NOT a separate legal entity. It is a product.
 
 ## Pricing
 - Forge is sold two ways, and they are separate offers. They are not tiers of one another and should never be merged into a single list.
