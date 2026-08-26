@@ -49,7 +49,7 @@ export default function TechnologyContent() {
         }
         metaLeft={
           <>
-            <b>17 provisional patents filed</b> · Albuquerque, NM
+            <b>18 provisional patents filed</b> · Albuquerque, NM
           </>
         }
         metaRight={
