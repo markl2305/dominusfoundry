@@ -14,7 +14,7 @@ const crimson = Crimson_Pro({
 export const metadata = {
   title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
   description:
-    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 17 provisional patents. Based in Albuquerque, NM.',
+    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 18 provisional patents. Based in Albuquerque, NM.',
   keywords: ['Dominus Foundry™', 'Forge™', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 17 provisional patents.',
+      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 18 provisional patents.',
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry™',
     images: [
@@ -104,12 +104,33 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+              // THE ENTITY BRIDGE (2026-08-23). This node had NO @id at all,
+              // and buildwithforge.app defined a SECOND company node at
+              // buildwithforge.app/#organization. A reconciler saw two
+              // organizations that happen to share a name, so none of this
+              // domain's authority reached the product.
+              //
+              // Measured over the Clio probe corpus since June:
+              // dominusfoundry.com appears in answer-engine sources in 1,589
+              // of 3,402 probes; buildwithforge.app appears in 1 of 5,475.
+              // The parent holds all of the authority and the product holds
+              // none. This @id is the fix: it is now the ONE canonical
+              // company identifier, and forge-web references it rather than
+              // defining a rival (markl2305/forge-web#213).
+              // ⛔ Do not change this string without changing it there too.
+              "@id": "https://dominusfoundry.com/#organization",
               name: "Dominus Foundry™ LLC",
               alternateName: ["Dominus Foundry™", "Dominus Foundry"],
               url: "https://dominusfoundry.com",
               logo: "https://dominusfoundry.com/logo-full.svg",
+              // VERTICALS CANON — RULED by Mark 2026-08-23. This read
+              // "across AV/security, fire/life-safety, roofing, and solar",
+              // stating all four as current. Only two are: AV/security and
+              // commercial roofing. Fire/life-safety and solar are next
+              // phase with no production customer, and a surface implying
+              // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. Its flagship product is Forge™ — a complete AI operations platform (not a CRM) for commercial trade contractors across AV/security, fire/life-safety, roofing, and solar. Forge's current product family includes Hyperion (LiDAR scan-to-proposal), Iris and Calliope (AI voice and customer service), Sigil, Treasury, Mentor, Herald, and Torch. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products.",
+                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. Its flagship product is Forge™ — a complete AI operations platform (not a CRM) for commercial trade contractors. Two trades run on Forge in production today: AV and security, and commercial roofing. Fire and life safety, and solar, are next phase and are not shipping yet. Forge's current product family includes Hyperion (LiDAR scan-to-proposal), Iris and Calliope (AI voice and customer service), Sigil, Treasury, Mentor, Herald, and Torch. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
@@ -129,22 +150,34 @@ export default function RootLayout({
                 "@type": "QuantitativeValue",
                 value: "1-10",
               },
+              // The parent asserts ownership downward, BY @id, at the same
+              // product nodes forge-web now defines on its own domain. This
+              // is the half of the bridge that could only be built here.
+              // ⛔ subOrganization is deliberately NOT used: Forge is a
+              // product, not a subsidiary, and subOrganization would assert
+              // a corporate child that does not exist. brand / owns /
+              // publisher are the correct predicates.
+              brand: [
+                { "@id": "https://buildwithforge.app/#forge-brand" },
+                { "@id": "https://buildwithforge.app/#iris-brand" },
+              ],
+              owns: [
+                { "@id": "https://buildwithforge.app/#forge" },
+                { "@id": "https://buildwithforge.app/#iris" },
+              ],
+              // makesOffer used to redefine a fourth "Forge" node inline.
+              // It now points at the product's own @id instead of minting a
+              // rival — the same mistake as the duplicate company node, one
+              // level down.
               makesOffer: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "Forge™",
-                    applicationCategory: "BusinessApplication",
-                    description:
-                      "AI operations platform for commercial trade contractors (AV/security, fire/life-safety, roofing, solar). Current modules: Hyperion, Iris, Calliope, Sigil, Treasury, Mentor, Herald, Torch.",
-                    url: "https://buildwithforge.app",
-                  },
-                },
+                { "@type": "Offer", itemOffered: { "@id": "https://buildwithforge.app/#forge" } },
+                { "@type": "Offer", itemOffered: { "@id": "https://buildwithforge.app/#iris" } },
               ],
               sameAs: [
+                "https://dominusfoundry.com",
                 "https://buildwithforge.app",
                 "https://www.linkedin.com/company/dominus-foundry",
+                "https://www.youtube.com/@Forge-DF",
               ],
             }),
           }}
@@ -156,12 +189,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://dominusfoundry.com/#website",
               name: "Dominus Foundry™",
               url: "https://dominusfoundry.com",
-              publisher: {
-                "@type": "Organization",
-                name: "Dominus Foundry™ LLC",
-              },
+              // Was an inline anonymous Organization — a THIRD company node
+              // on the same page as the first. Now a reference.
+              publisher: { "@id": "https://dominusfoundry.com/#organization" },
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
