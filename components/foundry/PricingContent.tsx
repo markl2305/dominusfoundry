@@ -6,11 +6,13 @@
 
    SUPERSEDING RULING, Mark 2026-08-25 (PRICING_CANON_2026-08-05.md, block "IRIS IS A HIRE,
    NOT A MODULE"): Forge is sold on two ladders that are never interleaved.
-     LADDER A - The Hire, $3,500/mo, one tier. Core is INCLUDED and is never a line item.
+     LADDER A - Iris, $3,500/mo, one tier. Core is INCLUDED and is never a line item.
                 Setup $1,000 once, waived for the founding ten.
      LADDER B - the tools, a la carte on Core: Core $599, Hyperion $499, Ariadne $499,
                 Sigil $49, Torch $35/number, Treasury coming soon (no price).
-   Iris appears on NO rate card at ANY price. She is only ever sold as The Hire.
+   Iris appears on NO module rate card at ANY price. She is only ever sold as a hire.
+   RULED 2026-08-26 (Mark): "The Hire" is retired as a product NAME - the SKU is Iris. The
+   hire FRAMING stays; it is the whole pricing argument. Lowercase 'hire' is deliberate.
    RETIRED and never restored here: Iris $1,500 as a public price; $2,099 as a public
    "Core + Iris together" sum; the additive "$599 + $1,500" presentation.
 
@@ -40,7 +42,7 @@ const HIRE = [
   {
     n: '$3,500',
     u: '/mo',
-    l: 'The Hire',
+    l: 'Iris',
     d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder.',
     q: 'Core included',
   },
@@ -55,7 +57,7 @@ const HIRE = [
 
 /* LADDER B - the tools, bought a la carte on Core. A separate door for an operator
    who wants the system of record and is not hiring. This card is additive.
-   The Hire does not appear on it, and no hire is priced from it. */
+   Iris does not appear on it, and no hire is priced from it. */
 const LINES = [
   {
     k: 'Forge Core',
@@ -102,10 +104,10 @@ const LINES = [
 ]
 
 /* Worked arithmetic. Every line is a configuration that actually exists.
-   The Hire is one number and is shown as one number; only Ladder B adds up. */
+   Iris is one number and is shown as one number; only Ladder B adds up. */
 const EXAMPLES = [
   {
-    k: 'The Hire',
+    k: 'Iris',
     v: '$3,500 / mo, plus $1,000 once at setup. Core is inside that number, not beside it — there is nothing to add up.',
   },
   {

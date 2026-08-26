@@ -225,9 +225,21 @@ export default function IrisContent() {
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '36px' }}>
             <p className="eyebrow reveal">What she costs</p>
+            {/* Mark's copy, RULED 2026-08-26 - VERBATIM. Headline, subhead and deck line are not
+                to be rewritten, paraphrased, reflowed or split, and they appear exactly ONCE on
+                this surface: here, at the primary moment Iris and her price are introduced
+                together. The em-dash and the curly apostrophes are load-bearing.
+                The prior headline is kept verbatim directly beneath, demoted one level. */}
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              One number, read against a salary.
+              The hire you’ve needed and couldn’t justify.
             </h2>
+            <p className="reveal d1" style={{ marginTop: '18px', fontSize: '18px', lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: '58ch' }}>
+              You’ve had this seat open for two years — not for lack of need. For lack of anyone worth trusting with it.
+            </p>
+            <p className="eyebrow reveal d1" style={{ marginTop: '14px' }}>The AI employee who answers to you.</p>
+            <p className="serif reveal d1" style={{ marginTop: '26px', fontSize: 'clamp(20px,2.4vw,28px)', lineHeight: 1.3, color: 'var(--ink-1)' }}>
+              One number, read against a salary.
+            </p>
             <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
               The person she stands in for costs about <strong>$4,000 a month</strong> fully loaded — wage, tax, benefits, the seat. That is the
               figure Forge publishes as the comparison, and it is the one this price is meant to be read against.
@@ -235,7 +247,7 @@ export default function IrisContent() {
           </div>
           <div className="pricelines reveal d1">
             <div className="pline">
-              <span className="pl-k serif">The Hire</span>
+              <span className="pl-k serif">Iris</span>
               <span className="pl-v serif">
                 $3,500<span className="pl-u">/mo</span>
               </span>
