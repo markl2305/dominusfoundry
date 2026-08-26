@@ -241,7 +241,7 @@ export default function IrisContent() {
               One number, read against a salary.
             </p>
             <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
-              The person she stands in for costs about <strong>$4,000 a month</strong> fully loaded — wage, tax, benefits, the seat. That is the
+              The person she stands in for costs about <strong>$5,500 a month</strong> fully loaded — wage, employer tax, workers&rsquo; comp, health, retirement, the seat. That is the
               figure Forge publishes as the comparison, and it is the one this price is meant to be read against.
             </p>
           </div>

@@ -19,7 +19,7 @@
    Constraints that remain load-bearing:
      1. It discusses Forge, using the real product and the real numbers. The legacy
         Engine/tier services sheet is gone, and "Forge" never names a build-fee tier again.
-     2. Order of appearance: the ~$4,000 fully-loaded CSR figure published on
+     2. Order of appearance: the ~$5,500 fully-loaded office-coordinator figure published on
         buildwithforge.app renders BEFORE any Forge price in DOM order. A price seen first
         is compared to software; a price seen after the salary is compared to payroll.
      3. Its job is not to sell. No CTA stack, no urgency, no competitor comparison -
@@ -33,10 +33,10 @@ import { PageHero } from './FoundryShell'
    already published on buildwithforge.app, and it renders first on purpose. */
 const HIRE = [
   {
-    n: '~$4,000',
+    n: '~$5,500',
     u: '/mo',
     l: 'What it stands in for',
-    d: 'A fully-loaded customer-service rep — wage, tax, benefits, the seat. This is the figure Forge publishes on its own homepage as the comparison, and it is not a Forge price.',
+    d: 'A fully-loaded office coordinator — wage, employer tax, workers’ comp, health, retirement, the seat. This is the figure Forge publishes on its own homepage as the comparison, and it is not a Forge price.',
     q: 'Published on buildwithforge.app',
   },
   {
