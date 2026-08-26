@@ -176,8 +176,17 @@ export default function CareersPage() {
             <h3 className="font-crimson text-2xl font-bold text-slate-900">
               Do the math
             </h3>
+            {/* COPY REVIEW — approved by Mark 2026-08-25 with the assumption made explicit.
+                No total on this page may rest on a mix the reader cannot see: the count and the
+                per-account price are stated as separate, named inputs, and the paragraph that
+                follows names what a different mix does to the result. Do not compress this back
+                into "10 Forge accounts a month at $3,500/mo" — that is the hidden-assumption
+                form this rewrite exists to remove. */}
             <p className="body-foundry text-slate-800">
-              A rep closing 10 Forge™ accounts a month at <strong>$3,500/mo</strong> (The Hire) is putting <strong>$35,000/month</strong> of new recurring revenue on the books &mdash; and earns a 15% residual on every one of them, on top of the first-month commission. That residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              <strong>10 Hires &times; $3,500/mo = $35,000/month</strong> of new recurring revenue on the books. You earn a 15% residual on every one of them, on top of the first-month commission &mdash; and that residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+            </p>
+            <p className="body-foundry text-slate-800">
+              That figure is ten <em>Hires</em> specifically, not ten accounts of any kind. The tools price lower &mdash; Forge Core is $599/mo, Hyperion and Ariadne $499 each &mdash; so a book with tools deals in it multiplies out to a different monthly number. The commission structure is identical either way; only the per-account figure moves. Run your own mix.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.
