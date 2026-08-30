@@ -223,7 +223,12 @@ export default function IrisContent() {
           and the additive "$599 + $1,500" presentation.
           RULED 2026-08-29 (Mark): "we go with 2000 and 3500 - on every surface." The founding
           rate is $2,000/mo, held for as long as the operator holds the seat; the standing rate
-          is $3,500/mo once the charter closes. Nine of the ten founding seats remain. */}
+          is $3,500/mo once the charter closes.
+          SEAT COUNT, RULED 2026-08-29 (Mark): two surface classes. Sales/marketing counts
+          contracts PLUS verbals in onboarding and publishes SEVEN OPEN; investor surfaces
+          (/pitch, markflord.com/thesis, markflord.com/onepage) count contracts only and say
+          nine. dominusfoundry.com is a public marketing site carrying no investor instrument,
+          so it is SALES class: seven. Do not "correct" this back to nine. */}
       <section className="section" id="price">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '36px' }}>
@@ -257,7 +262,7 @@ export default function IrisContent() {
               <span className="pl-d">
                 One tier. Forge Core is included &mdash; the record she works inside is not a second line and is never quoted separately. No
                 per-call meter, no per-seat charge. The founding rate is open to the first ten operators and is held for as long as you hold
-                the seat; nine of those seats remain.
+                the seat; seven of those seats are open.
               </span>
             </div>
             <div className="pline">

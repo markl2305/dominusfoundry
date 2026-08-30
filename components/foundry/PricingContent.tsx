@@ -46,7 +46,7 @@ const HIRE = [
     n: '$2,000',
     u: '/mo',
     l: 'Iris · founding rate',
-    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. The founding rate is open to the first ten operators and is held for as long as they hold the seat; nine of those seats remain. It becomes $3,500 / mo once the charter closes.',
+    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. The founding rate is open to the first ten operators and is held for as long as they hold the seat; seven of those seats are open. It becomes $3,500 / mo once the charter closes.',
     q: 'Core included · $3,500 standing',
   },
   {
