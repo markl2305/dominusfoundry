@@ -6,7 +6,10 @@
 
    SUPERSEDING RULING, Mark 2026-08-25 (PRICING_CANON_2026-08-05.md, block "IRIS IS A HIRE,
    NOT A MODULE"): Forge is sold on two ladders that are never interleaved.
-     LADDER A - Iris, $3,500/mo, one tier. Core is INCLUDED and is never a line item.
+     LADDER A - Iris, one tier. Core is INCLUDED and is never a line item.
+                $2,000/mo at the founding rate, held for as long as the operator holds the
+                seat; $3,500/mo standing, once the founding charter closes. RULED 2026-08-29
+                (Mark): "we go with 2000 and 3500 - on every surface."
                 Setup $1,000 once, waived for the founding ten.
      LADDER B - the tools, a la carte on Core: Core $599, Hyperion $499, Ariadne $499,
                 Sigil $49, Torch $35/number, Treasury coming soon (no price).
@@ -40,17 +43,17 @@ const HIRE = [
     q: 'Published on buildwithforge.app',
   },
   {
-    n: '$3,500',
+    n: '$2,000',
     u: '/mo',
-    l: 'Iris',
-    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder.',
-    q: 'Core included',
+    l: 'Iris · founding rate',
+    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. The founding rate is open to the first ten operators and is held for as long as they hold the seat; nine of those seats remain. It becomes $3,500 / mo once the charter closes.',
+    q: 'Core included · $3,500 standing',
   },
   {
     n: '$1,000',
     u: 'once',
     l: 'Setup',
-    d: 'A single one-time charge, unchanged. Waived for the founding ten.',
+    d: 'A single one-time charge, unchanged. Waived for charter holders.',
     q: 'One-time · not monthly',
   },
 ]
@@ -99,7 +102,7 @@ const LINES = [
     k: 'Setup',
     v: '$1,000',
     u: 'one-time',
-    d: 'One-time, on Core and on a-la-carte builds. Waived for the founding ten.',
+    d: 'One-time, on Core and on a-la-carte builds. Waived for charter holders.',
   },
 ]
 
@@ -108,7 +111,7 @@ const LINES = [
 const EXAMPLES = [
   {
     k: 'Iris',
-    v: '$3,500 / mo, plus $1,000 once at setup. Core is inside that number, not beside it — there is nothing to add up.',
+    v: '$2,000 / mo at the founding rate, or $3,500 / mo once the charter closes, plus $1,000 once at setup — waived for charter holders. Core is inside that number, not beside it, so there is nothing to add up either way.',
   },
   {
     k: 'Core alone',
@@ -192,8 +195,9 @@ export default function PricingContent() {
             ))}
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
-            One tier. There is no second or third hire package to move up to. A business that also wants a tool from the rate card below is
-            quoted for it separately — this page publishes no combined figure, because none has been set.
+            One tier at either rate. There is no second or third hire package to move up to; the founding rate and the standing rate buy the
+            same Iris, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
+            rate card below is quoted for it separately — this page publishes no combined figure, because none has been set.
           </p>
         </div>
       </section>

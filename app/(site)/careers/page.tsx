@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>Iris at $3,500/mo</strong>, one tier, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $1,000 one-time setup fee. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>Iris at $2,000/mo on the founding charter &mdash; nine of the ten seats remain &mdash; and $3,500/mo standing once it closes</strong>, one tier either way, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $1,000 one-time setup fee. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -183,7 +183,7 @@ export default function CareersPage() {
                 into "10 Forge accounts a month at $3,500/mo" — that is the hidden-assumption
                 form this rewrite exists to remove. */}
             <p className="body-foundry text-slate-800">
-              <strong>10 Iris hires &times; $3,500/mo = $35,000/month</strong> of new recurring revenue on the books. You earn a 15% residual on every one of them, on top of the first-month commission &mdash; and that residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              <strong>10 Iris hires &times; $3,500/mo = $35,000/month</strong> of new recurring revenue on the books &mdash; struck at the standing rate; a founding-charter seat books at $2,000/mo, so a book written into the remaining nine seats multiplies out lower. You earn a 15% residual on every one of them, on top of the first-month commission &mdash; and that residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
             </p>
             <p className="body-foundry text-slate-800">
               That figure is ten <em>Iris</em> hires specifically, not ten accounts of any kind. The tools price lower &mdash; Forge Core is $599/mo, Hyperion and Ariadne $499 each &mdash; so a book with tools deals in it multiplies out to a different monthly number. The commission structure is identical either way; only the per-account figure moves. Run your own mix.
