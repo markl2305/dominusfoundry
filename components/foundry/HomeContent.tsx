@@ -85,10 +85,10 @@ const PILLARS = [
     idx: '02',
     glyph: 'iris',
     kicker: 'The employee · Live',
-    name: 'Iris',
-    body: 'The front office is one person, and everything waits on her. Iris answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
+    name: 'Sabina',
+    body: 'The front office is one person, and everything waits on her. Sabina answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
     href: '/iris',
-    label: 'Meet Iris',
+    label: 'Meet Sabina',
   },
   {
     idx: '03',

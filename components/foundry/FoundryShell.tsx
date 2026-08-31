@@ -27,7 +27,7 @@ export const useFoundry = () => useContext(Ctx)
 /* canonical nav — single source of truth across all pages */
 const NAV_LINKS = [
   { id: 'forge', label: 'Forge', href: 'https://buildwithforge.app', ext: true },
-  { id: 'iris', label: 'Iris', href: '/iris' },
+  { id: 'iris', label: 'Sabina', href: '/iris' },
   { id: 'technology', label: 'Hyperion', href: '/technology' },
   { id: 'governance', label: 'Governance', href: '/governance' },
   { id: 'company', label: 'Company', href: '/company' },
@@ -87,7 +87,7 @@ const FOOTER_COLS = [
     h: 'The Foundry',
     links: [
       { t: 'Forge ↗', href: 'https://buildwithforge.app', ext: true },
-      { t: 'Iris', href: '/iris' },
+      { t: 'Sabina', href: '/iris' },
       { t: 'Hyperion', href: '/technology' },
       { t: 'Governance', href: '/governance' },
     ],
@@ -123,7 +123,7 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              A family-owned technology holding company. The parent behind Forge, Iris, and Hyperion — forging software built to endure.
+              A family-owned technology holding company. The parent behind Forge, Sabina, and Hyperion — forging software built to endure.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (

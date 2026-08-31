@@ -5,7 +5,7 @@ import HomeContent from '@/components/foundry/HomeContent'
 export const metadata: Metadata = {
   title: 'Dominus Foundry™ — Fide et Familia',
   description:
-    'A family-owned technology holding company. The parent behind Forge, Iris, and Hyperion — forging AI-native software built to endure.',
+    'A family-owned technology holding company. The parent behind Forge, Sabina, and Hyperion — forging AI-native software built to endure.',
   alternates: { canonical: 'https://dominusfoundry.com' },
 }
 

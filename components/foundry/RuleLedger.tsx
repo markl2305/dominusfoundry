@@ -93,7 +93,7 @@ const SEED_RECORD: Entry[] = [
 const money = (n: number) => `$${n.toLocaleString('en-US')}`
 
 function sentence(r: Rule) {
-  return `Iris may ${CAPABILITY_LABEL[r.capability]} up to ${money(r.limit)} without asking me.`
+  return `Sabina may ${CAPABILITY_LABEL[r.capability]} up to ${money(r.limit)} without asking me.`
 }
 
 function stamp() {
@@ -181,7 +181,7 @@ export default function RuleLedger() {
         append(
           'refuse',
           'REFUSED · no grant covers this',
-          `${action.label} — Iris holds no active authority to ${CAPABILITY_LABEL[action.capability]}. Escalated to the owner.`,
+          `${action.label} — Sabina holds no active authority to ${CAPABILITY_LABEL[action.capability]}. Escalated to the owner.`,
         )
         setStatus(`Refused. Nothing grants "${CAPABILITY_LABEL[action.capability]}", and unnamed authority is not assumed.`)
         return
@@ -212,15 +212,15 @@ export default function RuleLedger() {
       <div className="ledger-pane">
         <h3 className="lp-h serif">1 · Write a rule</h3>
         <p className="lp-lead">
-          A grant is a sentence in plain English with a boundary in it. Choose what Iris may do and how far, and it lands in the canon
+          A grant is a sentence in plain English with a boundary in it. Choose what Sabina may do and how far, and it lands in the canon
           attributed to you.
         </p>
 
         <form className="composer" onSubmit={writeRule}>
           <p className="composer-line">
-            <span>Iris may</span>
+            <span>Sabina may</span>
             <label className="sr-only" htmlFor="rl-capability">
-              What Iris may do
+              What Sabina may do
             </label>
             <select
               id="rl-capability"

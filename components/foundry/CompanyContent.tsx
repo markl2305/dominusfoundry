@@ -25,7 +25,7 @@ export default function CompanyContent() {
             Built by a family. <em>Held</em> for a generation.
           </>
         }
-        lead="Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico — the parent behind Forge, Iris, and Hyperion. We build what we'd be proud to run for the rest of our lives, and we hold it."
+        lead="Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico — the parent behind Forge, Sabina, and Hyperion. We build what we'd be proud to run for the rest of our lives, and we hold it."
         actions={
           <>
             <a className="btn btn-solid" href="#leadership">

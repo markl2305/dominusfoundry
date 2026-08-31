@@ -45,7 +45,7 @@ const HIRE = [
   {
     n: '$2,000',
     u: '/mo',
-    l: 'Iris · founding rate',
+    l: 'Sabina · founding rate',
     d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. The founding rate is open to the first ten operators and is held for as long as they hold the seat; seven of those seats are open. It becomes $3,500 / mo once the charter closes.',
     q: 'Core included · $3,500 standing',
   },
@@ -110,7 +110,7 @@ const LINES = [
    Iris is one number and is shown as one number; only Ladder B adds up. */
 const EXAMPLES = [
   {
-    k: 'Iris',
+    k: 'Sabina',
     v: '$2,000 / mo at the founding rate, or $3,500 / mo once the charter closes, plus $1,000 once at setup — waived for charter holders. Core is inside that number, not beside it, so there is nothing to add up either way.',
   },
   {
@@ -196,7 +196,7 @@ export default function PricingContent() {
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
             One tier at either rate. There is no second or third hire package to move up to; the founding rate and the standing rate buy the
-            same Iris, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
+            same Sabina, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
             rate card below is quoted for it separately — this page publishes no combined figure, because none has been set.
           </p>
         </div>

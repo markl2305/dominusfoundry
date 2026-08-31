@@ -53,7 +53,7 @@ const FIGURES = [
 const CHEST = [
   {
     k: 'Core',
-    v: 'The business is being run out of somebody’s head and somebody’s spreadsheet. Core is the record every other product — and Iris — reads and writes. Required base, whole company, unlimited users.',
+    v: 'The business is being run out of somebody’s head and somebody’s spreadsheet. Core is the record every other product — and Sabina — reads and writes. Required base, whole company, unlimited users.',
   },
   {
     k: 'Hyperion',
@@ -85,13 +85,13 @@ export default function IrisContent() {
   return (
     <>
       <PageHero
-        eyebrow="Iris · The employee you hire"
+        eyebrow="Sabina · The employee you hire"
         title={
           <>
             The call at 4:50 <em>gets answered</em>.
           </>
         }
-        lead="The front office is one person, and everything waits on her. Iris answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record you govern and can take back."
+        lead="The front office is one person, and everything waits on her. Sabina answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record you govern and can take back."
         actions={
           <>
             <a className="btn btn-solid" href="#what">
@@ -113,6 +113,12 @@ export default function IrisContent() {
           </>
         }
       />
+
+      <section className="section" style={{ paddingBlock: '20px' }}>
+        <div className="wrap">
+          <p className="fg-src">Sabina was previously named Iris. Same product, same company; the name changed in August 2026.</p>
+        </div>
+      </section>
 
       <section className="section" id="friday">
         <div className="wrap">
@@ -189,7 +195,7 @@ export default function IrisContent() {
             The positioning, plainly
           </p>
           <p className="big reveal d1">
-            Iris is <em>who you hire</em>. The chest is what she reaches for.
+            Sabina is <em>who you hire</em>. The chest is what she reaches for.
           </p>
           <p className="sub reveal d1">
             Forge is a complete operating platform for commercial installation contractors — not a CRM. You do not buy her a toolset and hope
@@ -255,7 +261,7 @@ export default function IrisContent() {
           </div>
           <div className="pricelines reveal d1">
             <div className="pline">
-              <span className="pl-k serif">Iris &middot; founding rate</span>
+              <span className="pl-k serif">Sabina &middot; founding rate</span>
               <span className="pl-v serif">
                 $2,000<span className="pl-u">/mo</span>
               </span>
@@ -266,7 +272,7 @@ export default function IrisContent() {
               </span>
             </div>
             <div className="pline">
-              <span className="pl-k serif">Iris &middot; standing rate</span>
+              <span className="pl-k serif">Sabina &middot; standing rate</span>
               <span className="pl-v serif">
                 $3,500<span className="pl-u">/mo</span>
               </span>

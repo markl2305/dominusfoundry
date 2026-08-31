@@ -33,11 +33,11 @@ const PROPERTIES = [
 const MECHANISM = [
   {
     k: 'The execution path',
-    v: 'Everything Iris can do is a named capability, and every capability runs the same way: request, check the canon, decide, write the decision down, then act. There is no second path that skips the check — not for an urgent job, not for an internal tool, not for the owner in a hurry.',
+    v: 'Everything Sabina can do is a named capability, and every capability runs the same way: request, check the canon, decide, write the decision down, then act. There is no second path that skips the check — not for an urgent job, not for an internal tool, not for the owner in a hurry.',
   },
   {
     k: 'Default deny',
-    v: 'A capability with no active grant behind it is refused, not attempted. Iris starts with almost nothing and earns the rest, which is why an owner can start her on one job on a Monday instead of auditing a permissions matrix first.',
+    v: 'A capability with no active grant behind it is refused, not attempted. Sabina starts with almost nothing and earns the rest, which is why an owner can start her on one job on a Monday instead of auditing a permissions matrix first.',
   },
   {
     k: 'What is refused, and why',
@@ -74,7 +74,7 @@ export default function GovernanceContent() {
               Write a rule yourself {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="/iris">
-              Meet Iris {Icon.arr}
+              Meet Sabina {Icon.arr}
             </a>
           </>
         }
@@ -215,11 +215,11 @@ export default function GovernanceContent() {
             Hand her one job. <em>Take it back</em> whenever you like.
           </>
         }
-        lead="That is the whole offer. Start Iris on the one thing you would most like off your plate, watch the record, and widen it when you're ready — or don't."
+        lead="That is the whole offer. Start Sabina on the one thing you would most like off your plate, watch the record, and widen it when you're ready — or don't."
         actions={
           <>
             <a className="btn btn-solid" href="/iris">
-              Meet Iris {Icon.arr}
+              Meet Sabina {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">
               Talk with Mark &amp; Bri {Icon.arr}
