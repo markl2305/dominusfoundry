@@ -77,9 +77,11 @@
   --navy:      #0e1519;   /* deep teal band */
   --navy-2:    #142025;
   --steel:     #7d8e8e;   /* footer-bottom sits on #050608 — 5.92 there */
-  --gold:      #cdbfa3;   /* brand stone — the embers echo this */
+  --gold:      #E3CBA8;   /* stone accent — the embers echo this; 2026-08-31 copper/stone pass */
   --gold-hi:   #e4d8be;   /* stone-light */
   --ember:     #dd9244;   /* warm amber spark */
+  --copper:    #C87F4A;   /* copper accent — dark grounds only, 5.24:1 vs --on-accent */
+  --copper-hi: color-mix(in srgb, #C87F4A 78%, white);
   --on-accent: #14201f;
   --hero-bg-a: #0c1418;
   --hero-bg-b: #060a0c;
@@ -104,13 +106,15 @@
 .df-site[data-theme="light"] .nav:not(.scrolled),
 :root[data-df-theme="light"] .df-site :is(.hero, .cta, .footer, .darkband, .on-dark, .scan-frame),
 :root[data-df-theme="light"] .df-site .nav:not(.scrolled) {
-  --gold:      #cdbfa3;   /* brand stone — 11.17 on the footer black */
+  --gold:      #E3CBA8;   /* stone — lighter than the prior cdbfa3, so the 11.17 on footer black only improves */
   --gold-hi:   #e4d8be;
   --ink:       #f0e7d7;
   --ink-2:     #c3bca9;
   --ink-3:     #989f9a;
   --steel:     #91a0a0;
   --on-accent: #14201f;   /* text on the stone accent, now that it is light */
+  --copper:    #C87F4A;   /* copper accent — dark grounds only, 5.24:1 vs --on-accent */
+  --copper-hi: color-mix(in srgb, #C87F4A 78%, white);
 }
 
 /* ----------------------------------------------------------------- RESET */
@@ -223,10 +227,10 @@
 .df-site .btn .arr { transition: transform .4s var(--ease); }
 .df-site .btn:hover .arr { transform: translateX(4px); }
 .df-site .btn-solid {
-  background: var(--gold); color: var(--on-accent);
-  box-shadow: 0 0 0 0 var(--gold);
+  background: var(--copper, var(--gold)); color: var(--on-accent);
+  box-shadow: 0 0 0 0 var(--copper, var(--gold));
 }
-.df-site .btn-solid:hover { background: var(--gold-hi); box-shadow: 0 14px 40px -14px var(--gold); }
+.df-site .btn-solid:hover { background: var(--copper-hi, var(--gold-hi)); box-shadow: 0 14px 40px -14px var(--copper, var(--gold)); }
 .df-site .btn-ghost { border-color: var(--hair); color: var(--ink); }
 .df-site .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 .df-site .on-dark .btn-ghost { border-color: var(--hero-hair); color: var(--hero-ink); }
@@ -296,10 +300,10 @@
 
 .df-site .nav-cta {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 11px 18px; background: var(--gold); color: var(--on-accent);
+  padding: 11px 18px; background: var(--copper, var(--gold)); color: var(--on-accent);
   transition: background .3s, box-shadow .3s; white-space: nowrap;
 }
-.df-site .nav-cta:hover { background: var(--gold-hi); box-shadow: 0 12px 34px -14px var(--gold); }
+.df-site .nav-cta:hover { background: var(--copper-hi, var(--gold-hi)); box-shadow: 0 12px 34px -14px var(--copper, var(--gold)); }
 @media (max-width: 920px) { .df-site .nav-links { display: none; } }
 
 /* ===================================================================== HERO */
