@@ -62,7 +62,7 @@ const disqualifiers = [
 
 const repGets = [
   "A product that exists and works \u2014 not a prototype or a roadmap",
-  "19 provisional patent applications plus a non-provisional filing, with zero comparable filings from any competitor",
+  "19 provisional patent applications plus a non-provisional filing — patent pending",
   "Defined pricing, competitive comparison docs, and demo environments",
   "Power dialer, CRM, and AI-assisted sales tools built in-house",
   "Direct founder access for deal strategy and closing support",
@@ -112,7 +112,7 @@ export default function CareersPage() {
               Dominus Foundry™ built <strong>Forge™</strong> &mdash; a vertical operating system for the trades (low-voltage, roofing, electrical, HVAC). It replaces D-Tools, ServiceTitan, ProjX360, ConnectWise, and 3-4 other tools a contractor is currently paying for &mdash; in a single platform at a fraction of the cost.
             </p>
             <p>
-              Our flagship technology, <strong>Hyperion™</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically. No competitor has filed anything comparable. No competitor can replicate it without rebuilding their architecture from scratch.
+              Our flagship technology, <strong>Hyperion™</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
             </p>
             <p>
               <strong>We have 19 provisional patent applications plus a non-provisional filing, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.

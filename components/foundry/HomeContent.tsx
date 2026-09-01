@@ -180,7 +180,7 @@ function Hyperion() {
               proposal — automatically. No manual takeoff. No spreadsheets. No waiting.
             </p>
             <p className="reveal d2">
-              No competitor has filed anything comparable, and none can replicate it without rebuilding from the architecture up. Every scan
+              19 provisional patent applications and a non-provisional filing sit behind it — patent pending. Every scan
               feeds a single integrated record on infrastructure we own — the moat beneath everything the Foundry builds.
             </p>
             <div className="hyperion-modes reveal d2">
@@ -212,7 +212,7 @@ function Governance() {
   return (
     <section className="darkband section" id="governance">
       <div className="wrap">
-        <p className="eyebrow reveal">Governance · The part nobody else can claim</p>
+        <p className="eyebrow reveal">Governance · Every action, on the record</p>
         <h2 className="reveal d1">Everyone sells an AI that can act on your business.</h2>
         <p className="darkband-lead reveal d1">
           Almost nobody can tell you what it is allowed to do, what it actually did, or how to take an ability back once it has it. That is

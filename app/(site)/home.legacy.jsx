@@ -5,7 +5,7 @@ import ContactCTA from "../../components/ContactCTA";
 export const metadata = {
   title: "Dominus Foundry | The Company Behind Forge",
   description:
-    "We built Forge — the operating system for the trades. 18 pending patents. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
+    "We built Forge — the operating system for the trades. 19 provisional patents, patent pending. From scan to invoice, one platform. Replacing D-Tools, ServiceTitan, and everything in between.",
 };
 
 const pipeline = [
@@ -59,7 +59,7 @@ export default function Home() {
                 Hiring
               </span>
               <p className="text-white font-semibold text-sm">
-                Founding Sales Reps · 100% first-month commission · 15% residual forever · 18 pending patents
+                Founding Sales Reps · 100% first-month commission · 15% residual forever · 19 provisional patents
               </p>
             </div>
             <Button href="/careers" className="shrink-0 justify-center text-xs py-2 px-4">
@@ -92,7 +92,7 @@ export default function Home() {
               Forge — the operating system for the trades.
             </h1>
             <p className="body-foundry text-white/90 md:text-xl">
-              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 18 pending patents, zero comparable competition.
+              One platform replaces D-Tools, ServiceTitan, ProjX360, and the 3-4 other tools your team is paying for. From LiDAR scan to invoice — 19 provisional patents, patent pending.
             </p>
             <p className="body-foundry text-white/70 md:text-lg">
               Walk the building with your iPhone. Get a complete system design, bill of materials, and client-ready proposal in 10 minutes. Then manage the entire project lifecycle without switching tools.
@@ -178,7 +178,7 @@ export default function Home() {
               A technician scans a building with their iPhone. Hyperion generates a complete system design, bill of materials, and client-ready proposal — automatically. No manual takeoff. No spreadsheets. No waiting.
             </p>
             <p className="body-foundry text-white/80 md:text-lg">
-              No competitor has filed anything comparable. No competitor can replicate it without rebuilding their architecture from scratch. Every scan feeds a compounding intelligence model that gets smarter with scale.
+              19 provisional patent applications and a non-provisional filing sit behind it — patent pending. Every scan feeds a compounding intelligence model that gets smarter with scale.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
