@@ -294,7 +294,7 @@ export default function PricingContent() {
           </div>
           <p className="pricenote" style={{ marginTop: '44px' }}>
             All prices in USD. Monthly lines bill monthly; setup is a single one-time charge. Torch is billed per active phone number.
-            Treasury is in development and carries no published price. The Founding Charter rate is not published here or anywhere else.
+            Treasury is in development and carries no published price.
           </p>
         </div>
       </section>
