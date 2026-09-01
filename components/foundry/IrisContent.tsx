@@ -281,13 +281,13 @@ export default function IrisContent() {
             <div className="pline">
               <span className="pl-k serif">Setup</span>
               <span className="pl-v serif">
-                $1,000<span className="pl-u"> one-time</span>
+                $2,500<span className="pl-u"> one-time</span>
               </span>
-              <span className="pl-d">A single one-time charge. Waived for charter holders.</span>
+              <span className="pl-d">A single one-time charge, due before onboarding work begins.</span>
             </div>
           </div>
           <p className="pricenote">
-            There is no second or third hire package. Hyperion, Ariadne, Sigil and Torch are bought on their own rate card and are quoted
+            There is no second or third hire package. Hyperion, Sigil and Torch are bought on their own rate card and are quoted
             separately — this page publishes no combined figure, because none has been set.
           </p>
         </div>

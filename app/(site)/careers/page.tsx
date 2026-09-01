@@ -4,7 +4,7 @@ import ContactCTA from "../../../components/ContactCTA";
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the founding sales team at Dominus Foundry™. 18 pending patents, fully built vertical SaaS for the trades, 100% first-month commission + 15% residual forever. Ground floor opportunity.",
+    "Join the founding sales team at Dominus Foundry™. 19 provisional patent applications plus a non-provisional filing — patent pending — fully built vertical SaaS for the trades, 100% first-month commission + 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -21,7 +21,7 @@ const commissionTable = [
     type: "SaaS — First Month",
     rate: "100% of MRR",
     terms:
-      "Full first month\u2019s subscription paid on collection. Close a $499/mo Hyperion™ deal, you earn $499 on day one.",
+      "Full first month\u2019s subscription paid on collection. Close a $1,100/mo Hyperion™ deal, you earn $1,100 on day one.",
   },
   {
     type: "SaaS — Ongoing Residual",
@@ -62,7 +62,7 @@ const disqualifiers = [
 
 const repGets = [
   "A product that exists and works \u2014 not a prototype or a roadmap",
-  "18 pending patents with zero comparable filings from any competitor",
+  "19 provisional patent applications plus a non-provisional filing, with zero comparable filings from any competitor",
   "Defined pricing, competitive comparison docs, and demo environments",
   "Power dialer, CRM, and AI-assisted sales tools built in-house",
   "Direct founder access for deal strategy and closing support",
@@ -93,7 +93,7 @@ export default function CareersPage() {
                 Commission Only
               </span>
               <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                18 Pending Patents
+                19 Provisional Patents · Patent Pending
               </span>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function CareersPage() {
               Our flagship technology, <strong>Hyperion™</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically. No competitor has filed anything comparable. No competitor can replicate it without rebuilding their architecture from scratch.
             </p>
             <p>
-              <strong>We have 18 pending patents, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              <strong>We have 19 provisional patent applications plus a non-provisional filing, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>Sabina at $2,000/mo on the founding charter &mdash; seven of the ten seats are open &mdash; and $3,500/mo standing once it closes</strong>, one tier either way, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $1,000 one-time setup fee. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>Sabina at $2,000/mo on the founding charter &mdash; seven of the ten seats are open &mdash; and $3,500/mo standing once it closes</strong>, one tier either way, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $2,500 one-time setup fee due before onboarding work begins. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -191,7 +191,7 @@ export default function CareersPage() {
               <strong>Ten Sabina hires books $20,000 to $35,000/month</strong> of new recurring revenue, and which end depends on the charter. The founding ten hire at <strong>$2,000/mo</strong> &mdash; ten of those is <strong>$20,000/month</strong> &mdash; and <strong>seven of those seats are left</strong>. Once the tenth is taken the charter closes and the rate is <strong>$3,500/mo</strong>, so ten hires written after that book <strong>$35,000/month</strong>. A book that straddles the close lands between the two. You earn a 15% residual on every one of them, on top of the first-month commission &mdash; and that residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
             </p>
             <p className="body-foundry text-slate-800">
-              That figure is ten <em>Sabina</em> hires specifically, not ten accounts of any kind. The tools price lower &mdash; Forge Core is $599/mo, Hyperion and Ariadne $499 each &mdash; so a book with tools deals in it multiplies out to a different monthly number. The commission structure is identical either way; only the per-account figure moves. Run your own mix.
+              That figure is ten <em>Sabina</em> hires specifically, not ten accounts of any kind. The tools price differently &mdash; Forge Core is $599/mo, Hyperion is $1,100/mo with Core included &mdash; so a book with tools deals in it multiplies out to a different monthly number. The commission structure is identical either way; only the per-account figure moves. Run your own mix.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.

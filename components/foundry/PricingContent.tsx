@@ -10,9 +10,11 @@
                 $2,000/mo at the founding rate, held for as long as the operator holds the
                 seat; $3,500/mo standing, once the founding charter closes. RULED 2026-08-29
                 (Mark): "we go with 2000 and 3500 - on every surface."
-                Setup $1,000 once, waived for the founding ten.
-     LADDER B - the tools, a la carte on Core: Core $599, Hyperion $499, Ariadne $499,
-                Sigil $49, Torch $35/number, Treasury coming soon (no price).
+                Setup $2,500 once, due before onboarding work begins.
+     LADDER B - the tools, a la carte on Core: Core $599, Sigil $49, Torch $35/number,
+                Treasury coming soon (no price). Hyperion is $1,100/mo with Core included
+                (not a la carte on top of Core) — see the bundle rule below. Ariadne is
+                off every pricing surface.
    Iris appears on NO module rate card at ANY price. She is only ever sold as a hire.
    RULED 2026-08-26 (Mark): "The Hire" is retired as a product NAME - the SKU is Iris. The
    hire FRAMING stays; it is the whole pricing argument. Lowercase 'hire' is deliberate.
@@ -50,10 +52,10 @@ const HIRE = [
     q: 'Core included · $3,500 standing',
   },
   {
-    n: '$1,000',
+    n: '$2,500',
     u: 'once',
     l: 'Setup',
-    d: 'A single one-time charge, unchanged. Waived for charter holders.',
+    d: 'A single one-time charge, due before onboarding work begins.',
     q: 'One-time · not monthly',
   },
 ]
@@ -70,15 +72,9 @@ const LINES = [
   },
   {
     k: 'Hyperion',
-    v: '$499',
+    v: '$1,100',
     u: '/mo',
-    d: 'LiDAR scan-to-proposal, priced per trade. Scan the site, price off the captured geometry, sign it in one visit.',
-  },
-  {
-    k: 'Ariadne',
-    v: '$499',
-    u: '/mo',
-    d: 'Dispatch and field execution. Signed work routes itself to a real crew slot instead of waiting for somebody to re-key it into a calendar.',
+    d: 'LiDAR scan-to-proposal, priced per trade. Forge Core is included — not billed as a separate line. Scan the site, price off the captured geometry, sign it in one visit.',
   },
   {
     k: 'Sigil',
@@ -100,9 +96,9 @@ const LINES = [
   },
   {
     k: 'Setup',
-    v: '$1,000',
+    v: '$2,500',
     u: 'one-time',
-    d: 'One-time, on Core and on a-la-carte builds. Waived for charter holders.',
+    d: 'One-time, on Core and on a-la-carte builds. Due before onboarding work begins.',
   },
 ]
 
@@ -111,15 +107,15 @@ const LINES = [
 const EXAMPLES = [
   {
     k: 'Sabina',
-    v: '$2,000 / mo at the founding rate, or $3,500 / mo once the charter closes, plus $1,000 once at setup — waived for charter holders. Core is inside that number, not beside it, so there is nothing to add up either way.',
+    v: '$2,000 / mo at the founding rate, or $3,500 / mo once the charter closes, plus a $2,500 one-time setup fee. Core is inside that number, not beside it, so there is nothing to add up either way.',
   },
   {
-    k: 'Core alone',
-    v: '$599 / mo, plus $1,000 once at setup. The floor of the tools ladder: the record, the whole company on it, and nothing else added.',
+    k: 'Core + Sigil + four Torch numbers',
+    v: '$599 + $49 + (4 × $35) = $788 / mo, plus a $2,500 one-time setup fee. The tools ladder, added up.',
   },
   {
-    k: 'Core + Hyperion + Sigil + four Torch numbers',
-    v: '$599 + $499 + $49 + (4 × $35) = $1,287 / mo, plus $1,000 once. The tools ladder, added up.',
+    k: 'Sabina + Hyperion',
+    v: 'Core is paid once. The highest-priced product carries it at full list and every additional product is billed at list minus $600: $2,000 + ($1,100 − $600) = $2,500 / mo, plus a $2,500 one-time setup fee.',
   },
 ]
 
@@ -164,7 +160,8 @@ export default function PricingContent() {
               </p>
               <p>
                 The second way is the tools, bought a line at a time on Forge Core. That ladder is additive and the arithmetic is yours to do:
-                Core is flat for the whole company — unlimited users, no per-seat charge — and each module is a line on top of it.
+                Core is flat for the whole company — unlimited users, no per-seat charge — and most modules are a line on top of it. Hyperion is
+                the one exception: Core is already inside its price, so it is never billed as a separate line beneath it.
               </p>
               <p>
                 Neither ladder has tiers to climb or packages to decode, and this page publishes no ceiling figure. A ceiling would have to be
@@ -265,7 +262,11 @@ export default function PricingContent() {
           <p className="darkband-lead reveal d1">
             The hire is one flat monthly number and is not metered per call. Core is flat for the whole company, so adding people does not
             raise the bill. Torch is the one line that scales with something countable: active phone numbers you have provisioned, at $35
-            each. Setup is charged once, on either ladder, and is waived for the founding ten.
+            each. Setup is a $2,500 one-time charge, due before onboarding work begins.
+          </p>
+          <p className="darkband-lead reveal d1" style={{ marginTop: '18px' }}>
+            An account pays for Forge Core once. The highest-priced product carries it at full list; every additional product is billed at
+            list minus $600, and Core is never billed twice. Sabina at $2,000/mo plus Hyperion at $1,100/mo comes to $2,500/mo, not $3,100.
           </p>
         </div>
       </section>

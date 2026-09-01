@@ -85,7 +85,7 @@ export default function GovernanceContent() {
         }
         metaRight={
           <>
-            <b>18 provisional patents filed</b> · Albuquerque, NM
+            <b>19 provisional patents filed</b> · Albuquerque, NM
           </>
         }
       />
