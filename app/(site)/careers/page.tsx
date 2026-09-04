@@ -1,5 +1,9 @@
 import ApplicationForm from "../../../components/ApplicationForm";
 import ContactCTA from "../../../components/ContactCTA";
+import {
+  openSeatsWord,
+  totalSeatsWord,
+} from "../../../content/founding-charter.mjs";
 
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
@@ -128,7 +132,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; seven of the ten seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>, flat-rate with unlimited users. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>, flat-rate with unlimited users. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -195,7 +199,7 @@ export default function CareersPage() {
                 published — reps see it on their onboarding call. Do not restore a dollar total
                 here; that is exactly what this rewrite removes. */}
             <p className="body-foundry text-slate-800">
-              <strong>Every Sabina hire pays the rep the same way</strong>: 100% of her first month&apos;s fee, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>Seven of the ten founding seats are still open.</strong> The founding rate and the standing rate that follows once the charter closes are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
+              <strong>Every Sabina hire pays the rep the same way</strong>: 100% of her first month&apos;s fee, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>{openSeatsWord} of the {totalSeatsWord} founding seats are still open.</strong> The founding rate and the standing rate that follows once the charter closes are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
             <p className="body-foundry text-slate-800">
               That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. The tools price differently &mdash; Forge Core is $599/mo, Hyperion is $1,100/mo with Core included &mdash; so a book with tools deals in it earns against a different per-account figure. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.

@@ -60,24 +60,34 @@
        linking to buildwithforge.app/evaluate. That route is on an unmerged forge-web branch as
        of 2026-09-04 — this site must not deploy before it is live. */
 import { PageHero } from './FoundryShell'
+import {
+  TOTAL_SEATS_WORD,
+  OPEN_SEATS_WORD,
+  signedSeatsWord,
+  spokenForSeatsWord,
+  openSeatsWord,
+} from '@/content/founding-charter.mjs'
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
    The first card is deliberately NOT a Forge price: it is the salary comparison
-   already published on buildwithforge.app, and it renders first on purpose. */
+   already published on buildwithforge.app, and it renders first on purpose.
+   RULED trio (2026-09-03/04): $5,500/mo headline · $32.50/hr at the desk ·
+   BLS ECEC $5,474 as the citable method. This is the cost of a HUMAN hire, not
+   Sabina's price — she has no published price and this card must not read as one. */
 const HIRE = [
   {
     n: '~$5,500',
     u: '/mo',
     l: 'What it stands in for',
-    d: 'A fully-loaded office coordinator — wage, employer tax, workers’ comp, health, retirement, the seat. This is the figure Forge publishes on its own homepage as the comparison, and it is not a Forge price.',
-    q: 'Published on buildwithforge.app',
+    d: 'A fully-loaded office coordinator — wage, employer tax, workers’ comp, health, retirement, the seat. That is about $32.50/hr at the desk, converging with the BLS Employer Costs for Employee Compensation figure of $5,474/mo. This is the figure Forge publishes on its own homepage as the comparison, and it is not a Forge price.',
+    q: 'Published on buildwithforge.app · BLS ECEC $5,474',
   },
   {
-    n: 'Seven',
+    n: OPEN_SEATS_WORD,
     u: 'seats open',
     l: 'Founding charter',
-    d: 'Ten seats, awarded by application — one signed, two spoken for, seven still open. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. Held for as long as an operator holds the seat.',
-    q: 'Ten seats total, application-gated',
+    d: `${TOTAL_SEATS_WORD} seats, awarded by application — ${signedSeatsWord} signed, ${spokenForSeatsWord} spoken for, ${openSeatsWord} still open. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. Held for as long as an operator holds the seat.`,
+    q: `${TOTAL_SEATS_WORD} seats total, application-gated`,
   },
   {
     n: 'Disclosed',

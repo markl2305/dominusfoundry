@@ -5,6 +5,13 @@
    Prices: PRICING_CANON_2026-08-05.md only. */
 import { Icon } from './Marks'
 import { CTA, PageHero } from './FoundryShell'
+import {
+  TOTAL_SEATS_WORD,
+  SIGNED_SEATS_WORD,
+  OPEN_SEATS_WORD,
+  spokenForSeatsWord,
+  openSeatsWord,
+} from '@/content/founding-charter.mjs'
 
 const WHAT_SHE_DOES = [
   {
@@ -276,9 +283,9 @@ export default function IrisContent() {
           <div className="pricelines reveal d1">
             <div className="pline">
               <span className="pl-k serif">Founding charter</span>
-              <span className="pl-v serif">Seven seats open</span>
+              <span className="pl-v serif">{OPEN_SEATS_WORD} seats open</span>
               <span className="pl-d">
-                Ten seats, awarded by application. One signed, two spoken for, seven still open. Forge Core is included &mdash; the
+                {TOTAL_SEATS_WORD} seats, awarded by application. {SIGNED_SEATS_WORD} signed, {spokenForSeatsWord} spoken for, {openSeatsWord} still open. Forge Core is included &mdash; the
                 record she works inside is not a second line and is never quoted separately. No per-call meter, no per-seat charge.
                 Held for as long as you hold the seat.
               </span>

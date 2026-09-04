@@ -4,8 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-founding-charter.mjs",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "check:founding-charter": "node scripts/check-founding-charter.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
