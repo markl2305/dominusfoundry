@@ -41,7 +41,24 @@
    LADDER B tool prices are UNAFFECTED and stay exactly as ruled 2026-08-25: Core $599, Hyperion
    $1,100 (Core included), Sigil $49, Torch $35/number, Treasury coming soon. The $2,500 setup
    line that used to appear on BOTH ladders is removed from both — it was Sabina's onboarding
-   fee reused for the tools ladder, and canon retires it outright, not per-ladder. */
+   fee reused for the tools ladder, and canon retires it outright, not per-ladder.
+
+   AUDIT FIX, 2026-09-04 (cross-site review of the 09-04 realignment):
+   (a) The "what she costs" line was the RETIRED aphorism ("We don't quote a number before we
+       know the job. Nobody hires that way, and neither do we.") — superseded the same day by
+       Mark's verbatim replacement, now in HIRE[2].d and in the Terms section below.
+   (b) The worked-arithmetic EXAMPLES table used to carry a "Sabina + Hyperion" entry restating
+       the list-minus-$600 discount rule for Sabina — that let a reader derive a concrete
+       expansion figure ($1,100 - $600 = $500/mo to add Hyperion to a hire) purely from public
+       tool prices, which publishes by arithmetic what canon says is still OPEN and unruled.
+       That entry is REMOVED; the discount rule is now stated as tool-plus-tool only (constraint
+       3 above is revised accordingly: the page now also links out to buildwithforge.app/evaluate
+       from the Founding Charter note, so "exactly one link out" no longer holds literally —
+       the intent, "not a sales page," still does).
+   (c) The Founding Charter had no path from "awarded by application" to an actual application.
+       Added the ruled CTA pair ("See if your company is ready." / "Request an interview.")
+       linking to buildwithforge.app/evaluate. That route is on an unmerged forge-web branch as
+       of 2026-09-04 — this site must not deploy before it is live. */
 import { PageHero } from './FoundryShell'
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
@@ -66,7 +83,7 @@ const HIRE = [
     n: 'Disclosed',
     u: 'not published',
     l: 'What she costs',
-    d: 'We don’t quote a number before we know the job. Nobody hires that way, and neither do we — her rate is set on the job-description call, before the interview.',
+    d: 'The founding rate is one number, and we quote it on the call because we take on two companies at a time — her rate is set on the job-description call, before the interview.',
     q: 'Never on a web surface',
   },
 ]
@@ -117,10 +134,6 @@ const EXAMPLES = [
   {
     k: 'Core + Sigil + four Torch numbers',
     v: '$599 + $49 + (4 × $35) = $788 / mo. The tools ladder, added up.',
-  },
-  {
-    k: 'Sabina + Hyperion',
-    v: 'Core is paid once either way. The highest-priced product carries it at full list and every additional product is billed at list minus $600 — the same rule whether the higher-priced product is Sabina or a tool. The combined figure is set on the job-description call.',
   },
 ]
 
@@ -201,6 +214,14 @@ export default function PricingContent() {
             same Sabina, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
             rate card below is quoted for it separately — this page publishes no combined figure, because none has been set.
           </p>
+          <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
+              See if your company is ready. <span className="arr">→</span>
+            </a>
+            <a className="btn btn-ghost" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
+              Request an interview. <span className="arr">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -270,9 +291,10 @@ export default function PricingContent() {
             each.
           </p>
           <p className="darkband-lead reveal d1" style={{ marginTop: '18px' }}>
-            An account pays for Forge Core once. The highest-priced product carries it at full list; every additional product is billed at
-            list minus $600, and Core is never billed twice — that rule holds whether the higher-priced product is Sabina or a tool. The
-            combined figure for a Sabina-plus-tool account is set on the job-description call, not published here.
+            An account pays for Forge Core once. The highest-priced tool carries it at full list; every additional tool is billed at
+            list minus $600, and Core is never billed twice — that rule applies to tool-plus-tool accounts only. Sabina is priced
+            separately, on the job-description call, and is not part of this discount arithmetic; no combined figure for a
+            Sabina-plus-tool account is published here or anywhere else.
           </p>
         </div>
       </section>

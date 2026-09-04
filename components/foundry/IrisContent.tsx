@@ -240,7 +240,15 @@ export default function IrisContent() {
           render below — the section now names the founding charter (still seven open, no
           figure attached) and states that her rate is disclosed on the job-description call,
           never on a web surface. Seat count and continuity language are unaffected by this
-          change and stand as ruled above. */}
+          change and stand as ruled above.
+          AUDIT FIX, 2026-09-04 (cross-site review of the 09-04 realignment): the "what she
+          costs" pline carried the RETIRED aphorism ("We don't quote a number before we know
+          the job. Nobody hires that way, and neither do we.") — superseded the same day by
+          Mark's verbatim replacement, now below. Also added: a link from the founding-charter
+          note to buildwithforge.app/evaluate (the "awarded by application" line had no
+          application to link to) using the ruled CTA pair, "See if your company is ready." /
+          "Request an interview." That route is on an unmerged forge-web branch as of
+          2026-09-04 — this site must not deploy before it is live. */}
       <section className="section" id="price">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '36px' }}>
@@ -279,8 +287,8 @@ export default function IrisContent() {
               <span className="pl-k serif">What she costs</span>
               <span className="pl-v serif">Disclosed, not published</span>
               <span className="pl-d">
-                We don&rsquo;t quote a number before we know the job. Nobody hires that way, and neither do we &mdash; her rate is
-                disclosed on the job-description call, before you interview her, never on a web surface.
+                The founding rate is one number, and we quote it on the call because we take on two companies at a time &mdash; her
+                rate is disclosed on the job-description call, before you interview her, never on a web surface.
               </span>
             </div>
           </div>
@@ -288,6 +296,14 @@ export default function IrisContent() {
             There is no second or third hire package. Hyperion, Sigil and Torch are bought on their own rate card and are quoted
             separately — this page publishes no combined figure, because none has been set.
           </p>
+          <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
+              See if your company is ready. {Icon.arr}
+            </a>
+            <a className="btn btn-ghost" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
+              Request an interview. {Icon.arr}
+            </a>
+          </div>
         </div>
       </section>
 
