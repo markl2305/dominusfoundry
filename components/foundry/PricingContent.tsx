@@ -30,7 +30,18 @@
      3. Its job is not to sell. No CTA stack, no urgency, no competitor comparison -
         a reference table with exactly one link out, to buildwithforge.app.
 
-   Every number here comes from PRICING_CANON_2026-08-05.md and nowhere else. */
+   Every number here comes from PRICING_CANON_2026-08-05.md and nowhere else.
+
+   SUPERSEDING RULING, Mark 2026-09-04: "Strip it — spec wins." Every Sabina price comes off
+   every public surface; she is recruited, not sold. $2,000 founding, $3,500 standing and the
+   $2,500 setup fee are RETIRED as public prices and no longer render on this page in any form
+   — not as a line item, not inside the worked examples, not inside the discount arithmetic.
+   The Founding Charter survives as a thing (ten seats, application-gated, seven open) with no
+   figure attached; her rate is disclosed at the job-description call, never on a web surface.
+   LADDER B tool prices are UNAFFECTED and stay exactly as ruled 2026-08-25: Core $599, Hyperion
+   $1,100 (Core included), Sigil $49, Torch $35/number, Treasury coming soon. The $2,500 setup
+   line that used to appear on BOTH ladders is removed from both — it was Sabina's onboarding
+   fee reused for the tools ladder, and canon retires it outright, not per-ladder. */
 import { PageHero } from './FoundryShell'
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
@@ -45,18 +56,18 @@ const HIRE = [
     q: 'Published on buildwithforge.app',
   },
   {
-    n: '$2,000',
-    u: '/mo',
-    l: 'Sabina · founding rate',
-    d: 'One number, one tier. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. The founding rate is open to the first ten operators and is held for as long as they hold the seat; seven of those seats are open. It becomes $3,500 / mo once the charter closes.',
-    q: 'Core included · $3,500 standing',
+    n: 'Seven',
+    u: 'seats open',
+    l: 'Founding charter',
+    d: 'Ten seats, awarded by application — one signed, two spoken for, seven still open. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. Held for as long as an operator holds the seat.',
+    q: 'Ten seats total, application-gated',
   },
   {
-    n: '$2,500',
-    u: 'once',
-    l: 'Setup',
-    d: 'A single one-time charge, due before onboarding work begins.',
-    q: 'One-time · not monthly',
+    n: 'Disclosed',
+    u: 'not published',
+    l: 'What she costs',
+    d: 'We don’t quote a number before we know the job. Nobody hires that way, and neither do we — her rate is set on the job-description call, before the interview.',
+    q: 'Never on a web surface',
   },
 ]
 
@@ -94,12 +105,6 @@ const LINES = [
     u: null,
     d: 'Payroll and certified payroll, run off hours already in the record. In development — no published price.',
   },
-  {
-    k: 'Setup',
-    v: '$2,500',
-    u: 'one-time',
-    d: 'One-time, on Core and on a-la-carte builds. Due before onboarding work begins.',
-  },
 ]
 
 /* Worked arithmetic. Every line is a configuration that actually exists.
@@ -107,15 +112,15 @@ const LINES = [
 const EXAMPLES = [
   {
     k: 'Sabina',
-    v: '$2,000 / mo at the founding rate, or $3,500 / mo once the charter closes, plus a $2,500 one-time setup fee. Core is inside that number, not beside it, so there is nothing to add up either way.',
+    v: 'One number, not itemized. Core is inside it, not beside it, so there is nothing to add up. The rate itself is disclosed on the job-description call, not published here.',
   },
   {
     k: 'Core + Sigil + four Torch numbers',
-    v: '$599 + $49 + (4 × $35) = $788 / mo, plus a $2,500 one-time setup fee. The tools ladder, added up.',
+    v: '$599 + $49 + (4 × $35) = $788 / mo. The tools ladder, added up.',
   },
   {
     k: 'Sabina + Hyperion',
-    v: 'Core is paid once. The highest-priced product carries it at full list and every additional product is billed at list minus $600: $2,000 + ($1,100 − $600) = $2,500 / mo, plus a $2,500 one-time setup fee.',
+    v: 'Core is paid once either way. The highest-priced product carries it at full list and every additional product is billed at list minus $600 — the same rule whether the higher-priced product is Sabina or a tool. The combined figure is set on the job-description call.',
   },
 ]
 
@@ -262,11 +267,12 @@ export default function PricingContent() {
           <p className="darkband-lead reveal d1">
             The hire is one flat monthly number and is not metered per call. Core is flat for the whole company, so adding people does not
             raise the bill. Torch is the one line that scales with something countable: active phone numbers you have provisioned, at $35
-            each. Setup is a $2,500 one-time charge, due before onboarding work begins.
+            each.
           </p>
           <p className="darkband-lead reveal d1" style={{ marginTop: '18px' }}>
             An account pays for Forge Core once. The highest-priced product carries it at full list; every additional product is billed at
-            list minus $600, and Core is never billed twice. Sabina at $2,000/mo plus Hyperion at $1,100/mo comes to $2,500/mo, not $3,100.
+            list minus $600, and Core is never billed twice — that rule holds whether the higher-priced product is Sabina or a tool. The
+            combined figure for a Sabina-plus-tool account is set on the job-description call, not published here.
           </p>
         </div>
       </section>
@@ -293,8 +299,8 @@ export default function PricingContent() {
             </a>
           </div>
           <p className="pricenote" style={{ marginTop: '44px' }}>
-            All prices in USD. Monthly lines bill monthly; setup is a single one-time charge. Torch is billed per active phone number.
-            Treasury is in development and carries no published price. The Founding Charter rate is not published here or anywhere else.
+            All prices in USD. Monthly lines bill monthly. Torch is billed per active phone number. Treasury is in development and carries
+            no published price. The Founding Charter rate is not published here or anywhere else.
           </p>
         </div>
       </section>

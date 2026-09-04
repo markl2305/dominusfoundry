@@ -128,7 +128,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell and they are quoted separately: <strong>Sabina at $2,000/mo on the founding charter &mdash; seven of the ten seats are open &mdash; and $3,500/mo standing once it closes</strong>, one tier either way, with Forge Core included and never a separate line &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>. Pricing on both is flat-rate with unlimited users, plus a $2,500 one-time setup fee due before onboarding work begins. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; seven of the ten seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>, flat-rate with unlimited users. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
             </p>
           </div>
           <ul className="space-y-3">
@@ -186,12 +186,19 @@ export default function CareersPage() {
                 per-account price are stated as separate, named inputs, and the paragraph that
                 follows names what a different mix does to the result. Do not compress this back
                 into "10 Forge accounts a month at $3,500/mo" — that is the hidden-assumption
-                form this rewrite exists to remove. */}
+                form this rewrite exists to remove.
+                SUPERSEDED 2026-09-04 — Mark ruled every Sabina price off every public surface
+                (strip both site and table). The worked dollar totals above could not be stated
+                without her founding/standing rate, so this paragraph was rewritten to carry the
+                same meaning on percentages alone: what a rep earns per seat, and that it doesn't
+                decay or step down. The per-account dollar figure is unaffected — it still isn't
+                published — reps see it on their onboarding call. Do not restore a dollar total
+                here; that is exactly what this rewrite removes. */}
             <p className="body-foundry text-slate-800">
-              <strong>Ten Sabina hires books $20,000 to $35,000/month</strong> of new recurring revenue, and which end depends on the charter. The founding ten hire at <strong>$2,000/mo</strong> &mdash; ten of those is <strong>$20,000/month</strong> &mdash; and <strong>seven of those seats are left</strong>. Once the tenth is taken the charter closes and the rate is <strong>$3,500/mo</strong>, so ten hires written after that book <strong>$35,000/month</strong>. A book that straddles the close lands between the two. You earn a 15% residual on every one of them, on top of the first-month commission &mdash; and that residual doesn&apos;t decay, doesn&apos;t step down, and doesn&apos;t require a production minimum to keep.
+              <strong>Every Sabina hire pays the rep the same way</strong>: 100% of her first month&apos;s fee, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>Seven of the ten founding seats are still open.</strong> The founding rate and the standing rate that follows once the charter closes are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
             <p className="body-foundry text-slate-800">
-              That figure is ten <em>Sabina</em> hires specifically, not ten accounts of any kind. The tools price differently &mdash; Forge Core is $599/mo, Hyperion is $1,100/mo with Core included &mdash; so a book with tools deals in it multiplies out to a different monthly number. The commission structure is identical either way; only the per-account figure moves. Run your own mix.
+              That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. The tools price differently &mdash; Forge Core is $599/mo, Hyperion is $1,100/mo with Core included &mdash; so a book with tools deals in it earns against a different per-account figure. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.

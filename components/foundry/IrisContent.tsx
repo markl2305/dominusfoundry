@@ -234,7 +234,13 @@ export default function IrisContent() {
           contracts PLUS verbals in onboarding and publishes SEVEN OPEN; investor surfaces
           (/pitch, markflord.com/thesis, markflord.com/onepage) count contracts only and say
           nine. dominusfoundry.com is a public marketing site carrying no investor instrument,
-          so it is SALES class: seven. Do not "correct" this back to nine. */}
+          so it is SALES class: seven. Do not "correct" this back to nine.
+          SUPERSEDED 2026-09-04 (Mark): "Strip both — site and table." Every Sabina price comes
+          off every public surface; she is recruited, not sold. $2,000 and $3,500 no longer
+          render below — the section now names the founding charter (still seven open, no
+          figure attached) and states that her rate is disclosed on the job-description call,
+          never on a web surface. Seat count and continuity language are unaffected by this
+          change and stand as ruled above. */}
       <section className="section" id="price">
         <div className="wrap">
           <div className="section-head" style={{ marginBottom: '36px' }}>
@@ -252,38 +258,30 @@ export default function IrisContent() {
             </p>
             <p className="eyebrow reveal d1" style={{ marginTop: '14px' }}>The AI employee who answers to you.</p>
             <p className="serif reveal d1" style={{ marginTop: '26px', fontSize: 'clamp(20px,2.4vw,28px)', lineHeight: 1.3, color: 'var(--ink-1)' }}>
-              One number, read against a salary.
+              Read against a salary, not listed as a price.
             </p>
             <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
               The person she stands in for costs about <strong>$5,500 a month</strong> fully loaded — wage, employer tax, workers&rsquo; comp, health, retirement, the seat. That is the
-              figure Forge publishes as the comparison, and it is the one this price is meant to be read against.
+              figure Forge publishes as the comparison, and it is the one her rate is meant to be read against.
             </p>
           </div>
           <div className="pricelines reveal d1">
             <div className="pline">
-              <span className="pl-k serif">Sabina &middot; founding rate</span>
-              <span className="pl-v serif">
-                $2,000<span className="pl-u">/mo</span>
-              </span>
+              <span className="pl-k serif">Founding charter</span>
+              <span className="pl-v serif">Seven seats open</span>
               <span className="pl-d">
-                One tier. Forge Core is included &mdash; the record she works inside is not a second line and is never quoted separately. No
-                per-call meter, no per-seat charge. The founding rate is open to the first ten operators and is held for as long as you hold
-                the seat; seven of those seats are open.
+                Ten seats, awarded by application. One signed, two spoken for, seven still open. Forge Core is included &mdash; the
+                record she works inside is not a second line and is never quoted separately. No per-call meter, no per-seat charge.
+                Held for as long as you hold the seat.
               </span>
             </div>
             <div className="pline">
-              <span className="pl-k serif">Sabina &middot; standing rate</span>
-              <span className="pl-v serif">
-                $3,500<span className="pl-u">/mo</span>
+              <span className="pl-k serif">What she costs</span>
+              <span className="pl-v serif">Disclosed, not published</span>
+              <span className="pl-d">
+                We don&rsquo;t quote a number before we know the job. Nobody hires that way, and neither do we &mdash; her rate is
+                disclosed on the job-description call, before you interview her, never on a web surface.
               </span>
-              <span className="pl-d">What she costs once the founding charter closes. The same one tier, the same Core inside it.</span>
-            </div>
-            <div className="pline">
-              <span className="pl-k serif">Setup</span>
-              <span className="pl-v serif">
-                $2,500<span className="pl-u"> one-time</span>
-              </span>
-              <span className="pl-d">A single one-time charge, due before onboarding work begins.</span>
             </div>
           </div>
           <p className="pricenote">
