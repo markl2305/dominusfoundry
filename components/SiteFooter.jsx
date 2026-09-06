@@ -35,8 +35,8 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          <div className="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2">
-            <div>
+          <div className="grid min-w-0 flex-1 grid-cols-1 gap-8 sm:grid-cols-2">
+            <div className="min-w-0">
               <h3 className="label-foundry text-forge-700">Navigate</h3>
               <ul className="mt-4 space-y-3">
                 {links.map((item) => (
@@ -46,14 +46,14 @@ export default function SiteFooter() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
+                        className="break-words text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
                       >
                         {item.name} ↗
                       </a>
                     ) : (
                       <Link
                         href={item.href}
-                        className="text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
+                        className="break-words text-sm font-medium text-navy-700 transition-colors hover:text-forge-700"
                       >
                         {item.name}
                       </Link>
@@ -63,20 +63,20 @@ export default function SiteFooter() {
               </ul>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <h3 className="label-foundry text-forge-700">Contact</h3>
               <ul className="mt-4 space-y-3 text-sm text-navy-700">
                 <li>
-                  <a href="mailto:foundry@dominusfoundry.com" className="font-medium hover:text-forge-700">
+                  <a href="mailto:foundry@dominusfoundry.com" className="break-words font-medium hover:text-forge-700">
                     foundry@dominusfoundry.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+18668492113" className="font-medium hover:text-forge-700">
+                  <a href="tel:+18668492113" className="break-words font-medium hover:text-forge-700">
                     (866) 849-2113
                   </a>
                 </li>
-                <li>Albuquerque, New Mexico</li>
+                <li className="break-words">Albuquerque, New Mexico</li>
               </ul>
             </div>
           </div>

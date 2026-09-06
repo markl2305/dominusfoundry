@@ -272,7 +272,7 @@ export default function CareersPage() {
       {/* Application Form */}
       <section className="bg-[var(--foundry-bg-alt)]" id="apply">
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-5 lg:items-start">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
             <div className="lg:col-span-2 space-y-4">
               <p className="label-foundry">Apply Now</p>
               <h2 className="heading-forge-lg">Show us the numbers</h2>
