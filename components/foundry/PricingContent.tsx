@@ -1,3 +1,4 @@
+// CURRENT PUBLIC RULE: all products custom quoted — Mark, 2026-09-05.
 'use client'
 
 /* PricingContent.tsx - the holding company's reference page for what Forge costs.
@@ -101,50 +102,18 @@ const HIRE = [
 /* LADDER B - the tools, bought a la carte on Core. A separate door for an operator
    who wants the system of record and is not hiring. This card is additive.
    Iris does not appear on it, and no hire is priced from it. */
+// RULED 2026-09-05: every product is custom quoted; no public rate arithmetic.
 const LINES = [
-  {
-    k: 'Forge Core',
-    v: '$599',
-    u: '/mo',
-    d: 'The record every other product reads and writes. The required base of this ladder — no module runs without it. Flat for the whole company, unlimited users, no per-seat charge.',
-  },
-  {
-    k: 'Hyperion',
-    v: '$1,100',
-    u: '/mo',
-    d: 'LiDAR scan-to-proposal, priced per trade. Forge Core is included — not billed as a separate line. Scan the site, price off the captured geometry, sign it in one visit.',
-  },
-  {
-    k: 'Sigil',
-    v: '$49',
-    u: '/mo',
-    d: 'Unlimited e-signature, executed in-record. The signed copy lands where the next person looks for it.',
-  },
-  {
-    k: 'Torch',
-    v: '$35',
-    u: '/number/mo',
-    d: 'Telephony. Priced per active phone number — a provisioned quantity, not a meter and not a per-user charge. Four numbers is four lines of $35.',
-  },
-  {
-    k: 'Treasury',
-    v: null,
-    u: null,
-    d: 'Payroll and certified payroll, run off hours already in the record. In development — no published price.',
-  },
+  { k: 'Forge Core', v: 'Custom quote', u: '', d: 'The shared record for jobs, proposals and client history. Scoped for your company.' },
+  { k: 'Hyperion', v: 'Custom quote', u: '', d: 'LiDAR scan-to-proposal. Scan the site and build the proposal from captured geometry.' },
+  { k: 'Sigil', v: 'Custom quote', u: '', d: 'E-signature in the record. The signed copy lands where the next person looks for it.' },
+  { k: 'Torch', v: 'Custom quote', u: '', d: 'Calls, messages, recording and summaries connected to the record. The quote reflects your communication needs.' },
+  { k: 'Treasury', v: null, u: null, d: 'Payroll and certified payroll, run off hours already in the record. In development.' },
 ]
 
-/* Worked arithmetic. Every line is a configuration that actually exists.
-   Iris is one number and is shown as one number; only Ladder B adds up. */
 const EXAMPLES = [
-  {
-    k: 'Sabina',
-    v: 'One number, not itemized. Core is inside it, not beside it, so there is nothing to add up. The rate itself is disclosed on the job-description call, not published here.',
-  },
-  {
-    k: 'Core + Sigil + four Torch numbers',
-    v: '$599 + $49 + (4 × $35) = $788 / mo. The tools ladder, added up.',
-  },
+  { k: 'Recruit Sabina', v: 'We discuss the responsibilities and scope on the job-description call, then provide a quote before the interview.' },
+  { k: 'Run Forge tools', v: 'We scope the products and services your company needs and provide a custom quote.' },
 ]
 
 export default function PricingContent() {
@@ -157,15 +126,15 @@ export default function PricingContent() {
             Two doors, and they <em>are not the same door</em>.
           </>
         }
-        lead="Dominus Foundry is the holding company behind Forge. This page is a reference — what the platform costs and how the pricing is put together, so an investor or a partner can read it without a call. Forge itself is bought at buildwithforge.app."
+        lead="Dominus Foundry is the holding company behind Forge. This page is a reference — how we scope the work and prepare a custom quote. Forge itself is bought at buildwithforge.app."
         metaLeft={
           <>
-            All prices <b>USD</b> · monthly unless noted
+            <b>Custom quotes</b> · scope and terms agreed up front
           </>
         }
         metaRight={
           <>
-            <b>Two ladders</b> · no tiers to climb, no per-seat charge
+            <b>Sabina and Forge tools</b> · quoted for your company
           </>
         }
       />
@@ -184,16 +153,14 @@ export default function PricingContent() {
               <p>
                 The first way is a hire. One number covers her and the system of record she works inside; the record is not itemised, for the
                 same reason a salary is not quoted as base plus benefits plus payroll tax. The comparison it is meant to be read against is a
-                person, and the figure for that person appears before the price below.
+                person, and the figure for that person appears as a reference for the work.
               </p>
               <p>
-                The second way is the tools, bought a line at a time on Forge Core. That ladder is additive and the arithmetic is yours to do:
-                Core is flat for the whole company — unlimited users, no per-seat charge — and most modules are a line on top of it. Hyperion is
-                the one exception: Core is already inside its price, so it is never billed as a separate line beneath it.
+                The second way is the tools. We discuss your workflow, choose the products and services it needs, and prepare a custom quote.
+                There is no public rate card or bundle calculation.
               </p>
               <p>
-                Neither ladder has tiers to climb or packages to decode, and this page publishes no ceiling figure. A ceiling would have to be
-                invented, because no configuration produces one.
+                The quote states the scope and terms before you commit. Product prices depend on the work required for your company.
               </p>
             </div>
           </div>
@@ -222,7 +189,7 @@ export default function PricingContent() {
           <p className="pricenote" style={{ marginTop: '26px' }}>
             One tier at either rate. There is no second or third hire package to move up to; the founding rate and the standing rate buy the
             same Sabina, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
-            rate card below is quoted for it separately — this page publishes no combined figure, because none has been set.
+            tool scope below is quoted for your company — product prices are not published on this page.
           </p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
@@ -240,7 +207,7 @@ export default function PricingContent() {
           <div className="section-head" style={{ marginBottom: '40px' }}>
             <p className="eyebrow reveal">The second way · the tools</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Bought a line at a time, on Core.
+              Scoped for the work you need.
             </h2>
             <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
               A separate door, for an operator who wants the system of record and is not hiring. The hire above is not on this card and is not
@@ -252,7 +219,7 @@ export default function PricingContent() {
               <div className="pline" key={l.k}>
                 <span className="pl-k serif">{l.k}</span>
                 {l.v ? (
-                  <span className="pl-v serif">
+                  <span className="pl-v serif" style={{ fontSize: '18px', whiteSpace: 'normal' }}>
                     {l.v}
                     <span className="pl-u">{l.u?.startsWith('/') ? l.u : ` ${l.u}`}</span>
                   </span>
@@ -266,8 +233,7 @@ export default function PricingContent() {
             ))}
           </div>
           <p className="pricenote">
-            Every line above is flat and monthly. Torch is the one that scales with something countable — active phone numbers you have
-            provisioned, not calls placed.
+            Each product is custom quoted. We discuss your workflows and communication needs, then state the scope and terms before you commit.
           </p>
         </div>
       </section>
@@ -277,7 +243,7 @@ export default function PricingContent() {
           <div className="section-head" style={{ marginBottom: '40px' }}>
             <p className="eyebrow reveal">Worked out</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
-              Three real configurations.
+              Two ways to scope the work.
             </h2>
           </div>
           <div className="criteria reveal d1">
@@ -294,17 +260,12 @@ export default function PricingContent() {
       <section className="darkband section" id="terms">
         <div className="wrap">
           <p className="eyebrow reveal">Terms, plainly</p>
-          <h2 className="reveal d1">No per-seat charge. No per-call meter.</h2>
+          <h2 className="reveal d1">A quote for your company.</h2>
           <p className="darkband-lead reveal d1">
-            The hire is one flat monthly number and is not metered per call. Core is flat for the whole company, so adding people does not
-            raise the bill. Torch is the one line that scales with something countable: active phone numbers you have provisioned, at $35
-            each.
+            Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
           </p>
           <p className="darkband-lead reveal d1" style={{ marginTop: '18px' }}>
-            An account pays for Forge Core once. The highest-priced tool carries it at full list; every additional tool is billed at
-            list minus $600, and Core is never billed twice — that rule applies to tool-plus-tool accounts only. Sabina is priced
-            separately, on the job-description call, and is not part of this discount arithmetic; no combined figure for a
-            Sabina-plus-tool account is published here or anywhere else.
+            We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
           </p>
         </div>
       </section>
@@ -331,8 +292,7 @@ export default function PricingContent() {
             </a>
           </div>
           <p className="pricenote" style={{ marginTop: '44px' }}>
-            All prices in USD. Monthly lines bill monthly. Torch is billed per active phone number. Treasury is in development and carries
-            no published price. The Founding Charter rate is not published here or anywhere else.
+            Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
           </p>
         </div>
       </section>

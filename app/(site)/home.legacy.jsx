@@ -35,7 +35,7 @@ const stats = [
   { value: "17", label: "Pending Patents" },
   { value: "50", label: "States Compliance" },
   { value: "10 min", label: "Scan to Proposal" },
-  { value: "$599", label: "Starting Monthly" },
+  { value: "Custom", label: "Quoted for your company" },
 ];
 
 const replaces = [

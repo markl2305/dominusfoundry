@@ -36,7 +36,7 @@ const faq = [
   },
   {
     q: "How does Forge's pricing compare to ServiceTitan?",
-    a: "Forge uses flat monthly platform pricing with tiered plans rather than per-technician licensing — current plans are published at buildwithforge.app/pricing. ServiceTitan uses custom per-technician pricing that isn't published publicly and scales with headcount and package tier. Direct comparison requires a ServiceTitan quote.",
+    a: "Forge products are custom quoted for each company — see buildwithforge.app/pricing. ServiceTitan uses custom per-technician pricing that isn't published publicly and scales with headcount and package tier. Direct comparison requires a ServiceTitan quote.",
   },
   {
     q: "Can I use iPad LiDAR for HVAC estimation without switching to Forge?",
@@ -130,8 +130,7 @@ export default function ServiceTitanHvacAlternativesPage() {
             </li>
           </ul>
           <p>
-            <strong>Pricing:</strong> Flat monthly platform pricing with tiered
-            plans, not per-technician licensing — see{" "}
+            <strong>Pricing:</strong> Forge products are custom quoted for each company — see{" "}
             <a className="underline" href="https://buildwithforge.app/pricing" rel="noopener">
               buildwithforge.app/pricing
             </a>

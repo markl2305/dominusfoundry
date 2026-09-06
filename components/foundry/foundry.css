@@ -222,7 +222,13 @@
   display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
   padding: 14px 22px; border: 1px solid transparent; cursor: pointer;
   transition: all .4s var(--ease); background: none; color: inherit;
-  position: relative;
+  position: relative; max-width: 100%;
+}
+/* below ~360px a full-width nowrap CTA label (plus its arrow glyph) no longer
+   fits inside the gutter — let it wrap onto a second line instead of
+   overflowing the viewport. */
+@media (max-width: 380px) {
+  .df-site .btn { white-space: normal; text-align: left; }
 }
 .df-site .btn .arr { transition: transform .4s var(--ease); }
 .df-site .btn:hover .arr { transform: translateX(4px); }
@@ -511,12 +517,13 @@
 
 /* =================================================================== FOOTER */
 .df-site .footer { background: #050608; color: var(--hero-ink-2); padding-block: 64px 40px; border-top: 1px solid rgba(255,255,255,.07); }
-.df-site .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
-@media (max-width: 820px) { .df-site .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
+.df-site .footer-top { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
+@media (max-width: 820px) { .df-site .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
+@media (max-width: 480px) { .df-site .footer-top { grid-template-columns: minmax(0, 1fr); } }
 .df-site .footer .brand-word { color: var(--hero-ink); }
 .df-site .footer .f-blurb { margin-top: 18px; font-size: 13.5px; line-height: 1.7; max-width: 34ch; }
 .df-site .footer .f-col h4 { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 500; }
-.df-site .footer .f-col a, .df-site .footer .f-col span { display: block; font-size: 13.5px; padding: 5px 0; color: var(--hero-ink-2); transition: color .3s; }
+.df-site .footer .f-col a, .df-site .footer .f-col span { display: block; font-size: 13.5px; padding: 5px 0; color: var(--hero-ink-2); transition: color .3s; overflow-wrap: anywhere; }
 .df-site .footer .f-col a:hover { color: var(--gold); }
 .df-site .footer-bottom { margin-top: 56px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--steel); }
 .df-site .footer-bottom .motto { color: var(--gold); }

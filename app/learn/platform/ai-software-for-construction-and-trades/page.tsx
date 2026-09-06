@@ -25,7 +25,7 @@ const faq = [
   },
   {
     q: "What is the pricing for Forge?",
-    a: "Forge uses flat monthly platform pricing with tiered plans rather than per-user seat licenses. For current pricing, see buildwithforge.app.",
+    a: "Forge products are custom quoted for each company. Scope and terms are agreed before you commit. See buildwithforge.app/pricing.",
   },
   {
     q: "Can I use Forge on Mac and iPad?",
@@ -120,10 +120,10 @@ export default function AiSoftwareComparisonPage() {
           <p>
             <strong>Who it&apos;s for:</strong> commercial installation contractors who want
             an AI-native platform that consolidates their workflow rather than managing
-            multiple tools. <strong>Pricing:</strong> flat monthly platform pricing with
-            tiered plans — see{" "}
-            <a className="underline" href="https://buildwithforge.app" rel="noopener">
-              buildwithforge.app
+            multiple tools. <strong>Pricing:</strong> Forge Core and every product are custom quoted
+            for the company and the work required — see{" "}
+            <a className="underline" href="https://buildwithforge.app/pricing" rel="noopener">
+              buildwithforge.app/pricing
             </a>
             .
           </p>

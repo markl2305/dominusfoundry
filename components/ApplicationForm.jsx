@@ -178,11 +178,11 @@ export default function ApplicationForm() {
             onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
           />
-          <div className={`${inputClass} flex items-center gap-3 cursor-pointer`}>
+          <div className={`${inputClass} flex items-center gap-3 cursor-pointer min-w-0`}>
             <span className="inline-flex items-center rounded-lg bg-forge-200 px-3 py-1 text-xs font-semibold text-slate-800 shrink-0">
               Choose File
             </span>
-            <span className="text-sm text-slate-600 truncate">
+            <span className="min-w-0 flex-1 break-words text-sm text-slate-600">
               {fileName || "PDF, DOC, or DOCX — 10MB max"}
             </span>
           </div>
