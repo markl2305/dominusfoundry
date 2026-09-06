@@ -300,8 +300,8 @@ export default function IrisContent() {
             </div>
           </div>
           <p className="pricenote">
-            There is no second or third hire package. Hyperion, Sigil and Torch are bought on their own rate card and are quoted
-            separately — this page publishes no combined figure, because none has been set.
+            Hyperion, Sigil and Torch are custom quoted alongside the responsibilities and products your company needs.
+            You review the scope and terms before committing.
           </p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">

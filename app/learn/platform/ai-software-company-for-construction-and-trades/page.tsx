@@ -45,7 +45,7 @@ const faq = [
   },
   {
     q: "Is Forge suitable for small contracting businesses?",
-    a: "Yes. Forge uses flat monthly platform pricing with tiered plans rather than per-seat licensing, which keeps it accessible for small and mid-sized contractors. Current pricing is published at buildwithforge.app.",
+    a: "Yes. Forge products are custom quoted for each company. Scope and terms are agreed before you commit. See buildwithforge.app/pricing.",
   },
   {
     q: "How does Forge handle data security?",

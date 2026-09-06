@@ -8,7 +8,7 @@ import {
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the founding sales team at Dominus Foundry™. 19 provisional patent applications plus a non-provisional filing — patent pending — fully built vertical SaaS for the trades, 100% first-month commission + 15% residual forever. Ground floor opportunity.",
+    "Join the founding sales team at Dominus Foundry™. 19 provisional patent applications plus a non-provisional filing — patent pending — fully built vertical SaaS for the trades. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -23,9 +23,9 @@ const platformFeatures = [
 const commissionTable = [
   {
     type: "SaaS — First Month",
-    rate: "100% of MRR",
+    rate: "Full first month",
     terms:
-      "Full first month\u2019s subscription paid on collection. Close a $1,100/mo Hyperion™ deal, you earn $1,100 on day one.",
+      "Full first month\u2019s subscription paid on collection. The deal is custom quoted.",
   },
   {
     type: "SaaS — Ongoing Residual",
@@ -67,7 +67,7 @@ const disqualifiers = [
 const repGets = [
   "A product that exists and works \u2014 not a prototype or a roadmap",
   "19 provisional patent applications plus a non-provisional filing — patent pending",
-  "Defined pricing, competitive comparison docs, and demo environments",
+  "A quoting process, competitive comparison docs, and demo environments",
   "Power dialer, CRM, and AI-assisted sales tools built in-house",
   "Direct founder access for deal strategy and closing support",
   "Objection tracking and conversion analytics",
@@ -132,7 +132,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, bought a line at a time on Forge Core at <strong>$599/mo</strong>, flat-rate with unlimited users. Every competitor charges per-user &mdash; their pricing works against the customer as they grow. Ours doesn&apos;t.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, through a custom quote based on the company&apos;s needs.
             </p>
           </div>
           <ul className="space-y-3">
@@ -199,10 +199,10 @@ export default function CareersPage() {
                 published — reps see it on their onboarding call. Do not restore a dollar total
                 here; that is exactly what this rewrite removes. */}
             <p className="body-foundry text-slate-800">
-              <strong>Every Sabina hire pays the rep the same way</strong>: 100% of her first month&apos;s fee, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>{openSeatsWord} of the {totalSeatsWord} founding seats are still open.</strong> The founding rate and the standing rate that follows once the charter closes are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
+              <strong>Every Sabina hire pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>{openSeatsWord} of the {totalSeatsWord} founding seats are still open.</strong> The founding rate and the standing rate that follows once the charter closes are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
             <p className="body-foundry text-slate-800">
-              That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. The tools price differently &mdash; Forge Core is $599/mo, Hyperion is $1,100/mo with Core included &mdash; so a book with tools deals in it earns against a different per-account figure. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
+              That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. Every tools deal is custom quoted, so commission follows the agreed amount for that account. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
             </p>
             <p className="body-foundry text-slate-800">
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.
