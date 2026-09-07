@@ -3,9 +3,9 @@ import FoundryShell from '@/components/foundry/FoundryShell'
 import IrisContent from '@/components/foundry/IrisContent'
 
 export const metadata: Metadata = {
-  title: 'Sabina — the employee you hire | Dominus Foundry',
+  title: "Sabina — your company's custom AI | Dominus Foundry",
   description:
-    'The front office is one person, and everything waits on her. Sabina answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
+    "Sabina is your company's custom AI — a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. Hired, not licensed. In a contractor's front office she answers the customer, carries the money conversation, and carries what you hand her to done — inside a record the owner governs.",
   alternates: { canonical: 'https://dominusfoundry.com/iris' },
 }
 

@@ -19,6 +19,7 @@ export default function About() {
           <p className="mt-6 body-foundry">
             Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
             We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
+            Sabina is ours: a dedicated company AI system, shaped around your business, its knowledge, its work, and the authority you give her.
           </p>
         </div>
       </section>
@@ -37,7 +38,8 @@ export default function About() {
           </p>
           <p className="body-foundry">
             Dominus Foundry builds operator-grade AI infrastructure—custom systems that plug into how your business actually runs.
-            Your POS, your calendar, your workflows. Governed, auditable, and built to last.
+            Your POS, your calendar, your workflows. Governed, auditable, and built to last. Sabina is that system as a hire: dedicated to one
+            company, answerable to its owner. Forge, our contractor vertical, is the first proof point—not the edge of what we build.
           </p>
           <p className="body-foundry">
             There will be more shifts ahead. We&apos;re here to help teams navigate them without losing their clarity or their control.

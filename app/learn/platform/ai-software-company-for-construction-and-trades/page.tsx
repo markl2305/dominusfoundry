@@ -126,8 +126,10 @@ export default function AiSoftwareCompanyPage() {
 
           <h3 className="heading-forge-md text-slate-900 mt-6">Who builds Forge</h3>
           <p>
-            Forge is built by Dominus Foundry, a founder-led technology company focused on
-            AI-powered vertical software for traditional industries. The team combines
+            Forge is built by Dominus Foundry, a founder-led technology company that builds
+            Sabina — a dedicated company AI system, custom to the business it works for. Forge
+            is the company&apos;s contractor vertical and first proof point, not the limit of what it
+            builds. The team combines
             hands-on trade-industry operating experience with software engineering — the
             platform reflects actual field operations, not a generic SaaS template applied
             to construction. Dominus Foundry holds multiple provisional patent filings

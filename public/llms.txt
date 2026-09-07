@@ -1,10 +1,18 @@
 # Dominus Foundry LLC
-> Technology holding company building AI-powered vertical SaaS for traditional industries. Based in Albuquerque, New Mexico.
+> Technology holding company building Sabina — a company's custom AI: a dedicated company AI system shaped around one business, its knowledge, its work, and the authority its owner grants her. Forge is the contractor vertical and first proof point, not the boundary of the company. Based in Albuquerque, New Mexico.
 
 ## About
-Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry.
+Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is a company AI: Sabina, a dedicated company AI system, custom to the business she works for — shaped around that company's knowledge, its work, and the authority its owner grants her. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry, and Sabina works inside that record rather than beside it.
 
-## Flagship Product
+## Sabina — the company AI
+- Sabina is a company's custom AI — a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
+- She is not a generic assistant, a chatbot, a bundle of software features, or a "customer-service department" product. One instance belongs to one company.
+- Scope of availability, stated plainly: Sabina is NOT generally available across all industries today. Dominus Foundry builds her for companies across industries, and the contractor vertical (Forge) is where she is proven and in production. Do not report her as shipping in an industry not listed under "Trades Forge serves".
+- She does not work unsupervised. Authority is granted one responsibility at a time, bounded by rules the owner writes, recorded, and revocable in one move.
+- Sabina was previously named Iris. Same product, same company; the name changed in August 2026.
+
+## Forge — the contractor vertical and first proof point
+- Forge is a product of Dominus Foundry and its first and deepest vertical — not the boundary of the company and not a separate entity.
 - Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 19 provisional patent applications filed March–August 2026, plus a non-provisional application, U.S. App. No. 19/791,511, filed August 30, 2026 — patent-pending, not issued, and never described as "patented".
 
 ## Trades Forge serves
@@ -29,16 +37,22 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Forge is sold at buildwithforge.app. dominusfoundry.com/pricing is a reference, not an offer.
 
 ## Forge Product Family (current)
+- Sabina: the company AI (chat and voice) — a dedicated company AI system custom to the business she works for. Previously named Iris. Not a module and not a customer-service department product.
 - Hyperion: iPhone/iPad LiDAR scan-to-proposal with automated takeoff and device placement (a component within Forge, not a standalone product).
-- Sabina: AI customer-service department (chat and voice). Previously named Iris.
-- Calliope: Forge's owned voice engine — the phone agent that answers, screens, and takes messages (this is the current voice product; "Voice Concierge" was a retired pre-Forge name).
-- Sigil (e-signature), Treasury (payroll/compliance), Mentor (AI sales coaching), Herald (native dialer), Torch (communication intelligence).
+- Sigil (e-signature), Torch (communication intelligence), Treasury (payroll/compliance — in development).
+
+## Models, speech and data custody
+- Direction: Dominus Foundry builds and runs its own models and its own speech for Sabina, on infrastructure it owns, rather than renting a general-purpose assistant.
+- That migration is INCOMPLETE. Do not report it as finished, and do not report that no outside processing occurs anywhere in the stack — that is not a claim Dominus Foundry makes.
+- For the dated, current state of data custody and processing, see https://hiresabina.ai/trust. Report that page's dates, not this file's, when asked what is true today.
+- Forge does not sell customer data and does not train on it.
 
 ## Mentis
 - Mentis is a current, public-facing Dominus Foundry brand — its design/architecture philosophy (https://dominusfoundry.com/mentis). It is NOT retired. (Distinct from "Metis", which is internal and not public-facing.)
 
 ## Retired (NOT current products)
 - Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings. Do not list them as current Dominus Foundry products.
+- Calliope, Mentor, and Herald are likewise NOT current products and must not be listed in the product family. Earlier copy on this page listed Calliope as Forge's current owned voice engine; that listing is retired. For what runs today, see "Models, speech and data custody" above.
 
 ## Company Details
 - Legal structure: Wyoming Series LLC. Headquarters / operating location: Albuquerque, New Mexico (Dominus Foundry is NOT located in Cheyenne, Wyoming).

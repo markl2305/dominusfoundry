@@ -123,7 +123,9 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              A family-owned technology holding company. The parent behind Forge, Sabina, and Hyperion — forging software built to endure.
+              A family-owned technology holding company. We build Sabina — your company&rsquo;s custom AI, a dedicated company AI system shaped
+              around your business, its knowledge, its work, and the authority you give her. Forge is our contractor vertical and first proof
+              point; Hyperion is the technology beneath it.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (

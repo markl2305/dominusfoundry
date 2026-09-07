@@ -12,19 +12,19 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
+  title: "Dominus Foundry™ — Your Company's Custom AI",
   description:
-    'Dominus Foundry™ builds AI-powered vertical SaaS for traditional industries. Flagship product Forge™ is the AI operating system for commercial installation contractors. 19 provisional patent applications and a non-provisional application (patent pending). Based in Albuquerque, NM.',
-  keywords: ['Dominus Foundry™', 'Forge™', 'AI contractor software', 'vertical SaaS', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
+    "Dominus Foundry™ builds Sabina — your company's custom AI, a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. Forge™, our contractor vertical, is the first proof point. 19 provisional patent applications and a non-provisional application (patent pending). Based in Albuquerque, NM.",
+  keywords: ['Dominus Foundry™', 'Sabina', 'company AI', 'custom AI', 'dedicated company AI system', 'Forge™', 'AI contractor software', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
+    title: "Dominus Foundry™ — Your Company's Custom AI",
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, the AI operating system for commercial contractors. 19 provisional patent applications and a non-provisional application (patent pending).',
+      "Technology holding company building Sabina — a dedicated company AI system, custom to the business it works for. Forge™, our contractor vertical, is the first proof point. 19 provisional patent applications and a non-provisional application (patent pending).",
     url: 'https://dominusfoundry.com',
     siteName: 'Dominus Foundry™',
     images: [
@@ -40,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry™ — AI-Powered Software for Traditional Industries',
+    title: "Dominus Foundry™ — Your Company's Custom AI",
     description:
-      'Technology holding company building AI-powered vertical SaaS. Flagship product: Forge™, for commercial contractors.',
+      "Technology holding company building Sabina — a dedicated company AI system, custom to the business it works for. Forge™ is our contractor vertical and first proof point.",
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -130,7 +130,7 @@ export default function RootLayout({
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. Its flagship product is Forge™ — a complete AI operations platform (not a CRM) for commercial trade contractors. Two trades run on Forge in production today: AV and security, and commercial roofing. Fire and life safety, and solar, are next phase and are not shipping yet. Sabina (previously named Iris) is Forge's AI employee, sold as a hire rather than as a module, with Forge Core included. The tools are bought separately on Core: Hyperion (LiDAR scan-to-proposal), Sigil (signatures and agreements), and Torch (dialer, SMS and call intelligence); Treasury (payroll and payments) is in development. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products, as are Calliope, Mentor, and Herald.",
+                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. It builds Sabina (previously named Iris) — a company's custom AI: a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner grants her. She is hired rather than licensed as a module, with Forge Core included. Forge™ is the company's contractor vertical and first proof point — a complete AI operations platform (not a CRM) for commercial trade contractors, and the record Sabina works inside. Two trades run on Forge in production today: AV and security, and commercial roofing. Fire and life safety, and solar, are next phase and are not shipping yet. Sabina is not generally available in every industry and does not work unsupervised; the contractor vertical is where she is proven today. The tools are bought separately on Core: Hyperion (LiDAR scan-to-proposal), Sigil (signatures and agreements), and Torch (dialer, SMS and call intelligence); Treasury (payroll and payments) is in development. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products, as are Calliope, Mentor, and Herald.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
