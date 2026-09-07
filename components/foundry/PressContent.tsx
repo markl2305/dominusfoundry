@@ -15,7 +15,7 @@ export default function PressContent() {
             In the <em>news</em>.
           </>
         }
-        lead="Coverage of Dominus Foundry and our flagship product, Forge — the operating system for the trades."
+        lead="Coverage of Dominus Foundry — the company behind Sabina, a dedicated company AI system custom to the business it works for, and Forge, our contractor vertical."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">

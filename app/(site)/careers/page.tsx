@@ -8,7 +8,7 @@ import {
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the founding sales team at Dominus Foundry™. 19 provisional patent applications plus a non-provisional filing — patent pending — fully built vertical SaaS for the trades. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
+    "Join the founding sales team at Dominus Foundry™. We build Sabina — a dedicated company AI system, custom to the business it works for — and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -113,7 +113,7 @@ export default function CareersPage() {
           </div>
           <div className="body-foundry space-y-4 text-slate-800">
             <p>
-              Dominus Foundry™ built <strong>Forge™</strong> &mdash; a vertical operating system for the trades (low-voltage, roofing, electrical, HVAC). It replaces D-Tools, ServiceTitan, ProjX360, ConnectWise, and 3-4 other tools a contractor is currently paying for &mdash; in a single platform at a fraction of the cost.
+              Dominus Foundry™ builds <strong>Sabina</strong> &mdash; a dedicated company AI system, custom to the business it works for, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is our contractor vertical and first proof point: a vertical operating system serving AV and security, and commercial roofing, today. It replaces D-Tools, ServiceTitan, ProjX360, ConnectWise, and 3-4 other tools a contractor is currently paying for &mdash; in a single platform at a fraction of the cost.
             </p>
             <p>
               Our flagship technology, <strong>Hyperion™</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.

@@ -16,11 +16,12 @@ function Hero() {
           <Medallion className="hero-crest" scheme="ondark" />
           <p className="hero-motto serif">Fide et Familia</p>
           <h1 className="hero-title">
-            We forge software that <em>endures</em>.
+            Your company&rsquo;s AI. Built to <em>endure</em>.
           </h1>
           <p className="hero-lead">
-            A family-owned technology holding company forging AI-native operating systems for the industries that build the world — and the
-            governance, patents, and people standing behind them.
+            Sabina is your company&rsquo;s custom AI — a dedicated company AI system shaped around your business, its knowledge, its work, and
+            the authority you give her. Dominus Foundry builds her for companies across industries; Forge, our contractor vertical, is where
+            she works today and our first proof point — with the governance, patents, and people standing behind her.
           </p>
           <div className="hero-actions">
             <a className="btn btn-solid" href="https://buildwithforge.app" target="_blank" rel="noopener">
@@ -58,9 +59,10 @@ function Thesis() {
           </div>
           <div className="thesis-aside reveal d1">
             <p>
-              Dominus Foundry is the parent above Forge. The flagship earns; the technology compounds into patents; the governance underneath
-              is what lets an owner hand real work to software at all. No outside mandate, no exit clock — only what we&apos;d be proud to run
-              for a generation.
+              Dominus Foundry builds Sabina — a dedicated company AI system, custom to the business it works for. Forge is our contractor
+              vertical and the first place she proved out: it earns, the technology compounds into patents, and the governance underneath is
+              what lets an owner hand real work to software at all. Forge is where the company started, not where it ends. No outside
+              mandate, no exit clock — only what we&apos;d be proud to run for a generation.
             </p>
             <p>Built and held by the Lord family. Everything we ship carries the name.</p>
           </div>
@@ -74,9 +76,9 @@ const PILLARS = [
   {
     idx: '01',
     glyph: 'forge',
-    kicker: 'Flagship · Operating',
+    kicker: 'Contractor vertical · Operating',
     name: 'Forge',
-    body: 'The AI operating system for the trades. One platform replaces D-Tools, ServiceTitan, and the half-dozen tools a contractor duct-tapes together — from LiDAR scan to final invoice.',
+    body: 'Our contractor vertical and first proof point — the AI operating system for the trades, and the record Sabina works inside. One platform replaces D-Tools, ServiceTitan, and the half-dozen tools a contractor duct-tapes together — from LiDAR scan to final invoice.',
     href: 'https://buildwithforge.app',
     label: 'Enter Forge',
     ext: true,
@@ -84,9 +86,9 @@ const PILLARS = [
   {
     idx: '02',
     glyph: 'iris',
-    kicker: 'The employee · Live',
+    kicker: 'The company AI · Live',
     name: 'Sabina',
-    body: 'The front office is one person, and everything waits on her. Sabina answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
+    body: 'Your company’s custom AI — a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. In a contractor’s front office that looks like this: she answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record the owner governs.',
     href: '/iris',
     label: 'Meet Sabina',
   },

@@ -92,13 +92,13 @@ export default function IrisContent() {
   return (
     <>
       <PageHero
-        eyebrow="Sabina · The employee you hire"
+        eyebrow="Sabina · Your company's custom AI"
         title={
           <>
             The call at 4:50 <em>gets answered</em>.
           </>
         }
-        lead="The front office is one person, and everything waits on her. Sabina answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record you govern and can take back."
+        lead="Sabina is your company's custom AI — a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. In a contractor's front office that looks like this: she answers the customer, carries the money conversation, takes what you hand her, and carries it to done — inside a record you govern and can take back."
         actions={
           <>
             <a className="btn btn-solid" href="#what">
