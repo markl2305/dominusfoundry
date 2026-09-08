@@ -123,7 +123,6 @@ export default function IrisContent() {
 
       <section className="section" style={{ paddingBlock: '20px' }}>
         <div className="wrap">
-          <p className="fg-src">Sabina was previously named Iris. Same product, same company; the name changed in August 2026.</p>
         </div>
       </section>
 
