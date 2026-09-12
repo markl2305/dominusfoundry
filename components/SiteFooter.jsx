@@ -7,7 +7,7 @@ const links = [
   { name: 'About', href: '/about' },
   { name: 'Careers', href: '/careers' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Get Started', href: '/start' },
+  { name: 'Contact the team', href: '/company#contact' },
   { name: 'Privacy', href: '/privacy' },
 ]
 
@@ -31,7 +31,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry™</span>
             </Link>
             <p className="body-foundry">
-              We build Sabina — your company&rsquo;s custom AI, a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. Forge™ is our contractor vertical and first proof point — from scan to invoice, one platform. 19 provisional patent applications, plus a non-provisional filing — patent pending.
+              We build Sabina — your company&rsquo;s custom AI, a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
             </p>
           </div>
 

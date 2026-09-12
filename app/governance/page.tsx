@@ -4,8 +4,7 @@ import GovernanceContent from '@/components/foundry/GovernanceContent'
 
 export const metadata: Metadata = {
   title: 'Governance — Dominus Foundry',
-  description:
-    'Scoped, attributed, reversible, structural. Write a rule in plain English, watch it land in the record with an author and a date, then revoke it — governance you can operate, not a claim you have to accept.',
+  description: 'Explore our approach to scoped authority, traceable decisions, and revocation with an illustrative browser simulation.',
   alternates: { canonical: 'https://dominusfoundry.com/governance' },
 }
 

@@ -27,6 +27,22 @@ export default function ConstitutionalSyntheticIntelligencePage() {
           accountability. What if we built the governance layer first?
         </h2>
         <p className="text-sm text-slate-500">By Mark Lord · December 17, 2025</p>
+        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+          <p>
+            This essay is kept as it was published in December 2025. It argues for an architecture; it is not a
+            description or certification of any system Dominus Foundry runs today, and its view of other companies
+            is the author&apos;s view at the time.
+          </p>
+          <p>
+            Its central idea — that authority is granted explicitly and can be withdrawn — is the one Dominus
+            Foundry now builds around in
+            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+              Sabina
+            </Link>
+            .
+          </p>
+        </aside>
 
         <div className="body-foundry space-y-4 text-slate-900">
           <p>The AI industry has a blind spot.</p>

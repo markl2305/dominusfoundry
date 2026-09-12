@@ -18,6 +18,27 @@ export default function SyntheticIntelligenceMentisPage() {
           Synthetic intelligence is the shift from AI that responds to AI that executes — with memory, policies,
           verification, and audit trails.
         </h2>
+        <p className="text-sm text-slate-500">Foundry Notes · Archive · Publication date not recorded</p>
+        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+          <p>
+            This is an earlier essay, kept as written. Where it says Mentis &ldquo;is being built&rdquo;, that
+            reflects plans at the time. The four levels are a way of thinking about AI capability, not a statement
+            of what any Dominus Foundry product does today.
+          </p>
+          <p>
+            The product Dominus Foundry builds today is
+            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+              Sabina
+            </Link>
+            , a dedicated company AI system that works on the responsibilities a business owner grants her. For
+            Mentis as the company uses the name now, see
+            <Link href="/mentis" className="font-semibold text-forge-700 hover:text-forge-900">
+              Mentis
+            </Link>
+            .
+          </p>
+        </aside>
 
         <div className="body-foundry space-y-4 text-slate-900">
           <p>

@@ -2,6 +2,7 @@
 const nextConfig = {
   async redirects() {
     return [
+      { source: "/iris", destination: "/sabina", permanent: true },
       // Old index → new systems index
       { source: "/business-tools", destination: "/systems", permanent: true },
 

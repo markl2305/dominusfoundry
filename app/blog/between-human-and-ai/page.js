@@ -39,6 +39,21 @@ export default function BetweenHumanAndAIPage() {
         <p className="text-sm text-slate-600">
           April 9, 2026 — Mark Lord and Claude
         </p>
+        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+          <p>
+            A record of a conversation during a software build in April 2026, kept as published. The preamble
+            describes the exchange as verbatim; the closing note explains that what appears here is an edited
+            selection of it.
+          </p>
+          <p>
+            It is about working alongside an AI model while writing software. It does not describe how
+            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+              Sabina
+            </Link>
+            works or the systems she runs on.
+          </p>
+        </aside>
 
         <div className="body-foundry space-y-6 text-slate-900">
           {/* --- Preamble --- */}

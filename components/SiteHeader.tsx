@@ -11,7 +11,7 @@ const mainNav = Object.freeze([
   { label: 'Careers', href: '/careers' },
   { label: 'Press', href: '/press' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Get Started', href: '/start', highlight: true },
+  { label: 'Contact the team', href: '/company#contact', highlight: true },
 ])
 
 export default function SiteHeader() {

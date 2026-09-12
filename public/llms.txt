@@ -1,8 +1,8 @@
 # Dominus Foundry LLC
-> Technology holding company building Sabina — a company's custom AI: a dedicated company AI system shaped around one business, its knowledge, its work, and the authority its owner grants her. Forge is the contractor vertical and first proof point, not the boundary of the company. Based in Albuquerque, New Mexico.
+> Intelligence company building Sabina — a company's custom AI: a dedicated company AI system shaped around one business, its knowledge, its work, and the authority its owner grants her. Forge is the contractor vertical and first proof point, not the boundary of the company. Based in Albuquerque, New Mexico.
 
 ## About
-Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is a company AI: Sabina, a dedicated company AI system, custom to the business she works for — shaped around that company's knowledge, its work, and the authority its owner grants her. The company operates a federated multi-product architecture where each vertical gets a purpose-built "kernel" optimized for its industry, and Sabina works inside that record rather than beside it.
+Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is a company AI: Sabina, a dedicated company AI system, custom to the business she works for — shaped around that company's knowledge, its work, and the authority its owner grants her. The company focuses on dedicated company AI, informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
 
 ## Sabina — the company AI
 - Sabina is a company's custom AI — a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
@@ -58,3 +58,6 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Funding: independent and founder-funded; no outside venture capital. (There is no active "Foundry Capital" investment arm.)
 - Philosophy: Multi-generational family business ("Fide et Familia")
 - Contact: foundry@dominusfoundry.com | (866) 849-2113
+
+## Company site
+The company site centers on Sabina and company intelligence. /sabina is the current company-level introduction. /technology explains company context, delegated responsibilities, and oversight rather than serving as a Hyperion product page. The governance demonstration is an illustrative browser simulation, not a live tenant or evidence of production coverage. Revocation withdraws permission for future work; it does not undo completed actions. Investors: https://markflord.com/pitch.

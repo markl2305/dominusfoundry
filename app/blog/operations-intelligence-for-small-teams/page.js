@@ -15,6 +15,22 @@ export default function OperationsIntelligenceArticle() {
         <h2 className="heading-forge-md text-slate-800">
           The next step isn’t another assistant — it’s a brain that understands your operations.
         </h2>
+        <p className="text-sm text-slate-500">Foundry Notes · Archive · Publication date not recorded</p>
+        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+          <p>
+            This is an earlier essay, kept as written. Its phone, invoicing and ordering examples reflect offerings
+            the company made before Forge; those offerings have since been retired and are not current products.
+          </p>
+          <p>
+            The problem it describes — work that depends on what a few people remember — is the one Dominus
+            Foundry now works on through
+            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+              Sabina
+            </Link>
+            .
+          </p>
+        </aside>
 
         <div className="body-foundry space-y-4 text-slate-900">
           <p>There’s no shortage of “AI” right now.</p>

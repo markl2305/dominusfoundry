@@ -12,20 +12,19 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: "Dominus Foundry™ — Your Company's Custom AI",
+  title: "Dominus Foundry — The intelligence company behind Sabina",
   description:
-    "Dominus Foundry™ builds Sabina — your company's custom AI, a dedicated company AI system shaped around your business, its knowledge, its work, and the authority you give her. Forge™, our contractor vertical, is the first proof point. 19 provisional patent applications and a non-provisional application (patent pending). Based in Albuquerque, NM.",
-  keywords: ['Dominus Foundry™', 'Sabina', 'company AI', 'custom AI', 'dedicated company AI system', 'Forge™', 'AI contractor software', 'construction technology', 'LiDAR', 'Hyperion™', 'commercial roofing software'],
+    "Dominus Foundry builds Sabina, a dedicated company AI shaped around the business it serves, its knowledge, and the authority its people grant her. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
+  keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'dedicated AI', 'AI governance', 'Mark Lord', 'Bri Lord'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Dominus Foundry™ — Your Company's Custom AI",
+    title: "Dominus Foundry — The intelligence company behind Sabina",
     description:
-      "Technology holding company building Sabina — a dedicated company AI system, custom to the business it works for. Forge™, our contractor vertical, is the first proof point. 19 provisional patent applications and a non-provisional application (patent pending).",
-    url: 'https://dominusfoundry.com',
+      "The intelligence company behind Sabina. Dedicated company AI, built around the business it serves.",
     siteName: 'Dominus Foundry™',
     images: [
       {
@@ -40,9 +39,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dominus Foundry™ — Your Company's Custom AI",
+    title: "Dominus Foundry — The intelligence company behind Sabina",
     description:
-      "Technology holding company building Sabina — a dedicated company AI system, custom to the business it works for. Forge™ is our contractor vertical and first proof point.",
+      "The intelligence company behind Sabina. Dedicated company AI, built around the business it serves.",
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -130,7 +129,7 @@ export default function RootLayout({
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. It builds Sabina — a company's custom AI: a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner grants her. She is hired rather than licensed as a module, with Forge Core included. Forge™ is the company's contractor vertical and first proof point — a complete AI operations platform (not a CRM) for commercial trade contractors, and the record Sabina works inside. Two trades run on Forge in production today: AV and security, and commercial roofing. Fire and life safety, and solar, are next phase and are not shipping yet. Sabina is not generally available in every industry and does not work unsupervised; the contractor vertical is where she is proven today. The tools are bought separately on Core: Hyperion (LiDAR scan-to-proposal), Sigil (signatures and agreements), and Torch (dialer, SMS and call intelligence); Treasury (payroll and payments) is in development. Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings, not current products, as are Calliope, Mentor, and Herald.",
+                "Dominus Foundry is the family-owned intelligence company behind Sabina, a dedicated company AI shaped around a business, its knowledge, and the authority its people grant her. Forge is its contractor vertical. Sabina is not generally available in every industry and does not work unsupervised; Forge, the contractor vertical, is where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",

@@ -5,7 +5,7 @@ import { Medallion, Icon } from './Marks'
 import { CTA, PageHero, useFoundry } from './FoundryShell'
 
 const C_VALUES = [
-  { k: 'Fide et Familia', t: 'Faith & family', d: "Every system we ship carries the Lord name. That isn't branding — it's accountability you can call." },
+  { k: 'Under your authority', t: 'The owner decides', d: 'Sabina works on the responsibilities a business owner grants her, and a grant can be withdrawn.' },
   { k: 'Built to last', t: 'Durability over hype', d: "We optimize for the company we'd be proud to run in twenty years, not the headline this quarter." },
   { k: 'Operators, always', t: 'We do the work', d: 'Code, capital, and the day-to-day of a real business — carried by the same hands, on purpose.' },
 ]
@@ -25,14 +25,14 @@ export default function CompanyContent() {
             Built by a family. <em>Held</em> for a generation.
           </>
         }
-        lead="Dominus Foundry is a family-owned technology holding company in Albuquerque, New Mexico. We build Sabina — a dedicated company AI system, custom to the business it works for — with Forge, our contractor vertical and first proof point, and Hyperion, the technology beneath it. We build what we'd be proud to run for the rest of our lives, and we hold it."
+        lead="Dominus Foundry is a family-owned intelligence company in Albuquerque, New Mexico. We build Sabina — company AI that works under the authority of the business she works for. Forge, our contractor vertical, is where she works first."
         actions={
           <>
             <a className="btn btn-solid" href="#leadership">
               Meet the founders {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="#contact">
-              Get in touch {Icon.arr}
+              Contact the founders {Icon.arr}
             </a>
           </>
         }
@@ -43,7 +43,7 @@ export default function CompanyContent() {
         }
         metaRight={
           <>
-            <b>Mark &amp; Bri Lord</b> · Founders
+            <b>Mark &amp; Bri Lord</b> · Co-founders
           </>
         }
       />
@@ -55,23 +55,24 @@ export default function CompanyContent() {
               <Medallion className="family-crest" scheme={crestScheme} withScroll />
             </div>
             <div>
-              <p className="eyebrow reveal">The Crest</p>
+              <p className="eyebrow reveal">Why the Foundry exists</p>
               <blockquote className="reveal d1" style={{ marginTop: '22px' }}>
-                The crest reads <em>Fide et Familia</em> — faith and family. It is not decoration. Every system we ship carries the Lord name,
-                and if it falters, it is our reputation in the fire.
+                The crest reads <em>Fide et Familia</em> — faith and family. Every system we ship carries the Lord name, and if it falters, it
+                is our reputation in the fire.
               </blockquote>
               <div className="attrib reveal d1">
                 <span className="ln" />
-                <span className="who">Mark Lord · Founder</span>
+                <span className="who">Mark Lord · Co-founder</span>
               </div>
               <div className="body reveal d2">
                 <p>
-                  We started the Foundry because we watched an entire industry — the trades that build and maintain the physical world — run on
-                  disconnected tools and pricing designed to punish the businesses that grow.
+                  Most of what a small company knows lives in a few people&apos;s heads and a stack of tools that do not talk to each other. We
+                  saw it first in the trades, from the operator&apos;s side of the desk.
                 </p>
                 <p>
-                  The trades deserve the caliber of technology that enterprise takes for granted, without the enterprise price or the enterprise
-                  theater. So we forge it ourselves, from Albuquerque, and we hold what we build.
+                  So we build Sabina: one company AI for one business, working on the responsibilities its owner grants her. Forge,
+                  our software for commercial trade contractors, is where she works first. We build it from Albuquerque, and we hold what we
+                  build.
                 </p>
               </div>
             </div>
@@ -131,18 +132,18 @@ export default function CompanyContent() {
             <div className="founders-copy">
               <h3 className="serif">How we work together</h3>
               <p>
-                We have spent our days together since Covid. A lot of couples came apart in that stretch — we found we worked better in the
-                same room. For years that meant different employers and a shared commute. Last year, with CalLord, it meant the same goal for
-                the first time.
-              </p>
-              <p>
                 The division is clean. Mark takes the business, the design and the technology. Bri takes everything else a company stands on:
                 the client relationships, the investor relationships, the calendar, the follow-through, and the hundred daily things that let
                 him keep his head down and build.
               </p>
               <p>
-                Nine months of this so far. Faith is a tenet of the company rather than a decoration on it — the way a constitution is not a
-                preface to a government but the thing the government is made of. It is written into how the software governs itself.
+                We have spent our days together since Covid. A lot of couples came apart in that stretch — we found we worked better in the
+                same room. For years that meant different employers and a shared commute. With CalLord, it meant the same goal for the first
+                time.
+              </p>
+              <p>
+                Faith is a tenet of the company rather than a decoration on it — the way a constitution is not a preface to a government but
+                the thing the government is made of. It is written into how the software governs itself.
               </p>
             </div>
           </div>
@@ -195,23 +196,26 @@ export default function CompanyContent() {
             The long view
           </p>
           <p className="big reveal d1">
-            From Albuquerque, <em>for the people who build the world</em>.
+            From Albuquerque, <em>for the people who run the business</em>.
           </p>
         </div>
       </section>
 
       <CTA
-        eyebrow="Careers · Press · Partnership"
+        eyebrow="Contact · Press · Partnership"
         title={
           <>
-            Come <em>forge</em> with us.
+            Talk to <em>the founders</em>.
           </>
         }
-        lead="Whether you want to build here, write about us, or partner with the Foundry — reach out. You'll hear back from a real person within one business day."
+        lead="Customers, partners, press and prospective colleagues all reach the same inbox."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Email the Foundry {Icon.arr}
+            </a>
+            <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com?subject=Careers%20and%20collaboration">
+              Careers {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="tel:+18668492113">
               Call (866) 849-2113 {Icon.arr}

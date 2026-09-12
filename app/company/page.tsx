@@ -4,8 +4,7 @@ import CompanyContent from '@/components/foundry/CompanyContent'
 
 export const metadata: Metadata = {
   title: 'The Company — Dominus Foundry',
-  description:
-    'Dominus Foundry is a family-owned technology holding company in Albuquerque, NM — built and held by Mark & Bri Lord. Fide et Familia.',
+  description: 'The intelligence company behind Sabina. Built and held by Mark and Bri Lord in Albuquerque, New Mexico.',
   alternates: { canonical: 'https://dominusfoundry.com/company' },
 }
 

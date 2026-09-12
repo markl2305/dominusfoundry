@@ -26,13 +26,11 @@ export const useFoundry = () => useContext(Ctx)
 
 /* canonical nav — single source of truth across all pages */
 const NAV_LINKS = [
-  { id: 'forge', label: 'Forge', href: 'https://buildwithforge.app', ext: true },
-  { id: 'iris', label: 'Sabina', href: '/iris' },
-  { id: 'technology', label: 'Hyperion', href: '/technology' },
-  { id: 'governance', label: 'Governance', href: '/governance' },
-  { id: 'company', label: 'Company', href: '/company' },
-  { id: 'press', label: 'Press', href: '/press' },
-  { id: 'blog', label: 'Blog', href: '/blog' },
+  { id: 'company', label: 'Company', href: '/company', ext: false },
+  { id: 'iris', label: 'Sabina', href: '/sabina', ext: false },
+  { id: 'technology', label: 'Technology', href: '/technology', ext: false },
+  { id: 'governance', label: 'Governance', href: '/governance', ext: false },
+  { id: 'blog', label: 'Insights', href: '/blog', ext: false },
 ]
 
 function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | null; onToggleTheme: () => void }) {
@@ -61,6 +59,7 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
               key={l.id}
               className={`nav-link ${active === l.id ? 'current' : ''}`}
               href={l.href}
+              aria-current={active === l.id ? "page" : undefined}
               target={l.ext ? '_blank' : undefined}
               rel={l.ext ? 'noopener' : undefined}
             >
@@ -69,12 +68,13 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
             </a>
           ))}
         </nav>
+        <details className="company-mobile-nav" onKeyDown={e => { if(e.key === "Escape") { e.currentTarget.open = false; e.currentTarget.querySelector("summary")?.focus() } }} onClick={e => { if((e.target as HTMLElement).closest("a")) e.currentTarget.open = false }}><summary>Menu</summary><nav aria-label="Mobile navigation">{NAV_LINKS.map(l => <a key={l.id} href={l.href} aria-current={active === l.id ? "page" : undefined}>{l.label}</a>)}<a href="https://markflord.com/pitch">Investors</a><a href="/company#contact">Contact the team</a></nav></details>
         <div className="nav-right">
           <button className="theme-toggle" onClick={onToggleTheme} aria-label={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}>
             {theme === 'dark' ? Icon.sun : Icon.moon}
           </button>
           <a className="nav-cta" href="/company#contact">
-            Get Started
+            Contact the team
           </a>
         </div>
       </div>
@@ -84,11 +84,11 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
 
 const FOOTER_COLS = [
   {
-    h: 'The Foundry',
+    h: 'Explore',
     links: [
       { t: 'Forge ↗', href: 'https://buildwithforge.app', ext: true },
-      { t: 'Sabina', href: '/iris' },
-      { t: 'Hyperion', href: '/technology' },
+      { t: 'Sabina', href: '/sabina' },
+      { t: 'Technology', href: '/technology' },
       { t: 'Governance', href: '/governance' },
     ],
   },
@@ -99,7 +99,8 @@ const FOOTER_COLS = [
       { t: 'Leadership', href: '/company#leadership' },
       { t: 'Press', href: '/press' },
       { t: 'Foundry Notes', href: '/blog' },
-      { t: 'Careers', href: '/company#contact' },
+      { t: 'Investors ↗', href: 'https://markflord.com/pitch', ext: true },
+      { t: 'Careers & collaboration', href: '/company#contact' },
     ],
   },
   {
@@ -123,9 +124,7 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              A family-owned technology holding company. We build Sabina — your company&rsquo;s custom AI, a dedicated company AI system shaped
-              around your business, its knowledge, its work, and the authority you give her. Forge is our contractor vertical and first proof
-              point; Hyperion is the technology beneath it.
+              The intelligence company behind Sabina. We build dedicated company AI around the business it serves, the work it is given, and the people responsible for it. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (
