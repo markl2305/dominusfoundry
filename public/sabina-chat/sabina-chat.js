@@ -10,7 +10,7 @@
   if(/^\/(interview|evaluate|talk-to-iris)(\/|$)/.test(location.pathname))return;
   const host = document.createElement('sabina-visitor-chat');
   const root = host.attachShadow({mode:'open'});
-  root.innerHTML = `<link rel="stylesheet" href="${new URL('sabina-chat.css',assetBase)}">
+  root.innerHTML = `<link rel="stylesheet" href="${new URL('sabina-chat.css?v=3',assetBase)}">
     <button class="launcher" aria-label="Ask Sabina — help and support" aria-haspopup="dialog"><span class="label">Ask Sabina</span><span class="orb-shell" aria-hidden="true"><img class="orb" alt="" width="76" height="76"><span class="orb-core"></span></span></button>
     <dialog class="panel" aria-labelledby="chat-title"><header class="header"><span class="orb-mark" aria-hidden="true"><img class="orb" alt="" width="42" height="42"><span class="orb-core"></span></span><div><h2 id="chat-title">Ask Sabina</h2><p>Help, support, and questions</p></div><button class="close" aria-label="Close chat">×</button></header>
     <div class="conversation" role="log" aria-live="polite" aria-relevant="additions"><div class="welcome"><h3>What would you like to know?</h3><p>Ask about Sabina, how she works, or finding your way around.</p><div class="starters"><button>What can Sabina help with?</button><button>How does hiring Sabina work?</button><button>I need help using the site</button></div></div><div class="messages"></div><p class="progress" role="status" hidden>Sabina is responding…</p><div class="error" role="alert" hidden><p></p><button type="button">Try again</button><button type="button" class="restart" hidden>Start a new chat</button><a href="mailto:mark@dominusfoundry.com">Contact the team</a></div></div>
