@@ -1,3 +1,4 @@
+import VisitorChatMount from './components/VisitorChatMount';
 import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
 import AppShell from '../components/AppShell'
@@ -229,6 +230,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <VisitorChatMount />
       </body>
     </html>
   )
