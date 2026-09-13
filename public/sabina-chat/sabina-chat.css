@@ -4,11 +4,11 @@
 .orb-mark{position:relative;display:block;width:42px;height:42px;flex:0 0 42px}
 .orb-mark .orb{width:100%;height:100%}
 .orb{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 9px #0005)}
-.orb-core{position:absolute;z-index:2;left:50%;top:50%;width:35%;height:35%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,190,72,.46) 0,rgba(255,91,8,.24) 47%,rgba(255,60,0,0) 76%);mix-blend-mode:screen;opacity:.22;pointer-events:none;animation:orb-resting-heartbeat 3.8s ease-in-out infinite}
+.orb-core{position:absolute;z-index:2;left:50%;top:50%;width:48%;height:48%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,235,170,.95) 0,rgba(255,142,35,.58) 44%,rgba(255,60,0,0) 76%);mix-blend-mode:screen;opacity:.18;pointer-events:none;animation:orb-resting-heartbeat 3.8s ease-in-out infinite}
 .label{font:500 14px/1.2 system-ui,sans-serif;letter-spacing:0;padding:10px 12px;background:var(--paper,#17130d);border:1px solid #9c795b66;border-radius:5px;box-shadow:0 3px 12px #0002}
 .launcher:hover .orb-shell{transform:translateY(-3px)}
 :host(.responding) .orb-core{animation:orb-inner-voice .82s ease-in-out infinite alternate}
-@keyframes orb-resting-heartbeat{0%,100%{opacity:.2;transform:translate(-50%,-50%) scale(.92)}45%{opacity:.2;transform:translate(-50%,-50%) scale(.92)}55%{opacity:.42;transform:translate(-50%,-50%) scale(1.04)}66%{opacity:.24;transform:translate(-50%,-50%) scale(.96)}}
+@keyframes orb-resting-heartbeat{0%,100%{opacity:.16;transform:translate(-50%,-50%) scale(.82)}45%{opacity:.16;transform:translate(-50%,-50%) scale(.82)}55%{opacity:.92;transform:translate(-50%,-50%) scale(1.14)}66%{opacity:.24;transform:translate(-50%,-50%) scale(.92)}}
 @keyframes orb-inner-voice{from{opacity:.22;transform:translate(-50%,-50%) scale(.82)}to{opacity:.9;transform:translate(-50%,-50%) scale(1.2)}}
 .launcher:focus-visible{outline:2px solid #c58e52;outline-offset:5px;border-radius:6px}
 @media(max-width:600px){.launcher{right:max(10px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));min-height:64px}.orb-shell{width:64px;height:64px;flex-basis:64px}.label{font-size:13px;padding:9px 10px}}
