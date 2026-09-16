@@ -202,11 +202,11 @@ export const claim = (id: string): PitchClaim => {
    ⛔ Every figure below is MODELED except the observed baseline, which is
    labelled as observed and is one paid Forge ACCOUNT, not a Sabina seat. */
 /* ⛔ THE PERIOD IS IN THE VALUE ON PURPOSE (kimi #1, round 3). This rendered a
-   bare "$6K" beside "$1.296M" and "$3.49M", both of which are month-36 ANNUAL
-   recurring revenue — so whether the baseline was monthly or annual was left to
-   the reader to guess, in the one figure on the page that is observed rather
-   than modelled. It is annual: $6,000 ARR, which is the same basis the two
-   scenario figures use. ⛔ Do not strip the period back out. */
+   bare "$6K" beside the two month-36 ANNUAL recurring-revenue figures — so
+   whether the baseline was monthly or annual was left to the reader to guess,
+   in the one figure on the page that is observed rather than modelled. It is
+   annual: $6,000 ARR, the same basis the two scenario figures use.
+   ⛔ Do not strip the period back out. */
 export const OBSERVED_BASELINE = {
   value: '$6K/yr',
   label: 'Observed recurring revenue — one paid Forge account',
@@ -214,28 +214,48 @@ export const OBSERVED_BASELINE = {
   sourceLabel: 'Production tenant records · issued invoices · annual recurring revenue',
 };
 
-/* ⛔ NO FIGURE IN THIS BLOCK HAS BEEN CHANGED (kimi #1, round 3). Every value is
-   the 30 August workbook's base scenario exactly as it stands. What changed is
-   WHERE the zero-churn assumption is disclosed: chapter XV now states it in the
-   body, in the second sentence, because a reader who finds it themselves in a
-   table row trusts the rest of the page less. The chapter is titled "The floor
-   case, before churn" for the same reason.
-   ⛔ An open question for Mark — recorded in P4-CANDIDATE.md, not decided here —
-   is whether the floor should be RE-MODELLED with churn in it. That would move
-   real numbers (seats, ARR, the month-5 trough, the month-36 cash balance) and
-   is a workbook change, not a copy change. Do not attempt it in a copy pass. */
+/* ⛔⛔ THE FLOOR CASE CARRIES 2% MONTHLY LOGO CHURN. RULED by Mark 2026-09-16,
+   verbatim: "Pitch has 2%" (CONFLICTS.md R10). ⛔ THERE IS NO ZERO-CHURN FLOOR
+   ANY MORE, and the figures below are NOT the 30 August workbook's published
+   base-scenario outputs — they are that workbook's model re-run with churn in
+   it. Round 3 disclosed the zero-churn assumption in prose and left the numbers
+   alone; this ruling replaces that with re-modelled numbers, which is the
+   stronger version of the same argument.
+
+   HOW THEY WERE DERIVED, and it is reproducible rather than asserted:
+   scripts/floor-churn-model.mjs transcribes the workbook's own "Monthly Model"
+   sheet (acquisition schedule, founding/standard price split and cap, AWR line,
+   setup-fee schedule, per-node variable cost, opex schedule, starting cash) and
+   reproduces its arithmetic in code. ⛔ Run with churn = 0 that script must
+   reproduce the workbook EXACTLY across 7 series x 36 months — 252 cells — and
+   it exits non-zero if one cell disagrees. It passes. Only then is the 2% run
+   meaningful. Re-run it before changing any figure here:
+       node scripts/floor-churn-model.mjs
+
+   ⭐ THE ARGUMENT SURVIVES THE CHANGE, which is why it was worth making: the
+   floor still never goes cash-negative in any of the 36 months, the trough is
+   still in month 5, and it is still cash-flow positive from month 6. What falls
+   is the ceiling — month-36 seats 35 -> 25, ARR $1.296M -> $971K, month-36 cash
+   $1,239,600 -> $954,634.
+
+   ⚠️ FLAGGED, NOT SILENTLY FIXED: the workbook's base scenario DOES carry a
+   hire from month 13 (opex steps $10,200 -> $15,000), while the pitch prose has
+   described the floor as "no raise, no hires". That discrepancy predates this
+   round and is recorded in P4-CANDIDATE.md. The model above uses the WORKBOOK's
+   opex schedule, not the prose. */
 export const FLOOR = {
-  asOf: '2026-08-30',
-  sourceLabel: 'Dominus_Foundry_ProForma.xlsx · base scenario',
-  seats: '35',
-  arr: '$1.296M',
+  asOf: '2026-09-16',
+  sourceLabel:
+    'Dominus_Foundry_ProForma.xlsx base scenario, re-modelled at 2% monthly logo churn per Mark 2026-09-16 · derivation: scripts/floor-churn-model.mjs (zero-churn control reproduces the workbook, 252/252 cells)',
+  seats: '25',
+  arr: '$971K',
   rows: [
     ['Starting cash', '$35,000'],
-    ['Monthly operating cost', '$10,200'],
+    ['Monthly operating cost', '$10,200 through month 12, $15,000 from month 13'],
     ['Cash-flow positive from', 'month 6'],
-    ['Cash trough', '$13,250 at month 5 — 1.3 months of operating cost'],
-    ['Cash balance, month 36', '$1,239,600'],
-    ['Modeled churn', '0% — and no downgrades. This case assumes every company it lands stays for the full thirty-six months.'],
+    ['Cash trough', '$12,665 at month 5 — 1.2 months of operating cost'],
+    ['Cash balance, month 36', '$954,634'],
+    ['Modeled churn', '2% monthly logo churn — roughly 22% a year, the same assumption the funded case carries'],
   ] as [string, string][],
 };
 
@@ -248,7 +268,10 @@ export const FUNDED = {
     ['Hires land', 'month 3 — one account executive, one deployment lead'],
     ['Revenue per seat', 'held constant at the floor case rate — the scenario changes throughput, not price'],
     ['Steady-state AE throughput', 'two companies a month'],
-    ['Modeled churn', '2% monthly logo churn — roughly 22% a year, where the floor case assumes none'],
+    // ⛔ The tail "…where the floor case assumes none" is struck (2026-09-16,
+    // R10): the floor carries the same 2% now, so there is no contrast left to
+    // draw and the old clause is simply false.
+    ['Modeled churn', '2% monthly logo churn — roughly 22% a year, the same assumption the floor case carries'],
     ['Owned-inference milestone', 'crossed in month 13'],
   ] as [string, string][],
 };

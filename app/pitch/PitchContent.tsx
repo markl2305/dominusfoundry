@@ -422,30 +422,29 @@ export default function PitchContent() {
       </Chapter>
 
       {/* ── 15 ────────────────────────────────────────────────────────────── */}
-      {/* ⛔ kimi #1, round 3. The workbook figure is UNCHANGED — no modelled
-          number moved. What changed is that the assumption which makes it work
-          is now stated in the chapter BODY, in the second sentence, instead of
-          sitting in a table row a reader meets after the headline. A diligence
-          reader finds the zero-churn assumption in five minutes; the page has
-          to be the one that says it first.
-          ⛔ Do not bury this back into the row list or a footnote, and do not
-          restore the line in XVI that pointed at the floor for not modelling
-          churn — the honest move is to name our own assumption, not to score a
-          point off it. Whether to re-model the floor WITH churn is an open
-          question for Mark, recorded in P4-CANDIDATE.md. */}
-      <Chapter n="XV" kicker="Without a raise" id="floor" title={<>The floor case, <em>before churn.</em></>}>
+      {/* ⛔ THE FLOOR CARRIES 2% MONTHLY LOGO CHURN — ruled by Mark 2026-09-16,
+          "Pitch has 2%" (R10). Round 3 disclosed a zero-churn assumption in
+          prose and left the workbook's numbers alone; this is the stronger
+          version of that fix — the numbers themselves now have churn in them,
+          so there is no assumption left to disclose and the title goes back to
+          stating the argument.
+          ⛔ Every figure in this chapter comes from FLOOR in ./claims, which is
+          derived by scripts/floor-churn-model.mjs — a script whose zero-churn
+          control must reproduce the workbook across 252 cells before its 2% run
+          means anything. Do not hand-edit a number here. */}
+      <Chapter n="XV" kicker="Without a raise" id="floor" title={<>The floor case exists to show <em>the business does not die on a no.</em></>}>
         <p>
-          The conservative case assumes no raise, no hires, and one new company a month — the throughput
-          two founders can actually onboard. It reaches <strong>{FLOOR.seats} seats</strong> and{' '}
-          <strong>{FLOOR.arr}</strong> of recurring revenue at month 36.
+          The conservative case assumes no raise and one new company a month — the throughput two
+          founders can actually onboard — and it models the same <strong>2% monthly logo churn</strong>{' '}
+          the funded case does, roughly a fifth of the book a year. It reaches{' '}
+          <strong>{FLOOR.seats} seats</strong> and <strong>{FLOOR.arr}</strong> of recurring revenue at
+          month 36.
         </p>
         <p>
-          <strong>Say plainly what holds it up: this case models zero logo churn and no downgrades for
-          thirty-six months.</strong> That is the assumption doing the work, and it is not a forecast we
-          would defend as likely — it is the workbook&rsquo;s stated base, published as it stands. Read it
-          as what the business looks like if the customers it lands stay, not as a claim that none of
-          them will leave. The month-5 trough below is 1.3 months of operating cost, so early departures
-          are exactly what this case is most sensitive to.
+          The point of publishing it is what it does <em>not</em> do: with churn in the model it still
+          never runs out of money. The trough is in month 5, it is cash-flow positive from month 6, and
+          it ends month 36 with roughly twenty-seven times the cash it started with. That is the whole
+          claim — not that this is the plan, but that a no does not end the company.
         </p>
         <div className="pitch-rows">
           {FLOOR.rows.map(([k, v]) => (
@@ -461,9 +460,12 @@ export default function PitchContent() {
       {/* ── 16 ────────────────────────────────────────────────────────────── */}
       <Chapter n="XVI" kicker="What funding changes" id="funded" title={<>Capital buys <em>onboarding capacity.</em> It does not buy the answer to whether this works.</>}>
         <p>
-          The funded case holds revenue per seat constant and changes one thing: how many companies we
-          can bring on. It reaches <strong>{FUNDED.seats} seats</strong> and <strong>{FUNDED.arr}</strong>{' '}
-          at month 36, and it gets there while churning off roughly a fifth of the book every year.
+          {/* ⛔ Both cases now carry the same 2% churn (R10), so churn is no
+              longer what separates them and this sentence must not imply it is.
+              The single variable is onboarding throughput. */}
+          The funded case holds revenue per seat constant and the churn assumption identical, and changes
+          one thing: how many companies we can bring on. It reaches <strong>{FUNDED.seats} seats</strong>{' '}
+          and <strong>{FUNDED.arr}</strong> at month 36.
         </p>
         <div className="pitch-rows">
           {FUNDED.rows.map(([k, v]) => (
