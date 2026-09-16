@@ -436,7 +436,7 @@ export default function PitchContent() {
         <p>
           The conservative case assumes no raise and one new company a month — the throughput two
           founders can actually onboard — and it models the same <strong>2% monthly logo churn</strong>{' '}
-          the funded case does, roughly a fifth of the book a year. It reaches{' '}
+          the funded case does, roughly a fifth of the book a year (about 22%). It reaches{' '}
           <strong>{FLOOR.seats} seats</strong> and <strong>{FLOOR.arr}</strong> of recurring revenue at
           month 36.
         </p>

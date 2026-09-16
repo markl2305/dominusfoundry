@@ -32,11 +32,11 @@ const MONTHS = 36;
 const NEW_SEATS = [1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
 /* Rows 9/10 — the Founding charter is TEN SEATS EVER AWARDED (canon), filled
-   first; everything after is Standard. ⛔ A churned founding seat is NOT
-   refilled at the founding rate: the charter is ten seats ever, not ten seats
-   concurrently. This is the one place churn interacts with the price mix, and
-   it makes the re-modelled case slightly more conservative than a naive
-   "churn the blended base" would. */
+   first; everything after is Standard. ⛔ A churned founding seat is not
+   refilled at the founding rate (the charter is ten seats ever); this drifts
+   the mix toward standard pricing and is slightly revenue-favorable relative
+   to a proportional-mix churn — chosen for charter fidelity, not
+   conservatism. */
 const FOUNDING_CAP = 10;
 const FOUNDING_PRICE = 2000;   // row 9 header, "of which Founding ($2,000)"
 const STANDARD_PRICE = 3500;   // row 10 header, "of which Standard ($3,500)"
@@ -60,9 +60,9 @@ const VARIABLE_COST_PER_NODE = 250;
 /* Row 27 — total operating cost. $10,200 through month 12, then $15,000 from
    month 13 when the workbook's base scenario adds a hire (row 26, $4,800/mo).
    ⚠️ NOTE FOR THE RECORD: the workbook's base scenario DOES carry a hire from
-   month 13. The pitch prose describes the floor as "no raise, no hires" —
-   that is a pre-existing discrepancy between copy and workbook, flagged in
-   P4-CANDIDATE.md, NOT silently changed here. The opex schedule used is the
+   month 13. The pitch prose described the floor as "no raise, no hires" —
+   that was a pre-existing discrepancy between copy and workbook, flagged in
+   P4-CANDIDATE.md, until this round removed it. The opex schedule used is the
    workbook's. */
 const opex = (m) => (m <= 12 ? 10200 : 15000);
 

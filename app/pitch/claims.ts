@@ -251,11 +251,11 @@ export const FLOOR = {
   arr: '$971K',
   rows: [
     ['Starting cash', '$35,000'],
-    ['Monthly operating cost', '$10,200 through month 12, $15,000 from month 13'],
+    ['Monthly operating cost', '$10,200 through month 12, $15,000 from month 13 (first hire)'],
     ['Cash-flow positive from', 'month 6'],
     ['Cash trough', '$12,665 at month 5 — 1.2 months of operating cost'],
     ['Cash balance, month 36', '$954,634'],
-    ['Modeled churn', '2% monthly logo churn — roughly 22% a year, the same assumption the funded case carries'],
+    ['Modeled churn', '2% monthly logo churn — roughly a fifth of the book a year (about 22%), the same assumption the funded case carries'],
   ] as [string, string][],
 };
 
@@ -271,7 +271,7 @@ export const FUNDED = {
     // ⛔ The tail "…where the floor case assumes none" is struck (2026-09-16,
     // R10): the floor carries the same 2% now, so there is no contrast left to
     // draw and the old clause is simply false.
-    ['Modeled churn', '2% monthly logo churn — roughly 22% a year, the same assumption the floor case carries'],
+    ['Modeled churn', '2% monthly logo churn — roughly a fifth of the book a year (about 22%), the same assumption the floor case carries'],
     ['Owned-inference milestone', 'crossed in month 13'],
   ] as [string, string][],
 };
