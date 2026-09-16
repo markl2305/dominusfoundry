@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description:
     'Dominus Foundry builds governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is the AI employee companies hire; Forge is the platform beneath her. The thesis, what is already in production, the floor and funded scenarios, and the raise.',
   alternates: { canonical: 'https://dominusfoundry.com/pitch' },
+  // ⛔ RULED 2026-09-16 (round 2, R5): link-shared like markflord.com/pitch is
+  // today — noindex, nofollow, and out of the sitemap. This page states the
+  // raise, cap, dilution and cash model; it is reached by a link Mark sends,
+  // not by search. The root layout defaults to index:true/follow:true, so
+  // this MUST be set here — omitting it would inherit the indexable default,
+  // same trap as the og:site_name override below.
+  robots: { index: false, follow: false },
   openGraph: {
     /* ⛔ siteName is repeated here deliberately. Declaring `openGraph` at the
        page level REPLACES the root layout's openGraph object rather than

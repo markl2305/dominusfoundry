@@ -13,10 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // (RULED 2026-08-07 by Mark), superseding the earlier retire-and-301 call.
     { path: "/pricing", priority: 0.8, freq: "monthly" as const },
     { path: "/start", priority: 0.8, freq: "monthly" as const },
-    // The investor front door (plan §8). dominusfoundry.com/pitch is the
-    // canonical investor pitch and markflord.com/pitch 301s to it once this is
-    // live-verified (plan §18 Phase 5).
-    { path: "/pitch", priority: 0.9, freq: "monthly" as const },
+    // ⛔ /pitch is DELIBERATELY NOT HERE (RULED 2026-09-16, round 2, R5).
+    // dominusfoundry.com/pitch is the canonical investor pitch, but it carries
+    // `robots: {index:false, follow:false}` and is reached by a link Mark
+    // shares directly — the same link-shared posture markflord.com/pitch has
+    // today. It publishes the raise, cap, dilution and cash model, so it is
+    // never in this sitemap and never linked from llms.txt. markflord.com/pitch
+    // still 301s to it once P4 is live-verified (plan §18 Phase 5) — that
+    // redirect target does not require sitemap presence.
     { path: "/contact", priority: 0.7, freq: "monthly" as const },
     { path: "/careers", priority: 0.6, freq: "monthly" as const },
     { path: "/press", priority: 0.6, freq: "monthly" as const },
