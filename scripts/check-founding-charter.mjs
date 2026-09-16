@@ -23,7 +23,7 @@ import {
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const LLMS_PATH = path.join(ROOT, 'public', 'llms.txt')
 
-const expected = `The Founding Charter is ${totalSeatsWord} seats, awarded by application (${signedSeatsWord} signed, ${spokenForSeatsWord} spoken for, ${openSeatsWord} open)`
+const expected = `Founding Seats: ${totalSeatsWord} total, awarded by application (${signedSeatsWord} signed, ${spokenForSeatsWord} spoken for, ${openSeatsWord} open)`
 
 const text = readFileSync(LLMS_PATH, 'utf8')
 

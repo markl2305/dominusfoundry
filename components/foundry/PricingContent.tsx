@@ -97,7 +97,7 @@ const HIRE = [
   {
     n: OPEN_SEATS_WORD,
     u: 'seats open',
-    l: 'Founding charter',
+    l: 'Founding Seats',
     d: `${TOTAL_SEATS_WORD} seats, awarded by application — ${signedSeatsWord} signed, ${spokenForSeatsWord} spoken for, ${openSeatsWord} still open. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. Held for as long as an operator holds the seat.`,
     q: `${TOTAL_SEATS_WORD} seats total, application-gated`,
   },
@@ -207,7 +207,7 @@ export default function PricingContent() {
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
             One tier. There is no second or third hire package to move up to; a founding seat and a standing arrangement buy the
-            same Sabina, and the only thing that separates them is whether the charter was still open. Her figure is built from the job and sent
+            same Sabina, and the only thing that separates them is whether the founding seats were still open. Her figure is built from the job and sent
             afterwards in writing. A business that also wants a tool from the tool scope below is quoted for your company — product prices are not
             published on this page.
           </p>

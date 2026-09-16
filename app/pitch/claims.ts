@@ -121,7 +121,7 @@ export const PROOF: PitchClaim[] = [
       'The seat is contracted. No Sabina work has started at this customer, no customer outcome data exists, and none is claimed. Outcome instrumentation begins at onboarding.',
     status: 'contracted',
     asOf: '2026-09-16',
-    sourceLabel: 'Founding Charter seat record',
+    sourceLabel: 'Founding Seat record',
   },
   {
     id: 'evaluations',
@@ -334,7 +334,7 @@ export const SEATS = {
   open: OPEN_SEATS,
   openWord: openSeatsWord,
   asOf: '2026-09-16',
-  sourceLabel: 'content/founding-charter.mjs · Founding Charter seat record',
+  sourceLabel: 'content/founding-charter.mjs · Founding Seat record',
 };
 
 export const CONTACT_EMAIL = 'mark@dominusfoundry.com';
