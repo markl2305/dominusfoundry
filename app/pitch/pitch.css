@@ -1,0 +1,139 @@
+/* /pitch — chapter styling layered over foundry.css.
+
+   ⛔ No new colour values. Every rule below resolves a foundry.css token, so
+   the page inherits both themes and the light/dark toggle for free; a hardcoded
+   hex here would render correctly in one theme and wrongly in the other. */
+
+.df-site .pitch-chapter { padding-block: clamp(56px, 7vw, 104px); }
+.df-site .pitch-chapter + .pitch-chapter:not(.darkband) { border-top: 1px solid var(--hair); }
+
+.df-site .pitch-h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.12;
+  margin: 16px 0 0;
+  max-width: 22ch;
+}
+.df-site .darkband .pitch-h2 { color: var(--hero-ink); max-width: 22ch; }
+.df-site .pitch-h3 { font-family: var(--serif); font-size: 26px; margin: 44px 0 0; }
+.df-site .darkband .pitch-h3 { color: var(--hero-ink); }
+
+.df-site .pitch-body { margin-top: 26px; }
+.df-site .pitch-body > p { margin-top: 18px; line-height: 1.78; color: var(--ink-2); max-width: 64ch; }
+.df-site .darkband .pitch-body > p { color: var(--hero-ink-2); }
+.df-site .pitch-body a { color: var(--gold); border-bottom: 1px solid var(--hair); }
+.df-site .darkband .pitch-body a { color: var(--gold-hi); border-bottom-color: var(--hero-hair); }
+
+.df-site .pitch-note {
+  margin-top: 22px; max-width: 62ch;
+  font-size: 14px; line-height: 1.7; color: var(--ink-3);
+  border-left: 2px solid var(--hair); padding-left: 18px;
+}
+.df-site .darkband .pitch-note { color: var(--hero-ink-2); border-left-color: var(--hero-hair); }
+
+.df-site .pitch-list { margin: 22px 0 0; padding-left: 20px; display: grid; gap: 10px; max-width: 64ch; }
+.df-site .pitch-list li { line-height: 1.7; color: var(--ink-2); }
+.df-site .darkband .pitch-list li { color: var(--hero-ink-2); }
+.df-site .pitch-list-num { list-style: decimal; }
+
+/* The proof ledger. Three columns at desk width; the status badge and the date
+   stack above and below the copy on a phone rather than squeezing to 4ch. */
+.df-site .pitch-ledger { margin-top: 32px; border-top: 1px solid var(--hair); }
+.df-site .pitch-ledger-row {
+  display: grid; grid-template-columns: minmax(0, 15ch) minmax(0, 1fr) auto;
+  gap: 8px 22px; padding: 20px 0; border-bottom: 1px solid var(--hair); align-items: start;
+}
+.df-site .pitch-ledger-copy { display: block; line-height: 1.6; }
+.df-site .pitch-ledger-detail { display: block; margin-top: 8px; font-size: 14px; line-height: 1.65; color: var(--ink-3); max-width: 62ch; }
+.df-site .pitch-ledger-date { font-family: var(--mono); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+
+.df-site .pitch-badge {
+  display: inline-block; font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 9px; border: 1px solid var(--hair); border-radius: 2px; color: var(--ink-3);
+}
+/* ⛔ State is never signalled by colour alone — every badge renders its text
+   label too, and the tint below is decoration on top of that label. */
+.df-site .pitch-badge-live_customer,
+.df-site .pitch-badge-live_internal { color: var(--gold); border-color: var(--gold); }
+.df-site .pitch-badge-contracted,
+.df-site .pitch-badge-in_acceptance,
+.df-site .pitch-badge-proven_path,
+.df-site .pitch-badge-filed { color: var(--ember); border-color: var(--ember); }
+
+.df-site .pitch-callout {
+  margin-top: 34px; max-width: 64ch; line-height: 1.75;
+  border-left: 2px solid var(--gold); padding-left: 20px; color: var(--ink-2);
+}
+.df-site .darkband .pitch-callout { color: var(--hero-ink-2); border-left-color: var(--gold-hi); }
+
+.df-site .pitch-evidence { margin-top: 30px; border-top: 1px solid var(--hair); padding-top: 16px; }
+.df-site .pitch-evidence summary { cursor: pointer; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); min-height: 44px; display: flex; align-items: center; }
+.df-site .pitch-evidence p { margin-top: 16px; font-size: 14px; line-height: 1.7; color: var(--ink-3); max-width: 70ch; }
+.df-site .pitch-src { display: block; margin-top: 5px; font-family: var(--mono); font-size: 11.5px; opacity: .75; }
+
+.df-site .pitch-layers { margin: 32px 0 0; padding: 0; list-style: none; counter-reset: pl; display: grid; gap: 0; }
+.df-site .pitch-layers li {
+  counter-increment: pl; padding: 24px 0 24px 56px; position: relative;
+  border-top: 1px solid var(--hair);
+}
+.df-site .darkband .pitch-layers li { border-top-color: var(--hero-hair); }
+.df-site .pitch-layers li::before {
+  content: counter(pl); position: absolute; left: 0; top: 26px;
+  font-family: var(--mono); font-size: 12px; color: var(--gold);
+  border: 1px solid currentColor; border-radius: 50%;
+  width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+}
+.df-site .darkband .pitch-layers li::before { color: var(--gold-hi); }
+.df-site .pitch-layers h3 { font-family: var(--serif); font-size: 24px; }
+.df-site .darkband .pitch-layers h3 { color: var(--hero-ink); }
+.df-site .pitch-layers p { margin-top: 10px; line-height: 1.72; color: var(--ink-2); max-width: 62ch; }
+.df-site .darkband .pitch-layers p { color: var(--hero-ink-2); }
+.df-site .pitch-layers-compact li { padding-block: 18px; }
+
+.df-site .pitch-chain { margin-top: 36px; display: grid; gap: 4px; max-width: 480px; }
+.df-site .pitch-chain-step {
+  font-family: var(--serif); font-size: 18px; padding: 10px 16px;
+  border-left: 2px solid var(--gold); color: var(--ink);
+}
+.df-site .pitch-chain-step em { display: block; font-family: var(--mono); font-size: 11px; font-style: normal; color: var(--gold); margin-bottom: 4px; }
+
+.df-site .pitch-figures { margin-top: 34px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 26px; }
+.df-site .pitch-figure { border-top: 1px solid var(--hair); padding-top: 16px; display: grid; gap: 7px; }
+.df-site .darkband .pitch-figure { border-top-color: var(--hero-hair); }
+.df-site .pitch-figure-v { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 42px); color: var(--gold); line-height: 1; }
+.df-site .darkband .pitch-figure-v { color: var(--gold-hi); }
+.df-site .pitch-figure-l { font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.df-site .darkband .pitch-figure-l { color: var(--hero-ink-2); }
+.df-site .pitch-figure-f { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+
+.df-site .pitch-rows { margin-top: 30px; border-top: 1px solid var(--hair); }
+.df-site .pitch-rows > div {
+  display: grid; grid-template-columns: minmax(0, 24ch) minmax(0, 1fr);
+  gap: 6px 26px; padding: 15px 0; border-bottom: 1px solid var(--hair); line-height: 1.65;
+}
+.df-site .pitch-rows > div > span:first-child { font-size: 14px; color: var(--ink-3); }
+.df-site .pitch-rows > div > span:last-child { color: var(--ink-2); }
+.df-site .pitch-rows-dark, .df-site .darkband .pitch-rows { border-top-color: var(--hero-hair); }
+.df-site .darkband .pitch-rows > div { border-bottom-color: var(--hero-hair); }
+.df-site .darkband .pitch-rows > div > span:first-child { color: var(--hero-ink); }
+.df-site .darkband .pitch-rows > div > span:last-child { color: var(--hero-ink-2); }
+
+.df-site .pitch-terms { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.df-site .pitch-terms > div { border-top: 1px solid var(--hero-hair); padding-top: 14px; display: grid; gap: 7px; }
+.df-site .pitch-terms span { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--hero-ink-2); }
+.df-site .pitch-terms strong { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--hero-ink); }
+
+.df-site .pitch-founders { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.df-site .pitch-founders h3 { font-family: var(--serif); font-size: 30px; }
+.df-site .pitch-role { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-top: 6px; }
+.df-site .pitch-founders p:not(.pitch-role) { margin-top: 14px; line-height: 1.75; color: var(--ink-2); }
+
+@media (max-width: 860px) {
+  .df-site .pitch-founders { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 720px) {
+  .df-site .pitch-ledger-row { grid-template-columns: 1fr; gap: 10px; }
+  .df-site .pitch-ledger-date { justify-self: start; }
+  .df-site .pitch-rows > div { grid-template-columns: 1fr; }
+}

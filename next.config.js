@@ -2,7 +2,33 @@
 const nextConfig = {
   async redirects() {
     return [
+      // The retired product name. This 301 is the ONLY handler now: a
+      // redundant app/iris/page.tsx calling permanentRedirect was deleted
+      // 2026-09-16 — redirects() runs ahead of routing so that route file was
+      // already dead code, and its directory name kept the retired name in the
+      // tree. ⛔ Do not re-add a route for it; keep the redirect forever.
       { source: "/iris", destination: "/sabina", permanent: true },
+
+      // BANNED PUBLIC NAMES — plan §17, 2026-09-16. Both routes were fully
+      // built pages that are now DELETED, not hidden, and both are already
+      // indexed, so each keeps a permanent redirect rather than becoming a 404.
+      //
+      // /dominus-os was a standalone product page for the internal system name
+      // (44 literal occurrences, its own title/meta, its own mailto CTA). Its
+      // subject — governed authority, attributable action, human oversight — is
+      // what /governance now carries on this site, so that is where it lands.
+      { source: "/dominus-os", destination: "/governance", permanent: true },
+      //
+      // The HVAC comparison article was positioning as a ServiceTitan
+      // alternative in its URL, title, meta, headline and FAQ (plan §6.6/§7.5:
+      // Dominus Foundry is not positioned as a ServiceTitan replacement). The
+      // framing IS the page, so the page goes and the reference index catches
+      // the inbound links.
+      {
+        source: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
+        destination: "/learn",
+        permanent: true,
+      },
       // Old index → new systems index
       { source: "/business-tools", destination: "/systems", permanent: true },
 

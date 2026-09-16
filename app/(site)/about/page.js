@@ -227,7 +227,8 @@ export default function About() {
           </p>
           <p className="body-foundry">
             We chose the name because we're building this for legacy. The Foundry is where the Lord family's
-            ideas take form and come to life. We're not looking for quick exits or venture capital. We're building
+            ideas take form and come to life. Bootstrapped to date. We are raising to increase onboarding capacity
+            and accelerate distribution, without changing the core pricing discipline — and we are building
             businesses that will serve people for decades, potentially with our daughter Belle joining as she
             builds her own ventures.
           </p>

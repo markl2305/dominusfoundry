@@ -45,6 +45,27 @@ const CHECKS = [
     ],
   },
   {
+    /* /pitch, added 2026-09-16 with the route. It is the widest-content page on
+       the site — a proof ledger in three columns, paired key/value rows, and a
+       figure grid — so it is exactly the shape that overflows at 320px, and a
+       new public route that no gate covers is a gap by construction. */
+    route: '/pitch',
+    selectors: [
+      { label: 'footer contact column', selector: '.footer .f-col' },
+      { label: 'footer link/span text', selector: '.footer .f-col a, .footer .f-col span' },
+      { label: 'chapter headings', selector: '.pitch-h2' },
+      { label: 'proof ledger rows', selector: '.pitch-ledger-row' },
+      { label: 'proof ledger copy and badges', selector: '.pitch-ledger-copy, .pitch-badge' },
+      { label: 'key/value scenario rows', selector: '.pitch-rows > div, .pitch-rows > div > span' },
+      { label: 'raise term cells', selector: '.pitch-terms > div, .pitch-terms strong' },
+      { label: 'figure blocks', selector: '.pitch-figure, .pitch-figure-v' },
+      { label: 'layer list items', selector: '.pitch-layers li' },
+      { label: 'thesis chain steps', selector: '.pitch-chain-step' },
+      { label: 'founder columns', selector: '.pitch-founders article' },
+      { label: 'hero and CTA buttons', selector: '.hero-actions .btn, .cta-actions .btn' },
+    ],
+  },
+  {
     route: '/careers',
     selectors: [
       { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li' },

@@ -113,10 +113,10 @@ export default function CareersPage() {
           </div>
           <div className="body-foundry space-y-4 text-slate-800">
             <p>
-              Dominus Foundry™ builds <strong>Sabina</strong> &mdash; a dedicated company AI system, custom to the business it works for, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is our contractor vertical and first proof point: a vertical operating system serving AV and security, and commercial roofing, today. It replaces D-Tools, ServiceTitan, ProjX360, ConnectWise, and 3-4 other tools a contractor is currently paying for &mdash; in a single platform at a fraction of the cost.
+              Dominus Foundry™ builds <strong>Sabina</strong> &mdash; a dedicated company AI system, custom to the business it works for, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
             </p>
             <p>
-              Our flagship technology, <strong>Hyperion™</strong>, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
+              <strong>Hyperion™</strong>, a standalone trades product hosted under Forge, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
             </p>
             <p>
               <strong>We have 19 provisional patent applications plus a non-provisional filing, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
@@ -132,7 +132,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line, her rate disclosed on the job-description call once she&apos;s the right fit for the account &mdash; and <strong>the tools</strong>, through a custom quote based on the company&apos;s needs.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto the founding charter &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line. Her price is custom to each company, built from what the interview establishes about the job, and sent afterwards as a written proposal &mdash; never quoted on a call and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
             </p>
           </div>
           <ul className="space-y-3">

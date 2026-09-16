@@ -69,8 +69,8 @@ export default function SystemsPage() {
             maps to one of them.
           </h1>
           <p className="mt-6 body-foundry text-white/80 max-w-2xl md:text-lg">
-            We don&apos;t sell software features. We deploy systems that solve real
-            operational problems — governed by DominusOS, built to hold their
+            We don&apos;t sell software features. We build systems that solve real
+            operational problems — governed on Forge, built to hold their
             shape, designed to work together from day one.
           </p>
         </div>
@@ -122,24 +122,28 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      {/* DominusOS connector */}
+      {/* Platform connector. Named the internal system until 2026-09-16; that
+          name is prohibited on public Dominus marketing (plan §17) and the
+          governance layer these engines actually run on is Forge, the operating
+          spine (plan §2). ⛔ Do not reintroduce the old name here. */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
           <p className="label-foundry text-forge-300 mb-4">The foundation</p>
           <h2 className="heading-forge-lg text-white mb-4">
-            All three engines run on DominusOS.
+            All three engines run on Forge.
           </h2>
           <p className="mb-8 max-w-2xl body-foundry text-white/80">
-            DominusOS is the governance layer underneath everything we build.
-            Human authority preserved. Every action logged. No drift. Start with
-            one engine — they&apos;re designed to connect.
+            Forge is the governed platform underneath everything we build — the
+            operating spine Sabina runs on. Human authority preserved. Every
+            action logged. No drift. Start with one engine — they&apos;re designed
+            to connect.
           </p>
           <Button
-            href="/dominus-os"
+            href="/governance"
             variant="forgeSecondary"
             className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
           >
-            Learn about DominusOS
+            How the governance works
           </Button>
         </div>
       </section>

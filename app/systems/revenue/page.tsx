@@ -137,24 +137,26 @@ export default function RevenueEnginePage() {
         </div>
       </section>
 
-      {/* DominusOS */}
+      {/* Platform band. Named the internal system until 2026-09-16; prohibited
+          on public Dominus marketing (plan §17). The governance layer is Forge,
+          the operating spine. ⛔ Do not reintroduce the old name here. */}
       <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-300 mb-4">Powered by DominusOS</p>
+          <p className="label-foundry text-forge-300 mb-4">Powered by Forge</p>
           <h2 className="heading-forge-lg text-white mb-4">
             Every revenue action, logged and governed.
           </h2>
           <p className="mb-6 max-w-2xl body-foundry text-white/80">
-            DominusOS means every invoice sent, every reminder triggered, every
+            Running on Forge means every invoice sent, every reminder triggered, every
             exception escalated is traceable. You know who did what, when, and
             why — without building a reporting system yourself.
           </p>
           <Button
-            href="/dominus-os"
+            href="/governance"
             variant="forgeSecondary"
             className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
           >
-            Learn about DominusOS
+            How the governance works
           </Button>
         </div>
       </section>

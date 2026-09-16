@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // (RULED 2026-08-07 by Mark), superseding the earlier retire-and-301 call.
     { path: "/pricing", priority: 0.8, freq: "monthly" as const },
     { path: "/start", priority: 0.8, freq: "monthly" as const },
+    // The investor front door (plan §8). dominusfoundry.com/pitch is the
+    // canonical investor pitch and markflord.com/pitch 301s to it once this is
+    // live-verified (plan §18 Phase 5).
+    { path: "/pitch", priority: 0.9, freq: "monthly" as const },
     { path: "/contact", priority: 0.7, freq: "monthly" as const },
     { path: "/careers", priority: 0.6, freq: "monthly" as const },
     { path: "/press", priority: 0.6, freq: "monthly" as const },
@@ -28,7 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // route files DELETED 2026-08-07 (RULED by Mark): /voice-concierge,
     // /voice-concierge/campaign, /invoiceflow, /orderline, /voice-ordering — all now 301.
     // Mentis stays — current public brand.
-    { path: "/dominus-os", priority: 0.9, freq: "monthly" as const },
+    // /dominus-os was DELETED 2026-09-16: the name is prohibited on public
+    // Dominus marketing (plan §17). It keeps a 301 to /governance in
+    // next.config.js, so it must NOT be advertised here — a sitemap entry that
+    // permanently redirects is the "page with redirect" defect Search Console
+    // flags, the same reason /mentis's stale redirect was removed in f462e8e.
     { path: "/mentis", priority: 0.8, freq: "monthly" as const },
     { path: "/qb-migration", priority: 0.7, freq: "monthly" as const },
 
@@ -80,11 +88,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       path: "/learn/platform/forge-the-ai-operating-system-for-commercial-contractors",
-      priority: 0.8,
-      freq: "monthly" as const,
-    },
-    {
-      path: "/learn/platform/servicetitan-alternatives-for-hvac-what-dominus-foundry-offers",
       priority: 0.8,
       freq: "monthly" as const,
     },

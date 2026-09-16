@@ -40,8 +40,10 @@ export const Glyph: Record<string, ReactNode> = {
       <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none" />
     </svg>
   ),
-  /* Iris — an aperture: blades that open only as far as they are granted. */
-  iris: (
+  /* Aperture — blades that open only as far as they are granted. Keyed on the
+     retired product name until 2026-09-16; renamed under plan §17. Unreferenced
+     today, kept because the mark is the authority metaphor in one glyph. */
+  aperture: (
     <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="20" cy="20" r="13" opacity="0.75" />
       <path d="M25.5 20 L22.75 24.76 L17.25 24.76 L14.5 20 L17.25 15.24 L22.75 15.24 Z" />

@@ -776,7 +776,7 @@
   margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--hair);
 }
 
-/* ============================================ IRIS: SOURCED FIGURES + PRICE LINES */
+/* ========================================== SABINA: SOURCED FIGURES + PRICE LINES */
 .df-site .figures-section { background: var(--bg-2); border-block: 1px solid var(--hair); }
 .df-site .figures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
 @media (max-width: 900px) { .df-site .figures { grid-template-columns: 1fr; } }

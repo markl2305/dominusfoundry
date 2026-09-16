@@ -38,7 +38,8 @@
    $2,500 setup fee are RETIRED as public prices and no longer render on this page in any form
    — not as a line item, not inside the worked examples, not inside the discount arithmetic.
    The Founding Charter survives as a thing (ten seats, application-gated, seven open) with no
-   figure attached; her rate is disclosed at the job-description call, never on a web surface.
+   figure attached; her price is custom to each company, built from the job the interview
+   establishes, and sent afterwards as a written proposal — never on a web surface (2026-09-15).
    LADDER B tool prices are UNAFFECTED and stay exactly as ruled 2026-08-25: Core $599, Hyperion
    $1,100 (Core included), Sigil $49, Torch $35/number, Treasury coming soon. The $2,500 setup
    line that used to appear on BOTH ladders is removed from both — it was Sabina's onboarding
@@ -94,7 +95,15 @@ const HIRE = [
     n: 'Disclosed',
     u: 'not published',
     l: 'What she costs',
-    d: 'The founding rate is one number, and we quote it on the call because we take on two companies at a time — her rate is set on the job-description call, before the interview.',
+    /* ⛔ RULED 2026-09-15: pricing is CUSTOM TO EACH COMPANY, built from what the
+       interview establishes about the job, and delivered afterwards as a written
+       proposal. This field previously carried the sanctioned line "The founding
+       rate is one number, and we quote it on the call because we take on two
+       companies at a time" — that line described the sequencing that ruling
+       retired (rate disclosed at the job-description call, before the interview),
+       and it is DEAD. ⛔ Do not restore it, and never a number, a range, or a
+       "starting at" here. */
+    d: 'Her price is built from the job. We learn what the work is in the interview, then send a written proposal afterwards — scoped to your company, and never published on a web surface.',
     q: 'Never on a web surface',
   },
 ]
@@ -112,7 +121,7 @@ const LINES = [
 ]
 
 const EXAMPLES = [
-  { k: 'Recruit Sabina', v: 'We discuss the responsibilities and scope on the job-description call, then provide a quote before the interview.' },
+  { k: 'Recruit Sabina', v: 'We discuss the responsibilities and scope on the job-description call, you interview her, and a written proposal follows — priced to the job it turns out to be.' },
   { k: 'Run Forge tools', v: 'We scope the products and services your company needs and provide a custom quote.' },
 ]
 
@@ -187,9 +196,10 @@ export default function PricingContent() {
             ))}
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
-            One tier at either rate. There is no second or third hire package to move up to; the founding rate and the standing rate buy the
-            same Sabina, and the only thing that separates them is whether the charter was still open. A business that also wants a tool from the
-            tool scope below is quoted for your company — product prices are not published on this page.
+            One tier. There is no second or third hire package to move up to; a founding seat and a standing arrangement buy the
+            same Sabina, and the only thing that separates them is whether the charter was still open. Her figure is built from the job and sent
+            afterwards in writing. A business that also wants a tool from the tool scope below is quoted for your company — product prices are not
+            published on this page.
           </p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">

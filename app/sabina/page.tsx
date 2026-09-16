@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import FoundryShell from '@/components/foundry/FoundryShell'
-import IrisContent from '@/components/foundry/IrisContent'
+import SabinaContent from '@/components/foundry/SabinaContent'
 
 export const metadata: Metadata = {
   title: "Sabina — your company's custom AI | Dominus Foundry",
@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dominusfoundry.com/sabina' },
 }
 
-export default function IrisPage() {
+export default function SabinaPage() {
   return (
-    <FoundryShell active="iris">
-      <IrisContent />
+    <FoundryShell active="sabina">
+      <SabinaContent />
     </FoundryShell>
   )
 }

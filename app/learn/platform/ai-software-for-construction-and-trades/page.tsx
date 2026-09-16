@@ -20,8 +20,8 @@ const faq = [
     a: "For AV, security, and low-voltage contractors, Forge is purpose-built. Procore is designed for general contractors managing large construction projects. Forge includes installer-specific workflows like LiDAR site scanning, equipment BOMs, and scan-to-proposal generation that Procore does not natively support.",
   },
   {
-    q: "Does Forge replace D-Tools?",
-    a: "Forge replaces the D-Tools System Integrator workflow for contractors who want an AI-native platform. Existing D-Tools data can be brought over with a guided one-time migration. Many operators choose to consolidate estimating, project management, and field workflow into one platform rather than managing D-Tools alongside other tools.",
+    q: "How does Forge relate to D-Tools?",
+    a: "They are built for different jobs. D-Tools is the established estimating and design platform for AV and security system integrators. Forge is an AI-native operating platform covering estimating, project management and field workflow, and it is not positioned as a replacement for any particular vendor's product. Contractors who decide to move do so on their own assessment; existing data can be brought over with a guided one-time migration.",
   },
   {
     q: "What is the pricing for Forge?",
@@ -165,9 +165,11 @@ export default function AiSoftwareComparisonPage() {
             proposals.
           </p>
           <p>
-            <strong>Who it&apos;s for:</strong> integrators who don&apos;t need AI-native
-            workflow. Operators who do are increasingly consolidating the D-Tools workflow
-            into Forge with a guided one-time data migration.
+            <strong>Who it&apos;s for:</strong> integrators who want a mature, proven
+            estimating and design toolset. Operators looking instead for AI-native
+            workflow across the whole job sometimes consolidate onto Forge; that is a
+            choice about how a shop wants to work, not a claim that one product
+            supersedes the other.
           </p>
 
           <h3 className="heading-forge-md text-slate-900 mt-6">How to choose</h3>

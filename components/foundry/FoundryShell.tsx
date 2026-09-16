@@ -27,7 +27,7 @@ export const useFoundry = () => useContext(Ctx)
 /* canonical nav — single source of truth across all pages */
 const NAV_LINKS = [
   { id: 'company', label: 'Company', href: '/company', ext: false },
-  { id: 'iris', label: 'Sabina', href: '/sabina', ext: false },
+  { id: 'sabina', label: 'Sabina', href: '/sabina', ext: false },
   { id: 'technology', label: 'Technology', href: '/technology', ext: false },
   { id: 'governance', label: 'Governance', href: '/governance', ext: false },
   { id: 'blog', label: 'Insights', href: '/blog', ext: false },
@@ -68,7 +68,7 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
             </a>
           ))}
         </nav>
-        <details className="company-mobile-nav" onKeyDown={e => { if(e.key === "Escape") { e.currentTarget.open = false; e.currentTarget.querySelector("summary")?.focus() } }} onClick={e => { if((e.target as HTMLElement).closest("a")) e.currentTarget.open = false }}><summary>Menu</summary><nav aria-label="Mobile navigation">{NAV_LINKS.map(l => <a key={l.id} href={l.href} aria-current={active === l.id ? "page" : undefined}>{l.label}</a>)}<a href="https://markflord.com/pitch">Investors</a><a href="/company#contact">Contact the team</a></nav></details>
+        <details className="company-mobile-nav" onKeyDown={e => { if(e.key === "Escape") { e.currentTarget.open = false; e.currentTarget.querySelector("summary")?.focus() } }} onClick={e => { if((e.target as HTMLElement).closest("a")) e.currentTarget.open = false }}><summary>Menu</summary><nav aria-label="Mobile navigation">{NAV_LINKS.map(l => <a key={l.id} href={l.href} aria-current={active === l.id ? "page" : undefined}>{l.label}</a>)}<a href="/pitch">Investors</a><a href="/company#contact">Contact the team</a></nav></details>
         <div className="nav-right">
           <button className="theme-toggle" onClick={onToggleTheme} aria-label={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}>
             {theme === 'dark' ? Icon.sun : Icon.moon}
@@ -99,7 +99,7 @@ const FOOTER_COLS = [
       { t: 'Leadership', href: '/company#leadership' },
       { t: 'Press', href: '/press' },
       { t: 'Foundry Notes', href: '/blog' },
-      { t: 'Investors ↗', href: 'https://markflord.com/pitch', ext: true },
+      { t: 'Investors', href: '/pitch' },
       { t: 'Careers & collaboration', href: '/company#contact' },
     ],
   },
@@ -124,7 +124,7 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              The intelligence company behind Sabina. We build dedicated company AI around the business it serves, the work it is given, and the people responsible for it. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
+              Governed AI systems, and the commercial intelligence that grows from their use inside real businesses. Sabina is the AI employee a company hires; Forge is the platform and operating spine she runs on. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (

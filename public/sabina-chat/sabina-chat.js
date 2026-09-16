@@ -7,7 +7,7 @@
   function mount(){
   if (document.querySelector('sabina-visitor-chat')) return;
   const endpoint = '/api/visitor-chat';
-  if(/^\/(interview|evaluate|talk-to-iris)(\/|$)/.test(location.pathname))return;
+  if(/^\/(interview|evaluate)(\/|$)/.test(location.pathname))return;
   const host = document.createElement('sabina-visitor-chat');
   const root = host.attachShadow({mode:'open'});
   root.innerHTML = `<link rel="stylesheet" href="${new URL('sabina-chat.css?v=4',assetBase)}">

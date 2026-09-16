@@ -71,7 +71,7 @@ const horizontalVsVertical = [
 ];
 
 const platformLandscape = [
-  ["AV integration", "D-Tools, Forge", "D-Tools owns the legacy market; Forge is the AI-native challenger"],
+  ["AV integration", "D-Tools, Forge", "D-Tools is the established design and estimating toolset; Forge is the AI-native option"],
   ["Security/Low-voltage", "D-Tools, Forge", "Same as AV — the trades share tooling"],
   ["Roofing", "EagleView, Forge", "EagleView measures; Forge runs the work"],
   ["Solar", "Aurora Solar, Forge", "Aurora specializes in solar design; Forge covers broader commercial installs"],

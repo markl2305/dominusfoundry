@@ -13,20 +13,27 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
-  title: "Dominus Foundry — The intelligence company behind Sabina",
+  // §15 META — the canonical title direction for this domain. Dominus Foundry is
+  // the company and the intelligence thesis; Sabina is what a customer hires and
+  // Forge is the platform beneath her. The title names the company's job, not the
+  // product's, because this is the investor/company front door (§4).
+  title: "Dominus Foundry — Governed AI and Commercial Intelligence",
   description:
-    "Dominus Foundry builds Sabina, a dedicated company AI shaped around the business it serves, its knowledge, and the authority its people grant her. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
-  keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'dedicated AI', 'AI governance', 'Mark Lord', 'Bri Lord'],
+    "Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee companies hire; Forge is the platform and operating spine she runs on. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
+  keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'governed AI', 'commercial intelligence', 'AI governance', 'Mark Lord', 'Bri Lord'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Dominus Foundry — The intelligence company behind Sabina",
+    title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "The intelligence company behind Sabina. Dedicated company AI, built around the business it serves.",
-    siteName: 'Dominus Foundry™',
+      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
+    // §15/§19.10: og:site_name is the literal string "Dominus Foundry" — no
+    // trademark symbol. This is the ONLY place og:site_name is set for the whole
+    // site, so this one value is the sitewide value.
+    siteName: 'Dominus Foundry',
     images: [
       {
         url: '/og-image.png',
@@ -40,9 +47,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dominus Foundry — The intelligence company behind Sabina",
+    title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "The intelligence company behind Sabina. Dedicated company AI, built around the business it serves.",
+      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -130,7 +137,7 @@ export default function RootLayout({
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is the family-owned intelligence company behind Sabina, a dedicated company AI shaped around a business, its knowledge, and the authority its people grant her. Forge is its contractor vertical. Sabina is not generally available in every industry and does not work unsupervised; Forge, the contractor vertical, is where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
+                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee a company hires: shaped around that business, its knowledge, and the authority its people grant her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is not generally available in every industry and does not work unsupervised; the trades are where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
@@ -157,24 +164,44 @@ export default function RootLayout({
               // product, not a subsidiary, and subOrganization would assert
               // a corporate child that does not exist. brand / owns /
               // publisher are the correct predicates.
+              // ⛔ BANNED-NAME ERADICATION, 2026-09-16 (plan §17). These two
+              // arrays keyed the Sabina entity at the retired product name's
+              // anchors on buildwithforge.app. A case-SENSITIVE grep for that
+              // name reports zero on this page and always did — it only ever
+              // lived here, in machine-readable JSON-LD, which is exactly what
+              // an answer engine parses as current fact. Under the vestige test
+              // that is a vestige, not a record. ⛔ Do not restore them.
+              //
+              // They are not renamed in place to a #sabina anchor on
+              // buildwithforge.app: under the ruled hierarchy (plan §0/§3)
+              // Sabina is no longer a Forge sub-brand, so her canonical node is
+              // the one hiresabina.ai already publishes — Service @id
+              // https://hiresabina.ai/#service. This REFERENCES that node
+              // rather than minting a rival, which is the same mistake the
+              // duplicate company node above exists to fix.
+              //
+              // schema.org `brand` takes Brand or Organization, never Service,
+              // so Sabina is asserted through `owns` / `makesOffer` and
+              // hiresabina.ai is added to sameAs. Forge's own nodes are
+              // unchanged and still resolve on buildwithforge.app.
               brand: [
                 { "@id": "https://buildwithforge.app/#forge-brand" },
-                { "@id": "https://buildwithforge.app/#iris-brand" },
               ],
               owns: [
+                { "@id": "https://hiresabina.ai/#service" },
                 { "@id": "https://buildwithforge.app/#forge" },
-                { "@id": "https://buildwithforge.app/#iris" },
               ],
               // makesOffer used to redefine a fourth "Forge" node inline.
               // It now points at the product's own @id instead of minting a
               // rival — the same mistake as the duplicate company node, one
               // level down.
               makesOffer: [
+                { "@type": "Offer", itemOffered: { "@id": "https://hiresabina.ai/#service" } },
                 { "@type": "Offer", itemOffered: { "@id": "https://buildwithforge.app/#forge" } },
-                { "@type": "Offer", itemOffered: { "@id": "https://buildwithforge.app/#iris" } },
               ],
               sameAs: [
                 "https://dominusfoundry.com",
+                "https://hiresabina.ai",
                 "https://buildwithforge.app",
                 "https://www.linkedin.com/company/dominus-foundry",
                 "https://www.youtube.com/@Forge-DF",
