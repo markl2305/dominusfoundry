@@ -19,6 +19,15 @@ const nextConfig = {
       // what /governance now carries on this site, so that is where it lands.
       { source: "/dominus-os", destination: "/governance", permanent: true },
       //
+      // FOUND 2026-09-16 (round 4, tree verification): a second public vestige
+      // of the same banned name — an 8-page PDF whitepaper titled "Dominus OS /
+      // The Human-Governed AI Hypervisor", unreferenced anywhere in source (no
+      // link, no code pointer) but LIVE at this path because Next.js serves
+      // everything under public/ statically regardless of whether anything
+      // links to it. Deleted from public/; same destination and same
+      // reasoning as /dominus-os above, because it is the same subject.
+      { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "/governance", permanent: true },
+      //
       // The HVAC comparison article was positioning as a ServiceTitan
       // alternative in its URL, title, meta, headline and FAQ (plan §6.6/§7.5:
       // Dominus Foundry is not positioned as a ServiceTitan replacement). The
