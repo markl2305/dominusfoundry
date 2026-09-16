@@ -312,7 +312,22 @@ export default function PitchContent() {
           <li><h3>A mandatory governance path</h3><p>Consequential effects traverse the authority and execution boundary rather than going around it.</p></li>
           <li><h3>Decision chronology</h3><p>The record is created before the outcome, which is why it cannot be manufactured afterwards.</p></li>
           <li><h3>Company-specific institutional learning</h3><p>Months of teaching, correction and accumulated operating context, owned by the employer — and the switching cost that useful company memory creates.</p></li>
-          <li><h3>Owned model and training path</h3><p>We control the weights, training and inference path needed to turn governed episodes into durable improvement.</p></li>
+          {/* ⛔ kimi #3, round 3: this read "Owned model and training path — we
+              control the weights, training and inference path". Next to five
+              other moat bullets that reads as proprietary model IP, and the
+              first diligence question is "whose weights?". The true answer —
+              open weights, self-hosted, no third-party inference provider in a
+              customer path — is the stronger one and is what it now says.
+              ⛔ Never claim a trained foundation model here; chapter II's
+              disclaimer and chapter XVIII's wording must stay consistent with
+              this bullet. */}
+          <li><h3>Owned inference path</h3><p>Open weights on our own hardware, with no third-party inference provider in any customer path. We control the serving and training path needed to turn governed episodes into durable improvement, and the cost curve that comes with owning it.</p></li>
+          {/* qwen F1, round 3: §10's moat is "the combination", and
+              cross-company pattern discovery was the one canon element stated
+              only in chapters VIII/IX and missing here. It carries the SAME
+              permission qualifier and the SAME roadmap status it carries
+              there — ⛔ a moat bullet is not a licence to drop the hedge. */}
+          <li><h3>Cross-company pattern discovery, where permitted</h3><p>Where contracts, permissions and governance permit it, eligible derived patterns across companies can support discovery no single company could reach alone — returned to each as its own intelligence. Described in the pending application; not operating today.</p></li>
           <li><h3>Filings and real deployment</h3><p>A pending application over the mechanism, and a substrate already carrying paid production work.</p></li>
         </ol>
         <p>
@@ -407,11 +422,30 @@ export default function PitchContent() {
       </Chapter>
 
       {/* ── 15 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XV" kicker="Without a raise" id="floor" title={<>The floor case exists to show <em>the business does not die on a no.</em></>}>
+      {/* ⛔ kimi #1, round 3. The workbook figure is UNCHANGED — no modelled
+          number moved. What changed is that the assumption which makes it work
+          is now stated in the chapter BODY, in the second sentence, instead of
+          sitting in a table row a reader meets after the headline. A diligence
+          reader finds the zero-churn assumption in five minutes; the page has
+          to be the one that says it first.
+          ⛔ Do not bury this back into the row list or a footnote, and do not
+          restore the line in XVI that pointed at the floor for not modelling
+          churn — the honest move is to name our own assumption, not to score a
+          point off it. Whether to re-model the floor WITH churn is an open
+          question for Mark, recorded in P4-CANDIDATE.md. */}
+      <Chapter n="XV" kicker="Without a raise" id="floor" title={<>The floor case, <em>before churn.</em></>}>
         <p>
           The conservative case assumes no raise, no hires, and one new company a month — the throughput
           two founders can actually onboard. It reaches <strong>{FLOOR.seats} seats</strong> and{' '}
           <strong>{FLOOR.arr}</strong> of recurring revenue at month 36.
+        </p>
+        <p>
+          <strong>Say plainly what holds it up: this case models zero logo churn and no downgrades for
+          thirty-six months.</strong> That is the assumption doing the work, and it is not a forecast we
+          would defend as likely — it is the workbook&rsquo;s stated base, published as it stands. Read it
+          as what the business looks like if the customers it lands stay, not as a claim that none of
+          them will leave. The month-5 trough below is 1.3 months of operating cost, so early departures
+          are exactly what this case is most sensitive to.
         </p>
         <div className="pitch-rows">
           {FLOOR.rows.map(([k, v]) => (
@@ -429,8 +463,7 @@ export default function PitchContent() {
         <p>
           The funded case holds revenue per seat constant and changes one thing: how many companies we
           can bring on. It reaches <strong>{FUNDED.seats} seats</strong> and <strong>{FUNDED.arr}</strong>{' '}
-          at month 36 — while churning off roughly a fifth of the book every year, which the floor case
-          does not model at all.
+          at month 36, and it gets there while churning off roughly a fifth of the book every year.
         </p>
         <div className="pitch-rows">
           {FUNDED.rows.map(([k, v]) => (
@@ -487,10 +520,14 @@ export default function PitchContent() {
           exposure and no record. The companies that will own the operating record of the next decade
           are the ones instrumenting it now, before the volume exists to make it valuable.
         </p>
+        {/* ⛔ kimi #3, round 3: must stay consistent with moat layer 5 above.
+            "Self-hosted open weights", never "owned weights" — the claim is
+            custody of the serving path, not ownership of a model we trained. */}
         <p>
-          The other half is cost. Running owned weights for a book of companies is affordable at a scale
-          it was not eighteen months ago, which is what makes the layer beneath the product ours rather
-          than rented — and it is a line item in this round.
+          The other half is cost. Serving self-hosted open weights for a book of companies is affordable
+          at a scale it was not eighteen months ago, which is what puts the inference layer beneath the
+          product on our own hardware rather than a third party&rsquo;s — and it is a line item in this
+          round.
         </p>
       </Chapter>
 
@@ -501,9 +538,10 @@ export default function PitchContent() {
             <h3>Mark Lord</h3>
             <p className="pitch-role">Founder</p>
             <p>
-              Product, technology and commercial architecture. Built Forge, the owned model and training
-              program, and the patent-pending governance and intelligence architecture. Prior operating
-              experience spans small-business ownership, technical work, and sales into the trades.
+              Product, technology and commercial architecture. Built Forge, the self-hosted inference and
+              training path, and the patent-pending governance and intelligence architecture. Prior
+              operating experience spans small-business ownership, technical work, and sales into the
+              trades.
             </p>
           </article>
           <article>

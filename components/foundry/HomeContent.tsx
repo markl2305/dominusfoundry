@@ -22,7 +22,16 @@ import { CTA } from './FoundryShell'
 
 /* Plan §7.4's four layers, in order. Each one says what is TRUE at that layer
    and what governs it — layer 4 carries the permission language inline because
-   it is the layer a reader is right to be suspicious of. */
+   it is the layer a reader is right to be suspicious of.
+
+   ⛔ LAYER 4 ALSO CARRIES ITS STATUS (kimi #4, round 3). /pitch files this layer
+   as ROADMAP and qualifies it three ways — a roadmap badge, a chapter-IX note,
+   and "described in the pending application, not operating today". This page
+   carried the permission hedge but NO status marker, so a customer or an answer
+   engine reading only dominusfoundry.com got the unqualified version of a claim
+   the company itself files as not-yet-built. The boundary language governs HOW
+   data crosses; it never said WHETHER the layer exists. Both sites now hold one
+   evidentiary standard. ⛔ Do not drop the status clause to tighten the copy. */
 const LAYERS: [string, string, string][] = [
   [
     'One',
@@ -42,7 +51,7 @@ const LAYERS: [string, string, string][] = [
   [
     'Four',
     'Governed network intelligence',
-    'Only where contracts, permissions and privacy design allow it, eligible derived patterns can support broader discovery, returned to each company as its own intelligence. Participation is a decision the company makes, and a decision it can take back.',
+    'Only where contracts, permissions and privacy design allow it, eligible derived patterns can support broader discovery, returned to each company as its own intelligence. Participation is a decision the company makes, and a decision it can take back. This layer is described in our pending patent application and is not operating today.',
   ],
 ]
 

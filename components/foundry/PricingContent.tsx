@@ -40,10 +40,20 @@
    The Founding Charter survives as a thing (ten seats, application-gated, seven open) with no
    figure attached; her price is custom to each company, built from the job the interview
    establishes, and sent afterwards as a written proposal — never on a web surface (2026-09-15).
-   LADDER B tool prices are UNAFFECTED and stay exactly as ruled 2026-08-25: Core $599, Hyperion
-   $1,100 (Core included), Sigil $49, Torch $35/number, Treasury coming soon. The $2,500 setup
-   line that used to appear on BOTH ladders is removed from both — it was Sabina's onboarding
-   fee reused for the tools ladder, and canon retires it outright, not per-ladder.
+   ⛔⛔ SUPERSEDING RULING, Mark 2026-09-05 — EVERYTHING IS UNPRICED. CUSTOM QUOTE EVERYTHING.
+   This paragraph used to end: "LADDER B tool prices are UNAFFECTED and stay exactly as ruled
+   2026-08-25: Core $599, Hyperion $1,100 (Core included), Sigil $49, Torch $35/number, Treasury
+   coming soon." ⛔ THAT IS DEAD, and it was the most dangerous line in this file: written in the
+   present tense, at the top, it told the next lane those four numbers were still in force — which
+   is exactly how a retired price gets republished by someone who trusted a file header and never
+   reached the rendered copy two hundred lines below. Struck 2026-09-16 (kimi #8).
+   ⛔ NO PRODUCT CARRIES A PUBLIC PRICE. Core, Hyperion, Sigil, Torch and Treasury are ALL custom
+   quoted per company, on every surface — the same rule that already governs Sabina, for the same
+   reason. Every price figure appearing ABOVE this paragraph is a dated record of a superseded
+   ruling, kept so the reasoning behind each reversal survives it; ⛔ none of them is quotable, and
+   the LADDER B list in the 2026-08-25 block above is retired in full by this ruling.
+   The $2,500 setup line that used to appear on BOTH ladders is removed from both — it was Sabina's
+   onboarding fee reused for the tools ladder, and canon retires it outright, not per-ladder.
 
    AUDIT FIX, 2026-09-04 (cross-site review of the 09-04 realignment):
    (a) The "what she costs" line was the RETIRED aphorism ("We don't quote a number before we

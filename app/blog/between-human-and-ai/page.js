@@ -25,6 +25,14 @@ export const metadata = {
     siteName: "Dominus Foundry",
     type: "article",
     publishedTime: "2026-04-09",
+    // ⛔ PRE-EXISTING DEFECT, found 2026-09-16 by the og:image column added to
+    // the route meta sweep for /pitch (qwen F2 / kimi #6) — this was the ONLY
+    // other route on the site declaring its own openGraph, and it was silently
+    // dropping the root layout's image for the same reason /pitch was: a
+    // page-level openGraph object REPLACES the parent's, it does not merge.
+    // This post was rendering an imageless share card. ⛔ Any page that
+    // declares openGraph must repeat `images`.
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Dominus Foundry" }],
   },
 };
 

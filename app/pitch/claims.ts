@@ -201,13 +201,29 @@ export const claim = (id: string): PitchClaim => {
    Funded = modeled 8 September 2026, NOT in that workbook.
    ⛔ Every figure below is MODELED except the observed baseline, which is
    labelled as observed and is one paid Forge ACCOUNT, not a Sabina seat. */
+/* ⛔ THE PERIOD IS IN THE VALUE ON PURPOSE (kimi #1, round 3). This rendered a
+   bare "$6K" beside "$1.296M" and "$3.49M", both of which are month-36 ANNUAL
+   recurring revenue — so whether the baseline was monthly or annual was left to
+   the reader to guess, in the one figure on the page that is observed rather
+   than modelled. It is annual: $6,000 ARR, which is the same basis the two
+   scenario figures use. ⛔ Do not strip the period back out. */
 export const OBSERVED_BASELINE = {
-  value: '$6K',
+  value: '$6K/yr',
   label: 'Observed recurring revenue — one paid Forge account',
   asOf: '2026-08-30',
-  sourceLabel: 'Production tenant records · issued invoices',
+  sourceLabel: 'Production tenant records · issued invoices · annual recurring revenue',
 };
 
+/* ⛔ NO FIGURE IN THIS BLOCK HAS BEEN CHANGED (kimi #1, round 3). Every value is
+   the 30 August workbook's base scenario exactly as it stands. What changed is
+   WHERE the zero-churn assumption is disclosed: chapter XV now states it in the
+   body, in the second sentence, because a reader who finds it themselves in a
+   table row trusts the rest of the page less. The chapter is titled "The floor
+   case, before churn" for the same reason.
+   ⛔ An open question for Mark — recorded in P4-CANDIDATE.md, not decided here —
+   is whether the floor should be RE-MODELLED with churn in it. That would move
+   real numbers (seats, ARR, the month-5 trough, the month-36 cash balance) and
+   is a workbook change, not a copy change. Do not attempt it in a copy pass. */
 export const FLOOR = {
   asOf: '2026-08-30',
   sourceLabel: 'Dominus_Foundry_ProForma.xlsx · base scenario',
@@ -219,7 +235,7 @@ export const FLOOR = {
     ['Cash-flow positive from', 'month 6'],
     ['Cash trough', '$13,250 at month 5 — 1.3 months of operating cost'],
     ['Cash balance, month 36', '$1,239,600'],
-    ['Modeled churn', '0% — the base case assumes none'],
+    ['Modeled churn', '0% — and no downgrades. This case assumes every company it lands stays for the full thirty-six months.'],
   ] as [string, string][],
 };
 

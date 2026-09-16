@@ -180,28 +180,40 @@ export default function RootLayout({
               // rather than minting a rival, which is the same mistake the
               // duplicate company node above exists to fix.
               //
-              // schema.org `brand` takes Brand or Organization, never Service,
-              // so Sabina is asserted through `owns` / `makesOffer` and
-              // hiresabina.ai is added to sameAs. Forge's own nodes are
-              // unchanged and still resolve on buildwithforge.app.
+              // schema.org `brand` takes Brand or Organization, never Service.
+              //
+              // ⛔ AND `owns` DOES NOT TAKE A Service EITHER (kimi #7, round 3).
+              // `owns` ranges over OwnershipInfo | Product. The Sabina node on
+              // hiresabina.ai is typed Service, so asserting it here produced a
+              // range violation — the one triple that replaced the banned one
+              // would have been flagged by any strict structured-data consumer.
+              // It is removed. `makesOffer` → Offer → itemOffered accepts a
+              // Service, is valid, and carries the company→Sabina relation on
+              // its own, so nothing is lost and ⛔ no rival Sabina node is
+              // minted here to work around the range.
               brand: [
                 { "@id": "https://buildwithforge.app/#forge-brand" },
               ],
               owns: [
-                { "@id": "https://hiresabina.ai/#service" },
                 { "@id": "https://buildwithforge.app/#forge" },
               ],
               // makesOffer used to redefine a fourth "Forge" node inline.
               // It now points at the product's own @id instead of minting a
               // rival — the same mistake as the duplicate company node, one
-              // level down.
+              // level down. This is also where Sabina is asserted, per above.
               makesOffer: [
                 { "@type": "Offer", itemOffered: { "@id": "https://hiresabina.ai/#service" } },
                 { "@type": "Offer", itemOffered: { "@id": "https://buildwithforge.app/#forge" } },
               ],
+              // ⛔ hiresabina.ai is NOT in sameAs (kimi #7, round 3). sameAs
+              // asserts IDENTITY — pages about the same entity, which is why
+              // LinkedIn and YouTube belong. A product's marketing site is not
+              // identity-equivalent to the company that makes it, and answer
+              // engines do read sameAs that way. It was added in round 1 and is
+              // struck. ⛔ Do not re-add it; the company→Sabina relation lives
+              // in makesOffer above.
               sameAs: [
                 "https://dominusfoundry.com",
-                "https://hiresabina.ai",
                 "https://buildwithforge.app",
                 "https://www.linkedin.com/company/dominus-foundry",
                 "https://www.youtube.com/@Forge-DF",

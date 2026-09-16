@@ -87,7 +87,7 @@ export default function CareersPage() {
             </h1>
             <div className="divider-forged mx-auto max-w-xs" />
             <p className="body-foundry text-white/90 md:text-lg">
-              Ground floor of a patent-protected SaaS company with a fully built product, paying customers, and zero sales team. The entire addressable market is open.
+              Ground floor of a patent-pending SaaS company with a product in production at its first customers, and zero sales team. The addressable market is wide open.
             </p>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
               <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
@@ -119,7 +119,16 @@ export default function CareersPage() {
               <strong>Hyperion™</strong>, a standalone trades product hosted under Forge, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
             </p>
             <p>
-              <strong>We have 19 provisional patent applications plus a non-provisional filing, a fully built product, paying customers, and no sales team.</strong> The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              {/* ⛔ kimi #2, round 3: this read "a fully built product, paying
+                  customers" — plural, unqualified, one click from the global
+                  footer, on the same domain whose investor pitch says "one paid
+                  Forge account" and "revenue excluded from every claim on this
+                  page". A diligence reader who finds the careful version on
+                  /pitch and the loose version here trusts the careful one LESS.
+                  Recruiting copy can be hungry without being rounder than the
+                  investor page. ⛔ Keep this aligned to app/pitch/claims.ts; if
+                  the ledger changes, this changes with it. */}
+              <strong>We have 19 provisional patent applications plus a non-provisional filing, a product running in production, and no sales team.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus the first Sabina seat signed, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>
