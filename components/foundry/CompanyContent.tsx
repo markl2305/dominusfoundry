@@ -217,8 +217,8 @@ export default function CompanyContent() {
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com?subject=Careers%20and%20collaboration">
               Careers {Icon.arr}
             </a>
-            <a className="btn btn-ghost" href="tel:+18668492113">
-              Call (866) 849-2113 {Icon.arr}
+            <a className="btn btn-ghost" href="tel:+15055201433">
+              Call (505) 520-1433 {Icon.arr}
             </a>
           </>
         }

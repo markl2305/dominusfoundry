@@ -57,7 +57,7 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Founded by: Mark Lord (founder) and Bri Lord (co-founder, operations).
 - Funding: bootstrapped to date. Dominus Foundry is raising to increase onboarding capacity and accelerate distribution, without changing the core pricing discipline. Full terms, and both the floor (no-raise) and funded scenarios, are set out in the investor pitch on the company site, which is deliberately not indexed by search engines. (There is no active "Foundry Capital" investment arm.)
 - Philosophy: Multi-generational family business ("Fide et Familia")
-- Contact: foundry@dominusfoundry.com | (866) 849-2113
+- Contact: foundry@dominusfoundry.com | (505) 520-1433
 
 ## Company site
 The company site centers on Sabina, the governed platform beneath her, and the compounding-intelligence thesis. /sabina is the current company-level introduction. /technology explains company context, delegated responsibilities, and oversight rather than serving as a Hyperion product page. The governance demonstration is an illustrative browser simulation, not a live tenant or evidence of production coverage. Revocation withdraws permission for future work; it does not undo completed actions. Investors: contact foundry@dominusfoundry.com. The investor pitch is on the company site and is deliberately not indexed by search engines.
