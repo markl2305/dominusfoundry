@@ -906,7 +906,7 @@
 .df-site .company-hero .hero-title { margin-top:24px; font-size:clamp(44px,5.6vw,80px); }
 .df-site .company-hero .hero-actions { justify-content:flex-start; }
 .df-site .company-seal { text-align:center; }
-.df-site .company-seal svg { width:100%; max-width:330px; height:auto; margin:auto; }
+.df-site .company-seal svg, .df-site .company-seal img { width:100%; max-width:330px; height:auto; margin:auto; }
 .df-site .company-seal p { font-size:28px; color:var(--gold-hi); margin-top:16px; }
 .df-site .company-seal span { display:block; margin-top:12px; font-size:12px; color:var(--hero-ink-2); }
 .df-site .company-principles { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; margin:44px 0; }
@@ -937,7 +937,7 @@
 }
 @media(max-width:640px){
 .df-site .company-hero-grid,.df-site .company-principles,.df-site .company-paths,.df-site .sabina-overview {grid-template-columns:1fr;gap:36px;}
-.df-site .company-seal {order:-1;}.df-site .company-seal svg{max-width:145px;}.df-site .company-seal p{font-size:20px;margin-top:8px}.df-site .company-seal span{display:none}
+.df-site .company-seal {order:-1;}.df-site .company-seal svg,.df-site .company-seal img{max-width:145px;}.df-site .company-seal p{font-size:20px;margin-top:8px}.df-site .company-seal span{display:none}
 .df-site .company-hero {padding-top:115px;padding-bottom:50px}.df-site .company-hero .hero-title{font-size:46px}.df-site .company-film{margin:auto}
 }
 
