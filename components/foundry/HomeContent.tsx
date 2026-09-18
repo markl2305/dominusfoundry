@@ -130,7 +130,7 @@ export default function HomeContent() {
             <article>
               <h3>Sabina</h3>
               <p>
-                A company’s own AI employee — hired into the business, taught how that business works,
+                A company’s own AI — hired into the business, taught how that business works,
                 and given authority in writing. What the company authorizes is what she can do, and it
                 can change that authority or take it back.
               </p>
@@ -140,8 +140,8 @@ export default function HomeContent() {
               <h3>Forge</h3>
               <p>
                 The governed technology platform and operating spine Sabina runs on: the application
-                infrastructure, the data and workflow layer, and the trades tooling that make an AI
-                employee usable inside a working company.
+                infrastructure, the data and workflow layer, and the trades tooling that make a
+                company’s own AI usable inside a working company.
               </p>
               <a className="section-more" href="https://buildwithforge.app">Explore Forge →</a>
             </article>

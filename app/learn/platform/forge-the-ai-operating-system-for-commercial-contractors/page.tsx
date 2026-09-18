@@ -180,7 +180,7 @@ export default function ForgeAiOperatingSystemPage() {
             <a className="underline" href="https://buildwithforge.app" rel="noopener">
               buildwithforge.app
             </a>{" "}
-            to book a demo or get started.
+            to see if your company is ready.
           </p>
 
           <h3 className="heading-forge-md text-slate-900 mt-6">
