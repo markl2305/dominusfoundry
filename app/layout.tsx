@@ -230,8 +230,18 @@ export default function RootLayout({
                   name: "DominusOS",
                   url: "https://dominusos.ai",
                   applicationCategory: "Governance layer",
+                  // ⚠️ Deliberately narrower than DOMINUSOS-GAP.md §(d)'s
+                  // original sanctioned phrasing ("...needs a signed,
+                  // single-use permit"). A same-day read-only audit
+                  // (DOMINUSOS-GOVERNANCE-COMPARISON-2026-09-18.md, N-3)
+                  // found that exact claim overstates what is built:
+                  // "'Universal permit coverage' is NOT true and must not be
+                  // written anywhere... Single-use is enforced within a
+                  // running process; making it survive a restart is work in
+                  // progress." This sentence keeps only what that audit
+                  // marked SUPPORTED.
                   description:
-                    "The governance layer Sabina runs on: every action she attempts is recorded before it is carried out, and anything that reaches the outside world needs a signed, single-use permit.",
+                    "The governance layer Sabina runs on, built by Dominus Foundry.",
                 },
               ],
               // makesOffer used to redefine a fourth "Forge" node inline.

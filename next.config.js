@@ -35,8 +35,18 @@ const nextConfig = {
       // (they were fully built, indexed pages; a 404 would be worse than a
       // redirect) but now point at the canonical site instead of the generic
       // /governance page.
+      // ⚠️ BOTH point at the dominusos.ai HOMEPAGE ONLY, never /whitepaper or
+      // either DominusOS_White_Paper_v*.pdf. A same-day read-only audit
+      // (DOMINUSOS-GOVERNANCE-COMPARISON-2026-09-18.md, 13:45) found the
+      // homepage "largely honest" (9/15 governance claims supported) but
+      // found /whitepaper and both PDFs UNREWRITTEN, still asserting things
+      // the homepage itself now denies ("tested regularly... instantly...
+      // across every kernel instance" vs. the homepage's own "not yet true").
+      // Its own verdict: "the gate does not open for dominusos.ai AS A WHOLE
+      // ... until [the whitepaper] is unpublished, re-framed or rewritten."
+      // Do not retarget either redirect at /whitepaper until that is closed.
       { source: "/dominus-os", destination: "https://dominusos.ai", permanent: true },
-      { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "https://dominusos.ai/whitepaper", permanent: true },
+      { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "https://dominusos.ai", permanent: true },
       //
       // ⭐ SUPERSEDED TEXT, kept verbatim and dated for the record (correct
       // 2026-09-16 through 2026-09-18, DEAD as of this candidate):
