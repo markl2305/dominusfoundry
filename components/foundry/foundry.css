@@ -901,10 +901,27 @@
 }
 
 /* Company focus: preserve the slate, stone, brass and heraldic identity. */
-.df-site .company-hero { min-height: auto; padding: clamp(130px,15vw,185px) 0 80px; }
+/* ⛔ THE HERO LEAD IS FOUR PARAGRAPHS NOW, NOT ONE, AND THE OLD PADDING NO
+   LONGER FITS IT. MEASURED 2026-09-18 on the rendered page (kimi, the only
+   lane that can see one): at 185px top padding and a 32px gap repeated after
+   every paragraph, the hero box measured 1081px against a 900px viewport and
+   the primary CTA started at y=953 — BELOW THE FOLD at 1440x900, 1280x720 and
+   390x844 alike. CONTROL THAT FIRED: deleting the three added paragraphs in
+   the live DOM returned the hero to 788px and the CTA to y=660.
+   ⛔ THE COPY IS RULED AND IS NOT THE LEVER. The lever is the vertical spend:
+   the gap after the HEADLINE stays full so the headline still reads as a
+   headline, and the gaps BETWEEN SIBLING PARAGRAPHS tighten so the four read
+   as one prose block instead of four peers.
+   ⛔ THE TOP PADDING HAS A FLOOR AND IT IS NOT COSMETIC: the nav is FIXED
+   and 75px tall, measured. A first attempt at clamp(56px,7vh,84px) put the
+   eyebrow's top at y=63 against a nav bottom of y=75 — MINUS 12px of
+   clearance, i.e. the eyebrow rendered UNDER the header, at 1440x900 and
+   1280x720 both. The floor below is measured against that nav, not chosen. */
+.df-site .company-hero { min-height: auto; padding: clamp(96px,10vh,120px) 0 clamp(48px,6vh,72px); }
 .df-site .company-hero-grid { display:grid; grid-template-columns:1.35fr 1fr; align-items:center; gap:60px; position:relative; z-index:2; }
 .df-site .company-hero .hero-title { margin-top:24px; font-size:clamp(44px,5.6vw,80px); }
-.df-site .company-hero .hero-actions { justify-content:flex-start; }
+.df-site .company-hero .hero-lead + .hero-lead { margin-top: clamp(16px,2vh,24px); }
+.df-site .company-hero .hero-actions { justify-content:flex-start; margin-top: clamp(22px,2.5vh,30px); }
 .df-site .company-seal { text-align:center; }
 .df-site .company-seal svg, .df-site .company-seal img { width:100%; max-width:330px; height:auto; margin:auto; }
 .df-site .company-seal p { font-size:28px; color:var(--gold-hi); margin-top:16px; }
