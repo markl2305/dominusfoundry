@@ -136,8 +136,22 @@ export default function RootLayout({
               // commercial roofing. Fire/life-safety and solar are next
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
+              //
+              // ⛔⛔ CANDIDATE, NOT SHIPPED — see next.config.js's matching
+              // note and ESTATE-ALIGN-CANDIDATE-2026-09-18.md. The one added
+              // sentence ("DominusOS is the governance layer...") is copied
+              // verbatim from the sanctioned dominusfoundry.com phrasing in
+              // DOMINUSOS-GAP.md §(d) ("Dominus Foundry builds Sabina and
+              // DominusOS, the governance layer she runs on."), already
+              // vetted against §22.6 (never claim stronger governance than
+              // verified mechanics) and already live in near-identical form
+              // on dominusos.ai. The rest of the description is UNCHANGED —
+              // Forge's own sentence and POSITION are not touched, per the
+              // 2026-09-17 D-1 ruling's narrowing ("no change to Forge's
+              // POSITION in the hierarchy... does NOT hold sentence-level
+              // edits where Forge is merely named").
               description:
-                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee a company hires: shaped around that business, its knowledge, and the authority its people grant her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is not generally available in every industry and does not work unsupervised; the trades are where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
+                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee a company hires: shaped around that business, its knowledge, and the authority its people grant her in writing. DominusOS is the governance layer she runs on, built by Dominus Foundry. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is not generally available in every industry and does not work unsupervised; the trades are where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",
@@ -194,8 +208,31 @@ export default function RootLayout({
               brand: [
                 { "@id": "https://buildwithforge.app/#forge-brand" },
               ],
+              // ⛔⛔ CANDIDATE, NOT SHIPPED. The DominusOS entry is an INLINE
+              // node, not an @id reference, because dominusos.ai currently
+              // publishes NO JSON-LD of its own (measured 2026-09-18: zero
+              // <script type="application/ld+json"> blocks on its live "/").
+              // Every other entry in this array references a node the
+              // product's OWN domain defines (buildwithforge.app/#forge) —
+              // this repo's own comments above warn against minting a rival
+              // node once a canonical one exists elsewhere. None exists yet
+              // for DominusOS, so this candidate defines the @id HERE, under
+              // the same https://dominusos.ai/#dominusos identifier a future
+              // dominusos.ai JSON-LD pass should adopt, exactly as Forge's
+              // node was later given its own home. This is a PROPOSAL, not
+              // an architecture ruling — flagged for Mark in the HOLDS
+              // section of ESTATE-ALIGN-CANDIDATE-2026-09-18.md.
               owns: [
                 { "@id": "https://buildwithforge.app/#forge" },
+                {
+                  "@id": "https://dominusos.ai/#dominusos",
+                  "@type": "SoftwareApplication",
+                  name: "DominusOS",
+                  url: "https://dominusos.ai",
+                  applicationCategory: "Governance layer",
+                  description:
+                    "The governance layer Sabina runs on: every action she attempts is recorded before it is carried out, and anything that reaches the outside world needs a signed, single-use permit.",
+                },
               ],
               // makesOffer used to redefine a fourth "Forge" node inline.
               // It now points at the product's own @id instead of minting a

@@ -9,24 +9,55 @@ const nextConfig = {
       // tree. ⛔ Do not re-add a route for it; keep the redirect forever.
       { source: "/iris", destination: "/sabina", permanent: true },
 
-      // BANNED PUBLIC NAMES — plan §17, 2026-09-16. Both routes were fully
+      // ⛔⛔ CANDIDATE, NOT SHIPPED — proposal only, awaiting Mark's word on the
+      // hierarchy sentence in ESTATE-ALIGN-CANDIDATE-2026-09-18.md. Do not
+      // deploy this file until that proposal is accepted.
+      //
+      // SUPERSEDES the "BANNED PUBLIC NAMES — plan §17, 2026-09-16" block that
+      // stood here (kept below, dated, per this repo's own vestige/record
+      // practice — it was correct when written and is not deleted).
+      // RULED BY MARK 2026-09-18: "dominusos.ai stays - fix the estate to
+      // match it" — DominusOS is no longer a banned internal system name here;
+      // dominusos.ai is a live, Mark-approved site (rewritten to verified
+      // claims only, per DOMINUSOS-REWRITE-DIFF.md, confirmed live 2026-09-18)
+      // and the estate names it. See ESTATE-ALIGN-CANDIDATE-2026-09-18.md for
+      // the full reasoning chain and the open HOLD this candidate carries:
+      // Phase 19's D-1 ruling (19-RULINGS.md, also 2026-09-17) separately
+      // banned DominusOS from this domain FOR A DIFFERENT REASON — §22.6,
+      // never claim stronger governance than verified mechanics — and has not
+      // itself been superseded in that ledger. This file's proposal complies
+      // with §22.6 by reusing only the same verified-claims language already
+      // vetted for dominusos.ai; it does not resolve the ledger collision.
+      //
+      // The /dominus-os and whitepaper-PDF pages themselves are NOT restored
+      // — dominusos.ai is now the canonical home for that content and this
+      // candidate does not duplicate it. Both routes keep a permanent redirect
+      // (they were fully built, indexed pages; a 404 would be worse than a
+      // redirect) but now point at the canonical site instead of the generic
+      // /governance page.
+      { source: "/dominus-os", destination: "https://dominusos.ai", permanent: true },
+      { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "https://dominusos.ai/whitepaper", permanent: true },
+      //
+      // ⭐ SUPERSEDED TEXT, kept verbatim and dated for the record (correct
+      // 2026-09-16 through 2026-09-18, DEAD as of this candidate):
+      // "BANNED PUBLIC NAMES — plan §17, 2026-09-16. Both routes were fully
       // built pages that are now DELETED, not hidden, and both are already
       // indexed, so each keeps a permanent redirect rather than becoming a 404.
       //
       // /dominus-os was a standalone product page for the internal system name
       // (44 literal occurrences, its own title/meta, its own mailto CTA). Its
       // subject — governed authority, attributable action, human oversight — is
-      // what /governance now carries on this site, so that is where it lands.
-      { source: "/dominus-os", destination: "/governance", permanent: true },
+      // what /governance now carries on this site, so that is where it lands."
+      // { source: "/dominus-os", destination: "/governance", permanent: true },
       //
-      // FOUND 2026-09-16 (round 4, tree verification): a second public vestige
+      // "FOUND 2026-09-16 (round 4, tree verification): a second public vestige
       // of the same banned name — an 8-page PDF whitepaper titled "Dominus OS /
       // The Human-Governed AI Hypervisor", unreferenced anywhere in source (no
       // link, no code pointer) but LIVE at this path because Next.js serves
       // everything under public/ statically regardless of whether anything
       // links to it. Deleted from public/; same destination and same
-      // reasoning as /dominus-os above, because it is the same subject.
-      { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "/governance", permanent: true },
+      // reasoning as /dominus-os above, because it is the same subject."
+      // { source: "/Dominus_OS_White_Paper_v1.pdf", destination: "/governance", permanent: true },
       //
       // The HVAC comparison article was positioning as a ServiceTitan
       // alternative in its URL, title, meta, headline and FAQ (plan §6.6/§7.5:
