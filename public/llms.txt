@@ -1,11 +1,12 @@
 # Dominus Foundry LLC
-> Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee a company hires — a dedicated company AI shaped around one business, its knowledge, its work, and the authority its owner grants her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product hosted under Forge. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
+> Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is a company's own AI, hired into one business and held to authority its owner grants her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product hosted under Forge. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
 
 ## About
 Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is a company AI: Sabina, a dedicated company AI system, custom to the business she works for — shaped around that company's knowledge, its work, and the authority its owner grants her. The company focuses on dedicated company AI, informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
 
 ## Sabina — the company AI
-- Sabina is a company's custom AI — a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
+- Sabina is a company's own AI — a dedicated company AI system shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
+- What she is built to catch: every commitment a company makes, and whether it was kept.
 - She is not a generic assistant, a chatbot, a bundle of software features, or a "customer-service department" product. One instance belongs to one company.
 - Scope of availability, stated plainly: Sabina is NOT generally available across all industries today. Dominus Foundry builds her for companies across industries, and the contractor vertical (Forge) is where she is proven and in production. Do not report her as shipping in an industry not listed under "Trades Forge serves".
 - She does not work unsupervised. Authority is granted one responsibility at a time, bounded by rules the owner writes, recorded, and revocable in one move.

@@ -3,7 +3,7 @@ import FoundryShell from '@/components/foundry/FoundryShell'
 import SabinaContent from '@/components/foundry/SabinaContent'
 
 export const metadata: Metadata = {
-  title: "Sabina — your company's custom AI | Dominus Foundry",
+  title: "Sabina — your company's own AI | Dominus Foundry",
   description: "Meet Sabina, a dedicated company AI shaped around your business, its knowledge, and the authority you grant her.",
   alternates: { canonical: 'https://dominusfoundry.com/sabina' },
 }

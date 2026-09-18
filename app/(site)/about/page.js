@@ -18,7 +18,7 @@ export default function About() {
           </h1>
           <p className="mt-6 body-foundry">
             Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
-            We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
+            We help them cross the changes they didn&apos;t ask for—with own AI systems that preserve human sovereignty and operational clarity.
             Sabina is ours: a dedicated company AI system, shaped around your business, its knowledge, its work, and the authority you give her.
           </p>
         </div>

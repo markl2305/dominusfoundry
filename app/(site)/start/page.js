@@ -4,7 +4,7 @@ import ContactCTA from "../../../components/ContactCTA";
 export const metadata = {
   title: "Get Started — Dominus Foundry",
   description:
-    "Tell us what's broken — get a system design in 7 days. Custom AI systems that plug into how your business actually runs.",
+    "Tell us what's broken — get a system design in 7 days. Own AI systems that plug into how your business actually runs.",
 };
 
 const exampleOutcomes = [
