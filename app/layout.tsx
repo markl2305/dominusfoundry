@@ -19,7 +19,7 @@ export const metadata = {
   // product's, because this is the investor/company front door (§4).
   title: "Dominus Foundry — Governed AI and Commercial Intelligence",
   description:
-    "Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee companies hire; Forge is the platform and operating spine she runs on. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
+    "Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is a company’s own AI, hired into one business and held to authority its owner grants her in writing; Forge is the platform and operating spine she runs on. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
   keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'governed AI', 'commercial intelligence', 'AI governance', 'Mark Lord', 'Bri Lord'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
+      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is a company’s own AI, hired into one business and held to authority its owner grants her in writing; Forge is the platform beneath her.",
     // §15/§19.10: og:site_name is the literal string "Dominus Foundry" — no
     // trademark symbol. This is the ONLY place og:site_name is set for the whole
     // site, so this one value is the sitewide value.
@@ -49,7 +49,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
+      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is a company’s own AI, hired into one business and held to authority its owner grants her in writing; Forge is the platform beneath her.",
     images: ['/og-image.png'],
   },
   themeColor: [

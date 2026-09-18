@@ -67,8 +67,19 @@ export default function HomeContent() {
               Built around <em>your business.</em>
             </h1>
             <p className="hero-lead">
+              Companies make commitments that disappear between the conversation and the work.
+            </p>
+            <p className="hero-lead">
               We build governed AI systems that become more valuable as they learn how real companies
-              operate. Sabina is the AI employee a company hires. Forge is the platform beneath her.
+              operate. Sabina is a company’s own AI, hired into one business and held to authority its
+              owner grants her in writing. Forge is the platform beneath her.
+            </p>
+            <p className="hero-lead">
+              Every commitment a company makes, and whether it was kept. The customer pays us to build
+              the dataset. Sabina’s seats are the instrumentation.
+            </p>
+            <p className="hero-lead">
+              Sabina captures what your company commits to, and acts only within the authority you give her.
             </p>
             <div className="hero-actions">
               <a className="btn btn-solid" href="https://hiresabina.ai">Meet Sabina {Icon.arr}</a>
