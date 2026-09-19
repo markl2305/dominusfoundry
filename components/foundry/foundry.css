@@ -943,6 +943,15 @@
 .df-site .company-seal {order:-1;}.df-site .company-seal svg,.df-site .company-seal img{max-width:64px;}.df-site .company-seal p{font-size:13px;margin-top:4px}.df-site .company-seal span{display:none}
 .df-site .company-hero {padding-top:115px;padding-bottom:50px}.df-site .company-hero .hero-title{font-size:46px}.df-site .company-film{margin:auto}
 }
+/* At <=359px "Built around your business." wraps to a 3rd line (was 2 at >=360px),
+   adding one more 46px title line that pushes the ruled hero sentence back down
+   into the fixed Ask Sabina launcher's band -- the residual 320px overlap the
+   375px fix above did not close. Shrinking the title font here only (iPhone SE
+   1st-gen class widths) removes the extra wrap and restores clearance; see
+   RENDERED-GATE-2026-09-18.md follow-up. */
+@media(max-width:359px){
+.df-site .company-hero .hero-title{font-size:30px}
+}
 
 .df-site .company-hero .hero-lead {margin-left:0;margin-right:0;}
 
