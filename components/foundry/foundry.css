@@ -937,7 +937,10 @@
 }
 @media(max-width:640px){
 .df-site .company-hero-grid,.df-site .company-principles,.df-site .company-paths,.df-site .sabina-overview {grid-template-columns:1fr;gap:36px;}
-.df-site .company-seal {order:-1;}.df-site .company-seal svg,.df-site .company-seal img{max-width:145px;}.df-site .company-seal p{font-size:20px;margin-top:8px}.df-site .company-seal span{display:none}
+/* Seal shrunk from 145px/20px so the stacked hero copy below it clears the fixed
+   Ask Sabina launcher's bottom-right band on phones (widget overlapped the ruled
+   hero sentence at 375px; see RENDERED-GATE-2026-09-18.md, candidate 1). */
+.df-site .company-seal {order:-1;}.df-site .company-seal svg,.df-site .company-seal img{max-width:64px;}.df-site .company-seal p{font-size:13px;margin-top:4px}.df-site .company-seal span{display:none}
 .df-site .company-hero {padding-top:115px;padding-bottom:50px}.df-site .company-hero .hero-title{font-size:46px}.df-site .company-film{margin:auto}
 }
 
