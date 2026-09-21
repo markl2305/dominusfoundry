@@ -59,8 +59,8 @@ export default function About() {
               builds her own ventures.
             </p>
             <p className="body-foundry">
-              We&apos;re operators, not a startup selling dashboards. Mark brings decades of software expertise and
-              has built and run businesses. Bri keeps operations grounded. Together we understand what it&apos;s like
+              We&apos;re operators, not a startup selling dashboards. Mark has built and run businesses.
+              Bri keeps operations grounded. Together we understand what it&apos;s like
               when technology forces change on you—and what it takes to build systems that actually help.
             </p>
             <p className="body-foundry">
