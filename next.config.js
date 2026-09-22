@@ -7,7 +7,15 @@ const nextConfig = {
       // 2026-09-16 — redirects() runs ahead of routing so that route file was
       // already dead code, and its directory name kept the retired name in the
       // tree. ⛔ Do not re-add a route for it; keep the redirect forever.
-      { source: "/iris", destination: "/sabina", permanent: true },
+      //
+      // 2026-09-22: the two rules below are NEW. Measured live before adding
+      // them, exact status per shape: `/iris` 308 -> /sabina (the rule above);
+      // `/iris/` 308 -> /iris, i.e. it already resolved in two hops via Next's
+      // own trailing-slash normalisation; `/iris.html` 404; `/iris/anything`
+      // 404; `/iris/activate` 404. So the two additions close the 404 shapes
+      // and make every old spelling land on /sabina in one hop.
+      { source: "/iris/:path*", destination: "/sabina", permanent: true },
+      { source: "/iris.html", destination: "/sabina", permanent: true },
 
       // BANNED PUBLIC NAMES — plan §17, 2026-09-16. Both routes were fully
       // built pages that are now DELETED, not hidden, and both are already
