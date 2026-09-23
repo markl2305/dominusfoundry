@@ -289,3 +289,8 @@ footer {
     rgba(0, 0, 0, 0.02) 4px
   );
 }
+
+.locatefaith-badge img {
+  max-width: 100%;
+  height: auto;
+}

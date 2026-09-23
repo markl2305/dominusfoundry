@@ -89,6 +89,11 @@ export default function SiteFooter() {
             <span className="label-foundry text-forge-700">Fide et Familia</span>
           </div>
         </div>
+
+        <div className="locatefaith-badge flex justify-center border-t border-bronze-300 pt-6">
+          {/* eslint-disable-next-line @next/next/no-img-element -- exact external badge markup, requested verbatim */}
+          <a href="https://locatefaith.com/business/sabina-by-dominus-foundry"><img src="https://locatefaith.com/brand/verified-badge-v2.svg" alt="Verified Christian Business on LocateFaith" width="240" height="107" /></a>
+        </div>
       </div>
     </footer>
   )

@@ -144,6 +144,10 @@ function Footer() {
             Fide et Familia
           </span>
         </div>
+        <div className="locatefaith-badge" style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- exact external badge markup, requested verbatim */}
+          <a href="https://locatefaith.com/business/sabina-by-dominus-foundry"><img src="https://locatefaith.com/brand/verified-badge-v2.svg" alt="Verified Christian Business on LocateFaith" width="240" height="107" /></a>
+        </div>
       </div>
     </footer>
   )
