@@ -180,7 +180,11 @@ export default function ForgeAiOperatingSystemPage() {
             <a className="underline" href="https://buildwithforge.app" rel="noopener">
               buildwithforge.app
             </a>{" "}
-            to book a demo or get started.
+            to explore the platform. For a Forge quote, {" "}
+            <a className="underline" href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">
+              ask about Forge tools
+            </a>
+            .
           </p>
 
           <h3 className="heading-forge-md text-slate-900 mt-6">

@@ -69,9 +69,10 @@ export default function HomeContent() {
             <p className="hero-lead">
               We build governed AI systems that become more valuable as they learn how real companies
               operate. Sabina is the AI employee a company hires. Forge is the platform beneath her.
+              Start with a readiness assessment; you can request a prepared sandbox interview afterward.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-solid" href="https://hiresabina.ai">Meet Sabina {Icon.arr}</a>
+              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
               <a className="btn btn-ghost" href="/pitch">For investors {Icon.arr}</a>
             </div>
           </div>
@@ -102,7 +103,7 @@ export default function HomeContent() {
               held to it. Everything else we build exists to make that possible and to make what she
               learns useful to the business that taught her.
             </p>
-            <a className="section-more" href="/sabina">Meet the company AI →</a>
+            <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work →</a>
           </div>
         </div>
       </section>
@@ -123,7 +124,7 @@ export default function HomeContent() {
                 and given authority in writing. What the company authorizes is what she can do, and it
                 can change that authority or take it back.
               </p>
-              <a className="section-more" href="https://hiresabina.ai">Hire Sabina →</a>
+              <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work →</a>
             </article>
             <article>
               <h3>Forge</h3>
@@ -256,10 +257,10 @@ export default function HomeContent() {
       <CTA
         eyebrow="Customers · Investors · Partners"
         title={<>Let’s talk about <em>your company.</em></>}
-        lead="Explore Sabina for your business, or contact Mark and Bri about working together."
+        lead="Start with a readiness assessment for Sabina; you can request a prepared sandbox interview afterward. For partnerships, contact Mark and Bri."
         actions={
           <>
-            <a className="btn btn-solid" href="https://hiresabina.ai">Meet Sabina {Icon.arr}</a>
+            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team {Icon.arr}</a>
           </>
         }

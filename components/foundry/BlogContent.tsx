@@ -47,14 +47,14 @@ export default function BlogContent() {
             Foundry <em>Notes</em>.
           </>
         }
-        lead="Essays on company AI, governance and staying in control of the work you delegate. Older pieces are kept as written, with a short note on what has changed since."
+        lead="Essays on company AI, governance and staying in control of the work you delegate. Older pieces are kept as written, with a short note on what has changed since. Sabina’s next step is a readiness assessment, with an optional prepared sandbox interview."
         actions={
           <>
             <a className="btn btn-solid" href="#notes">
               Read the notes {Icon.arr}
             </a>
-            <a className="btn btn-ghost" href="/sabina">
-              Meet Sabina {Icon.arr}
+            <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
+              See Sabina work {Icon.arr}
             </a>
           </>
         }
@@ -101,14 +101,14 @@ export default function BlogContent() {
             Built in public, <em>on the record</em>.
           </>
         }
-        lead="We write about the systems we're building and the principles behind them. Want to compare notes with the team?"
+        lead="We write about the systems we're building and the principles behind them. To explore Sabina, start with a readiness assessment and request a prepared sandbox interview if useful."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Get in touch {Icon.arr}
             </a>
-            <a className="btn btn-ghost" href="/sabina">
-              Meet Sabina {Icon.arr}
+            <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
+              See Sabina work {Icon.arr}
             </a>
           </>
         }

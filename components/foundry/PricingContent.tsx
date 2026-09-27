@@ -211,12 +211,10 @@ export default function PricingContent() {
             afterwards in writing. A business that also wants a tool from the tool scope below is quoted for your company — product prices are not
             published on this page.
           </p>
+          <p className="pricenote">Start with a readiness assessment; you can request a prepared sandbox interview afterward.</p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <a className="btn btn-solid" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
-              See if your company is ready. <span className="arr">→</span>
-            </a>
-            <a className="btn btn-ghost" href="https://buildwithforge.app/evaluate" target="_blank" rel="noopener">
-              Request an interview. <span className="arr">→</span>
+            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
+              See Sabina work <span className="arr">→</span>
             </a>
           </div>
         </div>
