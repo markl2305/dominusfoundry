@@ -14,11 +14,22 @@ const term = /\b(seats?|founding|cohort|openings?|slots?|spots?|charter|availabi
 const num = /\b(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:zero|one|two|three|four|five|six|seven|eight|nine))?|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|zero|one|two|three|four|five|six|seven|eight|nine|hundreds?|thousands?|millions?|billions?|dozens?|several|few|half|handful|couple)\b/gi
 const date = /\b(?:19|20)\d{2}-\d{2}-\d{2}\b|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+(?:\d{1,2},\s+)?(?:19|20)\d{2}\b/gi
 const count = /\b(one|two|three|four|five|six|seven|eight|nine|ten|[0-9]{1,2})\b(\s+of\s+the\s+\S+)?\s+(founding\s+)?seats?\b|\b(one|two|three|four|five|six|seven|eight|nine|ten|[0-9]{1,2})\s+(signed|spoken for|open|unclaimed|still open|remain|left)\b|\bseats?\b[^.\n]{0,30}\b(one|two|three|four|five|six|seven|eight|nine|ten|[0-9]{1,2})\s+(open|signed|spoken for|unclaimed|remain|left)\b/i
+const adjudicatedCompanyBio = '664c7d5f0835eb2ddd41f520f7e4b60ac3f496718bc7b539c77b9e3a682be983'
 const allow = new Map([
+  // 2026-09-29 seat adjudication of evidence/26-08/gate.md: four findings arise
+  // from these three preserved whole blocks; /company triggers B5 and R11.
+  // Each exception is route-scoped and pinned to the exact normalized text.
+  ['company', [
+    adjudicatedCompanyBio,
+  ]],
   ['pitch', [
     '7a2c05d10c0a235c76e8650626191e8a8ae25dfcc1805fc3d5bdbd9bbed7dc7c',
     'a075efac3f754a6b319e80570dc788571adf5f62ea4b593936e417d4904a4ee3',
     'c2871c91bce2335035bd84e054ea469a2cb8292d7bbfefd4b944cb6bd9f90f00',
+    '06b27dd8956b9da87f12879de1407646f193c388d04d0cc5940b7f355b89a4f8',
+  ]],
+  ['press', [
+    '132a5376341ff3bc89b8e51a4e0ddeb85e46aef2315339f42cf2b79c1f99ce5f',
   ]],
   ['pricing', [
     '09e3d5d0e6ea2ec829190e0257c77a865b969841bcd03dbfd6a807df3229b598',
@@ -101,13 +112,24 @@ function render() {
     const blocks = htmlBlocks(raw)
     routeBlocks.set(route, blocks)
     blocks.forEach((b,i) => block(b, `B5/6/7/R10 ${url} block ${i+1}`, route))
-    if (blocks.some(b => /seat/i.test(b))) check(raw.includes(link), `R11: ${url} has a seat mention without founding link`)
+    if (blocks.some(b => /seat/i.test(b) && !(route === 'company' && hash(b) === adjudicatedCompanyBio)))
+      check(raw.includes(link), `R11: ${url} has a seat mention without founding link`)
     for (const ext of ['meta','rsc','body']) {
       const f = path.join(root, '.next/server/app', `${route}.${ext}`)
       if (!fs.existsSync(f)) continue
       const data = fs.readFileSync(f, 'utf8')
       const strings = ext === 'rsc'
-        ? [...data.matchAll(/"(?:\\.|[^"\\])*"/g)].map(m => { try { return JSON.parse(m[0]) } catch { return '' } })
+        ? [...data.matchAll(/"(?:\\.|[^"\\])*"/g)].flatMap(m => {
+            try {
+              const decoded = JSON.parse(m[0])
+              if (typeof decoded !== 'string') return []
+              try {
+                const nested = JSON.parse(decoded)
+                if (nested && typeof nested === 'object') return [decoded, ...jsonBlocks(nested)]
+              } catch {}
+              return [decoded]
+            } catch { return [] }
+          })
         : textBlocks(data)
       strings.forEach((b,i) => block(b, `B6/8/9 ${url} ${ext} ${i+1}`, route))
     }
