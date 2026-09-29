@@ -61,20 +61,21 @@ export default function HomeContent() {
       <section className="hero on-dark company-hero" id="top">
         <div className="wrap company-hero-grid">
           <div>
-            <p className="eyebrow">Dominus Foundry · Governed AI and commercial intelligence</p>
+            <p className="eyebrow">Dominus Foundry · Fide et Familia</p>
             <h1 className="hero-title">
-              Governed AI.<br />
-              Built around <em>your business.</em>
+              AI that carries responsibility.<br />
+              Intelligence that grows from <em>the work.</em>
             </h1>
             <p className="hero-lead">
-              We build governed AI systems that become more valuable as they learn how real companies
-              operate. Sabina is the AI employee a company hires. Forge is the platform beneath her.
-              Start with a readiness assessment; you can request a prepared sandbox interview afterward.
+              Dominus Foundry builds governed AI systems for real businesses. Sabina is your company&apos;s
+              custom AI employee. Forge provides the operating platform. DominusOS governs the work she
+              is permitted to carry out.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
-              <a className="btn btn-ghost" href="/pitch">For investors {Icon.arr}</a>
+              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">Meet Sabina {Icon.arr}</a>
+              <a className="btn btn-ghost" href="/pitch">Read the investor case {Icon.arr}</a>
             </div>
+            <p>Start with a short operational assessment of your business.</p>
           </div>
           <div className="company-seal">
             <Medallion scheme="ondark" />
@@ -87,23 +88,22 @@ export default function HomeContent() {
       <section className="section">
         <div className="wrap thesis-grid">
           <div>
-            <p className="eyebrow">What we are building</p>
+            <p className="eyebrow">Useful work comes first</p>
             <h2 className="thesis-line">
-              Intelligence with a place<br /><em>in the company.</em>
+              Start with a <em>customer promise.</em>
             </h2>
           </div>
           <div className="thesis-aside">
             <p>
-              A business has its own way of working: relationships, commitments, records, and decisions
-              that carry consequences. Its AI should work within that context — and most AI does not,
-              because it was never taught how that company actually runs.
+              A commitment is made, a deadline changes, and the next step depends on someone remembering it.
+              Sabina helps the team keep that responsibility connected to the source, the person, and the
+              permitted follow-up.
             </p>
             <p>
-              So we build the company’s own. Sabina is taught the work, given authority in writing, and
-              held to it. Everything else we build exists to make that possible and to make what she
-              learns useful to the business that taught her.
+              It is a concrete starting point for a broader company AI: one that works with the business&apos;s
+              context and the authority its leadership defines.
             </p>
-            <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work →</a>
+            <a className="section-more" href="https://hiresabina.ai/evaluate">Meet Sabina</a>
           </div>
         </div>
       </section>
@@ -120,11 +120,11 @@ export default function HomeContent() {
             <article>
               <h3>Sabina</h3>
               <p>
-                A company’s own AI employee — hired into the business, taught how that business works,
-                and given authority in writing. What the company authorizes is what she can do, and it
-                can change that authority or take it back.
+                Sabina is your company&apos;s custom AI employee, for questions, commitments, and defined
+                responsibilities. The business decides what she can use and do, and it can change that
+                authority or take it back.
               </p>
-              <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work →</a>
+              <a className="section-more" href="https://hiresabina.ai/evaluate">Meet Sabina</a>
             </article>
             <article>
               <h3>Forge</h3>
@@ -233,11 +233,11 @@ export default function HomeContent() {
         <div className="wrap company-paths">
           <article>
             <p className="eyebrow">The people behind her</p>
-            <h2 className="serif">Mark &amp; Bri Lord.</h2>
+            <h2 className="serif">Built by Mark and Bri Lord.</h2>
             <p>
-              We came to this work through running businesses. The missed handoffs, scattered
-              information, and daily follow-through were familiar long before we started building
-              Sabina.
+              We came to this through the responsibilities of running businesses: serving customers,
+              coordinating people, and carrying the work that nobody could afford to lose. Fide et Familia
+              is the standard behind the company we are building.
             </p>
             <a className="section-more" href="/company">Meet the founders →</a>
           </article>
@@ -257,10 +257,10 @@ export default function HomeContent() {
       <CTA
         eyebrow="Customers · Investors · Partners"
         title={<>Let’s talk about <em>your company.</em></>}
-        lead="Start with a readiness assessment for Sabina; you can request a prepared sandbox interview afterward. For partnerships, contact Mark and Bri."
+        lead="Start with a short operational assessment of your business."
         actions={
           <>
-            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
+            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">Meet Sabina {Icon.arr}</a>
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team {Icon.arr}</a>
           </>
         }

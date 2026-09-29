@@ -19,7 +19,7 @@ export const metadata = {
   // product's, because this is the investor/company front door (§4).
   title: "Dominus Foundry — Governed AI and Commercial Intelligence",
   description:
-    "Dominus Foundry builds governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee companies hire; Forge is the platform and operating spine she runs on. Built by Mark and Bri Lord in Albuquerque, New Mexico.",
+    "The company behind Sabina, Forge, and DominusOS. Useful governed work today; a staged commercial-intelligence thesis built from operating evidence.",
   keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'governed AI', 'commercial intelligence', 'AI governance', 'Mark Lord', 'Bri Lord'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
+      "The company behind Sabina, Forge, and DominusOS. Useful governed work today; a staged commercial-intelligence thesis built from operating evidence.",
     // §15/§19.10: og:site_name is the literal string "Dominus Foundry" — no
     // trademark symbol. This is the ONLY place og:site_name is set for the whole
     // site, so this one value is the sitewide value.
@@ -49,7 +49,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Dominus Foundry — Governed AI and Commercial Intelligence",
     description:
-      "Governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform beneath her.",
+      "The company behind Sabina, Forge, and DominusOS. Useful governed work today; a staged commercial-intelligence thesis built from operating evidence.",
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -137,7 +137,7 @@ export default function RootLayout({
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence layer that grows from their use inside real businesses. Sabina is the AI employee a company hires: shaped around that business, its knowledge, and the authority its people grant her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is not generally available in every industry and does not work unsupervised; the trades are where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
+                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is your company's custom AI employee: shaped around that business, its knowledge, and the authority its people grant her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is not generally available in every industry and does not work unsupervised; the trades are where she works first. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",

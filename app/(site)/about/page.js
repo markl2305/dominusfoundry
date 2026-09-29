@@ -19,7 +19,7 @@ export default function About() {
           <p className="mt-6 body-foundry">
             Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
             We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
-            Sabina is ours: a dedicated company AI system, shaped around your business, its knowledge, its work, and the authority you give her.
+            Sabina is ours: your company&apos;s custom AI employee, shaped around your business, its knowledge, its work, and the authority you give her.
           </p>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function About() {
           </p>
           <p className="body-foundry">
             Dominus Foundry builds operator-grade AI infrastructure—custom systems that plug into how your business actually runs.
-            Your POS, your calendar, your workflows. Governed, auditable, and built to last. Sabina is that system as a hire: dedicated to one
+            Your POS, your calendar, your workflows. Governed, auditable, and built to last. Sabina, your company&apos;s custom AI employee, is that system as a hire: dedicated to one
             company, answerable to its owner. Forge, our contractor vertical, is the first proof point—not the edge of what we build.
           </p>
           <p className="body-foundry">
@@ -120,14 +120,14 @@ export default function About() {
             <div className="card-forged bg-white rounded-2xl p-6">
               <h3 className="heading-forge-md text-slate-900">Workflow orchestration</h3>
               <p className="mt-3 body-foundry">
-                Built on n8n — explicit, inspectable, and adaptable. No black boxes.
+                Explicit, inspectable, and adaptable. No black boxes.
               </p>
             </div>
 
             <div className="card-forged bg-white rounded-2xl p-6">
               <h3 className="heading-forge-md text-slate-900">Governed AI</h3>
               <p className="mt-3 body-foundry">
-                LLM calls are constrained, logged, and recoverable. No hallucination, no drift.
+                LLM calls are constrained, logged, and recoverable.
               </p>
             </div>
 

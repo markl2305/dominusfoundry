@@ -37,7 +37,7 @@
    every public surface; she is recruited, not sold. $2,000 founding, $3,500 standing and the
    $2,500 setup fee are RETIRED as public prices and no longer render on this page in any form
    — not as a line item, not inside the worked examples, not inside the discount arithmetic.
-   The Founding Charter survives as a thing (ten seats, application-gated, seven open) with no
+   The founding seats survive (count on hiresabina.ai/hire#founding) with no
    figure attached; her price is custom to each company, built from the job the interview
    establishes, and sent afterwards as a written proposal — never on a web surface (2026-09-15).
    ⛔⛔ SUPERSEDING RULING, Mark 2026-09-05 — EVERYTHING IS UNPRICED. CUSTOM QUOTE EVERYTHING.
@@ -72,13 +72,6 @@
        linking to buildwithforge.app/evaluate. That route is on an unmerged forge-web branch as
        of 2026-09-04 — this site must not deploy before it is live. */
 import { PageHero } from './FoundryShell'
-import {
-  TOTAL_SEATS_WORD,
-  OPEN_SEATS_WORD,
-  signedSeatsWord,
-  spokenForSeatsWord,
-  openSeatsWord,
-} from '@/content/founding-charter.mjs'
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
    The first card is deliberately NOT a Forge price: it is the salary comparison
@@ -95,11 +88,11 @@ const HIRE = [
     q: 'Published on buildwithforge.app · BLS ECEC $5,474',
   },
   {
-    n: OPEN_SEATS_WORD,
-    u: 'seats open',
-    l: 'Founding Seats',
-    d: `${TOTAL_SEATS_WORD} seats, awarded by application — ${signedSeatsWord} signed, ${spokenForSeatsWord} spoken for, ${openSeatsWord} still open. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included — it is not a second line, and it is never quoted separately on this ladder. Held for as long as an operator holds the seat.`,
-    q: `${TOTAL_SEATS_WORD} seats total, application-gated`,
+    n: 'Founding',
+    u: 'employers',
+    l: 'Founding employers',
+    d: 'Awarded by application. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included; it is not a second line, and it is never quoted separately. Held for as long as an operator holds the seat.',
+    q: <a href="https://hiresabina.ai/hire#founding">See current founding availability</a>,
   },
   {
     n: 'Disclosed',
@@ -113,7 +106,7 @@ const HIRE = [
        retired (rate disclosed at the job-description call, before the interview),
        and it is DEAD. ⛔ Do not restore it, and never a number, a range, or a
        "starting at" here. */
-    d: 'Her price is built from the job. We learn what the work is in the interview, then send a written proposal afterwards — scoped to your company, and never published on a web surface.',
+    d: 'Her price is never published on a web surface. Start with a short operational assessment of your business. Then Mark meets you to discuss the product and fit, and a written proposal follows.',
     q: 'Never on a web surface',
   },
 ]
@@ -131,7 +124,7 @@ const LINES = [
 ]
 
 const EXAMPLES = [
-  { k: 'Recruit Sabina', v: 'We discuss the responsibilities and scope on the job-description call, you interview her, and a written proposal follows — priced to the job it turns out to be.' },
+  { k: 'Recruit Sabina', v: 'Start with a short operational assessment of your business. Then Mark meets you to discuss the product and fit, and a written proposal follows.' },
   { k: 'Run Forge tools', v: 'We scope the products and services your company needs and provide a custom quote.' },
 ]
 
@@ -206,15 +199,14 @@ export default function PricingContent() {
             ))}
           </div>
           <p className="pricenote" style={{ marginTop: '26px' }}>
-            One tier. There is no second or third hire package to move up to; a founding seat and a standing arrangement buy the
-            same Sabina, and the only thing that separates them is whether the founding seats were still open. Her figure is built from the job and sent
-            afterwards in writing. A business that also wants a tool from the tool scope below is quoted for your company — product prices are not
-            published on this page.
+            A founding seat and a standing arrangement buy the same Sabina; there is no second or third hire package to move up to.
+            Mark meets you to discuss the product and fit, and a written proposal follows. A business that also wants a tool from the
+            tool scope below is quoted for your company — product prices are not published on this page.
           </p>
-          <p className="pricenote">Start with a readiness assessment; you can request a prepared sandbox interview afterward.</p>
+          <p className="pricenote">Start with a short operational assessment of your business.</p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
-              See Sabina work <span className="arr">→</span>
+              Meet Sabina <span className="arr">→</span>
             </a>
           </div>
         </div>
@@ -296,7 +288,7 @@ export default function PricingContent() {
               Not here.
             </h2>
             <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '58ch' }}>
-              Dominus Foundry is the holding company. Forge is configured, bought and billed on its own platform, and that is the only place a
+              Dominus Foundry is the holding company. Forge is bought and billed on its own platform, and that is the only place a
               price becomes an agreement.
             </p>
             <a

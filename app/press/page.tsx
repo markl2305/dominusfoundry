@@ -4,7 +4,7 @@ import PressContent from '@/components/foundry/PressContent'
 
 export const metadata: Metadata = {
   title: 'Press — Dominus Foundry',
-  description: 'Coverage of Dominus Foundry — the company behind Sabina, a dedicated company AI system custom to the business it works for, and Forge, its contractor vertical. Press inquiries: foundry@dominusfoundry.com.',
+  description: "Coverage of Dominus Foundry, the company behind Sabina, your company's custom AI employee, and the Forge operating platform. Press inquiries: foundry@dominusfoundry.com.",
   alternates: { canonical: 'https://dominusfoundry.com/press' },
 }
 

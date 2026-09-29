@@ -47,14 +47,14 @@ export default function BlogContent() {
             Foundry <em>Notes</em>.
           </>
         }
-        lead="Essays on company AI, governance and staying in control of the work you delegate. Older pieces are kept as written, with a short note on what has changed since. Sabina’s next step is a readiness assessment, with an optional prepared sandbox interview."
+        lead="Writing about company AI, governed responsibility, operational software, and the evidence a business needs before trusting a system to act. Older pieces are kept as written, with a short note on what has changed since."
         actions={
           <>
             <a className="btn btn-solid" href="#notes">
               Read the notes {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
-              See Sabina work {Icon.arr}
+              Meet Sabina {Icon.arr}
             </a>
           </>
         }
@@ -65,6 +65,7 @@ export default function BlogContent() {
         }
         metaRight={<>Albuquerque, NM</>}
       />
+      <p className="wrap" style={{ paddingBlock: '24px', textAlign: 'center', color: 'var(--ink-2)' }}>Start with a short operational assessment of your business.</p>
 
       <section className="pillars section" id="notes">
         <div className="wrap">
@@ -101,14 +102,14 @@ export default function BlogContent() {
             Built in public, <em>on the record</em>.
           </>
         }
-        lead="We write about the systems we're building and the principles behind them. To explore Sabina, start with a readiness assessment and request a prepared sandbox interview if useful."
+        lead="We write about the systems we're building and the principles behind them. Start with a short operational assessment of your business."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Get in touch {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
-              See Sabina work {Icon.arr}
+              Meet Sabina {Icon.arr}
             </a>
           </>
         }

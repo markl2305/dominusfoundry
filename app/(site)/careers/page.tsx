@@ -1,14 +1,10 @@
 import ApplicationForm from "../../../components/ApplicationForm";
 import ContactCTA from "../../../components/ContactCTA";
-import {
-  openSeatsWord,
-  totalSeatsWord,
-} from "../../../content/founding-charter.mjs";
 
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the founding sales team at Dominus Foundry™. We build Sabina — a dedicated company AI system, custom to the business it works for — and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
+    "Join the first sales team at Dominus Foundry™. We build Sabina, your company's custom AI employee, and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -113,7 +109,7 @@ export default function CareersPage() {
           </div>
           <div className="body-foundry space-y-4 text-slate-800">
             <p>
-              Dominus Foundry™ builds <strong>Sabina</strong> &mdash; a dedicated company AI system, custom to the business it works for, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
+              Dominus Foundry™ builds <strong>Sabina</strong>, your company&apos;s custom AI employee, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
             </p>
             <p>
               <strong>Hyperion™</strong>, a standalone trades product hosted under Forge, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
@@ -128,7 +124,7 @@ export default function CareersPage() {
                   Recruiting copy can be hungry without being rounder than the
                   investor page. ⛔ Keep this aligned to app/pitch/claims.ts; if
                   the ledger changes, this changes with it. */}
-              <strong>We have 19 provisional patent applications plus a non-provisional filing, a product running in production, and no sales team.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus the first Sabina seat signed, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              <strong>We have 19 provisional patent applications plus a non-provisional filing, a product running in production, and no sales team.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>
@@ -141,7 +137,7 @@ export default function CareersPage() {
             <p className="label-foundry">The Product</p>
             <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
             <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. There are two things to sell: <strong>Sabina</strong>, one tier, hired onto a Founding Seat &mdash; {openSeatsWord} of the {totalSeatsWord} seats are open &mdash; with Forge Core included and never a separate line. Her price is custom to each company, built from what the interview establishes about the job, and sent afterwards as a written proposal &mdash; never quoted on a call and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
+              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong>, hired onto a founding seat (<a href="https://hiresabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
             </p>
           </div>
           <ul className="space-y-3">
@@ -208,7 +204,7 @@ export default function CareersPage() {
                 published — reps see it on their onboarding call. Do not restore a dollar total
                 here; that is exactly what this rewrite removes. */}
             <p className="body-foundry text-slate-800">
-              <strong>Every Sabina hire pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. <strong>{openSeatsWord} of the {totalSeatsWord} founding seats are still open.</strong> The founding rate and the standing rate that follows once the founding seats close are different sizes of account, but the percentage is identical on both, so a book of ten compounds the same way whichever rate closed each seat &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
+              <strong>Every Sabina hire pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. Accounts differ in size, but the percentage is identical on all of them, so a book of accounts compounds the same way whichever rate closed each account &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
             <p className="body-foundry text-slate-800">
               That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. Every tools deal is custom quoted, so commission follows the agreed amount for that account. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.

@@ -10,18 +10,18 @@ import { CTA, PageHero } from './FoundryShell'
 const KIT_PRODUCTS = [
   {
     k: 'Sabina',
-    t: 'The company AI',
-    d: 'A dedicated company AI system, custom to the business she works for. She works on the responsibilities its owner grants her, and those grants can be withdrawn.',
+    t: "your company's custom AI employee",
+    d: "Sabina is your company's custom AI employee. She works on the responsibilities its owner grants her, and those grants can be withdrawn.",
   },
   {
     k: 'Forge',
-    t: 'The contractor vertical',
-    d: 'Operations software for commercial trade contractors, and the first vertical where Sabina works. A Dominus Foundry product, not a separate company.',
+    t: 'The operating platform',
+    d: 'The operating platform and system-of-record foundation beneath Sabina, also supporting specialist tools for commercial trade contractors. A Dominus Foundry product, not a separate company.',
   },
   {
     k: 'Founders',
-    t: 'Mark & Bri Lord',
-    d: 'Co-founders. Mark leads the business, design and technology; Bri leads client and investor relationships and operations.',
+    t: 'Brianna Lord, CEO · Mark Lord, CTO',
+    d: 'Mark leads product and technical work; Brianna leads client and investor relationships and operations.',
   },
 ]
 
@@ -37,7 +37,7 @@ export default function PressContent() {
             Press &amp; <em>media</em>.
           </>
         }
-        lead="Dominus Foundry builds Sabina, a dedicated company AI system custom to the business she works for. Coverage, approved company copy, logos and founder photography are below."
+        lead="Dominus Foundry builds Sabina, your company's custom AI employee, together with the Forge operating platform and the DominusOS governance layer. Its longer-term thesis is commercial intelligence developed from governed operating records. Coverage, approved company copy, logos and founder photography are below."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
@@ -75,7 +75,7 @@ export default function PressContent() {
               &ldquo;The solar industry has been fighting soft-cost pressure for a decade, and one of the biggest hidden costs is the gap between
               site visit and signed contract.&rdquo;
             </blockquote>
-            <p className="pf-who">Bri Lord · Co-founder</p>
+            <p className="pf-who">Brianna Lord, CEO</p>
             <div className="pf-read">
               <a className="btn btn-ghost" href="/press/spw?src=press_page" target="_blank" rel="noopener">
                 Read the article {Icon.arr}
@@ -104,13 +104,13 @@ export default function PressContent() {
 
           <div className="reveal d1" style={kitRow}>
             <p>
-              Dominus Foundry LLC is a family-owned intelligence company in Albuquerque, New Mexico, founded by Mark and Bri Lord. It builds
-              Sabina, a dedicated company AI system shaped around one business — its knowledge, its work, and the authority its owner grants
-              her. Forge, the company&apos;s software for commercial trade contractors, is its first vertical.
+              Dominus Foundry LLC is a family-owned intelligence company in Albuquerque, New Mexico, founded and led by Brianna Lord, CEO,
+              and Mark Lord, CTO. It builds Sabina, your company&apos;s custom AI employee, shaped around one business — its knowledge, its work,
+              and the authority its owner grants her — together with the Forge operating platform and the DominusOS governance layer.
             </p>
             <p style={{ marginTop: '12px', color: 'var(--ink-3)' }}>
-              Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (the company AI) · <b>Forge</b> (the contractor vertical, a product of
-              Dominus Foundry). Mark Lord and Bri Lord are both co-founders.
+              Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (your company&apos;s custom AI employee) · <b>Forge</b> (the operating platform, a product of
+              Dominus Foundry) · <b>DominusOS</b> (the governance layer). Brianna Lord, CEO; Mark Lord, CTO.
             </p>
           </div>
 
@@ -132,12 +132,12 @@ export default function PressContent() {
             </a>
             <a className="cov-row" href="/founders/founders-1600.jpg" download>
               <span className="pub">Photo</span>
-              <span className="hed serif">Mark &amp; Bri Lord, co-founders (JPEG, 1600 × 900)</span>
+              <span className="hed serif">Brianna Lord, CEO, and Mark Lord, CTO (JPEG, 1600 × 900)</span>
               <span className="when">Download →</span>
             </a>
           </div>
           <p style={{ ...kitRow, marginTop: '22px', color: 'var(--ink-3)' }}>
-            Suggested photo caption: &ldquo;Mark and Bri Lord, co-founders of Dominus Foundry.&rdquo; For other file formats, interviews or
+            Suggested photo caption: &ldquo;Brianna Lord, CEO, and Mark Lord, CTO, of Dominus Foundry.&rdquo; For other file formats, media requests or
             fact-checking, email{' '}
             <a href="mailto:foundry@dominusfoundry.com" style={{ color: 'var(--gold)' }}>
               foundry@dominusfoundry.com
@@ -154,7 +154,7 @@ export default function PressContent() {
             Writing about <em>company AI</em> or the Foundry?
           </>
         }
-        lead="We're glad to help with interviews, founder commentary, fact-checking and assets."
+        lead="We're glad to help with media requests, founder commentary, fact-checking and assets."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">

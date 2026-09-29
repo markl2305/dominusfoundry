@@ -32,7 +32,7 @@ import { Icon } from '@/components/foundry/Marks'
 import {
   PROOF, STATUS_LABEL, claim,
   OBSERVED_BASELINE, FLOOR, FUNDED, HUMAN_COST,
-  RAISE, USE_OF_FUNDS, MILESTONES, SEATS, CONTACT_EMAIL,
+  RAISE, USE_OF_FUNDS, MILESTONES, CONTACT_EMAIL,
   type PitchClaim,
 } from './claims'
 
@@ -81,8 +81,8 @@ export default function PitchContent() {
       <PageHero
         crest
         eyebrow="Investor pitch · Dominus Foundry · Albuquerque, New Mexico"
-        title={<>The governed intelligence layer<br /><em>for real businesses.</em></>}
-        lead="Sabina is the customer-facing AI employee. Forge is the platform beneath her. Every company that teaches and uses the system makes its own intelligence more useful — while eligible derived patterns can make the broader network smarter over time."
+        title={<>Governed work is the entry point.<br /><em>Commercial intelligence is the company we are building.</em></>}
+        lead="Sabina is your company's custom AI employee. Forge is the operating platform beneath her. DominusOS governs permitted execution. Together they create the foundation for company-specific intelligence built from real work, decisions, and outcomes."
         actions={
           <>
             <a className="btn btn-solid" href="#economics">See the economics {Icon.arr}</a>
@@ -113,7 +113,7 @@ export default function PitchContent() {
       </Chapter>
 
       {/* ── 2 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="II" kicker="The employee" id="sabina" title={<>Sabina becomes the company’s <em>own AI employee.</em></>}>
+      <Chapter n="II" kicker="The employee" id="sabina" title={<>Sabina becomes <em>your company&apos;s custom AI employee.</em></>}>
         <p>
           Employees can teach her. Leadership decides her authority. The company can change that
           authority or take it back. She is hired into a business, taught how that business works, and
@@ -321,7 +321,7 @@ export default function PitchContent() {
               ⛔ Never claim a trained foundation model here; chapter II's
               disclaimer and chapter XVIII's wording must stay consistent with
               this bullet. */}
-          <li><h3>Owned inference path</h3><p>Open weights on our own hardware, with no third-party inference provider in any customer path. We control the serving and training path needed to turn governed episodes into durable improvement, and the cost curve that comes with owning it.</p></li>
+          <li><h3>Inference path</h3><p>How your information is processed depends on the service path in use. See the <a href="https://hiresabina.ai/trust">current processing and privacy disclosures</a> before sharing business material.</p></li>
           {/* qwen F1, round 3: §10's moat is "the combination", and
               cross-company pattern discovery was the one canon element stated
               only in chapters VIII/IX and missing here. It carries the SAME
@@ -379,24 +379,15 @@ export default function PitchContent() {
       {/* ── 13 ────────────────────────────────────────────────────────────── */}
       <Chapter n="XIII" kicker="The founding-customer motion" id="founding" title={<>She is <em>recruited</em>, not sold.</>}>
         <p>
-          A limited number of Founding Seats, awarded by application. A company completes a readiness
-          assessment; we review it; there is a call where the employer writes the job description —
-          what she will handle, what she must never do, who supervises her, how escalation works. Then
-          they interview her, provisioned with their own material, and she asks qualifying questions
-          back. If there is a fit, they bring her on. Founding Employers help polish the product through
-          real use.
+          A limited number of founding seats, awarded by application. Start with a short operational
+          assessment of your business. Then meet Mark to discuss the product and fit. If there is a fit,
+          bring her on. Founding Employers help polish the product through real use.
         </p>
-        <div className="pitch-figures">
-          <Figure value={String(SEATS.total)} label="Founding Seats, ever" />
-          <Figure value={String(SEATS.signed)} label="signed" foot="All Weather Roofing" />
-          <Figure value={String(SEATS.spokenFor)} label="spoken for" foot="verbal, not contracted" />
-          <Figure value={String(SEATS.open)} label="open" foot={`as of ${SEATS.asOf}`} />
-        </div>
+        <p><a href="https://hiresabina.ai/hire#founding">See current founding availability</a></p>
         <p className="pitch-note">
-          Pricing is custom to each company, built from what the interview establishes about the job,
-          and sent afterwards as a written proposal. There is no rate card and no published figure on
-          any surface — which is also why the qualification work sits in the readiness assessment
-          rather than in a price a visitor self-selects against.
+          There is no rate card and no published figure on any surface. Start with a short operational
+          assessment of your business. Qualification stays with the work rather than with a price a
+          visitor self-selects against.
         </p>
       </Chapter>
 
@@ -526,10 +517,8 @@ export default function PitchContent() {
             "Self-hosted open weights", never "owned weights" — the claim is
             custody of the serving path, not ownership of a model we trained. */}
         <p>
-          The other half is cost. Serving self-hosted open weights for a book of companies is affordable
-          at a scale it was not eighteen months ago, which is what puts the inference layer beneath the
-          product on our own hardware rather than a third party&rsquo;s — and it is a line item in this
-          round.
+          The other half is cost. Serving open weights for many companies is affordable at a scale it
+          was not eighteen months ago, and it is a line item in this round.
         </p>
       </Chapter>
 
@@ -538,17 +527,17 @@ export default function PitchContent() {
         <div className="pitch-founders">
           <article>
             <h3>Mark Lord</h3>
-            <p className="pitch-role">Founder</p>
+            <p className="pitch-role">CTO</p>
             <p>
-              Product, technology and commercial architecture. Built Forge, the self-hosted inference and
-              training path, and the patent-pending governance and intelligence architecture. Prior
+              Product, technology and commercial architecture. Built Forge and the patent-pending
+              governance and intelligence architecture. Prior
               operating experience spans small-business ownership, technical work, and sales into the
               trades.
             </p>
           </article>
           <article>
-            <h3>Bri Lord</h3>
-            <p className="pitch-role">Co-founder</p>
+            <h3>Brianna Lord</h3>
+            <p className="pitch-role">CEO</p>
             <p>
               Co-founder and co-owner, Citizen Potawatomi Nation member. Operations, customer onboarding
               and company stewardship. A decade in the back office of service businesses — scheduling,
@@ -572,7 +561,7 @@ export default function PitchContent() {
       <CTA
         eyebrow="Next step"
         title={<>Customers hire Sabina for what she does.<br /><em>Investors back Dominus Foundry for what her governed work becomes.</em></>}
-        lead={`${awrSabina.publicCopy}. ${SEATS.openWord.charAt(0).toUpperCase()}${SEATS.openWord.slice(1)} Founding Seats remain open. We are glad to put you in front of the customer before we put you in front of the model.`}
+        lead={<>{awrSabina.publicCopy}. <a href="https://hiresabina.ai/hire#founding">See current founding availability</a>. We are glad to put you in front of the customer before we put you in front of the model.</>}
         actions={
           <>
             <a className="btn btn-solid" href={mailto('Request a meeting — Dominus Foundry')}>Request a meeting {Icon.arr}</a>

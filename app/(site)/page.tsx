@@ -4,7 +4,7 @@ import HomeContent from '@/components/foundry/HomeContent'
 
 export const metadata: Metadata = {
   title: 'Dominus Foundry — Governed AI and Commercial Intelligence',
-  description: 'Dominus Foundry builds governed AI systems that become more valuable as they learn how real companies operate. Sabina is the AI employee companies hire; Forge is the platform and operating spine she runs on. Built by Mark and Bri Lord.',
+  description: 'The company behind Sabina, Forge, and DominusOS. Useful governed work today; a staged commercial-intelligence thesis built from operating evidence.',
   alternates: { canonical: 'https://dominusfoundry.com' },
 }
 

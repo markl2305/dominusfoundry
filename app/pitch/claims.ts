@@ -36,10 +36,6 @@
    ⛔ Status is never upgraded for drama. Where a thing is contracted but not
    started, the row says contracted and not started. */
 
-import {
-  TOTAL_SEATS, SIGNED_SEATS, SPOKEN_FOR_SEATS, OPEN_SEATS, openSeatsWord,
-} from '@/content/founding-charter.mjs';
-
 export type ClaimStatus =
   | 'live_customer'   // in customer production
   | 'live_internal'   // running on our own account, not a customer line
@@ -309,7 +305,7 @@ export const USE_OF_FUNDS: { use: string; amount: string; share: number; note: s
 
 export const MILESTONES = [
   'Sabina live on the first customer’s line and approved receivables workflows.',
-  'Ten Founding Seats contracted, or an approved replacement milestone.',
+  'All founding seats contracted, or an approved replacement milestone.',
   'A measured customer outcome baseline and measured per-seat cost of service.',
   'Repeatable onboarding owned by a deployment lead rather than by a founder.',
   'A first account executive running a documented sales motion.',
@@ -317,24 +313,5 @@ export const MILESTONES = [
   'Owned-weight inference capacity for at least 25 companies.',
   'First company-specific management intelligence built over the governed record.',
 ];
-
-/* Founding Charter seat state. ⛔ "Founding Employer" and "Founding Seat" only.
-   ⛔ Never "Founding Partner" — that names a legal relationship that does not
-   exist (plan §10, §16).
-
-   ⛔ The four numbers are IMPORTED, never restated. content/founding-charter.mjs
-   is the single source of truth and scripts/check-founding-charter.mjs fails the
-   build if public/llms.txt drifts from it. A hardcoded "7" here would be a
-   second seat counter that the gate cannot see — exactly the forked-state defect
-   the plan's acceptance tests look for (§19.3). */
-export const SEATS = {
-  total: TOTAL_SEATS,
-  signed: SIGNED_SEATS,
-  spokenFor: SPOKEN_FOR_SEATS,
-  open: OPEN_SEATS,
-  openWord: openSeatsWord,
-  asOf: '2026-09-16',
-  sourceLabel: 'content/founding-charter.mjs · Founding Seat record',
-};
 
 export const CONTACT_EMAIL = 'mark@dominusfoundry.com';

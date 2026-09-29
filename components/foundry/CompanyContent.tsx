@@ -25,7 +25,7 @@ export default function CompanyContent() {
             Built by a family. <em>Held</em> for a generation.
           </>
         }
-        lead="Dominus Foundry is a family-owned intelligence company in Albuquerque, New Mexico. We build Sabina — company AI that works under the authority of the business she works for. Forge, our contractor vertical, is where she works first."
+        lead="Dominus Foundry is a family-owned intelligence company in Albuquerque, New Mexico. We build Sabina, your company's custom AI employee, working under the authority of the business she works for. Forge is the platform beneath her, and DominusOS is the governance layer behind the work she is permitted to carry out."
         actions={
           <>
             <a className="btn btn-solid" href="#leadership">
@@ -43,7 +43,7 @@ export default function CompanyContent() {
         }
         metaRight={
           <>
-            <b>Mark &amp; Bri Lord</b> · Co-founders
+            <b>Brianna Lord, CEO · Mark Lord, CTO</b>
           </>
         }
       />
@@ -62,7 +62,7 @@ export default function CompanyContent() {
               </blockquote>
               <div className="attrib reveal d1">
                 <span className="ln" />
-                <span className="who">Mark Lord · Co-founder</span>
+                <span className="who">Mark Lord, CTO</span>
               </div>
               <div className="body reveal d2">
                 <p>
@@ -70,7 +70,7 @@ export default function CompanyContent() {
                   saw it first in the trades, from the operator&apos;s side of the desk.
                 </p>
                 <p>
-                  So we build Sabina: one company AI for one business, working on the responsibilities its owner grants her. Forge,
+                  So we build Sabina, your company&apos;s custom AI employee, working on the responsibilities its owner grants her. Forge,
                   our software for commercial trade contractors, is where she works first. We build it from Albuquerque, and we hold what we
                   build.
                 </p>
@@ -123,7 +123,7 @@ export default function CompanyContent() {
                   height={900}
                   loading="lazy"
                   decoding="async"
-                  alt="Mark and Bri Lord, co-founders of Dominus Foundry."
+                  alt="Brianna Lord, CEO, and Mark Lord, CTO, of Dominus Foundry."
                 />
               </picture>
               <figcaption>Mark &amp; Bri Lord · Albuquerque, New Mexico</figcaption>
@@ -151,7 +151,7 @@ export default function CompanyContent() {
           <div className="founder-bios reveal d2">
             <article className="fbio">
               <h3 className="fb-name serif">Mark Lord</h3>
-              <p className="fb-role">Co-Founder</p>
+              <p className="fb-role">CTO</p>
               <p>
                 Storefronts first — two Cold Stone shops in Albuquerque, where he learned what a small business actually runs on. Eighteen
                 months in a lab on the team that helped bring LED lighting to market. Then years in sales and business development, watching
@@ -171,8 +171,8 @@ export default function CompanyContent() {
             </article>
 
             <article className="fbio">
-              <h3 className="fb-name serif">Bri Lord</h3>
-              <p className="fb-role">Co-Founder</p>
+              <h3 className="fb-name serif">Brianna Lord</h3>
+              <p className="fb-role">CEO</p>
               <p>
                 A decade in the back office of small service businesses, which is the exact seat Forge is built for. A music school front desk,
                 where she learned that in a small service business the office <em>is</em> the business. A residential solar canvass team she

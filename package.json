@@ -4,14 +4,16 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-founding-charter.mjs",
+    "prebuild": "node scripts/check-founding-charter.mjs --source",
     "build": "next build",
+    "postbuild": "node scripts/check-founding-charter.mjs --render",
     "start": "next start",
-    "check:founding-charter": "node scripts/check-founding-charter.mjs",
+    "check:founding-charter": "npm run build",
     "test:responsive-gate": "node scripts/public-responsive-gate.cjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "htmlparser2": "8.0.2",
     "next": "^16.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
