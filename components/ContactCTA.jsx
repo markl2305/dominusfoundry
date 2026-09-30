@@ -4,7 +4,7 @@ import Button from './Button'
 
 export default function ContactCTA({ className = '' }) {
   return (
-    <div className={`card-forged bg-white/90 p-6 md:p-8 shadow-sm ${className}`}>
+    <div className={`card-forged min-w-0 max-w-full bg-white/90 p-6 md:p-8 shadow-sm ${className}`}>
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2 max-w-2xl">
           <p className="label-foundry">Talk with Mark &amp; Bri</p>
@@ -19,7 +19,7 @@ export default function ContactCTA({ className = '' }) {
           <Button href="tel:+15055201433" variant="forgeSecondary" className="w-full md:w-auto">
             Call (505) 520-1433
           </Button>
-          <Button href="mailto:foundry@dominusfoundry.com" className="w-full md:w-auto">
+          <Button href="mailto:foundry@dominusfoundry.com" className="w-full md:w-auto text-center [overflow-wrap:anywhere]">
             Email foundry@dominusfoundry.com
           </Button>
         </div>
