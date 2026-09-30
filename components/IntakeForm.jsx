@@ -36,6 +36,7 @@ export default function IntakeForm() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
+  const [error, setError] = useState(null);
 
   const inputClass =
     "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
@@ -45,6 +46,7 @@ export default function IntakeForm() {
   async function submit(e) {
     e.preventDefault();
     setSending(true);
+    setError(null);
 
     const formData = new FormData(e.currentTarget);
     const fullName = (formData.get("fullName") || "").trim();
@@ -80,11 +82,18 @@ export default function IntakeForm() {
       [SMS_CONSENT_FIELD]: formData.get(SMS_CONSENT_FIELD),
     };
 
-    const res = await fetch("/api/lead", {
+    let res;
+    try {
+      res = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-    });
+      });
+    } catch {
+      setError("Your request could not be sent. Please try again.");
+      setSending(false);
+      return;
+    }
 
     if (res.ok) {
       if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
@@ -104,6 +113,7 @@ export default function IntakeForm() {
 
       setSubmitted(true);
     } else {
+      setError("Your request could not be sent. Please try again.");
       setSending(false);
     }
   }
@@ -128,8 +138,9 @@ export default function IntakeForm() {
     <form onSubmit={submit} className="grid gap-4">
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className={labelClass}>Name *</label>
+          <label htmlFor="intake-name" className={labelClass}>Name *</label>
           <input
+            id="intake-name"
             name="fullName"
             required
             className={inputClass}
@@ -137,8 +148,9 @@ export default function IntakeForm() {
           />
         </div>
         <div>
-          <label className={labelClass}>Business name *</label>
+          <label htmlFor="intake-company" className={labelClass}>Business name *</label>
           <input
+            id="intake-company"
             name="company"
             required
             className={inputClass}
@@ -149,8 +161,9 @@ export default function IntakeForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className={labelClass}>Email *</label>
+          <label htmlFor="intake-email" className={labelClass}>Email *</label>
           <input
+            id="intake-email"
             name="email"
             type="email"
             required
@@ -159,10 +172,11 @@ export default function IntakeForm() {
           />
         </div>
         <div>
-          <label className={labelClass}>
+          <label htmlFor="intake-phone" className={labelClass}>
             {smsConsent ? "Phone *" : "Phone (optional)"}
           </label>
           <input
+            id="intake-phone"
             name="phone"
             type="tel"
             required={smsConsent}
@@ -189,8 +203,9 @@ export default function IntakeForm() {
       </div>
 
       <div>
-        <label className={labelClass}>What do you want automated? *</label>
+        <label htmlFor="intake-automate" className={labelClass}>What do you want automated? *</label>
         <textarea
+          id="intake-automate"
           name="automate"
           required
           rows={4}
@@ -201,8 +216,8 @@ export default function IntakeForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className={labelClass}>Roughly how many calls/bookings/orders per week?</label>
-          <select name="volume" className={inputClass} defaultValue="">
+          <label htmlFor="intake-volume" className={labelClass}>Roughly how many calls/bookings/orders per week?</label>
+          <select id="intake-volume" name="volume" className={inputClass} defaultValue="">
             <option value="" disabled>Select...</option>
             {volumeOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
@@ -210,8 +225,8 @@ export default function IntakeForm() {
           </select>
         </div>
         <div>
-          <label className={labelClass}>How urgent is this?</label>
-          <select name="urgency" className={inputClass} defaultValue="">
+          <label htmlFor="intake-urgency" className={labelClass}>How urgent is this?</label>
+          <select id="intake-urgency" name="urgency" className={inputClass} defaultValue="">
             <option value="" disabled>Select...</option>
             {urgencyOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
@@ -221,6 +236,7 @@ export default function IntakeForm() {
       </div>
 
       <SmsConsent onChange={setSmsConsent} />
+      {error && <p role="alert" className="text-sm text-red-800">{error}</p>}
 
       <Button type="submit" disabled={sending} className="justify-center">
         {sending ? "Sending…" : "Get my system design"}

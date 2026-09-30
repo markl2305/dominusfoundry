@@ -84,7 +84,7 @@ export default function Embers({
         drift: 0.4 + Math.random() * 1.2,
         phase: Math.random() * Math.PI * 2,
         flick: 0.6 + Math.random() * 0.9,
-        life: 0,
+        life: reduce ? 30 : 0,
         ttl: 220 + Math.random() * 360,
         c: palette[(Math.random() * palette.length) | 0],
         bright: Math.random() < 0.14,
@@ -160,7 +160,7 @@ export default function Embers({
       }
       ctx!.globalAlpha = 1
       ctx!.globalCompositeOperation = 'source-over'
-      raf = requestAnimationFrame(frame)
+      if (!reduce) raf = requestAnimationFrame(frame)
     }
 
     reset()
@@ -177,11 +177,13 @@ export default function Embers({
         lastW = r.width
         lastH = r.height
         reset()
+        if (reduce) frame(performance.now())
       })
     })
     ro.observe(canvas)
     const onVis = () => {
       running = !document.hidden
+      cancelAnimationFrame(raf)
       if (running) {
         last = performance.now()
         raf = requestAnimationFrame(frame)
