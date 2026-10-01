@@ -1,6 +1,7 @@
 import VisitorChatMount from './components/VisitorChatMount';
 import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 import './globals.css'
@@ -270,6 +271,8 @@ export default function RootLayout({
           </>
         )}
         <VisitorChatMount />
+        {/* Vercel Web Analytics (Mark 2026-10-01). */}
+        <Analytics />
       </body>
     </html>
   )
