@@ -31,7 +31,7 @@ export default function SiteFooter() {
               <span className="text-xl font-semibold text-navy-900">Dominus Foundry™</span>
             </Link>
             <p className="body-foundry">
-              We build Sabina, your company&apos;s custom AI employee, shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
+              We build Sabina, your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
             </p>
           </div>
 

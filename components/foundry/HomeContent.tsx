@@ -36,17 +36,17 @@ const LAYERS: [string, string, string][] = [
   [
     'One',
     'Company memory',
-    'Sabina learns one company’s processes, customers, decisions, outcomes, language, corrections and operating knowledge. That record belongs to the company that created it.',
+    'Company instructions, processes, decisions, outcomes, language and corrections provide context for subsequent work. Record delivery and ownership terms are set in the company’s agreement; a packaged export is not currently available.',
   ],
   [
     'Two',
     'Company intelligence',
-    'Internal signals connect to outcomes, and patterns, risks, opportunities and operating anomalies become visible to the business that created them — first, and on its own.',
+    'Roadmap: connect eligible internal signals to outcomes to help the business see patterns, risks, opportunities and operating anomalies. This company-specific insight layer is not built in the published proof record.',
   ],
   [
     'Three',
     'External context',
-    'Where it is useful, internal outcomes can be read alongside weather, regional economics, commodities, market conditions, seasonality, geography and regulation — explanatory variables a single company cannot assemble alone.',
+    'Direction: read eligible operating outcomes alongside relevant external context, such as weather, seasonality and market conditions. This describes the intelligence thesis, not a currently available Sabina capability.',
   ],
   [
     'Four',
@@ -63,13 +63,13 @@ export default function HomeContent() {
           <div>
             <p className="eyebrow">Dominus Foundry · Fide et Familia</p>
             <h1 className="hero-title">
-              AI that carries responsibility.<br />
-              Intelligence that grows from <em>the work.</em>
+              Hire the AI that<br />
+              <em>owns the middle.</em>
             </h1>
             <p className="hero-lead">
-              Dominus Foundry builds governed AI systems for real businesses. Sabina is your company&apos;s
-              custom AI employee. Forge provides the operating platform. DominusOS governs the work she
-              is permitted to carry out.
+              A customer hears a promise. Your team still has to carry it to done. Sabina is your company&apos;s
+              own AI, hired first to own that middle: the commitments, handoffs, and follow-through
+              you agree she should carry. Dominus Foundry builds her and the governed platform beneath her.
             </p>
             <div className="hero-actions">
               <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">Meet Sabina {Icon.arr}</a>
@@ -114,15 +114,15 @@ export default function HomeContent() {
         <div className="wrap">
           <p className="eyebrow">What Dominus Foundry builds</p>
           <h2 className="serif" style={{ fontSize: 'clamp(30px,4vw,52px)', marginTop: '16px' }}>
-            One employee. One platform. <em>One specialist tool.</em>
+            Your company’s AI. Her platform. <em>A specialist tool.</em>
           </h2>
           <div className="company-principles" style={{ marginTop: '44px' }}>
             <article>
               <h3>Sabina</h3>
               <p>
-                Sabina is your company&apos;s custom AI employee, for questions, commitments, and defined
-                responsibilities. The business decides what she can use and do, and it can change that
-                authority or take it back.
+                Sabina is your company&apos;s own AI. Start with the work between promised and done,
+                then teach her more of the business. Agree each responsibility, the supported workflow,
+                and the authority she needs before she takes it on.
               </p>
               <a className="section-more" href="https://hiresabina.ai/evaluate">Meet Sabina</a>
             </article>
@@ -130,8 +130,8 @@ export default function HomeContent() {
               <h3>Forge</h3>
               <p>
                 The governed technology platform and operating spine Sabina runs on: the application
-                infrastructure, the data and workflow layer, and the trades tooling that make an AI
-                employee usable inside a working company.
+                infrastructure, the data and workflow layer, and the trades tooling that support a company AI
+                inside a working business. Forge tools have their own scope and readiness.
               </p>
               <a className="section-more" href="https://buildwithforge.app">Explore Forge →</a>
             </article>
@@ -152,11 +152,11 @@ export default function HomeContent() {
         <div className="wrap">
           <p className="eyebrow">Authority belongs to the business</p>
           <h2>
-            Useful work begins<br />with <em>clear boundaries.</em>
+            Knowing isn’t permission.<br /><em>You define her authority.</em>
           </h2>
           <p className="darkband-lead">
-            What may she do? What needs your approval? What happened? These are the questions that guide
-            how we build.
+            Teaching Sabina the business does not authorize her to act. Define what she may do, what
+            needs your approval, and what evidence will show that the agreed work is done.
           </p>
           <div className="company-principles">
             <article>
@@ -185,10 +185,10 @@ export default function HomeContent() {
             The work creates the record. <em>The record is the asset.</em>
           </h2>
           <p style={{ marginTop: '22px', maxWidth: '62ch', lineHeight: 1.75 }}>
-            Real businesses use Sabina and Forge for daily work, and that work produces something most
-            software never captures: structured operational, decision, workflow, communication and
-            outcome data, joined to the authority it was performed under. A company’s own system gets
-            better at that company’s work as its people teach and correct it.
+            Forge is in paid customer production. Sabina’s first customer engagement is signed; onboarding has
+            not begun in our published proof record. Those are different milestones. For Sabina, company
+            instructions, corrections, and prior outcomes can inform subsequent work. The broader
+            intelligence described below is the direction we are building toward, not a measured customer result.
           </p>
           <div className="darkband-rows" style={{ marginTop: '44px', borderTop: '1px solid var(--hair)' }}>
             {LAYERS.map(([n, title, body]) => (
@@ -216,11 +216,10 @@ export default function HomeContent() {
               data boundaries must remain explicit wherever this argument is
               made. Do not move it to a footer or shrink it to fine print. */}
           <p style={{ marginTop: '32px', maxWidth: '62ch', lineHeight: 1.75 }}>
-            <strong>Where the boundaries are.</strong> A company’s data is that company’s. It is not
-            pooled with anyone else’s by default, it is not sold, and we do not train a general model on
-            it. Anything that crosses a company boundary crosses it only as eligible derived patterns,
-            only under a written agreement, and only where privacy design and governance permit — a
-            decision each company makes deliberately and can withdraw.
+            <strong>Where the boundaries are.</strong> Company information is not pooled across customers by default. Any future cross-company
+            use of eligible derived patterns requires written agreements, permissions and privacy design.
+            For current shared infrastructure, third-party processing and record-delivery limits, read
+            the <a href="https://hiresabina.ai/trust">current trust disclosures</a>.
           </p>
           <p style={{ marginTop: '18px', maxWidth: '62ch', lineHeight: 1.75 }}>
             The result is not software automation with a reporting tab. It is a commercial intelligence

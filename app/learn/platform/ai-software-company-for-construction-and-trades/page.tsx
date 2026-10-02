@@ -127,7 +127,7 @@ export default function AiSoftwareCompanyPage() {
           <h3 className="heading-forge-md text-slate-900 mt-6">Who builds Forge</h3>
           <p>
             Forge is built by Dominus Foundry, a founder-led technology company that builds
-            Sabina, your company&apos;s custom AI employee. Forge
+            Sabina, your company&apos;s own AI. Forge
             is the company&apos;s contractor vertical and first proof point, not the limit of what it
             builds. The team combines
             hands-on trade-industry operating experience with software engineering — the
