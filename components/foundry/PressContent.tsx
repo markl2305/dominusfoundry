@@ -10,8 +10,8 @@ import { CTA, PageHero } from './FoundryShell'
 const KIT_PRODUCTS = [
   {
     k: 'Sabina',
-    t: "your company's custom AI employee",
-    d: "Sabina is your company's custom AI employee. She works on the responsibilities its owner grants her, and those grants can be withdrawn.",
+    t: "your company's own AI",
+    d: "Sabina is your company’s own AI, hired first into the work between promised and done. Teach her more of the business, then agree the supported responsibility and explicit authority for it.",
   },
   {
     k: 'Forge',
@@ -37,7 +37,7 @@ export default function PressContent() {
             Press &amp; <em>media</em>.
           </>
         }
-        lead="Dominus Foundry builds Sabina, your company's custom AI employee, together with the Forge operating platform and the DominusOS governance layer. Its longer-term thesis is commercial intelligence developed from governed operating records. Coverage, approved company copy, logos and founder photography are below."
+        lead="Dominus Foundry builds Sabina, your company's own AI, together with the Forge operating platform and the DominusOS governance layer. Its longer-term thesis is commercial intelligence developed from governed operating records. Coverage, approved company copy, logos and founder photography are below."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
@@ -105,11 +105,11 @@ export default function PressContent() {
           <div className="reveal d1" style={kitRow}>
             <p>
               Dominus Foundry LLC is a family-owned intelligence company in Albuquerque, New Mexico, founded and led by Brianna Lord, CEO,
-              and Mark Lord, CTO. It builds Sabina, your company&apos;s custom AI employee, shaped around one business — its knowledge, its work,
-              and the authority its owner grants her — together with the Forge operating platform and the DominusOS governance layer.
+              and Mark Lord, CTO. It builds Sabina, your company&apos;s own AI, shaped around one business — its knowledge, its work,
+              and the authority its owner grants her. Start with the work between promised and done, then teach her more. Forge provides the operating platform and DominusOS the governance approach.
             </p>
             <p style={{ marginTop: '12px', color: 'var(--ink-3)' }}>
-              Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (your company&apos;s custom AI employee) · <b>Forge</b> (the operating platform, a product of
+              Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (your company&apos;s own AI) · <b>Forge</b> (the operating platform, a product of
               Dominus Foundry) · <b>DominusOS</b> (the governance layer). Brianna Lord, CEO; Mark Lord, CTO.
             </p>
           </div>

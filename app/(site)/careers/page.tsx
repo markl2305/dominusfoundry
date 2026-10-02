@@ -4,7 +4,7 @@ import ContactCTA from "../../../components/ContactCTA";
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the first sales team at Dominus Foundry™. We build Sabina, your company's custom AI employee, and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
+    "Join the first sales team at Dominus Foundry™. We build Sabina, your company's own AI, and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -109,7 +109,7 @@ export default function CareersPage() {
           </div>
           <div className="body-foundry space-y-4 text-slate-800">
             <p>
-              Dominus Foundry™ builds <strong>Sabina</strong>, your company&apos;s custom AI employee, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
+              Dominus Foundry™ builds <strong>Sabina</strong>, your company&apos;s own AI, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
             </p>
             <p>
               <strong>Hyperion™</strong>, a standalone trades product hosted under Forge, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
