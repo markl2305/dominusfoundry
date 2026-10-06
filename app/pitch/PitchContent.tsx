@@ -82,7 +82,7 @@ export default function PitchContent() {
         crest
         eyebrow="Investor pitch · Dominus Foundry · Albuquerque, New Mexico"
         title={<>Governed work is the entry point.<br /><em>Commercial intelligence is the company we are building.</em></>}
-        lead="Sabina is your company's custom AI employee. Forge is the operating platform beneath her. DominusOS governs permitted execution. Together they create the foundation for company-specific intelligence built from real work, decisions, and outcomes."
+        lead="Sabina is your company's own AI. Forge is the operating platform beneath her. DominusOS governs permitted execution. Together they create the foundation for company-specific intelligence built from real work, decisions, and outcomes."
         actions={
           <>
             <a className="btn btn-solid" href="#economics">See the economics {Icon.arr}</a>
@@ -113,9 +113,11 @@ export default function PitchContent() {
       </Chapter>
 
       {/* ── 2 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="II" kicker="The employee" id="sabina" title={<>Sabina becomes <em>your company&apos;s custom AI employee.</em></>}>
+      <Chapter n="II" kicker="Your company’s AI" id="sabina" title={<>Hire the AI that <em>owns the middle.</em></>}>
         <p>
-          Employees can teach her. Leadership decides her authority. The company can change that
+          Start with the work between a company’s promise and getting it done: commitments, handoffs,
+          and follow-through. Agree the responsibility, supported workflow and evidence of completion.
+          Employees can teach her more of the business. Knowing isn’t permission. Leadership decides her authority. The company can change that
           authority or take it back. She is hired into a business, taught how that business works, and
           given authority in writing — and she becomes increasingly specific to that company through
           governed memory, teaching, correction, workflows and business context.
@@ -174,7 +176,7 @@ export default function PitchContent() {
       </Chapter>
 
       {/* ── 5 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="V" kicker="Why company-specific learning matters" id="learning" title={<>A general model is <em>replaceable.</em> A taught one is not.</>}>
+      <Chapter n="V" kicker="Why company-specific learning matters" id="learning" title={<>Company context gives <em>the model useful work to do.</em></>}>
         <p>
           Two companies in the same trade, on the same street, do not run the same way. Their escalation
           rules differ, their customers differ, their tolerance for a judgment call differs. Generic
@@ -182,17 +184,17 @@ export default function PitchContent() {
           the prompt.
         </p>
         <p>
-          So the useful unit is not the model. It is what one company has taught, corrected and
-          authorized — accumulated over months, attached to outcomes, and owned by them. That is also
-          the part a competitor cannot copy by shipping the same feature, and the part a customer cannot
-          take to a rival product by exporting a table.
+          The useful context includes what a company has taught, corrected and authorized, along with
+          recorded outcomes. That is distinct from retraining a model. Record-delivery and ownership
+          terms depend on the agreement; packaged export and lossless model migration are not established
+          by this thesis. See the <a href="https://hiresabina.ai/trust">current trust disclosures</a>.
         </p>
       </Chapter>
 
       {/* ── 6 ─────────────────────────────────────────────────────────────── */}
       <Chapter n="VI" kicker="Why Forge exists" id="forge" title={<>Forge is the <em>operating platform</em> beneath Sabina.</>}>
         <p>
-          An AI employee needs somewhere to work. Forge is the governed technology platform and
+          A company’s AI needs somewhere to work. Forge is the governed technology platform and
           operating spine: the application infrastructure, the data and workflow layer, and the system
           of record she acts on rather than visiting through a narrow integration.
         </p>
@@ -253,27 +255,26 @@ export default function PitchContent() {
         <ol className="pitch-layers">
           <li>
             <h3>Company memory</h3>
-            <p>Her employer’s processes, customers, decisions, outcomes, language, corrections and operating knowledge. That record belongs to the company that created it.</p>
+            <p>Company processes, customers, decisions, outcomes, language, corrections and operating knowledge can inform subsequent work. Record delivery and ownership terms depend on the agreement.</p>
           </li>
           <li>
             <h3>Company intelligence</h3>
-            <p>Internal signals connect to outcomes, surfacing patterns, risks, opportunities, operating anomalies and relationships people may not notice — for the business that created them, first and on its own.</p>
+            <p>Roadmap: connect eligible internal signals to outcomes to surface patterns, risks and opportunities for the business. This company-specific insight layer is not built in the published proof record.</p>
           </li>
           <li>
             <h3>External context</h3>
-            <p>Where it is useful, internal outcomes are read alongside weather, regional economics, commodities, market conditions, seasonality, geography, regulation and other explanatory variables no single company can assemble alone.</p>
+            <p>Direction: read eligible internal outcomes alongside relevant weather, economic and market context. This is the intelligence thesis, not an available Sabina workflow.</p>
           </li>
           <li>
             <h3>Governed network intelligence</h3>
-            <p>Where contracts, permissions, privacy design and governance allow it, eligible derived patterns can support broader discovery, and those discoveries return to each company as its own intelligence.</p>
+            <p>Roadmap: where contracts, permissions, privacy design and governance allow it, eligible derived patterns could support broader discovery. This is described in the pending application and is not operating today.</p>
           </li>
         </ol>
         <p className="darkband-lead">
-          <strong>Where the boundaries are.</strong> A company’s data is that company’s. It is not
-          pooled with anyone else’s by default, it is not sold, and no general model is trained on it.
-          Anything crossing a company boundary crosses it only as eligible derived patterns, only under
-          a written agreement, and only where privacy design and governance permit — a decision each
-          company makes deliberately and can withdraw.
+          <strong>Where the boundaries are.</strong> Company information is not pooled across customers by default. Any future cross-company use
+          of eligible derived patterns requires written agreements, permissions and privacy design.
+          Current shared infrastructure, third-party processing and record-delivery limits are disclosed
+          on the <a href="https://hiresabina.ai/trust">trust page</a>.
         </p>
       </Chapter>
 
@@ -311,7 +312,7 @@ export default function PitchContent() {
           <li><h3>Residency</h3><p>She works on the system of record rather than visiting one task through a narrow integration.</p></li>
           <li><h3>A mandatory governance path</h3><p>Consequential effects traverse the authority and execution boundary rather than going around it.</p></li>
           <li><h3>Decision chronology</h3><p>The record is created before the outcome, which is why it cannot be manufactured afterwards.</p></li>
-          <li><h3>Company-specific institutional learning</h3><p>Months of teaching, correction and accumulated operating context, owned by the employer — and the switching cost that useful company memory creates.</p></li>
+          <li><h3>Company-specific institutional learning</h3><p>Company instructions, corrections and recorded outcomes provide context for subsequent work. Ownership and delivery terms are set in the agreement; portability is not a measured claim here.</p></li>
           {/* ⛔ kimi #3, round 3: this read "Owned model and training path — we
               control the weights, training and inference path". Next to five
               other moat bullets that reads as proprietary model IP, and the
@@ -331,9 +332,9 @@ export default function PitchContent() {
           <li><h3>Filings and real deployment</h3><p>A pending application over the mechanism, and a substrate already carrying paid production work.</p></li>
         </ol>
         <p>
-          Point agents know the conversation. Vertical platforms know the transaction. What neither
-          preserves is the governed decision in between — and the company that has been accumulating it
-          since the first instrumented customer is the one holding the asset.
+          Our design focus is the decision between a conversation and its outcome: what was requested,
+          on whose authority, and what happened. A useful company record can preserve that context
+          alongside the transaction. This is our approach, not a claim of market exclusivity.
         </p>
       </Chapter>
 

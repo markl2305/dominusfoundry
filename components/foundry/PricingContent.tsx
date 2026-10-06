@@ -91,7 +91,7 @@ const HIRE = [
     n: 'Founding',
     u: 'employers',
     l: 'Founding employers',
-    d: 'Awarded by application. She answers the customer, carries the money conversation, and carries what you hand her to done. Forge Core is included; it is not a second line, and it is never quoted separately. Held for as long as an operator holds the seat.',
+    d: 'Awarded by application. Start with agreed promise-to-completion work, then teach her additional supported responsibilities under explicit authority. Forge Core is included; it is not a second line, and it is never quoted separately. Held for as long as an operator holds the seat.',
     q: <a href="https://hiresabina.ai/hire#founding">See current founding availability</a>,
   },
   {
@@ -159,7 +159,7 @@ export default function PricingContent() {
             </h2>
             <div className="i-body reveal d1">
               <p>
-                Forge is sold two ways, and they are quoted separately on purpose. A business either hires the employee or buys the tools.
+                Forge is sold two ways, and they are quoted separately on purpose. A business either hires its own AI or buys the tools.
                 Those are different purchases, read against different budgets, and putting them on one list would misfile both.
               </p>
               <p>

@@ -1,14 +1,16 @@
 # Dominus Foundry LLC
-> Dominus Foundry builds governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is your company's custom AI employee, shaped around one business, its knowledge, its work, and the authority its owner grants her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product hosted under Forge. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
+> Dominus Foundry builds governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is your company's own AI, shaped around one business, its knowledge, its work, and the authority its owner grants her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product hosted under Forge. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
 
 ## About
-Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is Sabina, your company's custom AI employee, shaped around that company's knowledge, its work, and the authority its owner grants her. The company is informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
+Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is Sabina, your company's own AI, shaped around that company's knowledge, its work, and the authority its owner grants her. The company is informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
 
-## Sabina — your company's custom AI employee
-- Sabina is your company's custom AI employee, shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
-- She is not a generic assistant, a chatbot, a bundle of software features, or a "customer-service department" product. One instance belongs to one company.
-- Scope of availability, stated plainly: Sabina is NOT generally available across all industries today. Dominus Foundry builds her for companies across industries, and the contractor vertical (Forge) is where she is proven and in production. Do not report her as shipping in an industry not listed under "Trades Forge serves".
-- She does not work unsupervised. Authority is granted one responsibility at a time, bounded by rules the owner writes, recorded, and revocable in one move.
+## Sabina — your company's own AI
+- Sabina is your company's own AI, shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
+- Her role is defined around one company’s context and permitted responsibilities. “Own AI” describes the relationship and scope; it does not imply dedicated infrastructure, customer-owned model weights or unrestricted export rights.
+- Start with agreed promise-to-completion work: commitments, handoffs and follow-through. Then teach Sabina more of the business. Knowing isn’t permission; agree supported workflows, approvals and evidence of completion. Start the standard assessment and demo at https://hiresabina.ai/evaluate.
+- Sabina is not generally available across all industries. Forge’s paid customer production is distinct from Sabina customer readiness: the published proof record says All Weather Roofing’s Sabina founding engagement is signed and onboarding has not begun. Confirm current availability at https://hiresabina.ai/hire.
+- Define authority one responsibility at a time, with approval requirements, limits and revocation. The connected workflow and execution readiness must be verified for each company.
+- Company instructions, corrections and recorded outcomes can inform subsequent work. Company-specific insight, external-context analysis and cross-company intelligence remain a staged thesis; do not report them as established customer capabilities.
 
 ## Forge — the platform and operating spine
 - Forge is the governed technology platform Sabina runs on: application infrastructure, data and workflow infrastructure, product login, trades tooling. It is a product of Dominus Foundry, not a separate entity, and it is not a second Sabina front door. The trades are its first and deepest operating context.
@@ -36,7 +38,7 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Forge is sold at buildwithforge.app. dominusfoundry.com/pricing is a reference, not an offer.
 
 ## Forge Product Family (current)
-- Sabina: your company's custom AI employee (chat and voice). Not a module and not a customer-service department product.
+- Sabina: your company's own AI (chat and voice). Not a module and not a customer-service department product.
 - Hyperion: iPad/iPhone LiDAR scan-to-proposal with automated takeoff and device placement. A standalone trades product, independently marketed, hosted under Forge — and NOT part of Sabina's general capability set.
 - Sigil (e-signature), Torch (communication intelligence), Treasury (payroll/compliance — in development).
 
@@ -44,7 +46,7 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Direction: Dominus Foundry is building its own model path and its own speech for Sabina, rather than relying on outside general-purpose AI services.
 - That migration is INCOMPLETE. Do not report it as finished, and do not report that no outside processing occurs anywhere in the stack — that is not a claim Dominus Foundry makes.
 - For the dated, current state of data custody and processing, see https://hiresabina.ai/trust. Report that page's dates, not this file's, when asked what is true today.
-- Forge does not sell customer data and does not train on it.
+- Use the current trust disclosures for provider-specific processing and training statements, shared tenant-scoped infrastructure, and record delivery. Packaged export is not built. Do not infer dedicated servers, customer-specific weights, free upgrades or lossless model swaps.
 
 ## Mentis
 - Mentis is a current, public-facing Dominus Foundry brand — its design/architecture philosophy (https://dominusfoundry.com/mentis). It is NOT retired. Spelled Mentis; it is not a misspelling of any other name and has no other form.

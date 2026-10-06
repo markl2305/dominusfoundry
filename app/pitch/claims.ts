@@ -93,7 +93,7 @@ export const PROOF: PitchClaim[] = [
     id: 'callord',
     publicCopy: 'CalLord — production deployment, revenue excluded from every claim on this page',
     detailCopy:
-      'An active audio-visual and security integrator the founder co-owns, and which owns half that vertical. A working tenant, not a demo. Related-party, disclosed as such.',
+      'An active audio-visual and security integrator the founder co-owns. A working tenant, not a demo. Related-party, disclosed as such.',
     status: 'live_customer',
     asOf: '2026-09-01',
     sourceLabel: 'Tenant records · founder ownership disclosure',
