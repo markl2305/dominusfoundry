@@ -5,6 +5,7 @@ import ContactCTA from "../../../components/ContactCTA";
 // promise, the coming-soon video placeholder and the bespoke-automation example
 // offer are removed. The IntakeForm (fields, /api/lead destination, consent and
 // sourceSystem "Intake Form") is unchanged; only its visible wording moved.
+// Turn 2: the hero had no CTA slot, so no link was added there (format freeze).
 export const metadata = {
   title: "Start with Sabina — Dominus Foundry",
   description:
@@ -33,9 +34,6 @@ export default function StartPage() {
             <p className="body-foundry text-white md:text-lg">
               Tell us where calls, follow-up, or recurring work are getting stuck. We&apos;ll use that context to discuss where Sabina could begin in your company.
             </p>
-            <a className="inline-block font-semibold text-orange-200 underline underline-offset-4" href="https://hiresabina.ai/evaluate">
-              See Sabina work →
-            </a>
           </div>
         </div>
       </section>

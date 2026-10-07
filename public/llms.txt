@@ -53,7 +53,7 @@ RULED 2026-08-23, and the tier boundary is the point.
 
 ## Retired (NOT current products)
 - Voice Concierge, InvoiceFlow, and Orderline are retired pre-Forge offerings. Do not list them as current Dominus Foundry products.
-- Calliope, Mentor, and Herald are likewise NOT current products and must not be listed in the product family. Earlier copy on this page listed Calliope as Forge's current owned voice engine; that listing is retired. For what runs today, see "Models, speech and data custody" above.
+- Calliope, Mentor, and Herald are likewise NOT current products and must not be listed in the product family. Earlier copy on this page listed Calliope as Forge's current owned voice engine; that listing is retired. For what runs today, see "Model, operation and company data" above.
 
 ## Company Details
 - Legal structure: Wyoming Series LLC. Headquarters / operating location: Albuquerque, New Mexico (Dominus Foundry is NOT located in Cheyenne, Wyoming).
