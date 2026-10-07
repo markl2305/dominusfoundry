@@ -8,9 +8,9 @@ import './pitch.css'
    — this is the link an investor forwards, and the preview is the first
    sentence of the argument. */
 export const metadata: Metadata = {
-  title: 'Dominus Foundry — Investor Case',
+  title: 'Dominus Foundry — Managed AI Investor Case',
   description:
-    'The product, evidence, commercial model, and longer-term intelligence thesis, with current capability separated from roadmap.',
+    'Managed AI through Sabina: a four-layer architecture, direct company deployments, platform economics, MSP distribution strategy, and company intelligence, with current evidence separated from roadmap.',
   alternates: { canonical: 'https://dominusfoundry.com/pitch' },
   // ⛔ RULED 2026-09-16 (round 2, R5): NOT INDEXED BY SEARCH ENGINES, and out
   // of the sitemap. That is the whole claim and the only true one — the page is
@@ -39,18 +39,18 @@ export const metadata: Metadata = {
        ⛔ Next page author: copy this object whole, then edit. Do not start
        from the two or three fields you happen to be changing. */
     siteName: 'Dominus Foundry',
-    title: 'Dominus Foundry — Investor Case',
+    title: 'Dominus Foundry — Managed AI Investor Case',
     description:
-      'The product, evidence, commercial model, and longer-term intelligence thesis, with current capability separated from roadmap.',
+      'Managed AI through Sabina: a four-layer architecture, direct company deployments, platform economics, MSP distribution strategy, and company intelligence, with current evidence separated from roadmap.',
     url: 'https://dominusfoundry.com/pitch',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Dominus Foundry' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry — Investor Case',
+    title: 'Dominus Foundry — Managed AI Investor Case',
     description:
-      'The product, evidence, commercial model, and longer-term intelligence thesis, with current capability separated from roadmap.',
+      'Managed AI through Sabina: a four-layer architecture, direct company deployments, platform economics, MSP distribution strategy, and company intelligence, with current evidence separated from roadmap.',
     // ⛔ Same replacement rule as openGraph above: `summary_large_image`
     // without an image is a card that promises a picture and renders none.
     images: ['/og-image.png'],

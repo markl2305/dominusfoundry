@@ -44,6 +44,7 @@ export type ClaimStatus =
   | 'in_acceptance'   // under acceptance testing
   | 'filed'           // described in a pending application
   | 'roadmap'         // not built
+  | 'not_yet'         // a distinct milestone that has not occurred
   | 'modeled';        // a financial assumption, not an observation
 
 export const STATUS_LABEL: Record<ClaimStatus, string> = {
@@ -54,6 +55,7 @@ export const STATUS_LABEL: Record<ClaimStatus, string> = {
   in_acceptance: 'In acceptance',
   filed:         'Filed',
   roadmap:       'Roadmap',
+  not_yet:       'Not yet',
   modeled:       'Modeled',
 };
 
@@ -116,6 +118,29 @@ export const PROOF: PitchClaim[] = [
     detailCopy:
       'The seat is contracted. No Sabina work has started at this customer, no customer outcome data exists, and none is claimed. Outcome instrumentation begins at onboarding.',
     status: 'contracted',
+    asOf: '2026-09-16',
+    sourceLabel: 'Founding Seat record',
+  },
+  /* RETOOL 2026-10-07 (HANDOFF §6, Pitch 6): signature, activation and
+     outcome evidence are separate facts, so each gets its own row. Both rows
+     below restate what the signed-seat row already records — they add no new
+     claim. Corroborated on hiresabina.ai origin/main e137bf9, app/lib/site.js
+     SEAT_STATUS: "Sabina’s onboarding has not yet begun there." */
+  {
+    id: 'sabina-activation',
+    publicCopy: 'Activated Sabina customer deployment',
+    detailCopy:
+      'None yet. Signature and activation are different milestones; the first signed engagement has not begun onboarding.',
+    status: 'not_yet',
+    asOf: '2026-09-16',
+    sourceLabel: 'Founding Seat record · hiresabina.ai current status line',
+  },
+  {
+    id: 'sabina-outcomes',
+    publicCopy: 'Sabina customer outcome evidence',
+    detailCopy:
+      'None yet, and none is claimed. Outcome instrumentation begins at onboarding.',
+    status: 'not_yet',
     asOf: '2026-09-16',
     sourceLabel: 'Founding Seat record',
   },

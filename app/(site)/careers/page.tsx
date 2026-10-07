@@ -4,7 +4,7 @@ import ContactCTA from "../../../components/ContactCTA";
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
   description:
-    "Join the first sales team at Dominus Foundry™. We build Sabina, your company's own AI, and Forge™, our contractor vertical and first proof point. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
+    "Join the sales team at Dominus Foundry™, a Managed AI company. We build and operate Sabina, your company's own AI, and Forge™, the operating platform and tools beneath and alongside her. 19 provisional patent applications plus a non-provisional filing — patent pending. Earn the full first month's subscription on collection, plus a 15% residual forever. Ground floor opportunity.",
 };
 
 const platformFeatures = [
@@ -83,7 +83,7 @@ export default function CareersPage() {
             </h1>
             <div className="divider-forged mx-auto max-w-xs" />
             <p className="body-foundry text-white/90 md:text-lg">
-              Ground floor of a patent-pending SaaS company with a product in production at its first customers, and zero sales team. The addressable market is wide open.
+              Ground floor of a patent-pending Managed AI company with a product in production at its first customers. The addressable market is wide open.
             </p>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
               <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
@@ -105,17 +105,21 @@ export default function CareersPage() {
         <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 space-y-8">
           <div className="space-y-4">
             <p className="label-foundry">The Opportunity</p>
-            <h2 className="heading-forge-lg">This is not a sales job. This is the founding revenue team of a SaaS company.</h2>
+            <h2 className="heading-forge-lg">This is not a sales job. This is the founding revenue team of a Managed AI company.</h2>
           </div>
           <div className="body-foundry space-y-4 text-slate-800">
             <p>
-              Dominus Foundry™ builds <strong>Sabina</strong>, your company&apos;s own AI, shaped around its knowledge, its work, and the authority its owner gives her. <strong>Forge™</strong> is the governed platform and operating spine she runs on, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
+              Dominus Foundry™ builds and operates <strong>Sabina</strong>, your company&apos;s own AI, shaped around its systems, knowledge, people, and authority. <strong>Forge™</strong> supplies the operating records and specialist tools beneath and alongside her, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
             </p>
             <p>
               <strong>Hyperion™</strong>, a standalone trades product hosted under Forge, is a patent-pending spatial intelligence engine. A technician scans a building with their iPhone and the system generates a complete design, bill of materials, and proposal automatically — one integrated record from scan to invoice.
             </p>
             <p>
-              {/* ⛔ kimi #2, round 3: this read "a fully built product, paying
+              {/* RETOOL 2026-10-07 (HANDOFF §5.8): "SaaS company" → Managed AI, and the
+                  "no sales team" / "zero sales team" framing removed because
+                  current staffing contradicts it. Compensation, qualifications,
+                  application and legal terms are untouched.
+                  ⛔ kimi #2, round 3: this read "a fully built product, paying
                   customers" — plural, unqualified, one click from the global
                   footer, on the same domain whose investor pitch says "one paid
                   Forge account" and "revenue excluded from every claim on this
@@ -124,7 +128,7 @@ export default function CareersPage() {
                   Recruiting copy can be hungry without being rounder than the
                   investor page. ⛔ Keep this aligned to app/pitch/claims.ts; if
                   the ledger changes, this changes with it. */}
-              <strong>We have 19 provisional patent applications plus a non-provisional filing, a product running in production, and no sales team.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              <strong>We have 19 provisional patent applications plus a non-provisional filing and a product running in production.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>

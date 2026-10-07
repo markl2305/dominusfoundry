@@ -25,7 +25,7 @@ export default function CompanyContent() {
             Built by a family. <em>Held</em> for a generation.
           </>
         }
-        lead="Dominus Foundry is a family-owned intelligence company in Albuquerque, New Mexico. We build Sabina, your company's own AI, working under the authority of the business she works for. Forge is the platform beneath her, and DominusOS is the governance layer behind the work she is permitted to carry out."
+        lead="Dominus Foundry is a family-owned Managed AI company in Albuquerque, New Mexico. We build and operate Sabina, your company's own AI, shaped around your systems, knowledge, people, and authority. Forge supplies the operating records and specialist tools beneath and alongside her, and DominusOS supplies the authority and execution control behind the work she is permitted to carry out."
         actions={
           <>
             <a className="btn btn-solid" href="#leadership">
@@ -70,8 +70,8 @@ export default function CompanyContent() {
                   saw it first in the trades, from the operator&apos;s side of the desk.
                 </p>
                 <p>
-                  So we build Sabina, your company&apos;s own AI, working on the responsibilities its owner grants her. Forge,
-                  our software for commercial trade contractors, provides the first operating context. We build it from Albuquerque, and we hold what we
+                  So we build and operate Sabina, your company&apos;s own AI, working on the responsibilities its owner grants her. Forge,
+                  our operating platform, began with commercial trade contractors. We build it from Albuquerque, and we hold what we
                   build.
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function CompanyContent() {
           <div className="section-head" style={{ marginBottom: '48px' }}>
             <p className="eyebrow reveal">The Founders</p>
             <h2 className="serif reveal d1" style={{ fontSize: 'clamp(30px,4.4vw,54px)', marginTop: '16px' }}>
-              Two founders and nobody else.
+              Two founders. One family company.
             </h2>
           </div>
 

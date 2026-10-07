@@ -54,7 +54,7 @@ export default function BlogContent() {
               Read the notes {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
-              Meet Sabina {Icon.arr}
+              See Sabina work {Icon.arr}
             </a>
           </>
         }
@@ -109,7 +109,7 @@ export default function BlogContent() {
               Get in touch {Icon.arr}
             </a>
             <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
-              Meet Sabina {Icon.arr}
+              See Sabina work {Icon.arr}
             </a>
           </>
         }

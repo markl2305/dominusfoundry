@@ -14,23 +14,25 @@ const crimson = Crimson_Pro({
 })
 
 export const metadata = {
+  // RETOOL 2026-10-07 (HANDOFF §11): title/description follow the "Foundry
+  // home" row — Managed AI is the commercial category.
   // §15 META — the canonical title direction for this domain. Dominus Foundry is
   // the company and the intelligence thesis; Sabina is what a customer hires and
   // Forge is the platform beneath her. The title names the company's job, not the
   // product's, because this is the investor/company front door (§4).
-  title: "Dominus Foundry — Governed AI and Commercial Intelligence",
+  title: "Dominus Foundry — Managed AI for Companies",
   description:
-    "The company behind Sabina, your company’s own AI. Start with the work between promised and done, then teach her more under explicit authority. Forge provides the operating platform; broader commercial intelligence is a staged thesis.",
-  keywords: ['Dominus Foundry', 'Sabina', 'company AI', 'governed AI', 'commercial intelligence', 'AI governance', 'Mark Lord', 'Bri Lord'],
+    "Customized company AI through Sabina, built and operated by Dominus Foundry on a reusable platform: a trained core, company memory, and the authority your company defines.",
+  keywords: ['Dominus Foundry', 'Sabina', 'Managed AI', 'company AI', 'AI governance', 'Mark Lord', 'Bri Lord'],
   authors: [{ name: 'Mark Lord' }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Dominus Foundry — Governed AI and Commercial Intelligence",
+    title: "Dominus Foundry — Managed AI for Companies",
     description:
-      "The company behind Sabina, your company’s own AI. Start with the work between promised and done, then teach her more under explicit authority. Forge provides the operating platform; broader commercial intelligence is a staged thesis.",
+      "Customized company AI through Sabina, built and operated by Dominus Foundry on a reusable platform: a trained core, company memory, and the authority your company defines.",
     // §15/§19.10: og:site_name is the literal string "Dominus Foundry" — no
     // trademark symbol. This is the ONLY place og:site_name is set for the whole
     // site, so this one value is the sitewide value.
@@ -48,9 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dominus Foundry — Governed AI and Commercial Intelligence",
+    title: "Dominus Foundry — Managed AI for Companies",
     description:
-      "The company behind Sabina, your company’s own AI. Start with the work between promised and done, then teach her more under explicit authority. Forge provides the operating platform; broader commercial intelligence is a staged thesis.",
+      "Customized company AI through Sabina, built and operated by Dominus Foundry on a reusable platform: a trained core, company memory, and the authority your company defines.",
     images: ['/og-image.png'],
   },
   themeColor: [
@@ -138,7 +140,7 @@ export default function RootLayout({
               // phase with no production customer, and a surface implying
               // otherwise is a public-surface-rule violation, not a nit.
               description:
-                "Dominus Foundry is the family-owned company building governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is your company's own AI: shaped around that business, its knowledge, and the authority its people grant her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product for iPad LiDAR capture and proposal generation, hosted under Forge. Sabina is hired first into agreed promise-to-completion work, then taught more of the business under explicit authority. Forge customer production does not establish Sabina customer readiness or make Hyperion a Sabina capability. Current availability and processing disclosures: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
+                "Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company's own AI, shaped around your systems, knowledge, people, and authority. Foundry combines a core model it trains and operates with proprietary memory, company teaching and defined authority, deploying company-specific systems from a reusable platform. Forge supplies operating records and specialist tools beneath and alongside Sabina; some Forge tools are sold independently. Hyperion is a specialist trades product for iPad LiDAR capture and proposal generation, with its own scope. DominusOS supplies the authority and execution-control architecture. Forge customer production does not establish Sabina customer readiness or make Hyperion a Sabina capability. Current availability: https://hiresabina.ai. Based in Albuquerque, New Mexico.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Albuquerque",

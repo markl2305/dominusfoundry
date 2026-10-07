@@ -1,18 +1,21 @@
 import IntakeForm from "../../../components/IntakeForm";
 import ContactCTA from "../../../components/ContactCTA";
 
+// RETOOL 2026-10-07 (HANDOFF §5.7): the retired seven-day system-design
+// promise, the coming-soon video placeholder and the bespoke-automation example
+// offer are removed. The IntakeForm (fields, /api/lead destination, consent and
+// sourceSystem "Intake Form") is unchanged; only its visible wording moved.
 export const metadata = {
-  title: "Get Started — Dominus Foundry",
+  title: "Start with Sabina — Dominus Foundry",
   description:
-    "Tell us what's broken — get a system design in 7 days. Custom AI systems that plug into how your business actually runs.",
+    "Tell us where calls, follow-up, or recurring work are getting stuck. We'll use that context to discuss where Sabina, your company's own AI, could begin.",
 };
 
-const exampleOutcomes = [
-  "Voice orders going straight into Square",
-  "Private event bookings with automatic owner notification",
-  "Calls answered, qualified, and booked without staff",
-  "Invoices sent and followed up automatically",
-  "Workflows that notify the right person at the right time",
+const stuckPoints = [
+  "Calls that go unanswered",
+  "Follow-ups that get buried",
+  "Questions your team keeps answering twice",
+  "Work that keeps returning to the owner",
 ];
 
 export default function StartPage() {
@@ -24,12 +27,15 @@ export default function StartPage() {
           <div className="text-center space-y-6 max-w-3xl mx-auto">
             <p className="label-foundry text-orange-200">Get Started</p>
             <h1 className="heading-forge-xl text-white leading-tight">
-              Tell us what&apos;s broken — get a system design in 7 days
+              Start with the work your team needs help carrying.
             </h1>
             <div className="divider-forged mx-auto max-w-xs" />
             <p className="body-foundry text-white md:text-lg">
-              You don&apos;t need another dashboard. You need a system that plugs into the tools you already use and handles the work you&apos;re tired of doing manually. Tell us what&apos;s not working — we&apos;ll design the fix.
+              Tell us where calls, follow-up, or recurring work are getting stuck. We&apos;ll use that context to discuss where Sabina could begin in your company.
             </p>
+            <a className="inline-block font-semibold text-orange-200 underline underline-offset-4" href="https://hiresabina.ai/evaluate">
+              See Sabina work →
+            </a>
           </div>
         </div>
       </section>
@@ -39,9 +45,9 @@ export default function StartPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h2 className="heading-forge-md text-slate-900">Example outcomes we build:</h2>
+                <h2 className="heading-forge-md text-slate-900">Where teams tell us work gets stuck:</h2>
                 <ul className="space-y-3">
-                  {exampleOutcomes.map((outcome) => (
+                  {stuckPoints.map((outcome) => (
                     <li key={outcome} className="flex gap-3">
                       <span className="text-forge-700 font-bold mt-0.5">✓</span>
                       <span className="body-foundry text-slate-800">{outcome}</span>
@@ -50,25 +56,12 @@ export default function StartPage() {
                 </ul>
               </div>
 
-              {/* Video placeholder */}
-              <div className="card-forged rounded-2xl bg-white p-6 shadow-sm">
-                <div className="aspect-video bg-forge-100 rounded-xl flex items-center justify-center">
-                  <div className="text-center space-y-2">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-forge-200 flex items-center justify-center">
-                      <svg className="w-8 h-8 text-forge-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-slate-600">Bri&apos;s intro video (coming soon)</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="card-forged-premium rounded-2xl bg-gradient-to-br from-forge-50 to-white p-6 md:p-10 shadow-xl">
               <div className="space-y-2 mb-6">
-                <p className="label-foundry">Tell us what&apos;s broken</p>
-                <h2 className="heading-forge-md text-slate-900">We&apos;ll design the fix</h2>
+                <p className="label-foundry">Tell us where work is stuck</p>
+                <h2 className="heading-forge-md text-slate-900">We&apos;ll discuss where Sabina could begin</h2>
               </div>
               <IntakeForm />
             </div>

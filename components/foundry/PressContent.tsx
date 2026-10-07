@@ -11,12 +11,12 @@ const KIT_PRODUCTS = [
   {
     k: 'Sabina',
     t: "your company's own AI",
-    d: "Sabina is your company’s own AI, hired first into the work between promised and done. Teach her more of the business, then agree the supported responsibility and explicit authority for it.",
+    d: "Sabina is a company’s own AI, shaped around its systems, knowledge, people, and authority. Foundry configures, deploys, and operates her; the company teaches her the business and decides what she may handle.",
   },
   {
     k: 'Forge',
     t: 'The operating platform',
-    d: 'The operating platform and system-of-record foundation beneath Sabina, also supporting specialist tools for commercial trade contractors. A Dominus Foundry product, not a separate company.',
+    d: 'Operating records and specialist tools beneath and alongside Sabina. Some Forge tools are sold independently. A Dominus Foundry product, not a separate company.',
   },
   {
     k: 'Founders',
@@ -37,7 +37,7 @@ export default function PressContent() {
             Press &amp; <em>media</em>.
           </>
         }
-        lead="Dominus Foundry builds Sabina, your company's own AI, together with the Forge operating platform and the DominusOS governance layer. Its longer-term thesis is commercial intelligence developed from governed operating records. Coverage, approved company copy, logos and founder photography are below."
+        lead="Dominus Foundry builds and operates Managed AI for businesses. Its product, Sabina, is a company's own AI. Coverage, approved company copy, logos and founder photography are below."
         actions={
           <>
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
@@ -104,13 +104,14 @@ export default function PressContent() {
 
           <div className="reveal d1" style={kitRow}>
             <p>
-              Dominus Foundry LLC is a family-owned intelligence company in Albuquerque, New Mexico, founded and led by Brianna Lord, CEO,
-              and Mark Lord, CTO. It builds Sabina, your company&apos;s own AI, shaped around one business — its knowledge, its work,
-              and the authority its owner grants her. Start with the work between promised and done, then teach her more. Forge provides the operating platform and DominusOS the governance approach.
+              Dominus Foundry builds and operates Managed AI for businesses. Its product, Sabina, is a company&apos;s own AI, shaped around
+              its systems, knowledge, people, and authority. Foundry combines a trained core model with proprietary memory and operating
+              controls to deploy company-specific systems from a reusable platform. Dominus Foundry LLC is family-owned, based in
+              Albuquerque, New Mexico, and led by Brianna Lord, CEO, and Mark Lord, CTO.
             </p>
             <p style={{ marginTop: '12px', color: 'var(--ink-3)' }}>
               Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (your company&apos;s own AI) · <b>Forge</b> (the operating platform, a product of
-              Dominus Foundry) · <b>DominusOS</b> (the governance layer). Brianna Lord, CEO; Mark Lord, CTO.
+              Dominus Foundry) · <b>DominusOS</b> (authority and execution control). Brianna Lord, CEO; Mark Lord, CTO.
             </p>
           </div>
 

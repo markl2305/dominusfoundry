@@ -3,8 +3,8 @@ import FoundryShell from '@/components/foundry/FoundryShell'
 import TechnologyContent from '@/components/foundry/TechnologyContent'
 
 export const metadata: Metadata = {
-  title: 'Technology — Dominus Foundry',
-  description: 'Company context, an operating record, and defined authority. Explore the technology approach beneath Sabina.',
+  title: 'The System Behind Sabina — Dominus Foundry',
+  description: 'A trained core, proprietary company memory, defined authority, and accumulating company knowledge: the four layers behind Sabina, operated by Dominus Foundry.',
   alternates: { canonical: 'https://dominusfoundry.com/technology' },
 }
 

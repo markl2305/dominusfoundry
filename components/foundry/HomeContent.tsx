@@ -16,42 +16,45 @@
    confidentiality and governance boundaries are stated IN the section, not in a
    footnote; and the crude internal shorthand about who pays to build the
    dataset never appears in public copy. Customers pay for governed work. What
-   accumulates is a record they own and control. */
+   accumulates is a record they own and control.
+
+   ⭐ RETOOL 2026-10-07 (HANDOFF §5.1, brief rulings 1–3): wording only, layout
+   frozen. Category is Managed AI; hero H1/eyebrow/opening are the handoff's
+   wording; the speculative network-intelligence section is compressed to the
+   immediate company-learning benefit plus an investor link; the obsolete shared-infrastructure / outside-processing sentence is removed.
+   LAYERS now carries HANDOFF §2.1's four architecture layers in the same row
+   component; the product relationships (Sabina, Forge, Hyperion, DominusOS)
+   are stated in the cards and the authority band.
+   Site-entry CTA = "See Sabina work" → hiresabina.ai/evaluate (brief ruling 3). */
 import { Medallion, Icon } from './Marks'
 import { CTA } from './FoundryShell'
 
-/* Plan §7.4's four layers, in order. Each one says what is TRUE at that layer
-   and what governs it — layer 4 carries the permission language inline because
-   it is the layer a reader is right to be suspicious of.
-
-   ⛔ LAYER 4 ALSO CARRIES ITS STATUS (kimi #4, round 3). /pitch files this layer
-   as ROADMAP and qualifies it three ways — a roadmap badge, a chapter-IX note,
-   and "described in the pending application, not operating today". This page
-   carried the permission hedge but NO status marker, so a customer or an answer
-   engine reading only dominusfoundry.com got the unqualified version of a claim
-   the company itself files as not-yet-built. The boundary language governs HOW
-   data crosses; it never said WHETHER the layer exists. Both sites now hold one
-   evidentiary standard. ⛔ Do not drop the status clause to tighten the copy. */
+/* HANDOFF §2.1's four architecture layers (2026-10-07), replacing plan §7.4's
+   memory → company intelligence → external context → network sequence, which
+   was a roadmap of value development, not the technical architecture. That
+   roadmap now lives only on /pitch (chapter IX), with its staging. ⛔ Layer four
+   says "for later work", not "analysis/forecasts available today": shipped
+   capability decides what is live. */
 const LAYERS: [string, string, string][] = [
   [
     'One',
-    'Company memory',
-    'Company instructions, processes, decisions, outcomes, language and corrections provide context for subsequent work. Record delivery and ownership terms are set in the company’s agreement; a packaged export is not currently available.',
+    'Trained core',
+    'Foundry trains and operates the core model that supplies Sabina’s reasoning and behavior.',
   ],
   [
     'Two',
-    'Company intelligence',
-    'Roadmap: connect eligible internal signals to outcomes to help the business see patterns, risks, opportunities and operating anomalies. This company-specific insight layer is not built in the published proof record.',
+    'Company identity and memory',
+    'Sabina starts with the relevant context of your company and its industry: your systems, people, records and relationships.',
   ],
   [
     'Three',
-    'External context',
-    'Direction: read eligible operating outcomes alongside relevant external context, such as weather, seasonality and market conditions. This describes the intelligence thesis, not a currently available Sabina capability.',
+    'Company teaching and authority',
+    'Your team teaches how work should be handled and defines what Sabina may do, including approvals and revocation.',
   ],
   [
     'Four',
-    'Governed network intelligence',
-    'Only where contracts, permissions and privacy design allow it, eligible derived patterns can support broader discovery, returned to each company as its own intelligence. Participation is a decision the company makes, and a decision it can take back. This layer is described in our pending patent application and is not operating today.',
+    'Accumulating company knowledge',
+    'Authorized email, employee interactions, decisions and outcomes add useful knowledge for later work.',
   ],
 ]
 
@@ -61,18 +64,18 @@ export default function HomeContent() {
       <section className="hero on-dark company-hero" id="top">
         <div className="wrap company-hero-grid">
           <div>
-            <p className="eyebrow">Dominus Foundry · Fide et Familia</p>
+            <p className="eyebrow">Dominus Foundry · Managed AI</p>
             <h1 className="hero-title">
-              Hire the AI that<br />
-              <em>owns the middle.</em>
+              Your company’s AI.<br />
+              <em>Built around your business.</em>
             </h1>
             <p className="hero-lead">
-              A customer hears a promise. Your team still has to carry it to done. Sabina is your company&apos;s
-              own AI, hired first to own that middle: the commitments, handoffs, and follow-through
-              you agree she should carry. Dominus Foundry builds her and the governed platform beneath her.
+              Dominus Foundry builds and manages Sabina, your company’s own AI. Start with calls, follow-up,
+              and the workflows taking time from your team. She learns your business, works within the
+              authority you define, and carries that understanding into the next responsibility.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">Meet Sabina {Icon.arr}</a>
+              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
               <a className="btn btn-ghost" href="/pitch">Read the investor case {Icon.arr}</a>
             </div>
             <p>Start with a short operational assessment of your business.</p>
@@ -88,22 +91,22 @@ export default function HomeContent() {
       <section className="section">
         <div className="wrap thesis-grid">
           <div>
-            <p className="eyebrow">Useful work comes first</p>
+            <p className="eyebrow">How Managed AI works</p>
             <h2 className="thesis-line">
-              Start with a <em>customer promise.</em>
+              One trained core. <em>Your company around it.</em>
             </h2>
           </div>
           <div className="thesis-aside">
             <p>
-              A commitment is made, a deadline changes, and the next step depends on someone remembering it.
-              Sabina helps the team keep that responsibility connected to the source, the person, and the
-              permitted follow-up.
+              We combine a core model trained by Foundry with proprietary memory, company teaching, and
+              defined authority. Each business gets a system shaped around its own operations, while Foundry
+              manages the underlying platform and its continued development.
             </p>
             <p>
-              It is a concrete starting point for a broader company AI: one that works with the business&apos;s
-              context and the authority its leadership defines.
+              Foundry configures, deploys, and operates Sabina for your company. Your team teaches her the
+              business and decides what she may handle.
             </p>
-            <a className="section-more" href="https://hiresabina.ai/evaluate">Meet Sabina</a>
+            <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work</a>
           </div>
         </div>
       </section>
@@ -120,27 +123,27 @@ export default function HomeContent() {
             <article>
               <h3>Sabina</h3>
               <p>
-                Sabina is your company&apos;s own AI. Start with the work between promised and done,
-                then teach her more of the business. Agree each responsibility, the supported workflow,
-                and the authority she needs before she takes it on.
+                Sabina is your company&apos;s own AI, the one customers hire. Start with calls, follow-up, and
+                the workflows taking time from your team, then teach her more of the business. Agree each
+                responsibility and the authority she needs before she takes it on.
               </p>
-              <a className="section-more" href="https://hiresabina.ai/evaluate">Meet Sabina</a>
+              <a className="section-more" href="https://hiresabina.ai/evaluate">See Sabina work</a>
             </article>
             <article>
               <h3>Forge</h3>
               <p>
-                The governed technology platform and operating spine Sabina runs on: the application
-                infrastructure, the data and workflow layer, and the trades tooling that support a company AI
-                inside a working business. Forge tools have their own scope and readiness.
+                Operating records and specialist tools beneath and alongside Sabina. Some Forge tools are
+                sold independently, and each has its own scope and readiness. Forge capabilities are not
+                automatically part of every Sabina deployment.
               </p>
               <a className="section-more" href="https://buildwithforge.app">Explore Forge →</a>
             </article>
             <article>
               <h3>Hyperion</h3>
               <p>
-                A standalone trades product: iPad LiDAR capture that turns a walked site into roof
-                geometry, a bill of materials and a proposal. Independently useful, hosted under Forge,
-                and not part of Sabina’s general capability set.
+                A specialist trades product with its own scope: iPad LiDAR capture that turns a walked site
+                into roof geometry, a bill of materials and a proposal. Independently useful, hosted under
+                Forge, and not part of Sabina’s general capability set.
               </p>
               <a className="section-more" href="https://buildwithforge.app/hyperion">See Hyperion →</a>
             </article>
@@ -155,8 +158,9 @@ export default function HomeContent() {
             Knowing isn’t permission.<br /><em>You define her authority.</em>
           </h2>
           <p className="darkband-lead">
-            Teaching Sabina the business does not authorize her to act. Define what she may do, what
-            needs your approval, and what evidence will show that the agreed work is done.
+            Sabina’s understanding of the company can grow. Her authority continues to come from the
+            permissions the company grants. DominusOS supplies the authority and execution control: define
+            what she may do, what needs your approval, and what evidence will show that the agreed work is done.
           </p>
           <div className="company-principles">
             <article>
@@ -180,15 +184,15 @@ export default function HomeContent() {
           the reason this domain is separate from the product sites. */}
       <section className="section">
         <div className="wrap">
-          <p className="eyebrow">Why this compounds</p>
+          <p className="eyebrow">What carries forward</p>
           <h2 className="serif" style={{ fontSize: 'clamp(30px,4vw,52px)', marginTop: '16px', maxWidth: '20ch' }}>
-            The work creates the record. <em>The record is the asset.</em>
+            Useful company knowledge <em>carries forward.</em>
           </h2>
           <p style={{ marginTop: '22px', maxWidth: '62ch', lineHeight: 1.75 }}>
-            Forge is in paid customer production. Sabina’s first customer engagement is signed; onboarding has
-            not begun in our published proof record. Those are different milestones. For Sabina, company
-            instructions, corrections, and prior outcomes can inform subsequent work. The broader
-            intelligence described below is the direction we are building toward, not a measured customer result.
+            What your team teaches Sabina, the corrections it makes, and the context gathered through
+            authorized work can inform the next conversation, handoff, and responsibility. Your company’s
+            knowledge, memory, operating instructions, and permissions remain specific to your company.
+            Access follows the sources and authority you approve.
           </p>
           <div className="darkband-rows" style={{ marginTop: '44px', borderTop: '1px solid var(--hair)' }}>
             {LAYERS.map(([n, title, body]) => (
@@ -214,16 +218,19 @@ export default function HomeContent() {
           {/* ⛔ The boundary paragraph is part of the thesis, not a disclaimer
               under it. Plan §7.4: confidentiality, permissions, governance and
               data boundaries must remain explicit wherever this argument is
-              made. Do not move it to a footer or shrink it to fine print. */}
+              made. Do not move it to a footer or shrink it to fine print.
+              2026-10-07 (HANDOFF §5.1): the obsolete shared-infrastructure /
+              third-party-processing sentence is removed; the link now names
+              the trust page by its subject, not by the retired narrative. */}
           <p style={{ marginTop: '32px', maxWidth: '62ch', lineHeight: 1.75 }}>
-            <strong>Where the boundaries are.</strong> Company information is not pooled across customers by default. Any future cross-company
-            use of eligible derived patterns requires written agreements, permissions and privacy design.
-            For current shared infrastructure, third-party processing and record-delivery limits, read
-            the <a href="https://hiresabina.ai/trust">current trust disclosures</a>.
+            <strong>Where the boundaries are.</strong> Any future use of eligible derived information beyond providing your company’s service
+            requires separate, specific agreement. The value of Sabina’s work for your company does not depend on
+            joining a broader intelligence program. Read how{' '}
+            <a href="https://hiresabina.ai/trust">company data and authority are handled</a>.
           </p>
           <p style={{ marginTop: '18px', maxWidth: '62ch', lineHeight: 1.75 }}>
-            The result is not software automation with a reporting tab. It is a commercial intelligence
-            system that grows out of governed work — which is the company we are building.
+            The longer-term company-intelligence thesis, and how it builds from direct customer
+            deployments, is set out in the <a href="/pitch">investor case</a>.
           </p>
         </div>
       </section>
@@ -244,9 +251,9 @@ export default function HomeContent() {
             <p className="eyebrow">Capital</p>
             <h2 className="serif">Bootstrapped to date.</h2>
             <p>
-              We are raising to increase onboarding capacity and accelerate distribution, without
-              changing the core pricing discipline. The company thesis, what is already in production,
-              and both the floor and funded scenarios are set out in full on the investor pitch.
+              We are raising to expand repeatable Managed AI delivery. The company thesis, what is
+              already operating, the next 10–20 direct customer companies, and both the floor and funded
+              scenarios are set out in full on the investor pitch.
             </p>
             <a className="section-more" href="/pitch">Read the investor pitch →</a>
           </article>
@@ -259,7 +266,7 @@ export default function HomeContent() {
         lead="Start with a short operational assessment of your business."
         actions={
           <>
-            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">Meet Sabina {Icon.arr}</a>
+            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team {Icon.arr}</a>
           </>
         }

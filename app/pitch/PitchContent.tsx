@@ -2,12 +2,19 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    dominusfoundry.com/pitch — THE CANONICAL INVESTOR PITCH
 
-   Built 2026-09-16 to the execution plan's §9 content architecture and §10
-   thesis language. The twenty sections below are §9's questions, IN ORDER.
-   ⛔ Do not reorder them and do not merge two into one: the order is the
-   argument — company, then employee, then problem, then why governance is the
-   hard part, then why the record compounds, then what it is worth, then what
-   the money does.
+   ⭐ RESTRUCTURED 2026-10-07 to the twelve-part Managed AI narrative (site
+   retool HANDOFF §6, brief ruling 4). The Chapter shell, hero, CTA, ledger,
+   figures, terms and rows components are unchanged; only the content and the
+   chapter count moved (nineteen → twelve). Folded in, not lost: Why now →
+   chapter I; IP / patent-pending status → chapter X; Forge as the operating
+   platform and independent paid Forge use → chapters IV and VI; floor case and
+   what funding changes → chapter XI; the founding-seat motion and the trades
+   as proof lane → chapter VII (the founding offer is NOT the 10–20 target).
+
+   ⛔ FOUR BLOCKS ON THIS PAGE ARE PINNED BY HASH in
+   scripts/check-founding-charter.mjs (route "pitch"): the evaluations evidence
+   paragraph, the human-cost paragraph, and the floor and funded paragraphs in
+   chapter XI. Do not reword them; the gate fails (R12) if any goes missing.
 
    ⛔ EVERY FIGURE AND EVERY STATUS COMES FROM ./claims. Nothing on this page is
    hardcoded. See that file for what deliberately did NOT travel from the pitch
@@ -23,8 +30,14 @@
        consolidation count, ever.
      · "Founding Employer" / "Founding Seat". ⛔ Never "Founding Partner".
      · TAM is not constrained to contractors. The trades are the proof lane.
-     · Sabina is hired, brought on, onboarded, taught. ⛔ Not installed,
-       deployed, configured or licensed.
+     · "Trained core" wording is Mark's ruling (2026-10-07, brief ruling 2):
+       "a core model trained and operated by Foundry". ⛔ Never "built from
+       scratch", never a new base training run per customer, never a transfer
+       of Foundry model weights.
+     · Managed-service verbs (configures, deploys, operates) are the handoff's
+       own words for what FOUNDRY does; Sabina is still hired and taught.
+     · 10–20 direct companies is the NEXT operating milestone, not traction.
+       MSP distribution is a plan: no program, rates, partners or dates.
      · No absolute security claim ("cannot", "impossible", "every action")
        beyond what the verified mechanics support. */
 import { PageHero, CTA } from '@/components/foundry/FoundryShell'
@@ -75,148 +88,164 @@ export default function PitchContent() {
   const awrForge = claim('awr-forge')
   const nonprov = claim('nonprovisional')
   const provisionals = claim('provisionals')
+  /* Filings are IP, not operating status: they render in chapter X. */
+  const operating = PROOF.filter((c) => c.status !== 'filed')
 
   return (
     <>
+      {/* ── Pitch 1 — hero ──────────────────────────────────────────────── */}
       <PageHero
         crest
-        eyebrow="Investor pitch · Dominus Foundry · Albuquerque, New Mexico"
-        title={<>Governed work is the entry point.<br /><em>Commercial intelligence is the company we are building.</em></>}
-        lead="Sabina is your company's own AI. Forge is the operating platform beneath her. DominusOS governs permitted execution. Together they create the foundation for company-specific intelligence built from real work, decisions, and outcomes."
+        eyebrow="Dominus Foundry · Managed AI"
+        title={<>Customized company AI.<br /><em>A platform built to scale.</em></>}
+        lead="Dominus Foundry deploys and operates Sabina, a company’s own AI. A shared trained core, proprietary memory, company-defined authority, and accumulating operational knowledge make each deployment specific to its customer."
         actions={
           <>
-            <a className="btn btn-solid" href="#economics">See the economics {Icon.arr}</a>
-            <a className="btn btn-ghost" href={mailto('Request a meeting — Dominus Foundry')}>Request a meeting {Icon.arr}</a>
+            <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment {Icon.arr}</a>
+            <a className="btn btn-ghost" href="https://hiresabina.ai">See Sabina {Icon.arr}</a>
           </>
         }
         metaLeft={<>Seed · <b>{RAISE.amount}</b> post-money SAFE · {RAISE.cap}</>}
         metaRight={<>Terms as of <b>{RAISE.asOf}</b></>}
       />
 
-      {/* ── 1 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="I" kicker="The company" id="company" title={<>Dominus Foundry builds governed AI systems — and the <em>commercial intelligence</em> that grows from their use.</>}>
+      {/* ── I ─────────────────────────────────────────────────────────────── */}
+      <Chapter n="I" kicker="Company thesis" id="company" title={<>Managed AI, starting with the work <em>companies already need handled.</em></>}>
         <p>
-          We build company AI, the infrastructure beneath it, and the intelligence that accumulates when
-          real businesses do real work on it. That is one company with one motion, not a holding
-          structure with three logos.
+          We begin with phone and workflow responsibilities companies already need handled. Our next
+          operating milestone is 10–20 direct customer companies, establishing customer value and
+          repeatable delivery before expanding distribution through managed service providers.
+        </p>
+        <div className="pitch-chain">
+          {['Direct company value', 'repeatable Managed AI delivery', 'MSP distribution', 'the company intelligence that grows from the work'].map((s, i) => (
+            <span className="pitch-chain-step" key={s}>{i > 0 && <em>↓</em>}{s}</span>
+          ))}
+        </div>
+        <p>
+          The product shape is deliberate. <strong>Sabina</strong> is the company AI customers hire.
+          <strong> Forge</strong> supplies operating records and specialist tools beneath and alongside
+          her. <strong>Hyperion</strong> is a specialist trades product with its own scope.
+          <strong> DominusOS</strong> supplies authority and execution control. The company is Dominus
+          Foundry, family-held, built and run from Albuquerque.
+        </p>
+        <h3 className="pitch-h3">Why now</h3>
+        <p>
+          Models crossed the line where they can carry consequential business work about eighteen months
+          ago. What did not arrive with them was a practical way for a business to say, in advance, what
+          the system may do, and to see afterwards what it did and on whose authority. Meanwhile employees
+          are already using unsanctioned AI on company work, because the sanctioned internal option is weak
+          or does not exist.
         </p>
         <p>
-          The public shape is simple and it is deliberate. <strong>Sabina</strong> is what a customer
-          hires. <strong>Forge</strong> is the governed platform and operating spine she runs on.
-          <strong> Hyperion</strong> is a specialized standalone trades product hosted under Forge. The
-          company is Dominus Foundry, family-held, built and run from Albuquerque.
-        </p>
-        <p className="pitch-note">
-          Company AI becomes infrastructure. Infrastructure becomes intelligence. The rest of this page
-          is the argument for that sentence, with what is real separated from what is not.
+          Operating a trained core for many companies is affordable at a scale it was not eighteen months
+          ago, and inference capacity is a line item in this round. Most businesses still cannot build and
+          operate that stack themselves. That is the gap Managed AI fills.
         </p>
       </Chapter>
 
-      {/* ── 2 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="II" kicker="Your company’s AI" id="sabina" title={<>Hire the AI that <em>owns the middle.</em></>}>
-        <p>
-          Start with the work between a company’s promise and getting it done: commitments, handoffs,
-          and follow-through. Agree the responsibility, supported workflow and evidence of completion.
-          Employees can teach her more of the business. Knowing isn’t permission. Leadership decides her authority. The company can change that
-          authority or take it back. She is hired into a business, taught how that business works, and
-          given authority in writing — and she becomes increasingly specific to that company through
-          governed memory, teaching, correction, workflows and business context.
-        </p>
-        <p>
-          She holds a seat the way a person does: her own address, her own line, her own scope of work.
-          She is brought on and onboarded rather than installed, because the thing that makes her useful
-          is not the software — it is what her employer has taught her and what they have authorized
-          her to do about it.
-        </p>
-        <p className="pitch-note">
-          She becomes company-specific through governed memory and teaching. That is not a claim that
-          every customer receives a separately fine-tuned foundation model.
-        </p>
-      </Chapter>
-
-      {/* ── 3 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="III" kicker="The problem" id="problem" dark title={<>Generic AI does not know how <em>your company</em> works.</>}>
+      {/* ── II ────────────────────────────────────────────────────────────── */}
+      <Chapter n="II" kicker="The problem customers recognize" id="problem" dark title={<>Calls, handoffs, and company knowledge <em>keep falling back on people.</em></>}>
         <p className="darkband-lead">
-          Seven related problems, and they compound on each other rather than sitting side by side:
+          Calls go unanswered. Follow-ups get buried. Employees repeat questions someone else already
+          answered. Work stalls between systems, and the owner becomes the backup memory. Businesses need
+          useful work carried through with the right context and authority.
         </p>
         <ul className="pitch-list">
-          <li>Generic AI does not understand how a particular company actually operates.</li>
-          <li>Point AI tools fragment what the company knows across a dozen products.</li>
-          <li>Employees use unsanctioned AI because the useful internal alternative is weak or absent.</li>
-          <li>Companies need AI that can <em>act</em>, not only answer.</li>
-          <li>Action without bounded authority creates risk a business cannot accept.</li>
-          <li>Business knowledge disappears across inboxes, calls, chats, documents, employees and systems.</li>
-          <li>Most software captures the transaction and loses the reasoning and operating context around it.</li>
+          <li>A missed call is a missed customer, and the callback depends on someone remembering it.</li>
+          <li>Follow-up lives in inboxes, notes and people’s heads rather than in one place.</li>
+          <li>The same explanations are given again because the last answer was never captured.</li>
+          <li>Work that should move on its own comes back to the owner.</li>
         </ul>
         <p className="darkband-lead">
-          The last one is the expensive one. A record of what was booked is common. A record of why, on
-          whose authority, against which alternatives, and how it turned out is not — and that is the
-          part a business cannot reconstruct afterwards.
+          The cost shows up in each company’s own workload: the calls, the follow-ups and the hours
+          that return to the people running it. That is where a first responsibility is chosen.
         </p>
       </Chapter>
 
-      {/* ── 4 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="IV" kicker="Why governance is the hard part" id="governance" title={<>What you authorize <em>is what she can do.</em></>}>
+      {/* ── III ───────────────────────────────────────────────────────────── */}
+      <Chapter n="III" kicker="What the company buys" id="buys" title={<>A company AI, <em>deployed and operated for the business.</em></>}>
         <p>
-          Capability stopped being the constraint some time ago. What stops a business putting AI on its
-          own phone line is not whether the model can hold the conversation — it is that nobody can say
-          in writing what it is permitted to do, or show afterwards what it did and under whose
-          authority.
+          Foundry configures Sabina around the company’s systems, people, knowledge, and agreed
+          responsibilities. We operate the underlying AI and support the deployment as the company teaches
+          her how work should be handled.
         </p>
-        <p>
-          Consequential actions route through authority granted by the company, in writing. Authority
-          can differ by employee, role, customer, object, condition and responsibility. The authority
-          model is durable and auditable, and withdrawing a grant stops future work under it.
-        </p>
+        <div className="pitch-rows">
+          <div><span>Setup</span><span>Company identity, sources and initial configuration.</span></div>
+          <div><span>Approved connections</span><span>The systems the company agrees she may use, and no others.</span></div>
+          <div><span>Agreed workflows</span><span>The responsibilities set out for that company.</span></div>
+          <div><span>Authority configuration</span><span>What she may do, what needs approval, and how a grant is withdrawn.</span></div>
+          <div><span>Operation</span><span>Foundry runs the model and the systems around it.</span></div>
+          <div><span>Support and updates</span><span>Ongoing support for the deployment and updates to the common platform.</span></div>
+        </div>
         <p className="pitch-note">
-          Revocation withdraws permission for future work. It does not unsend a message or reverse a
-          completed action, and this page makes no claim that it does. The execution path described
-          here is in acceptance testing — see <a href="#proof">what is already real</a>.
+          Scope, terms and price are set in each company’s written proposal. There is no rate card and no
+          published figure on any surface.
         </p>
       </Chapter>
 
-      {/* ── 5 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="V" kicker="Why company-specific learning matters" id="learning" title={<>Company context gives <em>the model useful work to do.</em></>}>
+      {/* ── IV ────────────────────────────────────────────────────────────── */}
+      <Chapter n="IV" kicker="Four-layer architecture" id="architecture" title={<>One trained core. <em>A distinct company system for every customer.</em></>}>
         <p>
-          Two companies in the same trade, on the same street, do not run the same way. Their escalation
-          rules differ, their customers differ, their tolerance for a judgment call differs. Generic
-          competence cannot close that gap, and prompt engineering closes it only until someone changes
-          the prompt.
+          Company-specific memory, teaching, and authority shape the deployment around the business.
+          Foundry develops and improves the common model and platform.
+        </p>
+        <ol className="pitch-layers">
+          <li>
+            <h3>Trained core</h3>
+            <p>Foundry trains and operates the core model that supplies Sabina’s reasoning and behavior.</p>
+            <p>Reusable platform: custom-trained weights, training and evaluation methods, serving software. Company state: any additional adaptation explicitly included in that deployment; a new base training run is not implied.</p>
+          </li>
+          <li>
+            <h3>Company identity and memory</h3>
+            <p>Sabina starts with the relevant context of the company and its industry.</p>
+            <p>Reusable platform: proprietary memory, context assembly and onboarding machinery, and industry starting points. Company state: identity, systems, people, records, relationships and private knowledge.</p>
+          </li>
+          <li>
+            <h3>Company teaching and authority</h3>
+            <p>The company teaches how work should be handled and defines what Sabina may do.</p>
+            <p>Reusable platform: the proprietary teaching and customization process and the authority machinery. Company state: operating instructions, responsibilities, grants, conditions, approvals and revocation.</p>
+          </li>
+          <li>
+            <h3>Accumulating company intelligence</h3>
+            <p>Authorized email, employee interactions, decisions and outcomes add useful knowledge for later work and analysis.</p>
+            <p>Reusable platform: knowledge acquisition, memory maintenance, retrieval and synthesis. Company state: operational history, corrections, relationships, precedents and growing understanding.</p>
+          </li>
+        </ol>
+        <p>
+          Sabina’s understanding of the company can grow. Her authority continues to come from the
+          permissions the company grants. Company teaching and memory are not foundation-model weight
+          updates.
         </p>
         <p>
-          The useful context includes what a company has taught, corrected and authorized, along with
-          recorded outcomes. That is distinct from retraining a model. Record-delivery and ownership
-          terms depend on the agreement; packaged export and lossless model migration are not established
-          by this thesis. See the <a href="https://hiresabina.ai/trust">current trust disclosures</a>.
+          <strong>Forge</strong> is the operating platform beneath and alongside her: operating records and
+          specialist tools. Some Forge tools are also sold on their own, and Forge is already in paid
+          production at an independent customer (chapter VI).
         </p>
       </Chapter>
 
-      {/* ── 6 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="VI" kicker="Why Forge exists" id="forge" title={<>Forge is the <em>operating platform</em> beneath Sabina.</>}>
-        <p>
-          A company’s AI needs somewhere to work. Forge is the governed technology platform and
-          operating spine: the application infrastructure, the data and workflow layer, and the system
-          of record she acts on rather than visiting through a narrow integration.
+      {/* ── V ─────────────────────────────────────────────────────────────── */}
+      <Chapter n="V" kicker="Economics of reuse" id="reuse" dark title={<>Platform economics for <em>customized company AI.</em></>}>
+        <p className="darkband-lead">
+          The trained core, memory machinery, authority system, integrations, and deployment tools are
+          reusable assets. Each additional company brings its own context, rules, and workload to that
+          platform. The scale opportunity is to make customer-specific deployment repeatable while spreading
+          common engineering and model development across a growing customer base.
         </p>
-        <p>
-          It is also why the proof is real rather than a pilot. Forge has been in production at a
-          commercial roofer since March 2026, and is also used inside a founder-affiliated commercial
-          AV and security integrator. Sabina runs on that foundation.
-        </p>
-        <p className="pitch-note">
-          Forge is infrastructure and specialized tooling. It is not the company-level thesis, and this
-          pitch is deliberately not a catalog of its modules.
+        <p className="darkband-lead">
+          This is mass customization: a common platform, delivered as a distinct system for each company.
+          Inference, onboarding, support and capacity remain real costs in the operating model, and the
+          use of funds in chapter XI carries them as such.
         </p>
       </Chapter>
 
-      {/* ── 7 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="VII" kicker="What is already real" id="proof" title={<>Built first. <em>Measured next.</em></>}>
+      {/* ── VI ────────────────────────────────────────────────────────────── */}
+      <Chapter n="VI" kicker="What is already operating" id="proof" title={<>The operating foundation and <em>the evidence to date.</em></>}>
         <p>
-          This is the one place on this page where status is exhaustively qualified. Every other section
-          reads from it, and nothing elsewhere states a stronger version of any row.
+          Each row carries its own status and source date. A signature, an activation, completed work, an
+          invoice and a renewal are different facts.
         </p>
         <div className="pitch-ledger">
-          {PROOF.map((c) => (
+          {operating.map((c) => (
             <div className="pitch-ledger-row" key={c.id}>
               <Badge status={c.status} />
               <span className="pitch-ledger-copy">
@@ -233,7 +262,7 @@ export default function PitchContent() {
           {' '}<a href={mailto('Reference call — All Weather Roofing')}>Ask for the reference call →</a>
         </p>
         <details className="pitch-evidence">
-          <summary>Evidence and source notes</summary>
+          <summary>Diligence: evidence and source notes</summary>
           <div>
             {PROOF.map((c) => (
               <p key={c.id}>
@@ -245,155 +274,124 @@ export default function PitchContent() {
         </details>
       </Chapter>
 
-      {/* ── 8 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="VIII" kicker="Why the data compounds" id="compounding" dark title={<>The work creates the record. <em>The record is the asset.</em></>}>
-        <p className="darkband-lead">
-          Companies bring Sabina on because she can do the work. Doing the work under written authority
-          produces something most software never captures — and it accrues in four layers, each one
-          only possible because the one beneath it exists.
+      {/* ── VII ───────────────────────────────────────────────────────────── */}
+      <Chapter n="VII" kicker="The first 10–20 companies" id="cohort" title={<>Prove the service. <em>Make the deployment repeatable.</em></>}>
+        <p>
+          The next cohort establishes which responsibilities customers value, how reliably Sabina carries
+          them, what setup and support require, and how company knowledge improves subsequent work.
         </p>
-        <ol className="pitch-layers">
-          <li>
-            <h3>Company memory</h3>
-            <p>Company processes, customers, decisions, outcomes, language, corrections and operating knowledge can inform subsequent work. Record delivery and ownership terms depend on the agreement.</p>
-          </li>
-          <li>
-            <h3>Company intelligence</h3>
-            <p>Roadmap: connect eligible internal signals to outcomes to surface patterns, risks and opportunities for the business. This company-specific insight layer is not built in the published proof record.</p>
-          </li>
-          <li>
-            <h3>External context</h3>
-            <p>Direction: read eligible internal outcomes alongside relevant weather, economic and market context. This is the intelligence thesis, not an available Sabina workflow.</p>
-          </li>
-          <li>
-            <h3>Governed network intelligence</h3>
-            <p>Roadmap: where contracts, permissions, privacy design and governance allow it, eligible derived patterns could support broader discovery. This is described in the pending application and is not operating today.</p>
-          </li>
-        </ol>
+        <div className="pitch-rows">
+          <div><span>Company setup</span><span>Repeatable identity, private data boundary, sources, and initial configuration</span></div>
+          <div><span>Phone and workflows</span><span>Reliable execution of the agreed responsibilities</span></div>
+          <div><span>Company context</span><span>Useful ingestion, retrieval, corrections, and continuity</span></div>
+          <div><span>Authority</span><span>Teaching, approved scopes, runtime checks, approvals, revocation, and action records</span></div>
+          <div><span>Ongoing learning</span><span>Knowledge from authorized work used in later work or analysis</span></div>
+          <div><span>Operations</span><span>Monitoring, updates, support, recoverability, and capacity</span></div>
+          <div><span>Economics</span><span>Deployment effort, recurring service cost, continuation, and customer value</span></div>
+        </div>
+        <p className="pitch-note">
+          This is a delivery milestone, not a claim that these customers already exist. Direct deployments
+          do not wait on the MSP channel or on future network capabilities.
+        </p>
+        <h3 className="pitch-h3">Where the first companies come from</h3>
+        <p>
+          The trades are the proof lane, not the market. Forge already has production history there,
+          workflow density is high, and owner-operated firms carry substantial repetitive coordination
+          work. Sabina is horizontal at the product level; the trades are where we enter.
+        </p>
+        <p>
+          Founding seats are a separate, limited offer, awarded by application, with the founding
+          employer helping shape the product through real use. The founding offer is part of this cohort,
+          not the size of it.
+        </p>
+        <p><a href="https://hiresabina.ai/hire#founding">See current founding availability</a></p>
+      </Chapter>
+
+      {/* ── VIII ──────────────────────────────────────────────────────────── */}
+      <Chapter n="VIII" kicker="MSP distribution" id="msp" dark title={<>A service MSPs can bring to <em>the companies they already support.</em></>}>
         <p className="darkband-lead">
-          <strong>Where the boundaries are.</strong> Company information is not pooled across customers by default. Any future cross-company use
-          of eligible derived patterns requires written agreements, permissions and privacy design.
-          Current shared infrastructure, third-party processing and record-delivery limits are disclosed
-          on the <a href="https://hiresabina.ai/trust">trust page</a>.
+          Once direct delivery is repeatable, the intended channel is managed service providers. MSPs bring
+          customer relationships and operating familiarity. Foundry supplies the trained model, proprietary
+          systems, platform operation, and continued development.
+        </p>
+        <div className="pitch-rows">
+          <div><span>Foundry</span><span>Model and platform engineering, inference operation, updates, core controls, escalated platform support.</span></div>
+          <div><span>MSP</span><span>Customer relationship, local systems context, agreed onboarding assistance, adoption, and account support.</span></div>
+          <div><span>Jointly defined</span><span>Administration, support boundaries, billing, service measurement, and economics.</span></div>
+        </div>
+        <p className="darkband-lead">
+          This is the intended responsibility split, not a live program. There are no published partner
+          terms, rates or launch dates.
         </p>
       </Chapter>
 
-      {/* ── 9 ─────────────────────────────────────────────────────────────── */}
-      <Chapter n="IX" kicker="Why this becomes a network" id="network" title={<>One substrate. One compounding record. <em>Several things to sell.</em></>}>
+      {/* ── IX ────────────────────────────────────────────────────────────── */}
+      <Chapter n="IX" kicker="Company intelligence and the data thesis" id="intelligence" title={<>Useful work builds a deeper <em>understanding of the company.</em></>}>
         <p>
-          The structural precedent is not field-service software. It is data and intelligence
-          infrastructure — companies whose durable value came from a standardized proprietary record
-          created inside the work their customers were already paying for, rather than from the
-          workflow product itself.
+          The operational record can connect instructions, communications, decisions, and outcomes. That
+          company-specific understanding can support better questions, richer analysis, and additional
+          responsibilities within the company’s authority.
         </p>
+        <ol className="pitch-layers pitch-layers-compact">
+          <li><h3>Company context and learning</h3><p>Supporting the initial service: what the company teaches, corrects and authorizes informs the next piece of work.</p></li>
+          <li><h3>Deeper company analysis</h3><p>As supported capabilities and evidence develop.</p></li>
+          <li><h3>External context and permissioned derived patterns</h3><p>Later: analysis alongside external context, and broader intelligence from eligible derived patterns, only with separate, specific agreement.</p></li>
+        </ol>
         <p>
-          Verisk is the clearest version of the pattern: data contributed by customers and data
-          generated inside the transactions its products support, turned into risk analytics embedded
-          back in the workflow. CoStar is the other half of the argument — the enduring value of a
-          comprehensive standardized record, assembled from research, public, user and acquired
-          sources. Our thesis applies that pattern to <em>business decisions</em> rather than claims or
-          properties: decisions joined to authority, evidence, alternatives and outcomes.
+          The structural precedent is data and intelligence infrastructure, such as Verisk and CoStar, whose
+          durable value came from a standardized record created inside the work their customers were
+          already paying for. These are business-model analogies, not evidence that our future intelligence
+          products already exist.
         </p>
         <p className="pitch-note">
-          These are business-model analogies. They are not evidence that our future intelligence
-          products or their margins already exist — the network layer is described in the pending
-          application and is not operating today.
+          Broader intelligence is a longer-term opportunity. Raw company email is not pooled into a shared
+          model or sold, any use of eligible derived information beyond a company’s own service requires
+          its separate, specific agreement, and the initial customer offer does not depend on future network
+          revenue. Both financial scenarios in chapter XI assign it $0.
         </p>
-        <div className="pitch-chain">
-          {['Sabina seat revenue', 'funds governed execution', 'which creates a decision-grade record', 'which improves company intelligence', 'which scales into network and external intelligence'].map((s, i) => (
-            <span className="pitch-chain-step" key={s}>{i > 0 && <em>↓</em>}{s}</span>
-          ))}
-        </div>
       </Chapter>
 
-      {/* ── 10 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="X" kicker="The moat" id="moat" title={<>Features can be copied. <em>Governed history cannot be backfilled.</em></>}>
+      {/* ── X ─────────────────────────────────────────────────────────────── */}
+      <Chapter n="X" kicker="Competitive position and defensibility" id="position" title={<>The advantage is in <em>the delivered company system.</em></>}>
+        <p>
+          Foundry combines model adaptation, company memory, defined authority, and ongoing operation in a
+          company-specific service. Its commercial objective is to make that complete system practical and
+          affordable for businesses that cannot build and operate the stack themselves.
+        </p>
+        <ul className="pitch-list">
+          <li>Leena AI and WRITER publish meaningful architecture overlap: custom or company models, memory, and governed execution.</li>
+          <li>H2O.ai and Personal AI are further relevant comparisons for private or custom models and persistent memory.</li>
+          <li>Physical, on-premises deployments are one comparison group; hosted enterprise platforms are another.</li>
+          <li>Low-cost agent subscriptions are not the price of a complete, comparable company system, and no like-for-like service price was verified.</li>
+        </ul>
         <ol className="pitch-layers pitch-layers-compact">
           <li><h3>Residency</h3><p>She works on the system of record rather than visiting one task through a narrow integration.</p></li>
-          <li><h3>A mandatory governance path</h3><p>Consequential effects traverse the authority and execution boundary rather than going around it.</p></li>
+          <li><h3>A mandatory authority path</h3><p>Consequential effects traverse the authority and execution boundary rather than going around it.</p></li>
           <li><h3>Decision chronology</h3><p>The record is created before the outcome, which is why it cannot be manufactured afterwards.</p></li>
-          <li><h3>Company-specific institutional learning</h3><p>Company instructions, corrections and recorded outcomes provide context for subsequent work. Ownership and delivery terms are set in the agreement; portability is not a measured claim here.</p></li>
-          {/* ⛔ kimi #3, round 3: this read "Owned model and training path — we
-              control the weights, training and inference path". Next to five
-              other moat bullets that reads as proprietary model IP, and the
-              first diligence question is "whose weights?". The true answer —
-              open weights, self-hosted, no third-party inference provider in a
-              customer path — is the stronger one and is what it now says.
-              ⛔ Never claim a trained foundation model here; chapter II's
-              disclaimer and chapter XVIII's wording must stay consistent with
-              this bullet. */}
-          <li><h3>Inference path</h3><p>How your information is processed depends on the service path in use. See the <a href="https://hiresabina.ai/trust">current processing and privacy disclosures</a> before sharing business material.</p></li>
-          {/* qwen F1, round 3: §10's moat is "the combination", and
-              cross-company pattern discovery was the one canon element stated
-              only in chapters VIII/IX and missing here. It carries the SAME
-              permission qualifier and the SAME roadmap status it carries
-              there — ⛔ a moat bullet is not a licence to drop the hedge. */}
-          <li><h3>Cross-company pattern discovery, where permitted</h3><p>Where contracts, permissions and governance permit it, eligible derived patterns across companies can support discovery no single company could reach alone — returned to each as its own intelligence. Described in the pending application; not operating today.</p></li>
-          <li><h3>Filings and real deployment</h3><p>A pending application over the mechanism, and a substrate already carrying paid production work.</p></li>
+          <li><h3>Company-specific learning</h3><p>Company instructions, corrections and recorded outcomes provide context for subsequent work, on a core Foundry trains and operates.</p></li>
         </ol>
-        <p>
-          Our design focus is the decision between a conversation and its outcome: what was requested,
-          on whose authority, and what happened. A useful company record can preserve that context
-          alongside the transaction. This is our approach, not a claim of market exclusivity.
-        </p>
-      </Chapter>
-
-      {/* ── 11 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XI" kicker="The IP" id="ip" title={<>Filed with the USPTO. <em>Pending, not issued.</em></>}>
+        <h3 className="pitch-h3">Intellectual property · patent pending</h3>
         <p>
           {provisionals.publicCopy}, {provisionals.detailCopy.charAt(0).toLowerCase() + provisionals.detailCopy.slice(1)}
         </p>
         <p>
           {nonprov.publicCopy} was {nonprov.detailCopy.charAt(0).toLowerCase() + nonprov.detailCopy.slice(1)} It
-          describes proof-carrying governed execution of autonomous work, and the contamination-resistant
-          derivation of decision-grade operational intelligence across a multi-company panel — the
-          mechanism behind both the governance argument and the compounding one.
+          describes proof-carrying governed execution of autonomous work, and the derivation of
+          decision-grade operational intelligence across a multi-company panel.
         </p>
         <p className="pitch-note">
-          ⛔ Stated precisely, because the difference matters in diligence: these are <strong>filings,
-          not granted rights</strong>. Nothing here is patented, issued or protected by an issued
-          patent, and nothing on this page claims a competitor is blocked. The correct reading is
-          patent pending.
+          These are <strong>filings, not granted rights</strong>. Nothing here is patented or issued, and
+          nothing on this page claims exclusivity or that a competitor is blocked.
         </p>
       </Chapter>
 
-      {/* ── 12 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XII" kicker="Market entry" id="market" dark title={<>The trades are the <em>proof lane</em>, not the market.</>}>
-        <p className="darkband-lead">
-          Sabina is horizontal at the product level. Every office that carries a front desk has the
-          problem she is built for: calls that go unanswered, follow-through that depends on one
-          person’s memory, and knowledge that leaves when they do.
-        </p>
-        <p className="darkband-lead">
-          We enter through commercial trade contractors for four reasons, and none of them is that the
-          product only works there. Forge already has production history in the trades. Workflow density
-          is high. Owner-operated and midmarket firms carry substantial repetitive coordination work.
-          And the operational data is unusually rich, which matters for everything in chapter VIII.
-        </p>
-        <p className="darkband-lead">
-          The initial Forge customer profile is commercial trade contractors of roughly 12–50 employees;
-          roofing, security and AV reflect where we are working today. That is a first go-to-market
-          segment, and it is deliberately not the addressable market for Sabina or for Dominus Foundry.
-        </p>
-      </Chapter>
-
-      {/* ── 13 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XIII" kicker="The founding-customer motion" id="founding" title={<>She is <em>recruited</em>, not sold.</>}>
-        <p>
-          A limited number of founding seats, awarded by application. Start with a short operational
-          assessment of your business. Then meet Mark to discuss the product and fit. If there is a fit,
-          bring her on. Founding Employers help polish the product through real use.
-        </p>
-        <p><a href="https://hiresabina.ai/hire#founding">See current founding availability</a></p>
-        <p className="pitch-note">
-          There is no rate card and no published figure on any surface. Start with a short operational
-          assessment of your business. Qualification stays with the work rather than with a price a
-          visitor self-selects against.
-        </p>
-      </Chapter>
-
-      {/* ── 14 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XIV" kicker="The economics" id="economics" title={<>Two scenarios. One shows we survive a no. <em>The other shows what the round buys.</em></>}>
+      {/* ── XI ────────────────────────────────────────────────────────────── */}
+      {/* ⛔ THE FLOOR CARRIES 2% MONTHLY LOGO CHURN — ruled by Mark 2026-09-16,
+          "Pitch has 2%" (R10). Every figure here comes from ./claims; FLOOR is
+          derived by scripts/floor-churn-model.mjs. Do not hand-edit a number.
+          ⛔ The owned-inference milestone (FUNDED rows) is carried as modeled
+          and NOT reconciled here — see the 2026-10-07 retool report. */}
+      <Chapter n="XI" kicker="Economics, capital, and milestones" id="economics" title={<>Capital to expand <em>repeatable Managed AI delivery.</em></>}>
         <div className="pitch-figures">
           <Figure value={OBSERVED_BASELINE.value} label={OBSERVED_BASELINE.label} foot={`observed · as of ${OBSERVED_BASELINE.asOf}`} />
           <Figure value={FLOOR.arr} label="Month-36 recurring revenue, floor case" foot={`modeled · as of ${FLOOR.asOf}`} />
@@ -411,20 +409,8 @@ export default function PitchContent() {
           observed customer figure — and not Sabina’s price, which is quoted per company and appears on
           no surface.
         </p>
-      </Chapter>
 
-      {/* ── 15 ────────────────────────────────────────────────────────────── */}
-      {/* ⛔ THE FLOOR CARRIES 2% MONTHLY LOGO CHURN — ruled by Mark 2026-09-16,
-          "Pitch has 2%" (R10). Round 3 disclosed a zero-churn assumption in
-          prose and left the workbook's numbers alone; this is the stronger
-          version of that fix — the numbers themselves now have churn in them,
-          so there is no assumption left to disclose and the title goes back to
-          stating the argument.
-          ⛔ Every figure in this chapter comes from FLOOR in ./claims, which is
-          derived by scripts/floor-churn-model.mjs — a script whose zero-churn
-          control must reproduce the workbook across 252 cells before its 2% run
-          means anything. Do not hand-edit a number here. */}
-      <Chapter n="XV" kicker="Without a raise" id="floor" title={<>The floor case exists to show <em>the business does not die on a no.</em></>}>
+        <h3 className="pitch-h3">Without a raise: the floor case</h3>
         <p>
           The conservative case assumes no raise and one new company a month — the throughput two
           founders can actually onboard — and it models the same <strong>2% monthly logo churn</strong>{' '}
@@ -433,10 +419,9 @@ export default function PitchContent() {
           month 36.
         </p>
         <p>
-          The point of publishing it is what it does <em>not</em> do: with churn in the model it still
-          never runs out of money. The trough is in month 5, it is cash-flow positive from month 6, and
-          it ends month 36 with roughly twenty-seven times the cash it started with. That is the whole
-          claim — not that this is the plan, but that a no does not end the company.
+          With churn in the model it still never runs out of money. The trough is in month 5, it is
+          cash-flow positive from month 6, and it ends month 36 with roughly twenty-seven times the cash it
+          started with. The point is not that this is the plan, but that a no does not end the company.
         </p>
         <div className="pitch-rows">
           {FLOOR.rows.map(([k, v]) => (
@@ -447,14 +432,9 @@ export default function PitchContent() {
           Modeled, not observed — {FLOOR.sourceLabel}, as of {FLOOR.asOf}. It is the floor, not the
           plan. <strong>It assigns $0 of revenue to the future network business.</strong>
         </p>
-      </Chapter>
 
-      {/* ── 16 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XVI" kicker="What funding changes" id="funded" title={<>Capital buys <em>onboarding capacity.</em> It does not buy the answer to whether this works.</>}>
+        <h3 className="pitch-h3">What funding changes</h3>
         <p>
-          {/* ⛔ Both cases now carry the same 2% churn (R10), so churn is no
-              longer what separates them and this sentence must not imply it is.
-              The single variable is onboarding throughput. */}
           The funded case holds revenue per seat constant and the churn assumption identical, and changes
           one thing: how many companies we can bring on. It reaches <strong>{FUNDED.seats} seats</strong>{' '}
           and <strong>{FUNDED.arr}</strong> at month 36.
@@ -468,10 +448,8 @@ export default function PitchContent() {
           Modeled, not observed — {FUNDED.sourceLabel}. Neither scenario is a new pricing quote, and the
           funded case also assigns <strong>$0</strong> to the network business.
         </p>
-      </Chapter>
 
-      {/* ── 17 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XVII" kicker="The capital" id="raise" dark title={<>{RAISE.amount} to turn founder-built proof into <em>repeatable deployment.</em></>}>
+        <h3 className="pitch-h3">The raise</h3>
         <div className="pitch-terms">
           <div><span>Instrument</span><strong>{RAISE.instrument}</strong></div>
           <div><span>Raise</span><strong>{RAISE.amount}</strong></div>
@@ -479,7 +457,7 @@ export default function PitchContent() {
           <div><span>Dilution at full raise</span><strong>{RAISE.dilution}</strong></div>
           <div><span>Minimum check</span><strong>{RAISE.minimum}</strong></div>
         </div>
-        <div className="pitch-rows pitch-rows-dark">
+        <div className="pitch-rows">
           {USE_OF_FUNDS.map((r) => (
             <div key={r.use}>
               <span>{r.use} — {r.amount} <em>({r.share}%)</em></span>
@@ -491,40 +469,15 @@ export default function PitchContent() {
         <ol className="pitch-list pitch-list-num">
           {MILESTONES.map((m) => <li key={m}>{m}</li>)}
         </ol>
-        <p className="darkband-lead">
-          Bootstrapped to date. We are raising to increase onboarding capacity and accelerate
-          distribution, without changing the core pricing discipline. The round funds speed,
-          repeatability and a larger margin of safety while the product moves from founder deployment to
-          a company-owned operating system.
+        <p>
+          Bootstrapped to date. The round funds speed, repeatability and a larger margin of safety while
+          delivery moves from founder deployment to a repeatable Managed AI operation.
         </p>
         <p className="pitch-note">{RAISE.sourceLabel} · as of {RAISE.asOf}. The use-of-funds split is the founder’s stated intent; the 30 August workbook models no raise.</p>
       </Chapter>
 
-      {/* ── 18 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XVIII" kicker="Why now" id="why-now" title={<>The constraint moved from <em>capability</em> to <em>authority.</em></>}>
-        <p>
-          Models crossed the line where they can carry consequential business work about eighteen months
-          ago. What did not arrive with them was any way for an owner to say, in writing and in advance,
-          what the system may do — and to show afterwards what it did and on whose authority. That gap
-          is why so much corporate AI is still confined to drafting.
-        </p>
-        <p>
-          Meanwhile employees are already using unsanctioned AI on company work, because the sanctioned
-          internal option is weak or does not exist. Every month that continues, a business accumulates
-          exposure and no record. The companies that will own the operating record of the next decade
-          are the ones instrumenting it now, before the volume exists to make it valuable.
-        </p>
-        {/* ⛔ kimi #3, round 3: must stay consistent with moat layer 5 above.
-            "Self-hosted open weights", never "owned weights" — the claim is
-            custody of the serving path, not ownership of a model we trained. */}
-        <p>
-          The other half is cost. Serving open weights for many companies is affordable at a scale it
-          was not eighteen months ago, and it is a line item in this round.
-        </p>
-      </Chapter>
-
-      {/* ── 19 ────────────────────────────────────────────────────────────── */}
-      <Chapter n="XIX" kicker="The founders" id="founders" title={<>Built by operators who have lived <em>the back office.</em></>}>
+      {/* ── XII ───────────────────────────────────────────────────────────── */}
+      <Chapter n="XII" kicker="Founders and next action" id="founders" title={<>Built by operators who have lived <em>the back office.</em></>}>
         <div className="pitch-founders">
           <article>
             <h3>Mark Lord</h3>
@@ -552,20 +505,19 @@ export default function PitchContent() {
           lead, so selling and onboarding become systems rather than founder-only work.
         </p>
         <p className="pitch-note">
-          Family-held, and built and held by the Lord family. <em>Fide et Familia.</em> That is the
-          company’s identity and the reason it is built for a long hold — it is not the investment
-          thesis, which is everything above it.
+          Owned by Mark and Bri Lord, and built and held by the Lord family. <em>Fide et Familia.</em>
+          That is the company’s identity and the reason it is built for a long hold — it is not the
+          investment thesis, which is everything above it.
         </p>
       </Chapter>
 
-      {/* ── 20 ────────────────────────────────────────────────────────────── */}
       <CTA
         eyebrow="Next step"
-        title={<>Customers hire Sabina for what she does.<br /><em>Investors back Dominus Foundry for what her governed work becomes.</em></>}
+        title={<>Direct company value. Repeatable Managed AI delivery.<br /><em>MSP distribution, and the company intelligence that grows from the work.</em></>}
         lead={<>{awrSabina.publicCopy}. <a href="https://hiresabina.ai/hire#founding">See current founding availability</a>. We are glad to put you in front of the customer before we put you in front of the model.</>}
         actions={
           <>
-            <a className="btn btn-solid" href={mailto('Request a meeting — Dominus Foundry')}>Request a meeting {Icon.arr}</a>
+            <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment {Icon.arr}</a>
             <a className="btn btn-ghost" href={mailto('Reference call — All Weather Roofing')}>Request the customer reference {Icon.arr}</a>
             <a className="btn btn-ghost" href={mailto('Diligence pack — Dominus Foundry')}>Request the diligence pack {Icon.arr}</a>
           </>

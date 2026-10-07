@@ -49,7 +49,7 @@ const faq = [
   },
   {
     q: "How does Forge handle data security?",
-    a: "Forge data is encrypted in transit and at rest, isolated per customer in a multi-tenant architecture with row-level security, and remains exportable on request.",
+    a: "Each company's records, operating instructions, and permissions remain specific to that company, and access follows the sources and authority it approves. Record delivery and data terms are set in the company's agreement.",
   },
 ];
 

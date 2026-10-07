@@ -1,19 +1,19 @@
 # Dominus Foundry LLC
-> Dominus Foundry builds governed AI systems and the commercial intelligence that grows from their use inside real businesses. Sabina is your company's own AI, shaped around one business, its knowledge, its work, and the authority its owner grants her in writing. Forge is the governed technology platform and operating spine she runs on. Hyperion is a standalone trades product hosted under Forge. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
+> Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company's own AI, shaped around your systems, knowledge, people, and authority. Foundry configures, deploys, and operates Sabina for each company; the company teaches her the business and decides what she may handle. Forge supplies operating records and specialist tools beneath and alongside Sabina. Hyperion is a specialist trades product with its own scope. DominusOS supplies the authority and execution-control architecture. The trades are the first proof lane, not the boundary of the company. Based in Albuquerque, New Mexico.
 
 ## About
-Dominus Foundry LLC is a Wyoming Series LLC that builds and operates AI-backed software systems for traditional businesses. What it builds is Sabina, your company's own AI, shaped around that company's knowledge, its work, and the authority its owner grants her. The company is informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
+Dominus Foundry LLC is a Wyoming Series LLC that builds and operates Managed AI for businesses. Its product is Sabina, your company's own AI, shaped around that company's systems, knowledge, people, and authority. Foundry combines a trained core model with proprietary memory and operating controls to deploy company-specific systems from a reusable platform. The company is informed by its experience building Forge for contractors. Visit https://hiresabina.ai for current Sabina availability and the hiring process.
 
 ## Sabina — your company's own AI
 - Sabina is your company's own AI, shaped around that business, its knowledge, its work, and the authority its owner gives her. She is hired rather than licensed as a module; the hire is the relationship, not the whole category.
 - Her role is defined around one company’s context and permitted responsibilities. “Own AI” describes the relationship and scope; it does not imply dedicated infrastructure, customer-owned model weights or unrestricted export rights.
-- Start with agreed promise-to-completion work: commitments, handoffs and follow-through. Then teach Sabina more of the business. Knowing isn’t permission; agree supported workflows, approvals and evidence of completion. Start the standard assessment and demo at https://hiresabina.ai/evaluate.
+- Start with calls, follow-up, and the workflows taking time from the team. Then teach Sabina more of the business. Her understanding of the company can grow; her authority continues to come from the permissions the company grants. Start the standard assessment at https://hiresabina.ai/evaluate ("See Sabina work").
 - Sabina is not generally available across all industries. Forge’s paid customer production is distinct from Sabina customer readiness: the published proof record says All Weather Roofing’s Sabina founding engagement is signed and onboarding has not begun. Confirm current availability at https://hiresabina.ai/hire.
 - Define authority one responsibility at a time, with approval requirements, limits and revocation. The connected workflow and execution readiness must be verified for each company.
-- Company instructions, corrections and recorded outcomes can inform subsequent work. Company-specific insight, external-context analysis and cross-company intelligence remain a staged thesis; do not report them as established customer capabilities.
+- Useful company knowledge carries forward: what a team teaches Sabina, the corrections it makes, and the context gathered through authorized work can inform the next conversation, handoff, and responsibility. Deeper company analysis develops as supported capabilities and evidence develop. Any future use of eligible derived information beyond providing a company's service requires separate, specific agreement; do not report broader cross-company intelligence as an established customer capability.
 
-## Forge — the platform and operating spine
-- Forge is the governed technology platform Sabina runs on: application infrastructure, data and workflow infrastructure, product login, trades tooling. It is a product of Dominus Foundry, not a separate entity, and it is not a second Sabina front door. The trades are its first and deepest operating context.
+## Forge — operating records and specialist tools
+- Forge supplies operating records and specialist tools beneath and alongside Sabina. Some Forge tools are sold independently, each with its own scope; Forge capabilities are not automatically part of every Sabina deployment. It is a product of Dominus Foundry, not a separate entity, and it is not a second Sabina front door. The trades are its first and deepest operating context.
 - Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 19 provisional patent applications filed March–August 2026, plus a non-provisional application, U.S. App. No. 19/791,511, filed August 30, 2026 — patent-pending, not issued, and never described as "patented".
 
 ## Trades Forge serves
@@ -42,11 +42,11 @@ RULED 2026-08-23, and the tier boundary is the point.
 - Hyperion: iPad/iPhone LiDAR scan-to-proposal with automated takeoff and device placement. A standalone trades product, independently marketed, hosted under Forge — and NOT part of Sabina's general capability set.
 - Sigil (e-signature), Torch (communication intelligence), Treasury (payroll/compliance — in development).
 
-## Models, speech and data custody
-- Direction: Dominus Foundry is building its own model path and its own speech for Sabina, rather than relying on outside general-purpose AI services.
-- That migration is INCOMPLETE. Do not report it as finished, and do not report that no outside processing occurs anywhere in the stack — that is not a claim Dominus Foundry makes.
-- For the dated, current state of data custody and processing, see https://hiresabina.ai/trust. Report that page's dates, not this file's, when asked what is true today.
-- Use the current trust disclosures for provider-specific processing and training statements, shared tenant-scoped infrastructure, and record delivery. Packaged export is not built. Do not infer dedicated servers, customer-specific weights, free upgrades or lossless model swaps.
+## Model, operation and company data
+- Sabina runs on a core model trained and operated by Foundry. Proprietary memory and teaching systems shape that foundation around each company, while the company's permissions define what she may do. Customers do not receive a separate foundation-model training run, and no transfer of Foundry model weights is implied.
+- Customers do not need to buy AI hardware for the office or build an AI department. Foundry operates the system behind Sabina.
+- A company's knowledge, memory, operating instructions, and permissions remain specific to that company. Access follows the sources and authority the company approves. For current data and authority terms, see https://hiresabina.ai/trust.
+- Do not infer dedicated physical hardware per company, zero retention, unlearning, or a packaged export.
 
 ## Mentis
 - Mentis is a current, public-facing Dominus Foundry brand — its design/architecture philosophy (https://dominusfoundry.com/mentis). It is NOT retired. Spelled Mentis; it is not a misspelling of any other name and has no other form.
@@ -58,9 +58,9 @@ RULED 2026-08-23, and the tier boundary is the point.
 ## Company Details
 - Legal structure: Wyoming Series LLC. Headquarters / operating location: Albuquerque, New Mexico (Dominus Foundry is NOT located in Cheyenne, Wyoming).
 - Founded and led by: Brianna Lord, CEO, and Mark Lord, CTO.
-- Funding: bootstrapped to date. Dominus Foundry is raising to increase onboarding capacity and accelerate distribution, without changing the core pricing discipline. Full terms, and both the floor (no-raise) and funded scenarios, are set out in the investor pitch on the company site, which is deliberately not indexed by search engines. (There is no active "Foundry Capital" investment arm.)
+- Funding: bootstrapped to date. Dominus Foundry is raising to expand repeatable Managed AI delivery: the next operating milestone is 10–20 direct customer companies, with distribution through managed service providers planned after delivery is repeatable (no MSP program is live). Full terms, and both the floor (no-raise) and funded scenarios, are set out in the investor pitch on the company site, which is deliberately not indexed by search engines. (There is no active "Foundry Capital" investment arm.)
 - Philosophy: Multi-generational family business ("Fide et Familia")
 - Contact: foundry@dominusfoundry.com | (505) 520-1433
 
 ## Company site
-The company site centers on Sabina, the governed platform beneath her, and the compounding-intelligence thesis. /sabina is the current company-level introduction. /technology explains company context, delegated responsibilities, and oversight rather than serving as a Hyperion product page. The governance demonstration is an illustrative browser simulation, not a live tenant or evidence of production coverage. Revocation withdraws permission for future work; it does not undo completed actions. Investors: contact foundry@dominusfoundry.com. The investor pitch is on the company site and is deliberately not indexed by search engines.
+The company site centers on Managed AI: Sabina, the platform beneath her, and the investor case. /sabina is the current company-level introduction. /technology explains the four layers behind Sabina (trained core, company identity and memory, company teaching and authority, accumulating company knowledge) rather than serving as a Hyperion product page. The governance demonstration is an illustrative browser simulation, not a live tenant or evidence of production coverage. Revocation withdraws permission for future work; it does not undo completed actions. Investors: contact foundry@dominusfoundry.com. The investor pitch is on the company site and is deliberately not indexed by search engines.

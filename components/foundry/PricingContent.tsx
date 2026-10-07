@@ -206,7 +206,7 @@ export default function PricingContent() {
           <p className="pricenote">Start with a short operational assessment of your business.</p>
           <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
-              Meet Sabina <span className="arr">→</span>
+              See Sabina work <span className="arr">→</span>
             </a>
           </div>
         </div>

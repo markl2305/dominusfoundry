@@ -124,7 +124,7 @@ function Footer() {
               <span className="brand-word">Dominus Foundry</span>
             </div>
             <p className="f-blurb">
-              Governed AI systems, and the commercial intelligence that grows from their use inside real businesses. Sabina is your company&apos;s own AI; Forge is the platform and operating spine she runs on. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
+              Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own AI, shaped around your systems, knowledge, people, and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.
             </p>
           </div>
           {FOOTER_COLS.map((col) => (

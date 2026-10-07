@@ -203,14 +203,14 @@ export default function IntakeForm() {
       </div>
 
       <div>
-        <label htmlFor="intake-automate" className={labelClass}>What do you want automated? *</label>
+        <label htmlFor="intake-automate" className={labelClass}>Where are calls, follow-up, or recurring work getting stuck? *</label>
         <textarea
           id="intake-automate"
           name="automate"
           required
           rows={4}
           className={inputClass}
-          placeholder="Tell us what's broken or what you're tired of doing manually..."
+          placeholder="Tell us what your team needs help carrying..."
         />
       </div>
 
@@ -239,7 +239,7 @@ export default function IntakeForm() {
       {error && <p role="alert" className="text-sm text-red-800">{error}</p>}
 
       <Button type="submit" disabled={sending} className="justify-center">
-        {sending ? "Sending…" : "Get my system design"}
+        {sending ? "Sending…" : "Send to the team"}
       </Button>
 
       <p className="text-xs text-slate-700 text-center">
