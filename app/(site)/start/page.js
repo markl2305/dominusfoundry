@@ -1,11 +1,13 @@
 import IntakeForm from "../../../components/IntakeForm";
 import ContactCTA from "../../../components/ContactCTA";
+import Button from "../../../components/Button";
 
 // RETOOL 2026-10-07 (HANDOFF §5.7): the retired seven-day system-design
 // promise, the coming-soon video placeholder and the bespoke-automation example
 // offer are removed. The IntakeForm (fields, /api/lead destination, consent and
 // sourceSystem "Intake Form") is unchanged; only its visible wording moved.
-// Turn 2: the hero had no CTA slot, so no link was added there (format freeze).
+// Turn 3: one hero link to the assessment, by seat-granted format exception
+// (HANDOFF §5.7 makes the assessment the primary action); existing Button.
 export const metadata = {
   title: "Start with Sabina — Dominus Foundry",
   description:
@@ -34,6 +36,7 @@ export default function StartPage() {
             <p className="body-foundry text-white md:text-lg">
               Tell us where calls, follow-up, or recurring work are getting stuck. We&apos;ll use that context to discuss where Sabina could begin in your company.
             </p>
+            <Button href="https://hiresabina.ai/evaluate">See Sabina work</Button>
           </div>
         </div>
       </section>
