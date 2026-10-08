@@ -1,7 +1,9 @@
 'use client'
 
 /* BlogContent.tsx — Foundry Notes (the blog). Ported from blog-page.jsx.
-   Cards link to the existing on-site blog posts. Dates and bylines come
+   An editorial index: the newest current essay leads, the rest follow as
+   ruled rows, and pieces tagged Archive sit in their own block below.
+   Rows link to the existing on-site blog posts. Dates and bylines come
    only from the articles themselves; where an article carries none, say so. */
 import { Icon } from './Marks'
 import { CTA, PageHero } from './FoundryShell'
@@ -37,6 +39,49 @@ const NOTES = [
   },
 ]
 
+type Note = (typeof NOTES)[number]
+
+const isArchived = (n: Note) => n.k.split(' · ').includes('Archive')
+/* The topic line without the Archive tag; the section heading carries that now. */
+const topic = (n: Note) => n.k.split(' · ').filter((part) => part !== 'Archive').join(' · ')
+
+const current = NOTES.filter((n) => !isArchived(n))
+const archive = NOTES.filter(isArchived)
+const [lead, ...rest] = current
+
+function NoteMeta({ n }: { n: Note }) {
+  return (
+    <p className="n-meta">
+      <span className="n-by">{n.m}</span>
+      <span className="n-topic">{topic(n)}</span>
+    </p>
+  )
+}
+
+function ReadLink() {
+  return (
+    <span className="n-read" aria-hidden="true">
+      Read <span className="arr">→</span>
+    </span>
+  )
+}
+
+/* One row in the index. The title link is stretched over the whole row, so the
+   row is one target while the accessible name stays the title alone. */
+function NoteRow({ n, archived = false }: { n: Note; archived?: boolean }) {
+  return (
+    <article className={archived ? 'note-row is-archived' : 'note-row'}>
+      <h3>
+        <a href={n.href}>{n.t}</a>
+      </h3>
+      <NoteMeta n={n} />
+      <p className="n-dek">{n.x}</p>
+      <ReadLink />
+      <span className="emberline" aria-hidden="true" />
+    </article>
+  )
+}
+
 export default function BlogContent() {
   return (
     <>
@@ -67,31 +112,44 @@ export default function BlogContent() {
       />
       <p className="wrap" style={{ paddingBlock: '24px', textAlign: 'center', color: 'var(--ink-2)' }}>Start with a short operational assessment of your business.</p>
 
-      <section className="pillars section" id="notes">
+      <section className="pillars section notes-index" id="notes">
         <div className="wrap">
-          <div className="pillars-head reveal">
-            <h2 className="serif">The archive.</h2>
-            <p className="eyebrow">Newest dated first</p>
-          </div>
-          <div className="post-grid reveal d1">
-            {NOTES.map((n) => (
-              <a className="post" href={n.href} key={n.t}>
-                <span className="p-k">{n.k}</span>
-                <span className="p-t serif">{n.t}</span>
-                <span
-                  className="p-m"
-                  style={{ display: 'block', margin: '-4px 0 12px', fontSize: '12.5px', letterSpacing: '0.04em', color: 'var(--ink-3)' }}
-                >
-                  {n.m}
-                </span>
-                <span className="p-x">{n.x}</span>
-                <span className="more">
-                  Read more <span className="arr">→</span>
-                </span>
-                <span className="emberline" />
-              </a>
-            ))}
-          </div>
+          {lead && (
+            <div className="notes-block reveal">
+              <div className="notes-head">
+                <h2>Current essays.</h2>
+                <p>Newest first</p>
+              </div>
+              <article className="note-lead">
+                <div className="n-main">
+                  <h3>
+                    <a href={lead.href}>{lead.t}</a>
+                  </h3>
+                  <NoteMeta n={lead} />
+                </div>
+                <div className="n-side">
+                  <p className="n-dek">{lead.x}</p>
+                  <ReadLink />
+                </div>
+                <span className="emberline" aria-hidden="true" />
+              </article>
+              {rest.map((n) => (
+                <NoteRow n={n} key={n.href} />
+              ))}
+            </div>
+          )}
+
+          {archive.length > 0 && (
+            <div className="notes-block notes-archive reveal d1">
+              <div className="notes-head">
+                <h2>Archive.</h2>
+                <p>Earlier essays, kept as written. They describe offerings that have since changed.</p>
+              </div>
+              {archive.map((n) => (
+                <NoteRow n={n} key={n.href} archived />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
