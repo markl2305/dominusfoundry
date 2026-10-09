@@ -87,6 +87,7 @@ export default function PitchContent() {
   const awrSabina = claim('awr-sabina')
   const awrForge = claim('awr-forge')
   const nonprov = claim('nonprovisional')
+  const nonprov2 = claim('nonprovisional-2')
   const provisionals = claim('provisionals')
   /* Filings are IP, not operating status: they render in chapter X. */
   const operating = PROOF.filter((c) => c.status !== 'filed')
@@ -378,6 +379,11 @@ export default function PitchContent() {
           {nonprov.publicCopy} was {nonprov.detailCopy.charAt(0).toLowerCase() + nonprov.detailCopy.slice(1)} It
           describes proof-carrying governed execution of autonomous work, and the derivation of
           decision-grade operational intelligence across a multi-company panel.
+        </p>
+        <p>
+          {nonprov2.publicCopy} was {nonprov2.detailCopy.charAt(0).toLowerCase() + nonprov2.detailCopy.slice(1)} It
+          describes governed organizational commitment reconciliation, constraint-aware work execution and
+          evidence-verified fulfillment: how a company&rsquo;s promises are tracked across systems and closed only on evidence.
         </p>
         <p className="pitch-note">
           These are <strong>filings, not granted rights</strong>. Nothing here is patented or issued, and

@@ -14,7 +14,7 @@ Dominus Foundry LLC is a Wyoming Series LLC that builds and operates Managed AI 
 
 ## Forge — operating records and specialist tools
 - Forge supplies operating records and specialist tools beneath and alongside Sabina. Some Forge tools are sold independently, each with its own scope; Forge capabilities are not automatically part of every Sabina deployment. It is a product of Dominus Foundry, not a separate entity, and it is not a second Sabina front door. The trades are its first and deepest operating context.
-- Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 19 provisional patent applications filed March–August 2026, plus a non-provisional application, U.S. App. No. 19/791,511, filed August 30, 2026 — patent-pending, not issued, and never described as "patented".
+- Forge (https://buildwithforge.app): a complete AI operations platform (NOT a CRM) for commercial trade contractors. Combines LiDAR spatial intelligence, automated takeoff, compliance automation, payroll, and communication intelligence. 19 provisional patent applications filed March–August 2026, plus two non-provisional applications: U.S. App. No. 19/791,511, filed August 30, 2026, and U.S. App. No. 19/817,646, a continuation-in-part filed September 23, 2026 (governed organizational commitment reconciliation, constraint-aware work execution and evidence-verified fulfillment) — patent-pending, not issued, and never described as "patented".
 
 ## Trades Forge serves
 RULED 2026-08-23, and the tier boundary is the point.

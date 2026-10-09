@@ -62,7 +62,7 @@ const disqualifiers = [
 
 const repGets = [
   "A product that exists and works \u2014 not a prototype or a roadmap",
-  "19 provisional patent applications plus a non-provisional filing — patent pending",
+  "19 provisional patent applications plus two non-provisional filings — patent pending",
   "A quoting process, competitive comparison docs, and demo environments",
   "Power dialer, CRM, and AI-assisted sales tools built in-house",
   "Direct founder access for deal strategy and closing support",
@@ -128,7 +128,7 @@ export default function CareersPage() {
                   Recruiting copy can be hungry without being rounder than the
                   investor page. ⛔ Keep this aligned to app/pitch/claims.ts; if
                   the ledger changes, this changes with it. */}
-              <strong>We have 19 provisional patent applications plus a non-provisional filing and a product running in production.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
+              <strong>We have 19 provisional patent applications plus two non-provisional filings and a product running in production.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
           </div>
         </div>

@@ -181,6 +181,15 @@ export const PROOF: PitchClaim[] = [
     sourceLabel: 'USPTO Electronic Acknowledgement Receipt',
   },
   {
+    id: 'nonprovisional-2',
+    publicCopy: 'U.S. non-provisional application 19/817,646',
+    detailCopy:
+      'Filed with the USPTO on 23 September 2026 as a continuation-in-part of 19/791,511, naming Mark F. Lord as inventor. Patent pending: filed, not issued.',
+    status: 'filed',
+    asOf: '2026-09-23',
+    sourceLabel: 'USPTO Electronic Acknowledgement Receipt',
+  },
+  {
     id: 'provisionals',
     publicCopy: '19 provisional applications filed with the USPTO',
     detailCopy:
