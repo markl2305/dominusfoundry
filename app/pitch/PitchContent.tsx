@@ -6,10 +6,12 @@
    charter's four exact paragraph checks remain intact; no gate is disabled.
    Current commercial pricing, company claims and financing reference terms
    still come from their existing sources. No customer status is upgraded.
+   Cross-industry from the outset: see AGENTS.md; no trades-first proof lane.
 */
 import { PageHero, CTA } from '@/components/foundry/FoundryShell'
 import { Icon } from '@/components/foundry/Marks'
 import FinancePlan from './FinancePlan'
+import IncomeOutlook from './IncomeOutlook'
 import {
   PROOF, STATUS_LABEL, claim,
   OBSERVED_BASELINE, FLOOR, FUNDED, HUMAN_COST,
@@ -50,7 +52,7 @@ export default function PitchContent() {
       metaRight={<>Terms as of <b>{RAISE.asOf}</b></>}
     />
     <Chapter n="I" kicker="Company thesis" id="company" title={<>Managed AI, starting with the work <em>companies already need handled.</em></>}>
-      <p>We begin with phone and workflow responsibilities companies already need handled. Our next operating milestone is 10–20 direct customer companies, establishing customer value and repeatable delivery before expanding distribution through managed service providers.</p>
+      <p>We work with businesses across industries, starting with the responsibilities each company needs its own AI to handle. Our next operating milestone is 10–20 direct customer companies, establishing customer value and repeatable delivery before expanding distribution through managed service providers.</p>
       <div className="pitch-chain">{['Direct company value', 'repeatable Managed AI delivery', 'MSP distribution', 'the company intelligence that grows from the work'].map((s, i) => <span className="pitch-chain-step" key={s}>{i > 0 && <em>↓</em>}{s}</span>)}</div>
       <p>The product shape is deliberate. <strong>Sabina</strong> is the company AI customers hire.<strong> Forge</strong> supplies operating records and specialist tools beneath and alongside her. <strong>Hyperion</strong> is a specialist trades product with its own scope.<strong> DominusOS</strong> supplies authority and execution control. The company is Dominus Foundry, family-held, built and run from Albuquerque.</p>
       <h3 className="pitch-h3">Why now</h3>
@@ -92,8 +94,8 @@ export default function PitchContent() {
       <p>The next cohort establishes which responsibilities customers value, how reliably Sabina carries them, what setup and support require, and how company knowledge improves subsequent work.</p>
       <div className="pitch-rows"><div><span>Company setup</span><span>Repeatable identity, private data boundary, sources, and initial configuration</span></div><div><span>Phone and workflows</span><span>Reliable execution of the agreed responsibilities</span></div><div><span>Company context</span><span>Useful ingestion, retrieval, corrections, and continuity</span></div><div><span>Authority</span><span>Teaching, approved scopes, runtime checks, approvals, revocation, and action records</span></div><div><span>Ongoing learning</span><span>Knowledge from authorized work used in later work or analysis</span></div><div><span>Operations</span><span>Monitoring, updates, support, recoverability, and capacity</span></div><div><span>Economics</span><span>Deployment effort, recurring service cost, continuation, and customer value</span></div></div>
       <p className="pitch-note">This is a delivery milestone, not a claim that these customers already exist. Direct deployments do not wait on the MSP channel or on future network capabilities.</p>
-      <h3 className="pitch-h3">Where the first companies come from</h3>
-      <p>The trades are the proof lane, not the market. Forge already has production history there, workflow density is high, and owner-operated firms carry substantial repetitive coordination work. Sabina is horizontal at the product level; the trades are where we enter.</p>
+      <h3 className="pitch-h3">Customer fit, across industries</h3>
+      <p>Initial customers are selected by their need for company-specific AI, the responsibilities they want handled, and the fit with their systems and deployment requirements. The initial 10–20 direct customer companies are drawn from a cross-industry market; no industry is the required starting point.</p>
       <p>Founding seats are a separate, limited offer, awarded by application, with the founding employer helping shape the product through real use. The founding offer is part of this cohort, not the size of it.</p>
       <p><a href="https://hiresabina.ai/hire#founding">See current founding availability</a></p>
     </Chapter>
@@ -120,6 +122,7 @@ export default function PitchContent() {
     </Chapter>
     <Chapter n="XI" kicker="Economics, capital, and milestones" id="economics" title={<>Capital to establish <em>repeatable Managed AI delivery.</em></>}>
       <FinancePlan />
+      <IncomeOutlook />
       <details className="pitch-evidence">
         <summary>Historical financial scenarios — superseded by the operating budget dated 12 October 2026</summary>
         <div>
