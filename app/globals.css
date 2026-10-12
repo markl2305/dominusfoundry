@@ -304,10 +304,15 @@ footer {
    fallbacks cover the moment before it is measured. */
 body:has([data-consent-bar]) {
   padding-bottom: var(--consent-bar-h, 11rem) !important;
+  /* Anvil r2 F1: the first-party chat launcher is position:fixed inside an open shadow root, so the padding
+     above cannot move it. Custom properties inherit through the shadow boundary; public/sabina-chat/
+     sabina-chat.css adds --consent-lift to the launcher's bottom offset. Set only while the bar is present. */
+  --consent-lift: var(--consent-bar-h, 11rem);
 }
 @media (min-width: 768px) {
   body:has([data-consent-bar]) {
     padding-bottom: var(--consent-bar-h, 6rem) !important;
+    --consent-lift: var(--consent-bar-h, 6rem);
   }
 }
 [data-consent-bar] {

@@ -36,9 +36,15 @@ const ANALYTICS_KEYS = /(^|[^a-z])(_ga|_gid|gclid|client_id|cid|tid|_gl|li_fat_i
 const TRACKER_HOSTS = /(^|\.)(googletagmanager\.com|google-analytics\.com|analytics\.google\.com|doubleclick\.net|licdn\.com|linkedin\.com|googleadservices\.com|googlesyndication\.com|elevenlabs\.io|va\.vercel-scripts\.com)$/;
 const GOOGLE_ADS_PATH = /^\/(ccm|rmkt|pagead|ads|measurement)\//;
 const GOOGLE_GA_PATH = /^\/g\/collect/;
-// Off-origin hosts that are not trackers and are expected on this site (the footer's LocateFaith badge image).
+// Off-origin hosts that are not trackers and are expected on this site, by exact name (round 4, anvil r2 F4):
+// the footer's LocateFaith badge image. A subdomain or any other host fails.
 const ALLOWED_HOSTS = (process.env.CONSENT_ALLOWED_HOSTS || 'locatefaith.com').split(',').filter(Boolean);
-const allowedHost = (h) => ALLOWED_HOSTS.some((a) => h === a || h.endsWith('.' + a));
+const allowedHost = (h) => ALLOWED_HOSTS.includes(h);
+// Self-test canaries (tests/consent/selftest-unknown-host.mjs): a fetch to an unknown host, fired before any choice
+// or right after Accept. The run MUST fail when either is set; the self-test checks that it does.
+const CANARY = process.env.CONSENT_SELFTEST_CANARY || '';
+// Every browser context this run opens, so the unknown-host check covers all of them, in every phase.
+const CONTEXTS = [];
 const isAds = (h) => /doubleclick\.net$|googleadservices\.com$|googlesyndication\.com$|^www\.google\.com\(ads\)$/.test(h.host) || /[?&]tid=AW-/.test(h.url);
 const isEleven = (h) => /elevenlabs/.test(h.host);
 const LOADERS = /^https:\/\/(www\.googletagmanager\.com\/gtag\/js|snap\.licdn\.com\/li\.lms-analytics\/insight\.min\.js)/;
@@ -65,7 +71,10 @@ async function fresh(browser, opts = {}) {
   const context = await browser.newContext({ javaScriptEnabled: js, extraHTTPHeaders: gpcHeader ? { 'Sec-GPC': '1' } : {} });
   if (gpcSignal) await context.addInitScript(() => { Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true, configurable: true }); });
   if (seedAccept) await context.addInitScript((k) => { try { if (!localStorage.getItem(k)) localStorage.setItem(k, '1.accept.0'); } catch (e) { /* none */ } }, KEY);
-  const rec = { phase: 'before', hits: [], off: [], assess: [], pageErrors: [] };
+  if (CANARY === 'after-accept') await context.addInitScript(() => { window.addEventListener('siteconsent', (e) => { if (e.detail === 'accept') fetch('https://unknown-selftest.invalid/after-accept').catch(() => {}); }); });
+  if (CANARY === 'before-choice') await context.addInitScript(() => { window.addEventListener('load', () => { fetch('https://unknown-selftest.invalid/before-choice').catch(() => {}); }); });
+  const rec = { phase: 'before', hits: [], off: [], assess: [], pageErrors: [], name: opts.name || `context ${CONTEXTS.length + 1}` };
+  CONTEXTS.push(rec);
   await context.route('**/*', async (route) => {
     const q = route.request(); const u = new URL(q.url());
     const t = trackerOf(u);
@@ -106,7 +115,7 @@ async function main() {
   const matrix = { label: LABEL, origin: ORIGIN, measured_at: new Date().toISOString(), pages: PAGES, states: {} };
   try {
     // 1 initial: no choice made
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: 'initial' });
       let bar = null;
       for (const p of PAGES) { await visit(page, p); if (bar === null) bar = await barCount(page); }
       const hosts = hostsIn(rec);
@@ -120,7 +129,7 @@ async function main() {
       await context.close(); }
 
     // 2 reject
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: 'reject' });
       await visit(page, PAGES[0]); const clicked = await choose(page, 'reject', rec);
       for (const p of PAGES) await visit(page, p);
       const hosts = hostsIn(rec);
@@ -133,7 +142,7 @@ async function main() {
       await context.close(); }
 
     // 3 accept
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: 'accept' });
       await visit(page, PAGES[0]); const before = hostsIn(rec);
       const clicked = await choose(page, 'accept', rec);
       for (const p of PAGES) await visit(page, p);
@@ -162,7 +171,7 @@ async function main() {
       await context.close(); }
 
     // 4 withdraw (accept, then "no analytics" on /privacy)
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: 'withdraw' });
       await visit(page, PAGES[0]); await choose(page, 'accept');
       await visit(page, '/privacy');
       const w = page.locator('[data-consent-withdraw]');
@@ -182,7 +191,7 @@ async function main() {
 
     // 5 GPC: signal, and header, each ALSO with a stored accept that GPC must override
     for (const [name, opts] of [['gpc_signal', { gpcSignal: true }], ['gpc_header', { gpcHeader: true }], ['gpc_signal_over_stored_accept', { gpcSignal: true, seedAccept: true }], ['gpc_header_over_stored_accept', { gpcHeader: true, seedAccept: true }]]) {
-      const { context, page, rec } = await fresh(browser, opts);
+      const { context, page, rec } = await fresh(browser, { ...opts, name });
       let bar = 0;
       for (const p of PAGES) { await visit(page, p); bar += await barCount(page); }
       const hosts = hostsIn(rec);
@@ -197,7 +206,7 @@ async function main() {
     }
 
     // 6 noscript
-    { const { context, page, rec } = await fresh(browser, { js: false });
+    { const { context, page, rec } = await fresh(browser, { js: false, name: 'noscript' });
       for (const p of PAGES) await visit(page, p);
       const hosts = hostsIn(rec);
       matrix.states.noscript = { hosts };
@@ -208,7 +217,7 @@ async function main() {
 
     // 7 the /start intake form after accept: the lead payload carries no analytics id, no analytics hit carries what
     //   was typed, and the lead_submit event's page_location carries no query string (the page is opened WITH one).
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: 'start form after accept' });
       await visit(page, '/start?utm_source=zq-matrix&ref=zq-query'); await choose(page, 'accept', rec);
       await page.fill('input[name="fullName"]', SENTINEL.name);
       await page.fill('input[name="company"]', SENTINEL.company);
@@ -242,7 +251,7 @@ async function main() {
       await context.close(); }
 
     // 7b /pitch is rendered as it is: no bar there, and with no choice made nothing is sent from it
-    { const { context, page, rec } = await fresh(browser);
+    { const { context, page, rec } = await fresh(browser, { name: '/pitch' });
       await visit(page, '/pitch');
       const bar = await barCount(page); const hosts = hostsIn(rec);
       const state = await page.evaluate(() => (window.SiteConsent ? String(window.SiteConsent.state()) : 'no-gate'));
@@ -253,30 +262,63 @@ async function main() {
       ok(bar === 0, '/pitch: no consent bar is mounted (the page renders as it is)');
       await context.close(); }
 
-    // 7c the bar covers nothing (anvil r1 F1) and names what the choice covers (Mark 2026-10-13). For each viewport
-    //    and page: no choice made, scroll to the very bottom, then no link or button outside the bar may intersect it.
+    // 7c the bar covers nothing (anvil r1 F1, r2 F1) and names what the choice covers (Mark 2026-10-13). For each
+    //    viewport and page: no choice made, scroll to the very bottom, then collect every interactive control in the
+    //    viewport, WALKING OPEN SHADOW ROOTS (the chat launcher lives in one), and
+    //    (a) geometry: no control outside the bar may intersect it;
+    //    (b) pointer: a real trial click (Playwright actionability, including "receives events" at the control's
+    //        click point) must succeed on every control AT PAGE BOTTOM: the lower half of the viewport, every
+    //        shadow-root control and the bar's own buttons. Not tried, and reported by name: controls in the upper
+    //        half (the site's fixed top nav covers the top of the viewport at any scroll, bar or not) and the
+    //        content of a closed <details> (the mobile menu; never clickable while closed, bar or not).
     { const ui = {};
       for (const [vw, vh] of [[390, 844], [1280, 720]]) {
         for (const p of ['/privacy', '/', '/start']) {
-          const { context, page } = await fresh(browser);
+          const { context, page } = await fresh(browser, { name: `ui ${p} @${vw}x${vh}` });
           await page.setViewportSize({ width: vw, height: vh });
           await visit(page, p);
           await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-          await page.waitForTimeout(600);
+          await page.waitForTimeout(800);
           const r = await page.evaluate(() => {
+            const SEL = 'a[href], button, input:not([type="hidden"]), select, textarea, [role="button"], [tabindex]:not([tabindex="-1"])';
+            const all = [];
+            const walk = (root, inShadow) => {
+              root.querySelectorAll(SEL).forEach((el) => all.push({ el, inShadow }));
+              root.querySelectorAll('*').forEach((el) => { if (el.shadowRoot) walk(el.shadowRoot, true); });
+            };
+            walk(document, false);
             const bar = document.querySelector('[data-consent-bar]');
-            if (!bar) return { bar: false };
-            const b = bar.getBoundingClientRect();
-            const hits = [...document.querySelectorAll('a, button, input, select, textarea, [role="button"]')]
-              .filter((el) => !bar.contains(el))
-              .map((el) => ({ el, r: el.getBoundingClientRect() }))
-              .filter(({ r }) => r.width > 0 && r.height > 0 && r.bottom > b.top && r.top < b.bottom && r.right > b.left && r.left < b.right)
-              .map(({ el, r }) => `${el.tagName.toLowerCase()} "${(el.textContent || el.getAttribute('aria-label') || el.getAttribute('href') || '').trim().slice(0, 40)}" y=${Math.round(r.top)}-${Math.round(r.bottom)}`);
-            return { bar: true, bar_top: Math.round(b.top), bar_bottom: Math.round(b.bottom), text: (bar.querySelector('p') || bar).textContent.trim(), covered: hits };
+            const b = bar ? bar.getBoundingClientRect() : null;
+            const desc = (el, r) => `${el.tagName.toLowerCase()} "${(el.getAttribute('aria-label') || el.textContent || el.getAttribute('href') || '').trim().slice(0, 40)}" y=${Math.round(r.top)}-${Math.round(r.bottom)}`;
+            const inView = []; const covered = []; const skipped = { upper_half: [], closed_details: [] };
+            all.forEach(({ el, inShadow }, i) => {
+              const r = el.getBoundingClientRect();
+              const cs = getComputedStyle(el);
+              if (!(r.width > 0 && r.height > 0) || cs.visibility === 'hidden' || r.bottom <= 0 || r.top >= innerHeight || r.right <= 0 || r.left >= innerWidth) return;
+              const det = el.closest('details');
+              if (det && !det.open && el.tagName !== 'SUMMARY') { skipped.closed_details.push(desc(el, r)); return; }
+              el.setAttribute('data-ui-probe', String(i));
+              const own = bar && bar.contains(el);
+              const bottom = inShadow || own || r.top >= innerHeight / 2;
+              if (!bottom) skipped.upper_half.push(desc(el, r));
+              inView.push({ id: String(i), own, inShadow, bottom, desc: desc(el, r) });
+              if (b && !own && r.bottom > b.top && r.top < b.bottom && r.right > b.left && r.left < b.right) covered.push((inShadow ? '[shadow] ' : '') + desc(el, r));
+            });
+            return { bar: !!bar, bar_top: b && Math.round(b.top), bar_bottom: b && Math.round(b.bottom), text: bar ? (bar.querySelector('p') || bar).textContent.trim() : '',
+              shadow_controls_seen: inView.filter((c) => c.inShadow).map((c) => c.desc), covered, inView, skipped };
           });
-          ui[`${p} @${vw}x${vh}`] = r;
+          const blocked = []; const tried = r.inView.filter((c) => c.bottom);
+          for (const c of tried) {
+            try { await page.locator(`[data-ui-probe="${c.id}"]`).first().click({ trial: true, timeout: 1500 }); }
+            catch (e) { blocked.push((c.inShadow ? '[shadow] ' : '') + c.desc); }
+          }
+          ui[`${p} @${vw}x${vh}`] = { bar: r.bar, bar_top: r.bar_top, bar_bottom: r.bar_bottom, text: r.text, controls_in_view: r.inView.length,
+            pointer_tried: tried.map((c) => (c.inShadow ? '[shadow] ' : '') + c.desc), shadow_controls_seen: r.shadow_controls_seen, covered: r.covered, pointer_blocked: blocked,
+            not_tried: r.skipped };
           ok(r.bar, `ui ${p} @${vw}x${vh}: the bar is shown with no choice`);
-          ok(r.bar && r.covered.length === 0, `ui ${p} @${vw}x${vh}: at the bottom of the page no link or control sits under the bar (${(r.covered || []).join('; ') || 'none'})`);
+          ok(r.shadow_controls_seen.length > 0, `ui ${p} @${vw}x${vh}: the walk reaches shadow-root controls (${r.shadow_controls_seen.join('; ') || 'none'})`);
+          ok(r.bar && r.covered.length === 0, `ui ${p} @${vw}x${vh}: no control, shadow roots included, sits under the bar (${r.covered.join('; ') || 'none'})`);
+          ok(r.bar && tried.some((c) => c.inShadow) && blocked.length === 0, `ui ${p} @${vw}x${vh}: a real pointer trial click reaches every control at page bottom, the chat launcher included (${tried.length} tried; blocked: ${blocked.join('; ') || 'none'})`);
           if (p === '/privacy' && vw === 390) {
             ok(r.bar && /Google Analytics/.test(r.text) && /Google Ads/.test(r.text) && /without cookies/.test(r.text), `ui: the bar names Google Analytics and cookieless Google Ads measurement ("${(r.text || '').slice(0, 160)}")`);
           }
@@ -286,7 +328,7 @@ async function main() {
       matrix.states.ui_bar = ui; }
 
     // 8 /privacy renders, and every Privacy link on the main pages resolves to it
-    { const { context, page } = await fresh(browser);
+    { const { context, page } = await fresh(browser, { name: 'privacy content and links' });
       const r = await page.goto(ORIGIN + '/privacy', { waitUntil: 'load' });
       const h1 = (await page.locator('h1').first().textContent().catch(() => '')) || '';
       const links = {};
@@ -321,6 +363,13 @@ async function main() {
       const start = startHtml.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
       ok(/A phone number alone is never permission to text you/.test(start), '/start form states the one rule next to the SMS box');
       await context.close(); }
+    // 9 unknown off-origin hosts, in EVERY context and EVERY phase (anvil r2 F4): before choice, after Accept,
+    //   reject, withdraw, GPC, form, UI and privacy-content contexts alike. Aborted requests count.
+    { const stray = CONTEXTS.map((rec) => ({ name: rec.name, hosts: strayIn(rec), urls: rec.off.filter((o) => !o.tracker && !allowedHost(o.host)).map((o) => `${o.phase} ${o.url.slice(0, 120)}`) }));
+      matrix.unknown_hosts_by_context = stray.filter((c) => c.hosts.length);
+      matrix.contexts_checked = CONTEXTS.length;
+      for (const c of stray) ok(c.hosts.length === 0, `unknown hosts, every phase — ${c.name}: none outside the tracker predicate and ${ALLOWED_HOSTS.join(', ')} (${c.urls.join('; ') || 'none'})`);
+    }
   } finally {
     await browser.close();
   }
