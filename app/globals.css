@@ -298,7 +298,18 @@ footer {
 /* Consent bar (public/consent/consent.js, compliance P1-1c, Mark 2026-10-12). The gate inserts it in-flow at the
    top of <body>; on this site the Foundry nav (.df-site .nav, position:fixed, z-index 200) sits on top of it and
    swallows the clicks, measured by tests/consent/tracking-matrix.mjs. So here it is pinned to the bottom edge,
-   above everything, without changing the shared gate file. It goes away as soon as a choice is made. */
+   above everything, without changing the shared gate file. It goes away as soon as a choice is made.
+   Anvil r1 F1: while it is shown, the page reserves its height at the bottom, so nothing at the end of a page
+   (footer links, the badge) sits under it. --consent-bar-h is the measured height (ConsentBar.tsx); the
+   fallbacks cover the moment before it is measured. */
+body:has([data-consent-bar]) {
+  padding-bottom: var(--consent-bar-h, 11rem) !important;
+}
+@media (min-width: 768px) {
+  body:has([data-consent-bar]) {
+    padding-bottom: var(--consent-bar-h, 6rem) !important;
+  }
+}
 [data-consent-bar] {
   position: fixed !important;
   left: 0;

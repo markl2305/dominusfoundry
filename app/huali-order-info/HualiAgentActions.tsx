@@ -1,6 +1,5 @@
-// The on-screen Huali™ order agent here was an ElevenLabs ConvAI widget (agent_3101kbgvsz5xe57v388y5qcrvvaf). It
-// was removed 2026-10-12 (compliance P1-1c): Mark ruled 2026-09-05 that ElevenLabs is not used, and a
-// distributor's account phone number and order went to it. Ordering is by phone until Mark decides otherwise.
+// Ordering is by phone (Mark 2026-10-13, compliance P1-1c). The record of what this replaced is in the
+// compliance evidence, 1c-foundry-gate-RESULT.md.
 export function HualiAgentActions() {
   return (
     <div className="space-y-3">

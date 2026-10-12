@@ -11,6 +11,9 @@
  * with an empty 204 (the request is recorded, never delivered), every same-origin write is answered with a
  * fixture, and every other off-origin request is aborted. Only the two tag LOADERS (gtag.js, insight.min.js)
  * are fetched for real, because without them no collection request can be observed at all.
+ * Round 3 (anvil r1 F4): EVERY off-origin request is recorded in rec.off, including the aborted ones, and the
+ * leak checks scan all of them, so a request outside the tracker predicate can no longer pass a zero check. Any
+ * off-origin host that is neither a tracker nor in CONSENT_ALLOWED_HOSTS fails the state it appears in.
  * Exit 1 on any failed assertion. CONSENT_EXPECT=red inverts nothing: it only labels the output.
  */
 import { writeFileSync } from 'node:fs';
@@ -29,20 +32,30 @@ const ANALYTICS_KEYS = /(^|[^a-z])(_ga|_gid|gclid|client_id|cid|tid|_gl|li_fat_i
 
 // Round 2: Google Ads (www.google.com/ccm|rmkt|pagead, googleadservices, googlesyndication, *.doubleclick.net) and
 // ElevenLabs (api.*.elevenlabs.io, and the unpkg-served @elevenlabs widget) are in the predicate.
-const TRACKER_HOSTS = /(^|\.)(googletagmanager\.com|google-analytics\.com|analytics\.google\.com|doubleclick\.net|licdn\.com|linkedin\.com|googleadservices\.com|googlesyndication\.com|elevenlabs\.io)$/;
-const GOOGLE_ADS_PATH = /^\/(ccm|rmkt|pagead|ads)\//;
+// Round 3 adds va.vercel-scripts.com, www.google.com/g/collect (GA) and www.google.com/measurement/conversion (Ads).
+const TRACKER_HOSTS = /(^|\.)(googletagmanager\.com|google-analytics\.com|analytics\.google\.com|doubleclick\.net|licdn\.com|linkedin\.com|googleadservices\.com|googlesyndication\.com|elevenlabs\.io|va\.vercel-scripts\.com)$/;
+const GOOGLE_ADS_PATH = /^\/(ccm|rmkt|pagead|ads|measurement)\//;
+const GOOGLE_GA_PATH = /^\/g\/collect/;
+// Off-origin hosts that are not trackers and are expected on this site (the footer's LocateFaith badge image).
+const ALLOWED_HOSTS = (process.env.CONSENT_ALLOWED_HOSTS || 'locatefaith.com').split(',').filter(Boolean);
+const allowedHost = (h) => ALLOWED_HOSTS.some((a) => h === a || h.endsWith('.' + a));
 const isAds = (h) => /doubleclick\.net$|googleadservices\.com$|googlesyndication\.com$|^www\.google\.com\(ads\)$/.test(h.host) || /[?&]tid=AW-/.test(h.url);
 const isEleven = (h) => /elevenlabs/.test(h.host);
 const LOADERS = /^https:\/\/(www\.googletagmanager\.com\/gtag\/js|snap\.licdn\.com\/li\.lms-analytics\/insight\.min\.js)/;
 const trackerOf = (u) => {
   if (TRACKER_HOSTS.test(u.hostname)) return u.hostname;
   if (/^(www\.)?google\.com$/.test(u.hostname) && GOOGLE_ADS_PATH.test(u.pathname)) return 'www.google.com(ads)';
+  if (/^(www\.)?google\.com$/.test(u.hostname) && GOOGLE_GA_PATH.test(u.pathname)) return 'www.google.com(ga)';
   if (u.hostname === 'unpkg.com' && /@elevenlabs\//.test(u.pathname)) return 'unpkg.com(@elevenlabs)';
   if (u.pathname.startsWith('/_vercel/insights')) return 'vercel-insights(same-origin)';
   return null;
 };
 const adsIn = (rec, phase) => rec.hits.filter((h) => (!phase || h.phase === phase) && isAds(h));
 const elevenIn = (rec, phase) => rec.hits.filter((h) => (!phase || h.phase === phase) && isEleven(h));
+// Off-origin requests that are neither trackers nor allowed hosts (recorded even when aborted).
+const strayIn = (rec, phase) => [...new Set(rec.off.filter((o) => (!phase || o.phase === phase) && !o.tracker && !allowedHost(o.host)).map((o) => o.host))].sort();
+// Every request a leak check must look at: tracker hits plus every off-origin attempt.
+const allOut = (rec) => [...rec.hits, ...rec.off.filter((o) => !o.tracker)];
 
 let failures = 0; const results = [];
 function ok(cond, label) { results.push({ ok: !!cond, label }); if (cond) console.log(`  ok   ${label}`); else { failures += 1; console.error(`  FAIL ${label}`); } }
@@ -52,10 +65,11 @@ async function fresh(browser, opts = {}) {
   const context = await browser.newContext({ javaScriptEnabled: js, extraHTTPHeaders: gpcHeader ? { 'Sec-GPC': '1' } : {} });
   if (gpcSignal) await context.addInitScript(() => { Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true, configurable: true }); });
   if (seedAccept) await context.addInitScript((k) => { try { if (!localStorage.getItem(k)) localStorage.setItem(k, '1.accept.0'); } catch (e) { /* none */ } }, KEY);
-  const rec = { phase: 'before', hits: [], assess: [], pageErrors: [] };
+  const rec = { phase: 'before', hits: [], off: [], assess: [], pageErrors: [] };
   await context.route('**/*', async (route) => {
     const q = route.request(); const u = new URL(q.url());
     const t = trackerOf(u);
+    if (u.origin !== ORIGIN) rec.off.push({ phase: rec.phase, host: u.hostname, tracker: !!t, method: q.method(), url: q.url(), body: q.postData() || '', blocked: !t });
     if (t) {
       rec.hits.push({ phase: rec.phase, host: t, method: q.method(), url: q.url(), body: q.postData() || '' });
       if (LOADERS.test(q.url())) return route.continue();
@@ -100,6 +114,8 @@ async function main() {
       ok(hosts.length === 0, `initial: zero analytics/advertising requests before any choice (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec).length === 0, `initial: zero Google Ads requests (doubleclick / google.com ccm|rmkt|pagead / googleadservices / tid=AW-) (${adsIn(rec).length})`);
       ok(elevenIn(rec).length === 0, `initial: zero ElevenLabs requests on any page, /privacy included (${elevenIn(rec).length})`);
+      matrix.states.initial.offorigin_hosts = [...new Set(rec.off.map((o) => o.host + (o.tracker ? '' : '(not tracker)')))].sort();
+      ok(strayIn(rec).length === 0, `initial: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec).join(', ') || 'none'})`);
       ok(bar > 0, 'initial: the consent bar is shown');
       await context.close(); }
 
@@ -112,6 +128,7 @@ async function main() {
       ok(clicked, 'reject: "No analytics" button exists and was pressed');
       ok(hosts.length === 0, `reject: zero analytics requests (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec).length === 0, `reject: zero Google Ads requests (${adsIn(rec).length})`);
+      ok(strayIn(rec).length === 0, `reject: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec).join(', ') || 'none'})`);
       ok(await barCount(page) === 0, 'reject: the bar does not come back on later pages');
       await context.close(); }
 
@@ -139,6 +156,7 @@ async function main() {
       ok(adsIn(rec, 'before').length === 0, `accept: zero Google Ads requests before the click (${adsIn(rec, 'before').length})`);
       ok(gcl.length === 0, `accept ("Allow analytics"): no Google Ads cookie or storage (_gcl*) is written (${gcl.join(', ') || 'none'})`);
       ok(elevenIn(rec).length === 0, `accept: zero ElevenLabs requests (${elevenIn(rec).length})`);
+      ok(strayIn(rec, 'before').length === 0, `accept, before the click: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec, 'before').join(', ') || 'none'})`);
       const leaky = rec.hits.filter((h) => /google-analytics/.test(h.host) && /[?&]dl=[^&]*%3F/.test(h.url));
       ok(leaky.length === 0, 'accept: no GA4 hit carries a query string in its page location');
       await context.close(); }
@@ -158,6 +176,7 @@ async function main() {
       ok(has, 'withdraw: /privacy has a withdraw control');
       ok(hosts.length === 0, `withdraw: zero analytics requests after withdrawing (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec, 'after').length === 0, `withdraw: zero Google Ads requests after withdrawing (${adsIn(rec, 'after').length})`);
+      ok(strayIn(rec, 'after').length === 0, `withdraw: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec, 'after').join(', ') || 'none'})`);
       ok(cookies.length === 0, `withdraw: first-party analytics cookies cleared (${cookies.join(', ') || 'none'})`);
       await context.close(); }
 
@@ -171,6 +190,7 @@ async function main() {
       matrix.states[name] = { hosts, bar_shown: bar > 0, gate_state: state };
       ok(hosts.length === 0, `${name}: zero analytics requests (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec).length === 0, `${name}: zero Google Ads requests (${adsIn(rec).length})`);
+      ok(strayIn(rec).length === 0, `${name}: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec).join(', ') || 'none'})`);
       ok(bar === 0, `${name}: no consent prompt`);
       ok(state === 'gpc', `${name}: the gate reports gpc (${state})`);
       await context.close();
@@ -183,6 +203,7 @@ async function main() {
       matrix.states.noscript = { hosts };
       ok(hosts.length === 0, `noscript: zero analytics requests (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec).length === 0 && elevenIn(rec).length === 0, `noscript: zero Google Ads and ElevenLabs requests (${adsIn(rec).length}/${elevenIn(rec).length})`);
+      ok(strayIn(rec).length === 0, `noscript: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec).join(', ') || 'none'})`);
       await context.close(); }
 
     // 7 the /start intake form after accept: the lead payload carries no analytics id, no analytics hit carries what
@@ -201,8 +222,9 @@ async function main() {
       const keys = saved ? JSON.stringify(Object.keys(saved.json)) : '';
       const typed = [...Object.values(SENTINEL), 'zq sentinel automate text'];
       const enc = (s) => [s, encodeURIComponent(s), encodeURIComponent(s).replace(/%20/g, '+')];
-      const leaks = rec.hits.filter((h) => typed.some((v) => enc(v).some((e) => (h.url + h.body).includes(e))));
-      const queryLeaks = rec.hits.filter((h) => /zq-matrix|zq-query/.test(h.url + h.body));
+      const leaks = allOut(rec).filter((h) => typed.some((v) => enc(v).some((e) => (h.url + h.body).includes(e))));
+      const queryLeaks = allOut(rec).filter((h) => /zq-matrix|zq-query/.test(h.url + h.body));
+      matrix.states.start_form_after_accept_offorigin_recorded = rec.off.length;
       const gaEvents = [...new Set(rec.hits.flatMap((h) => [...(h.url + '\n' + h.body).matchAll(/(?:^|[?&\n])en=([^&\n]+)/g)].map((m) => decodeURIComponent(m[1]))))].sort();
       matrix.states.start_form_after_accept = {
         lead_posts: rec.assess.length, lead_keys: keys, analytics_key_hits: (keys.match(ANALYTICS_KEYS) || []).filter(Boolean),
@@ -227,8 +249,41 @@ async function main() {
       matrix.states.pitch_initial = { hosts, bar_shown: bar > 0, gate_state: state };
       ok(hosts.length === 0, `/pitch: zero analytics requests with no choice (${hosts.join(', ') || 'none'})`);
       ok(adsIn(rec).length === 0, `/pitch: zero Google Ads requests with no choice (${adsIn(rec).length})`);
+      ok(strayIn(rec).length === 0, `/pitch: no off-origin request outside the tracker predicate and the allowed hosts, aborted ones included (${strayIn(rec).join(', ') || 'none'})`);
       ok(bar === 0, '/pitch: no consent bar is mounted (the page renders as it is)');
       await context.close(); }
+
+    // 7c the bar covers nothing (anvil r1 F1) and names what the choice covers (Mark 2026-10-13). For each viewport
+    //    and page: no choice made, scroll to the very bottom, then no link or button outside the bar may intersect it.
+    { const ui = {};
+      for (const [vw, vh] of [[390, 844], [1280, 720]]) {
+        for (const p of ['/privacy', '/', '/start']) {
+          const { context, page } = await fresh(browser);
+          await page.setViewportSize({ width: vw, height: vh });
+          await visit(page, p);
+          await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+          await page.waitForTimeout(600);
+          const r = await page.evaluate(() => {
+            const bar = document.querySelector('[data-consent-bar]');
+            if (!bar) return { bar: false };
+            const b = bar.getBoundingClientRect();
+            const hits = [...document.querySelectorAll('a, button, input, select, textarea, [role="button"]')]
+              .filter((el) => !bar.contains(el))
+              .map((el) => ({ el, r: el.getBoundingClientRect() }))
+              .filter(({ r }) => r.width > 0 && r.height > 0 && r.bottom > b.top && r.top < b.bottom && r.right > b.left && r.left < b.right)
+              .map(({ el, r }) => `${el.tagName.toLowerCase()} "${(el.textContent || el.getAttribute('aria-label') || el.getAttribute('href') || '').trim().slice(0, 40)}" y=${Math.round(r.top)}-${Math.round(r.bottom)}`);
+            return { bar: true, bar_top: Math.round(b.top), bar_bottom: Math.round(b.bottom), text: (bar.querySelector('p') || bar).textContent.trim(), covered: hits };
+          });
+          ui[`${p} @${vw}x${vh}`] = r;
+          ok(r.bar, `ui ${p} @${vw}x${vh}: the bar is shown with no choice`);
+          ok(r.bar && r.covered.length === 0, `ui ${p} @${vw}x${vh}: at the bottom of the page no link or control sits under the bar (${(r.covered || []).join('; ') || 'none'})`);
+          if (p === '/privacy' && vw === 390) {
+            ok(r.bar && /Google Analytics/.test(r.text) && /Google Ads/.test(r.text) && /without cookies/.test(r.text), `ui: the bar names Google Analytics and cookieless Google Ads measurement ("${(r.text || '').slice(0, 160)}")`);
+          }
+          await context.close();
+        }
+      }
+      matrix.states.ui_bar = ui; }
 
     // 8 /privacy renders, and every Privacy link on the main pages resolves to it
     { const { context, page } = await fresh(browser);
@@ -243,9 +298,9 @@ async function main() {
       matrix.privacy_links = { privacy_links: links, links_not_to_privacy: bad };
       const body = (await (await page.goto(ORIGIN + '/privacy', { waitUntil: 'load' })).text()) || '';
       const text = body.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
-      const must = ['Google Analytics', 'Google Ads', 'Vercel Web Analytics', 'Global Privacy Control', 'mark@dominusfoundry.com', 'A phone number alone is never permission to text you'];
+      const must = ['Google Analytics', 'Google Ads', 'Vercel Web Analytics', 'Global Privacy Control', 'mark@dominusfoundry.com', 'A phone number alone is never permission to text you', 'The cookie expires after 180 days', 'has no expiry', 'We do not take opt-ins by phone or by text keyword'];
       // 'no advertising (or retargeting) tags' was the round-1 claim that production refuted; 'no advertising cookies' is true.
-      const mustNot = ['no advertising (or retargeting )?tags', 'By using our website', '\\bIris\\b', '\\$[0-9]', 'ElevenLabs', 'elevenlabs-convai'];
+      const mustNot = ['for up to 180\\s+days', 'no advertising (or retargeting )?tags', 'By using our website', '\\bIris\\b', '\\$[0-9]', 'ElevenLabs', 'elevenlabs-convai'];
       const missing = must.filter((m) => !text.includes(m));
       const present = mustNot.filter((m) => new RegExp(m).test(text));
       matrix.states.privacy_page = { status: r && r.status(), h1: h1.trim(), required_missing: missing, banned_present: present };
@@ -254,6 +309,17 @@ async function main() {
       ok(present.length === 0, `/privacy carries none of the banned/false items (present: ${present.join('; ') || 'none'})`);
       ok(links['/privacy'].length >= 0 && Object.entries(links).filter(([p]) => p !== '/privacy').some(([, ls]) => ls.length > 0), 'at least one checked page links to the privacy page');
       ok(bad.length === 0, `every Privacy link resolves to /privacy (${bad.join('; ') || 'all'})`);
+      const smsHtml = (await (await page.goto(ORIGIN + '/sms-terms', { waitUntil: 'load' })).text()) || '';
+      const sms = smsHtml.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+      const smsMust = ['A phone number alone is never permission to text you', 'Dominus Foundry LLC', 'dominusfoundry.com/start', 'STOP', 'HELP'];
+      const smsNot = ['Verbal Consent', 'verbally', 'Text-In', 'replying START', 'opt-in keyword'];
+      const smsMissing = smsMust.filter((m) => !sms.includes(m)); const smsPresent = smsNot.filter((m) => sms.includes(m));
+      matrix.states.sms_terms = { missing: smsMissing, present: smsPresent };
+      ok(smsMissing.length === 0, `/sms-terms states the one rule, the seller, the /start checkbox, STOP and HELP (missing: ${smsMissing.join('; ') || 'none'})`);
+      ok(smsPresent.length === 0, `/sms-terms carries no verbal or START opt-in path (present: ${smsPresent.join('; ') || 'none'})`);
+      const startHtml = (await (await page.goto(ORIGIN + '/start', { waitUntil: 'load' })).text()) || '';
+      const start = startHtml.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+      ok(/A phone number alone is never permission to text you/.test(start), '/start form states the one rule next to the SMS box');
       await context.close(); }
   } finally {
     await browser.close();

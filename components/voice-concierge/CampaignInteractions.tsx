@@ -3,9 +3,8 @@
 import { useEffect, useState } from 'react'
 import Button from '../Button'
 
-// The ElevenLabs "Voice Concierge" demo widget (DemoWidgetLoader) that AppShell mounted on every non-Foundry
-// route was removed 2026-10-12 (compliance P1-1c): Mark ruled 2026-09-05 that ElevenLabs is not used, and it
-// loaded a third-party AI voice agent on page load, /privacy included, before any choice.
+// The on-page voice demo widget (DemoWidgetLoader) was removed (Mark 2026-10-13, compliance P1-1c); the record
+// is in the compliance evidence, 1c-foundry-gate-RESULT.md.
 
 export function HeroCTAButtons() {
   return (

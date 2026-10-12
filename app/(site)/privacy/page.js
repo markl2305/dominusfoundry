@@ -25,13 +25,13 @@ export default function Privacy() {
 
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <div className="prose prose-lg max-w-none">
-          
+
           <div className="space-y-8 text-navy-700">
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Overview</h2>
               <p>
-                Dominus Foundry ("we," "us," or "our") operates dominusfoundry.com. This Privacy Policy explains 
-                how we collect, use, disclose, and safeguard your information when you visit our website or use 
+                Dominus Foundry ("we," "us," or "our") operates dominusfoundry.com. This Privacy Policy explains
+                how we collect, use, disclose, and safeguard your information when you visit our website or use
                 our services.
               </p>
               <p className="mt-3">
@@ -44,7 +44,7 @@ export default function Privacy() {
 
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Information We Collect</h2>
-              
+
               <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Personal Information You Provide</h3>
               <p>When you contact us or request services, we may collect:</p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
@@ -219,11 +219,11 @@ export default function Privacy() {
                   Analytics and Google Ads (both Google LLC), and Vercel Web Analytics. Details below.
                 </li>
                 <li>
-                  <strong>Legal Requirements:</strong> When required by law, subpoena, or legal process, or to 
+                  <strong>Legal Requirements:</strong> When required by law, subpoena, or legal process, or to
                   protect our rights, property, or safety.
                 </li>
                 <li>
-                  <strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of all 
+                  <strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of all
                   or a portion of our business.
                 </li>
                 <li>
@@ -261,12 +261,15 @@ export default function Privacy() {
               <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Cookies and storage we always use</h3>
               <ul className="list-disc ml-6 mt-2 space-y-2">
                 <li>
-                  <code>df-consent</code> (cookie and local storage): remembers your analytics choice for up to 180
-                  days, so you are not asked on every page.
+                  <code>df-consent</code>: remembers your analytics choice so you are not asked on every page. It
+                  is kept in two places. The cookie expires after 180 days. The copy in your browser&rsquo;s local
+                  storage has no expiry: it stays until you clear your browser&rsquo;s site data, and changing
+                  your choice below replaces it.
                 </li>
                 <li>
                   <code>consent_gpc</code>: set only when your browser sends a Global Privacy Control signal, so the
-                  site can honor it; it expires after a day without the signal.
+                  site can honor it. It is cleared on the first page you load without the signal, and lasts a day
+                  at most.
                 </li>
                 <li>
                   <code>df-theme</code> (local storage): remembers light or dark display if you choose one.
@@ -299,9 +302,11 @@ export default function Privacy() {
                 A phone number alone is never permission to text you.
               </p>
               <p className="mt-3">
-                On this website, you agree to text messages only by ticking the SMS consent checkbox on a form. The
-                box is unchecked by default, and a form sent without it does not sign you up for texts. Every way to
-                opt in is listed on our{' '}
+                Text messages come from Dominus Foundry LLC. The only way to agree to them is the separate SMS
+                consent checkbox on our intake form at{' '}
+                <a href="/start" className="text-navy-500 underline font-semibold">/start</a>. The box is unchecked
+                by default; sending the form without it, giving us your number another way, or calling us does not
+                sign you up. We do not take opt-ins by phone or by text keyword. Full terms:{' '}
                 <a href="/sms-terms" className="text-navy-500 underline font-semibold">SMS Messaging Terms</a>.
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
@@ -320,7 +325,7 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Data Security</h2>
               <p>
-                We use reasonable security measures to protect your personal information from unauthorized 
+                We use reasonable security measures to protect your personal information from unauthorized
                 access, disclosure, alteration, or destruction. These measures include:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
@@ -330,7 +335,7 @@ export default function Privacy() {
                 <li>Regular security assessments</li>
               </ul>
               <p className="mt-4">
-                However, no method of transmission over the internet or electronic storage is 100% secure. 
+                However, no method of transmission over the internet or electronic storage is 100% secure.
                 While we strive to protect your information, we cannot guarantee absolute security.
               </p>
             </div>
@@ -357,8 +362,8 @@ export default function Privacy() {
               </ul>
               <p className="mt-4">
                 To exercise any of these rights, please contact us at{' '}
-                <a 
-                  href="mailto:mark@dominusfoundry.com" 
+                <a
+                  href="mailto:mark@dominusfoundry.com"
                   className="text-navy-500 underline font-semibold"
                 >
                   mark@dominusfoundry.com
@@ -369,8 +374,8 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Children's Privacy</h2>
               <p>
-                Our services are not directed to individuals under the age of 18. We do not knowingly collect 
-                personal information from children. If you believe we have inadvertently collected information 
+                Our services are not directed to individuals under the age of 18. We do not knowingly collect
+                personal information from children. If you believe we have inadvertently collected information
                 from a child, please contact us immediately.
               </p>
             </div>
@@ -378,8 +383,8 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Third-Party Links</h2>
               <p>
-                Our website may contain links to third-party websites. We are not responsible for the privacy 
-                practices or content of these external sites. We encourage you to review the privacy policies 
+                Our website may contain links to third-party websites. We are not responsible for the privacy
+                practices or content of these external sites. We encourage you to review the privacy policies
                 of any third-party sites you visit.
               </p>
             </div>
@@ -387,12 +392,12 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Changes to This Privacy Policy</h2>
               <p>
-                We may update this Privacy Policy from time to time to reflect changes in our practices or for 
-                legal, regulatory, or operational reasons. We will notify you of any material changes by posting 
+                We may update this Privacy Policy from time to time to reflect changes in our practices or for
+                legal, regulatory, or operational reasons. We will notify you of any material changes by posting
                 the updated policy on this page with a new "Last updated" date.
               </p>
               <p className="mt-3">
-                We encourage you to review this Privacy Policy periodically to stay informed about how we protect 
+                We encourage you to review this Privacy Policy periodically to stay informed about how we protect
                 your information.
               </p>
             </div>
@@ -400,7 +405,7 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Contact Us</h2>
               <p>
-                If you have questions or concerns about this Privacy Policy or our privacy practices, please 
+                If you have questions or concerns about this Privacy Policy or our privacy practices, please
                 contact us:
               </p>
               <div className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">

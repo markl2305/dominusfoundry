@@ -246,14 +246,14 @@ export default function IntakeForm() {
       </Button>
 
       <p className="text-xs text-slate-700 text-center">
-        By submitting, you agree to our{" "}
+        Sending this form lets us reply by phone or email about your request.{" "}
+        <strong>A phone number alone is never permission to text you:</strong> texts from
+        Dominus Foundry LLC need the separate box above, which is unchecked by default.
+        Consent is not required to make a purchase. We do not sell your personal information. See our{" "}
         <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
           Privacy Policy
         </a>
-        , and consent to be contacted by phone or email about your request.
-        Consent to receive text messages is separate, optional, and given only by
-        checking the box above. Consent is not required to make a purchase.
-        We do not sell your personal information.
+        .
       </p>
     </form>
   );
