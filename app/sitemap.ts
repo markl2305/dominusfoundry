@@ -25,7 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // (kimi #5, round 3). ⛔ Do not reintroduce privacy language.
     // markflord.com/pitch still 301s to it once P4 is live-verified (plan §18
     // Phase 5) — a redirect target does not require sitemap presence.
-    { path: "/contact", priority: 0.7, freq: "monthly" as const },
+    // sites-analytics-20261012: /contact is ALSO a redirect (app/(site)/contact/page.js ->
+    // /start, confirmed live: curl returns 307 to /start) and was listed here as its own
+    // entry -- the exact "page with redirect" Search Console defect the /mentis/qb-migration
+    // comment below already names. /start is already in this list two lines up; removed
+    // the redundant redirect entry rather than adding a second canonical-destination line.
     { path: "/careers", priority: 0.6, freq: "monthly" as const },
     { path: "/press", priority: 0.6, freq: "monthly" as const },
     { path: "/privacy", priority: 0.3, freq: "yearly" as const },
@@ -46,7 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // permanently redirects is the "page with redirect" defect Search Console
     // flags, the same reason /mentis's stale redirect was removed in f462e8e.
     { path: "/mentis", priority: 0.8, freq: "monthly" as const },
-    { path: "/qb-migration", priority: 0.7, freq: "monthly" as const },
+    // sites-analytics-20261012: /qb-migration was listed here, but app/qb-migration/page.js
+    // carries `robots: {index:false, follow:false}` -- a RETIRED-offering notice, not a
+    // redirect, so it slipped past the comment above (which only covers redirect targets).
+    // A noindex page listed in the sitemap is the same class of contradictory signal Search
+    // Console flags on a redirect. Removed; the noindex meta tag is unchanged and still wins
+    // either way, but a sitemap should not be the thing disagreeing with it.
 
     // Systems (thought leadership on AI-native operations)
     { path: "/systems", priority: 0.8, freq: "monthly" as const },

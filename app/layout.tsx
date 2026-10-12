@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
+import GAPageview from './components/GAPageview'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -251,25 +252,37 @@ export default function RootLayout({
         />
         <AppShell>{children}</AppShell>
 
-        {/* Google Analytics 4 - loaded globally once */}
+        {/* Google Analytics 4 - loaded globally once.
+            sites-analytics-20261012: send_page_view is now OFF on purpose. page_path alone
+            did not stop gtag.js's automatic page_view from also sending page_location as the
+            full window.location.href -- query string, fragment and all. GAPageview (app/
+            components/GAPageview.tsx) now sends every page_view itself, including the first,
+            built from Next's usePathname() -- never useSearchParams(), never
+            window.location.href -- so no query string or fragment can reach Google, and every
+            client-side App Router navigation gets its own page_view (the old one-shot config
+            call never saw those).
+            strategy="beforeInteractive" on the bootstrap (not afterInteractive) is also
+            deliberate: it defines window.gtag as a queueing shim synchronously, before
+            hydration, so GAPageview's effect can never run before window.gtag exists and
+            silently drop the first page_view. The external loader stays afterInteractive. */}
         {hasRealGaId && (
           <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="beforeInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 window.gtag = window.gtag || gtag;
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', {
-                  send_page_view: true,
-                  page_path: window.location.pathname,
+                  send_page_view: false,
                 });
               `}
             </Script>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <GAPageview />
           </>
         )}
         <VisitorChatMount />
