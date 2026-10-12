@@ -42,32 +42,18 @@ export default function HualiOrderInfoPage() {
                 How to place an order
               </h2>
               <p className="text-sm text-gray-200">
-                Use the on-screen Huali™ agent for the quickest experience, or call the
-                order line directly if you prefer phone.
+                Call the order line to place an order.
               </p>
 
               <HualiAgentActions />
 
-              <div className="space-y-2 text-sm text-gray-100">
-                <p className="font-semibold text-amber-100">By phone (fallback)</p>
-                <p>
-                  If the on-screen agent isn’t available, call us directly at{' '}
-                  <a href="tel:5053374443" className="text-amber-200 underline">
-                    505-337-4443
-                  </a>
-                  .
-                </p>
-              </div>
             </div>
 
             <div className="space-y-3 rounded-2xl bg-white/5 p-6 shadow-lg shadow-amber-900/25 ring-1 ring-white/10 backdrop-blur">
               <h3 className="text-lg font-semibold text-amber-200">Quick steps</h3>
               <ol className="list-decimal space-y-2 pl-5 text-sm text-gray-100">
                 <li>Confirm you’re an authorized distributor.</li>
-                <li>
-                  Click “Call Huali™ Order Line” to start the on-screen call, or dial
-                  505-337-4443.
-                </li>
+                <li>Dial 505-337-4443.</li>
                 <li>
                   Be ready with your phone number on account and the number of Huali™
                   half kegs and Huali™ pony kegs you want.

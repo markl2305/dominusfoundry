@@ -21,14 +21,28 @@ const OUT = process.env.CONSENT_OUT || '';
 const LABEL = process.env.CONSENT_LABEL || 'candidate';
 // One page per route group: the Foundry-chrome pages (/, /sabina), the (site) group (/contact, /start), the
 // AppShell pages (/systems) and the blog.
-const PAGES = (process.env.CONSENT_PAGES || '/,/sabina,/contact,/start,/systems,/blog').split(',');
+// /privacy is in the set because production loads an ElevenLabs widget there (3-0 live baseline, 2026-10-12).
+const PAGES = (process.env.CONSENT_PAGES || '/,/sabina,/contact,/start,/systems,/blog,/privacy').split(',');
 const KEY = process.env.CONSENT_KEY || 'df-consent';
 const SENTINEL = { name: 'Zq Sentinel Person', company: 'Zq Sentinel Roofing Co', email: 'zq-sentinel@example.invalid', phone: '5055550199', website: 'zq-sentinel.example' };
 const ANALYTICS_KEYS = /(^|[^a-z])(_ga|_gid|gclid|client_id|cid|tid|_gl|li_fat_id|fbclid|lintrk)([^a-z]|$)/i;
 
-const TRACKER_HOSTS = /(^|\.)(googletagmanager\.com|google-analytics\.com|analytics\.google\.com|doubleclick\.net|licdn\.com|linkedin\.com)$/;
+// Round 2: Google Ads (www.google.com/ccm|rmkt|pagead, googleadservices, googlesyndication, *.doubleclick.net) and
+// ElevenLabs (api.*.elevenlabs.io, and the unpkg-served @elevenlabs widget) are in the predicate.
+const TRACKER_HOSTS = /(^|\.)(googletagmanager\.com|google-analytics\.com|analytics\.google\.com|doubleclick\.net|licdn\.com|linkedin\.com|googleadservices\.com|googlesyndication\.com|elevenlabs\.io)$/;
+const GOOGLE_ADS_PATH = /^\/(ccm|rmkt|pagead|ads)\//;
+const isAds = (h) => /doubleclick\.net$|googleadservices\.com$|googlesyndication\.com$|^www\.google\.com\(ads\)$/.test(h.host) || /[?&]tid=AW-/.test(h.url);
+const isEleven = (h) => /elevenlabs/.test(h.host);
 const LOADERS = /^https:\/\/(www\.googletagmanager\.com\/gtag\/js|snap\.licdn\.com\/li\.lms-analytics\/insight\.min\.js)/;
-const trackerOf = (u) => (TRACKER_HOSTS.test(u.hostname) ? u.hostname : (u.pathname.startsWith('/_vercel/insights') ? 'vercel-insights(same-origin)' : null));
+const trackerOf = (u) => {
+  if (TRACKER_HOSTS.test(u.hostname)) return u.hostname;
+  if (/^(www\.)?google\.com$/.test(u.hostname) && GOOGLE_ADS_PATH.test(u.pathname)) return 'www.google.com(ads)';
+  if (u.hostname === 'unpkg.com' && /@elevenlabs\//.test(u.pathname)) return 'unpkg.com(@elevenlabs)';
+  if (u.pathname.startsWith('/_vercel/insights')) return 'vercel-insights(same-origin)';
+  return null;
+};
+const adsIn = (rec, phase) => rec.hits.filter((h) => (!phase || h.phase === phase) && isAds(h));
+const elevenIn = (rec, phase) => rec.hits.filter((h) => (!phase || h.phase === phase) && isEleven(h));
 
 let failures = 0; const results = [];
 function ok(cond, label) { results.push({ ok: !!cond, label }); if (cond) console.log(`  ok   ${label}`); else { failures += 1; console.error(`  FAIL ${label}`); } }
@@ -84,6 +98,8 @@ async function main() {
       const hosts = hostsIn(rec);
       matrix.states.initial = { hosts, bar_shown: bar > 0, requests: rec.hits.length };
       ok(hosts.length === 0, `initial: zero analytics/advertising requests before any choice (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec).length === 0, `initial: zero Google Ads requests (doubleclick / google.com ccm|rmkt|pagead / googleadservices / tid=AW-) (${adsIn(rec).length})`);
+      ok(elevenIn(rec).length === 0, `initial: zero ElevenLabs requests on any page, /privacy included (${elevenIn(rec).length})`);
       ok(bar > 0, 'initial: the consent bar is shown');
       await context.close(); }
 
@@ -95,6 +111,7 @@ async function main() {
       matrix.states.reject = { hosts, choice_made: clicked, bar_after: await barCount(page) };
       ok(clicked, 'reject: "No analytics" button exists and was pressed');
       ok(hosts.length === 0, `reject: zero analytics requests (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec).length === 0, `reject: zero Google Ads requests (${adsIn(rec).length})`);
       ok(await barCount(page) === 0, 'reject: the bar does not come back on later pages');
       await context.close(); }
 
@@ -110,6 +127,18 @@ async function main() {
       ok(after.some((h) => /google-analytics\.com$/.test(h)), 'accept: a GA4 collection request is made after accept (answered locally, never delivered)');
       ok(!after.some((h) => /licdn|linkedin/.test(h)), `accept: no LinkedIn request (this site has no LinkedIn tag) (${after.join(', ')})`);
       ok(after.includes('vercel-insights(same-origin)'), 'accept: Vercel Web Analytics requested after accept');
+      const adsAfter = adsIn(rec, 'after');
+      const gcs = [...new Set(rec.hits.flatMap((h) => [...(h.url + '&' + h.body).matchAll(/[?&]gcs=([^&]+)/g)].map((m) => m[1])))].sort();
+      const store = await page.evaluate(() => { try { return Object.keys(localStorage); } catch (e) { return []; } });
+      const gcl = [...(await context.cookies()).map((c) => c.name), ...store].filter((n) => /^_gcl/.test(n));
+      matrix.states.accept.ads_before_choice = adsIn(rec, 'before').length;
+      matrix.states.accept.ads_requests_after_accept = adsAfter.map((h) => `${h.method} ${h.url.slice(0, 180)}`);
+      matrix.states.accept.gcs_values = gcs;
+      matrix.states.accept.gcl_storage_after_accept = gcl;
+      matrix.states.accept.elevenlabs_requests = elevenIn(rec).length;
+      ok(adsIn(rec, 'before').length === 0, `accept: zero Google Ads requests before the click (${adsIn(rec, 'before').length})`);
+      ok(gcl.length === 0, `accept ("Allow analytics"): no Google Ads cookie or storage (_gcl*) is written (${gcl.join(', ') || 'none'})`);
+      ok(elevenIn(rec).length === 0, `accept: zero ElevenLabs requests (${elevenIn(rec).length})`);
       const leaky = rec.hits.filter((h) => /google-analytics/.test(h.host) && /[?&]dl=[^&]*%3F/.test(h.url));
       ok(leaky.length === 0, 'accept: no GA4 hit carries a query string in its page location');
       await context.close(); }
@@ -128,6 +157,7 @@ async function main() {
       matrix.states.withdraw = { hosts_after_withdraw: hosts, withdraw_control_found: has, analytics_cookies_left: cookies };
       ok(has, 'withdraw: /privacy has a withdraw control');
       ok(hosts.length === 0, `withdraw: zero analytics requests after withdrawing (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec, 'after').length === 0, `withdraw: zero Google Ads requests after withdrawing (${adsIn(rec, 'after').length})`);
       ok(cookies.length === 0, `withdraw: first-party analytics cookies cleared (${cookies.join(', ') || 'none'})`);
       await context.close(); }
 
@@ -140,6 +170,7 @@ async function main() {
       const state = await page.evaluate(() => (window.SiteConsent ? window.SiteConsent.state() : 'no-gate'));
       matrix.states[name] = { hosts, bar_shown: bar > 0, gate_state: state };
       ok(hosts.length === 0, `${name}: zero analytics requests (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec).length === 0, `${name}: zero Google Ads requests (${adsIn(rec).length})`);
       ok(bar === 0, `${name}: no consent prompt`);
       ok(state === 'gpc', `${name}: the gate reports gpc (${state})`);
       await context.close();
@@ -151,6 +182,7 @@ async function main() {
       const hosts = hostsIn(rec);
       matrix.states.noscript = { hosts };
       ok(hosts.length === 0, `noscript: zero analytics requests (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec).length === 0 && elevenIn(rec).length === 0, `noscript: zero Google Ads and ElevenLabs requests (${adsIn(rec).length}/${elevenIn(rec).length})`);
       await context.close(); }
 
     // 7 the /start intake form after accept: the lead payload carries no analytics id, no analytics hit carries what
@@ -176,7 +208,7 @@ async function main() {
         lead_posts: rec.assess.length, lead_keys: keys, analytics_key_hits: (keys.match(ANALYTICS_KEYS) || []).filter(Boolean),
         analytics_hosts: hostsIn(rec, 'after'), analytics_requests: rec.hits.length, ga4_event_names: gaEvents,
         typed_values_in_analytics_requests: leaks.map((h) => h.host + ' ' + h.url.slice(0, 160)),
-        query_string_in_analytics_requests: queryLeaks.map((h) => h.host + ' ' + h.url.slice(0, 200)), privacy_label_href: privacyHref,
+        query_string_in_analytics_requests: queryLeaks.map((h) => { const all = h.url + ' BODY ' + h.body; const i = all.search(/zq-matrix|zq-query/); return { host: h.host, around: all.slice(Math.max(0, i - 160), i + 60) }; }), privacy_label_href: privacyHref,
       };
       ok(rec.assess.length === 1, 'form: exactly one POST /api/lead (answered by a fixture, never delivered)');
       ok(saved && !ANALYTICS_KEYS.test(keys) && !/_ga|gclid|client_id|li_fat_id/.test(saved.raw), `form: the lead payload carries no analytics identifier (keys ${keys})`);
@@ -194,6 +226,7 @@ async function main() {
       const state = await page.evaluate(() => (window.SiteConsent ? String(window.SiteConsent.state()) : 'no-gate'));
       matrix.states.pitch_initial = { hosts, bar_shown: bar > 0, gate_state: state };
       ok(hosts.length === 0, `/pitch: zero analytics requests with no choice (${hosts.join(', ') || 'none'})`);
+      ok(adsIn(rec).length === 0, `/pitch: zero Google Ads requests with no choice (${adsIn(rec).length})`);
       ok(bar === 0, '/pitch: no consent bar is mounted (the page renders as it is)');
       await context.close(); }
 
@@ -210,8 +243,9 @@ async function main() {
       matrix.privacy_links = { privacy_links: links, links_not_to_privacy: bad };
       const body = (await (await page.goto(ORIGIN + '/privacy', { waitUntil: 'load' })).text()) || '';
       const text = body.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
-      const must = ['Google Analytics', 'Vercel Web Analytics', 'Global Privacy Control', 'mark@dominusfoundry.com', 'A phone number alone is never permission to text you'];
-      const mustNot = ['Google Ads', 'By using our website', '\\bIris\\b', '\\$[0-9]'];
+      const must = ['Google Analytics', 'Google Ads', 'Vercel Web Analytics', 'Global Privacy Control', 'mark@dominusfoundry.com', 'A phone number alone is never permission to text you'];
+      // 'no advertising (or retargeting) tags' was the round-1 claim that production refuted; 'no advertising cookies' is true.
+      const mustNot = ['no advertising (or retargeting )?tags', 'By using our website', '\\bIris\\b', '\\$[0-9]', 'ElevenLabs', 'elevenlabs-convai'];
       const missing = must.filter((m) => !text.includes(m));
       const present = mustNot.filter((m) => new RegExp(m).test(text));
       matrix.states.privacy_page = { status: r && r.status(), h1: h1.trim(), required_missing: missing, banned_present: present };

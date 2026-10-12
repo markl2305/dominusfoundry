@@ -5,7 +5,6 @@ import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import FooterCTA from './FooterCTA'
 import PressRibbon from './PressRibbon'
-import { DemoWidgetLoader } from './voice-concierge/CampaignInteractions'
 
 // The heraldic Dominus Foundry pages bring their own nav/footer/embers chrome,
 // so AppShell renders them bare (no PressRibbon / SiteHeader / FooterCTA / SiteFooter).
@@ -18,7 +17,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   }
   const isHualiOrderInfo = pathname?.startsWith('/huali-order-info')
   const hideHeader = pathname?.startsWith('/voice-concierge/campaign') || isHualiOrderInfo
-  const hideWidget = isHualiOrderInfo
   // Hide footer CTA on the /start page itself (avoid redundancy)
   const hideFooterCTA = pathname === '/start' || pathname === '/get-started' || isHualiOrderInfo || pathname?.startsWith('/voice-concierge/campaign')
 
@@ -29,7 +27,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       {!hideFooterCTA && <FooterCTA />}
       <SiteFooter />
-      {!hideWidget && <DemoWidgetLoader />}
     </div>
   )
 }

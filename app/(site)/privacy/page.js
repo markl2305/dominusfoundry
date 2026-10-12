@@ -180,10 +180,10 @@ export default function Privacy() {
                 Revoking location access will leave new scans untagged. You can sign out of the apps at any time,
                 and you can request deletion of your account and associated data by emailing us at{' '}
                 <a
-                  href="mailto:mark@dominusfoundry.com"
+                  href="mailto:foundry@dominusfoundry.com"
                   className="text-navy-500 underline font-semibold"
                 >
-                  mark@dominusfoundry.com
+                  foundry@dominusfoundry.com
                 </a>.
               </p>
             </div>
@@ -215,8 +215,8 @@ export default function Privacy() {
                   telecommunications (text messages you have agreed to receive).
                 </li>
                 <li>
-                  <strong>Analytics, only if you allow it:</strong> Google Analytics (Google LLC) and Vercel Web
-                  Analytics. We use no advertising tags on this website.
+                  <strong>Analytics and advertising measurement, only if you allow analytics:</strong> Google
+                  Analytics and Google Ads (both Google LLC), and Vercel Web Analytics. Details below.
                 </li>
                 <li>
                   <strong>Legal Requirements:</strong> When required by law, subpoena, or legal process, or to 
@@ -250,7 +250,12 @@ export default function Privacy() {
                   cookies, again without query strings.
                 </li>
                 <li>
-                  <strong>Advertising:</strong> this website uses no advertising or retargeting tags.
+                  <strong>Google Ads</strong> (Google LLC). Our Google Analytics tag is linked to a Google Ads account,
+                  so the same Allow also lets the Google tag tell Google Ads that a page was viewed. We run it in
+                  Google&rsquo;s restricted mode: no advertising cookies are set, and we tell Google not to use the
+                  data for ad personalization or remarketing. Google still receives the page address (without its query string)
+                  and your IP address with each of those signals. With no choice, &ldquo;No analytics&rdquo; or a
+                  Global Privacy Control signal, nothing is sent to Google Ads.
                 </li>
               </ul>
               <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Cookies and storage we always use</h3>

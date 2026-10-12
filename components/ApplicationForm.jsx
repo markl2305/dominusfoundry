@@ -96,7 +96,9 @@ export default function ApplicationForm() {
   }
 
   return (
-    <form onSubmit={submit} className="grid gap-4">
+    // An explicit action keeps the page's query string out of GA4's automatic form events (form_destination),
+    // measured 2026-10-12; method="post" keeps typed fields out of the URL if JavaScript is off.
+    <form onSubmit={submit} action="/careers" method="post" className="grid gap-4">
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label className={labelClass}>First name *</label>

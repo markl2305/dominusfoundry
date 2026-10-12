@@ -92,7 +92,16 @@ export default function RootLayout({
     autoBar: false, // ConsentBar mounts it after hydration
     vercel: false, // the React <Analytics /> in SiteAnalytics carries Vercel here, gated on the same choice
     privatePaths: '^/(api|chat|login|graph|command|transcribe)(/|$)',
-  })};`
+  })};` +
+    // Google Consent Mode defaults, queued before any tag exists (no network: gtag.js only loads after Allow).
+    // The Google tag behind GA_ID is linked, in Google's own tag settings, to Google Ads AW-17706960854 —
+    // measured 2026-10-12: gtag/js?id=G-9J4GY8YZ6G carries that AW id 11 times, and this repo carries none.
+    // So the one loader the gate holds back also holds back Ads. The visitor's choice is "Allow analytics",
+    // so ad storage, ad user data and ad personalization stay DENIED even after it: no _gcl cookies, no
+    // remarketing. Turning Ads on needs its own choice in the gate (OPEN ON MARK), not this default.
+    `(function(){var w=window;w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}` +
+    `g('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});` +
+    `g('set','ads_data_redaction',true);})();`
 
   return (
     // suppressHydrationWarning: the pre-paint theme script below writes

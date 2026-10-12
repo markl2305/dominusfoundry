@@ -3,38 +3,9 @@
 import { useEffect, useState } from 'react'
 import Button from '../Button'
 
-function openElevenLabsWidget() {
-  if (typeof window === 'undefined') return
-  const anyWin = window as any
-  if (anyWin?.ElevenLabs?.open) return anyWin.ElevenLabs.open()
-  if (anyWin?.elevenlabs?.open) return anyWin.elevenlabs.open()
-  const widgetEl = document.querySelector('elevenlabs-convai') as HTMLElement | null
-  if (widgetEl) {
-    widgetEl.dispatchEvent(new Event('click'))
-    return
-  }
-  console.warn('ElevenLabs widget not ready')
-}
-
-export function DemoWidgetLoader() {
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    if (document.querySelector('script[data-elevenlabs-convai="true"]')) return
-
-    const widget = document.createElement('elevenlabs-convai')
-    widget.setAttribute('agent-id', 'agent_3001kb72g41pex2sq74tavnbze70')
-    widget.setAttribute('style', 'position:fixed;bottom:16px;right:16px;z-index:50;')
-    document.body.appendChild(widget)
-
-    const script = document.createElement('script')
-    script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed'
-    script.async = true
-    script.type = 'text/javascript'
-    script.dataset.elevenlabsConvai = 'true'
-    document.body.appendChild(script)
-  }, [])
-  return <div id="elevenlabs-widget-root" />
-}
+// The ElevenLabs "Voice Concierge" demo widget (DemoWidgetLoader) that AppShell mounted on every non-Foundry
+// route was removed 2026-10-12 (compliance P1-1c): Mark ruled 2026-09-05 that ElevenLabs is not used, and it
+// loaded a third-party AI voice agent on page load, /privacy included, before any choice.
 
 export function HeroCTAButtons() {
   return (
@@ -42,9 +13,6 @@ export function HeroCTAButtons() {
       <Button href="#vc-fit-call-form" className="w-full justify-center md:w-auto">
         Book a 15-Minute Fit Call
       </Button>
-      <p className="text-xs sm:text-sm text-tan-200/70">
-        Or click the Voice Concierge™ icon in the bottom-right corner to hear a live demo.
-      </p>
     </div>
   )
 }
