@@ -11,7 +11,7 @@ export default function GAPageview() {
   useEffect(() => {
     if (!pathname || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
     const privatePage = /^\/(api|chat|login|graph|command|transcribe)(\/|$)/.test(pathname);
-    (window as Window & Record<string, unknown>)['ga-disable-' + GA_MEASUREMENT_ID] = privatePage;
+    (window as unknown as Record<string, unknown>)['ga-disable-' + GA_MEASUREMENT_ID] = privatePage;
     if (privatePage) { lastPath.current = null; return; }
     if (typeof window.gtag !== 'function' || lastPath.current === pathname) return;
     lastPath.current = pathname;
