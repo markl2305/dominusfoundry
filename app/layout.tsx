@@ -1,7 +1,7 @@
 import VisitorChatMount from './components/VisitorChatMount';
 import { Inter, Crimson_Pro } from 'next/font/google'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/next'
+import SiteAnalytics from './components/SiteAnalytics'
 import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 import GAPageview from './components/GAPageview'
@@ -272,9 +272,14 @@ export default function RootLayout({
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 window.gtag = window.gtag || gtag;
+                window['ga-disable-${GA_ID}'] = /^\\/(api|chat|login|graph|command|transcribe)(\\/|$)/.test(window.location.pathname);
+                var gaReferrer = '';
+                try { var ref = new URL(document.referrer); gaReferrer = ref.origin + ref.pathname; } catch (e) {}
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', {
                   send_page_view: false,
+                  page_location: window.location.origin + window.location.pathname,
+                  page_referrer: gaReferrer,
                 });
               `}
             </Script>
@@ -287,7 +292,7 @@ export default function RootLayout({
         )}
         <VisitorChatMount />
         {/* Vercel Web Analytics (Mark 2026-10-01). */}
-        <Analytics />
+        <SiteAnalytics />
       </body>
     </html>
   )
