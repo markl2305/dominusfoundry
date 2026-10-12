@@ -1,0 +1,32 @@
+{
+  "asOf": "2026-10-12",
+  "status": "Proposed planning budget; not audited actuals or contracted vendor quotes",
+  "horizonMonths": 18,
+  "roundingIncrement": 25000,
+  "contingencyRate": 0.125,
+  "founderAnnualCombined": 100000,
+  "founderCostLoad": 0.12,
+  "developerAiMonthly": 2000,
+  "awsMonthlyFirstSix": 3500,
+  "awsMonthlySecondSix": 5000,
+  "awsMonthlyThirdSix": 6500,
+  "deliveryLeadMonthlyLoaded": 6000,
+  "deliveryLeadStartMonth": 7,
+  "engineeringMonthly": 3000,
+  "salesMonthly": 3500,
+  "adminMonthly": 1250,
+  "closingLegalBudget": 10000,
+  "securityComplianceBudget": 30000,
+  "securityStartMonth": 4,
+  "securityEndMonth": 9,
+  "founderFundingRepayment": 32000,
+  "repaymentMonth": 1,
+  "sources": {
+    "founderPay": "Mark's 12 October direction, modeled as combined annual gross compensation. Employer-cost load is a planning allowance, not a tax rate.",
+    "developerAi": "Founder reports well over $1,000 monthly for external AI tools used to build and maintain the product. $2,000 is an allowance, not a reconciled invoice total.",
+    "production": "Founder confirms production AI uses Foundry-operated models on AWS, not external model APIs. AWS amounts are capacity allowances, not verified invoices or workload guarantees.",
+    "repayment": "Founder confirms all $32,000 went into the business. Proposed repayment only, subject to records, accounting classification, applicable company/investor approvals and financing terms. This budget does not create or reclassify a liability.",
+    "otherCosts": "Planning allowances prepared 12 October. Deployment support is budgeted from month seven; hiring follows workload. No supplier contract, hire or compliance certification is represented as completed.",
+    "cash": "Month one starts at financing close. Existing cash, forecast receipts, prospective credits and future data revenue are not deducted from the funding requirement. Other historical liabilities remain to be reconciled. Reserve is cash retained, not an expense."
+  }
+}
