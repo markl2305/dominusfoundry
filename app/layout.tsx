@@ -1,10 +1,10 @@
 import VisitorChatMount from './components/VisitorChatMount';
 import { Inter, Crimson_Pro } from 'next/font/google'
-import Script from 'next/script'
 import SiteAnalytics from './components/SiteAnalytics'
 import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 import GAPageview from './components/GAPageview'
+import ConsentBar from './components/ConsentBar'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -82,6 +82,17 @@ export default function RootLayout({
 }) {
   const GA_ID = GA_MEASUREMENT_ID
   const hasRealGaId = GA_ID && GA_ID !== 'G-XXXXXXXXXX'
+  // Read by public/consent/consent.js (the same gate file as hiresabina.ai, copied unchanged). privatePaths
+  // never send analytics, consent or not (same list as GAPageview and SiteAnalytics).
+  const CONSENT_CONFIG = `window.CONSENT_CONFIG=${JSON.stringify({
+    storageKey: 'df-consent',
+    privacyHref: '/privacy',
+    ga4: hasRealGaId ? GA_ID : null,
+    linkedin: null,
+    autoBar: false, // ConsentBar mounts it after hydration
+    vercel: false, // the React <Analytics /> in SiteAnalytics carries Vercel here, gated on the same choice
+    privatePaths: '^/(api|chat|login|graph|command|transcribe)(/|$)',
+  })};`
 
   return (
     // suppressHydrationWarning: the pre-paint theme script below writes
@@ -106,6 +117,13 @@ export default function RootLayout({
               "try{var t=localStorage.getItem('df-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-df-theme',t)}catch(e){}",
           }}
         />
+        {/* Consent gate (compliance P1-1c, Mark 2026-10-12). Google Analytics 4 and Vercel Web Analytics load
+            ONLY after a visitor presses "Allow analytics", never under Global Privacy Control (the
+            navigator.globalPrivacyControl signal, or the consent_gpc cookie middleware.js sets from Sec-GPC),
+            and never from the server: public/consent/consent.js creates every tag in the browser, so with
+            JavaScript off nothing is sent. */}
+        <script id="consent-config" dangerouslySetInnerHTML={{ __html: CONSENT_CONFIG }} />
+        <script async src="/consent/consent.js" />
       </head>
       <body className="antialiased font-inter">
         <script
@@ -252,46 +270,13 @@ export default function RootLayout({
         />
         <AppShell>{children}</AppShell>
 
-        {/* Google Analytics 4 - loaded globally once.
-            sites-analytics-20261012: send_page_view is now OFF on purpose. page_path alone
-            did not stop gtag.js's automatic page_view from also sending page_location as the
-            full window.location.href -- query string, fragment and all. GAPageview (app/
-            components/GAPageview.tsx) now sends every page_view itself, including the first,
-            built from Next's usePathname() -- never useSearchParams(), never
-            window.location.href -- so no query string or fragment can reach Google, and every
-            client-side App Router navigation gets its own page_view (the old one-shot config
-            call never saw those).
-            strategy="beforeInteractive" on the bootstrap (not afterInteractive) is also
-            deliberate: it defines window.gtag as a queueing shim synchronously, before
-            hydration, so GAPageview's effect can never run before window.gtag exists and
-            silently drop the first page_view. The external loader stays afterInteractive. */}
-        {hasRealGaId && (
-          <>
-            <Script id="google-analytics" strategy="beforeInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = window.gtag || gtag;
-                window['ga-disable-${GA_ID}'] = /^\\/(api|chat|login|graph|command|transcribe)(\\/|$)/.test(window.location.pathname);
-                var gaReferrer = '';
-                try { var ref = new URL(document.referrer); gaReferrer = ref.origin + ref.pathname; } catch (e) {}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}', {
-                  send_page_view: false,
-                  page_location: window.location.origin + window.location.pathname,
-                  page_referrer: gaReferrer,
-                });
-              `}
-            </Script>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <GAPageview />
-          </>
-        )}
+        {/* GA4 page_view on client-side route changes, after consent only. The first page_view and the
+            gtag.js loader come from public/consent/consent.js, with page_location = origin + pathname
+            (no query string or fragment), the same rule the previous inline bootstrap enforced. */}
+        <GAPageview />
+        <ConsentBar />
         <VisitorChatMount />
-        {/* Vercel Web Analytics (Mark 2026-10-01). */}
+        {/* Vercel Web Analytics (Mark 2026-10-01), rendered only after accept (Mark 2026-10-12). */}
         <SiteAnalytics />
       </body>
     </html>

@@ -33,7 +33,11 @@ export default function SmsTerms() {
 
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">How to Opt In</h2>
-              <p>
+              {/* The one rule, stated first (compliance P1-1c, same shape as the CalLord fix 2026-10-12). */}
+              <p className="font-semibold text-navy-900">
+                A phone number alone is never permission to text you.
+              </p>
+              <p className="mt-3">
                 You may opt in to receive SMS messages from Dominus Foundry™ by any of the following methods:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">

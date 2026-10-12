@@ -107,7 +107,8 @@ export default function IntakeForm() {
 
       gaEvent("lead_submit", {
         form_id: "intake_start",
-        page_location: typeof window !== "undefined" ? window.location.href : "",
+        // origin + pathname only: a query string (UTM tags, anything pasted into the URL) never reaches GA4.
+        page_location: typeof window !== "undefined" ? window.location.origin + window.location.pathname : "",
         page_path: typeof window !== "undefined" ? window.location.pathname : "",
       });
 

@@ -294,3 +294,17 @@ footer {
   max-width: 100%;
   height: auto;
 }
+
+/* Consent bar (public/consent/consent.js, compliance P1-1c, Mark 2026-10-12). The gate inserts it in-flow at the
+   top of <body>; on this site the Foundry nav (.df-site .nav, position:fixed, z-index 200) sits on top of it and
+   swallows the clicks, measured by tests/consent/tracking-matrix.mjs. So here it is pinned to the bottom edge,
+   above everything, without changing the shared gate file. It goes away as soon as a choice is made. */
+[data-consent-bar] {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000 !important;
+  border-bottom: 0 !important;
+  border-top: 1px solid rgba(239, 231, 216, 0.25);
+}

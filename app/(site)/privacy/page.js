@@ -1,3 +1,9 @@
+import ConsentChoice from './ConsentChoice';
+
+// Visitor privacy notice. Rewritten for compliance P1-1c (Mark 2026-10-12): analytics are consent-gated by
+// public/consent/consent.js, so this page names the analytics recipients, states the Global Privacy Control
+// rule and carries the withdraw control. Hosting and database providers are described by category, not
+// named (canon 2026-10-07). No retention period is stated because none is set in code.
 export const metadata = {
   title: 'Privacy Policy — Dominus Foundry',
   description: 'How we collect, use, and protect your information at Dominus Foundry.'
@@ -12,7 +18,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-lg text-navy-700">
-            Last updated: May 6, 2026
+            Last updated: October 12, 2026
           </p>
         </div>
       </section>
@@ -29,8 +35,10 @@ export default function Privacy() {
                 our services.
               </p>
               <p className="mt-3">
-                We are committed to protecting your privacy. By using our website or services, you agree to the 
-                collection and use of information in accordance with this policy.
+                Using this website does not mean you agree to analytics. Analytics run only if you choose
+                &ldquo;Allow analytics&rdquo;, and you can change that choice at any time in{' '}
+                <a href="#analytics-choice" className="text-navy-500 underline font-semibold">Your analytics choice</a>{' '}
+                below.
               </p>
             </div>
 
@@ -48,16 +56,23 @@ export default function Privacy() {
                 <li>Any other information you choose to provide in contact forms or communications</li>
               </ul>
 
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">When You Chat With Sabina on This Site</h3>
+              <p>
+                If you open the chat and send a message, the message is sent to Dominus Foundry so Sabina can
+                answer it. Nothing is sent until you write.
+              </p>
+
               <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Automatically Collected Information</h3>
-              <p>When you visit our website, we may automatically collect:</p>
-              <ul className="list-disc ml-6 mt-2 space-y-2">
-                <li>IP address</li>
-                <li>Browser type and version</li>
-                <li>Device information</li>
-                <li>Pages visited and time spent on pages</li>
-                <li>Referring website addresses</li>
-                <li>General location information (city/state level)</li>
-              </ul>
+              <p>
+                Like any website, our hosting provider receives the technical details of each request, such as your
+                IP address, browser type, the page requested and the referring address, and keeps them in its logs.
+              </p>
+              <p className="mt-3">
+                <strong>Only if you allow analytics</strong>, we also measure which pages are visited, how long
+                they are viewed, the referring site (without its query string), device and browser type, and
+                approximate location derived from your IP address. See{' '}
+                <a href="#analytics" className="text-navy-500 underline font-semibold">Analytics</a> below.
+              </p>
             </div>
 
             <div>
@@ -165,10 +180,10 @@ export default function Privacy() {
                 Revoking location access will leave new scans untagged. You can sign out of the apps at any time,
                 and you can request deletion of your account and associated data by emailing us at{' '}
                 <a
-                  href="mailto:foundry@dominusfoundry.com"
+                  href="mailto:mark@dominusfoundry.com"
                   className="text-navy-500 underline font-semibold"
                 >
-                  foundry@dominusfoundry.com
+                  mark@dominusfoundry.com
                 </a>.
               </p>
             </div>
@@ -195,9 +210,13 @@ export default function Privacy() {
               <p className="mt-3">We may share your information only in the following circumstances:</p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
                 <li>
-                  <strong>Service Providers:</strong> With trusted third-party service providers who assist us in 
-                  operating our website and conducting our business (e.g., email service providers, analytics tools). 
-                  These providers are contractually obligated to protect your information.
+                  <strong>Service providers:</strong> companies that run parts of this website and our business for
+                  us: website hosting, database storage, email delivery (how form submissions reach us) and
+                  telecommunications (text messages you have agreed to receive).
+                </li>
+                <li>
+                  <strong>Analytics, only if you allow it:</strong> Google Analytics (Google LLC) and Vercel Web
+                  Analytics. We use no advertising tags on this website.
                 </li>
                 <li>
                   <strong>Legal Requirements:</strong> When required by law, subpoena, or legal process, or to 
@@ -213,74 +232,74 @@ export default function Privacy() {
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-bold text-navy-900 mb-4">Cookies and Tracking Technologies</h2>
+            <div id="analytics">
+              <h2 className="text-2xl font-bold text-navy-900 mb-4">Analytics and Cookies</h2>
               <p>
-                We use cookies and similar tracking technologies to improve your experience on our website and 
-                analyze usage patterns. Cookies are small data files stored on your device.
+                <strong>Nothing is sent to an analytics service until you choose &ldquo;Allow analytics&rdquo;.</strong>{' '}
+                Until then, and if you choose &ldquo;No analytics&rdquo;, no analytics script is loaded.
               </p>
-              
-              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Types of Cookies We Use:</h3>
-              <ul className="list-disc ml-6 mt-2 space-y-2">
+              <ul className="list-disc ml-6 mt-4 space-y-2">
                 <li>
-                  <strong>Essential Cookies:</strong> Required for the website to function properly
+                  <strong>Google Analytics</strong> (Google LLC). If you allow it, Google receives the pages you view
+                  (the address without its query string or fragment), the referring site, your browser and device
+                  type, and your IP address, and sets the <code>_ga</code> cookies to recognize a returning browser.
+                  Google may use this data as described in its own policies.
                 </li>
                 <li>
-                  <strong>Analytics Cookies:</strong> Help us understand how visitors use our website 
-                  (we use Google Analytics)
+                  <strong>Vercel Web Analytics.</strong> If you allow it, it counts page views without its own
+                  cookies, again without query strings.
                 </li>
                 <li>
-                  <strong>Advertising Cookies:</strong> Used to deliver relevant advertisements and measure 
-                  campaign effectiveness (Google Ads)
+                  <strong>Advertising:</strong> this website uses no advertising or retargeting tags.
                 </li>
               </ul>
-
-              <p className="mt-4">
-                You can control cookies through your browser settings. However, disabling cookies may limit 
-                your ability to use certain features of our website.
-              </p>
+              <h3 className="text-xl font-semibold text-navy-900 mt-6 mb-3">Cookies and storage we always use</h3>
+              <ul className="list-disc ml-6 mt-2 space-y-2">
+                <li>
+                  <code>df-consent</code> (cookie and local storage): remembers your analytics choice for up to 180
+                  days, so you are not asked on every page.
+                </li>
+                <li>
+                  <code>consent_gpc</code>: set only when your browser sends a Global Privacy Control signal, so the
+                  site can honor it; it expires after a day without the signal.
+                </li>
+                <li>
+                  <code>df-theme</code> (local storage): remembers light or dark display if you choose one.
+                </li>
+              </ul>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-navy-900 mb-4">Google Analytics and Google Ads</h2>
+              <h2 className="text-2xl font-bold text-navy-900 mb-4">Global Privacy Control</h2>
               <p>
-                We use Google Analytics to analyze website traffic and Google Ads to display advertisements. 
-                These services may collect information about your online activities over time and across different 
-                websites.
+                If your browser sends a Global Privacy Control (GPC) signal, we treat it as &ldquo;No
+                analytics&rdquo;. We do not ask you, and the signal overrides an earlier &ldquo;Allow
+                analytics&rdquo; for as long as it is on. We do not sell personal information or share it for
+                cross-context advertising.
               </p>
-              <p className="mt-3">
-                You can opt out of Google Analytics by installing the{' '}
-                <a 
-                  href="https://tools.google.com/dlpage/gaoptout" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-navy-500 underline font-semibold"
-                >
-                  Google Analytics Opt-out Browser Add-on
-                </a>.
+            </div>
+
+            <div id="analytics-choice">
+              <h2 className="text-2xl font-bold text-navy-900 mb-4">Your Analytics Choice</h2>
+              <p>
+                You can change your choice here at any time. Withdrawing stops analytics on this browser,
+                clears the analytics cookies this site can clear, and reloads the page.
               </p>
-              <p className="mt-3">
-                You can manage your Google Ads settings at{' '}
-                <a 
-                  href="https://adssettings.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-navy-500 underline font-semibold"
-                >
-                  Google Ads Settings
-                </a>.
-              </p>
+              <ConsentChoice />
             </div>
 
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">SMS/Text Messaging Consent</h2>
-              <p>
-                When you submit a form or request information, you may opt in to receive text messages from us.
-                By providing your phone number and checking the SMS consent checkbox, you agree that we may
-                contact you via SMS for service updates and follow-ups related to your inquiry.
+              <p className="font-semibold">
+                A phone number alone is never permission to text you.
+              </p>
+              <p className="mt-3">
+                On this website, you agree to text messages only by ticking the SMS consent checkbox on a form. The
+                box is unchecked by default, and a form sent without it does not sign you up for texts. Every way to
+                opt in is listed on our{' '}
+                <a href="/sms-terms" className="text-navy-500 underline font-semibold">SMS Messaging Terms</a>.
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
-                <li><strong>Opt-in:</strong> You opt in by providing your phone number and checking the SMS consent checkbox on our web forms, by verbally agreeing during a phone call, or by texting a keyword to our business number.</li>
                 <li><strong>Opt-out:</strong> You can reply STOP to any message to stop SMS communications. Reply HELP for help.</li>
                 <li><strong>Frequency:</strong> Message frequency varies based on your interactions (typically 1–10 messages per month). We do not send unsolicited marketing blasts.</li>
                 <li><strong>Rates:</strong> Message and data rates may apply depending on your carrier and plan.</li>
@@ -296,7 +315,7 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Data Security</h2>
               <p>
-                We implement reasonable security measures to protect your personal information from unauthorized 
+                We use reasonable security measures to protect your personal information from unauthorized 
                 access, disclosure, alteration, or destruction. These measures include:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
@@ -314,9 +333,9 @@ export default function Privacy() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900 mb-4">Data Retention</h2>
               <p>
-                We retain your personal information only as long as necessary to fulfill the purposes outlined 
-                in this Privacy Policy, unless a longer retention period is required or permitted by law. When 
-                information is no longer needed, we securely delete or anonymize it.
+                We keep what you send us for as long as we are in conversation with you about it. We have not set
+                a fixed deletion date. You can ask us to delete your information at any time, using the contact
+                below, unless the law requires us to keep it.
               </p>
             </div>
 
@@ -334,10 +353,10 @@ export default function Privacy() {
               <p className="mt-4">
                 To exercise any of these rights, please contact us at{' '}
                 <a 
-                  href="mailto:foundry@dominusfoundry.com" 
+                  href="mailto:mark@dominusfoundry.com" 
                   className="text-navy-500 underline font-semibold"
                 >
-                  foundry@dominusfoundry.com
+                  mark@dominusfoundry.com
                 </a>.
               </p>
             </div>
@@ -381,18 +400,12 @@ export default function Privacy() {
               </p>
               <div className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">
                 <p className="font-semibold text-navy-900">Dominus Foundry</p>
-                <p className="mt-2">Email: <a href="mailto:foundry@dominusfoundry.com" className="text-navy-500 underline">foundry@dominusfoundry.com</a></p>
+                <p className="mt-2">Email: <a href="mailto:mark@dominusfoundry.com" className="text-navy-500 underline">mark@dominusfoundry.com</a></p>
                 <p>Phone: <a href="tel:+15055201433" className="text-navy-500 underline">(505) 520-1433</a></p>
                 <p className="mt-2">Albuquerque, New Mexico</p>
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-bronze-300">
-              <p className="text-sm text-navy-600">
-                By using our website and services, you acknowledge that you have read and understood this 
-                Privacy Policy and agree to its terms.
-              </p>
-            </div>
           </div>
 
         </div>
