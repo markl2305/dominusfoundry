@@ -1,0 +1,25 @@
+{
+  "asOf": "2026-10-12",
+  "status": "Illustrative underwriting scenarios, not observed results or a new customer price",
+  "months": 18,
+  "monthlyBlendedRevenue": 3100,
+  "monthlyChurn": 0.02,
+  "newCustomerFirstMonthFraction": 0.5,
+  "collectionLagMonths": 1,
+  "incrementalDeliveryPerCompany": 200,
+  "incrementalOnboardingPerActivation": 500,
+  "scenarios": [
+    {"id":"slower","label":"Slower activation","activations":[0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1],"description":"No new activations before month 6; one per month thereafter."},
+    {"id":"base","label":"Base planning case","activations":[0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2],"description":"One new activation per month in months 3–12; two per month in months 13–18."},
+    {"id":"faster","label":"Faster activation","activations":[0,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"description":"One new activation per month in months 2–6; two per month in months 7–18."}
+  ],
+  "sources": {
+    "revenue": "$3,100 is the blended monthly company-revenue reference in the existing private October 5 meeting-preparation model. It is reused as an underwriting assumption, not a verified current realized average, contractual price, public rate card or claim of willingness to pay. Current company proposals govern commercial terms.",
+    "retention": "2% monthly logo churn carried in the September floor and funded financial scenarios. It remains an assumption, not measured customer retention.",
+    "activation": "New analyst scenario schedules prepared October 12 in response to Mark's request for an income projection. These are neither achieved growth nor proven sales/onboarding capacity. Initial customers are cross-industry; no trades-first sequence is assumed.",
+    "costs": "Base spending imports financial-plan.json unchanged. $200 per billable-company-month and $500 per activation are additional variable delivery/onboarding cash allowances, beyond the fixed budget; they are not reallocations of the same salaries or AWS bill. Capacity and support scaling remain unverified.",
+    "timing": "New customers contribute half a month of service revenue in their activation month. Churn applies at the start of each month to prior active customers. Collections lag recognized recurring-service revenue by one month, with no bad-debt assumption. ARR is month-end MRR times 12, not revenue earned during the period.",
+    "cash": "The full financing target is received in month 1, with zero assumed existing cash. The cash scenario includes the $32,000 proposed founder-funding repayment in month 1, subject to the separately stated closing conditions. Financing and repayment are not operating income/expense. The $10,000 financing/corporate-work allowance is separately shown below operating result; actual accounting classification is not determined here.",
+    "exclusions": "Forecast covers new direct Sabina deployments only. No existing Forge revenue, setup-fee revenue, MSP revenue, new data-product revenue, tax, interest, depreciation, amortization, additional capital expenditure or further financing is modeled. Operating result is a planning measure before financing/corporate-work allowance and taxes, not GAAP net income or distributable profit. Additional legacy liabilities are not assumed settled."
+  }
+}
