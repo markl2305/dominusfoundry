@@ -68,6 +68,10 @@ export default function Privacy() {
                 IP address, browser type, the page requested and the referring address, and keeps them in its logs.
               </p>
               <p className="mt-3">
+                Our page footer shows a verification badge image hosted by LocateFaith, so loading a page also sends
+                those standard request details to LocateFaith; our fonts are served from this site, not a font service.
+              </p>
+              <p className="mt-3">
                 <strong>Only if you allow analytics</strong>, we also measure which pages are visited, how long
                 they are viewed, the referring site (without its query string), device and browser type, and
                 approximate location derived from your IP address. See{' '}

@@ -32,7 +32,10 @@
  *   - the form state is /start (this site's lead form), not /evaluate; the privacy-page checks are this site's notice;
  *   - GA4 collection is also recognised at analytics.google.com/g/collect (this site's container uses it);
  *   - /pitch renders without the bar (another session owns it) and is out of the layout routes; its own state checks
- *     zero trackers and no bar.
+ *     zero trackers and no bar;
+ *   - section 12 (v2 sync review F1): the nine Foundry-shell routes must carry a visible, focusable footer link to
+ *     /privacy before a choice, after a stored Accept, after a stored Reject and under GPC, and following it must reach
+ *     the notice's choice/withdraw control.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
@@ -55,6 +58,8 @@ const ASSESSMENT_AND_HOME = (process.env.CONSENT_SEED_ROUTES || '/,/start,/priva
 const PRIVATE_ROUTES = (process.env.CONSENT_PRIVATE_ROUTES || '/chat').split(',');
 // /pitch is rendered without the bar (ConsentBar NO_BAR, Mark 2026-10-12), so it is not a layout route.
 const LAYOUT_ROUTES = (process.env.CONSENT_LAYOUT_ROUTES || ALL_ROUTES.filter((r) => r !== '/pitch').join(',')).split(',');
+// The routes that render the Foundry shell's own footer instead of SiteFooter (components/AppShell.tsx FOUNDRY_ROUTES).
+const FOUNDRY_ROUTES = (process.env.CONSENT_FOUNDRY_ROUTES || '/,/sabina,/governance,/technology,/company,/press,/blog,/pricing,/pitch').split(',');
 const SKIP = new Set((process.env.CONSENT_SKIP || '').split(',').filter(Boolean)); // e.g. form (another site has no /evaluate)
 // Off-origin hosts a page may legitimately ask for that are NOT analytics. Still aborted and still in the ledger; just
 // not "unknown". dominusfoundry's, measured 2026-10-12: only the LocateFaith verified badge (footer image).
@@ -574,6 +579,39 @@ async function main() {
       ok(bar && /Google Analytics/.test(bar.text) && /Google Ads/.test(bar.text) && /without cookies/.test(bar.text), `bar: names Google Analytics and cookieless Google Ads measurement through gate config ("${bar ? bar.text.slice(0, 170) : 'no bar'}"; buttons ${bar ? bar.buttons.join(' / ') : '-'})`);
       finish(matrix, 'site_pitch_and_bar_copy', rec, { pitch_bar: pitchBar, pitch_hosts: pitchHosts, bar });
       await context.close(); }
+    // 12 the Foundry footer carries a persistent, visible, keyboard-focusable link to /privacy on every Foundry-shell
+    //    route, whatever the visitor chose (the bar, which also links there, is gone after a choice); following it
+    //    reaches the notice's choice/withdraw control.
+    for (const [sname, opts] of [['no_choice', {}], ['stored_accept', { seedCookie: nowAccept(), seedStorage: nowAccept() }], ['stored_reject', { seedCookie: `1.reject.${Date.now()}`, seedStorage: `1.reject.${Date.now()}` }], ['gpc', { gpcSignal: true, gpcHeader: true }]]) {
+      const name = `footer_privacy_link_${sname}`;
+      const { context, page, rec } = await fresh(browser, opts);
+      const rows = {};
+      for (const p of FOUNDRY_ROUTES) {
+        await page.goto(ORIGIN + p, { waitUntil: 'load' }); await page.waitForTimeout(800);
+        rows[p] = await page.evaluate(() => {
+          const links = [...document.querySelectorAll('footer a[href="/privacy"]')];
+          const a = links.find((x) => { const r = x.getBoundingClientRect(); const st = getComputedStyle(x); return r.width > 0 && r.height > 0 && st.visibility !== 'hidden' && st.display !== 'none' && x.tabIndex >= 0; });
+          let focusable = false;
+          if (a) { a.focus(); focusable = document.activeElement === a; a.blur(); }
+          return { footer_links: links.length, visible: !!a, focusable, text: a ? a.textContent.trim() : '', bar: !!document.querySelector('[data-consent-bar]'), state: window.SiteConsent ? window.SiteConsent.state() : 'no-gate' };
+        });
+      }
+      const missing = Object.entries(rows).filter(([, r]) => !(r.visible && r.focusable)).map(([p]) => p);
+      ok(missing.length === 0, `${name}: a visible, keyboard-focusable footer link to /privacy on all ${FOUNDRY_ROUTES.length} Foundry routes (missing: ${missing.join(', ') || 'none'})`);
+      // Follow it from the home page and reach the choice/withdraw control.
+      await page.goto(ORIGIN + '/', { waitUntil: 'load' }); await page.waitForTimeout(800);
+      let control = null;
+      const link = page.locator('footer a[href="/privacy"]').first();
+      if (await link.count()) {
+        await Promise.all([page.waitForURL(`${ORIGIN}/privacy`), link.click()]);
+        await page.waitForTimeout(1500);
+        control = await page.evaluate(() => { const c = document.querySelector('[data-consent-choice]'); return c ? { state: c.getAttribute('data-consent-choice'), buttons: [...c.querySelectorAll('button')].map((b) => b.textContent.trim()) } : null; });
+      }
+      const wantButtons = sname !== 'gpc';
+      ok(control && (wantButtons ? control.buttons.length > 0 : control.state === 'gpc'), `${name}: following the footer link reaches the notice's choice control (${control ? control.state + ' / ' + (control.buttons.join(', ') || 'GPC message, no button') : 'not reached'})`);
+      finish(matrix, name, rec, { rows, control });
+      await context.close();
+    }
   } finally {
     await browser.close();
   }

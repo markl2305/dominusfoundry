@@ -101,6 +101,9 @@ const FOOTER_COLS = [
       { t: 'Foundry Notes', href: '/blog' },
       { t: 'Investors', href: '/pitch' },
       { t: 'Careers & collaboration', href: '/company#contact' },
+      // Persistent route to the privacy notice and its analytics choice/withdraw control (consent v2 sync review
+      // F1): the consent bar disappears after a choice, so the footer carries the way back.
+      { t: 'Privacy & analytics choice', href: '/privacy' },
     ],
   },
   {

@@ -97,8 +97,8 @@ export default function RootLayout({
     // to Google Ads, so the bar says the same Allow covers cookieless Google Ads measurement. The button labels
     // are the gate's defaults, set explicitly; changing them is Mark's call.
     barText: hasRealGaId
-      ? 'We use Google Analytics and Vercel Web Analytics only if you allow it. The same choice lets Google Ads measure visits without cookies. Nothing is sent until you choose. '
-      : 'We use Vercel Web Analytics only if you allow it. Nothing is sent until you choose. ',
+      ? 'We use Google Analytics and Vercel Web Analytics only if you allow it. The same choice lets Google Ads measure visits without cookies. No analytics or ad measurement data is sent until you choose. '
+      : 'We use Vercel Web Analytics only if you allow it. No analytics data is sent until you choose. ',
     acceptLabel: 'Allow analytics',
     rejectLabel: 'No analytics',
   })};` +
@@ -110,7 +110,12 @@ export default function RootLayout({
     // remarketing. Turning Ads on needs its own choice in the gate (OPEN ON MARK), not this default.
     `(function(){var w=window;w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}` +
     `g('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});` +
-    `g('set','ads_data_redaction',true);})();`
+    `g('set','ads_data_redaction',true);})();` +
+    // The gate is loaded HERE, by this same inline script, after the config and the Consent Mode defaults above, so
+    // it can never run without them (v2 sync review: Next/React hoists an <script async src> ahead of inline
+    // scripts in the HTML, and with a delayed HTML chunk the gate ran with no config; reproduced by
+    // tests/consent/script-order.mjs). There is no other <script src> for consent.js on any route.
+    `(function(){var d=document,s=d.createElement('script');s.src='/consent/consent.js';s.async=true;(d.head||d.documentElement).appendChild(s);})();`
 
   return (
     // suppressHydrationWarning: the pre-paint theme script below writes
@@ -140,8 +145,9 @@ export default function RootLayout({
             navigator.globalPrivacyControl signal, or the consent_gpc cookie middleware.js sets from Sec-GPC),
             and never from the server: public/consent/consent.js creates every tag in the browser, so with
             JavaScript off nothing is sent. */}
+        {/* One inline script: config, Consent Mode defaults, then it inserts public/consent/consent.js itself. The
+            order is guaranteed by construction; a separate <script async src> would be hoisted ahead of it. */}
         <script id="consent-config" dangerouslySetInnerHTML={{ __html: CONSENT_CONFIG }} />
-        <script async src="/consent/consent.js" />
       </head>
       <body className="antialiased font-inter">
         <script
