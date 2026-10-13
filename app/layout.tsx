@@ -92,12 +92,15 @@ export default function RootLayout({
     autoBar: false, // ConsentBar mounts it after hydration
     vercel: false, // the React <Analytics /> in SiteAnalytics carries Vercel here, gated on the same choice
     privatePaths: '^/(api|chat|login|graph|command|transcribe)(/|$)',
-    // Site copy for the bar, applied by ConsentBar after the gate mounts it (consent.js stays byte-identical
-    // to hiresabina's). Mark 2026-10-13: one choice, named honestly — the Google tag here is linked to Google
-    // Ads, so the bar says the same Allow covers cookieless Google Ads measurement.
+    // Bar wording through the gate's own config (gate v2: barText, acceptLabel, rejectLabel; consent.js stays
+    // byte-identical to hiresabina's). Mark 2026-10-13: one choice, named honestly — the Google tag here is linked
+    // to Google Ads, so the bar says the same Allow covers cookieless Google Ads measurement. The button labels
+    // are the gate's defaults, set explicitly; changing them is Mark's call.
     barText: hasRealGaId
       ? 'We use Google Analytics and Vercel Web Analytics only if you allow it. The same choice lets Google Ads measure visits without cookies. Nothing is sent until you choose. '
       : 'We use Vercel Web Analytics only if you allow it. Nothing is sent until you choose. ',
+    acceptLabel: 'Allow analytics',
+    rejectLabel: 'No analytics',
   })};` +
     // Google Consent Mode defaults, queued before any tag exists (no network: gtag.js only loads after Allow).
     // The Google tag behind GA_ID is linked, in Google's own tag settings, to Google Ads AW-17706960854 —

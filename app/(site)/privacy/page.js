@@ -262,9 +262,9 @@ export default function Privacy() {
               <ul className="list-disc ml-6 mt-2 space-y-2">
                 <li>
                   <code>df-consent</code>: remembers your analytics choice so you are not asked on every page. It
-                  is kept in two places. The cookie expires after 180 days. The copy in your browser&rsquo;s local
-                  storage has no expiry: it stays until you clear your browser&rsquo;s site data, and changing
-                  your choice below replaces it.
+                  is kept in two places, a cookie and a copy in your browser&rsquo;s local storage, and each is
+                  honoured for 180 days from when you chose; after that you are asked again. Changing your choice
+                  below replaces both.
                 </li>
                 <li>
                   <code>consent_gpc</code>: set only when your browser sends a Global Privacy Control signal, so the

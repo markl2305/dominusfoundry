@@ -295,32 +295,13 @@ footer {
   height: auto;
 }
 
-/* Consent bar (public/consent/consent.js, compliance P1-1c, Mark 2026-10-12). The gate inserts it in-flow at the
-   top of <body>; on this site the Foundry nav (.df-site .nav, position:fixed, z-index 200) sits on top of it and
-   swallows the clicks, measured by tests/consent/tracking-matrix.mjs. So here it is pinned to the bottom edge,
-   above everything, without changing the shared gate file. It goes away as soon as a choice is made.
-   Anvil r1 F1: while it is shown, the page reserves its height at the bottom, so nothing at the end of a page
-   (footer links, the badge) sits under it. --consent-bar-h is the measured height (ConsentBar.tsx); the
-   fallbacks cover the moment before it is measured. */
-body:has([data-consent-bar]) {
-  padding-bottom: var(--consent-bar-h, 11rem) !important;
-  /* Anvil r2 F1: the first-party chat launcher is position:fixed inside an open shadow root, so the padding
-     above cannot move it. Custom properties inherit through the shadow boundary; public/sabina-chat/
-     sabina-chat.css adds --consent-lift to the launcher's bottom offset. Set only while the bar is present. */
-  --consent-lift: var(--consent-bar-h, 11rem);
-}
-@media (min-width: 768px) {
-  body:has([data-consent-bar]) {
-    padding-bottom: var(--consent-bar-h, 6rem) !important;
-    --consent-lift: var(--consent-bar-h, 6rem);
-  }
-}
-[data-consent-bar] {
-  position: fixed !important;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10000 !important;
-  border-bottom: 0 !important;
-  border-top: 1px solid rgba(239, 231, 216, 0.25);
+/* Consent bar (public/consent/consent.js, compliance P1-1c). Gate v2 sync, 2026-10-13: the bar stays where the gate
+   puts it, in normal flow at the top of <body>, so it can never sit over page content at any scroll position (the
+   bottom-pinned bar of rounds 1-4 covered in-page links whenever the page was not scrolled to its end). The one
+   element that could cover it is the Foundry nav (.df-site .nav, position:fixed, top:0, z-index 200): while the bar
+   is present, the nav starts at the bar's visible bottom edge, --consent-bar-visible, which ConsentBar.tsx keeps
+   current on scroll and resize (0 once the bar has scrolled away). When a choice removes the bar, :has stops
+   matching and the nav is back at top:0. */
+body:has([data-consent-bar]) .df-site .nav {
+  top: var(--consent-bar-visible, 0px);
 }
