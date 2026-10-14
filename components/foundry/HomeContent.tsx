@@ -109,14 +109,16 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* THE HIERARCHY — Sabina, then Forge, then Hyperion. Plan §7.3: this
-          order is the ruling, not a layout preference. ⛔ Do not renumber. */}
+      {/* THE HIERARCHY — Sabina, then Forge, then DominusOS, then Hyperion.
+          RULED by Mark 2026-10-14: "dominusOS is more important here than
+          hyperion". Supersedes Plan §7.3's Sabina → Forge → Hyperion order.
+          ⛔ Do not renumber. */}
       <Section
         id="builds"
         eyebrow="What Dominus Foundry builds"
         title={<>Your company’s AI. Her platform. <em>A specialist tool.</em></>}
       >
-        <div className="grid g3">
+        <div className="grid g2">
           <article className="card reveal path-card" style={{ '--i': 0 } as CSSProperties}>
             <h3 className="h3">Sabina</h3>
             <p className="tile-p">
@@ -136,6 +138,15 @@ export default function HomeContent() {
             <a className="more-link" href="https://buildwithforge.app">Explore Forge →</a>
           </article>
           <article className="card reveal path-card" style={{ '--i': 2 } as CSSProperties}>
+            <h3 className="h3">DominusOS</h3>
+            <p className="tile-p">
+              DominusOS supplies the authority and execution-control architecture behind what Sabina is
+              permitted to do. Company rules define what she may do, when approval is required, and how
+              permitted work is recorded.
+            </p>
+            <a className="more-link" href="https://dominusos.ai">Explore DominusOS →</a>
+          </article>
+          <article className="card reveal path-card" style={{ '--i': 3 } as CSSProperties}>
             <h3 className="h3">Hyperion</h3>
             <p className="tile-p">
               A specialist trades product with its own scope: iPad LiDAR capture that turns a walked site
