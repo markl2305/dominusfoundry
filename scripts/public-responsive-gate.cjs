@@ -40,18 +40,22 @@ const VIEWPORT_HEIGHT = 1400;
 // be visually clipped by an ancestor's overflow.
 const CHECKS = [
   {
-    /* 2026-10-14 (site-wide redesign): content fades in once as it is scrolled to,
-       as on /pitch, so the page is scrolled through first (settleScroll). Same
-       selectors; nothing is measured mid-fade. */
+    /* 2026-10-14 (site-wide redesign): content fades in once as it is scrolled
+       to, so every target is brought into view and probed only once it has
+       settled (`settle`, the same per-target wait /pitch uses). Each family has
+       an exact required `count` (review R1's rule): zero matches fail, and so
+       does a family that gains or loses members. Counts measured on the
+       redesigned page at 320 and 1440: 5 rate-card rows, 1 hire button, 3
+       footer columns carrying 14 links (FOOTER_COLS). */
     route: '/pricing',
-    settleScroll: true,
+    settle: true,
     selectors: [
-      { label: 'footer contact column', selector: '.footer .f-col' },
-      { label: 'footer link/span text', selector: '.footer .f-col a, .footer .f-col span' },
-      { label: 'footer email', selector: '.footer a[href="mailto:foundry@dominusfoundry.com"]' },
-      { label: 'hire CTA buttons', selector: '#hire .btn' },
-      { label: 'quote row value', selector: '.pline .pl-v' },
-      { label: 'quote row label', selector: '.pline .pl-k' },
+      { label: 'footer contact column', selector: '.footer .f-col', count: 3 },
+      { label: 'footer link/span text', selector: '.footer .f-col a, .footer .f-col span', count: 14 },
+      { label: 'footer email', selector: '.footer a[href="mailto:foundry@dominusfoundry.com"]', count: 1 },
+      { label: 'hire CTA buttons', selector: '#hire .btn', count: 1 },
+      { label: 'quote row value', selector: '.pline .pl-v', count: 5 },
+      { label: 'quote row label', selector: '.pline .pl-k', count: 5 },
     ],
   },
   {
@@ -123,16 +127,20 @@ const CHECKS = [
     },
   },
   {
+    /* 2026-10-14: `settle` and exact counts, as /pricing above. Footer: 14 list
+       items (FOOTER_COLS), 17 links (those 14, the crest lockup, the privacy
+       line's link and the LocateFaith badge). Application: 2 columns, 11
+       controls (the form, its fields, the file input and the submit button). */
     route: '/careers',
-    settleScroll: true, // 2026-10-14: as /pricing above
+    settle: true,
     selectors: [
-      { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li' },
-      { label: 'footer contact/nav links', selector: 'footer a' },
-      { label: 'footer email', selector: 'footer a[href="mailto:foundry@dominusfoundry.com"]' },
-      { label: 'application region', selector: '#apply' },
-      { label: 'application region columns', selector: '#apply > div > div > div' },
-      { label: 'application form controls', selector: '#apply input, #apply textarea, #apply button, #apply form' },
-      { label: 'application file-picker filename', selector: '#apply input[type="file"] + div > span:last-child' },
+      { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li', count: 14 },
+      { label: 'footer contact/nav links', selector: 'footer a', count: 17 },
+      { label: 'footer email', selector: 'footer a[href="mailto:foundry@dominusfoundry.com"]', count: 1 },
+      { label: 'application region', selector: '#apply', count: 1 },
+      { label: 'application region columns', selector: '#apply > div > div > div', count: 2 },
+      { label: 'application form controls', selector: '#apply input, #apply textarea, #apply button, #apply form', count: 11 },
+      { label: 'application file-picker filename', selector: '#apply input[type="file"] + div > span:last-child', count: 1 },
     ],
   },
 ];
@@ -232,7 +240,11 @@ async function settleTarget(handle, timeoutMs) {
       for (let n = el; n && n.nodeType === 1; n = n.parentElement) chain.push(n);
       for (const n of chain) {
         const s = getComputedStyle(n);
-        if (Number(s.opacity) < 1 || s.visibility !== 'visible') return `${n.tagName.toLowerCase()}.${String(n.className).split(' ')[0]} opacity ${s.opacity} visibility ${s.visibility}`;
+        // The transparent native file-input overlay is opacity 0 by design; clipProbe already accepts exactly that
+        // one element (its visible Choose File/filename control is separately required), so settling does too
+        // (2026-10-14: found when /careers moved to per-target settling). Its ancestors must still be opaque.
+        const fileOverlay = n === el && el.matches('input[type="file"]');
+        if ((Number(s.opacity) < 1 && !fileOverlay) || s.visibility !== 'visible') return `${n.tagName.toLowerCase()}.${String(n.className).split(' ')[0]} opacity ${s.opacity} visibility ${s.visibility}`;
       }
       const running = document.getAnimations().filter((a) => {
         const t = a.effect && a.effect.target;
