@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import SabinaContent from '@/components/foundry/SabinaContent'
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function SabinaPage() {
-  return (
-    <FoundryShell active="sabina">
-      <SabinaContent />
-    </FoundryShell>
-  )
+  return <SabinaContent />
 }

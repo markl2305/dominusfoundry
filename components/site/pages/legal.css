@@ -1,0 +1,16 @@
+/* Legal pages (/privacy, /sms-terms, /legal/*), 2026-10-14. The body is .article; each legal
+   section stays grouped in a <section>, so the article's own flow spacing is repeated one level
+   down. Text is never collapsed or transformed here. */
+.dfs .pg-legal [id] { scroll-margin-top: 96px; }
+.dfs .pg-legal .article > section > * + * { margin-top: 1.1em; }
+.dfs .pg-legal .article > section > h2 + *, .dfs .pg-legal .article > section > h3 + * { margin-top: 0.6em; }
+.dfs .pg-legal .article > section:first-child > h2:first-child { margin-top: 0; }
+.dfs .pg-legal .article > p:first-child { margin-top: 0; }
+.dfs .pg-legal .lp-strong { color: var(--ink); font-weight: 600; }
+.dfs .pg-legal .lp-contact p + p { margin-top: 4px; }
+.dfs .pg-legal .lp-contact .lp-strong + p { margin-top: 10px; }
+.dfs .pg-legal .lp-choice > * + * { margin-top: 16px; }
+.dfs .pg-legal .lp-callout { margin-top: 2.4em; }
+.dfs .pg-legal .lp-callout > h2 { margin-top: 0; }
+.dfs .pg-legal .lp-callout > * + * { margin-top: 0; }
+.dfs .pg-legal .lp-foot { margin-top: 3em; padding-top: 1.6em; border-top: 1px solid var(--hair); font-size: 0.9375rem; }

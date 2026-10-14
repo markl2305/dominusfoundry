@@ -1,0 +1,21 @@
+/* components/site/pages/home.css — homepage-only parts (2026-10-14).
+   Everything else on / comes from components/site/site.css. */
+.dfs .pg-home .hero-note { margin: 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 0.95rem; line-height: 1.55; color: var(--ink-2); max-width: 60ch; text-decoration: none; }
+.dfs .pg-home .hero-note .arr { color: var(--gold); transition: transform 200ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .dfs .pg-home .hero-note:hover { color: var(--ink); } .dfs .pg-home .hero-note:hover .arr { transform: translateX(3px); } }
+.dfs .pg-home .more-link {
+  display: inline-flex; align-items: center; min-height: 44px; align-self: start; justify-self: start;
+  color: var(--gold); text-decoration: none; font-weight: 500; font-size: 0.975rem;
+}
+@media (hover: hover) and (pointer: fine) { .dfs .pg-home .more-link:hover { color: var(--gold-hi); } }
+.dfs .pg-home .path-card { display: flex; flex-direction: column; gap: 12px; }
+.dfs .pg-home .path-card > * { margin: 0; }
+.dfs .pg-home .path-card > .more-link { margin-top: auto; }
+.dfs .pg-home .layer-rows > div > :first-child { font-weight: inherit; }
+.dfs .pg-home .layer-head { display: grid; gap: 6px; align-content: start; }
+.dfs .pg-home .layer-head .tile-t { margin: 0; }
+.dfs .pg-home .layer-rows > div > p { margin: 0; }
+.dfs .pg-home .seal { display: grid; justify-items: center; align-content: center; text-align: center; gap: 12px; }
+.dfs .pg-home .seal .df-crest { width: min(180px, 70%); }
+.dfs .pg-home .seal-motto { margin: 0; font-size: 1.6rem; font-style: italic; color: var(--gold); }
+.dfs .pg-home .seal-by { font: 400 0.72rem/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-3); }

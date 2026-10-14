@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero, More } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "Forge: The AI Operating System for Commercial Contractors",
@@ -64,7 +66,17 @@ const faqJsonLd = {
 
 export default function ForgeAiOperatingSystemPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
+    <>
+      <PageHero
+        eyebrow="Learn — Platform"
+        title={<>
+          Forge: The AI Operating System for Commercial Contractors
+        </>}
+        lead={<h2 className="lead">
+          Unifying estimating, takeoff, project management, and field operations into
+          one platform built for the installation trades.
+        </h2>}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -73,17 +85,9 @@ export default function ForgeAiOperatingSystemPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn — Platform</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          Forge: The AI Operating System for Commercial Contractors
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          Unifying estimating, takeoff, project management, and field operations into
-          one platform built for the installation trades.
-        </h2>
-
-        <div className="body-foundry space-y-4 text-slate-900">
+      <section className="section pg-learn">
+        <div className="wrap wrap-text">
+        <div className="article">
           <p>
             Forge is the AI operating system for commercial contractors — unifying
             estimating, takeoff, project management, and field operations into one
@@ -92,7 +96,7 @@ export default function ForgeAiOperatingSystemPage() {
             single workflow.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             What makes Forge different from traditional contractor software
           </h3>
           <p>
@@ -109,7 +113,7 @@ export default function ForgeAiOperatingSystemPage() {
             operating system from a software suite.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             How the platform connects to the field
           </h3>
           <p>
@@ -126,7 +130,7 @@ export default function ForgeAiOperatingSystemPage() {
             learnings captured than it should have.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             The role of AI in the platform
           </h3>
           <p>
@@ -143,7 +147,7 @@ export default function ForgeAiOperatingSystemPage() {
             off on changes. AI handles the drafting and the data entry.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Who benefits from an operating system approach
           </h3>
           <p>
@@ -161,7 +165,7 @@ export default function ForgeAiOperatingSystemPage() {
             disconnected systems exceeds the cost of consolidation.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Getting started with the platform
           </h3>
           <p>
@@ -177,33 +181,35 @@ export default function ForgeAiOperatingSystemPage() {
             to the native workflows typically see operational improvements within the
             first few weeks. Teams that maintain parallel systems tend to delay
             realizing the benefits. Visit{" "}
-            <a className="underline" href="https://buildwithforge.app" rel="noopener">
+            <a href="https://buildwithforge.app" rel="noopener">
               buildwithforge.app
             </a>{" "}
             to explore the platform. For a Forge quote, {" "}
-            <a className="underline" href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">
+            <a href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">
               ask about Forge tools
             </a>
             .
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Frequently Asked Questions
           </h3>
-          {faq.map(({ q, a }) => (
-            <div key={q}>
-              <h4 className="font-semibold mt-4">{q}</h4>
-              <p>{a}</p>
-            </div>
-          ))}
+          <div className="learn-faq">
+            {faq.map(({ q, a }) => (
+              <More key={q} summary={<h4>{q}</h4>}>
+                <p>{a}</p>
+              </More>
+            ))}
+          </div>
 
-          <p className="mt-8">
-            <Link className="underline" href="/learn">
+          <p>
+            <Link href="/learn">
               ← All Learn articles
             </Link>
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

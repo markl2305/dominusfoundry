@@ -5,6 +5,7 @@ import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 import GAPageview from './components/GAPageview'
 import ConsentBar from './components/ConsentBar'
+import { fontVars } from '../components/site/fonts'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -123,25 +124,24 @@ export default function RootLayout({
     // legitimately differs from the client DOM by that one attribute.
     <html
       lang="en"
-      className={`${inter.variable} ${crimson.variable} scroll-smooth`}
+      className={`${inter.variable} ${crimson.variable} ${fontVars} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
-        {/* Resolve the FoundryShell theme BEFORE first paint. FoundryShell is a
-            client component that can only read localStorage in an effect, so
-            without this the server-rendered dark theme paints first and a
-            light-preference visitor sees a dark frame flash. foundry.css keys
-            its token blocks off this attribute with higher specificity than
-            .df-site[data-theme], so the pre-paint value wins until hydration. */}
+        {/* Resolve the theme BEFORE first paint. The shell is a client component
+            that can only read localStorage in an effect, so without this the
+            server-rendered dark theme paints first and a light-preference
+            visitor sees a dark frame flash. */}
         <script
           id="df-theme-preload"
           dangerouslySetInnerHTML={{
-            // /pitch (2026-10-14): same key, same attribute. With no stored choice the
-            // page follows the system (dark is the base), and data-dfp-pref tells its
-            // System/Dark/Light control which segment to show before hydration. Every
-            // other route behaves exactly as before: only a stored value is applied.
+            // 2026-10-14: every route carries the System / Dark / Light control (components/site/theme.tsx). A
+            // stored 'light' or 'dark' is applied as before; with no stored choice the page follows the system
+            // (dark is the base), and data-dfp-pref tells the control which segment to show before hydration.
+            // dfp-js / dfs-js arm the reveal-once motion (/pitch and the rest); if the page script never runs,
+            // a CSS failsafe shows everything after 2.5 s.
             __html:
-              "try{var d=document.documentElement,t=null;try{t=localStorage.getItem('df-theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-df-theme',t);if(/^\\/pitch\\/?$/.test(location.pathname)){d.classList.add('dfp-js');var s=t==='light'||t==='dark';d.setAttribute('data-dfp-pref',s?t:'system');if(!s)d.setAttribute('data-df-theme',matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}}catch(e){}",
+              "try{var d=document.documentElement,t=null;try{t=localStorage.getItem('df-theme')}catch(e){}var s=t==='light'||t==='dark';d.setAttribute('data-dfp-pref',s?t:'system');d.setAttribute('data-df-theme',s?t:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));d.classList.add(/^\\/pitch\\/?$/.test(location.pathname)?'dfp-js':'dfs-js')}catch(e){}",
           }}
         />
         {/* Consent gate (compliance P1-1c, Mark 2026-10-12). Google Analytics 4 and Vercel Web Analytics load

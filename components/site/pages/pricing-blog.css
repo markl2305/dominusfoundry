@@ -1,0 +1,63 @@
+/* components/site/pages/pricing-blog.css — /pricing and /blog in the /pitch
+   language (2026-10-14). Only what site.css has no class for. Copy never lives here. */
+
+/* ---- /pricing ---------------------------------------------------------- */
+.dfs .pg-pricing .two-col > .h2 { max-width: 14ch; }
+.dfs .pg-pricing .figure.card { gap: 10px; }
+.dfs .pg-pricing .fg-n { overflow-wrap: anywhere; }
+.dfs .pg-pricing .fg-u { font: 400 0.34em/1 var(--mono); letter-spacing: .04em; color: var(--ink-2); }
+.dfs .pg-pricing .fg-l { margin-top: 4px; }
+.dfs .pg-pricing .fg-d { margin-top: 0; }
+.dfs .pg-pricing .fg-src { margin-top: 4px; overflow-wrap: anywhere; }
+.dfs .pg-pricing .fg-src a { color: var(--gold); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+.dfs .pg-pricing .figure .v { font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
+.dfs .pg-pricing #hire .actions .btn { max-width: 100%; }
+
+/* the quote rows: key and value on one line, the description beneath */
+.dfs .pg-pricing .pricelines { border-radius: var(--radius); border: 1px solid var(--hair); background: var(--panel); overflow: hidden; }
+.dfs .pg-pricing .pline {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; align-items: baseline;
+  padding: 18px 24px; min-width: 0;
+}
+.dfs .pg-pricing .pline + .pline { border-top: 1px solid var(--hair); }
+.dfs .pg-pricing .pl-k { min-width: 0; font: 500 1.3rem/1.2 var(--serif); letter-spacing: -0.008em; color: var(--ink); overflow-wrap: anywhere; }
+.dfs .pg-pricing .pl-v { min-width: 0; font: 500 1.125rem/1.3 var(--serif); color: var(--gold); text-align: right; white-space: normal; overflow-wrap: anywhere; }
+.dfs .pg-pricing .pl-v.is-soon { color: var(--ink-3); }
+.dfs .pg-pricing .pl-d { grid-column: 1 / -1; min-width: 0; color: var(--ink-2); font-size: 0.975rem; line-height: 1.55; max-width: 66ch; }
+@media (max-width: 480px) {
+  .dfs .pg-pricing .pline { grid-template-columns: minmax(0, 1fr); padding: 16px 18px; }
+  .dfs .pg-pricing .pl-v { text-align: left; }
+}
+.dfs .pg-pricing #terms .lead + .lead { margin-top: -6px; }
+
+/* ---- /blog -------------------------------------------------------------- */
+.dfs .pg-blog .blog-start { margin-bottom: clamp(36px, 5vw, 56px); }
+.dfs .pg-blog .notes-block + .notes-block { margin-top: clamp(56px, 8vw, 96px); }
+.dfs .pg-blog .notes-block .sec-head { margin-bottom: clamp(20px, 3vw, 32px); }
+.dfs .pg-blog .list-rows > li { position: relative; }
+.dfs .pg-blog .list-row { grid-template-columns: minmax(0, 1fr) auto; }
+.dfs .pg-blog .list-row .lr-t { margin: 0; grid-column: 1; }
+.dfs .pg-blog .list-row .lr-t a { text-decoration: none; color: inherit; }
+.dfs .pg-blog .list-row .lr-t a::after { content: ""; position: absolute; inset: 0; } /* the whole row is the target */
+.dfs .pg-blog .n-meta { grid-column: 1; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font: 400 0.72rem/1.5 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
+.dfs .pg-blog .n-topic { letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.dfs .pg-blog .list-rows > li:focus-within { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
+.dfs .pg-blog .list-row .lr-t a:focus-visible { outline: none; }
+.dfs .pg-blog .list-row .lr-p { margin: 0; max-width: 66ch; }
+.dfs .pg-blog .n-read { grid-column: 2; grid-row: 1; align-self: center; font: 500 0.75rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.dfs .pg-blog .n-read .arr { display: inline-block; transition: transform 200ms var(--ease-out); }
+.dfs .pg-blog li.is-lead .lr-t { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.12; }
+.dfs .pg-blog li.is-lead .list-row { padding-block: 30px; }
+.dfs .pg-blog li.is-archived .lr-t { color: var(--ink-2); }
+@media (hover: hover) and (pointer: fine) {
+  .dfs .pg-blog .list-rows > li:hover .lr-t { color: var(--gold); }
+  .dfs .pg-blog .list-rows > li:hover .n-read .arr { transform: translateX(3px); }
+}
+.dfs .pg-blog .list-rows > li:active .list-row { transform: scale(0.99); }
+@media (max-width: 640px) {
+  .dfs .pg-blog .list-row { grid-template-columns: minmax(0, 1fr); }
+  .dfs .pg-blog .n-read { grid-column: 1; grid-row: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .dfs .pg-blog .n-read .arr, .dfs .pg-blog .list-row { transition: none; } }
+/* the founding card's source line is a lone link (its own control, not running text): 44px tall on touch */
+@media (pointer: coarse) { .dfs .pg-pricing .fg-src a { display: inline-flex; align-items: center; min-height: 44px; } }

@@ -7,6 +7,8 @@
    Every figure rendered here is read from claims.ts, finance.ts or
    income-model.ts — nothing is typed by hand. */
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react'
+import { Segmented, ThemeControl } from '@/components/site/theme'
+import SiteMenu from '@/components/site/SiteMenu'
 import { PROOF, STATUS_LABEL, type PitchClaim } from './claims'
 import { incomeAssumptions as a, incomeScenarios, type IncomeMonth } from './income-model'
 import { budgetRows, forward, outflows, plan as p, reserve, target, usd } from './finance'
@@ -29,75 +31,10 @@ export function Badge({ status }: { status: PitchClaim['status'] }) {
   return <span className={`badge ${status}`}>{STATUS_LABEL[status]}</span>
 }
 
-/* ============================================================================
-   SEGMENTED CONTROL — one implementation for every instance.
-   ========================================================================== */
-export function Segmented<T extends string>({ items, value, onChange, label, className = '', id, thumbFromRoot = false }: {
-  items: { v: T; label: ReactNode; title?: string; aria?: string }[]; value: T; onChange: (v: T) => void; label: string; className?: string; id?: string; thumbFromRoot?: boolean
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const i = Math.max(0, items.findIndex((it) => it.v === value))
-  const style = { '--n': items.length, ...(thumbFromRoot ? {} : { '--i': i }) } as CSSProperties
-  const onKey = (e: React.KeyboardEvent) => {
-    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
-    const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + items.length) % items.length
-    onChange(items[next].v)
-    ref.current?.querySelectorAll('button')[next]?.focus()
-    e.preventDefault()
-  }
-  return <div ref={ref} className={`seg ${className}`} role="radiogroup" aria-label={label} id={id} style={style} onKeyDown={onKey}>
-    {items.map((it, j) => <button key={it.v} type="button" role="radio" aria-checked={j === i} tabIndex={j === i ? 0 : -1} title={it.title} aria-label={it.aria} onClick={() => onChange(it.v)}>{it.label}</button>)}
-  </div>
-}
-
-/* ============================================================================
-   THEME — System (default) · Dark · Light, on the site's own df-theme key.
-   "System" is the absence of a stored choice, which is also what every other
-   route reads as its default; Dark and Light are stored exactly as the
-   FoundryShell toggle stores them, so a choice carries across the site.
-   ========================================================================== */
-type Pref = 'system' | 'dark' | 'light'
-const readStored = (): Pref => { try { const s = localStorage.getItem('df-theme'); return s === 'dark' || s === 'light' ? s : 'system' } catch { return 'system' } }
-const resolve = (pref: Pref) => (pref === 'dark' || (pref === 'system' && !window.matchMedia('(prefers-color-scheme: light)').matches) ? 'dark' : 'light')
-
-export function useThemePref() {
-  const [pref, setPref] = useState<Pref>('system')
-  const applyRef = useRef<(p: Pref, animate: boolean) => void>(() => {})
-  // The in-memory choice is authoritative for this visit. Storage may be denied
-  // (private windows, blocked site data): a failed write must not undo the
-  // choice, so nothing below re-reads storage after the first load.
-  const prefRef = useRef<Pref>('system')
-  useIso(() => {
-    const root = document.documentElement
-    const apply = (next: Pref, animate: boolean) => {
-      const theme = resolve(next)
-      const swap = () => { root.setAttribute('data-dfp-pref', next); root.setAttribute('data-df-theme', theme) }
-      const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown }
-      if (animate && theme !== root.getAttribute('data-df-theme') && doc.startViewTransition && !reduced()) doc.startViewTransition(swap); else swap()
-    }
-    const initial = readStored()
-    prefRef.current = initial; setPref(initial); apply(initial, false)
-    const mq = window.matchMedia('(prefers-color-scheme: light)')
-    const onSystem = () => { if (prefRef.current === 'system') apply('system', true) }
-    mq.addEventListener('change', onSystem)
-    applyRef.current = apply
-    return () => {
-      mq.removeEventListener('change', onSystem)
-      // Leaving /pitch: hand <html> back exactly as the other routes expect it.
-      root.removeAttribute('data-dfp-pref')
-      if (prefRef.current === 'system') root.removeAttribute('data-df-theme')
-    }
-  }, [])
-  const choose = useCallback((next: Pref) => {
-    try { if (next === 'system') localStorage.removeItem('df-theme'); else localStorage.setItem('df-theme', next) } catch { /* storage blocked: the choice lasts this visit */ }
-    prefRef.current = next; setPref(next); applyRef.current(next, true)
-  }, [])
-  return [pref, choose] as const
-}
-
-const ICON_SYSTEM = <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1.5" /><path d="M5.5 14h5M8 11.5V14" /></svg>
-const ICON_DARK = <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3Z" /></svg>
-const ICON_LIGHT = <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><circle cx="8" cy="8" r="3" /><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" /></svg>
+/* SEGMENTED CONTROL and THEME — moved to components/site/theme.tsx
+   (2026-10-14) so every route runs the same implementation. */
+export { Segmented, useThemePref, ThemeControl } from '@/components/site/theme'
+export { default as HeroEmbers } from '@/components/site/HeroEmbers'
 
 /* ============================================================================
    REVEAL — once per element. data-in is written imperatively so React never
@@ -119,7 +56,6 @@ export function useReveal(root: RefObject<HTMLElement>) {
    ========================================================================== */
 export type ChapterRef = { id: string; n: string; name: string }
 export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHref: string }) {
-  const [pref, choose] = useThemePref()
   const [solid, setSolid] = useState(false)
   // Material as soon as the page moves, so content never scrolls visibly through a clear bar (Mark, 2026-10-14).
   const [scrolled, setScrolled] = useState(false)
@@ -188,11 +124,8 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
           </button>
         </div>
         <div className="nav-right">
-          <Segmented<Pref> className="seg-theme" label="Appearance" id="themeSeg" value={pref} onChange={choose} thumbFromRoot items={[
-            { v: 'system', title: 'Match system', aria: 'Match system', label: <>{ICON_SYSTEM}<span className="lbl" aria-hidden="true">System</span></> },
-            { v: 'dark', title: 'Dark', aria: 'Dark', label: <>{ICON_DARK}<span className="lbl" aria-hidden="true">Dark</span></> },
-            { v: 'light', title: 'Light', aria: 'Light', label: <>{ICON_LIGHT}<span className="lbl" aria-hidden="true">Light</span></> },
-          ]} />
+          <ThemeControl />
+          <SiteMenu />
           <a className="btn btn-solid nav-cta" href={ctaHref}>Discuss the investment</a>
         </div>
       </div>
@@ -621,44 +554,3 @@ function IncomeNote2() {
   return <p className="note" id="incomeNote2">ARR is month-end MRR multiplied by twelve; it is not revenue earned during the period. Operating result is before taxes, interest, depreciation, amortization and the separately presented financing/corporate-work allowance. It is not GAAP net income or distributable profit. The base case first shows a positive monthly operating result in month {firstPos}; the cumulative operating result remains a loss at month {a.months}.</p>
 }
 
-/* ============================================================================
-   EMBERS — sparse, hero only, paused off-screen and when the tab is hidden.
-   Removed entirely under reduced motion.
-   ========================================================================== */
-export function HeroEmbers() {
-  const ref = useRef<HTMLCanvasElement>(null)
-  useEffect(() => {
-    const cv = ref.current; if (!cv) return
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (mq.matches) return
-    const ctx = cv.getContext('2d'); if (!ctx) return
-    let w = 0, h = 0, running = false, raf = 0, last = 0, visible = true
-    type P = { x: number; y: number; vy: number; vx: number; r: number; a: number; ph: number }
-    const P: P[] = []
-    const size = () => { const dpr = Math.min(2, window.devicePixelRatio || 1); w = cv.clientWidth; h = cv.clientHeight; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0) }
-    const spawn = (init: boolean): P => ({ x: Math.random() * w, y: init ? Math.random() * h : h + 10, vy: 14 + Math.random() * 26, vx: (Math.random() - 0.5) * 10, r: 0.6 + Math.random() * 1.6, a: 0.25 + Math.random() * 0.55, ph: Math.random() * 6.28 })
-    const frame = (now: number) => {
-      const dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now
-      ctx.clearRect(0, 0, w, h)
-      for (const q of P) {
-        q.y -= q.vy * dt; q.ph += dt * 1.3; q.x += (q.vx + Math.sin(q.ph) * 6) * dt
-        const life = Math.max(0, Math.min(1, q.y / h))
-        ctx.globalAlpha = q.a * life; ctx.fillStyle = '#dd9244'
-        ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill()
-        if (q.y < -10) Object.assign(q, spawn(false))
-      }
-      if (running) raf = requestAnimationFrame(frame)
-    }
-    const start = () => { if (running) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame) }
-    const halt = () => { running = false; cancelAnimationFrame(raf) }
-    size(); for (let i = 0; i < 38; i++) P.push(spawn(true))
-    window.addEventListener('resize', size)
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !document.hidden) start(); else halt() }); io.observe(cv)
-    const onVis = () => { if (visible && !document.hidden) start(); else halt() }
-    document.addEventListener('visibilitychange', onVis)
-    const onMq = () => { if (mq.matches) { halt(); ctx.clearRect(0, 0, w, h) } }
-    mq.addEventListener('change', onMq)
-    return () => { halt(); io.disconnect(); window.removeEventListener('resize', size); document.removeEventListener('visibilitychange', onVis); mq.removeEventListener('change', onMq) }
-  }, [])
-  return <canvas className="embers" id="embers" aria-hidden="true" ref={ref} />
-}

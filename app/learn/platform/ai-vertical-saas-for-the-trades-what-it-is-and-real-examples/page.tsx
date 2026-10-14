@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero, More } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "AI Vertical SaaS for the Trades: What It Is and Real Examples",
@@ -80,7 +82,17 @@ const platformLandscape = [
 
 export default function AiVerticalSaasPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
+    <>
+      <PageHero
+        eyebrow="Learn — Platform"
+        title={<>
+          AI Vertical SaaS for the Trades: What It Is and Real Examples
+        </>}
+        lead={<h2 className="lead">
+          Vertical SaaS built for commercial installation contractors — AV, security,
+          low-voltage, roofing, solar — with AI layered into the native workflow.
+        </h2>}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -89,18 +101,10 @@ export default function AiVerticalSaasPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn — Platform</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          AI Vertical SaaS for the Trades: What It Is and Real Examples
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          Vertical SaaS built for commercial installation contractors — AV, security,
-          low-voltage, roofing, solar — with AI layered into the native workflow.
-        </h2>
-
-        <div className="body-foundry space-y-4 text-slate-900">
-          <h3 className="heading-forge-md text-slate-900 mt-6">What is vertical SaaS?</h3>
+      <section className="section pg-learn">
+        <div className="wrap wrap-text">
+        <div className="article">
+          <h3>What is vertical SaaS?</h3>
           <p>
             Vertical SaaS is software purpose-built for a specific industry. Unlike
             horizontal platforms that serve many industries with generic features,
@@ -115,31 +119,31 @@ export default function AiVerticalSaasPage() {
             UL-listed equipment and AHJ requirements.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             How vertical differs from horizontal
           </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <div className="table-wrap">
+            <table>
               <thead>
-                <tr className="border-b border-slate-300">
-                  <th className="py-2 pr-4 font-semibold">Dimension</th>
-                  <th className="py-2 pr-4 font-semibold">Horizontal SaaS</th>
-                  <th className="py-2 font-semibold">Vertical SaaS</th>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Horizontal SaaS</th>
+                  <th>Vertical SaaS</th>
                 </tr>
               </thead>
               <tbody>
                 {horizontalVsVertical.map(([dim, h, v]) => (
-                  <tr key={dim} className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">{dim}</td>
-                    <td className="py-2 pr-4">{h}</td>
-                    <td className="py-2">{v}</td>
+                  <tr key={dim}>
+                    <td>{dim}</td>
+                    <td>{h}</td>
+                    <td>{v}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Why vertical SaaS for the trades?
           </h3>
           <p>
@@ -155,7 +159,7 @@ export default function AiVerticalSaasPage() {
             platform often goes live on vertical SaaS in two weeks.
           </p>
 
-          <h4 className="font-semibold mt-4">The AI layer</h4>
+          <h4>The AI layer</h4>
           <p>
             AI vertical SaaS adds machine learning to those native workflows. Automatic
             takeoff from LiDAR scans. AI-generated proposals from scan data. Automated
@@ -169,32 +173,32 @@ export default function AiVerticalSaasPage() {
             client.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Platform landscape by trade
           </h3>
           <p>Different trades have different dominant platforms:</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <div className="table-wrap">
+            <table>
               <thead>
-                <tr className="border-b border-slate-300">
-                  <th className="py-2 pr-4 font-semibold">Trade</th>
-                  <th className="py-2 pr-4 font-semibold">Leading platforms</th>
-                  <th className="py-2 font-semibold">Key differentiator</th>
+                <tr>
+                  <th>Trade</th>
+                  <th>Leading platforms</th>
+                  <th>Key differentiator</th>
                 </tr>
               </thead>
               <tbody>
                 {platformLandscape.map(([trade, platforms, diff]) => (
-                  <tr key={trade} className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">{trade}</td>
-                    <td className="py-2 pr-4">{platforms}</td>
-                    <td className="py-2">{diff}</td>
+                  <tr key={trade}>
+                    <td>{trade}</td>
+                    <td>{platforms}</td>
+                    <td>{diff}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <h4 className="font-semibold mt-4">AV and low-voltage</h4>
+          <h4>AV and low-voltage</h4>
           <p>
             D-Tools remains the category leader for AV system design and estimation. Its
             installed base among AV integrators is large, and its ecosystem of partners
@@ -209,7 +213,7 @@ export default function AiVerticalSaasPage() {
             the automation.
           </p>
 
-          <h4 className="font-semibold mt-4">Roofing</h4>
+          <h4>Roofing</h4>
           <p>
             EagleView dominates aerial-measurement reports for roofing. Contractors using
             EagleView get detailed roof measurements from satellite imagery, delivered as
@@ -222,7 +226,7 @@ export default function AiVerticalSaasPage() {
             a complete operating system (Forge).
           </p>
 
-          <h4 className="font-semibold mt-4">Solar</h4>
+          <h4>Solar</h4>
           <p>
             Aurora Solar is a leading solar-design platform. It produces 3D models,
             shading analysis, and electrical designs specifically for residential and
@@ -236,11 +240,11 @@ export default function AiVerticalSaasPage() {
             provides a single platform across all trades.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Evaluating a vertical SaaS platform
           </h3>
           <p>Before committing to a platform, verify five things.</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>Does it ship with your workflow?</strong> Ask for a live
               demonstration using your actual project data. If the platform requires you
@@ -270,11 +274,11 @@ export default function AiVerticalSaasPage() {
             </li>
           </ul>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             The decision framework
           </h3>
           <p>When choosing a vertical SaaS platform, ask yourself three questions.</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>Does my trade have a dedicated platform?</strong> If yes, start
               there. Specialized platforms generally outperform general-purpose
@@ -293,23 +297,25 @@ export default function AiVerticalSaasPage() {
             </li>
           </ul>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Frequently Asked Questions
           </h3>
-          {faq.map(({ q, a }) => (
-            <div key={q}>
-              <h4 className="font-semibold mt-4">{q}</h4>
-              <p>{a}</p>
-            </div>
-          ))}
+          <div className="learn-faq">
+            {faq.map(({ q, a }) => (
+              <More key={q} summary={<h4>{q}</h4>}>
+                <p>{a}</p>
+              </More>
+            ))}
+          </div>
 
-          <p className="mt-8">
-            <Link className="underline" href="/learn">
+          <p>
+            <Link href="/learn">
               ← All Learn articles
             </Link>
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

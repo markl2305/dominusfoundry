@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import "@/components/site/pages/core.css";
+
+// 2026-10-14: restyled in the site-wide redesign (components/site). Every
+// name, required flag, type, handler, endpoint and message is unchanged.
 
 export default function ApplicationForm() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [fileName, setFileName] = useState("");
 
-  const inputClass =
-    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
-  const labelClass = "text-sm font-semibold text-slate-900";
+  const inputClass = "input";
+  const labelClass = "field-label";
 
   function toBase64(file) {
     return new Promise((resolve, reject) => {
@@ -70,10 +73,9 @@ export default function ApplicationForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-8 space-y-4">
-        <div className="mx-auto w-16 h-16 rounded-full bg-forge-100 flex items-center justify-center">
+      <div className="pg-form-done">
+        <div className="icon-badge">
           <svg
-            className="w-8 h-8 text-forge-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -86,8 +88,8 @@ export default function ApplicationForm() {
             />
           </svg>
         </div>
-        <h3 className="heading-forge-md text-slate-900">Application received.</h3>
-        <p className="body-foundry text-slate-800 max-w-md mx-auto">
+        <h3 className="h3">Application received.</h3>
+        <p>
           If your background matches what we&apos;re looking for, you&apos;ll hear from us
           within 3 business days. No response means it wasn&apos;t the right fit this time.
         </p>
@@ -98,30 +100,30 @@ export default function ApplicationForm() {
   return (
     // An explicit action keeps the page's query string out of GA4's automatic form events (form_destination),
     // measured 2026-10-12; method="post" keeps typed fields out of the URL if JavaScript is off.
-    <form onSubmit={submit} action="/careers" method="post" className="grid gap-4">
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
+    <form onSubmit={submit} action="/careers" method="post" className="form pg-form">
+      <div className="form-grid">
+        <div className="field">
           <label className={labelClass}>First name *</label>
           <input name="firstName" required className={inputClass} autoComplete="given-name" />
         </div>
-        <div>
+        <div className="field">
           <label className={labelClass}>Last name *</label>
           <input name="lastName" required className={inputClass} autoComplete="family-name" />
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
+      <div className="form-grid">
+        <div className="field">
           <label className={labelClass}>Email *</label>
           <input name="email" type="email" required className={inputClass} autoComplete="email" />
         </div>
-        <div>
+        <div className="field">
           <label className={labelClass}>Phone *</label>
           <input name="phone" type="tel" required className={inputClass} autoComplete="tel" />
         </div>
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>LinkedIn profile URL</label>
         <input
           name="linkedin"
@@ -131,7 +133,7 @@ export default function ApplicationForm() {
         />
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>
           Best commission year — what did you earn? (W-2 or 1099 figure) *
         </label>
@@ -143,7 +145,7 @@ export default function ApplicationForm() {
         />
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>
           Largest deal you&apos;ve closed and how you found it *
         </label>
@@ -156,7 +158,7 @@ export default function ApplicationForm() {
         />
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>
           Relevant experience — what have you sold and to whom? *
         </label>
@@ -169,37 +171,36 @@ export default function ApplicationForm() {
         />
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>Resume *</label>
-        <div className="mt-1 relative">
+        <div className="file-pick">
           <input
             name="resume"
             type="file"
             required
             accept=".pdf,.doc,.docx"
             onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-          />
-          <div className={`${inputClass} flex items-center gap-3 cursor-pointer min-w-0`}>
-            <span className="inline-flex items-center rounded-lg bg-forge-200 px-3 py-1 text-xs font-semibold text-slate-800 shrink-0">
+                      />
+          <div className={`${inputClass} file-face`}>
+            <span>
               Choose File
             </span>
-            <span className="min-w-0 flex-1 break-words text-sm text-slate-600">
+            <span>
               {fileName || "PDF, DOC, or DOCX — 10MB max"}
             </span>
           </div>
         </div>
       </div>
 
-      <Button type="submit" disabled={sending} className="justify-center">
+      <Button type="submit" disabled={sending}>
         {sending ? "Sending..." : "Submit Application"}
       </Button>
 
-      <p className="text-xs text-slate-700 text-center">
+      <p className="form-foot">
         By submitting, you agree to our{" "}
         <a
           href="/privacy"
-          className="underline font-semibold text-forge-700 hover:text-forge-800"
+          className="link"
         >
           Privacy Policy
         </a>

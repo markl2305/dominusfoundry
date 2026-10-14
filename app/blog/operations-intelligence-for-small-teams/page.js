@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero } from "@/components/site/primitives";
+import "@/components/site/pages/posts.css";
 
 export const metadata = {
   title: "Beyond Chatbots: Why Teams Need Operations Intelligence",
@@ -8,16 +10,19 @@ export const metadata = {
 
 export default function OperationsIntelligenceArticle() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Foundry Notes</p>
-        <h1 className="heading-forge-lg text-slate-900">Beyond Chatbots: Why Teams Need Operations Intelligence</h1>
-        <h2 className="heading-forge-md text-slate-800">
-          The next step isn’t another assistant — it’s a brain that understands your operations.
-        </h2>
-        <p className="text-sm text-slate-500">Foundry Notes · Archive · Publication date not recorded</p>
-        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+    <div className="pg-post">
+      <PageHero
+        eyebrow="Foundry Notes"
+        title="Beyond Chatbots: Why Teams Need Operations Intelligence"
+        lead="The next step isn’t another assistant — it’s a brain that understands your operations."
+      >
+        <p className="fine">Foundry Notes · Archive · Publication date not recorded</p>
+      </PageHero>
+      <section className="section tight">
+        <div className="wrap wrap-text">
+          <div className="article">
+        <aside className="callout reveal pg-post-context" aria-label="Current context">
+          <p className="tile-k">Current context</p>
           <p>
             This is an earlier essay, kept as written. Its phone, invoicing and ordering examples reflect offerings
             the company made before Forge; those offerings have since been retired and are not current products.
@@ -25,14 +30,13 @@ export default function OperationsIntelligenceArticle() {
           <p>
             The problem it describes — work that depends on what a few people remember — is the one Dominus
             Foundry now works on through
-            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+            <Link href="/sabina">
               Sabina
             </Link>
             .
           </p>
         </aside>
 
-        <div className="body-foundry space-y-4 text-slate-900">
           <p>There’s no shortage of “AI” right now.</p>
           <p>
             Inbox copilots, chat bubbles on every website, auto-generated summaries — it’s all everywhere. For teams,
@@ -46,9 +50,9 @@ export default function OperationsIntelligenceArticle() {
           </p>
           <p>That gap is where operations intelligence lives.</p>
 
-          <h3 className="heading-forge-md text-slate-900">Tools vs. operations</h3>
+          <h2>Tools vs. operations</h2>
           <p>A typical team is already surrounded by tools:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>a bookkeeping system</li>
             <li>invoicing or billing</li>
             <li>a phone line or call-routing system</li>
@@ -66,13 +70,13 @@ export default function OperationsIntelligenceArticle() {
           </p>
           <p>That’s not a “chat” problem. It’s an operations problem.</p>
 
-          <h3 className="heading-forge-md text-slate-900">What operations intelligence actually is</h3>
+          <h2>What operations intelligence actually is</h2>
           <p>
             Operations intelligence is the layer that learns how your business runs over time — and then quietly shapes
             how your systems behave.
           </p>
           <p>It doesn’t replace your tools. Instead, it sits across them and asks questions like:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>Who are the callers that actually matter, and what happens after they hang up?</li>
             <li>Which invoices require the most effort to collect, and how do those customers typically respond?</li>
             <li>What gets ordered again and again, and where do mistakes or delays tend to appear?</li>
@@ -83,7 +87,7 @@ export default function OperationsIntelligenceArticle() {
           </p>
           <p>Then it uses that story to guide the systems underneath: the phone concierge, the invoicing flows, the ordering routines.</p>
 
-          <h3 className="heading-forge-md text-slate-900">How this is different from “more AI features”</h3>
+          <h2>How this is different from “more AI features”</h2>
           <p>
             A chatbot that can answer questions is useful. So is an assistant that can write an email or summarize a
             call. Those are good building blocks.
@@ -94,7 +98,7 @@ export default function OperationsIntelligenceArticle() {
             times before, or that this supplier always ships late unless you order by a certain day.
           </p>
           <p>Operations intelligence cares about:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>Memory</strong> — what has happened across calls, invoices, and orders over time.
             </li>
@@ -110,12 +114,12 @@ export default function OperationsIntelligenceArticle() {
             operations and nudges your systems accordingly.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">What this looks like in practice for operator teams</h3>
+          <h2>What this looks like in practice for operator teams</h2>
           <p>
             For a lean team, operations intelligence doesn’t need to be a giant platform. It can start with a few
             concrete behaviors:
           </p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               A phone concierge that not only answers and books, but also learns which kinds of calls should be escalated
               immediately and which are rarely worth interrupting you for.
@@ -134,7 +138,7 @@ export default function OperationsIntelligenceArticle() {
             behave: a better default, a smarter decision, a small automation that finally lines up with reality.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">Why this matters now</h3>
+          <h2>Why this matters now</h2>
           <p>
             The number of tools isn’t going down. Neither is the pressure on teams. It’s easy to end up with a
             stack of disconnected products, each promising help, while the real weight — keeping the whole thing
@@ -150,9 +154,9 @@ export default function OperationsIntelligenceArticle() {
             systems learn in that direction.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">Starting small</h3>
+          <h2>Starting small</h2>
           <p>You don’t need a grand rewrite of your operations to begin. A practical starting point is simple:</p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>Choose one part of the business where dropped balls really hurt — phones, invoicing, or ordering.</li>
             <li>Put a system there that can both do the work and keep a record of what it learns.</li>
             <li>Review that record regularly and adjust how the system behaves, step by step.</li>
@@ -165,12 +169,15 @@ export default function OperationsIntelligenceArticle() {
             That’s the promise of operations intelligence: not more noise, not another dashboard, but a quieter kind of
             brain inside your systems, helping them work together while you stay focused on leading the business.
           </p>
-        </div>
 
-        <Link href="/blog" className="inline-flex text-sm font-semibold text-forge-700 hover:text-forge-900">
-          ← Back to blog
-        </Link>
-      </div>
-    </section>
+          </div>
+          <div className="pg-post-back">
+            <Link href="/blog" className="link">
+              ← Back to blog
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

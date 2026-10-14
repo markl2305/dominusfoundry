@@ -4,6 +4,11 @@ import { useState } from "react";
 import Button from "./Button";
 import SmsConsent, { SMS_CONSENT_FIELD } from "./SmsConsent";
 import { event as gaEvent } from "@/lib/gtag";
+import "@/components/site/pages/core.css";
+
+// 2026-10-14: restyled in the site-wide redesign (components/site). Every
+// name, id, htmlFor, required flag, handler, endpoint, field and message is
+// unchanged, and the consent wording is untouched.
 
 // Video script for reference (not displayed on page):
 // "Hey, I'm Bri. If you're here, something in your business isn't working the way you want it to…
@@ -38,10 +43,9 @@ export default function IntakeForm() {
   const [smsConsent, setSmsConsent] = useState(false);
   const [error, setError] = useState(null);
 
-  const inputClass =
-    "mt-1 w-full rounded-xl border-2 border-forge-300 border-b-4 bg-forge-50 px-3 py-2 text-slate-900 placeholder:text-slate-500/60 focus:border-forge-600 focus:bg-white focus:outline-none focus:ring-0";
-  const labelClass = "text-sm font-semibold text-slate-900";
-  const checkboxLabelClass = "flex items-center gap-2 text-sm text-slate-800 cursor-pointer";
+  const inputClass = "input";
+  const labelClass = "field-label";
+  const checkboxLabelClass = "check-row";
 
   async function submit(e) {
     e.preventDefault();
@@ -121,14 +125,14 @@ export default function IntakeForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-8 space-y-4">
-        <div className="mx-auto w-16 h-16 rounded-full bg-forge-100 flex items-center justify-center">
-          <svg className="w-8 h-8 text-forge-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="pg-form-done">
+        <div className="icon-badge">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="heading-forge-md text-slate-900">Got it.</h3>
-        <p className="body-foundry text-slate-800 max-w-md mx-auto">
+        <h3 className="h3">Got it.</h3>
+        <p>
           We'll review your situation and get back to you within 1 business day with a clear next step.
         </p>
       </div>
@@ -138,9 +142,9 @@ export default function IntakeForm() {
   return (
     // An explicit action keeps the page's query string out of GA4's automatic form events (form_destination),
     // measured 2026-10-12; method="post" keeps typed fields out of the URL if JavaScript is off.
-    <form onSubmit={submit} action="/start" method="post" className="grid gap-4">
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
+    <form onSubmit={submit} action="/start" method="post" className="form pg-form">
+      <div className="form-grid">
+        <div className="field">
           <label htmlFor="intake-name" className={labelClass}>Name *</label>
           <input
             id="intake-name"
@@ -150,7 +154,7 @@ export default function IntakeForm() {
             autoComplete="name"
           />
         </div>
-        <div>
+        <div className="field">
           <label htmlFor="intake-company" className={labelClass}>Business name *</label>
           <input
             id="intake-company"
@@ -162,8 +166,8 @@ export default function IntakeForm() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
+      <div className="form-grid">
+        <div className="field">
           <label htmlFor="intake-email" className={labelClass}>Email *</label>
           <input
             id="intake-email"
@@ -174,7 +178,7 @@ export default function IntakeForm() {
             autoComplete="email"
           />
         </div>
-        <div>
+        <div className="field">
           <label htmlFor="intake-phone" className={labelClass}>
             {smsConsent ? "Phone *" : "Phone (optional)"}
           </label>
@@ -189,15 +193,14 @@ export default function IntakeForm() {
         </div>
       </div>
 
-      <div>
+      <div className="field">
         <label className={labelClass}>What tools do you currently use?</label>
-        <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="tool-grid">
           {toolOptions.map((tool) => (
             <label key={tool} className={checkboxLabelClass}>
               <input
                 type="checkbox"
                 name={`tool_${tool}`}
-                className="w-4 h-4 rounded border-forge-300 text-forge-600 focus:ring-forge-500"
               />
               <span>{tool}</span>
             </label>
@@ -205,7 +208,7 @@ export default function IntakeForm() {
         </div>
       </div>
 
-      <div>
+      <div className="field">
         <label htmlFor="intake-automate" className={labelClass}>Where are calls, follow-up, or recurring work getting stuck? *</label>
         <textarea
           id="intake-automate"
@@ -217,8 +220,8 @@ export default function IntakeForm() {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
+      <div className="form-grid">
+        <div className="field">
           <label htmlFor="intake-volume" className={labelClass}>Roughly how many calls/bookings/orders per week?</label>
           <select id="intake-volume" name="volume" className={inputClass} defaultValue="">
             <option value="" disabled>Select...</option>
@@ -227,7 +230,7 @@ export default function IntakeForm() {
             ))}
           </select>
         </div>
-        <div>
+        <div className="field">
           <label htmlFor="intake-urgency" className={labelClass}>How urgent is this?</label>
           <select id="intake-urgency" name="urgency" className={inputClass} defaultValue="">
             <option value="" disabled>Select...</option>
@@ -239,18 +242,18 @@ export default function IntakeForm() {
       </div>
 
       <SmsConsent onChange={setSmsConsent} />
-      {error && <p role="alert" className="text-sm text-red-800">{error}</p>}
+      {error && <p role="alert" className="form-msg err">{error}</p>}
 
-      <Button type="submit" disabled={sending} className="justify-center">
+      <Button type="submit" disabled={sending}>
         {sending ? "Sending…" : "Send to the team"}
       </Button>
 
-      <p className="text-xs text-slate-700 text-center">
+      <p className="form-foot">
         Sending this form lets us reply by phone or email about your request.{" "}
         <strong>A phone number alone is never permission to text you:</strong> texts from
         Dominus Foundry LLC need the separate box above, which is unchecked by default.
         Consent is not required to make a purchase. We do not sell your personal information. See our{" "}
-        <a href="/privacy" className="underline font-semibold text-forge-700 hover:text-forge-800">
+        <a href="/privacy" className="link">
           Privacy Policy
         </a>
         .

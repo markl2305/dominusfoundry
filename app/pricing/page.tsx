@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import PricingContent from '@/components/foundry/PricingContent'
 import { HUMAN_COST } from '@/app/pitch/claims'
 
@@ -11,9 +10,5 @@ export const metadata: Metadata = {
 }
 
 export default function PricingPage() {
-  return (
-    <FoundryShell>
-      <PricingContent />
-    </FoundryShell>
-  )
+  return <PricingContent />
 }

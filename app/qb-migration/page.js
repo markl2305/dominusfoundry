@@ -1,3 +1,5 @@
+import { PageHero } from "@/components/site/primitives";
+
 export const metadata = {
   title: 'QuickBooks Migration & Cleanup (Retired Offering) | Dominus Foundry',
   description:
@@ -8,24 +10,28 @@ export const metadata = {
   },
 };
 
+// 2026-10-14: restyled in the site-wide redesign (components/site). Copy unchanged.
 export default function QBMigrationRetired() {
   return (
-    <section className="bg-[var(--foundry-bg-alt)]">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:py-24 space-y-4">
-        <h1 className="heading-forge-xl text-slate-900">QuickBooks Migration &amp; Cleanup (Retired Offering)</h1>
-        <p className="body-foundry text-slate-800">
+    <PageHero
+      title={<>QuickBooks Migration &amp; Cleanup (Retired Offering)</>}
+      lead={
+        <p className="lead">
           We currently focus Dominus Foundry on Forge, our AI operations platform. If you need help with
           QuickBooks migrations as part of a broader system build, reach out via the contact page and we&apos;ll point you in the
           right direction.
         </p>
+      }
+      actions={
         <a
           href="/contact"
-          className="inline-flex items-center justify-center rounded-xl bg-forge-700 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-forge-800 transition-colors"
+          className="btn btn-solid"
         >
           Contact the team
         </a>
-        <p className="text-xs text-slate-700">Built to Dominus Foundry architectural standards.</p>
-      </div>
-    </section>
+      }
+    >
+      <p className="fine">Built to Dominus Foundry architectural standards.</p>
+    </PageHero>
   );
 }

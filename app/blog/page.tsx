@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import BlogContent from '@/components/foundry/BlogContent'
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  return (
-    <FoundryShell active="blog">
-      <BlogContent />
-    </FoundryShell>
-  )
+  return <BlogContent />
 }

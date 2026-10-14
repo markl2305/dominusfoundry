@@ -1,0 +1,12 @@
+/* /learn index and its reference articles (2026-10-14). */
+.dfs .pg-learn .learn-faq details.more > summary h4 { margin: 0; font: 500 1rem/1.4 var(--sans); color: inherit; }
+.dfs .pg-learn .table-wrap td:first-child { color: var(--ink); font-weight: 500; }
+.dfs .pg-learn .list-row .lr-t a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+.dfs .pg-learn .list-row .lr-t { margin: 0; }
+.dfs .pg-learn .list-row .lr-p { margin: 0; }
+@media (hover: hover) and (pointer: fine) { .dfs .pg-learn .list-row .lr-t a:hover { color: var(--gold); } }
+/* the whole row is the tap target (as on /blog): one-line titles alone were under 44px on touch */
+.dfs .pg-learn .list-rows > li { position: relative; }
+.dfs .pg-learn .list-row .lr-t a::after { content: ""; position: absolute; inset: 0; }
+.dfs .pg-learn .list-row .lr-t a:focus-visible { outline: none; }
+.dfs .pg-learn .list-rows > li:has(a:focus-visible) { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 8px; }

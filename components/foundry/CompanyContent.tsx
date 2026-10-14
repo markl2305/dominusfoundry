@@ -1,8 +1,11 @@
 'use client'
 
-/* CompanyContent.tsx — the Company / the Lord family. Ported from company-page.jsx. */
+/* CompanyContent.tsx — the Company / the Lord family. Ported from company-page.jsx.
+   2026-10-14: restyled in the /pitch language (components/site). Copy unchanged. */
+import type { CSSProperties } from 'react'
 import { Medallion, Icon } from './Marks'
-import { CTA, PageHero, useFoundry } from './FoundryShell'
+import { ClosingCta, PageHero, Section, Tile } from '@/components/site/primitives'
+import '@/components/site/pages/company-press.css'
 
 const C_VALUES = [
   { k: 'Under your authority', t: 'The owner decides', d: 'Sabina works on the responsibilities a business owner grants her, and a grant can be withdrawn.' },
@@ -11,10 +14,10 @@ const C_VALUES = [
 ]
 
 /* Bios are verbatim from FOUNDERS_CANON.md — the single source for every
-   "about us" surface. Do not paraphrase, reorder, or trim. */
+   "about us" surface. Do not paraphrase, reorder, or trim. Each paragraph
+   stays one element: the render gate pins one of them by hash. */
 
 export default function CompanyContent() {
-  const { crestScheme } = useFoundry()
   return (
     <>
       <PageHero
@@ -36,35 +39,34 @@ export default function CompanyContent() {
             </a>
           </>
         }
-        metaLeft={
+        meta={
           <>
-            Est. 2024 · <b>Albuquerque, NM</b>
-          </>
-        }
-        metaRight={
-          <>
-            <b>Brianna Lord, CEO · Mark Lord, CTO</b>
+            <span>
+              Est. 2024 · <b>Albuquerque, NM</b>
+            </span>{' '}
+            <span>
+              <b>Brianna Lord, CEO · Mark Lord, CTO</b>
+            </span>
           </>
         }
       />
 
-      <section className="family section" id="story">
+      <section className="section pg-company" id="story">
         <div className="wrap">
-          <div className="family-grid">
-            <div className="reveal">
-              <Medallion className="family-crest" scheme={crestScheme} withScroll />
+          <div className="two-col">
+            <div className="crest-panel reveal">
+              <Medallion scheme="ondark" withScroll />
             </div>
-            <div>
+            <div className="stack-lg">
               <p className="eyebrow reveal">Why the Foundry exists</p>
-              <blockquote className="reveal d1" style={{ marginTop: '22px' }}>
-                The crest reads <em>Fide et Familia</em> — faith and family. Every system we ship carries the Lord name, and if it falters, it
-                is our reputation in the fire.
-              </blockquote>
-              <div className="attrib reveal d1">
-                <span className="ln" />
-                <span className="who">Mark Lord, CTO</span>
-              </div>
-              <div className="body reveal d2">
+              <figure className="quote reveal" style={{ '--i': 1 } as CSSProperties}>
+                <blockquote>
+                  The crest reads <em>Fide et Familia</em> — faith and family. Every system we ship carries the Lord name, and if it falters, it
+                  is our reputation in the fire.
+                </blockquote>
+                <figcaption>Mark Lord, CTO</figcaption>
+              </figure>
+              <div className="prose reveal" style={{ '--i': 2 } as CSSProperties}>
                 <p>
                   Most of what a small company knows lives in a few people&apos;s heads and a stack of tools that do not talk to each other. We
                   saw it first in the trades, from the operator&apos;s side of the desk.
@@ -80,57 +82,42 @@ export default function CompanyContent() {
         </div>
       </section>
 
-      <section className="pillars section">
-        <div className="wrap">
-          <div className="pillars-head reveal">
-            <h2 className="serif">What we hold to.</h2>
-            <p className="eyebrow">Three commitments</p>
-          </div>
-          <div className="values-grid reveal d1">
-            {C_VALUES.map((v) => (
-              <div className="value" key={v.k}>
-                <div className="v-k serif">{v.k}</div>
-                <div className="v-t serif">{v.t}</div>
-                <div className="v-d">{v.d}</div>
-              </div>
-            ))}
-          </div>
+      <Section className="band" eyebrow="Three commitments" title="What we hold to.">
+        <div className="grid g3">
+          {C_VALUES.map((v, i) => (
+            <Tile key={v.k} k={v.k} t={v.t} i={i}>
+              {v.d}
+            </Tile>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="section" id="leadership">
-        <div className="wrap">
-          <div className="section-head" style={{ marginBottom: '48px' }}>
-            <p className="eyebrow reveal">The Founders</p>
-            <h2 className="serif reveal d1" style={{ fontSize: 'clamp(30px,4.4vw,54px)', marginTop: '16px' }}>
-              Two founders. One family company.
-            </h2>
-          </div>
+      <Section id="leadership" className="pg-company" eyebrow="The Founders" title="Two founders. One family company.">
+        <div className="split">
+          <figure className="photo reveal">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/founders/founders-800.webp 800w, /founders/founders-1600.webp 1600w"
+                sizes="(max-width: 900px) 92vw, 46vw"
+              />
+              <img
+                src="/founders/founders-1600.jpg"
+                srcSet="/founders/founders-800.jpg 800w, /founders/founders-1600.jpg 1600w"
+                sizes="(max-width: 900px) 92vw, 46vw"
+                width={1600}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                alt="Brianna Lord, CEO, and Mark Lord, CTO, of Dominus Foundry."
+              />
+            </picture>
+            <figcaption>Mark &amp; Bri Lord · Albuquerque, New Mexico</figcaption>
+          </figure>
 
-          <div className="founders reveal d1">
-            <figure className="founders-photo">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcSet="/founders/founders-800.webp 800w, /founders/founders-1600.webp 1600w"
-                  sizes="(max-width: 900px) 92vw, 46vw"
-                />
-                <img
-                  src="/founders/founders-1600.jpg"
-                  srcSet="/founders/founders-800.jpg 800w, /founders/founders-1600.jpg 1600w"
-                  sizes="(max-width: 900px) 92vw, 46vw"
-                  width={1600}
-                  height={900}
-                  loading="lazy"
-                  decoding="async"
-                  alt="Brianna Lord, CEO, and Mark Lord, CTO, of Dominus Foundry."
-                />
-              </picture>
-              <figcaption>Mark &amp; Bri Lord · Albuquerque, New Mexico</figcaption>
-            </figure>
-
-            <div className="founders-copy">
-              <h3 className="serif">How we work together</h3>
+          <div className="stack reveal" style={{ '--i': 1 } as CSSProperties}>
+            <h3 className="h3">How we work together</h3>
+            <div className="prose">
               <p>
                 The division is clean. Mark takes the business, the design and the technology. Bri takes everything else a company stands on:
                 the client relationships, the investor relationships, the calendar, the follow-through, and the hundred daily things that let
@@ -147,11 +134,13 @@ export default function CompanyContent() {
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="founder-bios reveal d2">
-            <article className="fbio">
-              <h3 className="fb-name serif">Mark Lord</h3>
-              <p className="fb-role">CTO</p>
+        <div className="grid g2">
+          <article className="card bio reveal" style={{ '--i': 0 } as CSSProperties}>
+            <h3 className="h3">Mark Lord</h3>
+            <p className="tile-k">CTO</p>
+            <div className="prose">
               <p>
                 Storefronts first — two Cold Stone shops in Albuquerque, where he learned what a small business actually runs on. Eighteen
                 months in a lab on the team that helped bring LED lighting to market. Then years in sales and business development, watching
@@ -168,11 +157,13 @@ export default function CompanyContent() {
                 made and taught him less than one quarter of owning a storefront. What he knows about running a company, he learned by running
                 companies.
               </p>
-            </article>
+            </div>
+          </article>
 
-            <article className="fbio">
-              <h3 className="fb-name serif">Brianna Lord</h3>
-              <p className="fb-role">CEO</p>
+          <article className="card bio reveal" style={{ '--i': 1 } as CSSProperties}>
+            <h3 className="h3">Brianna Lord</h3>
+            <p className="tile-k">CEO</p>
+            <div className="prose">
               <p>
                 A decade in the back office of small service businesses, which is the exact seat Forge is built for. A music school front desk,
                 where she learned that in a small service business the office <em>is</em> the business. A residential solar canvass team she
@@ -184,24 +175,24 @@ export default function CompanyContent() {
                 Today she runs business operations at CalLord, the commercial security and AV integrator — which keeps her inside a working
                 contractor&apos;s office every day.
               </p>
-              <p className="fb-line">Every function Forge automates, she has personally been the person doing by hand.</p>
-            </article>
+              <p className="bio-line">Every function Forge automates, she has personally been the person doing by hand.</p>
+            </div>
+          </article>
+        </div>
+      </Section>
+
+      <section className="section band pg-company">
+        <div className="wrap">
+          <div className="sec-head center">
+            <p className="eyebrow reveal">The long view</p>
+            <p className="big reveal" style={{ '--i': 1 } as CSSProperties}>
+              From Albuquerque, <em>for the people who run the business</em>.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="pullband section">
-        <div className="wrap">
-          <p className="eyebrow center reveal" style={{ marginBottom: '26px' }}>
-            The long view
-          </p>
-          <p className="big reveal d1">
-            From Albuquerque, <em>for the people who run the business</em>.
-          </p>
-        </div>
-      </section>
-
-      <CTA
+      <ClosingCta
         eyebrow="Contact · Press · Partnership"
         title={
           <>

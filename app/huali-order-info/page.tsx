@@ -3,6 +3,8 @@ import Image from 'next/image';
 import HualiPoster from '@/public/images/huali-lager-poster.png';
 import HualiHeader from '@/public/Huali.png';
 import { HualiAgentActions } from './HualiAgentActions';
+import { PageHero, Section } from '@/components/site/primitives';
+import '@/components/site/pages/core.css';
 
 export const metadata: Metadata = {
   title: 'Huali™ Order Info | Dominus Foundry™',
@@ -15,33 +17,37 @@ export const metadata: Metadata = {
   },
 };
 
+// 2026-10-14: restyled in the site-wide redesign (components/site), with the
+// bare nav (AppShell). The site shell provides <main>, so this page no longer
+// nests a second one. Copy, images and the order-line link are unchanged.
 export default function HualiOrderInfoPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-amber-900 text-white">
-      <div className="mx-auto flex max-w-6xl flex-col px-6 py-12">
-        <header className="flex justify-center">
-          <Image
-            src={HualiHeader}
-            alt="Huali™ Lager crest header artwork"
-            className="h-24 w-auto md:h-28"
-            priority
-          />
-        </header>
+    <div className="pg-huali">
+      <PageHero
+        center
+        title="Huali™ Order Info"
+        lead={
+          <p className="lead">
+            Fast keg ordering for Huali™ Lager distributors.
+          </p>
+        }
+      >
+        <Image
+          src={HualiHeader}
+          alt="Huali™ Lager crest header artwork"
+          className="huali-mark"
+          priority
+        />
+      </PageHero>
 
-        <section className="mt-10 grid flex-1 grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Huali™ Order Info
-            </h1>
-            <p className="text-lg text-amber-100">
-              Fast keg ordering for Huali™ Lager distributors.
-            </p>
-
-            <div className="space-y-3 rounded-2xl bg-white/5 p-6 shadow-lg shadow-amber-900/30 ring-1 ring-white/10 backdrop-blur">
-              <h2 className="text-2xl font-semibold text-amber-200">
+      <Section>
+        <div className="split">
+          <div className="stack">
+            <div className="card stack reveal">
+              <h2 className="h3">
                 How to place an order
               </h2>
-              <p className="text-sm text-gray-200">
+              <p className="tile-p" style={{ marginTop: 0 }}>
                 Call the order line to place an order.
               </p>
 
@@ -49,9 +55,9 @@ export default function HualiOrderInfoPage() {
 
             </div>
 
-            <div className="space-y-3 rounded-2xl bg-white/5 p-6 shadow-lg shadow-amber-900/25 ring-1 ring-white/10 backdrop-blur">
-              <h3 className="text-lg font-semibold text-amber-200">Quick steps</h3>
-              <ol className="list-decimal space-y-2 pl-5 text-sm text-gray-100">
+            <div className="card stack reveal" style={{ '--i': 1 } as React.CSSProperties}>
+              <h3 className="tile-t" style={{ marginTop: 0 }}>Quick steps</h3>
+              <ol className="num-list">
                 <li>Confirm you’re an authorized distributor.</li>
                 <li>Dial 505-337-4443.</li>
                 <li>
@@ -63,28 +69,23 @@ export default function HualiOrderInfoPage() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <div className="w-full max-w-md rounded-3xl bg-white/5 p-4 shadow-2xl shadow-amber-900/40 ring-1 ring-white/10 backdrop-blur">
-              <div className="overflow-hidden rounded-2xl bg-black/60">
-                <Image
-                  src={HualiPoster}
-                  alt="Huali™ Lager promotional poster showing a glass of beer with the Huali™ logo"
-                  className="h-full w-full object-cover"
-                  priority
-                />
-              </div>
-            </div>
+          <div className="card poster reveal" style={{ '--i': 2 } as React.CSSProperties}>
+            <Image
+              src={HualiPoster}
+              alt="Huali™ Lager promotional poster showing a glass of beer with the Huali™ logo"
+              priority
+            />
           </div>
-        </section>
+        </div>
 
-        <footer className="mt-10 space-y-2 text-xs text-gray-300">
-          <p>
+        <div className="fine-print">
+          <p className="fine">
             Huali™ Lager is produced by Kaktus Brewing Co. Orders placed here are forwarded
             to the brewery team for fulfillment.
           </p>
-          <p>21+ only. Please enjoy responsibly.</p>
-        </footer>
-      </div>
-    </main>
+          <p className="fine">21+ only. Please enjoy responsibly.</p>
+        </div>
+      </Section>
+    </div>
   );
 }

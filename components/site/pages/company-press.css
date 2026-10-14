@@ -1,0 +1,28 @@
+/* /company and /press page bodies (2026-10-14). Only what site.css has no
+   class for. The class sits on the sections themselves (no wrapper), so the
+   shell's ribbon/page-hero spacing still applies. */
+
+/* /company — the crest panel beside the founders' story */
+.dfs .pg-company .crest-panel { display: grid; place-items: center; padding: clamp(28px, 5vw, 56px); border-radius: var(--radius); border: 1px solid var(--hair); background: radial-gradient(90% 70% at 50% 0%, rgba(227,203,168,0.08), transparent 60%), linear-gradient(180deg, #18252c, #0f181d); }
+.dfs .pg-company .crest-panel .df-crest { width: 100%; max-width: 260px; height: auto; display: block; }
+.dfs .pg-company .quote blockquote em { font-style: normal; color: var(--gold); }
+
+/* /company — founders photo and bios */
+.dfs .pg-company .photo { margin: 0; display: grid; gap: 12px; }
+.dfs .pg-company .photo img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--hair); }
+.dfs .pg-company .photo figcaption { font: 400 0.75rem/1.4 var(--mono); letter-spacing: .08em; color: var(--ink-3); }
+.dfs .pg-company .bio .tile-k { margin-top: 8px; }
+.dfs .pg-company .bio .prose { margin-top: 18px; }
+.dfs .pg-company .bio-line { font: italic 400 1.15rem/1.45 var(--serif); color: var(--ink); }
+
+/* /company — the long view line */
+.dfs .pg-company .big { margin: 0; max-width: 28ch; text-align: center; font: 500 clamp(1.8rem, 4.4vw, 3.2rem)/1.15 var(--serif); letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+.dfs .pg-company .big em { color: var(--gold); }
+
+/* /press — the featured article card */
+.dfs .pg-press .feature { display: grid; gap: 18px; }
+.dfs .pg-press .pub { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; color: var(--ink-3); font: 400 0.75rem/1.4 var(--mono); letter-spacing: .06em; }
+.dfs .pg-press .pub .nm { color: var(--ink); font-weight: 500; }
+.dfs .pg-press .feature .h3 { margin: 0; max-width: 30ch; }
+.dfs .pg-press .feature .actions { margin-top: 4px; }
+.dfs .pg-press .wrap-any { overflow-wrap: anywhere; }

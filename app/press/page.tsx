@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import PressContent from '@/components/foundry/PressContent'
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function PressPage() {
-  return (
-    <FoundryShell active="press">
-      <PressContent />
-    </FoundryShell>
-  )
+  return <PressContent />
 }

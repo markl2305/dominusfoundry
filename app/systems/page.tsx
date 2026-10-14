@@ -1,6 +1,8 @@
-import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Button from "../../components/Button";
+import { PageHero, Section } from "@/components/site/primitives";
+import "@/components/site/pages/systems.css";
 
 export const metadata: Metadata = {
   title: "Systems | Dominus Foundry™",
@@ -55,114 +57,103 @@ const systems = [
 
 export default function SystemsPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
-        <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
-          <p className="label-foundry text-forge-300 mb-4">What We Build</p>
-          <h1 className="heading-forge-xl text-white leading-tight">
-            Three engines.
-            <br />
-            Every operational problem
-            <br />
-            maps to one of them.
-          </h1>
-          <p className="mt-6 body-foundry text-white/80 max-w-2xl md:text-lg">
-            We don&apos;t sell software features. We build systems that solve real
-            operational problems — governed on Forge, built to hold their
-            shape, designed to work together from day one.
-          </p>
-        </div>
-      </section>
+    <div className="pg-systems">
+      <PageHero
+        crest
+        eyebrow="What We Build"
+        title={<>
+          Three engines.
+          <br />
+          Every operational problem
+          <br />
+          maps to one of them.
+        </>}
+        lead={<p className="lead">
+          We don&apos;t sell software features. We build systems that solve real
+          operational problems — governed on Forge, built to hold their
+          shape, designed to work together from day one.
+        </p>}
+      />
 
       {/* Systems */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24 space-y-0 divide-y divide-bronze-300">
+      <Section>
+        <div className="stack-lg">
           {systems.map((system, i) => (
-            <div key={system.slug} className="py-16">
-              <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-                {/* Left */}
-                <div>
-                  <p className="label-foundry text-forge-700 mb-3">
-                    Engine {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h2 className="heading-forge-lg mb-3">{system.name}</h2>
-                  <p className="mb-6 body-foundry text-slate-700 font-medium">
-                    {system.tagline}
-                  </p>
-                  <p className="mb-8 body-foundry text-slate-800">
-                    {system.description}
-                  </p>
-                  <Button href={`/systems/${system.slug}`} className="justify-center">
+            <div key={system.slug} className="card reveal engine" style={{ '--i': i } as CSSProperties}>
+              {/* Left */}
+              <div>
+                <p className="tile-k">
+                  Engine {String(i + 1).padStart(2, "0")}
+                </p>
+                <h2 className="h2">{system.name}</h2>
+                <p className="tagline">
+                  {system.tagline}
+                </p>
+                <p className="desc">
+                  {system.description}
+                </p>
+                <div className="actions">
+                  <Button href={`/systems/${system.slug}`}>
                     {system.cta}
                   </Button>
                 </div>
+              </div>
 
-                {/* Right — problem list */}
-                <div className="lg:pl-10">
-                  <p className="label-foundry text-forge-700 mb-4">
-                    Signs you need this
-                  </p>
-                  <ul className="space-y-3">
-                    {system.problems.map((problem) => (
-                      <li
-                        key={problem}
-                        className="flex items-start gap-3 body-foundry text-slate-800"
-                      >
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-forge-600" />
-                        {problem}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* Right — problem list */}
+              <div>
+                <p className="tile-k">
+                  Signs you need this
+                </p>
+                <ul className="ring-list">
+                  {system.problems.map((problem) => (
+                    <li key={problem}>
+                      {problem}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Platform connector. Named the internal system until 2026-09-16; that
           name is prohibited on public Dominus marketing (plan §17) and the
           governance layer these engines actually run on is Forge, the operating
           spine (plan §2). ⛔ Do not reintroduce the old name here. */}
-      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-300 mb-4">The foundation</p>
-          <h2 className="heading-forge-lg text-white mb-4">
-            All three engines run on Forge.
-          </h2>
-          <p className="mb-8 max-w-2xl body-foundry text-white/80">
-            Forge is the governed platform underneath everything we build — the
-            operating spine Sabina runs on. Human authority preserved. Every
-            action logged. No drift. Start with one engine — they&apos;re designed
-            to connect.
-          </p>
-          <Button
-            href="/governance"
-            variant="forgeSecondary"
-            className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
-          >
+      <Section
+        className="on-dark"
+        eyebrow="The foundation"
+        title="All three engines run on Forge."
+        lead={<p className="lead">
+          Forge is the governed platform underneath everything we build — the
+          operating spine Sabina runs on. Human authority preserved. Every
+          action logged. No drift. Start with one engine — they&apos;re designed
+          to connect.
+        </p>}
+      >
+        <div className="actions reveal">
+          <Button href="/governance" variant="forgeSecondary">
             How the governance works
           </Button>
         </div>
-      </section>
+      </Section>
 
       {/* CTA */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
-          <h2 className="heading-forge-lg mb-4">
-            Not sure which engine fits first?
-          </h2>
-          <p className="mb-8 body-foundry text-slate-700">
-            Tell us what&apos;s breaking. We&apos;ll tell you which engine fixes it — and
-            what the path looks like from there.
-          </p>
-          <Button href="/start" className="justify-center">
+      <Section
+        className="band"
+        title="Not sure which engine fits first?"
+        lead={<p className="lead">
+          Tell us what&apos;s breaking. We&apos;ll tell you which engine fixes it — and
+          what the path looks like from there.
+        </p>}
+      >
+        <div className="actions reveal">
+          <Button href="/start">
             Talk with Mark &amp; Bri
           </Button>
         </div>
-      </section>
-    </>
+      </Section>
+    </div>
   );
 }

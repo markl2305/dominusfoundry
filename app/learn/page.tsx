@@ -1,4 +1,7 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
+import { PageHero } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "Learn — Dominus Foundry",
@@ -44,25 +47,31 @@ const articles = [
 
 export default function LearnIndexPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn</p>
-        <h1 className="heading-forge-lg text-slate-900">
+    <>
+      <PageHero
+        eyebrow="Learn"
+        title={<>
           Guides on AI software for construction and trades
-        </h1>
-        <div className="body-foundry space-y-8 text-slate-900 mt-6">
-          {articles.map(({ href, title, blurb }) => (
-            <div key={href}>
-              <h2 className="heading-forge-md text-slate-900">
-                <Link className="hover:underline" href={href}>
-                  {title}
-                </Link>
-              </h2>
-              <p className="mt-2">{blurb}</p>
-            </div>
-          ))}
+        </>}
+      />
+      <section className="section pg-learn">
+        <div className="wrap">
+          <ul className="list-rows">
+            {articles.map(({ href, title, blurb }, i) => (
+              <li key={href}>
+                <div className="list-row reveal" style={{ "--i": i } as CSSProperties}>
+                  <h2 className="lr-t">
+                    <Link href={href}>
+                      {title}
+                    </Link>
+                  </h2>
+                  <p className="lr-p">{blurb}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

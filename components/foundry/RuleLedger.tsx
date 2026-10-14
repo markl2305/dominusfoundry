@@ -8,9 +8,13 @@
    This is a faithful model of the real execution path, not the production engine:
    the rules, the default-deny, the citation and the append-only record behave the
    way they behave inside Forge. Nothing here is sent anywhere — it runs in the
-   browser and resets when the page reloads. */
+   browser and resets when the page reloads.
 
-import { useCallback, useRef, useState } from 'react'
+   Styled 2026-10-14 in the /pitch language (site.css cards, badges, buttons,
+   form fields) plus components/site/pages/pillars.css, scoped to
+   .pg-governance; it no longer depends on foundry.css. */
+
+import { useCallback, useRef, useState, type CSSProperties } from 'react'
 
 type Capability = 'proposals' | 'change-orders' | 'refunds'
 
@@ -209,14 +213,14 @@ export default function RuleLedger() {
 
   return (
     <div className="ledger">
-      <div className="ledger-pane">
-        <h3 className="lp-h serif">1 · Write a rule</h3>
-        <p className="lp-lead">
+      <div className="card ledger-pane reveal">
+        <h3 className="h3 lp-h">1 · Write a rule</h3>
+        <p className="tile-p lp-lead">
           A grant is a sentence in plain English with a boundary in it. Choose what Sabina may do and how far, and it lands in the canon
           attributed to you.
         </p>
 
-        <form className="composer" onSubmit={writeRule}>
+        <form className="form composer" onSubmit={writeRule}>
           <p className="composer-line">
             <span>Sabina may</span>
             <label className="sr-only" htmlFor="rl-capability">
@@ -252,7 +256,7 @@ export default function RuleLedger() {
             <span>without asking me.</span>
           </p>
           {error && (
-            <p className="composer-error" id="rl-error" role="alert">
+            <p className="form-msg err composer-error" id="rl-error" role="alert">
               {error}
             </p>
           )}
@@ -261,8 +265,8 @@ export default function RuleLedger() {
           </button>
         </form>
 
-        <h3 className="lp-h serif lp-h-2">2 · The canon</h3>
-        <p className="lp-lead">
+        <h3 className="h3 lp-h lp-h-2">2 · The canon</h3>
+        <p className="tile-p lp-lead">
           Every rule carries who wrote it and when. Revoke one and it does not vanish — it is struck through and annotated, because the record
           has to still be true a year from now.
         </p>
@@ -270,8 +274,8 @@ export default function RuleLedger() {
           {rules.map((r) => (
             <li className={`grant ${r.revokedBy ? 'revoked' : ''}`} key={r.id}>
               <div className="grant-head">
-                <span className="grant-id">{r.id}</span>
-                <span className={`grant-state ${r.revokedBy ? 'is-revoked' : 'is-active'}`}>{r.revokedBy ? 'Revoked' : 'Active'}</span>
+                <span className="grant-id">{r.id}</span>{' '}
+                <span className={`badge ${r.revokedBy ? 'hollow is-revoked' : 'gold is-active'}`}>{r.revokedBy ? 'Revoked' : 'Active'}</span>
               </div>
               <p className="grant-text">{r.revokedBy ? <s>{sentence(r)}</s> : sentence(r)}</p>
               <p className="grant-meta">
@@ -283,7 +287,7 @@ export default function RuleLedger() {
                 </p>
               )}
               <button
-                className="grant-btn"
+                className="btn btn-ghost btn-sm grant-btn"
                 type="button"
                 onClick={() => revoke(r.id)}
                 disabled={!!r.revokedBy}
@@ -296,15 +300,15 @@ export default function RuleLedger() {
         </ul>
       </div>
 
-      <div className="ledger-pane">
-        <h3 className="lp-h serif">3 · Send her work</h3>
-        <p className="lp-lead">
+      <div className="card ledger-pane reveal" style={{ '--i': 1 } as CSSProperties}>
+        <h3 className="h3 lp-h">3 · Send her work</h3>
+        <p className="tile-p lp-lead">
           Each of these is a real thing a front office does on a Friday afternoon. Nothing executes outside the canon, so every one of them is
           checked against the rules above before it happens — and refused if no rule allows it.
         </p>
         <div className="fire">
           {ACTIONS.map((a) => (
-            <button className="fire-btn" type="button" key={a.id} onClick={() => run(a)}>
+            <button className="btn btn-ghost fire-btn" type="button" key={a.id} onClick={() => run(a)}>
               {a.label}
             </button>
           ))}
@@ -313,16 +317,16 @@ export default function RuleLedger() {
           {status}
         </p>
 
-        <h3 className="lp-h serif lp-h-2">4 · The record</h3>
-        <p className="lp-lead">
+        <h3 className="h3 lp-h lp-h-2">4 · The record</h3>
+        <p className="tile-p lp-lead">
           Append-only, newest first, readable by the owner rather than by an engineer. Grants, revocations and decisions all land in the same
           place, and nothing is ever removed from it.
         </p>
         <ol className="record">
           {record.map((e) => (
             <li className={`rec rec-${e.kind}`} key={e.key}>
-              <span className="rec-when">{e.when}</span>
-              <span className="rec-head">{e.head}</span>
+              <span className="rec-when">{e.when}</span>{' '}
+              <span className="rec-head">{e.head}</span>{' '}
               <span className="rec-detail">{e.detail}</span>
             </li>
           ))}
