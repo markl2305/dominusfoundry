@@ -9,6 +9,7 @@ import './foundry.css'
 import Embers from './Embers'
 import { Medallion, MiniCrest, Icon } from './Marks'
 import type { CrestScheme } from './Crest'
+import { FOOTER_COLS } from './footer-links'
 
 const EMBER_INTENSITY = 1.3 // locked, tuned production value
 const DIRECTION = 'institution' // locked
@@ -81,40 +82,6 @@ function Nav({ theme, active, onToggleTheme }: { theme: Theme; active: string | 
     </header>
   )
 }
-
-const FOOTER_COLS = [
-  {
-    h: 'Explore',
-    links: [
-      { t: 'Forge ↗', href: 'https://buildwithforge.app', ext: true },
-      { t: 'Sabina', href: '/sabina' },
-      { t: 'Technology', href: '/technology' },
-      { t: 'Governance', href: '/governance' },
-    ],
-  },
-  {
-    h: 'Company',
-    links: [
-      { t: 'About', href: '/company' },
-      { t: 'Leadership', href: '/company#leadership' },
-      { t: 'Press', href: '/press' },
-      { t: 'Foundry Notes', href: '/blog' },
-      { t: 'Investors', href: '/pitch' },
-      { t: 'Careers & collaboration', href: '/company#contact' },
-      // Persistent route to the privacy notice and its analytics choice/withdraw control (consent v2 sync review
-      // F1): the consent bar disappears after a choice, so the footer carries the way back.
-      { t: 'Privacy & analytics choice', href: '/privacy' },
-    ],
-  },
-  {
-    h: 'Contact',
-    links: [
-      { t: 'foundry@dominusfoundry.com', href: 'mailto:foundry@dominusfoundry.com' },
-      { t: '(505) 520-1433', href: 'tel:+15055201433' },
-      { t: 'Albuquerque, New Mexico', href: '/company' },
-    ],
-  },
-]
 
 function Footer() {
   return (

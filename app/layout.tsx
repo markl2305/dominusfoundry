@@ -136,8 +136,12 @@ export default function RootLayout({
         <script
           id="df-theme-preload"
           dangerouslySetInnerHTML={{
+            // /pitch (2026-10-14): same key, same attribute. With no stored choice the
+            // page follows the system (dark is the base), and data-dfp-pref tells its
+            // System/Dark/Light control which segment to show before hydration. Every
+            // other route behaves exactly as before: only a stored value is applied.
             __html:
-              "try{var t=localStorage.getItem('df-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-df-theme',t)}catch(e){}",
+              "try{var d=document.documentElement,t=null;try{t=localStorage.getItem('df-theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-df-theme',t);if(/^\\/pitch\\/?$/.test(location.pathname)){d.classList.add('dfp-js');var s=t==='light'||t==='dark';d.setAttribute('data-dfp-pref',s?t:'system');if(!s)d.setAttribute('data-df-theme',matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}}catch(e){}",
           }}
         />
         {/* Consent gate (compliance P1-1c, Mark 2026-10-12). Google Analytics 4 and Vercel Web Analytics load

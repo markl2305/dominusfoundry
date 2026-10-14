@@ -48,21 +48,35 @@ const CHECKS = [
     /* /pitch, added 2026-09-16 with the route. It is the widest-content page on
        the site — a proof ledger in three columns, paired key/value rows, and a
        figure grid — so it is exactly the shape that overflows at 320px, and a
-       new public route that no gate covers is a gap by construction. */
+       new public route that no gate covers is a gap by construction.
+       2026-10-14: the redesigned page (app/pitch, approved preview 2026-10-13)
+       renamed its classes. Every check below covers the same content as before
+       under its new selector, and four checks are added for parts that did not
+       exist (glance strip, use-of-funds rows, the income chart's readout,
+       filings). The nav and the income tables are measured by the port's own
+       mobile matrix instead: the nav hides labels by design below 1000px and
+       the tables scroll inside their frame, both of which this probe reads as
+       failures. Its chapters fade in once as they are scrolled to, so the page
+       is scrolled through first (settleScroll); nothing is measured mid-fade. */
     route: '/pitch',
+    settleScroll: true,
     selectors: [
       { label: 'footer contact column', selector: '.footer .f-col' },
       { label: 'footer link/span text', selector: '.footer .f-col a, .footer .f-col span' },
-      { label: 'chapter headings', selector: '.pitch-h2' },
-      { label: 'proof ledger rows', selector: '.pitch-ledger-row' },
-      { label: 'proof ledger copy and badges', selector: '.pitch-ledger-copy, .pitch-badge' },
-      { label: 'key/value scenario rows', selector: '.pitch-rows > div, .pitch-rows > div > span' },
-      { label: 'raise term cells', selector: '.pitch-terms > div, .pitch-terms strong' },
-      { label: 'figure blocks', selector: '.pitch-figure, .pitch-figure-v' },
-      { label: 'layer list items', selector: '.pitch-layers li' },
-      { label: 'thesis chain steps', selector: '.pitch-chain-step' },
-      { label: 'founder columns', selector: '.pitch-founders article' },
+      { label: 'chapter headings', selector: '.dfp .h2' },
+      { label: 'proof ledger rows', selector: '.dfp .ledger-row' },
+      { label: 'proof ledger copy and badges', selector: '.dfp .ledger-row .copy, .dfp .ledger .badge' },
+      { label: 'key/value scenario rows', selector: '.dfp .rows > div, .dfp .rows > div > span' },
+      { label: 'raise term cells', selector: '.dfp .terms > div, .dfp .terms strong' },
+      { label: 'figure blocks', selector: '.dfp .figure, .dfp .figure .v' },
+      { label: 'layer list items', selector: '.dfp .layer, .dfp .layer-detail' },
+      { label: 'thesis chain steps', selector: '.dfp .sequence li' },
+      { label: 'founder columns', selector: '.dfp .founders article' },
       { label: 'hero and CTA buttons', selector: '.hero-actions .btn, .cta-actions .btn' },
+      { label: 'at-a-glance figures', selector: '.dfp .glance-item, .dfp .glance-v' },
+      { label: 'use-of-funds rows', selector: '.dfp .funds-rows > div, .dfp .funds-rows .amt' },
+      { label: 'income chart heading and readout', selector: '.dfp .chart-head .k, .dfp .readout' },
+      { label: 'patent filings', selector: '.dfp .filings li' },
     ],
   },
   {
@@ -199,6 +213,16 @@ async function run() {
         const target = base.origin + route;
         const response = await page.goto(target, { waitUntil: 'networkidle' });
         await page.evaluate(() => document.fonts.ready);
+        // Routes whose content fades in on first view are scrolled through once, then back to the top,
+        // so every element is measured in its settled state rather than mid-animation.
+        if (CHECKS.find((c) => c.route === route).settleScroll) {
+          await page.evaluate(async () => {
+            const H = document.documentElement.scrollHeight;
+            for (let y = 0; y < H; y += Math.round(innerHeight * 0.6)) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise((r) => setTimeout(r, 40)); }
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          });
+          await page.waitForTimeout(900);
+        }
         const status = response ? response.status() : null;
         if (status !== 200) {
           failures.push({ width, route, selector: '(navigation)', reason: `unexpected status ${status}` });

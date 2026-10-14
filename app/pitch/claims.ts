@@ -349,3 +349,21 @@ export const MILESTONES = [
 ];
 
 export const CONTACT_EMAIL = 'mark@dominusfoundry.com';
+
+/* ── AT A GLANCE (2026-10-14, the redesigned /pitch) ─────────────────────────
+   The summary strip under the hero restates two counts that the ledger above
+   already asserts. They are derived from those rows here, not typed into a
+   component, and they throw at import time if the rows stop saying the same
+   thing. ⛔ No new claim is made by this block. */
+const forgeProduction = claim('forge-production')
+if (!/\btwo production deployments\b/.test(forgeProduction.publicCopy))
+  throw new Error('/pitch: the at-a-glance Forge count no longer matches the forge-production claim')
+const provisionalCount = Number.parseInt(claim('provisionals').publicCopy, 10)
+if (!Number.isInteger(provisionalCount))
+  throw new Error('/pitch: the provisionals claim no longer starts with its count')
+const nonprovisionalCount = PROOF.filter((c) => /^nonprovisional(-\d+)?$/.test(c.id)).length
+
+export const AT_A_GLANCE = {
+  forgeDeployments: { value: '2', claimId: forgeProduction.id, asOf: forgeProduction.asOf, status: forgeProduction.status },
+  filings: { value: `${provisionalCount} + ${nonprovisionalCount}`, asOf: claim('nonprovisional-2').asOf },
+}

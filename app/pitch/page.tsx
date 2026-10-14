@@ -1,7 +1,14 @@
-import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
+import type { Metadata, Viewport } from 'next'
+import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from 'next/font/google'
 import PitchContent from './PitchContent'
 import './pitch.css'
+
+/* The redesigned page's three faces, self-hosted by next/font: the files are
+   fetched at build time and served from this domain, so the page makes no
+   request to fonts.googleapis.com or fonts.gstatic.com. */
+const serif = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500', '600'], style: ['normal', 'italic'], variable: '--font-dfp-serif', display: 'swap' })
+const titling = Cinzel({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-dfp-titling', display: 'swap' })
+const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-dfp-mono', display: 'swap' })
 
 /* §15 META for dominusfoundry.com/pitch. The OpenGraph description explains the
    governed-AI + compounding-intelligence thesis rather than saying "pitch deck"
@@ -57,10 +64,14 @@ export const metadata: Metadata = {
   },
 }
 
+/* viewport-fit=cover lets the translucent nav run under the notch and the
+   page honour env(safe-area-inset-*). Not metadata: title, description,
+   canonical, robots and the openGraph/twitter objects above are unchanged. */
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover' }
+
+/* 2026-10-14: /pitch carries its own chrome (the redesign's translucent nav and
+   a footer with the site's link columns and the privacy link) instead of
+   FoundryShell. Every other Foundry route keeps FoundryShell unchanged. */
 export default function PitchPage() {
-  return (
-    <FoundryShell active={null}>
-      <PitchContent />
-    </FoundryShell>
-  )
+  return <PitchContent fontClass={`${serif.variable} ${titling.variable} ${mono.variable}`} />
 }
