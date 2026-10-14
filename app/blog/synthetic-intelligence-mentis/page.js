@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { PageHero } from "@/components/site/primitives";
+import ArticleIndex from "@/components/site/qp/ArticleIndex";
 import "@/components/site/pages/posts.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/articles.css";
 
 export const metadata = {
   title: "Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action",
@@ -10,7 +13,7 @@ export const metadata = {
 
 export default function SyntheticIntelligenceMentisPage() {
   return (
-    <div className="pg-post">
+    <div className="pg-post qp qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action"
@@ -19,7 +22,9 @@ export default function SyntheticIntelligenceMentisPage() {
         <p className="fine">Foundry Notes · Archive · Publication date not recorded</p>
       </PageHero>
       <section className="section tight">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
         <aside className="callout reveal pg-post-context" aria-label="Current context">
           <p className="tile-k">Current context</p>
@@ -262,6 +267,9 @@ export default function SyntheticIntelligenceMentisPage() {
               ← Back to blog
             </Link>
           </div>
+        </div>
+        <ArticleIndex />
+        </div>
         </div>
       </section>
     </div>

@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/site/primitives";
+import "@/app/styles/pages/qp-b.css";
 
 export const metadata = {
   title: 'QuickBooks Migration & Cleanup (Retired Offering) | Dominus Foundry',
@@ -13,6 +14,7 @@ export const metadata = {
 // 2026-10-14: restyled in the site-wide redesign (components/site). Copy unchanged.
 export default function QBMigrationRetired() {
   return (
+    <div className="qp qp-plain qp-notice">
     <PageHero
       title={<>QuickBooks Migration &amp; Cleanup (Retired Offering)</>}
       lead={
@@ -33,5 +35,6 @@ export default function QBMigrationRetired() {
     >
       <p className="fine">Built to Dominus Foundry architectural standards.</p>
     </PageHero>
+    </div>
   );
 }

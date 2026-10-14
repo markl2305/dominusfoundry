@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { PageHero, More } from "@/components/site/primitives";
+import ArticleIndex from "@/components/site/qp/ArticleIndex";
 import "@/components/site/pages/learn.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/articles.css";
 
 export const metadata = {
   title: "AI Software Company for Construction and Trades — Forge by Dominus Foundry",
@@ -67,7 +70,7 @@ const faqJsonLd = {
 
 export default function AiSoftwareCompanyPage() {
   return (
-    <>
+    <div className="qp qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>
@@ -87,7 +90,9 @@ export default function AiSoftwareCompanyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="section pg-learn">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
         <div className="article">
           <h3>What Forge is</h3>
           <p>
@@ -229,7 +234,10 @@ export default function AiSoftwareCompanyPage() {
           </p>
         </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }

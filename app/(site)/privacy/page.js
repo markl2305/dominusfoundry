@@ -1,6 +1,9 @@
 import ConsentChoice from './ConsentChoice';
 import { PageHero } from '@/components/site/primitives';
+import ArticleIndex from '@/components/site/qp/ArticleIndex';
 import '@/components/site/pages/legal.css';
+import '@/app/styles/pages/qp-b.css';
+import '@/app/styles/pages/articles.css';
 
 // Visitor privacy notice. Rewritten for compliance P1-1c (Mark 2026-10-12): analytics are consent-gated by
 // public/consent/consent.js, so this page names the analytics recipients, states the Global Privacy Control
@@ -13,11 +16,13 @@ export const metadata = {
 
 export default function Privacy() {
   return (
-    <>
+    <div className="qp qp-plain qp-legal">
       <PageHero title="Privacy Policy" lead="Last updated: October 12, 2026" />
 
       <section className="section pg-legal">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
             <section>
               <h2>Overview</h2>
@@ -412,7 +417,10 @@ export default function Privacy() {
 
           </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -2,6 +2,8 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { PageHero } from "@/components/site/primitives";
 import "@/components/site/pages/learn.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/learn-index.css";
 
 export const metadata = {
   title: "Learn — Dominus Foundry",
@@ -46,32 +48,34 @@ const articles = [
 ];
 
 export default function LearnIndexPage() {
+  /* Quality pass D2 (2026-10-14): copy verbatim. The guides as a grid of
+     article cards; each card is one target (the title link is stretched over
+     it, so the accessible name stays the title alone). */
   return (
-    <>
+    <div className="qp qp-learn">
       <PageHero
         eyebrow="Learn"
         title={<>
           Guides on AI software for construction and trades
         </>}
       />
-      <section className="section pg-learn">
+      <section className="section pg-learn" id="guides" data-name="Guides">
         <div className="wrap">
-          <ul className="list-rows">
+          <ul className="guide-grid">
             {articles.map(({ href, title, blurb }, i) => (
-              <li key={href}>
-                <div className="list-row reveal" style={{ "--i": i } as CSSProperties}>
-                  <h2 className="lr-t">
-                    <Link href={href}>
-                      {title}
-                    </Link>
-                  </h2>
-                  <p className="lr-p">{blurb}</p>
-                </div>
+              <li key={href} className="card reveal guide-card" style={{ "--i": i } as CSSProperties}>
+                <h2 className="tile-t">
+                  <Link href={href}>
+                    {title}
+                  </Link>
+                </h2>
+                <p className="tile-p">{blurb}</p>
+                <span className="g-read" aria-hidden="true">&rarr;</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
-    </>
+    </div>
   );
 }

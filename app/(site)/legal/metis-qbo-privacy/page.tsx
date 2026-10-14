@@ -1,5 +1,8 @@
 import { PageHero } from '@/components/site/primitives';
+import ArticleIndex from '@/components/site/qp/ArticleIndex';
 import '@/components/site/pages/legal.css';
+import '@/app/styles/pages/qp-b.css';
+import '@/app/styles/pages/articles.css';
 
 export const metadata = {
   title: 'Mentis™ QuickBooks Integration – Privacy Policy',
@@ -11,7 +14,7 @@ export const metadata = {
 
 export default function MentisQboPrivacyPage() {
   return (
-    <>
+    <div className="qp qp-plain qp-legal">
       <PageHero
         eyebrow={<>Mentis™ &amp; QuickBooks</>}
         title="Mentis™ QuickBooks Integration – Privacy Policy"
@@ -24,7 +27,9 @@ export default function MentisQboPrivacyPage() {
       />
 
       <section className="section pg-legal">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
             <section>
               <h2>What data is accessed</h2>
@@ -70,7 +75,10 @@ export default function MentisQboPrivacyPage() {
             </section>
           </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   )
 }

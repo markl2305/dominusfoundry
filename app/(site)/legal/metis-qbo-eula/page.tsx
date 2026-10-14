@@ -1,5 +1,8 @@
 import { PageHero } from '@/components/site/primitives';
+import ArticleIndex from '@/components/site/qp/ArticleIndex';
 import '@/components/site/pages/legal.css';
+import '@/app/styles/pages/qp-b.css';
+import '@/app/styles/pages/articles.css';
 
 export const metadata = {
   title: 'Mentis™ QuickBooks Integration – End-User License Agreement',
@@ -11,7 +14,7 @@ export const metadata = {
 
 export default function MentisQboEulaPage() {
   return (
-    <>
+    <div className="qp qp-plain qp-legal">
       <PageHero
         eyebrow={<>Mentis™ &amp; QuickBooks</>}
         title="Mentis™ QuickBooks Integration – End-User License Agreement"
@@ -24,7 +27,9 @@ export default function MentisQboEulaPage() {
       />
 
       <section className="section pg-legal">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
             <section>
               <h2>By using this integration, you agree that:</h2>
@@ -49,7 +54,10 @@ export default function MentisQboEulaPage() {
             </section>
           </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   )
 }

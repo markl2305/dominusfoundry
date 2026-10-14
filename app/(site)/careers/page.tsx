@@ -1,7 +1,10 @@
 import ApplicationForm from "../../../components/ApplicationForm";
 import ContactCTA from "../../../components/ContactCTA";
 import { PageHero, Section } from "@/components/site/primitives";
+import { CloseBand } from "@/components/site/qp/parts";
 import "@/components/site/pages/core.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/careers.css";
 
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
@@ -75,9 +78,16 @@ const repGets = [
 // ⛔ The responsive gate (scripts/public-responsive-gate.cjs) measures #apply, its
 // columns as `#apply > div > div > div` and the file-picker filename; nothing in
 // #apply carries `reveal`, because the gate reads opacity 0 as hidden content.
+// Quality pass D2 (2026-10-14): copy and figures verbatim. Hero with one action
+// to #apply; the opening as a statement beside its text; the product as tiles;
+// the commission plan as rows with "Do the math" as its callout; who should /
+// should not apply as two cards; what you get as tiles; the page's own
+// "Questions before applying?" in the forge close band. #apply is unchanged.
+const featureTitle = (f: string) => f.split(" \u2014 ")[0];
+const featureBody = (f: string) => f.slice(featureTitle(f).length + 3);
 export default function CareersPage() {
   return (
-    <div className="pg-careers">
+    <div className="pg-careers qp qp-careers">
       {/* Hero */}
       <PageHero
         center
@@ -88,6 +98,7 @@ export default function CareersPage() {
             Ground floor of a patent-pending Managed AI company with a product in production at its first customers. The addressable market is wide open.
           </p>
         }
+        actions={<a className="btn btn-solid" href="#apply">Apply Now</a>}
       >
         <div className="chips">
           <span className="chip">
@@ -103,10 +114,12 @@ export default function CareersPage() {
       </PageHero>
 
       {/* What This Is */}
-      <Section
-        eyebrow="The Opportunity"
-        title="This is not a sales job. This is the founding revenue team of a Managed AI company."
-      >
+      <section className="section" id="opportunity" data-name="The Opportunity" aria-labelledby="h-opportunity">
+        <div className="wrap two-col">
+        <div className="sec-head reveal">
+          <p className="eyebrow">The Opportunity</p>
+          <h2 className="statement" id="h-opportunity">This is not a sales job. This is the founding revenue team of a Managed AI company.</h2>
+        </div>
         <div className="prose reveal">
             <p>
               Dominus Foundry™ builds and operates <strong>Sabina</strong>, your company&apos;s own AI, shaped around its systems, knowledge, people, and authority. <strong>Forge™</strong> supplies the operating records and specialist tools beneath and alongside her, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
@@ -131,10 +144,12 @@ export default function CareersPage() {
               <strong>We have 19 provisional patent applications plus two non-provisional filings and a product running in production.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
         </div>
-      </Section>
+        </div>
+      </section>
 
       {/* What You'd Be Selling */}
       <Section
+        id="product"
         className="band"
         eyebrow="The Product"
         title={<>What you&apos;d be selling</>}
@@ -144,11 +159,12 @@ export default function CareersPage() {
           </p>
         }
       >
-        <ul className="pg-marks reveal">
-          {platformFeatures.map((feature) => (
-            <li key={feature}>
-              <span className="mk">&bull;</span>
-              <span>{feature}</span>
+        <ul className="grid g3 tiles">
+          {platformFeatures.map((feature, i) => (
+            <li key={feature} className="card reveal" style={{ '--i': i } as React.CSSProperties}>
+              <span className="mk" aria-hidden="true">&bull;</span>
+              <p className="tile-t">{featureTitle(feature)}<span className="sr-only"> &mdash; </span></p>
+              <p className="tile-p">{featureBody(feature)}</p>
             </li>
           ))}
         </ul>
@@ -156,6 +172,7 @@ export default function CareersPage() {
 
       {/* Commission Structure */}
       <Section
+        id="compensation"
         eyebrow="Compensation"
         title="Read this carefully"
         lead={
@@ -164,22 +181,18 @@ export default function CareersPage() {
           </p>
         }
       >
-        <div className="grid g2">
-          {commissionTable.map((row, i) => (
-            <div
-              key={row.type}
-              className="card reveal"
-              style={{ '--i': i } as React.CSSProperties}
-            >
+        <div className="rows reveal commission">
+          {commissionTable.map((row) => (
+            <div key={row.type}>
               <div className="rate-head">
-                <h3 className="tile-t">
+                <h3 className="row-t">
                   {row.type}
                 </h3>
                 <span className="rate">
                   {row.rate}
                 </span>
               </div>
-              <p className="tile-p">{row.terms}</p>
+              <p>{row.terms}</p>
             </div>
           ))}
         </div>
@@ -219,10 +232,10 @@ export default function CareersPage() {
       </Section>
 
       {/* Who Should / Shouldn't Apply */}
-      <section className="section band">
+      <section className="section band" id="fit" data-name="Who should apply">
         <div className="wrap">
-          <div className="grid g2" style={{ gap: 'clamp(36px, 5vw, 64px)' }}>
-            <div className="stack reveal">
+          <div className="grid g2">
+            <div className="card stack reveal">
               <div className="sec-head">
                 <p className="eyebrow">Requirements</p>
                 <h2 className="h3">Who should apply</h2>
@@ -237,7 +250,7 @@ export default function CareersPage() {
               </ul>
             </div>
 
-            <div className="stack reveal" style={{ '--i': 1 } as React.CSSProperties}>
+            <div className="card stack reveal" style={{ '--i': 1 } as React.CSSProperties}>
               <div className="sec-head">
                 <p className="eyebrow">Honest Filter</p>
                 <h2 className="h3">Who should not apply</h2>
@@ -256,12 +269,12 @@ export default function CareersPage() {
       </section>
 
       {/* What You Get */}
-      <Section eyebrow="What We Provide" title="What you get from us">
-        <ul className="pg-marks reveal">
-          {repGets.map((item) => (
-            <li key={item}>
+      <Section id="provide" eyebrow="What We Provide" title="What you get from us">
+        <ul className="grid g3 tiles gets">
+          {repGets.map((item, i) => (
+            <li key={item} className="card reveal" style={{ '--i': i } as React.CSSProperties}>
               <span className="mk">&#10003;</span>
-              <span>{item}</span>
+              <p className="tile-p">{item}</p>
             </li>
           ))}
         </ul>
@@ -297,8 +310,8 @@ export default function CareersPage() {
       </section>
 
       {/* Questions CTA */}
-      <Section
-        center
+      <CloseBand
+        name="Questions"
         title="Questions before applying?"
         lead={
           <p className="lead">
@@ -306,10 +319,10 @@ export default function CareersPage() {
           </p>
         }
       >
-        <div className="center-block">
+        <div className="center-block close-contact">
           <ContactCTA />
         </div>
-      </Section>
+      </CloseBand>
     </div>
   );
 }

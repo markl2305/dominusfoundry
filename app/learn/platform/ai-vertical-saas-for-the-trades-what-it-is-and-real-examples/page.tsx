@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { PageHero, More } from "@/components/site/primitives";
+import ArticleIndex from "@/components/site/qp/ArticleIndex";
 import "@/components/site/pages/learn.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/articles.css";
 
 export const metadata = {
   title: "AI Vertical SaaS for the Trades: What It Is and Real Examples",
@@ -82,7 +85,7 @@ const platformLandscape = [
 
 export default function AiVerticalSaasPage() {
   return (
-    <>
+    <div className="qp qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>
@@ -102,7 +105,9 @@ export default function AiVerticalSaasPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="section pg-learn">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
         <div className="article">
           <h3>What is vertical SaaS?</h3>
           <p>
@@ -315,7 +320,10 @@ export default function AiVerticalSaasPage() {
           </p>
         </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }

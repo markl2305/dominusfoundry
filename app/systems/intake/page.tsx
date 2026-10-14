@@ -1,9 +1,8 @@
-import Link from "next/link";
-import type { CSSProperties } from "react";
 import type { Metadata } from "next";
-import Button from "../../../components/Button";
-import { PageHero, Section } from "@/components/site/primitives";
+import EnginePage from "@/components/site/qp/EnginePage";
 import "@/components/site/pages/systems.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/systems-engine.css";
 
 export const metadata: Metadata = {
   title: "Intake Engine | Dominus Foundry™",
@@ -68,156 +67,78 @@ const solutions = [
 ];
 
 export default function IntakeEnginePage() {
+  /* Quality pass D2 (2026-10-14): copy verbatim, laid out by the shared
+     engine template (components/site/qp/EnginePage.tsx). */
   return (
-    <div className="pg-systems">
-      <PageHero
-        eyebrow="Engine 01"
-        title="Intake Engine"
-        lead={<>
-          <p className="hero-tag">
-            Every lead. Every channel. One engine.
-          </p>
-          <p className="lead">
-            Phone rings, form submits, chat opens, email arrives — it doesn&apos;t
-            matter where they come from. Intake Engine captures, qualifies,
-            routes, and books before leads go cold. There is no separate voice
-            product. No separate chat product. It&apos;s all intake.
-          </p>
-        </>}
-        actions={<>
-          <Button href="/start">
-            Fix your front door
-          </Button>
-          <Button href="/systems" variant="forgeSecondary">
-            See all systems
-          </Button>
-        </>}
-      />
-
-      {/* The problem */}
-      <Section
-        className="band"
-        eyebrow="Where businesses bleed"
-        title="Most operations leak at the front door."
-      >
-        <div className="grid g2">
-          {[
-            "Leads come in and nobody responds fast enough",
-            "Phone calls interrupt staff who are doing real work",
-            "Chat goes unanswered after hours",
-            "Email inquiries sit in a shared inbox for days",
-            "Appointments don't get booked because qualification is unclear",
-            "No record of what was said or what was promised",
-          ].map((item, i) => (
-            <div
-              key={item}
-              className="card flat reveal x-item"
-              style={{ '--i': i } as CSSProperties}
-            >
-              <span className="x">&times;</span>{" "}
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Channels */}
-      <Section
-        eyebrow="Every channel handled"
-        title={<>It doesn&apos;t matter where they find you.</>}
-      >
-        <div className="rows reveal">
-          {channels.map((channel) => (
-            <div key={channel.label}>
-              <span>
-                {channel.label}
-              </span>
-              <p>
-                {channel.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Solutions */}
-      <Section
-        className="band"
-        eyebrow="How it works"
-        title="The solutions inside Intake Engine."
-      >
-        <div className="grid g2">
-          {solutions.map((solution, i) => (
-            <div
-              key={solution.title}
-              className="card reveal"
-              style={{ '--i': i } as CSSProperties}
-            >
-              <h3 className="tile-t">
-                {solution.title}
-              </h3>
-              <p className="tile-p">
-                {solution.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Platform band. Named the internal system until 2026-09-16; prohibited
-          on public Dominus marketing (plan §17). The governance layer is Forge,
-          the operating spine. ⛔ Do not reintroduce the old name here. */}
-      <Section
-        className="on-dark"
-        eyebrow="Powered by Forge"
-        title="Human authority, preserved at every step."
-        lead={<p className="lead">
+    <EnginePage c={{
+      className: "qp-intake",
+      eyebrow: "Engine 01",
+      name: "Intake Engine",
+      tagline: "Every lead. Every channel. One engine.",
+      intro: <>
+        Phone rings, form submits, chat opens, email arrives — it doesn&apos;t
+        matter where they come from. Intake Engine captures, qualifies,
+        routes, and books before leads go cold. There is no separate voice
+        product. No separate chat product. It&apos;s all intake.
+      </>,
+      primary: { href: "/start", label: "Fix your front door" },
+      secondary: { href: "/systems", label: "See all systems" },
+      problem: {
+        eyebrow: "Where businesses bleed",
+        title: "Most operations leak at the front door.",
+        items: [
+          "Leads come in and nobody responds fast enough",
+          "Phone calls interrupt staff who are doing real work",
+          "Chat goes unanswered after hours",
+          "Email inquiries sit in a shared inbox for days",
+          "Appointments don't get booked because qualification is unclear",
+          "No record of what was said or what was promised",
+        ],
+      },
+      channels: {
+        eyebrow: "Every channel handled",
+        title: <>It doesn&apos;t matter where they find you.</>,
+        items: channels,
+      },
+      solutions: {
+        eyebrow: "How it works",
+        title: "The solutions inside Intake Engine.",
+        items: solutions,
+      },
+      governance: {
+        eyebrow: "Powered by Forge",
+        title: "Human authority, preserved at every step.",
+        body: <>
           Forge governs every decision Intake Engine makes. Escalation
           paths are explicit — not improvised. Every interaction is logged.
           Every booking is traceable. You stay in control of what happens when
           the system can&apos;t make the call.
-        </p>}
-      >
-        <div className="actions reveal">
-          <Button href="/governance" variant="forgeSecondary">
-            How the governance works
-          </Button>
-        </div>
-      </Section>
-
-      {/* What connects forward */}
-      <Section
-        eyebrow="What comes next"
-        title="Intake Engine feeds Revenue Engine."
-        lead={<p className="lead">
-          Once a lead becomes a client, Revenue Engine takes over — onboarding
-          them, invoicing them, and collecting without you chasing. The two
-          engines share the same data and the same governance layer. No
-          handoff chaos.
-        </p>}
-      >
-        <div className="reveal">
-          <Link href="/systems/revenue" className="link">
+        </>,
+        action: { href: "/governance", label: "How the governance works" },
+      },
+      next: {
+        eyebrow: "What comes next",
+        title: "Intake Engine feeds Revenue Engine.",
+        body: <>
+          <p>
+            Once a lead becomes a client, Revenue Engine takes over — onboarding
+            them, invoicing them, and collecting without you chasing. The two
+            engines share the same data and the same governance layer. No
+            handoff chaos.
+          </p>
+          <a href="/systems/revenue" className="go">
             See Revenue Engine &rarr;
-          </Link>
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section
-        className="band"
-        title="Tell us where your leads are dying."
-        lead={<p className="lead">
+          </a>
+        </>,
+      },
+      close: {
+        title: "Tell us where your leads are dying.",
+        lead: <>
           We&apos;ll show you exactly how Intake Engine fixes it — and what a
           quality appointment looks like on the other side.
-        </p>}
-      >
-        <div className="actions reveal">
-          <Button href="/start">
-            Talk with Mark &amp; Bri
-          </Button>
-        </div>
-      </Section>
-    </div>
+        </>,
+        action: { href: "/start", label: <>Talk with Mark &amp; Bri</> },
+      },
+    }} />
   );
 }

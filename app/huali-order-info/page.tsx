@@ -5,6 +5,7 @@ import HualiHeader from '@/public/Huali.png';
 import { HualiAgentActions } from './HualiAgentActions';
 import { PageHero, Section } from '@/components/site/primitives';
 import '@/components/site/pages/core.css';
+import '@/app/styles/pages/qp-b.css';
 
 export const metadata: Metadata = {
   title: 'Huali™ Order Info | Dominus Foundry™',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 // nests a second one. Copy, images and the order-line link are unchanged.
 export default function HualiOrderInfoPage() {
   return (
-    <div className="pg-huali">
+    <div className="pg-huali qp qp-plain">
       <PageHero
         center
         title="Huali™ Order Info"

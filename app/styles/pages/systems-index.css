@@ -1,0 +1,7 @@
+/* app/styles/pages/systems-index.css — /systems only (quality pass D2, 2026-10-14). */
+.dfs .qp-systems .engine-card .h3 { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.dfs .qp-systems .engine-card .signs { display: grid; gap: 10px; padding-top: 16px; border-top: 1px solid var(--hair); }
+.dfs .qp-systems .engine-card .signs .ring-list { margin: 0; }
+.dfs .qp-systems .engine-card .actions .btn { width: 100%; justify-content: center; }
+.dfs .qp-systems #foundation .two-col { align-items: center; }
+@media (max-width: 960px) and (min-width: 641px) { .dfs .qp-systems .engines { grid-template-columns: 1fr; } }
