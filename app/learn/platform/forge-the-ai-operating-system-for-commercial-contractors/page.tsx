@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { PageHero, More } from "@/components/site/primitives";
+import ArticleIndex from "@/components/site/qp/ArticleIndex";
 import "@/components/site/pages/learn.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/articles.css";
 
 export const metadata = {
   title: "Forge: The AI Operating System for Commercial Contractors",
@@ -66,7 +69,7 @@ const faqJsonLd = {
 
 export default function ForgeAiOperatingSystemPage() {
   return (
-    <>
+    <div className="qp qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>
@@ -86,7 +89,9 @@ export default function ForgeAiOperatingSystemPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="section pg-learn">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
         <div className="article">
           <p>
             Forge is the AI operating system for commercial contractors — unifying
@@ -209,7 +214,10 @@ export default function ForgeAiOperatingSystemPage() {
           </p>
         </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
