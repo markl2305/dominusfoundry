@@ -10,8 +10,8 @@ import HeroEmbers from '../HeroEmbers'
    look), carrying only the page's own closing line and actions: no default
    eyebrow and no added contact line, so the page says nothing it did not say
    before. */
-export function CloseBand({ id = 'close', name, eyebrow, title, lead, actions }: {
-  id?: string; name: string; eyebrow?: ReactNode; title: ReactNode; lead?: ReactNode; actions?: ReactNode
+export function CloseBand({ id = 'close', name, eyebrow, title, lead, actions, children }: {
+  id?: string; name: string; eyebrow?: ReactNode; title: ReactNode; lead?: ReactNode; actions?: ReactNode; children?: ReactNode
 }) {
   return <section className="section on-dark cta qp-close" id={id} data-name={name} aria-labelledby={`h-${id}`}>
     <HeroEmbers />
@@ -22,6 +22,7 @@ export function CloseBand({ id = 'close', name, eyebrow, title, lead, actions }:
         {lead && (typeof lead === 'string' ? <p className="lead">{lead}</p> : lead)}
       </div>
       {actions && <div className="actions reveal">{actions}</div>}
+      {children}
     </div>
   </section>
 }
