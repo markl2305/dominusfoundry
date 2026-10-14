@@ -48,7 +48,14 @@ function useReveal(pathname: string | null) {
 
 function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | null }) {
   const [solid, setSolid] = useState(false)
+  // Material as soon as the page moves, so content never scrolls visibly through a clear bar (Mark, 2026-10-14).
+  const [scrolled, setScrolled] = useState(false)
   const active = activeFor(pathname)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [pathname])
   useEffect(() => {
     // Clear over a dark page hero, material everywhere else (as on /pitch).
     const hero = document.querySelector('.dfs main [data-hero]')
@@ -58,7 +65,7 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
     return () => io.disconnect()
   }, [pathname])
   const bare = variant === 'bare'
-  return <header className={`nav${solid ? ' solid' : ''}${bare ? ' bare' : ''}`} id="nav">
+  return <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}${bare ? ' bare' : ''}`} id="nav">
     <div className="wrap nav-in">
       <a className="brand" href="/" aria-label="Dominus Foundry home">
         {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}

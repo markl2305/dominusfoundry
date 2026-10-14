@@ -57,6 +57,8 @@ export function useReveal(root: RefObject<HTMLElement>) {
 export type ChapterRef = { id: string; n: string; name: string }
 export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHref: string }) {
   const [solid, setSolid] = useState(false)
+  // Material as soon as the page moves, so content never scrolls visibly through a clear bar (Mark, 2026-10-14).
+  const [scrolled, setScrolled] = useState(false)
   const [current, setCurrent] = useState(chapters[0])
   const [open, setOpen] = useState(false)
   const btn = useRef<HTMLButtonElement>(null), idx = useRef<HTMLElement>(null), prog = useRef<HTMLDivElement>(null)
@@ -69,6 +71,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
     chapters.forEach((c) => { const el = document.getElementById(c.id); if (el) io.observe(el) })
     let ticking = false
     const onScroll = () => {
+      setScrolled(window.scrollY > 8)
       if (ticking) return; ticking = true
       requestAnimationFrame(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight
@@ -107,7 +110,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
   const inertAttr = (open ? {} : { inert: '' }) as Record<string, string>
 
   return <>
-    <header className={`nav${solid ? ' solid' : ''}`} id="nav">
+    <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}`} id="nav">
       <div className="wrap nav-in">
         <a className="brand" href="/" aria-label="Dominus Foundry home">
           {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
