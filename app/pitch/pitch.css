@@ -199,7 +199,9 @@ html[data-df-theme="light"] .dfp .btn-solid:not(.on-dark .btn-solid):not(.nav-ct
   box-shadow: inset 0 -1px 0 var(--material-edge);
   opacity: 0; transition: opacity 200ms ease;
 }
-.dfp .nav.solid::before { opacity: 1; }
+.dfp .nav.solid::before, .dfp .nav.scrolled::before { opacity: 1; }
+/* Over the dark hero the inks are light in both themes, so the material is dark there too. */
+.dfp .nav.scrolled:not(.solid)::before { background: rgba(8, 12, 15, 0.74); box-shadow: inset 0 -1px 0 rgba(240, 231, 215, 0.08); }
 .dfp .nav:not(.solid) { --ink: #f0e7d7; --ink-2: #c6bfad; --ink-3: #9da39e; --hair: rgba(240,231,215,0.14); --hair-2: rgba(240,231,215,0.2); --gold: #e3cba8; --panel: rgba(240,231,215,0.04); --panel-2: rgba(240,231,215,0.1); }
 .dfp .nav-in { height: var(--nav-h); display: flex; align-items: center; gap: 16px; }
 .dfp .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
