@@ -1,5 +1,8 @@
 import { PageHero } from '@/components/site/primitives';
+import ArticleIndex from '@/components/site/qp/ArticleIndex';
 import '@/components/site/pages/legal.css';
+import '@/app/styles/pages/qp-b.css';
+import '@/app/styles/pages/articles.css';
 
 export const metadata = {
   title: 'Mentis™ QuickBooks Integration – Disconnected',
@@ -11,7 +14,7 @@ export const metadata = {
 
 export default function MentisQboDisconnectPage() {
   return (
-    <>
+    <div className="qp qp-plain qp-legal">
       <PageHero
         eyebrow={<>Mentis™ &amp; QuickBooks</>}
         title="Mentis™ QuickBooks Integration – Disconnected"
@@ -23,7 +26,9 @@ export default function MentisQboDisconnectPage() {
       />
 
       <section className="section pg-legal">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
             <p>
               If this disconnection was intentional, no further action is required. Mentis™ will no longer access or process data from your QuickBooks Online account.
@@ -40,7 +45,10 @@ export default function MentisQboDisconnectPage() {
             </section>
           </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   )
 }
