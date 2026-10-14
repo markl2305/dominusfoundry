@@ -29,3 +29,10 @@
 .dfs .pg-governance-qp .rl-status { max-width: 820px; margin: 0; }
 @media (prefers-reduced-motion: reduce) { .dfs .pg-governance-qp .rl-sheet[hidden] { display: none; }
 .dfs .pg-governance-qp .rl-sheet.swap { animation: none; } }
+
+/* release 2026-10-14: the hero's lead is the site's longest, so on a short
+   desktop screen (1440 × 900) the action fell 19px below the first screen.
+   The top gap comes in there only; nothing else changes. */
+@media (min-width: 761px) and (max-height: 940px) {
+  .dfs .pg-governance-qp .page-hero { padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 64px); }
+}
