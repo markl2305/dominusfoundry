@@ -660,6 +660,8 @@ html:has(.dfp)::view-transition-old(root), html:has(.dfp)::view-transition-new(r
   .dfp .nav::before, .dfp .index, .dfp .sheet, .dfp .chip { -webkit-backdrop-filter: none; backdrop-filter: none; }
   .dfp .nav::before, .dfp .index { background: var(--bg-2); }
   .dfp .sheet, html:not([data-df-theme="light"]) .dfp .sheet { background: var(--panel); }
+  /* Over the dark hero the material stays dark, but opaque. */
+  .dfp .nav.scrolled:not(.solid)::before { background: #080c0f; }
 }
 @media (prefers-contrast: more) {
   .dfp { --hair: #4a575d; --hair-2: #5d6b71; --ink-2: #d4dad6; --ink-3: #b2bab5; }
