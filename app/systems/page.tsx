@@ -2,7 +2,10 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Button from "../../components/Button";
 import { PageHero, Section } from "@/components/site/primitives";
+import { CloseBand, EngineFlow } from "@/components/site/qp/parts";
 import "@/components/site/pages/systems.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/systems-index.css";
 
 export const metadata: Metadata = {
   title: "Systems | Dominus Foundry™",
@@ -56,10 +59,13 @@ const systems = [
 ];
 
 export default function SystemsPage() {
+  /* Quality pass D2 (2026-10-14): copy verbatim. One hero with one action;
+     the three engines as three large cards, each linking to its page; the
+     Forge band carries the flow (the engines in order, one foundation); the
+     page closes on its own line in the forge close band. */
   return (
-    <div className="pg-systems">
+    <div className="pg-systems qp qp-systems">
       <PageHero
-        crest
         eyebrow="What We Build"
         title={<>
           Three engines.
@@ -73,87 +79,88 @@ export default function SystemsPage() {
           operational problems — governed on Forge, built to hold their
           shape, designed to work together from day one.
         </p>}
+        actions={<Button href="/start">Talk with Mark &amp; Bri</Button>}
       />
 
-      {/* Systems */}
-      <Section>
-        <div className="stack-lg">
-          {systems.map((system, i) => (
-            <div key={system.slug} className="card reveal engine" style={{ '--i': i } as CSSProperties}>
-              {/* Left */}
-              <div>
+      {/* The three engines */}
+      <section className="section" id="engines" data-name="Engines" aria-label="Engines">
+        <div className="wrap">
+          <div className="grid g3 engines">
+            {systems.map((system, i) => (
+              <article key={system.slug} className="card reveal feature engine-card" style={{ '--i': i } as CSSProperties}>
                 <p className="tile-k">
                   Engine {String(i + 1).padStart(2, "0")}
                 </p>
-                <h2 className="h2">{system.name}</h2>
+                <h2 className="h3">{system.name}</h2>
                 <p className="tagline">
                   {system.tagline}
                 </p>
-                <p className="desc">
+                <p className="tile-p">
                   {system.description}
                 </p>
-                <div className="actions">
+                <div className="signs">
+                  <p className="tile-k">
+                    Signs you need this
+                  </p>
+                  <ul className="ring-list">
+                    {system.problems.map((problem) => (
+                      <li key={problem}>
+                        {problem}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="actions push">
                   <Button href={`/systems/${system.slug}`}>
                     {system.cta}
                   </Button>
                 </div>
-              </div>
-
-              {/* Right — problem list */}
-              <div>
-                <p className="tile-k">
-                  Signs you need this
-                </p>
-                <ul className="ring-list">
-                  {system.problems.map((problem) => (
-                    <li key={problem}>
-                      {problem}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Platform connector. Named the internal system until 2026-09-16; that
           name is prohibited on public Dominus marketing (plan §17) and the
           governance layer these engines actually run on is Forge, the operating
           spine (plan §2). ⛔ Do not reintroduce the old name here. */}
-      <Section
-        className="on-dark"
-        eyebrow="The foundation"
-        title="All three engines run on Forge."
-        lead={<p className="lead">
-          Forge is the governed platform underneath everything we build — the
-          operating spine Sabina runs on. Human authority preserved. Every
-          action logged. No drift. Start with one engine — they&apos;re designed
-          to connect.
-        </p>}
-      >
-        <div className="actions reveal">
-          <Button href="/governance" variant="forgeSecondary">
-            How the governance works
-          </Button>
+      <section className="section on-dark" id="foundation" data-name="Forge" aria-labelledby="h-foundation">
+        <div className="wrap two-col">
+          <div className="sec-head reveal">
+            <p className="eyebrow">The foundation</p>
+            <h2 className="h2" id="h-foundation">All three engines run on Forge.</h2>
+            <p className="lead">
+              Forge is the governed platform underneath everything we build — the
+              operating spine Sabina runs on. Human authority preserved. Every
+              action logged. No drift. Start with one engine — they&apos;re designed
+              to connect.
+            </p>
+            <div className="actions">
+              <Button href="/governance" variant="forgeSecondary">
+                How the governance works
+              </Button>
+            </div>
+          </div>
+          <EngineFlow
+            labelledBy="h-foundation"
+            engines={systems.map((s, i) => ({ name: s.name, href: `/systems/${s.slug}`, k: <>Engine {String(i + 1).padStart(2, "0")}</> }))}
+            base="Forge"
+          />
         </div>
-      </Section>
+      </section>
 
-      {/* CTA */}
-      <Section
-        className="band"
+      <CloseBand
+        name="Start"
         title="Not sure which engine fits first?"
         lead={<p className="lead">
           Tell us what&apos;s breaking. We&apos;ll tell you which engine fixes it — and
           what the path looks like from there.
         </p>}
-      >
-        <div className="actions reveal">
-          <Button href="/start">
-            Talk with Mark &amp; Bri
-          </Button>
-        </div>
-      </Section>
+        actions={<Button href="/start">
+          Talk with Mark &amp; Bri
+        </Button>}
+      />
     </div>
   );
 }
