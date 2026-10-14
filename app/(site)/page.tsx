@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import HomeContent from '@/components/foundry/HomeContent'
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return (
-    <FoundryShell active={null}>
-      <HomeContent />
-    </FoundryShell>
-  )
+  return <HomeContent />
 }

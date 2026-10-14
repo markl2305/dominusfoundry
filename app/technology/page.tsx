@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import FoundryShell from '@/components/foundry/FoundryShell'
 import TechnologyContent from '@/components/foundry/TechnologyContent'
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function TechnologyPage() {
-  return (
-    <FoundryShell active="technology">
-      <TechnologyContent />
-    </FoundryShell>
-  )
+  return <TechnologyContent />
 }

@@ -2,27 +2,24 @@
 
 import Button from './Button'
 
+/* 2026-10-14: restyled in the site-wide redesign; copy unchanged. */
 export default function ContactCTA({ className = '' }) {
   return (
-    <div className={`card-forged min-w-0 max-w-full bg-white/90 p-6 md:p-8 shadow-sm ${className}`}>
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="space-y-2 max-w-2xl">
-          <p className="label-foundry">Talk with Mark &amp; Bri</p>
-          <h3 className="heading-forge-md">
-            Need to move fast? Call or email us directly.
-          </h3>
-          <p className="body-foundry">
-            You’ll hear from us within one business day with a clear next step.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row">
-          <Button href="tel:+15055201433" variant="forgeSecondary" className="w-full md:w-auto">
-            Call (505) 520-1433
-          </Button>
-          <Button href="mailto:foundry@dominusfoundry.com" className="w-full md:w-auto text-center [overflow-wrap:anywhere]">
-            Email foundry@dominusfoundry.com
-          </Button>
-        </div>
+    <div className={`callout reveal ${className}`.trim()}>
+      <p className="eyebrow">Talk with Mark &amp; Bri</p>
+      <h3 className="h3">
+        Need to move fast? Call or email us directly.
+      </h3>
+      <p>
+        You’ll hear from us within one business day with a clear next step.
+      </p>
+      <div className="actions">
+        <Button href="tel:+15055201433" variant="forgeSecondary">
+          Call (505) 520-1433
+        </Button>
+        <Button href="mailto:foundry@dominusfoundry.com" style={{ overflowWrap: 'anywhere' }}>
+          Email foundry@dominusfoundry.com
+        </Button>
       </div>
     </div>
   )

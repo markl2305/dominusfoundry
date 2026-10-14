@@ -21,7 +21,7 @@ import {
 } from './claims'
 import { incomeAssumptions as a, incomeScenarios, financingTarget } from './income-model'
 import { plan as p, target, reserve, usd } from './finance'
-import { FOOTER_COLS } from '@/components/foundry/footer-links'
+import SiteFooter from '@/components/site/SiteFooter'
 import { Badge, HeroEmbers, IncomeCase, LayerStack, PitchNav, ProofLedger, UseOfFunds, money, useReveal, type ChapterRef, type Layer } from './ui'
 
 function mailto(subject: string) {
@@ -384,32 +384,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
       </section>
     </main>
 
-    <footer className="footer">
-      <div className="wrap">
-        <div className="footer-top">
-          <div className="f-brand">
-            <a className="f-lock" href="/" aria-label="Dominus Foundry home">
-              {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
-              <img src="/brand/crest-full.png" alt="" width="32" height="36" />
-              <span>Dominus Foundry</span>
-            </a>
-            <p className="f-blurb">Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own AI, shaped around your systems, knowledge, people, and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</p>
-          </div>
-          {FOOTER_COLS.map((col) => <div className="f-col" key={col.h}>
-            <h4>{col.h}</h4>
-            {col.links.map((l) => <a key={l.t} href={l.href} target={l.ext ? '_blank' : undefined} rel={l.ext ? 'noopener' : undefined}>{l.t}</a>)}
-          </div>)}
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 Dominus Foundry. Built &amp; held by the Lord family.</span>
-          <span className="f-motto">Fide et Familia</span>
-        </div>
-        <div className="locatefaith-badge">
-          {/* eslint-disable-next-line @next/next/no-img-element -- exact external badge markup, as on every other Foundry route */}
-          <a href="https://locatefaith.com/business/sabina-by-dominus-foundry"><img src="https://locatefaith.com/brand/verified-badge-v2.svg" alt="Verified Christian Business on LocateFaith" width="240" height="107" /></a>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter blurb={<>Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own AI, shaped around your systems, knowledge, people, and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>} />
   </div>
 }
 
