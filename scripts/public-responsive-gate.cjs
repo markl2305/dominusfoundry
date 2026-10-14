@@ -181,7 +181,10 @@ function clipProbe(el) {
   const rect = el.getBoundingClientRect();
   const isFileOverlay = el.matches('input[type="file"]');
   const requiresText = !el.matches('input, textarea');
-  let hidden = rect.width <= 0 || rect.height <= 0 || (requiresText && !el.textContent.trim());
+  // An image-only link (the footer's LocateFaith badge, 2026-10-14) carries its
+  // text in the image's alt; it counts as text only while that image has a box.
+  const altText = [...el.querySelectorAll('img[alt]')].some((i) => i.alt.trim() && i.getBoundingClientRect().width > 0 && i.getBoundingClientRect().height > 0);
+  let hidden = rect.width <= 0 || rect.height <= 0 || (requiresText && !el.textContent.trim() && !altText);
   // The transparent native file-input overlay has a visible, separately
   // required Choose File/filename control. No other hidden control is accepted.
   for (let node = el; node; node = node.parentElement) {
