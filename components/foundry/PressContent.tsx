@@ -5,10 +5,35 @@
    External coverage (dated, attributed) is kept apart from the media kit,
    which is company-supplied copy. Keep the boilerplate in step with public/llms.txt.
    2026-10-14: restyled in the /pitch language (components/site). Copy unchanged;
-   the featured blockquote stays one element (the render gate pins it by hash). */
+   the featured blockquote stays one element (the render gate pins it by hash).
+   2026-10-14, quality pass (D-page-briefs): the article as a large feature
+   card (headline, outlet, date, link), the boilerplate in a card with a copy
+   button (shown once the page script runs; without it the text is still
+   selectable), every section named for the nav. Copy unchanged. */
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from './Marks'
-import { ClosingCta, PageHero, Section, Tile } from '@/components/site/primitives'
+import { ClosingCta, PageHero, Tile } from '@/components/site/primitives'
+import { Sec } from './qp-parts'
 import '@/components/site/pages/company-press.css'
+import '@/app/styles/pages/qp-hero.css'
+import '@/app/styles/pages/press.css'
+
+/* Copies the boilerplate paragraph as plain text. */
+function CopyButton({ target }: { target: React.RefObject<HTMLElement> }) {
+  const [live, setLive] = useState(false)
+  const [done, setDone] = useState(false)
+  useEffect(() => setLive(true), [])
+  useEffect(() => { if (!done) return; const t = window.setTimeout(() => setDone(false), 2000); return () => window.clearTimeout(t) }, [done])
+  if (!live) return null
+  const copy = async () => {
+    const text = (target.current?.textContent || '').replace(/\s+/g, ' ').trim()
+    try { await navigator.clipboard.writeText(text); setDone(true) } catch {
+      const sel = window.getSelection(); const r = document.createRange()
+      if (target.current && sel) { r.selectNodeContents(target.current); sel.removeAllRanges(); sel.addRange(r) }
+    }
+  }
+  return <button type="button" className="btn btn-ghost btn-sm copy-btn" onClick={copy} aria-live="polite">{done ? 'Copied' : 'Copy'}</button>
+}
 
 const KIT_PRODUCTS = [
   {
@@ -29,8 +54,9 @@ const KIT_PRODUCTS = [
 ]
 
 export default function PressContent() {
+  const boiler = useRef<HTMLParagraphElement>(null)
   return (
-    <>
+    <div className="qp pg-press-qp">
       <PageHero
         eyebrow="Press · Media Kit"
         title={
@@ -59,32 +85,35 @@ export default function PressContent() {
         }
       />
 
-      <Section
+      <Sec
         id="coverage"
+        name="External coverage"
         className="pg-press"
         eyebrow="External coverage"
         lead="Independent reporting, shown with its publication date and byline. It describes the company as it stood on that date."
       >
-        <div className="card feature reveal">
+        <article className="card feature press-feature reveal">
           <div className="pub">
             <span className="badge gold">Featured</span>{' '}
             <span className="nm">Solar Power World</span>{' '}
             <span className="meta">April 15, 2026 · by Kelly Pickerel</span>
           </div>
-          <h2 className="h3">Forge software platform uses iPad LiDAR scanning for quick solar design proposals</h2>
-          <figure className="quote">
-            <blockquote>
-              &ldquo;The solar industry has been fighting soft-cost pressure for a decade, and one of the biggest hidden costs is the gap between
-              site visit and signed contract.&rdquo;
-            </blockquote>
-            <figcaption>Brianna Lord, CEO</figcaption>
-          </figure>
+          <div className="press-body">
+            <h2 className="h3 press-h">Forge software platform uses iPad LiDAR scanning for quick solar design proposals</h2>
+            <figure className="quote">
+              <blockquote>
+                &ldquo;The solar industry has been fighting soft-cost pressure for a decade, and one of the biggest hidden costs is the gap between
+                site visit and signed contract.&rdquo;
+              </blockquote>
+              <figcaption>Brianna Lord, CEO</figcaption>
+            </figure>
+          </div>
           <div className="actions">
-            <a className="btn btn-ghost" href="/press/spw?src=press_page" target="_blank" rel="noopener">
+            <a className="btn btn-solid" href="/press/spw?src=press_page" target="_blank" rel="noopener">
               Read the article {Icon.arr}
             </a>
           </div>
-        </div>
+        </article>
 
         <ul className="list-rows reveal">
           <li>
@@ -95,17 +124,21 @@ export default function PressContent() {
             </a>
           </li>
         </ul>
-      </Section>
+      </Sec>
 
-      <Section id="media-kit" className="pg-press" eyebrow="Media kit · Company-supplied" title="About Dominus Foundry">
-        <div className="prose reveal">
-          <p>
+      <Sec id="media-kit" name="Media kit" className="pg-press band" eyebrow="Media kit · Company-supplied" title="About Dominus Foundry">
+        <div className="card boiler reveal">
+          <div className="boiler-head">
+            <p className="tile-k">Company-supplied</p>
+            <CopyButton target={boiler} />
+          </div>
+          <p className="boiler-p" ref={boiler}>
             Dominus Foundry builds and operates Managed AI for businesses. Its product, Sabina, is a company&apos;s own AI, shaped around
             its systems, knowledge, people, and authority. Foundry combines a trained core model with proprietary memory and operating
             controls to deploy company-specific systems from a reusable platform. Dominus Foundry LLC is family-owned, based in
             Albuquerque, New Mexico, and led by Brianna Lord, CEO, and Mark Lord, CTO.
           </p>
-          <p className="muted">
+          <p className="muted boiler-names">
             Names: <b>Dominus Foundry</b> (the company) · <b>Sabina</b> (your company&apos;s own AI) · <b>Forge</b> (the operating platform, a product of
             Dominus Foundry) · <b>DominusOS</b> (authority and execution control). Brianna Lord, CEO; Mark Lord, CTO.
           </p>
@@ -146,7 +179,7 @@ export default function PressContent() {
             .
           </p>
         </div>
-      </Section>
+      </Sec>
 
       <ClosingCta
         eyebrow="Press · Media · Analysts"
@@ -167,6 +200,6 @@ export default function PressContent() {
           </>
         }
       />
-    </>
+    </div>
   )
 }

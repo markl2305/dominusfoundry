@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { fontVars } from '@/components/site/fonts'
 import PitchContent from './PitchContent'
 import './pitch.css'
+import '@/app/styles/pages/pitch.css'
 
 /* The redesigned page's three faces are self-hosted by next/font in
    components/site/fonts.ts (shared with every route since 2026-10-14): the

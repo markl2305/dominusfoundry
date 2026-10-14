@@ -1,0 +1,28 @@
+/* app/styles/pages/company.css — /company, quality pass (2026-10-14). Only what
+   site.css, company-press.css and qp-hero.css have no class for. ⛔ No copy. */
+
+/* story: the crest panel beside the quote, vertically centred */
+.dfs .pg-company-qp .story { align-items: center; }
+
+/* values: the index sits above the kicker, as /pitch's numbered cards */
+.dfs .pg-company-qp .values .tile-k .ix { margin-bottom: 12px; }
+.dfs .pg-company-qp .values .card { display: grid; align-content: start; }
+
+/* the founders: one wide photograph, then /pitch's founder cards */
+.dfs .pg-company-qp .photo.wide img { aspect-ratio: 16 / 9; object-fit: cover; }
+.dfs .pg-company-qp .founders .card { gap: 14px; }
+.dfs .pg-company-qp .founders details.more { margin-top: 6px; }
+.dfs .pg-company-qp .founders details.more:last-child { border-bottom: 0; }
+.dfs .pg-company-qp .founders .more-body p { color: var(--ink-2); }
+
+/* how we work together: a statement line over three short columns */
+.dfs .pg-company-qp .together { display: grid; gap: 22px; justify-items: start; }
+.dfs .pg-company-qp .together .statement { max-width: 18ch; }
+.dfs .pg-company-qp .together-cols { margin-top: clamp(14px, 2vw, 26px); gap: clamp(20px, 3vw, 40px); width: 100%; }
+.dfs .pg-company-qp .together-cols p { margin: 0; color: var(--ink-2); line-height: 1.65; padding-top: 18px; border-top: 1px solid var(--hair-2); text-wrap: pretty; }
+
+/* the motto block: the Latin, then the long-view line */
+.dfs .pg-company-qp .motto { gap: 18px; padding-block: clamp(8px, 2vw, 24px); }
+.dfs .pg-company-qp .motto .eyebrow { justify-content: center; }
+.dfs .pg-company-qp .motto .latin { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+.dfs .pg-company-qp .motto .big { font-size: clamp(1.5rem, 3.4vw, 2.4rem); color: var(--ink-2); }

@@ -1,0 +1,67 @@
+/* app/styles/pages/qp-hero.css — the phone hero and the "Ask Sabina" launcher for
+   the quality-pass pages (2026-10-14): /company, /technology, /governance,
+   /sabina, /pricing, /press, /start. Scoped to the .qp wrapper each of those
+   pages renders, so it reaches no other route. ⛔ No copy here.
+
+   Phones: the hero's primary action sits on the first screen, as on
+   hiresabina.ai's phone hero — the hero starts under the nav, the crest,
+   display size, lead and gaps come down, and on short phones the crest and
+   eyebrow step aside. The launcher (public/sabina-chat, its own shadow root,
+   behaviour untouched) stays hidden while the nav is clear over the hero (the
+   shell's nav is not .solid there) and returns once the hero has scrolled
+   away — CSS only. */
+
+@media (max-width: 480px) {
+  .dfs .qp .page-hero { padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 20px); padding-bottom: 52px; }
+  .dfs .ribbon ~ .qp .page-hero { padding-top: 24px; }
+  .dfs .qp .page-hero .hero-in { gap: 14px; }
+  .dfs .qp .page-hero .crest { width: 56px; }
+  .dfs .qp .page-hero .display { font-size: 2.15rem; line-height: 1.04; }
+  .dfs .qp .page-hero .lead { font-size: 1.02rem; line-height: 1.5; }
+  .dfs .qp .page-hero .actions { display: grid; width: 100%; max-width: 360px; gap: 10px; margin-top: 2px; }
+  .dfs .qp .page-hero.center .actions { margin-inline: auto; }
+  .dfs .qp .page-hero .actions .btn { width: 100%; }
+  .dfs .qp .page-hero .hero-meta { margin-top: 28px; }
+}
+@media (max-width: 480px) and (max-height: 620px) {
+  .dfs .qp .page-hero .crest, .dfs .qp .page-hero .eyebrow { display: none; }
+  .dfs .qp .page-hero .display { font-size: 1.85rem; }
+  .dfs .qp .page-hero .lead { font-size: 0.97rem; line-height: 1.45; }
+  .dfs .qp .page-hero .hero-in { gap: 12px; }
+}
+
+body:has(.dfs .qp) sabina-visitor-chat { transition: opacity 200ms ease, visibility 0s linear 0s; }
+@media (max-width: 760px) {
+  body:has(.dfs .qp [data-hero]):has(.dfs > .nav:not(.solid)) sabina-visitor-chat { opacity: 0; visibility: hidden; transition: opacity 200ms ease, visibility 0s linear 200ms; }
+}
+@media (prefers-reduced-motion: reduce) { body:has(.dfs .qp) sabina-visitor-chat { transition: none; } }
+
+/* the parts these pages share with /pitch that site.css does not carry, ported
+   from app/pitch/pitch.css with the same values, scoped to .qp */
+.dfs .qp .founders .card { display: grid; gap: 10px; align-content: start; }
+.dfs .qp .founders .role { font: 500 0.7rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0; }
+.dfs .qp .founders h3 { font: 500 2rem/1.05 var(--serif); letter-spacing: -0.015em; margin: 0; }
+.dfs .qp .founders p { color: var(--ink-2); line-height: 1.6; margin: 0; }
+.dfs .qp .motto { text-align: center; display: grid; justify-items: center; gap: 14px; padding-top: 12px; }
+.dfs .qp .motto .latin { margin: 0; font: italic 400 clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--serif); color: var(--gold); letter-spacing: -0.01em; }
+.dfs .qp .motto .motto-line { margin: 0; max-width: 60ch; color: var(--ink-3); font-size: 0.9rem; line-height: 1.6; }
+.dfs .qp .ip-card { display: grid; gap: 18px; }
+.dfs .qp .filings { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--hair); }
+.dfs .qp .filings li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
+.dfs .qp .filings .f-t { font-weight: 600; color: var(--ink); }
+.dfs .qp .filings .badge { grid-row: 1; grid-column: 2; }
+/* a statement line, as /pitch's closing line under the problem band */
+.dfs .qp .statement { margin: 0; max-width: 26ch; font: 500 clamp(1.8rem, 4.2vw, 3.1rem)/1.12 var(--serif); letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+.dfs .qp .statement em { color: var(--gold); }
+.dfs .qp .center .statement, .dfs .qp .statement.center { margin-inline: auto; text-align: center; }
+/* numbered problem-style cards (/pitch chapter II) */
+.dfs .qp .ix { font: 500 0.72rem/1 var(--mono); color: var(--gold); letter-spacing: .1em; display: block; margin-bottom: 14px; }
+/* segmented panels (components/foundry/qp-parts.tsx): the control, then the selected panel */
+.dfs .qp .segp { display: grid; gap: 22px; min-width: 0; }
+.dfs .qp .segp > .seg { justify-self: start; max-width: 100%; }
+.dfs .qp .segp-panels { display: grid; gap: 22px; min-width: 0; }
+.dfs .qp .segp-panel { min-width: 0; }
+.dfs .qp .segp-panel.swap { animation: qp-swap 220ms var(--ease-out); }
+@keyframes qp-swap { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .dfs .qp .segp-panel.swap { animation: none; } }
+.dfs .qp .segp-panel[hidden] { display: none; }

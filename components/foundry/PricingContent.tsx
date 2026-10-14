@@ -73,7 +73,18 @@
        of 2026-09-04 — this site must not deploy before it is live. */
 import type { CSSProperties } from 'react'
 import { PageHero } from '@/components/site/primitives'
+import { Sec, SegPanels } from './qp-parts'
 import '@/components/site/pages/pricing-blog.css'
+import '@/app/styles/pages/qp-hero.css'
+import '@/app/styles/pages/pricing.css'
+
+/* 2026-10-14, quality pass (D-page-briefs): the two doors first, as two-up
+   feature cards (the hire, the tools), then each door's detail; "Two ways to
+   scope the work" as a segmented control between the doors; the terms as a
+   callout; "Not here." as a note. Every sentence is the live page's. No price
+   anywhere, and the hero still carries no call to action: this page's job is
+   not to sell (ruling above). The responsive gate's families are unchanged:
+   one button in #hire, five rate-card rows. */
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
    The first card is deliberately NOT a Forge price: it is the salary comparison
@@ -132,7 +143,7 @@ const EXAMPLES = [
 
 export default function PricingContent() {
   return (
-    <div className="pg-pricing">
+    <div className="pg-pricing qp pg-pricing-qp">
       <PageHero
         eyebrow="Reference · What Forge costs"
         title={
@@ -153,35 +164,41 @@ export default function PricingContent() {
         }
       />
 
-      <section className="section" id="structure">
-        <div className="wrap">
-          <div className="two-col">
-            <h2 className="h2 reveal">
+      <Sec
+        id="structure"
+        name="Two doors"
+        center
+        lead="Forge is sold two ways, and they are quoted separately on purpose. A business either hires its own AI or buys the tools. Those are different purchases, read against different budgets, and putting them on one list would misfile both."
+      >
+        <div className="grid g2 doors">
+          <article className="card door reveal" style={{ '--i': 0 } as CSSProperties}>
+            <p className="tile-k">The first way</p>
+            <h2 className="h2">
               A hire is <em>not</em> a line item.
             </h2>
-            <div className="prose reveal" style={{ '--i': 1 } as CSSProperties}>
-              <p>
-                Forge is sold two ways, and they are quoted separately on purpose. A business either hires its own AI or buys the tools.
-                Those are different purchases, read against different budgets, and putting them on one list would misfile both.
-              </p>
-              <p>
-                The first way is a hire. One number covers her and the system of record she works inside; the record is not itemised, for the
-                same reason a salary is not quoted as base plus benefits plus payroll tax. The comparison it is meant to be read against is a
-                person, and the figure for that person appears as a reference for the work.
-              </p>
-              <p>
-                The second way is the tools. We discuss your workflow, choose the products and services it needs, and prepare a custom quote.
-                There is no public rate card or bundle calculation.
-              </p>
-              <p>
-                The quote states the scope and terms before you commit. Product prices depend on the work required for your company.
-              </p>
-            </div>
-          </div>
+            <p className="tile-p">
+              The first way is a hire. One number covers her and the system of record she works inside; the record is not itemised, for the
+              same reason a salary is not quoted as base plus benefits plus payroll tax. The comparison it is meant to be read against is a
+              person, and the figure for that person appears as a reference for the work.
+            </p>
+          </article>
+          <article className="card door reveal" style={{ '--i': 1 } as CSSProperties}>
+            <p className="tile-k">The second way</p>
+            <h2 className="h2" id="h-rate-card">
+              Scoped for the work you need.
+            </h2>
+            <p className="tile-p">
+              The second way is the tools. We discuss your workflow, choose the products and services it needs, and prepare a custom quote.
+              There is no public rate card or bundle calculation.
+            </p>
+          </article>
         </div>
-      </section>
+        <p className="note reveal">
+          The quote states the scope and terms before you commit. Product prices depend on the work required for your company.
+        </p>
+      </Sec>
 
-      <section className="section band" id="hire">
+      <section className="section band" id="hire" data-name="The first way">
         <div className="wrap">
           <div className="sec-head reveal">
             <p className="eyebrow">The first way · a hire, quoted against a salary</p>
@@ -216,13 +233,10 @@ export default function PricingContent() {
         </div>
       </section>
 
-      <section className="section" id="rate-card" aria-labelledby="h-rate-card">
+      <section className="section" id="rate-card" data-name="The second way" aria-labelledby="h-rate-card">
         <div className="wrap">
           <div className="sec-head reveal">
             <p className="eyebrow">The second way · the tools</p>
-            <h2 className="h2" id="h-rate-card">
-              Scoped for the work you need.
-            </h2>
             <p className="lead">
               A separate door, for an operator who wants the system of record and is not hiring. The hire above is not on this card and is not
               priced from it.
@@ -252,52 +266,52 @@ export default function PricingContent() {
         </div>
       </section>
 
-      <section className="section" id="examples" aria-labelledby="h-examples">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <p className="eyebrow">Worked out</p>
-            <h2 className="h2" id="h-examples">
-              Two ways to scope the work.
-            </h2>
-          </div>
-          <div className="sec-body">
-            <div className="rows reveal">
-              {EXAMPLES.map((e) => (
-                <div key={e.k}>
-                  <span className="serif">{e.k}</span>
-                  <span>{e.v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Sec id="examples" name="Two ways to scope the work" className="band" eyebrow="Worked out" title="Two ways to scope the work.">
+        <SegPanels
+          id="scope-doors"
+          label="Two ways to scope the work"
+          className="reveal"
+          items={EXAMPLES.map((e) => ({
+            v: e.k,
+            tab: e.k,
+            panel: (
+              <div className="card door-panel">
+                <p className="door-panel-t">{e.k}</p>
+                <p className="tile-p">{e.v}</p>
+              </div>
+            ),
+          }))}
+        />
+      </Sec>
 
-      <section className="section on-dark" id="terms" aria-labelledby="h-terms">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <p className="eyebrow">Terms, plainly</p>
-            <h2 className="h2" id="h-terms">A quote for your company.</h2>
-            <p className="lead">
-              Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
-            </p>
-            <p className="lead">
-              We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
-            </p>
-          </div>
+      <Sec id="terms" name="Terms, plainly">
+        <div className="callout terms-callout reveal">
+          <p className="eyebrow">Terms, plainly</p>
+          <h2 className="h2" id="h-terms">A quote for your company.</h2>
+          <p className="lead">
+            Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
+          </p>
+          <p className="lead">
+            We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
+          </p>
         </div>
-      </section>
+      </Sec>
 
-      <section className="section" id="where" aria-labelledby="h-where">
-        <div className="wrap">
-          <div className="sec-head reveal">
+      <Sec id="where" name="Where Forge is sold">
+        <div className="where reveal">
+          <div className="where-head">
             <p className="eyebrow">Where Forge is sold</p>
             <h2 className="h2" id="h-where">
               Not here.
             </h2>
+          </div>
+          <div className="stack">
             <p className="lead">
               Dominus Foundry is the holding company. Forge is bought and billed on its own platform, and that is the only place a
               price becomes an agreement.
+            </p>
+            <p className="note">
+              Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
             </p>
             <div className="actions">
               <a className="btn btn-ghost" href="https://buildwithforge.app" target="_blank" rel="noopener">
@@ -305,13 +319,8 @@ export default function PricingContent() {
               </a>
             </div>
           </div>
-          <div className="sec-body">
-            <p className="note reveal">
-              Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
-            </p>
-          </div>
         </div>
-      </section>
+      </Sec>
     </div>
   )
 }

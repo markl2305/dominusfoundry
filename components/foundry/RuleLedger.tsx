@@ -12,9 +12,18 @@
 
    Styled 2026-10-14 in the /pitch language (site.css cards, badges, buttons,
    form fields) plus components/site/pages/pillars.css, scoped to
-   .pg-governance; it no longer depends on foundry.css. */
+   .pg-governance; it no longer depends on foundry.css.
 
-import { useCallback, useRef, useState, type CSSProperties } from 'react'
+   2026-10-14, quality pass (D-page-briefs): an interactive walk-through. A
+   segmented control steps through the four parts, one panel at a time, in
+   /pitch's sheet language; Previous / Next move between them and writing a
+   rule moves on to the canon. Every step's text is unchanged. With no script,
+   or before the page hydrates, all four panels show in order. */
+
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Segmented } from '@/components/site/theme'
+
+const STEPS = ['Write a rule', 'The canon', 'Send her work', 'The record']
 
 type Capability = 'proposals' | 'change-orders' | 'refunds'
 
@@ -211,127 +220,179 @@ export default function RuleLedger() {
     [rules, append],
   )
 
-  return (
-    <div className="ledger">
-      <div className="card ledger-pane reveal">
-        <h3 className="h3 lp-h">1 · Write a rule</h3>
-        <p className="tile-p lp-lead">
-          A grant is a sentence in plain English with a boundary in it. Choose what Sabina may do and how far, and it lands in the canon
-          attributed to you.
-        </p>
+  const [step, setStep] = useState(0)
+  const [live, setLive] = useState(false)
+  const [swaps, setSwaps] = useState(0)
+  const root = useRef<HTMLDivElement>(null)
+  useEffect(() => setLive(true), [])
+  const go = (i: number, focusPanel = false) => {
+    setStep(i); setSwaps((n) => n + 1)
+    if (focusPanel) requestAnimationFrame(() => root.current?.querySelector<HTMLElement>(`#rl-step-${i}`)?.focus({ preventScroll: true }))
+  }
+  const onWrite = (e: React.FormEvent) => { const before = ruleNo.current; writeRule(e); if (ruleNo.current !== before) go(1) }
 
-        <form className="form composer" onSubmit={writeRule}>
-          <p className="composer-line">
-            <span>Sabina may</span>
-            <label className="sr-only" htmlFor="rl-capability">
-              What Sabina may do
-            </label>
-            <select
-              id="rl-capability"
-              className="composer-field"
-              value={capability}
-              onChange={(e) => setCapability(e.target.value as Capability)}
-            >
-              <option value="refunds">issue refunds</option>
-              <option value="proposals">send proposals</option>
-              <option value="change-orders">approve change orders</option>
-            </select>
-            <span>up to</span>
-            <label className="sr-only" htmlFor="rl-amount">
-              Dollar boundary on the grant
-            </label>
-            <span className="composer-money">
-              <span aria-hidden="true">$</span>
-              <input
-                id="rl-amount"
-                className="composer-field composer-input"
-                type="text"
-                inputMode="numeric"
-                autoComplete="off"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                aria-describedby={error ? 'rl-error' : undefined}
-              />
-            </span>
-            <span>without asking me.</span>
-          </p>
-          {error && (
-            <p className="form-msg err composer-error" id="rl-error" role="alert">
-              {error}
-            </p>
-          )}
-          <button className="btn btn-solid" type="submit">
-            Write it into the canon <span className="arr">→</span>
-          </button>
-        </form>
-
-        <h3 className="h3 lp-h lp-h-2">2 · The canon</h3>
-        <p className="tile-p lp-lead">
-          Every rule carries who wrote it and when. Revoke one and it does not vanish — it is struck through and annotated, because the record
-          has to still be true a year from now.
-        </p>
-        <ul className="grants">
-          {rules.map((r) => (
-            <li className={`grant ${r.revokedBy ? 'revoked' : ''}`} key={r.id}>
-              <div className="grant-head">
-                <span className="grant-id">{r.id}</span>{' '}
-                <span className={`badge ${r.revokedBy ? 'hollow is-revoked' : 'gold is-active'}`}>{r.revokedBy ? 'Revoked' : 'Active'}</span>
-              </div>
-              <p className="grant-text">{r.revokedBy ? <s>{sentence(r)}</s> : sentence(r)}</p>
-              <p className="grant-meta">
-                Written by {r.author} · {r.written}
-              </p>
-              {r.revokedBy && (
-                <p className="grant-meta grant-annot">
-                  Revoked by {r.revokedBy} · {r.revokedOn} — capability withdrawn, entry retained.
-                </p>
-              )}
-              <button
-                className="btn btn-ghost btn-sm grant-btn"
-                type="button"
-                onClick={() => revoke(r.id)}
-                disabled={!!r.revokedBy}
-                aria-label={`Revoke ${r.id}: ${sentence(r)}`}
-              >
-                {r.revokedBy ? 'Already revoked' : 'Revoke this grant'}
-              </button>
-            </li>
-          ))}
-        </ul>
+  const panel = (i: number, children: ReactNode) => (
+    <div
+      key={`${i}-${i === step ? swaps : 0}`}
+      className={`card rl-sheet${swaps && i === step ? ' swap' : ''}`}
+      id={`rl-step-${i}`}
+      role={live ? 'group' : undefined}
+      aria-label={live ? `${i + 1} · ${STEPS[i]}` : undefined}
+      tabIndex={live ? -1 : undefined}
+      hidden={live && i !== step}
+    >
+      <div className="rl-head">
+        <span className="rl-of">{i + 1} of {STEPS.length}</span>
       </div>
-
-      <div className="card ledger-pane reveal" style={{ '--i': 1 } as CSSProperties}>
-        <h3 className="h3 lp-h">3 · Send her work</h3>
-        <p className="tile-p lp-lead">
-          Each of these is a real thing a front office does on a Friday afternoon. Nothing executes outside the canon, so every one of them is
-          checked against the rules above before it happens — and refused if no rule allows it.
-        </p>
-        <div className="fire">
-          {ACTIONS.map((a) => (
-            <button className="btn btn-ghost fire-btn" type="button" key={a.id} onClick={() => run(a)}>
-              {a.label}
-            </button>
-          ))}
+      {children}
+      {live && (
+        <div className="rl-nav">
+          <button type="button" className="btn btn-ghost btn-sm" disabled={i === 0} onClick={() => go(i - 1, true)}>← Previous</button>
+          <button type="button" className="btn btn-ghost btn-sm" disabled={i === STEPS.length - 1} onClick={() => go(i + 1, true)}>Next →</button>
         </div>
-        <p className="lp-note" role="status" aria-live="polite">
-          {status}
-        </p>
+      )}
+    </div>
+  )
 
-        <h3 className="h3 lp-h lp-h-2">4 · The record</h3>
-        <p className="tile-p lp-lead">
-          Append-only, newest first, readable by the owner rather than by an engineer. Grants, revocations and decisions all land in the same
-          place, and nothing is ever removed from it.
-        </p>
-        <ol className="record">
-          {record.map((e) => (
-            <li className={`rec rec-${e.kind}`} key={e.key}>
-              <span className="rec-when">{e.when}</span>{' '}
-              <span className="rec-head">{e.head}</span>{' '}
-              <span className="rec-detail">{e.detail}</span>
-            </li>
-          ))}
-        </ol>
+  return (
+    <div className="rl" ref={root}>
+      {live && (
+        <div className="rl-tools">
+          <Segmented<string>
+            label="Steps"
+            id="rl-steps"
+            className="rl-seg"
+            value={String(step)}
+            onChange={(v) => go(Number(v))}
+            items={STEPS.map((t, i) => ({ v: String(i), label: <><span className="rl-sn">{i + 1}</span><span className="rl-st"> · {t}</span></>, aria: `${i + 1} · ${t}` }))}
+          />
+        </div>
+      )}
+      <div className="rl-panels">
+        {panel(0, <>
+          <h3 className="h3 lp-h">1 · Write a rule</h3>
+          <p className="tile-p lp-lead">
+            A grant is a sentence in plain English with a boundary in it. Choose what Sabina may do and how far, and it lands in the canon
+            attributed to you.
+          </p>
+
+          <form className="form composer" onSubmit={onWrite}>
+            <p className="composer-line">
+              <span>Sabina may</span>
+              <label className="sr-only" htmlFor="rl-capability">
+                What Sabina may do
+              </label>
+              <select
+                id="rl-capability"
+                className="composer-field"
+                value={capability}
+                onChange={(e) => setCapability(e.target.value as Capability)}
+              >
+                <option value="refunds">issue refunds</option>
+                <option value="proposals">send proposals</option>
+                <option value="change-orders">approve change orders</option>
+              </select>
+              <span>up to</span>
+              <label className="sr-only" htmlFor="rl-amount">
+                Dollar boundary on the grant
+              </label>
+              <span className="composer-money">
+                <span aria-hidden="true">$</span>
+                <input
+                  id="rl-amount"
+                  className="composer-field composer-input"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  aria-describedby={error ? 'rl-error' : undefined}
+                />
+              </span>
+              <span>without asking me.</span>
+            </p>
+            {error && (
+              <p className="form-msg err composer-error" id="rl-error" role="alert">
+                {error}
+              </p>
+            )}
+            <button className="btn btn-solid" type="submit">
+              Write it into the canon <span className="arr">→</span>
+            </button>
+          </form>
+        </>)}
+
+        {panel(1, <>
+          <h3 className="h3 lp-h">2 · The canon</h3>
+          <p className="tile-p lp-lead">
+            Every rule carries who wrote it and when. Revoke one and it does not vanish — it is struck through and annotated, because the record
+            has to still be true a year from now.
+          </p>
+          <ul className="grants">
+            {rules.map((r) => (
+              <li className={`grant ${r.revokedBy ? 'revoked' : ''}`} key={r.id}>
+                <div className="grant-head">
+                  <span className="grant-id">{r.id}</span>{' '}
+                  <span className={`badge ${r.revokedBy ? 'hollow is-revoked' : 'gold is-active'}`}>{r.revokedBy ? 'Revoked' : 'Active'}</span>
+                </div>
+                <p className="grant-text">{r.revokedBy ? <s>{sentence(r)}</s> : sentence(r)}</p>
+                <p className="grant-meta">
+                  Written by {r.author} · {r.written}
+                </p>
+                {r.revokedBy && (
+                  <p className="grant-meta grant-annot">
+                    Revoked by {r.revokedBy} · {r.revokedOn} — capability withdrawn, entry retained.
+                  </p>
+                )}
+                <button
+                  className="btn btn-ghost btn-sm grant-btn"
+                  type="button"
+                  onClick={() => revoke(r.id)}
+                  disabled={!!r.revokedBy}
+                  aria-label={`Revoke ${r.id}: ${sentence(r)}`}
+                >
+                  {r.revokedBy ? 'Already revoked' : 'Revoke this grant'}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </>)}
+
+        {panel(2, <>
+          <h3 className="h3 lp-h">3 · Send her work</h3>
+          <p className="tile-p lp-lead">
+            Each of these is a real thing a front office does on a Friday afternoon. Nothing executes outside the canon, so every one of them is
+            checked against the rules above before it happens — and refused if no rule allows it.
+          </p>
+          <div className="fire">
+            {ACTIONS.map((a) => (
+              <button className="btn btn-ghost fire-btn" type="button" key={a.id} onClick={() => run(a)}>
+                {a.label}
+              </button>
+            ))}
+          </div>
+        </>)}
+
+        {panel(3, <>
+          <h3 className="h3 lp-h">4 · The record</h3>
+          <p className="tile-p lp-lead">
+            Append-only, newest first, readable by the owner rather than by an engineer. Grants, revocations and decisions all land in the same
+            place, and nothing is ever removed from it.
+          </p>
+          <ol className="record">
+            {record.map((e) => (
+              <li className={`rec rec-${e.kind}`} key={e.key}>
+                <span className="rec-when">{e.when}</span>{' '}
+                <span className="rec-head">{e.head}</span>{' '}
+                <span className="rec-detail">{e.detail}</span>
+              </li>
+            ))}
+          </ol>
+        </>)}
       </div>
+      <p className="lp-note rl-status" role="status" aria-live="polite">
+        {status}
+      </p>
     </div>
   )
 }

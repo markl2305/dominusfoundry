@@ -1,0 +1,19 @@
+/* app/styles/pages/press.css — /press, quality pass (2026-10-14). The card
+   basics (.feature, .pub) stay in components/site/pages/company-press.css.
+   ⛔ No copy here. */
+
+/* the article, as a large feature card in the spirit of /pitch's figure cards */
+.dfs .pg-press-qp .press-feature { gap: clamp(20px, 3vw, 30px); padding: clamp(26px, 4vw, 48px); background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--copper) 12%, transparent), transparent 60%), var(--panel); box-shadow: var(--shadow), var(--panel-highlight); }
+.dfs .pg-press-qp .press-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .dfs .pg-press-qp .press-body { grid-template-columns: 1fr; } }
+.dfs .pg-press-qp .press-h { max-width: 18ch; font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.08; letter-spacing: -0.016em; text-wrap: balance; }
+.dfs .pg-press-qp .press-feature .quote { padding-left: 20px; border-left: 2px solid var(--gold); }
+.dfs .pg-press-qp .press-feature .quote blockquote { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+/* the boilerplate, with its copy button */
+.dfs .pg-press-qp .boiler { display: grid; gap: 16px; }
+.dfs .pg-press-qp .boiler-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; }
+.dfs .pg-press-qp .boiler-p { margin: 0; max-width: 68ch; font: 400 clamp(1.15rem, 1.7vw, 1.3rem)/1.55 var(--serif); color: var(--ink); text-wrap: pretty; }
+.dfs .pg-press-qp .boiler-names { margin: 0; padding-top: 16px; border-top: 1px solid var(--hair); font-size: 0.925rem; line-height: 1.6; color: var(--ink-3); }
+.dfs .pg-press-qp .boiler-names b { color: var(--ink-2); font-weight: 600; }
+.dfs .pg-press-qp .copy-btn { min-width: 88px; }

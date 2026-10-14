@@ -1,0 +1,31 @@
+/* app/styles/pages/governance.css — /governance, quality pass (2026-10-14).
+   The four principles as a /pitch sequence, and the walk-through (RuleLedger)
+   in the language of /pitch's proof sheet. The grant, record and composer
+   styles stay in components/site/pages/pillars.css. ⛔ No copy here. */
+
+/* the four principles */
+.dfs .pg-governance-qp .principles .s-t { margin: 14px 0 0; }
+@media (min-width: 861px) and (max-width: 1100px) {
+  .dfs .pg-governance-qp .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dfs .pg-governance-qp .principles > li:nth-child(3) { border-left: 0; }
+  .dfs .pg-governance-qp .principles > li:nth-child(n+3) { border-top: 1px solid var(--hair); }
+}
+
+/* the walk-through: control, one sheet, the live status line */
+.dfs .pg-governance-qp .rl { display: grid; gap: 18px; min-width: 0; }
+.dfs .pg-governance-qp .rl-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.dfs .pg-governance-qp .rl-seg { max-width: 100%; }
+.dfs .pg-governance-qp .rl-sn { font-family: var(--mono); font-size: 0.75rem; }
+@media (max-width: 640px) { .dfs .pg-governance-qp .rl-st { display: none; } .dfs .pg-governance-qp .rl-seg button { min-width: 52px; } }
+.dfs .pg-governance-qp .rl-panels { display: grid; gap: 14px; min-width: 0; }
+.dfs .pg-governance-qp .rl-sheet { position: relative; display: grid; align-content: start; gap: 0; max-width: 820px; box-shadow: var(--shadow), var(--panel-highlight); outline: none; }
+.dfs .pg-governance-qp .rl-sheet[hidden] { display: none; }
+.dfs .pg-governance-qp .rl-sheet.swap { animation: qp-swap 220ms var(--ease-out); }
+.dfs .pg-governance-qp .rl-head { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); }
+.dfs .pg-governance-qp .rl-of { font: 400 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.dfs .pg-governance-qp .rl-sheet .lp-lead { max-width: 62ch; }
+.dfs .pg-governance-qp .rl-sheet .lp-h { font-size: clamp(1.6rem, 2.6vw, 2rem); }
+.dfs .pg-governance-qp .rl-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--hair); }
+.dfs .pg-governance-qp .rl-status { max-width: 820px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .dfs .pg-governance-qp .rl-sheet[hidden] { display: none; }
+.dfs .pg-governance-qp .rl-sheet.swap { animation: none; } }

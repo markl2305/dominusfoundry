@@ -1,8 +1,11 @@
 import IntakeForm from "../../../components/IntakeForm";
 import ContactCTA from "../../../components/ContactCTA";
 import Button from "../../../components/Button";
-import { PageHero, Section } from "@/components/site/primitives";
+import { PageHero } from "@/components/site/primitives";
+import { Sec } from "@/components/foundry/qp-parts";
 import "@/components/site/pages/core.css";
+import "@/app/styles/pages/qp-hero.css";
+import "@/app/styles/pages/start.css";
 
 // RETOOL 2026-10-07 (HANDOFF §5.7): the retired seven-day system-design
 // promise, the coming-soon video placeholder and the bespoke-automation example
@@ -13,6 +16,10 @@ import "@/components/site/pages/core.css";
 // 2026-10-14: restyled in the site-wide redesign (components/site). Copy and
 // the form are unchanged; the form card carries no `reveal`, so it is never
 // faded out while a visitor (or the consent matrix) fills it in.
+// 2026-10-14, quality pass (D-page-briefs): the stuck points as tiles, the form
+// in one feature card, "Prefer to talk first?" as the contact card. The form,
+// its fields, destination and consent wording are untouched (IntakeForm is
+// rendered exactly as before); copy unchanged.
 export const metadata = {
   title: "Start with Sabina — Dominus Foundry",
   description:
@@ -28,7 +35,7 @@ const stuckPoints = [
 
 export default function StartPage() {
   return (
-    <div className="pg-start">
+    <div className="pg-start qp pg-start-qp">
       <PageHero
         center
         eyebrow="Get Started"
@@ -41,32 +48,40 @@ export default function StartPage() {
         actions={<Button href="https://hiresabina.ai/evaluate">See Sabina work</Button>}
       />
 
-      <Section className="band">
-        <div className="two-col">
-          <div className="stack reveal">
-            <h2 className="h3">Where teams tell us work gets stuck:</h2>
-            <ul className="pg-marks">
-              {stuckPoints.map((outcome) => (
-                <li key={outcome}>
+      <section className="section" id="stuck" data-name="Where work gets stuck" aria-labelledby="h-stuck">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <h2 className="h2" id="h-stuck">Where teams tell us work gets stuck:</h2>
+          </div>
+          <div className="sec-body">
+            <ul className="grid g4 stuck">
+              {stuckPoints.map((outcome, i) => (
+                <li className="card reveal" key={outcome} style={{ "--i": i }}>
                   <span className="mk">✓</span>
-                  <span>{outcome}</span>
+                  <span className="stuck-t">{outcome}</span>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
+      </section>
 
-          <div className="card">
-            <div className="stack" style={{ gap: 12, marginBottom: 24 }}>
+      <section className="section band" id="tell-us" data-name="Tell us where work is stuck" aria-labelledby="h-tell-us">
+        <div className="wrap">
+          <div className="card intake-card">
+            <div className="intake-head">
               <p className="eyebrow">Tell us where work is stuck</p>
-              <h2 className="h3">We&apos;ll discuss where Sabina could begin</h2>
+              <h2 className="h2" id="h-tell-us">We&apos;ll discuss where Sabina could begin</h2>
             </div>
             <IntakeForm />
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section
+      <Sec
         center
+        id="talk"
+        name="Prefer to talk first?"
         title="Prefer to talk first?"
         lead={
           <p className="lead">
@@ -77,7 +92,7 @@ export default function StartPage() {
         <div className="center-block">
           <ContactCTA />
         </div>
-      </Section>
+      </Sec>
     </div>
   );
 }
