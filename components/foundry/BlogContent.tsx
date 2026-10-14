@@ -4,11 +4,18 @@
    An editorial index: the newest current essay leads, the rest follow as
    ruled rows, and pieces tagged Archive sit in their own block below.
    Rows link to the existing on-site blog posts. Dates and bylines come
-   only from the articles themselves; where an article carries none, say so. */
+   only from the articles themselves; where an article carries none, say so.
+
+   Quality pass D2 (2026-10-14): copy verbatim. The index is now a grid of
+   article cards (topic, title, dek, byline and date), current essays and the
+   archive as two groups. Each card is one target: the title link is stretched
+   over the card, so the accessible name stays the title alone. */
 import { Icon } from './Marks'
 import type { CSSProperties } from 'react'
 import { ClosingCta, PageHero } from '@/components/site/primitives'
 import '@/components/site/pages/pricing-blog.css'
+import '@/app/styles/pages/qp-b.css'
+import '@/app/styles/pages/blog-index.css'
 
 const NOTES = [
   {
@@ -68,17 +75,17 @@ function ReadLink() {
   )
 }
 
-/* One row in the index. The title link is stretched over the whole row, so the
-   row is one target while the accessible name stays the title alone. */
-function NoteRow({ n, i, archived = false, lead = false }: { n: Note; i: number; archived?: boolean; lead?: boolean }) {
+/* One card in the index. The title link is stretched over the whole card, so
+   the card is one target while the accessible name stays the title alone. */
+function NoteCard({ n, i, archived = false, lead = false }: { n: Note; i: number; archived?: boolean; lead?: boolean }) {
   return (
-    <li className={`reveal${lead ? ' is-lead' : ''}${archived ? ' is-archived' : ''}`} style={{ '--i': i } as CSSProperties}>
-      <article className="list-row">
-        <h3 className="lr-t">
+    <li className={`card reveal note-card${lead ? ' is-lead' : ''}${archived ? ' is-archived' : ''}`} style={{ '--i': i } as CSSProperties}>
+      <article>
+        <h3 className="tile-t">
           <a href={n.href}>{n.t}</a>
         </h3>
         <NoteMeta n={n} />
-        <p className="lr-p n-dek">{n.x}</p>
+        <p className="tile-p n-dek">{n.x}</p>
         <ReadLink />
       </article>
     </li>
@@ -87,7 +94,7 @@ function NoteRow({ n, i, archived = false, lead = false }: { n: Note; i: number;
 
 export default function BlogContent() {
   return (
-    <div className="pg-blog">
+    <div className="pg-blog qp qp-blog">
       <PageHero
         eyebrow="Foundry Notes · Insights"
         title={
@@ -116,7 +123,7 @@ export default function BlogContent() {
         }
       />
 
-      <section className="section" id="notes">
+      <section className="section" id="notes" data-name="Notes">
         <div className="wrap">
           <p className="note reveal blog-start">Start with a short operational assessment of your business.</p>
 
@@ -126,10 +133,10 @@ export default function BlogContent() {
                 <h2 className="h2">Current essays.</h2>
                 <p className="fine">Newest first</p>
               </div>
-              <ul className="list-rows">
-                <NoteRow n={lead} i={0} lead />
+              <ul className="note-grid">
+                <NoteCard n={lead} i={0} lead />
                 {rest.map((n, i) => (
-                  <NoteRow n={n} i={i + 1} key={n.href} />
+                  <NoteCard n={n} i={i + 1} key={n.href} />
                 ))}
               </ul>
             </div>
@@ -141,9 +148,9 @@ export default function BlogContent() {
                 <h2 className="h2">Archive.</h2>
                 <p className="lead">Earlier essays, kept as written. They describe offerings that have since changed.</p>
               </div>
-              <ul className="list-rows">
+              <ul className="note-grid">
                 {archive.map((n, i) => (
-                  <NoteRow n={n} i={i} key={n.href} archived />
+                  <NoteCard n={n} i={i} key={n.href} archived />
                 ))}
               </ul>
             </div>
