@@ -1,5 +1,8 @@
 import { PageHero } from '@/components/site/primitives';
+import ArticleIndex from '@/components/site/qp/ArticleIndex';
 import '@/components/site/pages/legal.css';
+import '@/app/styles/pages/qp-b.css';
+import '@/app/styles/pages/articles.css';
 
 export const metadata = {
   title: 'SMS Messaging Terms — Dominus Foundry™',
@@ -8,11 +11,13 @@ export const metadata = {
 
 export default function SmsTerms() {
   return (
-    <>
+    <div className="qp qp-plain qp-legal">
       <PageHero title="SMS Messaging Terms" lead="Dominus Foundry™ — Mobile Messaging Program" />
 
       <section className="section pg-legal">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
 
             <section>
@@ -187,7 +192,10 @@ export default function SmsTerms() {
             </section>
           </div>
         </div>
+        <ArticleIndex />
+        </div>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
