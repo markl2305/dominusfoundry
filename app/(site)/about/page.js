@@ -2,7 +2,10 @@ import Link from "next/link";
 import Button from "../../../components/Button";
 import ContactCTA from "../../../components/ContactCTA";
 import { PageHero, Section } from "@/components/site/primitives";
+import { CloseBand } from "@/components/site/qp/parts";
 import "@/components/site/pages/core.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/about.css";
 
 export const metadata = {
   title: 'About — Dominus Foundry',
@@ -10,9 +13,13 @@ export const metadata = {
 };
 
 // 2026-10-14: restyled in the site-wide redesign (components/site). Copy unchanged.
+// Quality pass D2 (2026-10-14): copy verbatim. Hero with one action (the page's own
+// "Tell us what's broken"); Why / Who / Mentis as feature rows (heading beside the text);
+// How We Build as four tiles, How We Work as three; the fit list as chips; the page's
+// "Let's work together" in the forge close band. The page is not in the nav (unchanged).
 export default function About() {
   return (
-    <div className="pg-about">
+    <div className="pg-about qp qp-about">
       {/* Hero */}
       <PageHero
         crest
@@ -21,14 +28,26 @@ export default function About() {
           <p className="lead">
             Most operators didn&apos;t sign up for constant tech disruption. They signed up to run their operation.
             We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
-            Sabina is ours: your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her.
           </p>
         }
-      />
+        actions={
+          <Button href="/start">
+            Tell us what&apos;s broken
+          </Button>
+        }
+      >
+        <p className="hero-note">
+          Sabina is ours: your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her.
+        </p>
+      </PageHero>
 
       {/* Why We Exist */}
-      <Section title="Why We Started Dominus Foundry">
-        <div className="prose reveal">
+      <section className="section" id="why" data-name="Why" aria-labelledby="h-why">
+        <div className="wrap two-col feature-row">
+          <div className="sec-head reveal">
+            <h2 className="h2" id="h-why">Why We Started Dominus Foundry</h2>
+          </div>
+          <div className="prose reveal">
           <p>
             Technology changes faster than most teams can adapt. AI, cloud platforms, new integrations—it&apos;s relentless.
             And the people selling these shifts rarely understand what it takes to run a real operation under pressure.
@@ -45,12 +64,13 @@ export default function About() {
           <p>
             There will be more shifts ahead. We&apos;re here to help teams navigate them without losing their clarity or their control.
           </p>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Who We Are */}
-      <Section title="Who We Are" className="band">
-        <div className="two-col">
+      <Section id="who" title="Who We Are" className="band">
+        <div className="two-col feature-row">
           <div className="prose reveal">
             <p>
               Dominus Foundry is Mark and Bri Lord—a family business based in Albuquerque.
@@ -68,7 +88,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="card reveal" style={{ '--i': 1 }}>
+          <div className="card reveal founder-card" style={{ '--i': 1 }}>
             <p className="tile-t" style={{ marginTop: 0 }}>Founder panel</p>
             <p className="tile-p">Portrait coming soon.</p>
             <p className="tile-p">
@@ -82,8 +102,13 @@ export default function About() {
       </Section>
 
       {/* Mentis — Our Architecture */}
-      <Section title="Mentis — The Architecture Behind Everything" className="on-dark">
-        <div className="prose reveal">
+      <section className="section on-dark" id="mentis" data-name="Mentis" aria-labelledby="h-mentis">
+        <div className="wrap two-col feature-row">
+          <div className="sec-head reveal">
+            <h2 className="h2" id="h-mentis">Mentis — The Architecture Behind Everything</h2>
+          </div>
+          <div className="stack">
+          <div className="prose reveal">
           <p>
             Every system we build follows the same architectural discipline. We call it Mentis.
           </p>
@@ -94,15 +119,18 @@ export default function About() {
             Start with one tool and it works beautifully on its own. Add another and they integrate naturally. Eventually, you realize your entire operation runs on one coherent platform — that&apos;s when everything clicks.
           </p>
         </div>
-        <div className="reveal">
-          <Link href="/mentis" className="link">
-            Learn more about Mentis →
-          </Link>
+          <div className="reveal">
+            <Link href="/mentis" className="go">
+              Learn more about Mentis →
+            </Link>
+          </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* How We Build */}
       <Section
+        id="build"
         title="How We Build"
         lead={
           <p className="lead">
@@ -110,7 +138,7 @@ export default function About() {
           </p>
         }
       >
-        <div className="grid g2">
+        <div className="grid g4">
           <div className="card reveal" style={{ '--i': 0 }}>
             <h3 className="h3">Workflow orchestration</h3>
             <p className="tile-p">
@@ -142,7 +170,7 @@ export default function About() {
       </Section>
 
       {/* Our Principles */}
-      <Section title="How We Work" className="band">
+      <Section id="work" title="How We Work" className="band">
         <div className="grid g3">
           <div className="card reveal" style={{ '--i': 0 }}>
             <h3 className="h3">We have patience for people who don't love change</h3>
@@ -174,6 +202,7 @@ export default function About() {
 
       {/* Who We Serve */}
       <Section
+        id="fit"
         title="Who We Work With"
         className="on-dark"
         lead={
@@ -185,7 +214,7 @@ export default function About() {
       >
         <div className="stack reveal">
           <p className="h4">You're a good fit if:</p>
-          <ul className="pg-marks">
+          <ul className="chip-list">
             <li>
               <span className="mk">✓</span>
               <span>You want governed tools, not hype or experiments</span>
@@ -211,7 +240,7 @@ export default function About() {
       </Section>
 
       {/* The Name */}
-      <Section title="About the Name">
+      <Section id="name" title="About the Name">
         <div className="prose reveal">
           <p>
             "Dominus" is Latin for "Lord"—our family name. A foundry is where raw materials are forged into
@@ -231,7 +260,7 @@ export default function About() {
       </Section>
 
       {/* Our Services Path */}
-      <Section title="Our Service Philosophy" className="band">
+      <Section id="philosophy" title="Our Service Philosophy" className="band">
         <div className="prose reveal">
           <p>
             We forge one tool at a time, focused on the bottleneck that matters most right now.
@@ -243,28 +272,30 @@ export default function About() {
       </Section>
 
       {/* Contact Section */}
-      <Section
-        center
+      <CloseBand
+        name="Contact"
+        id="contact"
         title={"Let's work together"}
         lead={
           <p className="lead">
             Have questions about your systems? Ready to talk about what needs to work better? We&apos;re here to help.
           </p>
         }
-      >
-        <div className="contact-stack">
-          <div className="actions center reveal">
-            <Button href="/start">
-              Tell us what&apos;s broken
-            </Button>
-          </div>
+        actions={
+          <Button href="/start">
+            Tell us what&apos;s broken
+          </Button>
+        }
+      />
+      <section className="section tight" id="reach" data-name="Reach us">
+        <div className="wrap contact-stack">
           <ContactCTA />
           <p className="fine">We respond within one business day.</p>
           <div className="fine">
             Based in Albuquerque, New Mexico
           </div>
         </div>
-      </Section>
+      </section>
     </div>
   );
 }
