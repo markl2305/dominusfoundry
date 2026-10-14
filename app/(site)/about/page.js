@@ -30,11 +30,6 @@ export default function About() {
             We help them cross the changes they didn&apos;t ask for—with custom AI systems that preserve human sovereignty and operational clarity.
           </p>
         }
-        actions={
-          <Button href="/start">
-            Tell us what&apos;s broken
-          </Button>
-        }
       >
         <p className="hero-note">
           Sabina is ours: your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her.

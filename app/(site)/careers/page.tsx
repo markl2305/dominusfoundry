@@ -98,7 +98,6 @@ export default function CareersPage() {
             Ground floor of a patent-pending Managed AI company with a product in production at its first customers. The addressable market is wide open.
           </p>
         }
-        actions={<a className="btn btn-solid" href="#apply">Apply Now</a>}
       >
         <div className="chips">
           <span className="chip">

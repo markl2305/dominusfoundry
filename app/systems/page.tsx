@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Button from "../../components/Button";
 import { PageHero, Section } from "@/components/site/primitives";
-import { CloseBand, EngineFlow } from "@/components/site/qp/parts";
+import { CloseBand } from "@/components/site/qp/parts";
 import "@/components/site/pages/systems.css";
 import "@/app/styles/pages/qp-b.css";
 import "@/app/styles/pages/systems-index.css";
@@ -79,7 +79,6 @@ export default function SystemsPage() {
           operational problems — governed on Forge, built to hold their
           shape, designed to work together from day one.
         </p>}
-        actions={<Button href="/start">Talk with Mark &amp; Bri</Button>}
       />
 
       {/* The three engines */}
@@ -126,7 +125,7 @@ export default function SystemsPage() {
           governance layer these engines actually run on is Forge, the operating
           spine (plan §2). ⛔ Do not reintroduce the old name here. */}
       <section className="section on-dark" id="foundation" data-name="Forge" aria-labelledby="h-foundation">
-        <div className="wrap two-col">
+        <div className="wrap">
           <div className="sec-head reveal">
             <p className="eyebrow">The foundation</p>
             <h2 className="h2" id="h-foundation">All three engines run on Forge.</h2>
@@ -142,11 +141,6 @@ export default function SystemsPage() {
               </Button>
             </div>
           </div>
-          <EngineFlow
-            labelledBy="h-foundation"
-            engines={systems.map((s, i) => ({ name: s.name, href: `/systems/${s.slug}`, k: <>Engine {String(i + 1).padStart(2, "0")}</> }))}
-            base="Forge"
-          />
         </div>
       </section>
 

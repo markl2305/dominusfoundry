@@ -86,9 +86,6 @@ export default function MentisPage() {
             Where every system connects. Where every decision is traceable. Where humans stay in control and nothing drifts.
           </p>
         </>}
-        actions={<Button href="/start">
-          Talk to us about Mentis™
-        </Button>}
       >
         <p className="hero-note">
           Mentis™ is the complete operational intelligence layer — the full realization of everything Dominus Foundry™ builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
