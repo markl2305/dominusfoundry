@@ -316,6 +316,9 @@ body:has([data-consent-bar]) .dfs .nav { top: var(--consent-bar-visible, 0px); }
 .dfs .seg button:active { transform: scale(0.96); }
 .dfs .seg button[aria-checked="true"] { color: var(--ink); }
 .dfs .seg button svg { width: 15px; height: 15px; display: block; }
+/* With no script the control could not do anything (the page then shows the dark base), so it is not shown.
+   dfs-js / dfp-js are written by the pre-paint script; once that has run the control is live. */
+html:not(.dfs-js):not(.dfp-js) .dfs .seg-theme { display: none; }
 .dfs .seg-theme { --i: 0; }
 html[data-dfp-pref="dark"] .dfs .seg-theme { --i: 1; }
 html[data-dfp-pref="light"] .dfs .seg-theme { --i: 2; }

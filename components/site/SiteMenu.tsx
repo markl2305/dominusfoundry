@@ -19,8 +19,12 @@ export default function SiteMenu() {
     const close = (focus: boolean) => { el.open = false; if (focus) el.querySelector('summary')?.focus() }
     const onDown = (e: PointerEvent) => { if (el.open && !el.contains(e.target as Node)) close(false) }
     const onKey = (e: KeyboardEvent) => { if (el.open && e.key === 'Escape') close(true) }
-    document.addEventListener('pointerdown', onDown); document.addEventListener('keydown', onKey)
-    return () => { document.removeEventListener('pointerdown', onDown); document.removeEventListener('keydown', onKey) }
+    // The panel is a non-modal disclosure laid over the page, so it does not trap focus. Instead it closes the
+    // moment focus leaves it (Tab past the last link, Shift+Tab off the trigger): focus can never land on
+    // content the open panel is covering (review lesson R2, 2026-10-14).
+    const onFocusOut = (e: FocusEvent) => { const to = e.relatedTarget as Node | null; if (el.open && to && !el.contains(to)) close(false) }
+    document.addEventListener('pointerdown', onDown); document.addEventListener('keydown', onKey); el.addEventListener('focusout', onFocusOut)
+    return () => { document.removeEventListener('pointerdown', onDown); document.removeEventListener('keydown', onKey); el.removeEventListener('focusout', onFocusOut) }
   }, [])
   const onClick = (e: React.MouseEvent) => { if ((e.target as HTMLElement).closest('a') && ref.current) ref.current.open = false }
 
