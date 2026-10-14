@@ -12,8 +12,7 @@ const SAYS = {
   nojs: 'With JavaScript off, this site sends no analytics.',
 } as const;
 
-const BUTTON =
-  'rounded-lg border-2 border-navy-900 px-4 py-2 font-semibold text-navy-900 hover:bg-tan-200 min-h-[44px]';
+const BUTTON = 'btn btn-ghost';
 
 export default function ConsentChoice() {
   const raw = useSiteConsent();
@@ -23,10 +22,10 @@ export default function ConsentChoice() {
     if (c) c.set(choice);
   };
   return (
-    <div data-consent-choice={state} className="mt-4 p-6 bg-tan-100 rounded-xl border border-bronze-300">
-      <p role="status" className="font-semibold text-navy-900">{SAYS[state]}</p>
+    <div data-consent-choice={state} className="card flat lp-choice">
+      <p role="status" className="lp-strong">{SAYS[state]}</p>
       {state !== 'gpc' && state !== 'nojs' && (
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="actions">
           {state !== 'reject' && (
             <button type="button" className={BUTTON} data-consent-withdraw="" onClick={() => set('reject')}>
               {state === 'accept' ? 'Withdraw: no analytics' : 'No analytics'}
