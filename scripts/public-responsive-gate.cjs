@@ -40,7 +40,11 @@ const VIEWPORT_HEIGHT = 1400;
 // be visually clipped by an ancestor's overflow.
 const CHECKS = [
   {
+    /* 2026-10-14 (site-wide redesign): content fades in once as it is scrolled to,
+       as on /pitch, so the page is scrolled through first (settleScroll). Same
+       selectors; nothing is measured mid-fade. */
     route: '/pricing',
+    settleScroll: true,
     selectors: [
       { label: 'footer contact column', selector: '.footer .f-col' },
       { label: 'footer link/span text', selector: '.footer .f-col a, .footer .f-col span' },
@@ -120,6 +124,7 @@ const CHECKS = [
   },
   {
     route: '/careers',
+    settleScroll: true, // 2026-10-14: as /pricing above
     selectors: [
       { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li' },
       { label: 'footer contact/nav links', selector: 'footer a' },
