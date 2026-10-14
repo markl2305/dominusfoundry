@@ -87,7 +87,7 @@ const featureTitle = (f: string) => f.split(" \u2014 ")[0];
 const featureBody = (f: string) => f.slice(featureTitle(f).length + 3);
 export default function CareersPage() {
   return (
-    <div className="pg-careers qp qp-careers">
+    <div className="pg-careers qpb qp-careers">
       {/* Hero */}
       <PageHero
         center

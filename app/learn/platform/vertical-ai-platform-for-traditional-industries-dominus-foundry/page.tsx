@@ -69,7 +69,7 @@ const faqJsonLd = {
 
 export default function VerticalAiPlatformPage() {
   return (
-    <div className="qp qp-guide">
+    <div className="qpb qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>

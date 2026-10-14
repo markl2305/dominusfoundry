@@ -19,7 +19,7 @@ export const metadata = {
 // "Let's work together" in the forge close band. The page is not in the nav (unchanged).
 export default function About() {
   return (
-    <div className="pg-about qp qp-about">
+    <div className="pg-about qpb qp-about">
       {/* Hero */}
       <PageHero
         crest

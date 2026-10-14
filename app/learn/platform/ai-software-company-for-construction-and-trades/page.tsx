@@ -70,7 +70,7 @@ const faqJsonLd = {
 
 export default function AiSoftwareCompanyPage() {
   return (
-    <div className="qp qp-guide">
+    <div className="qpb qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>

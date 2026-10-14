@@ -52,7 +52,7 @@ export default function LearnIndexPage() {
      article cards; each card is one target (the title link is stretched over
      it, so the accessible name stays the title alone). */
   return (
-    <div className="qp qp-learn">
+    <div className="qpb qp-learn">
       <PageHero
         eyebrow="Learn"
         title={<>

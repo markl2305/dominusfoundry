@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 // nests a second one. Copy, images and the order-line link are unchanged.
 export default function HualiOrderInfoPage() {
   return (
-    <div className="pg-huali qp qp-plain">
+    <div className="pg-huali qpb qp-plain">
       <PageHero
         center
         title="Huali™ Order Info"

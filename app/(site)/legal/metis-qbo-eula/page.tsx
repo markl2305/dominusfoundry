@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function MentisQboEulaPage() {
   return (
-    <div className="qp qp-plain qp-legal">
+    <div className="qpb qp-plain qp-legal">
       <PageHero
         eyebrow={<>Mentis™ &amp; QuickBooks</>}
         title="Mentis™ QuickBooks Integration – End-User License Agreement"

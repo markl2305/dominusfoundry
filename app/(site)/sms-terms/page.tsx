@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function SmsTerms() {
   return (
-    <div className="qp qp-plain qp-legal">
+    <div className="qpb qp-plain qp-legal">
       <PageHero title="SMS Messaging Terms" lead="Dominus Foundry™ — Mobile Messaging Program" />
 
       <section className="section pg-legal">

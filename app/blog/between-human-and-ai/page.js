@@ -43,7 +43,7 @@ export const metadata = {
 
 export default function BetweenHumanAndAIPage() {
   return (
-    <div className="pg-post qp qp-post">
+    <div className="pg-post qpb qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="Between Human and AI — A Preserved Conversation"

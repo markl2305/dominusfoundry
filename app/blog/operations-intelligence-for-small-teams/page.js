@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function OperationsIntelligenceArticle() {
   return (
-    <div className="pg-post qp qp-post">
+    <div className="pg-post qpb qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="Beyond Chatbots: Why Teams Need Operations Intelligence"

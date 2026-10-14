@@ -12,7 +12,7 @@ export const metadata = {
 // 2026-10-14: restyled in the site-wide redesign (components/site). Copy unchanged.
 export default function Thanks() {
   return (
-    <div className="qp qp-plain qp-notice">
+    <div className="qpb qp-plain qp-notice">
     <PageHero
       center
       title="Thanks — we got it!"

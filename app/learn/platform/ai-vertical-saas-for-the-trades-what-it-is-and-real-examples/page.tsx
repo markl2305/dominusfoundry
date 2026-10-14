@@ -85,7 +85,7 @@ const platformLandscape = [
 
 export default function AiVerticalSaasPage() {
   return (
-    <div className="qp qp-guide">
+    <div className="qpb qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>

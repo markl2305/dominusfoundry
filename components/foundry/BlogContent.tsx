@@ -94,7 +94,7 @@ function NoteCard({ n, i, archived = false, lead = false }: { n: Note; i: number
 
 export default function BlogContent() {
   return (
-    <div className="pg-blog qp qp-blog">
+    <div className="pg-blog qpb qp-blog">
       <PageHero
         eyebrow="Foundry Notes · Insights"
         title={

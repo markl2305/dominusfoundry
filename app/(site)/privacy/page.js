@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function Privacy() {
   return (
-    <div className="qp qp-plain qp-legal">
+    <div className="qpb qp-plain qp-legal">
       <PageHero title="Privacy Policy" lead="Last updated: October 12, 2026" />
 
       <section className="section pg-legal">

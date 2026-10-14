@@ -75,7 +75,7 @@ export default function MentisPage() {
      four capabilities as tiles; the three engines as linked cards; the
      journey as a sequence; the page's closing lines in the forge close band. */
   return (
-    <div className="pg-systems pg-mentis qp qp-mentis">
+    <div className="pg-systems pg-mentis qpb qp-mentis">
       <PageHero
         title="Mentis™"
         lead={<>

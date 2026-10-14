@@ -58,7 +58,7 @@ const rows = [
 
 export default function AiSoftwareComparisonPage() {
   return (
-    <div className="qp qp-guide">
+    <div className="qpb qp-guide">
       <PageHero
         eyebrow="Learn — Platform"
         title={<>

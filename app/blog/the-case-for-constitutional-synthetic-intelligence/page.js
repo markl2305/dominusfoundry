@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function ConstitutionalSyntheticIntelligencePage() {
   return (
-    <div className="pg-post qp qp-post">
+    <div className="pg-post qpb qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="The Case for Constitutional Synthetic Intelligence"

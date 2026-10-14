@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function SyntheticIntelligenceMentisPage() {
   return (
-    <div className="pg-post qp qp-post">
+    <div className="pg-post qpb qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="Synthetic Intelligence Is the Next Layer of AI: From Answers to Accountable Action"
