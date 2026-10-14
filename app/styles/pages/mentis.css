@@ -1,0 +1,10 @@
+/* app/styles/pages/mentis.css — /mentis only (quality pass D2, 2026-10-14). */
+.dfs .qp-mentis .hero-note { margin: 0; font-size: 0.975rem; line-height: 1.6; color: var(--ink-3); max-width: 62ch; }
+.dfs .qp-mentis .caps { margin-top: clamp(32px, 5vw, 56px); }
+.dfs .qp-mentis .journey { --cols: 4; }
+.dfs .qp-mentis .journey > li::before { content: none; }
+.dfs .qp-mentis .journey .s-n { display: block; font: 500 0.72rem/1 var(--mono); letter-spacing: .1em; color: var(--gold); }
+.dfs .qp-mentis .journey .s-t, .dfs .qp-mentis .journey .s-p { margin-bottom: 0; }
+.dfs .qp-mentis .callout { max-width: 860px; }
+.dfs .qp-mentis .callout .statement { font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--gold); }
+.dfs .qp-mentis .qp-close .lead + .lead { margin-top: 0; }

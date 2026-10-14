@@ -1,8 +1,11 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import Button from "../../components/Button";
-import { PageHero, Section } from "@/components/site/primitives";
+import { PageHero, Section, Arr } from "@/components/site/primitives";
+import { CloseBand } from "@/components/site/qp/parts";
 import "@/components/site/pages/systems.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/mentis.css";
 
 export const metadata = {
   title: "Mentis™ | The Human-Governed Operating System | Dominus Foundry™",
@@ -67,8 +70,12 @@ const journeySteps = [
 ];
 
 export default function MentisPage() {
+  /* Quality pass D2 (2026-10-14): copy verbatim. Hero carries the name, the
+     line and one action (the page's own "Talk to us about Mentis™"); the
+     four capabilities as tiles; the three engines as linked cards; the
+     journey as a sequence; the page's closing lines in the forge close band. */
   return (
-    <div className="pg-systems pg-mentis">
+    <div className="pg-systems pg-mentis qp qp-mentis">
       <PageHero
         title="Mentis™"
         lead={<>
@@ -78,36 +85,46 @@ export default function MentisPage() {
           <p className="lead">
             Where every system connects. Where every decision is traceable. Where humans stay in control and nothing drifts.
           </p>
-          <p className="lead">
-            Mentis™ is the complete operational intelligence layer — the full realization of everything Dominus Foundry™ builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
-          </p>
         </>}
-      />
+        actions={<Button href="/start">
+          Talk to us about Mentis™
+        </Button>}
+      >
+        <p className="hero-note">
+          Mentis™ is the complete operational intelligence layer — the full realization of everything Dominus Foundry™ builds toward. Some organizations start here. Most discover it after experiencing what our individual systems can do.
+        </p>
+      </PageHero>
 
       {/* The Philosophy */}
-      <Section
-        title="What makes Mentis™ different"
-        lead={<>
-          <p className="lead">
-            Most business software starts strong and slowly falls apart. Workflows break. Exceptions get ignored. The humans who should be in control end up chasing the system instead of running it.
-          </p>
-          <p className="lead">
-            Mentis™ was designed to prevent that — not through features, but through architecture. Every capability exists because it serves human authority and operational clarity.
-          </p>
-        </>}
-      >
-        <div className="grid g2">
-          {capabilities.map((cap, i) => (
-            <div key={cap.title} className="card reveal" style={{ '--i': i } as CSSProperties}>
-              <h3 className="tile-t">{cap.title}</h3>
-              <p className="tile-p">{cap.body}</p>
+      <section className="section" id="different" data-name="Different" aria-labelledby="h-different">
+        <div className="wrap">
+          <div className="two-col">
+            <div className="sec-head reveal">
+              <h2 className="h2" id="h-different">What makes Mentis™ different</h2>
             </div>
-          ))}
+            <div className="prose reveal">
+              <p>
+                Most business software starts strong and slowly falls apart. Workflows break. Exceptions get ignored. The humans who should be in control end up chasing the system instead of running it.
+              </p>
+              <p>
+                Mentis™ was designed to prevent that — not through features, but through architecture. Every capability exists because it serves human authority and operational clarity.
+              </p>
+            </div>
+          </div>
+          <div className="grid g4 caps">
+            {capabilities.map((cap, i) => (
+              <div key={cap.title} className="card reveal" style={{ '--i': i } as CSSProperties}>
+                <h3 className="tile-t">{cap.title}</h3>
+                <p className="tile-p">{cap.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Systems Running on Mentis™ */}
       <Section
+        id="ecosystem"
         className="on-dark"
         eyebrow="The ecosystem"
         title="Systems designed with Mentis™"
@@ -120,19 +137,20 @@ export default function MentisPage() {
             <Link
               key={system.title}
               href={system.href}
-              className="card reveal"
+              className="card reveal feature"
               style={{ '--i': i } as CSSProperties}
             >
-              <h3 className="tile-t">
+              <h3 className="h3">
                 {system.title}
               </h3>
               <p className="tile-p">{system.what}</p>
+              <span className="go push"><Arr /></span>
             </Link>
           ))}
         </div>
 
         <div className="reveal">
-          <Link href="/systems" className="link">
+          <Link href="/systems" className="go">
             See all systems →
           </Link>
         </div>
@@ -140,28 +158,27 @@ export default function MentisPage() {
 
       {/* The Journey */}
       <Section
-        className="band"
-        center
+        id="journey"
         title="How organizations arrive at Mentis™"
         lead={<p className="lead">
           Nobody starts by buying an operating system. They start by solving a problem. Then another. Then they realize everything connects.
         </p>}
       >
-        <div className="sequence reveal">
+        <ol className="sequence reveal journey">
           {journeySteps.map((step, index) => (
-            <div key={step.stage}>
+            <li key={step.stage}>
               <span className="s-n">
                 {index + 1}
               </span>
               <h3 className="s-t">{step.stage}</h3>
               <p className="s-p">{step.description}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* What Full Mentis™ Looks Like */}
-      <Section center title="When everything runs on Mentis™">
+      <Section id="connected" className="band" title="When everything runs on Mentis™">
         <div className="callout reveal">
           <p>
             A call comes in. Intake Engine answers, qualifies the caller, and books an appointment. The booking triggers onboarding in Revenue Engine. Documents are collected automatically. Invoicing starts on schedule. Reminders go out. Payment is tracked. Ops Engine surfaces the trend.
@@ -169,7 +186,7 @@ export default function MentisPage() {
           <p>
             No manual handoffs. No dashboard babysitting. No wondering what happened to that lead from last Tuesday. One operation, fully connected, completely governed.
           </p>
-          <p className="strong">
+          <p className="strong statement">
             That&apos;s Mentis™.
           </p>
         </div>
@@ -177,32 +194,31 @@ export default function MentisPage() {
 
       {/* For Organizations Ready */}
       <Section
-        className="band"
-        center
+        id="ready"
         title="For organizations ready for the full experience"
         lead={<p className="lead">
           Mentis™ as a complete deployment is for organizations that want unified operational intelligence from day one. It&apos;s founder-intensive, deeply customized, and built for operators who understand the value of systems that don&apos;t drift.
         </p>}
       >
         <div className="grid g2">
-          <div className="card reveal" style={{ '--i': 0 } as CSSProperties}>
-            <h3 className="tile-t">Start with individual systems</h3>
+          <div className="card reveal feature" style={{ '--i': 0 } as CSSProperties}>
+            <h3 className="h3">Start with individual systems</h3>
             <p className="tile-p">
               Most organizations begin here. Pick the system that solves your most urgent problem. Experience the quality. Add more when you&apos;re ready. Mentis™ emerges naturally as your systems grow.
             </p>
-            <div className="actions">
+            <div className="actions push">
               <Button href="/systems" variant="forgeSecondary">
                 Explore systems
               </Button>
             </div>
           </div>
 
-          <div className="card reveal" style={{ '--i': 1 } as CSSProperties}>
-            <h3 className="tile-t">Deploy Mentis™ directly</h3>
+          <div className="card reveal feature" style={{ '--i': 1 } as CSSProperties}>
+            <h3 className="h3">Deploy Mentis™ directly</h3>
             <p className="tile-p">
               For organizations ready for unified operational intelligence from the start. A complete deployment with all systems integrated from day one.
             </p>
-            <div className="actions">
+            <div className="actions push">
               <Button href="/start">
                 Talk to us about Mentis™
               </Button>
@@ -212,9 +228,8 @@ export default function MentisPage() {
       </Section>
 
       {/* Footer */}
-      <Section
-        className="on-dark"
-        center
+      <CloseBand
+        name="Close"
         title={<>Systems that don&apos;t drift.</>}
         lead={<>
           <p className="lead">
