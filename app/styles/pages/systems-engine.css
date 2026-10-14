@@ -1,0 +1,13 @@
+/* app/styles/pages/systems-engine.css — /systems/intake, /systems/revenue,
+   /systems/ops (quality pass D2, 2026-10-14). The engine template's own parts. */
+.dfs .qp-engine .page-hero .hero-statement { font: 500 clamp(1.35rem, 2.6vw, 1.9rem)/1.25 var(--serif); letter-spacing: -0.01em; color: var(--gold); max-width: 32ch; }
+.dfs .qp-engine #problem .two-col { align-items: start; }
+.dfs .qp-engine .sol .tile-t { margin-top: 12px; }
+.dfs .qp-engine .eng-quote { max-width: 860px; }
+.dfs .qp-engine .eng-quote blockquote { margin: 0; }
+.dfs .qp-engine .gov-action { margin-top: 26px; }
+.dfs .qp-engine .next-card { max-width: 860px; }
+.dfs .qp-engine .next-card .tile-p { display: grid; gap: 12px; }
+.dfs .qp-engine .next-card .tile-p p { margin: 0; }
+.dfs .qp-engine .next-card .chain { margin: 4px 0 0; }
+@media (max-width: 640px) { .dfs .qp-engine .page-hero .hero-statement { font-size: 1.3rem; } }
