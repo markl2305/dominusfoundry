@@ -39,11 +39,14 @@ export default function ArticleIndex({ label = 'Sections' }: { label?: string })
   }, [open])
   if (heads.length < 2) return <aside ref={ref} className="qp-index" hidden />
   return <aside ref={ref} className="qp-index" aria-label={label}>
-    <button type="button" className="qp-index-btn" aria-expanded={open} aria-controls="qp-index-list" onClick={() => setOpen((v) => !v)}>
+    <button type="button" className="qp-index-btn" aria-expanded={open} aria-controls={open ? 'qp-index-list' : undefined} onClick={() => setOpen((v) => !v)}>
       <span>{label}</span><span className="cur">{heads[cur]?.text}</span>
     </button>
-    <ol className="qp-index-list" id="qp-index-list" hidden={!open}>
+    {/* The list exists only while open: closed, the page carries no extra
+        links (a heading such as "Privacy and Data Protection" must not become
+        a second "Privacy" link that stays on the page). */}
+    {open && <ol className="qp-index-list" id="qp-index-list">
       {heads.map((h, i) => <li key={h.id}><a href={`#${h.id}`} aria-current={i === cur ? 'true' : 'false'} onClick={() => setOpen(false)}>{h.text}</a></li>)}
-    </ol>
+    </ol>}
   </aside>
 }
