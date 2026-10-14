@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero, More } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "AI Software for Construction and Trades: Forge vs Procore vs Buildertrend",
@@ -53,23 +55,25 @@ const rows = [
 
 export default function AiSoftwareComparisonPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
+    <>
+      <PageHero
+        eyebrow="Learn — Platform"
+        title={<>
+          AI Software for Construction and Trades: Forge vs Procore vs Buildertrend
+        </>}
+        lead={<h2 className="lead">
+          An honest comparison for contractors choosing an AI-powered platform — who each
+          tool is really for, and where each one wins.
+        </h2>}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn — Platform</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          AI Software for Construction and Trades: Forge vs Procore vs Buildertrend
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          An honest comparison for contractors choosing an AI-powered platform — who each
-          tool is really for, and where each one wins.
-        </h2>
-
-        <div className="body-foundry space-y-4 text-slate-900">
-          <h3 className="heading-forge-md text-slate-900 mt-6">What to look for</h3>
+      <section className="section pg-learn">
+        <div className="wrap wrap-text">
+        <div className="article">
+          <h3>What to look for</h3>
           <p>
             Commercial installation contractors face a specific problem: the tools that
             serve general contractors don&apos;t serve AV, security, low-voltage, or
@@ -79,29 +83,29 @@ export default function AiSoftwareComparisonPage() {
             separate tools.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">Platform comparison</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <h3>Platform comparison</h3>
+          <div className="table-wrap">
+            <table>
               <thead>
-                <tr className="border-b border-slate-300">
-                  <th className="py-2 pr-4 font-semibold">Platform</th>
-                  <th className="py-2 pr-4 font-semibold">Best for</th>
-                  <th className="py-2 font-semibold">Vertical focus</th>
+                <tr>
+                  <th>Platform</th>
+                  <th>Best for</th>
+                  <th>Vertical focus</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map(([p, b, v]) => (
-                  <tr key={p} className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">{p}</td>
-                    <td className="py-2 pr-4">{b}</td>
-                    <td className="py-2">{v}</td>
+                  <tr key={p}>
+                    <td>{p}</td>
+                    <td>{b}</td>
+                    <td>{v}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Forge — AI-native platform for installers
           </h3>
           <p>
@@ -110,7 +114,7 @@ export default function AiSoftwareComparisonPage() {
             purpose-built for AV, security, low-voltage, and roofing contractors rather
             than general contractors.
           </p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>Native Mac, iPad, and iPhone platform — field estimating without virtual Windows</li>
             <li>LiDAR site scanning that converts on-site capture into measurements and a bill of materials</li>
             <li>Client-ready proposal generation straight from the takeoff</li>
@@ -122,13 +126,13 @@ export default function AiSoftwareComparisonPage() {
             an AI-native platform that consolidates their workflow rather than managing
             multiple tools. <strong>Pricing:</strong> Forge Core and every product are custom quoted
             for the company and the work required — see{" "}
-            <a className="underline" href="https://buildwithforge.app/pricing" rel="noopener">
+            <a href="https://buildwithforge.app/pricing" rel="noopener">
               buildwithforge.app/pricing
             </a>
             .
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Procore — enterprise construction management
           </h3>
           <p>
@@ -142,7 +146,7 @@ export default function AiSoftwareComparisonPage() {
             low-voltage installers.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Buildertrend — residential and light commercial
           </h3>
           <p>
@@ -156,7 +160,7 @@ export default function AiSoftwareComparisonPage() {
             lifecycle in one tool.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             D-Tools — system integrator estimating
           </h3>
           <p>
@@ -172,8 +176,8 @@ export default function AiSoftwareComparisonPage() {
             supersedes the other.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">How to choose</h3>
-          <ul className="list-disc pl-6 space-y-2">
+          <h3>How to choose</h3>
+          <ul>
             <li>
               <strong>Choose Forge</strong> if you&apos;re a commercial installation
               contractor (AV, security, low-voltage, roofing) and want an AI-native
@@ -193,21 +197,23 @@ export default function AiSoftwareComparisonPage() {
             </li>
           </ul>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">FAQ</h3>
-          {faq.map(({ q, a }) => (
-            <div key={q}>
-              <h4 className="font-semibold mt-4">{q}</h4>
-              <p>{a}</p>
-            </div>
-          ))}
+          <h3>FAQ</h3>
+          <div className="learn-faq">
+            {faq.map(({ q, a }) => (
+              <More key={q} summary={<h4>{q}</h4>}>
+                <p>{a}</p>
+              </More>
+            ))}
+          </div>
 
-          <p className="mt-8">
-            <Link className="underline" href="/learn">
+          <p>
+            <Link href="/learn">
               ← All Learn articles
             </Link>
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

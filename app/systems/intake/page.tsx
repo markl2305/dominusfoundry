@@ -1,6 +1,9 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Button from "../../../components/Button";
+import { PageHero, Section } from "@/components/site/primitives";
+import "@/components/site/pages/systems.css";
 
 export const metadata: Metadata = {
   title: "Intake Engine | Dominus Foundry™",
@@ -66,176 +69,155 @@ const solutions = [
 
 export default function IntakeEnginePage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
-        <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 relative">
-          <p className="label-foundry text-forge-300 mb-4">Engine 01</p>
-          <h1 className="heading-forge-xl text-white">Intake Engine</h1>
-          <p className="mt-4 text-xl font-medium text-forge-300">
+    <div className="pg-systems">
+      <PageHero
+        eyebrow="Engine 01"
+        title="Intake Engine"
+        lead={<>
+          <p className="hero-tag">
             Every lead. Every channel. One engine.
           </p>
-          <p className="mt-6 max-w-2xl body-foundry text-white/80 md:text-lg">
+          <p className="lead">
             Phone rings, form submits, chat opens, email arrives — it doesn&apos;t
             matter where they come from. Intake Engine captures, qualifies,
             routes, and books before leads go cold. There is no separate voice
             product. No separate chat product. It&apos;s all intake.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/start" className="justify-center">
-              Fix your front door
-            </Button>
-            <Button
-              href="/systems"
-              variant="forgeSecondary"
-              className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
-            >
-              See all systems
-            </Button>
-          </div>
-        </div>
-      </section>
+        </>}
+        actions={<>
+          <Button href="/start">
+            Fix your front door
+          </Button>
+          <Button href="/systems" variant="forgeSecondary">
+            See all systems
+          </Button>
+        </>}
+      />
 
       {/* The problem */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-700 mb-6">Where businesses bleed</p>
-          <h2 className="heading-forge-lg mb-6">
-            Most operations leak at the front door.
-          </h2>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {[
-              "Leads come in and nobody responds fast enough",
-              "Phone calls interrupt staff who are doing real work",
-              "Chat goes unanswered after hours",
-              "Email inquiries sit in a shared inbox for days",
-              "Appointments don't get booked because qualification is unclear",
-              "No record of what was said or what was promised",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-3 card-forged rounded-xl p-4"
-              >
-                <span className="mt-1 text-forge-600 font-bold">&times;</span>
-                <span className="body-foundry text-slate-800">{item}</span>
-              </div>
-            ))}
-          </div>
+      <Section
+        className="band"
+        eyebrow="Where businesses bleed"
+        title="Most operations leak at the front door."
+      >
+        <div className="grid g2">
+          {[
+            "Leads come in and nobody responds fast enough",
+            "Phone calls interrupt staff who are doing real work",
+            "Chat goes unanswered after hours",
+            "Email inquiries sit in a shared inbox for days",
+            "Appointments don't get booked because qualification is unclear",
+            "No record of what was said or what was promised",
+          ].map((item, i) => (
+            <div
+              key={item}
+              className="card flat reveal x-item"
+              style={{ '--i': i } as CSSProperties}
+            >
+              <span className="x">&times;</span>{" "}
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Channels */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-700 mb-6">Every channel handled</p>
-          <h2 className="heading-forge-lg mb-10">
-            It doesn&apos;t matter where they find you.
-          </h2>
-          <div className="space-y-0 divide-y divide-bronze-300">
-            {channels.map((channel) => (
-              <div key={channel.label} className="flex gap-8 py-6">
-                <div className="w-20 flex-shrink-0">
-                  <span className="text-sm font-semibold text-slate-900">
-                    {channel.label}
-                  </span>
-                </div>
-                <p className="body-foundry text-slate-800">
-                  {channel.description}
-                </p>
-              </div>
-            ))}
-          </div>
+      <Section
+        eyebrow="Every channel handled"
+        title={<>It doesn&apos;t matter where they find you.</>}
+      >
+        <div className="rows reveal">
+          {channels.map((channel) => (
+            <div key={channel.label}>
+              <span>
+                {channel.label}
+              </span>
+              <p>
+                {channel.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Solutions */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-700 mb-6">How it works</p>
-          <h2 className="heading-forge-lg mb-10">
-            The solutions inside Intake Engine.
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {solutions.map((solution) => (
-              <div
-                key={solution.title}
-                className="card-forged rounded-2xl p-6"
-              >
-                <h3 className="heading-forge-md text-slate-900 text-lg mb-2">
-                  {solution.title}
-                </h3>
-                <p className="body-foundry text-slate-800">
-                  {solution.description}
-                </p>
-              </div>
-            ))}
-          </div>
+      <Section
+        className="band"
+        eyebrow="How it works"
+        title="The solutions inside Intake Engine."
+      >
+        <div className="grid g2">
+          {solutions.map((solution, i) => (
+            <div
+              key={solution.title}
+              className="card reveal"
+              style={{ '--i': i } as CSSProperties}
+            >
+              <h3 className="tile-t">
+                {solution.title}
+              </h3>
+              <p className="tile-p">
+                {solution.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Platform band. Named the internal system until 2026-09-16; prohibited
           on public Dominus marketing (plan §17). The governance layer is Forge,
           the operating spine. ⛔ Do not reintroduce the old name here. */}
-      <section className="bg-gradient-to-b from-forge-900 to-steel-800 text-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-300 mb-4">Powered by Forge</p>
-          <h2 className="heading-forge-lg text-white mb-4">
-            Human authority, preserved at every step.
-          </h2>
-          <p className="mb-6 max-w-2xl body-foundry text-white/80">
-            Forge governs every decision Intake Engine makes. Escalation
-            paths are explicit — not improvised. Every interaction is logged.
-            Every booking is traceable. You stay in control of what happens when
-            the system can&apos;t make the call.
-          </p>
-          <Button
-            href="/governance"
-            variant="forgeSecondary"
-            className="justify-center bg-white/10 text-white border-white/70 hover:bg-white/20 hover:border-white"
-          >
+      <Section
+        className="on-dark"
+        eyebrow="Powered by Forge"
+        title="Human authority, preserved at every step."
+        lead={<p className="lead">
+          Forge governs every decision Intake Engine makes. Escalation
+          paths are explicit — not improvised. Every interaction is logged.
+          Every booking is traceable. You stay in control of what happens when
+          the system can&apos;t make the call.
+        </p>}
+      >
+        <div className="actions reveal">
+          <Button href="/governance" variant="forgeSecondary">
             How the governance works
           </Button>
         </div>
-      </section>
+      </Section>
 
       {/* What connects forward */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="label-foundry text-forge-700 mb-4">What comes next</p>
-          <h2 className="heading-forge-lg mb-4">
-            Intake Engine feeds Revenue Engine.
-          </h2>
-          <p className="mb-8 max-w-2xl body-foundry text-slate-800">
-            Once a lead becomes a client, Revenue Engine takes over — onboarding
-            them, invoicing them, and collecting without you chasing. The two
-            engines share the same data and the same governance layer. No
-            handoff chaos.
-          </p>
-          <Link
-            href="/systems/revenue"
-            className="text-forge-700 font-semibold underline hover:text-forge-900"
-          >
+      <Section
+        eyebrow="What comes next"
+        title="Intake Engine feeds Revenue Engine."
+        lead={<p className="lead">
+          Once a lead becomes a client, Revenue Engine takes over — onboarding
+          them, invoicing them, and collecting without you chasing. The two
+          engines share the same data and the same governance layer. No
+          handoff chaos.
+        </p>}
+      >
+        <div className="reveal">
+          <Link href="/systems/revenue" className="link">
             See Revenue Engine &rarr;
           </Link>
         </div>
-      </section>
+      </Section>
 
       {/* CTA */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
-          <h2 className="heading-forge-lg mb-4">
-            Tell us where your leads are dying.
-          </h2>
-          <p className="mb-8 body-foundry text-slate-700">
-            We&apos;ll show you exactly how Intake Engine fixes it — and what a
-            quality appointment looks like on the other side.
-          </p>
-          <Button href="/start" className="justify-center">
+      <Section
+        className="band"
+        title="Tell us where your leads are dying."
+        lead={<p className="lead">
+          We&apos;ll show you exactly how Intake Engine fixes it — and what a
+          quality appointment looks like on the other side.
+        </p>}
+      >
+        <div className="actions reveal">
+          <Button href="/start">
             Talk with Mark &amp; Bri
           </Button>
         </div>
-      </section>
-    </>
+      </Section>
+    </div>
   );
 }

@@ -1,0 +1,37 @@
+/* Batch "systems" (2026-10-14): /systems, /systems/intake, /systems/ops,
+   /systems/revenue, /mentis. Only what site.css has no class for. */
+
+/* hero tagline under the engine name */
+.dfs .pg-systems .hero-tag { font: 500 clamp(1.25rem, 2.4vw, 1.6rem)/1.3 var(--serif); letter-spacing: -0.008em; color: var(--gold); margin: 0; max-width: 40ch; }
+
+/* /systems: one card per engine, argument left, signs right */
+.dfs .pg-systems .engine { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.dfs .pg-systems .engine .h2 { margin-top: 10px; }
+.dfs .pg-systems .engine .tagline { margin: 14px 0 0; font-weight: 500; color: var(--ink); }
+.dfs .pg-systems .engine .desc { margin: 12px 0 0; color: var(--ink-2); line-height: 1.6; max-width: 62ch; }
+.dfs .pg-systems .engine .actions { margin-top: 22px; }
+.dfs .pg-systems .engine .ring-list { margin-top: 14px; }
+@media (max-width: 860px) { .dfs .pg-systems .engine { grid-template-columns: 1fr; } }
+
+/* "where it breaks" items: the existing × mark, one per card */
+.dfs .pg-systems .x-item { display: flex; align-items: flex-start; gap: 12px; color: var(--ink-2); line-height: 1.55; }
+.dfs .pg-systems .x-item .x { color: var(--ember); font-weight: 600; flex: none; line-height: 1.4; }
+
+/* the full chain: Intake → Revenue → Ops */
+.dfs .pg-systems .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.dfs .pg-systems .chain .step { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font-weight: 500; font-size: 0.95rem; text-decoration: none; }
+.dfs .pg-systems .chain .step.cur { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); color: var(--gold); }
+.dfs .pg-systems .chain .sep { color: var(--gold); }
+@media (hover: hover) and (pointer: fine) { .dfs .pg-systems .chain a.step:hover { border-color: var(--gold); } }
+.dfs .pg-systems .chain-p { margin: 0; color: var(--ink-2); line-height: 1.6; max-width: 62ch; }
+
+/* /mentis journey: .sequence on divs, keeping the page's own step numbers */
+.dfs .pg-systems .sequence > div { position: relative; padding: 26px 24px 28px; background: var(--panel); min-width: 0; }
+.dfs .pg-systems .sequence > div + div { border-left: 1px solid var(--hair); }
+.dfs .pg-systems .sequence .s-n { display: block; font: 500 0.72rem/1 var(--mono); letter-spacing: .1em; color: var(--gold); }
+.dfs .pg-systems .sequence .s-t, .dfs .pg-systems .sequence .s-p { margin-bottom: 0; }
+@media (max-width: 860px) { .dfs .pg-systems .sequence > div + div { border-left: 0; border-top: 1px solid var(--hair); } }
+
+.dfs .pg-systems .callout .strong { color: var(--ink); font-weight: 600; }
+.dfs .pg-systems .card .actions { margin-top: 18px; }
+.dfs .pg-systems .rows p { margin: 0; }

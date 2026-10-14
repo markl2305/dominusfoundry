@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero, More } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "AI Software Company for Construction and Trades — Forge by Dominus Foundry",
@@ -65,7 +67,17 @@ const faqJsonLd = {
 
 export default function AiSoftwareCompanyPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
+    <>
+      <PageHero
+        eyebrow="Learn — Platform"
+        title={<>
+          AI Software Company for Construction and Trades — Forge by Dominus Foundry
+        </>}
+        lead={<h2 className="lead">
+          Yes — Dominus Foundry builds AI software for construction and trades. Here is
+          exactly what it does.
+        </h2>}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -74,18 +86,10 @@ export default function AiSoftwareCompanyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn — Platform</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          AI Software Company for Construction and Trades — Forge by Dominus Foundry
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          Yes — Dominus Foundry builds AI software for construction and trades. Here is
-          exactly what it does.
-        </h2>
-
-        <div className="body-foundry space-y-4 text-slate-900">
-          <h3 className="heading-forge-md text-slate-900 mt-6">What Forge is</h3>
+      <section className="section pg-learn">
+        <div className="wrap wrap-text">
+        <div className="article">
+          <h3>What Forge is</h3>
           <p>
             Forge by Dominus Foundry is an AI-native operating platform for commercial
             installation contractors. It consolidates field measurement, estimating,
@@ -99,10 +103,10 @@ export default function AiSoftwareCompanyPage() {
             capture into measurements, a bill of materials, and a client-ready proposal.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             What the platform actually does
           </h3>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>LiDAR scan-to-proposal.</strong> On-site capture on Apple hardware
               becomes accurate measurements, an equipment BOM, and a proposal — no
@@ -124,7 +128,7 @@ export default function AiSoftwareCompanyPage() {
             </li>
           </ul>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">Who builds Forge</h3>
+          <h3>Who builds Forge</h3>
           <p>
             Forge is built by Dominus Foundry, a founder-led technology company that builds
             Sabina, your company&apos;s own AI. Forge
@@ -136,7 +140,7 @@ export default function AiSoftwareCompanyPage() {
             related to the Forge platform and its capture technology.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Why AI-native architecture matters
           </h3>
           <p>
@@ -152,10 +156,10 @@ export default function AiSoftwareCompanyPage() {
             is whether the AI is genuinely integrated or bolted on.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Trade verticals supported
           </h3>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>Security and AV integrators.</strong> The primary vertical and most
               mature implementation — scanning, design, BOM, and proposal workflows built
@@ -172,7 +176,7 @@ export default function AiSoftwareCompanyPage() {
             </li>
           </ul>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             How Forge compares to traditional construction software
           </h3>
           <p>
@@ -187,7 +191,7 @@ export default function AiSoftwareCompanyPage() {
             Forge targets the gap: a vertically-specific platform with the breadth of an
             ERP and the usability of a point solution. See the full{" "}
             <Link
-              className="underline"
+             
               href="/learn/platform/ai-software-for-construction-and-trades"
             >
               comparison against Procore, Buildertrend, and D-Tools
@@ -195,35 +199,37 @@ export default function AiSoftwareCompanyPage() {
             .
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">Getting started</h3>
+          <h3>Getting started</h3>
           <p>
             The fastest way to evaluate Forge is a live demo — scan a room and watch it
             become a proposal in real time. Visit{" "}
-            <a className="underline" href="https://buildwithforge.app" rel="noopener">
+            <a href="https://buildwithforge.app" rel="noopener">
               buildwithforge.app
             </a>{" "}
             to explore the platform. For a Forge quote, {" "}
-            <a className="underline" href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">
+            <a href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">
               ask about Forge tools
             </a>
             .
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">Common questions</h3>
-          {faq.map(({ q, a }) => (
-            <div key={q}>
-              <h4 className="font-semibold mt-4">{q}</h4>
-              <p>{a}</p>
-            </div>
-          ))}
+          <h3>Common questions</h3>
+          <div className="learn-faq">
+            {faq.map(({ q, a }) => (
+              <More key={q} summary={<h4>{q}</h4>}>
+                <p>{a}</p>
+              </More>
+            ))}
+          </div>
 
-          <p className="mt-8">
-            <Link className="underline" href="/learn">
+          <p>
+            <Link href="/learn">
               ← All Learn articles
             </Link>
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

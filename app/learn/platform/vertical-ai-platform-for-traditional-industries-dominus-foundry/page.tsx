@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero, More } from "@/components/site/primitives";
+import "@/components/site/pages/learn.css";
 
 export const metadata = {
   title: "Vertical AI Platform for Traditional Industries | Dominus Foundry",
@@ -64,7 +66,18 @@ const faqJsonLd = {
 
 export default function VerticalAiPlatformPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
+    <>
+      <PageHero
+        eyebrow="Learn — Platform"
+        title={<>
+          Vertical AI Platform for Traditional Industries
+        </>}
+        lead={<h2 className="lead">
+          Dominus Foundry builds Forge — an AI operating system for commercial
+          contractors. How vertical AI platforms replace fragmented tool stacks
+          with unified, purpose-built automation.
+        </h2>}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -73,19 +86,10 @@ export default function VerticalAiPlatformPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Learn — Platform</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          Vertical AI Platform for Traditional Industries
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          Dominus Foundry builds Forge — an AI operating system for commercial
-          contractors. How vertical AI platforms replace fragmented tool stacks
-          with unified, purpose-built automation.
-        </h2>
-
-        <div className="body-foundry space-y-4 text-slate-900">
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+      <section className="section pg-learn">
+        <div className="wrap wrap-text">
+        <div className="article">
+          <h3>
             What is a vertical AI platform?
           </h3>
           <p>
@@ -102,7 +106,7 @@ export default function VerticalAiPlatformPage() {
             teach it basic industry concepts.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Why vertical beats horizontal for contractors
           </h3>
           <p>
@@ -126,7 +130,7 @@ export default function VerticalAiPlatformPage() {
             vertical platform, those same tasks are built in from the start.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             The Forge approach to vertical AI
           </h3>
           <p>
@@ -150,7 +154,7 @@ export default function VerticalAiPlatformPage() {
             requiring weeks of adaptation.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             How Forge compares to general construction platforms
           </h3>
           <p>
@@ -173,7 +177,7 @@ export default function VerticalAiPlatformPage() {
             require adaptation. A vertical platform arrives ready for the work.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Integration with existing tools
           </h3>
           <p>
@@ -189,7 +193,7 @@ export default function VerticalAiPlatformPage() {
             platform while maintaining continuity with established tools.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Who Forge serves
           </h3>
           <p>
@@ -205,7 +209,7 @@ export default function VerticalAiPlatformPage() {
             customization.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Getting started with Forge
           </h3>
           <p>
@@ -220,23 +224,25 @@ export default function VerticalAiPlatformPage() {
             path forward.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900 mt-6">
+          <h3>
             Frequently Asked Questions
           </h3>
-          {faq.map(({ q, a }) => (
-            <div key={q}>
-              <h4 className="font-semibold mt-4">{q}</h4>
-              <p>{a}</p>
-            </div>
-          ))}
+          <div className="learn-faq">
+            {faq.map(({ q, a }) => (
+              <More key={q} summary={<h4>{q}</h4>}>
+                <p>{a}</p>
+              </More>
+            ))}
+          </div>
 
-          <p className="mt-8">
-            <Link className="underline" href="/learn">
+          <p>
+            <Link href="/learn">
               ← All Learn articles
             </Link>
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,0 +1,16 @@
+/* Foundry Notes essays (/blog/*), 2026-10-14. Only what site.css's .article
+   does not already cover: the context note, the dialogue turns, the framed
+   preamble/closing, the coda line and the back link. */
+.dfs .pg-post .pg-post-context { margin-bottom: 2.2em; font-size: 0.975rem; line-height: 1.6; }
+.dfs .pg-post .pg-post-context a { font-weight: 600; }
+.dfs .pg-post .pg-post-frame { padding: 4px 0 4px 20px; border-left: 2px solid var(--gold); font-style: italic; color: var(--ink); display: grid; gap: 0.8em; }
+.dfs .pg-post .pg-post-frame p { margin: 0; }
+.dfs .pg-post .pg-post-frame .pg-post-sign { font-style: normal; font: 400 0.8rem/1.55 var(--mono); letter-spacing: .02em; color: var(--ink-3); }
+.dfs .pg-post .turn { padding: clamp(18px, 2.4vw, 24px); border-radius: var(--radius); border: 1px solid var(--hair); background: var(--panel); box-shadow: var(--panel-highlight); display: grid; gap: 0.8em; }
+.dfs .pg-post .turn.human { background: var(--bg-2); border-color: var(--hair-2); }
+.dfs .pg-post .turn > p { margin: 0; }
+.dfs .pg-post .turn > .tile-k { color: var(--gold); }
+.dfs .pg-post .turn.human > .tile-k { color: var(--ink-3); }
+.dfs .pg-post .article .turn + .turn { margin-top: 14px; }
+.dfs .pg-post .pg-post-coda { font: italic 400 1.2rem/1.5 var(--serif); color: var(--ink); margin-top: 2em; }
+.dfs .pg-post .pg-post-back { margin-top: clamp(40px, 6vw, 64px); padding-top: 24px; border-top: 1px solid var(--hair); }

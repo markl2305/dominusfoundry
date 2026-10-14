@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero } from "@/components/site/primitives";
+import "@/components/site/pages/posts.css";
 
 export const metadata = {
   title:
@@ -16,19 +18,19 @@ export const metadata = {
 
 export default function ConstitutionalSyntheticIntelligencePage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Foundry Notes</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          The Case for Constitutional Synthetic Intelligence
-        </h1>
-        <h2 className="heading-forge-md text-slate-800">
-          The AI industry is racing toward capability. Almost no one is racing toward
-          accountability. What if we built the governance layer first?
-        </h2>
-        <p className="text-sm text-slate-500">By Mark Lord · December 17, 2025</p>
-        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+    <div className="pg-post">
+      <PageHero
+        eyebrow="Foundry Notes"
+        title="The Case for Constitutional Synthetic Intelligence"
+        lead="The AI industry is racing toward capability. Almost no one is racing toward accountability. What if we built the governance layer first?"
+      >
+        <p className="fine">By Mark Lord · December 17, 2025</p>
+      </PageHero>
+      <section className="section tight">
+        <div className="wrap wrap-text">
+          <div className="article">
+        <aside className="callout reveal pg-post-context" aria-label="Current context">
+          <p className="tile-k">Current context</p>
           <p>
             This essay is kept as it was published in December 2025. It argues for an architecture; it is not a
             description or certification of any system Dominus Foundry runs today, and its view of other companies
@@ -37,14 +39,13 @@ export default function ConstitutionalSyntheticIntelligencePage() {
           <p>
             Its central idea — that authority is granted explicitly and can be withdrawn — is the one Dominus
             Foundry now builds around in
-            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+            <Link href="/sabina">
               Sabina
             </Link>
             .
           </p>
         </aside>
 
-        <div className="body-foundry space-y-4 text-slate-900">
           <p>The AI industry has a blind spot.</p>
           <p>
             Every major lab is racing toward capability. More parameters. Faster inference.
@@ -60,7 +61,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             for metrics we didn&apos;t intend and drift in directions we can&apos;t predict.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">The Drift Problem</h3>
+          <h2>The Drift Problem</h2>
           <p>
             Anyone who has worked extensively with AI systems has witnessed drift. Not the dramatic
             failure modes that make headlines—not hallucinations or obviously wrong outputs—but
@@ -88,12 +89,12 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             structure that ensures behavioral coherence over time.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">The Governance Gap</h3>
+          <h2>The Governance Gap</h2>
           <p>
             Consider how we structure human organizations. We don&apos;t simply hire capable people and
             hope they do the right thing. We create governance structures:
           </p>
-          <ul className="list-disc pl-6 space-y-2">
+          <ul>
             <li>
               <strong>Constitutions</strong> that establish immutable principles
             </li>
@@ -122,7 +123,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
           </p>
           <p>This is backwards. The governance layer should come first.</p>
 
-          <h3 className="heading-forge-md text-slate-900">Constitutional Architecture</h3>
+          <h2>Constitutional Architecture</h2>
           <p>
             What would it mean to build AI systems with governance as the foundation rather than an
             afterthought?
@@ -193,7 +194,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             was. This is how institutions maintain integrity over time.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">The Identity Question</h3>
+          <h2>The Identity Question</h2>
           <p>There&apos;s a deeper issue lurking beneath governance: identity.</p>
           <p>
             Current AI systems are effectively stateless. They process inputs and generate outputs,
@@ -217,7 +218,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             those patterns would improve performance on some metric.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">The Anthropomorphism Trap</h3>
+          <h2>The Anthropomorphism Trap</h2>
           <p>
             A word of caution: constitutional synthetic intelligence is not about making AI more
             human-like. It&apos;s about making AI more governable.
@@ -245,7 +246,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             structural.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">The Stakes</h3>
+          <h2>The Stakes</h2>
           <p>
             This matters because AI systems are about to be integrated into every institution that
             matters.
@@ -271,7 +272,7 @@ export default function ConstitutionalSyntheticIntelligencePage() {
             the foundation, not added after the building is complete.
           </p>
 
-          <h3 className="heading-forge-md text-slate-900">A Different Race</h3>
+          <h2>A Different Race</h2>
           <p>
             The AI industry loves to talk about races. The race to AGI. The race to market. The race
             to capability.
@@ -297,16 +298,19 @@ export default function ConstitutionalSyntheticIntelligencePage() {
           </p>
           <p>The race to accountability is there for whoever decides to run it.</p>
 
-          <p className="italic text-slate-600">
+          <p className="pg-post-coda">
             The best time to build governance architecture was before we built capable AI systems.
             The second best time is now.
           </p>
-        </div>
 
-        <Link href="/blog" className="inline-flex text-sm font-semibold text-forge-700 hover:text-forge-900">
-          ← Back to blog
-        </Link>
-      </div>
-    </section>
+          </div>
+          <div className="pg-post-back">
+            <Link href="/blog" className="link">
+              ← Back to blog
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

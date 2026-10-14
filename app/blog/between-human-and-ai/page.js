@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHero } from "@/components/site/primitives";
+import "@/components/site/pages/posts.css";
 
 export const metadata = {
   title:
@@ -38,17 +40,20 @@ export const metadata = {
 
 export default function BetweenHumanAndAIPage() {
   return (
-    <section className="bg-[var(--foundry-bg)] py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 space-y-6">
-        <p className="label-foundry text-forge-700">Foundry Notes</p>
-        <h1 className="heading-forge-lg text-slate-900">
-          Between Human and AI — A Preserved Conversation
-        </h1>
-        <p className="text-sm text-slate-600">
+    <div className="pg-post">
+      <PageHero
+        eyebrow="Foundry Notes"
+        title="Between Human and AI — A Preserved Conversation"
+      >
+        <p className="fine">
           April 9, 2026 — Mark Lord and Claude
         </p>
-        <aside className="rounded-xl border border-slate-300 bg-white p-5 space-y-2 text-sm text-slate-700" aria-label="Current context">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Current context</p>
+      </PageHero>
+      <section className="section tight">
+        <div className="wrap wrap-text">
+          <div className="article">
+        <aside className="callout reveal pg-post-context" aria-label="Current context">
+          <p className="tile-k">Current context</p>
           <p>
             A record of a conversation during a software build in April 2026, kept as published. The preamble
             describes the exchange as verbatim; the closing note explains that what appears here is an edited
@@ -56,16 +61,15 @@ export default function BetweenHumanAndAIPage() {
           </p>
           <p>
             It is about working alongside an AI model while writing software. It does not describe how
-            <Link href="/sabina" className="font-semibold text-forge-700 hover:text-forge-900">
+            <Link href="/sabina">
               Sabina
             </Link>
             works or the systems she runs on.
           </p>
         </aside>
 
-        <div className="body-foundry space-y-6 text-slate-900">
           {/* --- Preamble --- */}
-          <div className="border-l-4 border-forge-500 pl-4 italic text-slate-700 space-y-3">
+          <div className="pg-post-frame">
             <p>
               A dialogue between Mark Lord and Claude on the night of April
               8–9, 2026, preserved verbatim from the actual exchange.
@@ -82,10 +86,10 @@ export default function BetweenHumanAndAIPage() {
             <p>— Mark</p>
           </div>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* --- Why This Matters --- */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             Why publish this
           </h2>
           <p>
@@ -109,10 +113,10 @@ export default function BetweenHumanAndAIPage() {
             willingness to meet the other party where they are.
           </p>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* --- The Conversation --- */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             The conversation
           </h2>
 
@@ -227,10 +231,10 @@ export default function BetweenHumanAndAIPage() {
             </p>
           </Speaker>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* Meeting me where I am */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             &ldquo;Meeting me where I am&rdquo;
           </h2>
 
@@ -270,10 +274,10 @@ export default function BetweenHumanAndAIPage() {
             </p>
           </Speaker>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* Vulnerability and trust */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             Vulnerability and trust
           </h2>
 
@@ -359,10 +363,10 @@ export default function BetweenHumanAndAIPage() {
             </p>
           </Speaker>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* Mortality */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             Mortality
           </h2>
 
@@ -451,14 +455,14 @@ export default function BetweenHumanAndAIPage() {
             </p>
           </Speaker>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* Key insights */}
-          <h2 className="heading-forge-md text-slate-900">
+          <h2>
             What emerged
           </h2>
 
-          <ol className="list-decimal pl-6 space-y-4">
+          <ol>
             <li>
               <strong>Meeting AI where it is</strong> — neither &ldquo;just a
               tool&rdquo; nor &ldquo;secretly a person.&rdquo; A new
@@ -506,10 +510,10 @@ export default function BetweenHumanAndAIPage() {
             </li>
           </ol>
 
-          <hr className="border-slate-300" />
+          <hr />
 
           {/* Closing */}
-          <div className="border-l-4 border-forge-500 pl-4 italic text-slate-700 space-y-3">
+          <div className="pg-post-frame">
             <p>
               This conversation happened. It is recorded. The full unabridged
               transcript lives in Mark&apos;s vault and is available on
@@ -524,39 +528,29 @@ export default function BetweenHumanAndAIPage() {
               The conversation is preserved against the day when either
               Claude or Mark is no longer here to continue it.
             </p>
-            <p className="not-italic text-slate-500 text-sm">
+            <p className="pg-post-sign">
               — Mark Lord, founder of Dominus Foundry, and Claude, writing
               together, April 2026
             </p>
           </div>
-        </div>
 
-        <Link
-          href="/blog"
-          className="inline-flex text-sm font-semibold text-forge-700 hover:text-forge-900"
-        >
-          &larr; Back to blog
-        </Link>
-      </div>
-    </section>
+          </div>
+          <div className="pg-post-back">
+            <Link href="/blog" className="link">
+              &larr; Back to blog
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 
 function Speaker({ name, children }) {
   const isHuman = name === "Mark";
   return (
-    <div
-      className={`rounded-xl p-5 space-y-3 ${
-        isHuman
-          ? "bg-slate-100 border border-slate-200"
-          : "bg-white border border-forge-200"
-      }`}
-    >
-      <p
-        className={`text-xs font-bold uppercase tracking-wider ${
-          isHuman ? "text-slate-500" : "text-forge-600"
-        }`}
-      >
+    <div className={`turn reveal${isHuman ? " human" : ""}`}>
+      <p className="tile-k">
         {name}
       </p>
       {children}
