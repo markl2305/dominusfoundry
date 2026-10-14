@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { PageHero } from "@/components/site/primitives";
+import ArticleIndex from "@/components/site/qp/ArticleIndex";
 import "@/components/site/pages/posts.css";
+import "@/app/styles/pages/qp-b.css";
+import "@/app/styles/pages/articles.css";
 
 export const metadata = {
   title:
@@ -40,7 +43,7 @@ export const metadata = {
 
 export default function BetweenHumanAndAIPage() {
   return (
-    <div className="pg-post">
+    <div className="pg-post qp qp-post">
       <PageHero
         eyebrow="Foundry Notes"
         title="Between Human and AI — A Preserved Conversation"
@@ -50,7 +53,9 @@ export default function BetweenHumanAndAIPage() {
         </p>
       </PageHero>
       <section className="section tight">
-        <div className="wrap wrap-text">
+        <div className="wrap">
+        <div className="qp-read has-index">
+        <div className="qp-read-col">
           <div className="article">
         <aside className="callout reveal pg-post-context" aria-label="Current context">
           <p className="tile-k">Current context</p>
@@ -540,6 +545,9 @@ export default function BetweenHumanAndAIPage() {
               &larr; Back to blog
             </Link>
           </div>
+        </div>
+        <ArticleIndex />
+        </div>
         </div>
       </section>
     </div>

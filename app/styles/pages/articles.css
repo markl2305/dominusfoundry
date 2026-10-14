@@ -1,0 +1,19 @@
+/* app/styles/pages/articles.css — the essays (/blog/*) and guides (/learn/*)
+   (quality pass D2, 2026-10-14): a readable 66ch column in the /pitch type
+   scale, with the section index beside it on wide screens. Text untouched. */
+.dfs :is(.qp-post, .qp-guide) .page-hero .display { font-size: clamp(2.2rem, 5.2vw, 4rem); max-width: 22ch; }
+.dfs :is(.qp-post, .qp-guide) .page-hero .lead { max-width: 58ch; }
+.dfs :is(.qp-post, .qp-guide) .qp-read-col { min-width: 0; max-width: 66ch; }
+.dfs :is(.qp-post, .qp-guide) .article { font-size: clamp(1.0625rem, 1.25vw, 1.1875rem); line-height: 1.72; }
+.dfs :is(.qp-post, .qp-guide) .article > p:first-of-type { font-size: 1.12em; color: var(--ink); }
+.dfs :is(.qp-post, .qp-guide) .article h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+@media (max-width: 1099px) { .dfs :is(.qp-post, .qp-guide) .qp-read-col { margin-inline: auto; } }
+@media (max-width: 640px) {
+  .dfs :is(.qp-post, .qp-guide) .page-hero .display { font-size: clamp(1.9rem, 8.4vw, 2.4rem); }
+}
+
+/* legal pages (/privacy, /sms-terms, /legal/*): same column and index, the
+   legal type left at site.css's .article size; text untouched */
+.dfs .qp-legal .qp-read-col { min-width: 0; max-width: 68ch; }
+@media (max-width: 1099px) { .dfs .qp-legal .qp-read-col { margin-inline: auto; } }
+.dfs .qp-legal .page-hero .display { max-width: 22ch; }
