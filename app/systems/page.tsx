@@ -83,7 +83,7 @@ export default function SystemsPage() {
       />
 
       {/* The three engines */}
-      <section className="section" id="engines" data-name="Engines" aria-label="Engines">
+      <section className="section" id="engines" data-name="Engines">
         <div className="wrap">
           <div className="grid g3 engines">
             {systems.map((system, i) => (

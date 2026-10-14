@@ -100,7 +100,7 @@ export default function EnginePage({ c }: { c: EngineCopy }) {
       </div>
     </section>
 
-    {c.quote && <section className="section" id="practice" data-name="In practice" aria-label="In practice">
+    {c.quote && <section className="section" id="practice" data-name="In practice">
       <div className="wrap">
         <div className="sec-head reveal"><p className="eyebrow">{c.quote.eyebrow}</p></div>
         <div className="sec-body">
