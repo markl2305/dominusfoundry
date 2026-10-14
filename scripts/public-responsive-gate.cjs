@@ -182,9 +182,15 @@ function clipProbe(el) {
   const isFileOverlay = el.matches('input[type="file"]');
   const requiresText = !el.matches('input, textarea');
   // An image-only link (the footer's LocateFaith badge, 2026-10-14) carries its
-  // text in the image's alt; it counts as text only while that image has a box.
-  const altText = [...el.querySelectorAll('img[alt]')].some((i) => i.alt.trim() && i.getBoundingClientRect().width > 0 && i.getBoundingClientRect().height > 0);
-  let hidden = rect.width <= 0 || rect.height <= 0 || (requiresText && !el.textContent.trim() && !altText);
+  // text in the image's alt. It counts as text only while that image is itself
+  // visible: a box, and display/visibility/opacity good through the image's own
+  // ancestor chain (Sol review F1). Its rectangle then joins the geometry below.
+  const shown = (n) => { for (; n; n = n.parentElement) { const s = getComputedStyle(n); if (s.display === 'none' || s.visibility !== 'visible' || Number(s.opacity) === 0) return false; } return true; };
+  const altImages = el.textContent.trim() ? [] : [...el.querySelectorAll('img[alt]')].filter((i) => {
+    const r = i.getBoundingClientRect();
+    return i.alt.trim() && r.width > 0 && r.height > 0 && shown(i);
+  });
+  let hidden = rect.width <= 0 || rect.height <= 0 || (requiresText && !el.textContent.trim() && altImages.length === 0);
   // The transparent native file-input overlay has a visible, separately
   // required Choose File/filename control. No other hidden control is accepted.
   for (let node = el; node; node = node.parentElement) {
@@ -192,7 +198,7 @@ function clipProbe(el) {
     if (s.display === 'none' || s.visibility !== 'visible' ||
         (Number(s.opacity) === 0 && !(node === el && isFileOverlay))) hidden = true;
   }
-  const boxes = [{ box: rect, owner: el.parentElement }];
+  const boxes = [{ box: rect, owner: el.parentElement }, ...altImages.map((i) => ({ box: i.getBoundingClientRect(), owner: i.parentElement }))];
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
   let textNode;
   while ((textNode = walker.nextNode())) {
