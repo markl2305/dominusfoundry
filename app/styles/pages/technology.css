@@ -1,0 +1,67 @@
+/* app/styles/pages/technology.css — /technology, quality pass (2026-10-14).
+   /pitch's interactive layer stack (app/pitch/ui.tsx LayerStack), with the same
+   values as app/pitch/pitch.css, scoped to this page; then the split card, the
+   filings card and the product cards. ⛔ No copy here. */
+
+/* the layer stack */
+.dfs .pg-technology-qp .stack-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 900px) { .dfs .pg-technology-qp .stack-wrap { grid-template-columns: 1fr; } }
+.dfs .pg-technology-qp .stack { position: relative; display: grid; gap: 10px; perspective: 1400px; }
+.dfs .pg-technology-qp .layer {
+  position: relative; text-align: left; width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  padding: 20px 22px; border-radius: var(--radius-sm); border: 1px solid var(--hair); background: var(--panel); color: var(--ink);
+  box-shadow: var(--panel-highlight); counter-increment: none;
+  transform: translateX(calc(var(--d) * 14px));
+  transition: transform 250ms var(--ease-out), border-color 200ms ease, background-color 200ms ease, box-shadow 250ms var(--ease-out);
+}
+.dfs .pg-technology-qp .layer::before { content: none; }
+.dfs .pg-technology-qp .layer .ln { width: 30px; height: 30px; border-radius: 50%; border: 1px solid currentColor; color: var(--gold); display: grid; place-items: center; font: 500 0.75rem/1 var(--mono); }
+.dfs .pg-technology-qp .layer .lt { font: 500 1.3rem/1.15 var(--serif); letter-spacing: -0.008em; }
+.dfs .pg-technology-qp .layer .chev { width: 14px; height: 14px; color: var(--ink-3); transition: transform 250ms var(--ease-out), color 200ms ease; }
+.dfs .pg-technology-qp .layer[aria-selected="true"] { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background: var(--panel-2); box-shadow: var(--shadow), var(--panel-highlight); transform: translateX(calc(var(--d) * 14px)) scale(1.015); }
+.dfs .pg-technology-qp .layer[aria-selected="true"] .chev { color: var(--gold); transform: translateX(3px); }
+.dfs .pg-technology-qp .layer:active { transform: translateX(calc(var(--d) * 14px)) scale(0.985); }
+@media (max-width: 900px) { .dfs .pg-technology-qp .layer, .dfs .pg-technology-qp .layer[aria-selected="true"] { transform: none; } .dfs .pg-technology-qp .layer:active { transform: scale(0.985); } }
+.dfs .pg-technology-qp .layer-panel { min-height: 300px; display: grid; align-content: start; gap: 18px; }
+.dfs .pg-technology-qp .layer-panel .seg { justify-self: start; max-width: 100%; }
+.dfs .pg-technology-qp .layer-detail { display: grid; gap: 14px; }
+.dfs .pg-technology-qp .layer-detail .what { margin: 0; font: 500 1.55rem/1.25 var(--serif); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.dfs .pg-technology-qp .layer-detail .split { display: block; margin: 0; color: var(--ink-2); line-height: 1.6; text-wrap: pretty; }
+.dfs .pg-technology-qp .layer-detail .split b { font: 500 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+.dfs .pg-technology-qp .fade-swap { animation: qp-swap 220ms var(--ease-out); }
+@media (max-width: 480px) { .dfs .pg-technology-qp .seg button { padding: 0 9px; font-size: 0.78rem; } .dfs .pg-technology-qp .layer-panel { min-height: 0; } }
+
+/* every layer server-rendered as open disclosures; the tabs replace them once
+   the page hydrates, and the failsafe swaps them back if it never does */
+.dfs .pg-technology-qp .layer-all { display: grid; }
+.dfs .pg-technology-qp .layer-all summary { font: 500 1.25rem/1.2 var(--serif); color: var(--ink); justify-content: flex-start; gap: 12px; }
+.dfs .pg-technology-qp .layer-all summary .plus { margin-left: auto; }
+.dfs .pg-technology-qp .layer-all .ln { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: inline-grid; place-items: center; font: 500 0.72rem/1 var(--mono); flex: none; }
+.dfs .pg-technology-qp .layer-all .more-body p { margin: 0; color: var(--ink-2); max-width: 64ch; line-height: 1.6; }
+.dfs .pg-technology-qp .layer-all .more-body b { display: block; font: 500 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.dfs .pg-technology-qp .layer-all .layer-what { color: var(--ink) !important; font: 500 1.2rem/1.35 var(--serif); }
+html:not(.dfs-js) .dfs .pg-technology-qp .stack-wrap { display: none; }
+html.dfs-ready .dfs .pg-technology-qp .layer-all { display: none; }
+html.dfs-js:not(.dfs-ready) .dfs .pg-technology-qp .layer-all { visibility: hidden; position: absolute; height: 0; overflow: hidden; animation: dfs-failsafe 1ms 2.5s forwards, qp-show-failsafe 1ms 2.5s forwards; }
+html.dfs-js:not(.dfs-ready) .dfs .pg-technology-qp .stack-wrap { animation: qp-hide-failsafe 1ms 2.5s forwards; }
+@keyframes qp-show-failsafe { to { visibility: visible; position: static; height: auto; overflow: visible; } }
+@keyframes qp-hide-failsafe { to { visibility: hidden; position: absolute; height: 0; overflow: hidden; } }
+@media print {
+  .dfs .pg-technology-qp .layer-all { display: grid !important; visibility: visible !important; position: static !important; height: auto !important; }
+  .dfs .pg-technology-qp .stack-wrap { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) { .dfs .pg-technology-qp .layer, .dfs .pg-technology-qp .layer .chev { transition-duration: 0ms !important; } .dfs .pg-technology-qp .fade-swap { animation: none; } }
+
+/* we run the system / you decide the work */
+.dfs .pg-technology-qp .runs .card { display: grid; gap: 14px; align-content: start; }
+.dfs .pg-technology-qp .runs-p { margin: 0; font: 500 clamp(1.25rem, 2vw, 1.5rem)/1.35 var(--serif); letter-spacing: -0.006em; color: var(--ink); text-wrap: pretty; }
+
+/* the filings card */
+.dfs .pg-technology-qp .ip-card { max-width: 860px; }
+.dfs .pg-technology-qp .ip-p { margin: 0; line-height: 1.65; }
+
+/* Forge and DominusOS */
+.dfs .pg-technology-qp .product { display: grid; gap: 12px; align-content: start; }
+.dfs .pg-technology-qp .product .tile-t { margin: 0; font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.dfs .pg-technology-qp .product .tile-p { margin: 0; }
+.dfs .pg-technology-qp .product .pillar-a { margin-top: 6px; }
