@@ -1,0 +1,70 @@
+/* components/site/pages/core.css — batch "core" (2026-10-14): /about, /careers,
+   /start, /thanks, the 404 pages, /qb-migration, /huali-order-info, and the
+   intake / application / SMS-consent form parts. Only what site.css has no
+   class for. ⛔ Copy, figures and claims never live here. */
+
+/* Lists whose items carry their own marker glyph in the markup (✓ • ×). The
+   glyph stays in the DOM; it is coloured here instead of a CSS marker. */
+.dfs .pg-marks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.dfs .pg-marks > li { display: flex; gap: 12px; align-items: baseline; color: var(--ink-2); line-height: 1.55; max-width: 66ch; min-width: 0; }
+.dfs .pg-marks > li > span:last-child { min-width: 0; }
+.dfs .pg-marks .mk { flex: none; width: 1.1em; color: var(--gold); font-weight: 600; }
+.dfs .pg-marks .mk.no { color: var(--ember); }
+
+/* /about */
+.dfs .pg-about .strong-line { color: var(--ink); font-weight: 600; }
+.dfs .pg-about .contact-stack { display: grid; gap: 18px; justify-items: center; text-align: center; }
+.dfs .pg-about .contact-stack > .callout { text-align: left; width: 100%; max-width: 640px; }
+
+/* /careers */
+.dfs .pg-careers .rate-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.dfs .pg-careers .rate-head .tile-t { margin: 0; }
+.dfs .pg-careers .rate { font: 500 1.1rem/1.3 var(--serif); color: var(--gold); }
+.dfs .pg-careers .req { display: grid; gap: 4px; padding-top: 6px; }
+.dfs .pg-careers .req p { margin: 0; color: var(--ink-2); font-size: 0.925rem; }
+.dfs .pg-careers .req p:first-child { color: var(--ink); font-weight: 600; }
+.dfs .pg-careers .apply-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 960px) { .dfs .pg-careers .apply-grid { grid-template-columns: minmax(0, 1fr); } }
+.dfs .pg-careers .apply-grid > * { min-width: 0; }
+.dfs .pg-careers .center-block { display: grid; justify-items: center; }
+.dfs .pg-careers .center-block > .callout, .dfs .pg-start .center-block > .callout { width: 100%; max-width: 640px; }
+.dfs .pg-start .center-block { display: grid; justify-items: center; }
+
+/* forms (ApplicationForm, IntakeForm) */
+.dfs .pg-form { display: grid; gap: 18px; }
+.dfs .pg-form .file-pick { position: relative; }
+.dfs .pg-form .file-pick input[type="file"] { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.dfs .pg-form .file-face { display: flex; align-items: center; gap: 12px; cursor: pointer; min-width: 0; }
+.dfs .pg-form .file-face > span:first-child { flex: none; display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel-2); color: var(--ink); font-size: 0.8125rem; font-weight: 600; }
+.dfs .pg-form .file-face > span:last-child { min-width: 0; flex: 1; overflow-wrap: anywhere; color: var(--ink-3); font-size: 0.9rem; }
+.dfs .pg-form .file-pick input[type="file"]:focus-visible + .file-face { border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 22%, transparent); }
+.dfs .pg-form .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); gap: 10px 14px; margin-top: 4px; }
+.dfs .pg-form .tool-grid .check-row { align-items: center; min-height: 44px; cursor: pointer; }
+.dfs .pg-form .form-foot { margin: 0; text-align: center; font-size: 0.8125rem; line-height: 1.6; color: var(--ink-3); }
+.dfs .pg-form .form-foot strong { color: var(--ink-2); }
+.dfs .pg-form .form-foot a { overflow-wrap: anywhere; }
+.dfs .pg-form-done { display: grid; gap: 14px; justify-items: center; text-align: center; padding-block: 24px; }
+.dfs .pg-form-done p { margin: 0; max-width: 46ch; color: var(--ink-2); }
+.dfs .pg-form-done .icon-badge { width: 56px; height: 56px; border-radius: 50%; }
+
+/* the SMS opt-in (also used by forms outside this batch, so it styles itself) */
+.dfs .pg-sms .check-row { cursor: pointer; }
+.dfs .pg-sms input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--copper); flex: none; margin: 2px 0 0; }
+.dfs .pg-sms .check-row > span { font-size: 0.8125rem; line-height: 1.6; color: var(--ink-3); min-width: 0; }
+
+/* /qb-migration: its own contact band, kept under the page, slim */
+.dfs .pg-qb-band { border-top: 1px solid var(--hair); background: var(--bg-2); padding-block: 22px; text-align: center; }
+.dfs .pg-qb-band .wrap { display: grid; gap: 6px; justify-items: center; }
+.dfs .pg-qb-band p { margin: 0; font-size: 0.85rem; color: var(--ink-3); }
+.dfs .pg-qb-band p:first-child { color: var(--ink); font-weight: 600; }
+.dfs .pg-qb-band .links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 12px; font-size: 0.9rem; }
+.dfs .pg-qb-band .links a { color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; }
+.dfs .pg-qb-band .links .sep { color: var(--ink-3); }
+@media (max-width: 640px) { .dfs .pg-qb-band .links { flex-direction: column; gap: 0; } .dfs .pg-qb-band .links .sep { display: none; } }
+
+/* /huali-order-info */
+.dfs .pg-huali .huali-mark { display: block; height: clamp(80px, 10vw, 112px); width: auto; max-width: 100%; }
+.dfs .pg-huali .huali-call { width: 100%; }
+.dfs .pg-huali .poster { padding: 12px; }
+.dfs .pg-huali .poster img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
+.dfs .pg-huali .fine-print { display: grid; gap: 6px; margin-top: clamp(28px, 4vw, 44px); }

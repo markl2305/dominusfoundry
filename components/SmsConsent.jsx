@@ -8,6 +8,7 @@ import {
   SMS_CONSENT_VERSION_FIELD,
   SMS_CONSENT_TEXT_FIELD,
 } from "@/lib/sms-consent";
+import "@/components/site/pages/core.css";
 
 // Re-exported so existing importers keep working and so no component is ever
 // tempted to define its own copy of the wording. The wording itself lives in
@@ -30,24 +31,26 @@ export {
  * so forms that serialise with `new FormData(...)` submit their own evidence
  * without each having to remember to attach it. Forms that hand-build a JSON
  * payload must attach the same fields explicitly.
+ *
+ * 2026-10-14: restyled in the site-wide redesign (components/site); the input,
+ * its name, the hidden fields and every word of the disclosure are unchanged.
  */
 export default function SmsConsent({ onChange }) {
   return (
-    <div>
-      <label className="flex items-start gap-2 cursor-pointer">
+    <div className="pg-sms">
+      <label className="check-row">
         <input
           type="checkbox"
           name={SMS_CONSENT_FIELD}
           onChange={onChange ? (e) => onChange(e.target.checked) : undefined}
-          className="mt-1 h-4 w-4 rounded border-forge-300 text-forge-600 focus:ring-forge-500"
         />
-        <span className="text-xs text-slate-700">
+        <span>
           {SEGMENTS.map((segment, i) =>
             segment.href ? (
               <a
                 key={i}
                 href={segment.href}
-                className="underline font-semibold text-forge-700 hover:text-forge-800"
+                className="link"
               >
                 {segment.text}
               </a>

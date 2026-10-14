@@ -1,5 +1,7 @@
 import ApplicationForm from "../../../components/ApplicationForm";
 import ContactCTA from "../../../components/ContactCTA";
+import { PageHero, Section } from "@/components/site/primitives";
+import "@/components/site/pages/core.css";
 
 export const metadata = {
   title: "Careers — Founding Sales Rep | Dominus Foundry™",
@@ -69,45 +71,43 @@ const repGets = [
   "Objection tracking and conversion analytics",
 ];
 
+// 2026-10-14: restyled in the site-wide redesign (components/site). Copy unchanged.
+// ⛔ The responsive gate (scripts/public-responsive-gate.cjs) measures #apply, its
+// columns as `#apply > div > div > div` and the file-picker filename; nothing in
+// #apply carries `reveal`, because the gate reads opacity 0 as hidden content.
 export default function CareersPage() {
   return (
-    <>
+    <div className="pg-careers">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-steel-700 via-forge-800 to-forge-900 text-white">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12] bg-foundry-texture foundry-hero-overlay" aria-hidden />
-        <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 relative">
-          <div className="text-center space-y-6 max-w-3xl mx-auto">
-            <p className="label-foundry text-orange-200">Now Hiring &mdash; 2-3 Positions</p>
-            <h1 className="heading-forge-xl text-white leading-tight">
-              Founding Sales Rep
-            </h1>
-            <div className="divider-forged mx-auto max-w-xs" />
-            <p className="body-foundry text-white/90 md:text-lg">
-              Ground floor of a patent-pending Managed AI company with a product in production at its first customers. The addressable market is wide open.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 pt-2">
-              <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                Remote
-              </span>
-              <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                Commission Only
-              </span>
-              <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                19 Provisional Patents · Patent Pending
-              </span>
-            </div>
-          </div>
+      <PageHero
+        center
+        eyebrow={<>Now Hiring &mdash; 2-3 Positions</>}
+        title="Founding Sales Rep"
+        lead={
+          <p className="lead">
+            Ground floor of a patent-pending Managed AI company with a product in production at its first customers. The addressable market is wide open.
+          </p>
+        }
+      >
+        <div className="chips">
+          <span className="chip">
+            Remote
+          </span>
+          <span className="chip">
+            Commission Only
+          </span>
+          <span className="chip">
+            19 Provisional Patents · Patent Pending
+          </span>
         </div>
-      </section>
+      </PageHero>
 
       {/* What This Is */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 space-y-8">
-          <div className="space-y-4">
-            <p className="label-foundry">The Opportunity</p>
-            <h2 className="heading-forge-lg">This is not a sales job. This is the founding revenue team of a Managed AI company.</h2>
-          </div>
-          <div className="body-foundry space-y-4 text-slate-800">
+      <Section
+        eyebrow="The Opportunity"
+        title="This is not a sales job. This is the founding revenue team of a Managed AI company."
+      >
+        <div className="prose reveal">
             <p>
               Dominus Foundry™ builds and operates <strong>Sabina</strong>, your company&apos;s own AI, shaped around its systems, knowledge, people, and authority. <strong>Forge™</strong> supplies the operating records and specialist tools beneath and alongside her, in production today with AV and security and with commercial roofing. It consolidates work a contractor is currently spreading across several disconnected tools into one governed record, from first call to invoice.
             </p>
@@ -130,65 +130,64 @@ export default function CareersPage() {
                   the ledger changes, this changes with it. */}
               <strong>We have 19 provisional patent applications plus two non-provisional filings and a product running in production.</strong> That production footprint is two deployments today — one independent customer and one founder-affiliated company whose revenue we exclude from every claim we make — plus Sabina&apos;s first customer contracted, with onboarding ahead of us. The reps who establish themselves in the next 6 months will own customer relationships and territory that compound as this company scales. There are roughly 900,000 trade businesses in the US. We need to be in thousands of them.
             </p>
-          </div>
         </div>
-      </section>
+      </Section>
 
       {/* What You'd Be Selling */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 space-y-8">
-          <div className="space-y-4">
-            <p className="label-foundry">The Product</p>
-            <h2 className="heading-forge-lg">What you&apos;d be selling</h2>
-            <p className="body-foundry text-slate-800">
-              A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong>, hired onto a founding seat (<a href="https://hiresabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
-            </p>
-          </div>
-          <ul className="space-y-3">
-            {platformFeatures.map((feature) => (
-              <li key={feature} className="flex gap-3">
-                <span className="text-forge-700 font-bold mt-0.5 shrink-0">&bull;</span>
-                <span className="body-foundry text-slate-800">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Section
+        className="band"
+        eyebrow="The Product"
+        title={<>What you&apos;d be selling</>}
+        lead={
+          <p className="lead">
+            A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong>, hired onto a founding seat (<a className="link" href="https://hiresabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
+          </p>
+        }
+      >
+        <ul className="pg-marks reveal">
+          {platformFeatures.map((feature) => (
+            <li key={feature}>
+              <span className="mk">&bull;</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* Commission Structure */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 space-y-8">
-          <div className="space-y-4">
-            <p className="label-foundry">Compensation</p>
-            <h2 className="heading-forge-lg">Read this carefully</h2>
-            <p className="body-foundry text-slate-800">
-              This is not a standard commission plan. This is a wealth-building structure designed for the founding team.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {commissionTable.map((row) => (
-              <div
-                key={row.type}
-                className="card-forged rounded-2xl p-6 space-y-2"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="font-crimson text-xl font-bold text-slate-900">
-                    {row.type}
-                  </h3>
-                  <span className="text-forge-700 font-bold text-lg whitespace-nowrap">
-                    {row.rate}
-                  </span>
-                </div>
-                <p className="text-sm text-slate-700">{row.terms}</p>
+      <Section
+        eyebrow="Compensation"
+        title="Read this carefully"
+        lead={
+          <p className="lead">
+            This is not a standard commission plan. This is a wealth-building structure designed for the founding team.
+          </p>
+        }
+      >
+        <div className="grid g2">
+          {commissionTable.map((row, i) => (
+            <div
+              key={row.type}
+              className="card reveal"
+              style={{ '--i': i } as React.CSSProperties}
+            >
+              <div className="rate-head">
+                <h3 className="tile-t">
+                  {row.type}
+                </h3>
+                <span className="rate">
+                  {row.rate}
+                </span>
               </div>
-            ))}
-          </div>
+              <p className="tile-p">{row.terms}</p>
+            </div>
+          ))}
+        </div>
 
-          <div className="card-forged-premium rounded-2xl p-6 md:p-8 space-y-4">
-            <h3 className="font-crimson text-2xl font-bold text-slate-900">
-              Do the math
-            </h3>
+        <div className="callout reveal">
+          <h3 className="h3">
+            Do the math
+          </h3>
             {/* COPY REVIEW — approved by Mark 2026-08-25 with the assumption made explicit,
                 and RE-STRUCK 2026-08-29 by his founding-ten ruling: "first 10 is 20k and then we
                 jump to 3500 per person". The first ten hires book $2,000 each, so a bare
@@ -207,48 +206,47 @@ export default function CareersPage() {
                 decay or step down. The per-account dollar figure is unaffected — it still isn't
                 published — reps see it on their onboarding call. Do not restore a dollar total
                 here; that is exactly what this rewrite removes. */}
-            <p className="body-foundry text-slate-800">
+            <p>
               <strong>Every Sabina hire pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. Accounts differ in size, but the percentage is identical on all of them, so a book of accounts compounds the same way whichever rate closed each account &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
-            <p className="body-foundry text-slate-800">
+            <p>
               That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. Every tools deal is custom quoted, so commission follows the agreed amount for that account. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
             </p>
-            <p className="body-foundry text-slate-800">
+            <p>
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.
             </p>
-          </div>
         </div>
-      </section>
+      </Section>
 
       {/* Who Should / Shouldn't Apply */}
-      <section className="bg-[var(--foundry-bg-alt)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <p className="label-foundry">Requirements</p>
-                <h2 className="heading-forge-md">Who should apply</h2>
+      <section className="section band">
+        <div className="wrap">
+          <div className="grid g2" style={{ gap: 'clamp(36px, 5vw, 64px)' }}>
+            <div className="stack reveal">
+              <div className="sec-head">
+                <p className="eyebrow">Requirements</p>
+                <h2 className="h3">Who should apply</h2>
               </div>
-              <ul className="space-y-3">
+              <ul className="pg-marks">
                 {qualifications.map((q) => (
-                  <li key={q} className="flex gap-3">
-                    <span className="text-forge-700 font-bold mt-0.5 shrink-0">&#10003;</span>
-                    <span className="body-foundry text-slate-800">{q}</span>
+                  <li key={q}>
+                    <span className="mk">&#10003;</span>
+                    <span>{q}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <p className="label-foundry">Honest Filter</p>
-                <h2 className="heading-forge-md">Who should not apply</h2>
+            <div className="stack reveal" style={{ '--i': 1 } as React.CSSProperties}>
+              <div className="sec-head">
+                <p className="eyebrow">Honest Filter</p>
+                <h2 className="h3">Who should not apply</h2>
               </div>
-              <ul className="space-y-3">
+              <ul className="pg-marks">
                 {disqualifiers.map((d) => (
-                  <li key={d} className="flex gap-3">
-                    <span className="text-red-500 font-bold mt-0.5 shrink-0">&times;</span>
-                    <span className="body-foundry text-slate-800">{d}</span>
+                  <li key={d}>
+                    <span className="mk no">&times;</span>
+                    <span>{d}</span>
                   </li>
                 ))}
               </ul>
@@ -258,44 +256,40 @@ export default function CareersPage() {
       </section>
 
       {/* What You Get */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20 space-y-8">
-          <div className="space-y-4">
-            <p className="label-foundry">What We Provide</p>
-            <h2 className="heading-forge-lg">What you get from us</h2>
-          </div>
-          <ul className="space-y-3">
-            {repGets.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-forge-700 font-bold mt-0.5 shrink-0">&#10003;</span>
-                <span className="body-foundry text-slate-800">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="body-foundry text-slate-800">
-            <strong>The bottom line:</strong> The people who build the revenue engine of this company will have options &mdash; career, financial, and otherwise &mdash; that don&apos;t exist at companies that already have a sales team. We&apos;re not making promises. We&apos;re pointing at the math and asking if you can do addition.
+      <Section eyebrow="What We Provide" title="What you get from us">
+        <ul className="pg-marks reveal">
+          {repGets.map((item) => (
+            <li key={item}>
+              <span className="mk">&#10003;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="callout reveal">
+          <p>
+          <strong>The bottom line:</strong> The people who build the revenue engine of this company will have options &mdash; career, financial, and otherwise &mdash; that don&apos;t exist at companies that already have a sales team. We&apos;re not making promises. We&apos;re pointing at the math and asking if you can do addition.
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Application Form */}
-      <section className="bg-[var(--foundry-bg-alt)]" id="apply">
-        <div className="mx-auto max-w-4xl px-4 py-14 md:py-20">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
-            <div className="lg:col-span-2 space-y-4">
-              <p className="label-foundry">Apply Now</p>
-              <h2 className="heading-forge-lg">Show us the numbers</h2>
-              <p className="body-foundry text-slate-800">
+      <section className="section band" id="apply" aria-labelledby="h-apply">
+        <div className="wrap">
+          <div className="apply-grid">
+            <div className="stack">
+              <p className="eyebrow">Apply Now</p>
+              <h2 className="h2" id="h-apply">Show us the numbers</h2>
+              <p className="lead">
                 No cover letters. No &ldquo;I&apos;m a self-starter&rdquo; paragraphs. Results speak.
               </p>
-              <div className="space-y-2 pt-4">
-                <p className="text-sm font-semibold text-slate-900">Requirements</p>
-                <p className="text-sm text-slate-700">3+ years B2B sales</p>
-                <p className="text-sm text-slate-700">Documented commission earnings</p>
-                <p className="text-sm text-slate-700">Remote &bull; 1099 Independent Contractor</p>
+              <div className="req">
+                <p>Requirements</p>
+                <p>3+ years B2B sales</p>
+                <p>Documented commission earnings</p>
+                <p>Remote &bull; 1099 Independent Contractor</p>
               </div>
             </div>
-            <div className="lg:col-span-3 card-forged-premium rounded-2xl p-6 md:p-10 shadow-xl">
+            <div className="card">
               <ApplicationForm />
             </div>
           </div>
@@ -303,19 +297,19 @@ export default function CareersPage() {
       </section>
 
       {/* Questions CTA */}
-      <section className="bg-[var(--foundry-bg)]">
-        <div className="mx-auto max-w-5xl px-4 py-14 md:py-20 space-y-6">
-          <div className="text-center space-y-3">
-            <h2 className="heading-forge-lg">Questions before applying?</h2>
-            <p className="body-foundry text-slate-800">
-              Reach out directly. If you&apos;re the right fit, we want to talk.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <ContactCTA />
-          </div>
+      <Section
+        center
+        title="Questions before applying?"
+        lead={
+          <p className="lead">
+            Reach out directly. If you&apos;re the right fit, we want to talk.
+          </p>
+        }
+      >
+        <div className="center-block">
+          <ContactCTA />
         </div>
-      </section>
-    </>
+      </Section>
+    </div>
   );
 }

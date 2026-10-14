@@ -1,29 +1,31 @@
+import "@/components/site/pages/core.css";
 
 export const metadata = {
   title: 'QuickBooks Desktop Migration — Dominus Foundry',
   description: 'Move from QuickBooks Desktop to Online in 5-7 days with zero data loss and CPA-ready reports.',
 };
 
+// 2026-10-14: restyled in the site-wide redesign (components/site). The site
+// shell already provides <main>, so this layout no longer nests a second one;
+// its own contact band stays under the page, copy unchanged, as a slim band.
 export default function QBMigrationLayout({ children }) {
   return (
-    <div className="min-h-screen bg-[var(--foundry-bg-alt)] flex flex-col">
-      <main className="flex-1">
-        {children}
-      </main>
+    <div className="pg-qb">
+      {children}
 
-      <footer className="border-t border-bronze-300 bg-tan-200 py-8">
-        <div className="mx-auto max-w-6xl px-4 text-center text-sm text-navy-600 space-y-2">
-          <p className="font-semibold text-navy-800">Dominus Foundry — QuickBooks Desktop Migration</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-navy-700">
-            <a href="tel:+15055201433" className="hover:text-navy-900 font-medium">
+      <footer className="pg-qb-band">
+        <div className="wrap">
+          <p>Dominus Foundry — QuickBooks Desktop Migration</p>
+          <div className="links">
+            <a href="tel:+15055201433">
               (505) 520-1433
             </a>
-            <span className="hidden sm:inline text-bronze-400">•</span>
-            <a href="mailto:foundry@dominusfoundry.com" className="hover:text-navy-900 underline">
+            <span className="sep">•</span>
+            <a href="mailto:foundry@dominusfoundry.com">
               foundry@dominusfoundry.com
             </a>
           </div>
-          <p className="text-xs text-navy-600/80">© {new Date().getFullYear()} Dominus Foundry. All rights reserved. We do not sell your personal information.</p>
+          <p>© {new Date().getFullYear()} Dominus Foundry. All rights reserved. We do not sell your personal information.</p>
         </div>
       </footer>
     </div>
