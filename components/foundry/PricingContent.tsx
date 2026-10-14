@@ -71,7 +71,9 @@
        Added the ruled CTA pair ("See if your company is ready." / "Request an interview.")
        linking to buildwithforge.app/evaluate. That route is on an unmerged forge-web branch as
        of 2026-09-04 — this site must not deploy before it is live. */
-import { PageHero } from './FoundryShell'
+import type { CSSProperties } from 'react'
+import { PageHero } from '@/components/site/primitives'
+import '@/components/site/pages/pricing-blog.css'
 
 /* LADDER A - the hire. One tier. Core is inside it and is never a line item.
    The first card is deliberately NOT a Forge price: it is the salary comparison
@@ -130,7 +132,7 @@ const EXAMPLES = [
 
 export default function PricingContent() {
   return (
-    <>
+    <div className="pg-pricing">
       <PageHero
         eyebrow="Reference · What Forge costs"
         title={
@@ -139,25 +141,25 @@ export default function PricingContent() {
           </>
         }
         lead="Dominus Foundry is the holding company behind Forge. This page is a reference — how we scope the work and prepare a custom quote. Forge itself is bought at buildwithforge.app."
-        metaLeft={
+        meta={
           <>
-            <b>Custom quotes</b> · scope and terms agreed up front
-          </>
-        }
-        metaRight={
-          <>
-            <b>Sabina and Forge tools</b> · quoted for your company
+            <span>
+              <b>Custom quotes</b> · scope and terms agreed up front
+            </span>{' '}
+            <span>
+              <b>Sabina and Forge tools</b> · quoted for your company
+            </span>
           </>
         }
       />
 
       <section className="section" id="structure">
         <div className="wrap">
-          <div className="intro-grid">
-            <h2 className="i-head reveal">
+          <div className="two-col">
+            <h2 className="h2 reveal">
               A hire is <em>not</em> a line item.
             </h2>
-            <div className="i-body reveal d1">
+            <div className="prose reveal" style={{ '--i': 1 } as CSSProperties}>
               <p>
                 Forge is sold two ways, and they are quoted separately on purpose. A business either hires its own AI or buys the tools.
                 Those are different purchases, read against different budgets, and putting them on one list would misfile both.
@@ -179,133 +181,137 @@ export default function PricingContent() {
         </div>
       </section>
 
-      <section className="section figures-section" id="hire">
+      <section className="section band" id="hire">
         <div className="wrap">
-          <p className="eyebrow reveal" style={{ marginBottom: '30px' }}>
-            The first way · a hire, quoted against a salary
-          </p>
-          <div className="figures reveal d1">
-            {HIRE.map((f) => (
-              <div className="figure" key={f.l}>
-                {/* --ink-2, not --ink-3: at this size --ink-3 measures 4.49:1 on --panel, a hair under AA. */}
-                <div className="fg-n serif">
-                  {f.n}{' '}
-                  <span style={{ fontSize: '0.34em', color: 'var(--ink-2)', letterSpacing: '0.04em' }}>{f.u}</span>
-                </div>
-                <div className="fg-l">{f.l}</div>
-                <p className="fg-d">{f.d}</p>
-                <p className="fg-src">{f.q}</p>
-              </div>
-            ))}
+          <div className="sec-head reveal">
+            <p className="eyebrow">The first way · a hire, quoted against a salary</p>
           </div>
-          <p className="pricenote" style={{ marginTop: '26px' }}>
-            A founding seat and a standing arrangement buy the same Sabina; there is no second or third hire package to move up to.
-            Mark meets you to discuss the product and fit, and a written proposal follows. A business that also wants a tool from the
-            tool scope below is quoted for your company — product prices are not published on this page.
-          </p>
-          <p className="pricenote">Start with a short operational assessment of your business.</p>
-          <div style={{ marginTop: '22px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
-              See Sabina work <span className="arr">→</span>
-            </a>
+          <div className="sec-body">
+            <div className="grid g3">
+              {HIRE.map((f, i) => (
+                <div className="card figure reveal" key={f.l} style={{ '--i': i } as CSSProperties}>
+                  <div className="v fg-n">
+                    {f.n} <span className="fg-u">{f.u}</span>
+                  </div>
+                  <div className="tile-k fg-l">{f.l}</div>
+                  <p className="tile-p fg-d">{f.d}</p>
+                  <p className="fine fg-src">{f.q}</p>
+                </div>
+              ))}
+            </div>
+            <div className="stack reveal">
+              <p className="note">
+                A founding seat and a standing arrangement buy the same Sabina; there is no second or third hire package to move up to.
+                Mark meets you to discuss the product and fit, and a written proposal follows. A business that also wants a tool from the
+                tool scope below is quoted for your company — product prices are not published on this page.
+              </p>
+              <p className="note">Start with a short operational assessment of your business.</p>
+            </div>
+            <div className="actions reveal">
+              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
+                See Sabina work <span className="arr">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section" id="rate-card">
+      <section className="section" id="rate-card" aria-labelledby="h-rate-card">
         <div className="wrap">
-          <div className="section-head" style={{ marginBottom: '40px' }}>
-            <p className="eyebrow reveal">The second way · the tools</p>
-            <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
+          <div className="sec-head reveal">
+            <p className="eyebrow">The second way · the tools</p>
+            <h2 className="h2" id="h-rate-card">
               Scoped for the work you need.
             </h2>
-            <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '62ch' }}>
+            <p className="lead">
               A separate door, for an operator who wants the system of record and is not hiring. The hire above is not on this card and is not
               priced from it.
             </p>
           </div>
-          <div className="pricelines reveal d1">
-            {LINES.map((l) => (
-              <div className="pline" key={l.k}>
-                <span className="pl-k serif">{l.k}</span>
-                {l.v ? (
-                  <span className="pl-v serif" style={{ fontSize: '18px', whiteSpace: 'normal' }}>
-                    {l.v}
-                    <span className="pl-u">{l.u?.startsWith('/') ? l.u : ` ${l.u}`}</span>
-                  </span>
-                ) : (
-                  <span className="pl-v serif" style={{ fontSize: '18px', color: 'var(--ink-3)' }}>
-                    Coming soon
-                  </span>
-                )}
-                <span className="pl-d">{l.d}</span>
-              </div>
-            ))}
+          <div className="sec-body">
+            <div className="pricelines reveal">
+              {LINES.map((l) => (
+                <div className="pline" key={l.k}>
+                  <span className="pl-k">{l.k}</span>
+                  {l.v ? (
+                    <span className="pl-v">
+                      {l.v}
+                      <span className="pl-u">{l.u?.startsWith('/') ? l.u : ` ${l.u}`}</span>
+                    </span>
+                  ) : (
+                    <span className="pl-v is-soon">Coming soon</span>
+                  )}
+                  <span className="pl-d">{l.d}</span>
+                </div>
+              ))}
+            </div>
+            <p className="note reveal">
+              Each product is custom quoted. We discuss your workflows and communication needs, then state the scope and terms before you commit.
+            </p>
           </div>
-          <p className="pricenote">
-            Each product is custom quoted. We discuss your workflows and communication needs, then state the scope and terms before you commit.
-          </p>
         </div>
       </section>
 
-      <section className="section" id="examples">
+      <section className="section" id="examples" aria-labelledby="h-examples">
         <div className="wrap">
-          <div className="section-head" style={{ marginBottom: '40px' }}>
-            <p className="eyebrow reveal">Worked out</p>
-            <h2 className="serif reveal d1" style={{ fontSize: 'clamp(28px,4vw,48px)', marginTop: '16px' }}>
+          <div className="sec-head reveal">
+            <p className="eyebrow">Worked out</p>
+            <h2 className="h2" id="h-examples">
               Two ways to scope the work.
             </h2>
           </div>
-          <div className="criteria reveal d1">
-            {EXAMPLES.map((e) => (
-              <div className="crow" key={e.k}>
-                <span className="c-k serif">{e.k}</span>
-                <span className="c-v">{e.v}</span>
-              </div>
-            ))}
+          <div className="sec-body">
+            <div className="rows reveal">
+              {EXAMPLES.map((e) => (
+                <div key={e.k}>
+                  <span className="serif">{e.k}</span>
+                  <span>{e.v}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="darkband section" id="terms">
+      <section className="section on-dark" id="terms" aria-labelledby="h-terms">
         <div className="wrap">
-          <p className="eyebrow reveal">Terms, plainly</p>
-          <h2 className="reveal d1">A quote for your company.</h2>
-          <p className="darkband-lead reveal d1">
-            Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
-          </p>
-          <p className="darkband-lead reveal d1" style={{ marginTop: '18px' }}>
-            We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
-          </p>
+          <div className="sec-head reveal">
+            <p className="eyebrow">Terms, plainly</p>
+            <h2 className="h2" id="h-terms">A quote for your company.</h2>
+            <p className="lead">
+              Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
+            </p>
+            <p className="lead">
+              We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section" id="where">
+      <section className="section" id="where" aria-labelledby="h-where">
         <div className="wrap">
-          <div className="section-head">
-            <p className="eyebrow reveal">Where Forge is sold</p>
-            <h2 className="serif reveal d1" style={{ fontSize: 'clamp(26px,3.4vw,40px)', marginTop: '16px' }}>
+          <div className="sec-head reveal">
+            <p className="eyebrow">Where Forge is sold</p>
+            <h2 className="h2" id="h-where">
               Not here.
             </h2>
-            <p className="reveal d1" style={{ marginTop: '18px', fontSize: '16px', lineHeight: 1.7, color: 'var(--ink-2)', maxWidth: '58ch' }}>
+            <p className="lead">
               Dominus Foundry is the holding company. Forge is bought and billed on its own platform, and that is the only place a
               price becomes an agreement.
             </p>
-            <a
-              className="section-more reveal d2"
-              href="https://buildwithforge.app"
-              target="_blank"
-              rel="noopener"
-              style={{ marginTop: '26px', display: 'inline-flex' }}
-            >
-              buildwithforge.app <span className="arr">→</span>
-            </a>
+            <div className="actions">
+              <a className="btn btn-ghost" href="https://buildwithforge.app" target="_blank" rel="noopener">
+                buildwithforge.app <span className="arr">→</span>
+              </a>
+            </div>
           </div>
-          <p className="pricenote" style={{ marginTop: '44px' }}>
-            Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
-          </p>
+          <div className="sec-body">
+            <p className="note reveal">
+              Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
+            </p>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

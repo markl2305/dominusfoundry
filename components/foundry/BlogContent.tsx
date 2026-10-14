@@ -6,7 +6,9 @@
    Rows link to the existing on-site blog posts. Dates and bylines come
    only from the articles themselves; where an article carries none, say so. */
 import { Icon } from './Marks'
-import { CTA, PageHero } from './FoundryShell'
+import type { CSSProperties } from 'react'
+import { ClosingCta, PageHero } from '@/components/site/primitives'
+import '@/components/site/pages/pricing-blog.css'
 
 const NOTES = [
   {
@@ -52,7 +54,7 @@ const [lead, ...rest] = current
 function NoteMeta({ n }: { n: Note }) {
   return (
     <p className="n-meta">
-      <span className="n-by">{n.m}</span>
+      <span className="n-by">{n.m}</span>{' '}
       <span className="n-topic">{topic(n)}</span>
     </p>
   )
@@ -68,23 +70,24 @@ function ReadLink() {
 
 /* One row in the index. The title link is stretched over the whole row, so the
    row is one target while the accessible name stays the title alone. */
-function NoteRow({ n, archived = false }: { n: Note; archived?: boolean }) {
+function NoteRow({ n, i, archived = false, lead = false }: { n: Note; i: number; archived?: boolean; lead?: boolean }) {
   return (
-    <article className={archived ? 'note-row is-archived' : 'note-row'}>
-      <h3>
-        <a href={n.href}>{n.t}</a>
-      </h3>
-      <NoteMeta n={n} />
-      <p className="n-dek">{n.x}</p>
-      <ReadLink />
-      <span className="emberline" aria-hidden="true" />
-    </article>
+    <li className={`reveal${lead ? ' is-lead' : ''}${archived ? ' is-archived' : ''}`} style={{ '--i': i } as CSSProperties}>
+      <article className="list-row">
+        <h3 className="lr-t">
+          <a href={n.href}>{n.t}</a>
+        </h3>
+        <NoteMeta n={n} />
+        <p className="lr-p n-dek">{n.x}</p>
+        <ReadLink />
+      </article>
+    </li>
   )
 }
 
 export default function BlogContent() {
   return (
-    <>
+    <div className="pg-blog">
       <PageHero
         eyebrow="Foundry Notes · Insights"
         title={
@@ -103,57 +106,52 @@ export default function BlogContent() {
             </a>
           </>
         }
-        metaLeft={
+        meta={
           <>
-            Notes from <b>Dominus Foundry</b>
+            <span>
+              Notes from <b>Dominus Foundry</b>
+            </span>{' '}
+            <span>Albuquerque, NM</span>
           </>
         }
-        metaRight={<>Albuquerque, NM</>}
       />
-      <p className="wrap" style={{ paddingBlock: '24px', textAlign: 'center', color: 'var(--ink-2)' }}>Start with a short operational assessment of your business.</p>
 
-      <section className="pillars section notes-index" id="notes">
+      <section className="section" id="notes">
         <div className="wrap">
+          <p className="note reveal blog-start">Start with a short operational assessment of your business.</p>
+
           {lead && (
-            <div className="notes-block reveal">
-              <div className="notes-head">
-                <h2>Current essays.</h2>
-                <p>Newest first</p>
+            <div className="notes-block">
+              <div className="sec-head reveal">
+                <h2 className="h2">Current essays.</h2>
+                <p className="fine">Newest first</p>
               </div>
-              <article className="note-lead">
-                <div className="n-main">
-                  <h3>
-                    <a href={lead.href}>{lead.t}</a>
-                  </h3>
-                  <NoteMeta n={lead} />
-                </div>
-                <div className="n-side">
-                  <p className="n-dek">{lead.x}</p>
-                  <ReadLink />
-                </div>
-                <span className="emberline" aria-hidden="true" />
-              </article>
-              {rest.map((n) => (
-                <NoteRow n={n} key={n.href} />
-              ))}
+              <ul className="list-rows">
+                <NoteRow n={lead} i={0} lead />
+                {rest.map((n, i) => (
+                  <NoteRow n={n} i={i + 1} key={n.href} />
+                ))}
+              </ul>
             </div>
           )}
 
           {archive.length > 0 && (
-            <div className="notes-block notes-archive reveal d1">
-              <div className="notes-head">
-                <h2>Archive.</h2>
-                <p>Earlier essays, kept as written. They describe offerings that have since changed.</p>
+            <div className="notes-block notes-archive">
+              <div className="sec-head reveal">
+                <h2 className="h2">Archive.</h2>
+                <p className="lead">Earlier essays, kept as written. They describe offerings that have since changed.</p>
               </div>
-              {archive.map((n) => (
-                <NoteRow n={n} key={n.href} archived />
-              ))}
+              <ul className="list-rows">
+                {archive.map((n, i) => (
+                  <NoteRow n={n} i={i} key={n.href} archived />
+                ))}
+              </ul>
             </div>
           )}
         </div>
       </section>
 
-      <CTA
+      <ClosingCta
         eyebrow="Foundry Notes"
         title={
           <>
@@ -172,6 +170,6 @@ export default function BlogContent() {
           </>
         }
       />
-    </>
+    </div>
   )
 }
