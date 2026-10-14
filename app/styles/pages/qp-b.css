@@ -8,16 +8,31 @@
    and steps the display size down, as hiresabina.ai's phone hero does. */
 @media (max-width: 640px) {
   .dfs .qp .page-hero { padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 28px); padding-bottom: 44px; }
-  .dfs .ribbon ~ .qp > .page-hero.page-hero { padding-top: 32px; }
+  .dfs .ribbon ~ .qp > .page-hero.page-hero, .dfs .ribbon ~ * > .qp > .page-hero.page-hero { padding-top: 32px; }
   .dfs .qp .page-hero .crest { display: none; }
   .dfs .qp .page-hero .hero-in { gap: 16px; }
   .dfs .qp .page-hero .display { font-size: clamp(2.05rem, 9.4vw, 2.6rem); line-height: 1.05; }
   .dfs .qp .page-hero .lead { font-size: 1.0625rem; line-height: 1.5; }
   .dfs .qp .page-hero .actions { margin-top: 2px; }
 }
-/* the ribbon above an inside page's hero is tighter on phones too */
+/* the ribbon above an inside page's hero is tighter on phones too: the tag and
+   the link share the first row, the headline sits under them (same text, same
+   44px link target) */
 @media (max-width: 640px) {
-  .dfs:has(.qp) .ribbon-in { padding-block: 10px; }
+  .dfs:has(.qp) .ribbon-in { display: grid; grid-template-columns: auto auto; grid-template-areas: "tag link" "p p"; justify-content: space-between; align-items: center; gap: 0 12px; padding-block: 4px 12px; text-align: left; font-size: 0.8125rem; line-height: 1.4; }
+  .dfs:has(.qp) .ribbon .tag { grid-area: tag; justify-self: start; }
+  .dfs:has(.qp) .ribbon-in p { grid-area: p; }
+  .dfs:has(.qp) .ribbon a { grid-area: link; justify-self: end; }
+}
+/* the smallest phones: one step further */
+@media (max-width: 360px) {
+  .dfs .ribbon ~ .qp > .page-hero.page-hero, .dfs .ribbon ~ * > .qp > .page-hero.page-hero { padding-top: 16px; }
+  .dfs .qp .page-hero .actions { margin-top: 0; }
+  .dfs .qp .page-hero .display { font-size: 1.9rem; line-height: 1.02; }
+  .dfs .qp .page-hero .lead { font-size: 1rem; line-height: 1.45; }
+  .dfs .qp .page-hero .hero-in { gap: 12px; }
+  /* a notice's title is the longest headline on the site (qb-migration) */
+  .dfs .qp.qp-notice .page-hero .display { font-size: 1.625rem; line-height: 1.08; }
 }
 
 /* ---- "Ask Sabina" on phones: kept clear of the hero. The launcher (root
