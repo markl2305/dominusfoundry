@@ -23,6 +23,10 @@
  *    rules above still apply to everything those actions could trigger.
  *  - Optional: RESPONSIVE_GATE_ROUTES=/pitch,/careers limits the routes run
  *    (all by default); used for mutation runs, never for a pass/fail record.
+ *    Entries are trimmed; an unknown route, or a selection that names no
+ *    route at all, exits nonzero before anything runs. A run that measured
+ *    zero element/width combinations (overall, or for any selected route) is
+ *    never reported as a pass.
  */
 
 'use strict';
@@ -227,7 +231,11 @@ async function settleTarget(handle, timeoutMs) {
       for (let n = el; n && n.nodeType === 1; n = n.parentElement) chain.push(n);
       for (const n of chain) {
         const s = getComputedStyle(n);
-        if (Number(s.opacity) < 1 || s.visibility !== 'visible') return `${n.tagName.toLowerCase()}.${String(n.className).split(' ')[0]} opacity ${s.opacity} visibility ${s.visibility}`;
+        if (Number(s.opacity) < 1 || s.visibility !== 'visible') {
+          const r = n.getBoundingClientRect();
+          return `${n.tagName.toLowerCase()}.${String(n.className).split(' ')[0]} opacity ${s.opacity} visibility ${s.visibility}` +
+            ` (target "${(el.textContent || '').trim().slice(0, 40)}", revealed ${n.hasAttribute('data-in')}, box ${Math.round(r.top)}..${Math.round(r.bottom)} of viewport ${innerHeight}, scrollY ${Math.round(scrollY)})`;
+        }
       }
       const running = document.getAnimations().filter((a) => {
         const t = a.effect && a.effect.target;
@@ -236,9 +244,14 @@ async function settleTarget(handle, timeoutMs) {
       if (running.length) return `${running.length} animation(s) still running on the target or an ancestor`;
       return null;
     };
+    // Keep the target in view while waiting: content above it can still move
+    // (e.g. a disclosure finishing its height transition), and a target pushed
+    // back out of view would never reveal, which reads as a false failure.
+    const inView = () => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
     let why = state();
     while (why && performance.now() - t0 < limit) {
       await new Promise((r) => requestAnimationFrame(() => setTimeout(r, 30)));
+      if (!inView()) el.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
       why = state();
     }
     return why;
@@ -287,8 +300,27 @@ async function measureFamilies(page, { width, route, pass, selectors, settle, fa
   }
 }
 
+/* RESPONSIVE_GATE_ROUTES, parsed strictly (review N1): null when the variable
+   is not set (every route runs, unchanged); otherwise a non-empty list of
+   known routes, or an error. A typo must never skip everything and pass. */
+function selectRoutes() {
+  const raw = process.env.RESPONSIVE_GATE_ROUTES;
+  if (raw === undefined) return null;
+  const known = CHECKS.map((c) => c.route);
+  const picked = raw.split(',').map((r) => r.trim()).filter(Boolean);
+  if (picked.length === 0) {
+    throw Object.assign(new Error(`RESPONSIVE_GATE_ROUTES is set but names no route (${JSON.stringify(raw)}). Known routes: ${known.join(', ')}. Unset it to run every route.`), { code: 'GATE_CONFIG' });
+  }
+  const unknown = picked.filter((r) => !known.includes(r));
+  if (unknown.length) {
+    throw Object.assign(new Error(`RESPONSIVE_GATE_ROUTES names unknown route(s): ${unknown.join(', ')}. Known routes: ${known.join(', ')}.`), { code: 'GATE_CONFIG' });
+  }
+  return [...new Set(picked)];
+}
+
 async function run() {
   const base = assertLoopback(BASE_URL);
+  const ONLY = selectRoutes();
   const { chromium } = await loadPlaywright();
 
   const browser = await chromium.launch({ headless: true });
@@ -318,7 +350,6 @@ async function run() {
     const page = await context.newPage();
     const pageErrors = [];
     page.on('pageerror', (err) => pageErrors.push(String(err)));
-    const ONLY = process.env.RESPONSIVE_GATE_ROUTES ? process.env.RESPONSIVE_GATE_ROUTES.split(',') : null;
 
     for (const width of WIDTHS) {
       await page.setViewportSize({ width, height: VIEWPORT_HEIGHT });
@@ -335,7 +366,14 @@ async function run() {
           continue;
         }
         if (check.openDetails) {
-          await page.evaluate((sel) => document.querySelectorAll(sel).forEach((d) => { d.open = true; }), check.openDetails);
+          await page.evaluate(async (sel) => {
+            document.querySelectorAll(sel).forEach((d) => { d.open = true; });
+            // Let the disclosures finish opening (their height transition moves everything below them),
+            // bounded so a stuck animation cannot hang the gate.
+            await new Promise((r) => requestAnimationFrame(r));
+            const opening = document.getAnimations().filter((a) => a.effect && a.effect.getTiming().iterations !== Infinity && a.playState !== 'finished');
+            await Promise.race([Promise.all(opening.map((a) => a.finished.catch(() => {}))), new Promise((r) => setTimeout(r, 2000))]);
+          }, check.openDetails);
         }
         await measureFamilies(page, { width, route, selectors, settle: !!check.settle, failures, summary, settleMs: 4000 });
 
@@ -398,10 +436,24 @@ async function run() {
     return;
   }
 
+  // A pass must have measured something, and something on every route it ran (review N1).
+  const ran = ONLY || CHECKS.map((c) => c.route);
+  const unmeasured = ran.filter((r) => !summary.some((x) => x.route === r));
+  if (summary.length === 0 || unmeasured.length) {
+    console.error(`FAIL — refusing to report a pass: ${summary.length} element/width combinations measured; route(s) with none: ${unmeasured.join(', ') || 'none'}.`);
+    process.exitCode = 1;
+    return;
+  }
+
   console.log(`PASS — ${summary.length} tracked element/width combinations checked across ${WIDTHS.length} widths, 0 overflow/clip failures.`);
 }
 
 run().catch((err) => {
+  if (err && err.code === 'GATE_CONFIG') {
+    console.error(`public-responsive-gate: configuration error — ${err.message}`);
+    process.exitCode = 2;
+    return;
+  }
   console.error('public-responsive-gate crashed:', err);
   process.exitCode = 1;
 });
