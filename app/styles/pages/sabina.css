@@ -1,0 +1,7 @@
+/* app/styles/pages/sabina.css — /sabina, quality pass (2026-10-14). The film
+   keeps its frame from components/site/pages/pillars.css. ⛔ No copy here. */
+.dfs .pg-sabina-qp .three .card { display: grid; align-content: start; }
+.dfs .pg-sabina-qp .three .tile-t { font-size: clamp(1.5rem, 2.2vw, 1.8rem); }
+.dfs .pg-sabina-qp .handoff { display: grid; gap: 18px; align-content: center; justify-items: start; padding: clamp(28px, 4vw, 44px); background: linear-gradient(135deg, color-mix(in srgb, var(--copper) 14%, var(--panel)), var(--panel)); border-color: color-mix(in srgb, var(--copper) 30%, var(--hair)); }
+.dfs .pg-sabina-qp .handoff-t { margin: 0; max-width: 18ch; font: 500 clamp(1.7rem, 3vw, 2.4rem)/1.12 var(--serif); letter-spacing: -0.014em; color: var(--ink); text-wrap: balance; }
+.dfs .pg-sabina-qp .handoff .actions { margin-top: 4px; }
