@@ -116,3 +116,6 @@
 
 /* ---- shell-only pages (legal, notices) */
 .dfs .qp-plain .page-hero .display { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+.dfs .qp-notice .page-hero { min-height: min(68svh, 680px); display: grid; align-items: center; }
+@supports not (height: 100svh) { .dfs .qp-notice .page-hero { min-height: min(68vh, 680px); } }
+@media (max-width: 640px) { .dfs .qp-notice .page-hero { min-height: 0; } }
