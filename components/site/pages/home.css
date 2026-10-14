@@ -1,6 +1,8 @@
 /* components/site/pages/home.css — homepage-only parts (2026-10-14).
    Everything else on / comes from components/site/site.css. */
-.dfs .pg-home .hero-note { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--ink-3); max-width: 60ch; }
+.dfs .pg-home .hero-note { margin: 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 0.95rem; line-height: 1.55; color: var(--ink-2); max-width: 60ch; text-decoration: none; }
+.dfs .pg-home .hero-note .arr { color: var(--gold); transition: transform 200ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .dfs .pg-home .hero-note:hover { color: var(--ink); } .dfs .pg-home .hero-note:hover .arr { transform: translateX(3px); } }
 .dfs .pg-home .more-link {
   display: inline-flex; align-items: center; min-height: 44px; align-self: start; justify-self: start;
   color: var(--gold); text-decoration: none; font-weight: 500; font-size: 0.975rem;

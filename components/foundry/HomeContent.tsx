@@ -83,7 +83,7 @@ export default function HomeContent() {
           <a className="btn btn-ghost" href="/pitch">Read the investor case {Icon.arr}</a>
         </>}
       >
-        <p className="hero-note">Start with a short operational assessment of your business.</p>
+        <a className="hero-note" href="https://hiresabina.ai/evaluate">Start with a short operational assessment of your business. <span className="arr" aria-hidden="true">→</span></a>
       </PageHero>
 
       <section className="section" id="how" aria-labelledby="h-how">
