@@ -363,7 +363,21 @@ if (!Number.isInteger(provisionalCount))
   throw new Error('/pitch: the provisionals claim no longer starts with its count')
 const nonprovisionalCount = PROOF.filter((c) => /^nonprovisional(-\d+)?$/.test(c.id)).length
 
+/* The strip's label carries the row's own independent/related-party wording,
+   lifted from the claim rather than retyped. */
+const forgeQualifier = forgeProduction.publicCopy.match(/^Forge — two (production deployments, one independent and one related-party)$/)
+if (!forgeQualifier)
+  throw new Error('/pitch: the at-a-glance Forge label no longer matches the forge-production claim')
+/* The filing caption is built from the filing rows themselves: every one must be
+   status "filed" and carry the same "Patent pending: filed, not issued." line,
+   or the page refuses to render rather than state a status the rows do not. */
+const filingRows = PROOF.filter((c) => c.id === 'provisionals' || /^nonprovisional(-\d+)?$/.test(c.id))
+const PENDING = /Patent pending: filed, not issued\.$/
+if (filingRows.length !== 1 + nonprovisionalCount || !filingRows.every((c) => c.status === 'filed' && PENDING.test(c.detailCopy)))
+  throw new Error('/pitch: the at-a-glance filing caption no longer matches every filing row')
+const filingCaption = PENDING.exec(filingRows[0].detailCopy)![0].replace(/\.$/, '').replace(': ', ' · ').replace(/^P/, 'p')
+
 export const AT_A_GLANCE = {
-  forgeDeployments: { value: '2', claimId: forgeProduction.id, asOf: forgeProduction.asOf, status: forgeProduction.status },
-  filings: { value: `${provisionalCount} + ${nonprovisionalCount}`, asOf: claim('nonprovisional-2').asOf },
+  forgeDeployments: { value: '2', label: `Forge ${forgeQualifier[1]}`, claimId: forgeProduction.id, asOf: forgeProduction.asOf, status: forgeProduction.status },
+  filings: { value: `${provisionalCount} + ${nonprovisionalCount}`, caption: filingCaption, asOf: claim('nonprovisional-2').asOf },
 }

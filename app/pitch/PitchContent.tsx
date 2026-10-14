@@ -116,8 +116,8 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         <div className="wrap glance-grid">
           <div className="glance-item reveal" style={{ '--i': 0 } as React.CSSProperties}><span className="glance-v num" id="gTarget">{usd(target)}</span><span className="glance-l">Proposed financing target</span><span className="glance-f">planning budget · {p.asOf}</span></div>
           <div className="glance-item reveal" style={{ '--i': 1 } as React.CSSProperties}><span className="glance-v num">{p.horizonMonths} months</span><span className="glance-l">Operating horizon from financing close</span><span className="glance-f">no forecast receipts required by this budget</span></div>
-          <div className="glance-item reveal" style={{ '--i': 2 } as React.CSSProperties}><span className="glance-v num">{g.forgeDeployments.value}</span><span className="glance-l">Forge production deployments, one independent and one related-party</span><span className="glance-f">{STATUS_LABEL[g.forgeDeployments.status].toLowerCase()} · {g.forgeDeployments.asOf}</span></div>
-          <div className="glance-item reveal" style={{ '--i': 3 } as React.CSSProperties}><span className="glance-v num">{g.filings.value}</span><span className="glance-l">U.S. provisional and non-provisional applications</span><span className="glance-f">patent pending · filed, not issued</span></div>
+          <div className="glance-item reveal" style={{ '--i': 2 } as React.CSSProperties}><span className="glance-v num">{g.forgeDeployments.value}</span><span className="glance-l">{g.forgeDeployments.label}</span><span className="glance-f">{STATUS_LABEL[g.forgeDeployments.status].toLowerCase()} · {g.forgeDeployments.asOf}</span></div>
+          <div className="glance-item reveal" style={{ '--i': 3 } as React.CSSProperties}><span className="glance-v num">{g.filings.value}</span><span className="glance-l">U.S. provisional and non-provisional applications</span><span className="glance-f">{g.filings.caption}</span></div>
         </div>
       </section>
 
@@ -393,7 +393,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
               <img src="/brand/crest-full.png" alt="" width="32" height="36" />
               <span>Dominus Foundry</span>
             </a>
-            <p className="f-blurb">Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</p>
+            <p className="f-blurb">Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own AI, shaped around your systems, knowledge, people, and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</p>
           </div>
           {FOOTER_COLS.map((col) => <div className="f-col" key={col.h}>
             <h4>{col.h}</h4>

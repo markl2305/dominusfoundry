@@ -63,6 +63,10 @@ const resolve = (pref: Pref) => (pref === 'dark' || (pref === 'system' && !windo
 export function useThemePref() {
   const [pref, setPref] = useState<Pref>('system')
   const applyRef = useRef<(p: Pref, animate: boolean) => void>(() => {})
+  // The in-memory choice is authoritative for this visit. Storage may be denied
+  // (private windows, blocked site data): a failed write must not undo the
+  // choice, so nothing below re-reads storage after the first load.
+  const prefRef = useRef<Pref>('system')
   useIso(() => {
     const root = document.documentElement
     const apply = (next: Pref, animate: boolean) => {
@@ -72,21 +76,21 @@ export function useThemePref() {
       if (animate && theme !== root.getAttribute('data-df-theme') && doc.startViewTransition && !reduced()) doc.startViewTransition(swap); else swap()
     }
     const initial = readStored()
-    setPref(initial); apply(initial, false)
+    prefRef.current = initial; setPref(initial); apply(initial, false)
     const mq = window.matchMedia('(prefers-color-scheme: light)')
-    const onSystem = () => { if (readStored() === 'system') apply('system', true) }
+    const onSystem = () => { if (prefRef.current === 'system') apply('system', true) }
     mq.addEventListener('change', onSystem)
     applyRef.current = apply
     return () => {
       mq.removeEventListener('change', onSystem)
       // Leaving /pitch: hand <html> back exactly as the other routes expect it.
       root.removeAttribute('data-dfp-pref')
-      if (readStored() === 'system') root.removeAttribute('data-df-theme')
+      if (prefRef.current === 'system') root.removeAttribute('data-df-theme')
     }
   }, [])
   const choose = useCallback((next: Pref) => {
     try { if (next === 'system') localStorage.removeItem('df-theme'); else localStorage.setItem('df-theme', next) } catch { /* storage blocked: the choice lasts this visit */ }
-    setPref(next); applyRef.current(next, true)
+    prefRef.current = next; setPref(next); applyRef.current(next, true)
   }, [])
   return [pref, choose] as const
 }
@@ -154,7 +158,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
 
   const go = (e: React.MouseEvent, id: string) => {
     e.preventDefault(); setOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth' })
+    document.getElementById(id)?.scrollIntoView({ behavior: reduced() ? 'instant' as ScrollBehavior : 'smooth' })
     btn.current?.focus({ preventScroll: true })
   }
   const onListKey = (e: React.KeyboardEvent) => {
@@ -210,7 +214,21 @@ export function LayerStack({ layers }: { layers: Layer[] }) {
   const stack = useRef<HTMLDivElement>(null)
   const select = (i: number, focus = false) => { setSel(i); setSwapKey((k) => k + 1); if (focus) stack.current?.querySelectorAll<HTMLElement>('.layer')[i]?.focus() }
   const l = layers[sel]
-  return <div className="stack-wrap reveal">
+  return <>
+  {/* Server-rendered and readable with no script: every layer, both halves. Once
+      the page has hydrated the tabs below replace this list (pitch.css), and if
+      the page script never arrives it is revealed again by the CSS failsafe. */}
+  <div className="layer-all reveal" id="layerAll">
+    {layers.map((x, i) => <details className="more" key={x.t} open>
+      <summary><span className="ln">{i + 1}</span> {x.t} <span className="plus" aria-hidden="true" /></summary>
+      <div className="more-body">
+        <p className="layer-what">{x.what}</p>
+        <p className="layer-platform"><b>Reusable platform</b> {x.platform}</p>
+        <p className="layer-company"><b>Company state</b> {x.company}</p>
+      </div>
+    </details>)}
+  </div>
+  <div className="stack-wrap reveal">
     <div className="stack" role="tablist" aria-label="Architecture layers" aria-orientation="vertical" id="stack" ref={stack}
       onKeyDown={(e) => { if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return; select((sel + (e.key === 'ArrowDown' ? 1 : layers.length - 1)) % layers.length, true); e.preventDefault() }}>
       {layers.map((x, i) => <button key={x.t} type="button" className="layer" role="tab" id={`layer-${i}`} aria-controls="layerPanel" aria-selected={i === sel} tabIndex={i === sel ? 0 : -1} style={{ '--d': i } as CSSProperties} onClick={() => select(i)}>
@@ -226,6 +244,7 @@ export function LayerStack({ layers }: { layers: Layer[] }) {
       </div>
     </div>
   </div>
+  </>
 }
 
 /* ============================================================================
@@ -301,8 +320,24 @@ const ProofSheet = forwardRef<SheetApi, { rows: PitchClaim[] }>(function ProofSh
   const project = (vel: number, d = 0.998) => ((vel / 1000) * d) / (1 - d)
   const rubber = (over: number, dim: number, cst = 0.55) => (over * dim * cst) / (dim + cst * Math.abs(over))
 
+  /* Background inert while open: every sibling along the path from the sheet up
+     to <body> (page, nav, footer, and any widget outside the page) gets `inert`,
+     and exactly those are released on close. */
+  const inerted = useRef<Element[]>([])
+  const setBackgroundInert = (on: boolean) => {
+    if (!on) { inerted.current.forEach((el) => el.removeAttribute('inert')); inerted.current = []; return }
+    for (let n: Element | null = rootEl.current; n && n !== document.body; n = n.parentElement) {
+      const parent: Element | null = n.parentElement
+      if (!parent) break
+      for (const sib of Array.from(parent.children)) {
+        if (sib === n || sib.hasAttribute('inert') || sib.tagName === 'SCRIPT') continue
+        sib.setAttribute('inert', ''); inerted.current.push(sib)
+      }
+    }
+  }
   const finish = () => {
     const s = st.current
+    setBackgroundInert(false)
     setShown(false); document.documentElement.style.overflow = ''
     if (sheetEl.current) { sheetEl.current.style.transition = ''; sheetEl.current.style.opacity = '' }
     if (scrimEl.current) scrimEl.current.style.transition = ''
@@ -333,6 +368,7 @@ const ProofSheet = forwardRef<SheetApi, { rows: PitchClaim[] }>(function ProofSh
       sheetEl.current.style.transition = 'opacity 200ms ease'; if (scrimEl.current) scrimEl.current.style.transition = 'opacity 200ms ease'
       sheetEl.current.style.opacity = '0'; paint(); requestAnimationFrame(() => { if (sheetEl.current) sheetEl.current.style.opacity = '1' })
     } else { if (!s.raf) { s.y = s.h; s.v = 0 } paint(); spring(0, { response: 0.4 }) }
+    setBackgroundInert(true)
     sheetEl.current.focus({ preventScroll: true })
   }, [shown])
   useEffect(() => { if (bodyEl.current) bodyEl.current.scrollTop = 0 }, [currentId])
@@ -342,15 +378,19 @@ const ProofSheet = forwardRef<SheetApi, { rows: PitchClaim[] }>(function ProofSh
       if (e.key === 'Escape') { close(); return }
       if (e.key === 'Tab' && sheetEl.current) { /* keep focus inside the dialog */
         const f = Array.from(sheetEl.current.querySelectorAll<HTMLElement>('button:not([disabled]), [href]')); if (!f.length) return
-        if (e.shiftKey && document.activeElement === f[0]) { f[f.length - 1].focus(); e.preventDefault() }
-        else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { f[0].focus(); e.preventDefault() }
+        const i = f.indexOf(document.activeElement as HTMLElement)
+        // focus on the dialog itself (as it is right after opening) or anywhere
+        // outside its controls: Tab goes to the first control, Shift+Tab to the last
+        if (i < 0) { (e.shiftKey ? f[f.length - 1] : f[0]).focus(); e.preventDefault() }
+        else if (e.shiftKey && i === 0) { f[f.length - 1].focus(); e.preventDefault() }
+        else if (!e.shiftKey && i === f.length - 1) { f[0].focus(); e.preventDefault() }
       }
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown])
-  useEffect(() => () => { stop(); document.documentElement.style.overflow = '' }, [])
+  useEffect(() => () => { stop(); setBackgroundInert(false); document.documentElement.style.overflow = '' }, [])
 
   /* drag — from the grabber or the header; the body scrolls normally */
   const startDrag = (e: React.PointerEvent) => {

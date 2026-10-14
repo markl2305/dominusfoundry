@@ -758,11 +758,32 @@ html[data-dfp-pref="light"] .dfp .seg-theme { --i: 2; }
 @media (max-width: 960px) { .dfp .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .dfp .f-brand { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .dfp .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .dfp .f-col:last-child { grid-column: 1 / -1; } }
 
+/* IV — every layer's explanation is server-rendered in .layer-all (native
+   disclosures, open). The interactive tabs replace it once the page hydrates.
+   No script at all: the list shows and the inert tabs are hidden. Script
+   allowed but the page chunks never arrive: the tabs show first (pre-paint
+   sets dfp-js) and the failsafe below swaps the list back in. */
+.dfp .layer-all { display: grid; }
+.dfp .layer-all summary { font: 500 1.25rem/1.2 var(--serif); color: var(--ink); justify-content: flex-start; }
+.dfp .layer-all summary .plus { margin-left: auto; }
+.dfp .layer-all .ln { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: inline-grid; place-items: center; font: 500 0.72rem/1 var(--mono); flex: none; }
+.dfp .layer-all .more-body p { color: var(--ink-2); max-width: 64ch; line-height: 1.6; }
+.dfp .layer-all .more-body b { display: block; font: 500 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.dfp .layer-all .layer-what { color: var(--ink) !important; font: 500 1.2rem/1.35 var(--serif); }
+html:not(.dfp-js) .dfp .stack-wrap { display: none; }
+html.dfp-ready .dfp .layer-all { display: none; }
+
 /* Failsafe: if the page script never runs, revealed content still appears. */
 html.dfp-js:not(.dfp-ready) .dfp .reveal { animation: dfp-failsafe 1ms 2.5s forwards; }
 @keyframes dfp-failsafe { to { opacity: 1; transform: none; } }
+html.dfp-js:not(.dfp-ready) .dfp .layer-all { visibility: hidden; position: absolute; height: 0; overflow: hidden; animation: dfp-failsafe 1ms 2.5s forwards, dfp-show-failsafe 1ms 2.5s forwards; }
+html.dfp-js:not(.dfp-ready) .dfp .stack-wrap { animation: dfp-hide-failsafe 1ms 2.5s forwards; }
+@keyframes dfp-show-failsafe { to { visibility: visible; position: static; height: auto; overflow: visible; } }
+@keyframes dfp-hide-failsafe { to { visibility: hidden; position: absolute; height: 0; overflow: hidden; } }
 
 @media print {
   html.dfp-js .dfp .reveal { opacity: 1 !important; transform: none !important; }
+  .dfp .layer-all { display: grid !important; visibility: visible !important; position: static !important; height: auto !important; }
+  .dfp .stack-wrap { display: none !important; }
   .dfp .nav, .dfp .index, .dfp .embers, .dfp::after, .dfp .scroll-cue { display: none !important; }
 }
