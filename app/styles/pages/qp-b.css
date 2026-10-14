@@ -116,6 +116,11 @@
   .dfs .qpb .qp-read.has-index { grid-template-columns: minmax(0, 66ch) minmax(0, 1fr); justify-content: space-between; }
 }
 .dfs .qpb .qp-read .article > * { max-width: 66ch; }
+/* release 2026-10-14: in WebKit a wide table inside the column (its own
+   scroller) sized the one-column grid's item past its track, pushing the
+   article 30px past a 390px screen. Below 1100px the index is hidden and the
+   column is the only child, so the wrapper is a plain block there. */
+@media (max-width: 1099px) { .dfs .qpb .qp-read { display: block; } }
 .dfs .qpb .qp-index { display: none; }
 @media (min-width: 1100px) {
   .dfs .qpb .qp-index { display: block; position: sticky; top: calc(var(--nav-h) + 28px); align-self: start; justify-self: end; width: min(280px, 100%); }
@@ -134,3 +139,10 @@
 .dfs .qp-notice .page-hero { min-height: min(68svh, 680px); display: grid; align-items: center; }
 @supports not (height: 100svh) { .dfs .qp-notice .page-hero { min-height: min(68vh, 680px); } }
 @media (max-width: 640px) { .dfs .qp-notice .page-hero { min-height: 0; } }
+
+/* release 2026-10-14: /about's hero (press ribbon, crest, three-line display)
+   put its action 11px below a 1440 x 900 screen; the top gap comes in on short
+   desktop screens only. */
+@media (min-width: 761px) and (max-height: 940px) {
+  .dfs .ribbon ~ .qpb.qp-about > .page-hero.page-hero, .dfs .ribbon ~ * > .qpb.qp-about > .page-hero.page-hero, .dfs .qpb.qp-about .page-hero { padding-top: 64px; }
+}
