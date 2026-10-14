@@ -23,6 +23,7 @@ import { ThemeControl } from './theme'
 import SiteMenu from './SiteMenu'
 import SiteFooter from './SiteFooter'
 import { NAV_LINKS, CONTACT, activeFor } from './nav-links'
+import { SectionButton, SectionProgress, useSections } from './SectionNav'
 
 const useIso = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -65,7 +66,10 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
     return () => io.disconnect()
   }, [pathname])
   const bare = variant === 'bare'
-  return <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}${bare ? ' bare' : ''}`} id="nav">
+  // The "where am I" section button, as on /pitch, on any page with three or more data-name sections.
+  const secs = useSections(pathname)
+  const hasSecs = !bare && secs.length > 0
+  return <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}${bare ? ' bare' : ''}${hasSecs ? ' has-secs' : ''}`} id="nav">
     <div className="wrap nav-in">
       <a className="brand" href="/" aria-label="Dominus Foundry home">
         {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
@@ -75,12 +79,14 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
       {!bare && <nav className="nav-links" aria-label="Primary">
         {NAV_LINKS.map((l) => <a key={l.id} className="nav-link" href={l.href} aria-current={active === l.id ? 'page' : undefined}>{l.label}</a>)}
       </nav>}
+      {hasSecs && <SectionButton secs={secs} solid={solid} />}
       <div className="nav-right">
         <ThemeControl />
         {!bare && <a className="btn btn-solid nav-cta" href={CONTACT.href}>{CONTACT.label}</a>}
         {!bare && <SiteMenu />}
       </div>
     </div>
+    {hasSecs && <SectionProgress pathname={pathname} />}
   </header>
 }
 
