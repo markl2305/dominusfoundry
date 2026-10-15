@@ -29,7 +29,13 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
       <div className="locatefaith-badge">
         {/* eslint-disable-next-line @next/next/no-img-element -- exact external badge markup, as on every route */}
         <a href="https://locatefaith.com/business/sabina-by-dominus-foundry"><img src="https://locatefaith.com/brand/verified-badge-v2.svg" alt="Verified Christian Business on LocateFaith" width="240" height="107" /></a>
+        {/* NVIDIA Inception member badge (2026-10-15): NVIDIA's official full-colour artwork, unmodified and
+            self-hosted. NVIDIA shows the same badge on light and dark grounds. 93x40: the framed box renders
+            ~30px, NVIDIA's minimum, and stays smaller than the 36px crest. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- official artwork served as-is */}
+        <a className="nv-badge" href="https://www.nvidia.com/en-us/startups/" rel="noopener"><img src="/brand/nvidia-inception-program-badge.svg" alt="Dominus Foundry is a member of NVIDIA Inception" width="93" height="40" /></a>
       </div>
+      <p className="nv-legal">© 2026 NVIDIA, the NVIDIA logo, and NVIDIA Inception are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries.</p>
     </div>
   </footer>
 }
