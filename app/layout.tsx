@@ -102,6 +102,15 @@ export default function RootLayout({
       : 'We use Vercel Web Analytics only if you allow it. No analytics data is sent until you choose. ',
     acceptLabel: 'Allow analytics',
     rejectLabel: 'No analytics',
+    // Consent by region (Mark 2026-10-14/15, shared memory 77550c45): middleware.js sets __Host-consent_region on every
+    // document, so this site may be default-on outside the ask-first region (EU/EEA, UK, Switzerland, unknown). A site
+    // without its own edge step must not set this (hiresabina review F2). The choice re-opened from "Your privacy
+    // choices" in the default-on region says analytics are on and can be turned off, and names the same cookieless
+    // Google Ads measurement as barText does.
+    regionalDefault: true,
+    optOutText: hasRealGaId
+      ? 'We use Google Analytics and Vercel Web Analytics to understand how this site is used, and the same choice lets Google Ads measure visits without cookies. You can turn them off here at any time. '
+      : 'We use Vercel Web Analytics to understand how this site is used. You can turn it off here at any time. ',
   })};` +
     // Google Consent Mode defaults, queued before any tag exists (no network: gtag.js only loads after Allow).
     // The Google tag behind GA_ID is linked, in Google's own tag settings, to Google Ads AW-17706960854 —
@@ -144,8 +153,9 @@ export default function RootLayout({
               "try{var d=document.documentElement,t=null;try{t=localStorage.getItem('df-theme')}catch(e){}var s=t==='light'||t==='dark';d.setAttribute('data-dfp-pref',s?t:'system');d.setAttribute('data-df-theme',s?t:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));d.classList.add(/^\\/pitch\\/?$/.test(location.pathname)?'dfp-js':'dfs-js')}catch(e){}",
           }}
         />
-        {/* Consent gate (compliance P1-1c, Mark 2026-10-12). Google Analytics 4 and Vercel Web Analytics load
-            ONLY after a visitor presses "Allow analytics", never under Global Privacy Control (the
+        {/* Consent gate (compliance P1-1c, Mark 2026-10-12; by region, Mark 2026-10-14/15). Google Analytics 4 and
+            Vercel Web Analytics load in the ask-first region (EU/EEA, UK, Switzerland, unknown) ONLY after a visitor
+            presses "Allow analytics", elsewhere unless the visitor chose "No analytics", and never under Global Privacy Control (the
             navigator.globalPrivacyControl signal, or the consent_gpc cookie middleware.js sets from Sec-GPC),
             and never from the server: public/consent/consent.js creates every tag in the browser, so with
             JavaScript off nothing is sent. */}

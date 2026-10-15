@@ -9,6 +9,9 @@ const SAYS = {
   accept: 'You allowed analytics on this browser.',
   reject: 'You chose no analytics on this browser.',
   none: 'You have not made a choice on this browser, so no analytics have been sent.',
+  // Consent by region (Mark 2026-10-14, the line approved for hiresabina): only in the default-on region (outside the
+  // EU/EEA, UK and Switzerland) before any choice, where analytics run unless turned off.
+  default: 'Analytics are on for this browser because you have not turned them off. Choose No analytics to stop them.',
   nojs: 'With JavaScript off, this site sends no analytics.',
 } as const;
 

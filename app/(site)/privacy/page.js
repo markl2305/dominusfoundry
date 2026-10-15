@@ -9,6 +9,9 @@ import '@/app/styles/pages/articles.css';
 // public/consent/consent.js, so this page names the analytics recipients, states the Global Privacy Control
 // rule and carries the withdraw control. Hosting and database providers are described by category, not
 // named (canon 2026-10-07). No retention period is stated because none is set in code.
+// Consent by region (Mark 2026-10-14/15, shared memory 77550c45): the analytics sentences now say what the region rule
+// does, adapted from the wording Mark approved for hiresabina (CONSENT-GEO-1014 §5) to this site's own vendors
+// (Google Analytics, Vercel Web Analytics, cookieless Google Ads measurement); no other legal sentence changed.
 export const metadata = {
   title: 'Privacy Policy — Dominus Foundry',
   description: 'How we collect, use, and protect your information at Dominus Foundry.'
@@ -17,7 +20,7 @@ export const metadata = {
 export default function Privacy() {
   return (
     <div className="qpb qp-plain qp-legal">
-      <PageHero title="Privacy Policy" lead="Last updated: October 12, 2026" />
+      <PageHero title="Privacy Policy" lead="Last updated: October 15, 2026" />
 
       <section className="section pg-legal">
         <div className="wrap">
@@ -32,8 +35,10 @@ export default function Privacy() {
                 our services.
               </p>
               <p>
-                Using this website does not mean you agree to analytics. Analytics run only if you choose
-                &ldquo;Allow analytics&rdquo;, and you can change that choice at any time in{' '}
+                Using this website does not mean you agree to analytics. In the European Union, the wider EEA, the
+                United Kingdom and Switzerland, analytics run only if you choose &ldquo;Allow analytics&rdquo;.
+                Elsewhere they are on unless you turn them off with Your privacy choices or your browser sends a
+                Global Privacy Control signal. You can change that choice at any time in{' '}
                 <a href="#analytics-choice">Your analytics choice</a>{' '}
                 below.
               </p>
@@ -69,7 +74,9 @@ export default function Privacy() {
                 those standard request details to LocateFaith; our fonts are served from this site, not a font service.
               </p>
               <p>
-                <strong>Only if you allow analytics</strong>, we also measure which pages are visited, how long
+                <strong>Analytics.</strong> In the European Union, the wider EEA, the United Kingdom and Switzerland,
+                only if you allow it. Elsewhere it is on unless you turn it off with Your privacy choices or your
+                browser sends a Global Privacy Control signal. We also measure which pages are visited, how long
                 they are viewed, the referring site (without its query string), device and browser type, and
                 approximate location derived from your IP address. See{' '}
                 <a href="#analytics">Analytics</a> below.
@@ -215,7 +222,7 @@ export default function Privacy() {
                   telecommunications (text messages you have agreed to receive).
                 </li>
                 <li>
-                  <strong>Analytics and advertising measurement, only if you allow analytics:</strong> Google
+                  <strong>Analytics and advertising measurement, under the choice described above:</strong> Google
                   Analytics and Google Ads (both Google LLC), and Vercel Web Analytics. Details below.
                 </li>
                 <li>
@@ -235,34 +242,38 @@ export default function Privacy() {
             <section id="analytics">
               <h2>Analytics and Cookies</h2>
               <p>
-                <strong>Nothing is sent to an analytics service until you choose &ldquo;Allow analytics&rdquo;.</strong>{' '}
-                Until then, and if you choose &ldquo;No analytics&rdquo;, no analytics script is loaded.
+                <strong>In the European Union, the wider EEA, the United Kingdom and Switzerland, nothing is sent to
+                an analytics service until you choose &ldquo;Allow analytics&rdquo;.</strong>{' '}
+                Until then, and if you choose &ldquo;No analytics&rdquo;, no analytics script is loaded. Elsewhere
+                analytics are on unless you choose &ldquo;No analytics&rdquo; with Your privacy choices or your
+                browser sends a Global Privacy Control signal, and then no analytics script is loaded.
               </p>
               <ul>
                 <li>
-                  <strong>Google Analytics</strong> (Google LLC). If you allow it, Google receives the pages you view
+                  <strong>Google Analytics</strong> (Google LLC). When it is on, Google receives the pages you view
                   (the address without its query string or fragment), the referring site, your browser and device
                   type, and your IP address, and sets the <code>_ga</code> cookies to recognize a returning browser.
                   Google may use this data as described in its own policies.
                 </li>
                 <li>
-                  <strong>Vercel Web Analytics.</strong> If you allow it, it counts page views without its own
+                  <strong>Vercel Web Analytics.</strong> When it is on, it counts page views without its own
                   cookies, again without query strings.
                 </li>
                 <li>
                   <strong>Google Ads</strong> (Google LLC). Our Google Analytics tag is linked to a Google Ads account,
-                  so the same Allow also lets the Google tag tell Google Ads that a page was viewed. We run it in
+                  so the same analytics choice also lets the Google tag tell Google Ads that a page was viewed. We run it in
                   Google&rsquo;s restricted mode: no advertising cookies are set, and we tell Google not to use the
                   data for ad personalization or remarketing. Google still receives the page address (without its query string)
-                  and your IP address with each of those signals. With no choice, &ldquo;No analytics&rdquo; or a
-                  Global Privacy Control signal, nothing is sent to Google Ads.
+                  and your IP address with each of those signals. With &ldquo;No analytics&rdquo;, a Global Privacy
+                  Control signal or, in the EU, EEA, UK and Switzerland, no choice, nothing is sent to Google Ads.
                 </li>
               </ul>
               <h3>Cookies and storage we always use</h3>
               <ul>
                 <li>
                   <code>df-consent</code>: remembers your analytics choice so you are not asked on every page. It
-                  is kept in two places, a cookie and a copy in your browser&rsquo;s local storage, and each is
+                  is kept in two places, a cookie (named <code>__Host-df-consent</code>) and a copy in your
+                  browser&rsquo;s local storage, and each is
                   honoured for 180 days from when you chose; after that you are asked again. Changing your choice
                   below replaces both.
                 </li>
@@ -270,6 +281,11 @@ export default function Privacy() {
                   <code>consent_gpc</code>: set only when your browser sends a Global Privacy Control signal, so the
                   site can honor it. It is cleared on the first page you load without the signal, and lasts a day
                   at most.
+                </li>
+                <li>
+                  <code>__Host-consent_region</code>: set on each page you load, from the country our hosting
+                  provider derives from your IP address, so the site knows whether to ask before analytics run. It
+                  lasts a day at most.
                 </li>
                 <li>
                   <code>df-theme</code> (local storage): remembers light or dark display if you choose one.
@@ -282,7 +298,8 @@ export default function Privacy() {
               <p>
                 If your browser sends a Global Privacy Control (GPC) signal, we treat it as &ldquo;No
                 analytics&rdquo;. We do not ask you, and the signal overrides an earlier &ldquo;Allow
-                analytics&rdquo; for as long as it is on. We do not sell personal information or share it for
+                analytics&rdquo; for as long as it is on. Outside the EU, EEA, UK and Switzerland, where analytics
+                are otherwise on, the signal turns them off in the same way. We do not sell personal information or share it for
                 cross-context advertising.
               </p>
             </section>
@@ -294,6 +311,7 @@ export default function Privacy() {
                 clears the analytics cookies this site can clear, and reloads the page.
               </p>
               <ConsentChoice />
+              <p>Use Your privacy choices at the foot of any page to allow analytics or turn them off at any time.</p>
             </section>
 
             <section>

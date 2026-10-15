@@ -36,6 +36,12 @@
  *   - section 12 (v2 sync review F1): the nine Foundry-shell routes must carry a visible, focusable footer link to
  *     /privacy before a choice, after a stored Accept, after a stored Reject and under GPC, and following it must reach
  *     the notice's choice/withdraw control.
+ * Consent by region (2026-10-15), ported from hiresabina f8ee005: CONSENT_COUNTRY (the x-vercel-ip-country every request
+ * carries; this is the ASK-FIRST matrix, run unset and with an ask-first country such as DE); the stored choice seeded
+ * as the host-only __Host-<KEY> cookie; the layout loop at five widths (CONSENT_LAYOUT_VIEWPORTS) with settled waits;
+ * section 10b, the choice re-opened from "Your privacy choices" on every layout route and width. This port also tests
+ * the bar's own links per line box (a wrapped link's box centre falls between its lines), and CONSENT_SKIP=core /
+ * CONSENT_SKIP=layout split the run (core = every section but 10 and 10b).
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
@@ -61,6 +67,11 @@ const LAYOUT_ROUTES = (process.env.CONSENT_LAYOUT_ROUTES || ALL_ROUTES.filter((r
 // The routes that render the Foundry shell's own footer instead of SiteFooter (components/AppShell.tsx FOUNDRY_ROUTES).
 const FOUNDRY_ROUTES = (process.env.CONSENT_FOUNDRY_ROUTES || '/,/sabina,/governance,/technology,/company,/press,/blog,/pricing,/pitch').split(',');
 const SKIP = new Set((process.env.CONSENT_SKIP || '').split(',').filter(Boolean)); // e.g. form (another site has no /evaluate)
+// Region (Mark 2026-10-14; ported from hiresabina f8ee005 2026-10-15): every request of every state carries
+// x-vercel-ip-country: CONSENT_COUNTRY, as Vercel's edge would. Unset (the default) is the missing-header case. This whole
+// matrix is the ASK-FIRST matrix: run it unset and with an ask-first country (e.g. DE); tests/consent/geo-matrix.mjs
+// covers the default-on region.
+const COUNTRY = process.env.CONSENT_COUNTRY || '';
 // Off-origin hosts a page may legitimately ask for that are NOT analytics. Still aborted and still in the ledger; just
 // not "unknown". dominusfoundry's, measured 2026-10-12: only the LocateFaith verified badge (footer image).
 const ALLOWED_HOSTS = new Set((process.env.CONSENT_ALLOWED_HOSTS ?? 'locatefaith.com').split(',').filter(Boolean));
@@ -127,10 +138,17 @@ async function fresh(browser, opts = {}) {
   const { gpcSignal = false, gpcHeader = false, js = true, seedCookie = null, seedStorage = null, viewport = null } = opts;
   const context = await browser.newContext({
     javaScriptEnabled: js, userAgent: UA, serviceWorkers: 'block',
-    ...(viewport ? { viewport } : {}), extraHTTPHeaders: gpcHeader ? { 'Sec-GPC': '1' } : {},
+    ...(viewport ? { viewport } : {}), extraHTTPHeaders: { ...(gpcHeader ? { 'Sec-GPC': '1' } : {}), ...(COUNTRY ? { 'x-vercel-ip-country': COUNTRY } : {}) },
   });
   await context.addInitScript(() => { Object.defineProperty(Navigator.prototype, 'webdriver', { get: () => false, configurable: true }); });
-  if (seedCookie) await context.addCookies([{ name: KEY, value: seedCookie, url: ORIGIN }]);
+  // This host's own choice cookie is the Secure __Host-<KEY> (consent.js rule 5, 2026-10-14). The cookie API cannot set a
+  // __Host- cookie for an http origin, so it is planted once per context through document.cookie on this origin
+  // (Chromium treats localhost as secure); a plain marker cookie keeps it to once.
+  if (seedCookie) await context.addInitScript(([origin, k, v]) => {
+    if (location.origin !== origin || /(^|; )seed_choice_done=1/.test(document.cookie)) return;
+    document.cookie = '__Host-' + k + '=' + v + '; Path=/; Max-Age=15552000; SameSite=Lax; Secure';
+    document.cookie = 'seed_choice_done=1; Path=/';
+  }, [ORIGIN, KEY, seedCookie]);
   if (seedStorage) await context.addInitScript(([k, v]) => { try { if (!localStorage.getItem(k)) localStorage.setItem(k, v); } catch (e) { /* none */ } }, [KEY, seedStorage]);
   if (gpcSignal) await context.addInitScript(() => { Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true, configurable: true }); });
   const m = MUTANTS[SELFTEST];
@@ -249,19 +267,26 @@ async function overlap(page) {
       const pts = [[(ix + ax) / 2, (iy + ay) / 2], [r.left + r.width / 2, r.top + r.height / 2]];
       if (pts.some(([x, y]) => x >= 0 && y >= 0 && x < innerWidth && y < innerHeight && inBar(deepAt(x, y) || document.body))) covered.push(name(el));
     }
-    const obscured = [...bar.querySelectorAll('button,a')].filter((b) => {
-      const r = b.getBoundingClientRect(); const x = r.left + r.width / 2, y = r.top + r.height / 2;
-      if (x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) return false; // scrolled away: not a cover
+    // Each LINE box of a control is tested at its centre (2026-10-15): an inline link that wraps onto two lines (the
+    // bar's "Privacy notice" at 768px here) has a bounding-box centre in the gap between its lines, which hit the bar's
+    // own paragraph and read as "obscured" with nothing over it. A cover still lands on a line box, so it is still seen.
+    const obscured = [...bar.querySelectorAll('button,a')].filter((b) => [...b.getClientRects()].some((r) => {
+      const x = r.left + r.width / 2, y = r.top + r.height / 2;
+      if (r.width < 1 || r.height < 1 || x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) return false; // scrolled away: not a cover
       const top = deepAt(x, y); return !(top === b || b.contains(top));
-    }).map(name);
+    })).map(name);
     return { bar: { top: br.top, bottom: br.bottom, left: br.left, right: br.right }, controls: controls.length, shadowRoots, covered, obscured, overflowX: document.documentElement.scrollWidth - innerWidth };
   });
 }
 
 async function main() {
   const browser = await chromium.launch();
-  const matrix = { label: LABEL, origin: ORIGIN, selftest: SELFTEST || null, block_loaders: BLOCK_LOADERS, measured_at: new Date().toISOString(), pages: PAGES, states: {} };
+  const matrix = { label: LABEL, origin: ORIGIN, selftest: SELFTEST || null, country: COUNTRY || null, block_loaders: BLOCK_LOADERS, measured_at: new Date().toISOString(), pages: PAGES, states: {} };
   try {
+    // CONSENT_SKIP=core (2026-10-15, opt-in, default off): run only the layout sections 10 and 10b, so the five-width
+    // layout and reopen loops can be split across runs; CONSENT_SKIP=layout skips 10 and 10b. Unset runs everything.
+    const nowAccept = () => `1.accept.${Date.now()}`;
+    if (!SKIP.has('core')) {
     // 1 initial: no choice made
     { const { context, page, rec } = await fresh(browser);
       let bar = null;
@@ -337,8 +362,7 @@ async function main() {
       finish(matrix, 'withdraw', rec, { hosts_at_click: atClick, hosts_after_withdraw: hosts, withdraw_control_found: has, analytics_cookies_left: cookies });
       await context.close(); }
 
-    // 5 GPC: signal, and header, each ALSO with a stored accept that GPC must override
-    const nowAccept = () => `1.accept.${Date.now()}`;
+    // 5 GPC: signal, and header, each ALSO with a stored accept that GPC must override (nowAccept: above)
     for (const [name, opts] of [['gpc_signal', { gpcSignal: true }], ['gpc_header', { gpcHeader: true }], ['gpc_signal_over_stored_accept', { gpcSignal: true, seedStorage: nowAccept() }], ['gpc_header_over_stored_accept', { gpcHeader: true, seedStorage: nowAccept() }]]) {
       const { context, page, rec } = await fresh(browser, opts);
       let bar = 0;
@@ -547,17 +571,24 @@ async function main() {
       }
     }
 
+    }
     // 10 the bar covers no control and is not itself covered, including controls inside open shadow roots
-    // (anvil 1c-R2 F1), at both widths, at the top and the bottom of every route.
-    for (const viewport of [{ width: 390, height: 844 }, { width: 1280, height: 720 }]) {
+    // (anvil 1c-R2 F1), at the top and the bottom of every route; five widths (hiresabina review F5, 2026-10-14: 320,
+    // 390, 768, 1280, 1440). The page is measured once the bar has mounted (it mounts after hydration), not after a
+    // fixed wait.
+    const VIEWPORTS = (process.env.CONSENT_LAYOUT_VIEWPORTS || '320x844,390x844,768x900,1280x720,1440x900').split(',').map((v) => { const [width, height] = v.split('x').map(Number); return { width, height }; });
+    const settle = async (page, sel) => { await page.waitForSelector(sel, { timeout: 8000 }).catch(() => {}); await page.waitForTimeout(150); };
+    // Waits until the page has stopped scrolling (smooth scroll is on for in-page moves), at most 2 s.
+    const still = (page) => page.evaluate(() => new Promise((res) => { let y = scrollY, n = 0; const t = setInterval(() => { if (scrollY === y) { if (++n >= 3) { clearInterval(t); res(); } } else { y = scrollY; n = 0; } }, 60); setTimeout(() => { clearInterval(t); res(); }, 2000); }));
+    for (const viewport of SKIP.has('layout') ? [] : VIEWPORTS) {
       const name = `layout_${viewport.width}x${viewport.height}`;
       const { context, page, rec } = await fresh(browser, { viewport });
       const rows = {};
       for (const p of LAYOUT_ROUTES) {
-        await visit(page, p);
+        await page.goto(ORIGIN + p, { waitUntil: 'load' }); await settle(page, '[data-consent-bar]');
         for (const where of ['top', 'bottom']) {
-          await page.evaluate((w) => window.scrollTo(0, w === 'top' ? 0 : document.documentElement.scrollHeight), where);
-          await page.waitForTimeout(400);
+          await page.evaluate((w) => window.scrollTo({ top: w === 'top' ? 0 : document.documentElement.scrollHeight, behavior: 'instant' }), where);
+          await still(page);
           const o = await overlap(page);
           rows[`${p} ${where}`] = o;
           if (!o.bar) { ok(false, `${name} ${p} ${where}: the bar is rendered`); continue; }
@@ -567,6 +598,37 @@ async function main() {
       finish(matrix, name, rec, { viewport, rows });
       await context.close();
     }
+
+    // 10b the choice re-opened from "Your privacy choices" (hiresabina review F5, ported 2026-10-15): on every layout
+    // route and width, with a stored choice so no first-visit bar is up. Measured where the page leaves the visitor after
+    // the click, and at the bottom of the page; then Close removes it and leaves no overflow. Hit tests, as in 10.
+    for (const viewport of SKIP.has('layout') ? [] : VIEWPORTS) {
+      const name = `reopen_${viewport.width}x${viewport.height}`;
+      const { context, page, rec } = await fresh(browser, { viewport, seedCookie: `1.reject.${Date.now()}` });
+      const rows = {};
+      for (const p of LAYOUT_ROUTES) {
+        await page.goto(ORIGIN + p, { waitUntil: 'load' }); await page.waitForTimeout(300);
+        const link = page.locator('footer [data-consent-open]').first();
+        if (!(await link.count())) { ok(false, `${name} ${p}: a "Your privacy choices" link exists`); continue; }
+        await link.scrollIntoViewIfNeeded(); await link.click();
+        await settle(page, '[data-consent-reopened]'); await still(page); // the in-page scroll may be smooth
+        for (const where of ['open', 'bottom']) {
+          if (where === 'bottom') { await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' })); await still(page); }
+          const o = await overlap(page);
+          rows[`${p} ${where}`] = o;
+          if (!o.bar) { ok(false, `${name} ${p} ${where}: the re-opened choice is rendered`); continue; }
+          const inView = o.bar.top >= 0 && o.bar.bottom <= viewport.height + 1;
+          ok(o.covered.length === 0 && o.obscured.length === 0 && o.overflowX <= 0 && (where !== 'open' || inView), `${name} ${p} ${where}: re-opened choice${where === 'open' ? ' in view,' : ''} covers no control and is not covered (${o.controls} controls; covered ${o.covered.join(', ') || 'none'}; obscured ${o.obscured.join(', ') || 'none'}; overflowX ${o.overflowX}; bar ${Math.round(o.bar.top)}-${Math.round(o.bar.bottom)})`);
+        }
+        await page.locator('[data-consent-reopened] [data-consent-close]').click(); await page.waitForTimeout(300);
+        const after = await page.evaluate(() => ({ bars: document.querySelectorAll('[data-consent-bar]').length, overflowX: document.documentElement.scrollWidth - innerWidth }));
+        rows[`${p} closed`] = after;
+        ok(after.bars === 0 && after.overflowX <= 0, `${name} ${p}: Close removes it, no overflow left (${JSON.stringify(after)})`);
+      }
+      finish(matrix, name, rec, { viewport, rows });
+      await context.close();
+    }
+    if (!SKIP.has('core')) { // sections 11-12 (CONSENT_SKIP=core runs only the layout sections 10 and 10b)
     // 11 dominusfoundry: /pitch renders as it is (no bar) and sends nothing before a choice; the bar names what the
     //    one choice covers (Mark 2026-10-13: Google Analytics, Vercel Web Analytics and cookieless Google Ads).
     { const { context, page, rec } = await fresh(browser);
@@ -611,6 +673,7 @@ async function main() {
       ok(control && (wantButtons ? control.buttons.length > 0 : control.state === 'gpc'), `${name}: following the footer link reaches the notice's choice control (${control ? control.state + ' / ' + (control.buttons.join(', ') || 'GPC message, no button') : 'not reached'})`);
       finish(matrix, name, rec, { rows, control });
       await context.close();
+    }
     }
   } finally {
     await browser.close();

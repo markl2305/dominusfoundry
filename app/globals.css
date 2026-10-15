@@ -302,6 +302,13 @@ footer {
    is present, the nav starts at the bar's visible bottom edge, --consent-bar-visible, which ConsentBar.tsx keeps
    current on scroll and resize (0 once the bar has scrolled away). When a choice removes the bar, :has stops
    matching and the nav is back at top:0. */
-body:has([data-consent-bar]) .df-site .nav {
+/* The choice re-opened from "Your privacy choices" (consent.js rule 13, 2026-10-15) is appended in the page flow at the
+   END of <body>, marked data-consent-reopened, and must not move the nav: these offsets follow the first-visit bar only. */
+body:has([data-consent-bar]:not([data-consent-reopened])) .df-site .nav {
   top: var(--consent-bar-visible, 0px);
 }
+/* The "Ask Sabina" launcher (public/sabina-chat, its own shadow root, fixed at the viewport bottom) would sit over the
+   re-opened choice at the end of the page (tests/consent/tracking-matrix.mjs reopen states, 2026-10-15). While that
+   choice is up the launcher steps aside, as hiresabina's does on a phone, and it returns on Close or a choice.
+   !important: the /qp-b launcher tuck is a scroll-driven animation, which would otherwise win. */
+body:has([data-consent-reopened]) sabina-visitor-chat { opacity: 0 !important; visibility: hidden !important; }

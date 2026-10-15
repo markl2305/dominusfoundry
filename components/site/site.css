@@ -255,8 +255,10 @@ html[data-df-theme="light"] .dfs .btn-solid:not(.on-dark .btn-solid):not(.nav-ct
 }
 /* The consent bar sits in normal flow at the top of <body>; while it is shown
    the nav starts at its visible bottom edge (ConsentBar.tsx keeps
-   --consent-bar-visible current), exactly as the Foundry nav did before. */
-body:has([data-consent-bar]) .dfs .nav { top: var(--consent-bar-visible, 0px); }
+   --consent-bar-visible current), exactly as the Foundry nav did before. The
+   choice re-opened from "Your privacy choices" (data-consent-reopened, at the
+   end of the page) moves nothing (2026-10-15). */
+body:has([data-consent-bar]:not([data-consent-reopened])) .dfs .nav { top: var(--consent-bar-visible, 0px); }
 .dfs .nav::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: var(--material);
@@ -324,7 +326,7 @@ body:has([data-consent-bar]) .dfs .nav { top: var(--consent-bar-visible, 0px); }
   transform-origin: 50% 0; opacity: 0; transform: scale(0.96) translateY(-6px); pointer-events: none;
   transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
 }
-body:has([data-consent-bar]) .dfs .sec-index { top: calc(var(--consent-bar-visible, 0px) + var(--nav-h) + 8px + env(safe-area-inset-top)); }
+body:has([data-consent-bar]:not([data-consent-reopened])) .dfs .sec-index { top: calc(var(--consent-bar-visible, 0px) + var(--nav-h) + 8px + env(safe-area-inset-top)); }
 .dfs .sec-index.open { opacity: 1; transform: none; pointer-events: auto; }
 .dfs .sec-index ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
 .dfs .sec-index a {
@@ -408,7 +410,7 @@ html[data-dfp-pref="light"] .dfs .seg-theme { --i: 2; }
   transform-origin: 100% 0;
   animation: df-menu-in 200ms var(--ease-out);
 }
-body:has([data-consent-bar]) :is(.dfs, .dfp) .menu-panel { --menu-top: var(--consent-bar-visible, 0px); }
+body:has([data-consent-bar]:not([data-consent-reopened])) :is(.dfs, .dfp) .menu-panel { --menu-top: var(--consent-bar-visible, 0px); }
 @keyframes df-menu-in { from { opacity: 0; transform: scale(0.96) translateY(-6px); } to { opacity: 1; transform: none; } }
 @media (max-width: 480px) { :is(.dfs, .dfp) .menu-panel { left: max(12px, env(safe-area-inset-left)); width: auto; } }
 :is(.dfs, .dfp) .menu-panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }

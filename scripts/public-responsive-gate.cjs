@@ -132,14 +132,15 @@ const CHECKS = [
   },
   {
     /* 2026-10-14: `settle` and exact counts, as /pricing above. Footer: 14 list
-       items (FOOTER_COLS), 17 links (those 14, the crest lockup, the privacy
-       line's link and the LocateFaith badge). Application: 2 columns, 11
+       items (FOOTER_COLS), 19 links (those 14, the crest lockup, the privacy
+       line's link, "Your privacy choices" (2026-10-15, consent by region), the
+       LocateFaith badge and the NVIDIA Inception badge (d9781ca)). Application: 2 columns, 11
        controls (the form, its fields, the file input and the submit button). */
     route: '/careers',
     settle: true,
     selectors: [
       { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li', count: 14 },
-      { label: 'footer contact/nav links', selector: 'footer a', count: 17 },
+      { label: 'footer contact/nav links', selector: 'footer a', count: 19 },
       { label: 'footer email', selector: 'footer a[href="mailto:foundry@dominusfoundry.com"]', count: 1 },
       { label: 'application region', selector: '#apply', count: 1 },
       { label: 'application region columns', selector: '#apply > div > div > div', count: 2 },

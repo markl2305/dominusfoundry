@@ -2,20 +2,22 @@
 
 import { useEffect, useState } from 'react';
 
-export type ConsentState = 'gpc' | 'accept' | 'reject' | null;
+export type ConsentState = 'gpc' | 'accept' | 'reject' | 'default' | null;
 export type SiteConsentWindow = {
   SiteConsent?: {
     state: () => ConsentState;
     allowed: () => boolean;
     set: (choice: 'accept' | 'reject') => void;
     mountBar: () => void;
+    openChoices?: (from?: Element | null) => boolean;
+    region?: () => 'ask' | 'default';
   };
   __consentPageViewPath?: string | null;
 };
 
-// The visitor's analytics CHOICE from public/consent/consent.js: 'gpc' | 'accept' | 'reject' | null, or
-// 'loading' until the (async) gate has run. Re-renders on every change. For display only: whether anything may
-// run is useAnalyticsAllowed() below, never `state === 'accept'` (gate v2 rule 7).
+// The visitor's analytics CHOICE from public/consent/consent.js: 'gpc' | 'accept' | 'reject' | 'default' | null, or
+// 'loading' until the (async) gate has run. 'default' (gate rule 12): the default-on region, no choice made, no GPC.
+// Re-renders on every change. For display only: whether anything may run is useAnalyticsAllowed() below, never `state === 'accept'` (gate v2 rule 7).
 export default function useSiteConsent(): ConsentState | 'loading' {
   const [state, setState] = useState<ConsentState | 'loading'>('loading');
   useEffect(() => {

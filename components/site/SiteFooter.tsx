@@ -1,9 +1,12 @@
 /* The site footer (2026-10-14), shared by every route and /pitch: the link
    columns (FOOTER_COLS, unchanged), the persistent /privacy link inside them,
    the ©, motto and the LocateFaith badge. `blurb` and `note` carry each
-   route's own existing footer copy verbatim. */
+   route's own existing footer copy verbatim; the legal row adds the
+   "Your privacy choices" link (2026-10-15). */
 import type { ReactNode } from 'react'
 import { FOOTER_COLS } from '@/components/foundry/footer-links'
+
+const CHOICES = <a href="/privacy#analytics-choice" data-consent-open="">Your privacy choices</a>
 
 export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus Foundry. Built &amp; held by the Lord family.</> }: { blurb: ReactNode; note?: ReactNode; copyright?: ReactNode }) {
   return <footer className="footer">
@@ -23,7 +26,12 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
         </div>)}
       </div>
       <div className="footer-bottom">
-        {note ? <p>{note}</p> : <span>{copyright}</span>}
+        {/* "Your privacy choices" (Mark 2026-10-14, shared memory 77550c45): on every page, in every region.
+            public/consent/consent.js re-opens the allow / no-analytics choice on click (data-consent-open); with
+            JavaScript off or under Global Privacy Control it is an ordinary link to the choice on the privacy notice.
+            A plain <a>, not <Link>, so the gate's capture-phase handler sees the click before the client-side router.
+            In the legal row, after the existing line, so the link columns above are unchanged. */}
+        {note ? <p>{note}{' · '}{CHOICES}</p> : <span>{copyright}{' · '}{CHOICES}</span>}
         <span className="f-motto">Fide et Familia</span>
       </div>
       <div className="locatefaith-badge">
