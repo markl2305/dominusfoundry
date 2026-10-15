@@ -272,9 +272,10 @@ export default function Privacy() {
                 <li>
                   <code>df-consent</code>: remembers your analytics choice so you are not asked on every page. It
                   is kept in two places, a cookie (named <code>__Host-df-consent</code>) and a copy in your
-                  browser&rsquo;s local storage, and each is
-                  honoured for 180 days from when you chose; after that you are asked again. Changing your choice
-                  below replaces both.
+                  browser&rsquo;s local storage. Your choice is honoured for 180 days. After it expires, the
+                  regional defaults described above apply again: in the EU, EEA, UK and Switzerland you are asked
+                  again, and elsewhere an expired &ldquo;No analytics&rdquo; returns to analytics on unless another
+                  current choice or a Global Privacy Control signal applies. Changing your choice below replaces both.
                 </li>
                 <li>
                   <code>consent_gpc</code>: set only when your browser sends a Global Privacy Control signal, so the
@@ -284,7 +285,7 @@ export default function Privacy() {
                 <li>
                   <code>__Host-consent_region</code>: set on each page you load, from the country our hosting
                   provider derives from your IP address, so the site knows whether to ask before analytics run. It
-                  lasts a day at most.
+                  records that consent-region decision and the time it was made, and lasts a day at most.
                 </li>
                 <li>
                   <code>df-theme</code> (local storage): remembers light or dark display if you choose one.
