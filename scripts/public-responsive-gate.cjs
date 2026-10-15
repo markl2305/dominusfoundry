@@ -132,15 +132,16 @@ const CHECKS = [
   },
   {
     /* 2026-10-14: `settle` and exact counts, as /pricing above. Footer: 14 list
-       items (FOOTER_COLS), 19 links (those 14, the crest lockup, the privacy
-       line's link, "Your privacy choices" (2026-10-15, consent by region), the
-       LocateFaith badge and the NVIDIA Inception badge (d9781ca)). Application: 2 columns, 11
+       items (FOOTER_COLS), 18 links (those 14, the crest lockup, the privacy
+       line's link, "Your privacy choices" (2026-10-15, consent by region) and
+       the NVIDIA Inception badge (d9781ca); the former membership badge was
+       removed 2026-10-15). Application: 2 columns, 11
        controls (the form, its fields, the file input and the submit button). */
     route: '/careers',
     settle: true,
     selectors: [
       { label: 'footer contact column', selector: 'footer [aria-labelledby="footer-heading"] li, footer li', count: 14 },
-      { label: 'footer contact/nav links', selector: 'footer a', count: 19 },
+      { label: 'footer contact/nav links', selector: 'footer a', count: 18 },
       { label: 'footer email', selector: 'footer a[href="mailto:foundry@dominusfoundry.com"]', count: 1 },
       { label: 'application region', selector: '#apply', count: 1 },
       { label: 'application region columns', selector: '#apply > div > div > div', count: 2 },
@@ -182,7 +183,7 @@ function clipProbe(el) {
   const rect = el.getBoundingClientRect();
   const isFileOverlay = el.matches('input[type="file"]');
   const requiresText = !el.matches('input, textarea');
-  // An image-only link (the footer's LocateFaith badge, 2026-10-14) carries its
+  // An image-only link (a footer badge, 2026-10-14; today the NVIDIA Inception badge) carries its
   // text in the image's alt. It counts as text only while that image is itself
   // visible: a box, and display/visibility/opacity good through the image's own
   // ancestor chain (Sol review F1). Its rectangle then joins the geometry below.

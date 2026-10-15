@@ -24,7 +24,7 @@
  *
  * dominusfoundry.com port (gate v2 sync, 2026-10-13), copied from hiresabina 02ab7f0 and adapted ONLY in:
  *   - defaults: GA id G-9J4GY8YZ6G, storage key df-consent (CONSENT_STORAGE_KEY), this site's 37 HTML routes, seed
- *     routes, allowed host (locatefaith.com), referrer targets (no static assessment page here);
+ *     routes, allowed hosts (none since 2026-10-15), referrer targets (no static assessment page here);
  *   - vendor loaders: no LinkedIn tag on this site (asserted absent); the site's own Google container
  *     (fixtures/gtag-js-G-9J4GY8YZ6G.js) carries a linked Google Ads destination AW-17706960854, so the accept state
  *     asserts real Ads collection after Accept, and every collection request is checked for a covered transport
@@ -73,8 +73,9 @@ const SKIP = new Set((process.env.CONSENT_SKIP || '').split(',').filter(Boolean)
 // covers the default-on region.
 const COUNTRY = process.env.CONSENT_COUNTRY || '';
 // Off-origin hosts a page may legitimately ask for that are NOT analytics. Still aborted and still in the ledger; just
-// not "unknown". dominusfoundry's, measured 2026-10-12: only the LocateFaith verified badge (footer image).
-const ALLOWED_HOSTS = new Set((process.env.CONSENT_ALLOWED_HOSTS ?? 'locatefaith.com').split(',').filter(Boolean));
+// not "unknown". dominusfoundry's: none since 2026-10-15 (the one footer badge left is self-hosted), so any
+// off-origin request that is not a vendor's fails the run.
+const ALLOWED_HOSTS = new Set((process.env.CONSENT_ALLOWED_HOSTS ?? '').split(',').filter(Boolean));
 const SENTINEL = { name: 'Zq Sentinel Person', company: 'Zq Sentinel Roofing Co', email: 'zq-sentinel@example.invalid', phone: '5055550199', website: 'zq-sentinel.example' };
 const ANALYTICS_KEYS = /(^|[^a-z])(_ga|_gid|gclid|client_id|cid|tid|_gl|li_fat_id|fbclid|lintrk)([^a-z]|$)/i;
 // Vercel's loader stays silent in an automated browser (navigator.webdriver or "Headless" in the UA); every context

@@ -27,7 +27,7 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 const BAD = ['%', '%E0%A4', '%E0%A4%A', '%C3%28', '%FF%FE', '1.accept.%'];
 const TRANSPORTS = ['fetch', 'beacon', 'xhr', 'image'];
 const VENDOR = [['ga', 'https://region1.google-analytics.com/g/collect'], ['aud', 'https://www.google.de/ads/ga-audiences'], ['li', 'https://px.ads.linkedin.com/collect']];
-const OTHER = [['fonts', 'https://fonts.googleapis.com/css2'], ['badge', 'https://locatefaith.com/brand/badge.svg']];
+const OTHER = [['fonts', 'https://fonts.googleapis.com/css2'], ['badge', 'https://badge.example.org/brand/badge.svg']];
 
 let failures = 0; const results = [];
 function ok(cond, label, detail) { results.push({ ok: !!cond, label, detail }); if (cond) console.log(`  ok   ${label}`); else { failures += 1; console.error(`  FAIL ${label}${detail !== undefined ? ' — ' + JSON.stringify(detail).slice(0, 500) : ''}`); } }

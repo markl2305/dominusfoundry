@@ -290,11 +290,6 @@ footer {
   );
 }
 
-.locatefaith-badge img {
-  max-width: 100%;
-  height: auto;
-}
-
 /* Consent bar (public/consent/consent.js, compliance P1-1c). Gate v2 sync, 2026-10-13: the bar stays where the gate
    puts it, in normal flow at the top of <body>, so it can never sit over page content at any scroll position (the
    bottom-pinned bar of rounds 1-4 covered in-page links whenever the page was not scrolled to its end). The one

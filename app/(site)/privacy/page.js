@@ -70,8 +70,7 @@ export default function Privacy() {
                 IP address, browser type, the page requested and the referring address, and keeps them in its logs.
               </p>
               <p>
-                Our page footer shows a verification badge image hosted by LocateFaith, so loading a page also sends
-                those standard request details to LocateFaith; our fonts are served from this site, not a font service.
+                Our fonts are served from this site, not a font service.
               </p>
               <p>
                 <strong>Analytics.</strong> In the European Union, the wider EEA, the United Kingdom and Switzerland,

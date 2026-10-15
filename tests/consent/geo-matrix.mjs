@@ -18,7 +18,7 @@
  * CONSENT_COUNTRY=DE; this file adds the region split and the default-on region.
  *
  * dominusfoundry.com port (2026-10-15), copied from hiresabina f8ee005 and adapted ONLY in:
- *   - defaults: GA id G-9J4GY8YZ6G, storage key df-consent, this site's routes, pages, allowed host (locatefaith.com);
+ *   - defaults: GA id G-9J4GY8YZ6G, storage key df-consent, this site's routes, pages, no allowed off-origin host;
  *     the routed https sibling names are *.dominusfoundry.test; every literal "sabina-consent" is this site's KEY;
  *   - vendors: this site has no LinkedIn tag (asserted absent where hiresabina asserts it present); its Google tag is
  *     linked to Google Ads AW-17706960854, so the default-on states also assert real (cookieless) Ads collection with no
@@ -43,7 +43,7 @@ const ROUTES = (process.env.CONSENT_ALL_ROUTES || '/,/about,/blog,/blog/between-
 const PAGES = (process.env.CONSENT_PAGES || '/,/sabina,/start,/pitch').split(',');
 const PRIVATE_ROUTE = process.env.CONSENT_PRIVATE_ROUTE || '/chat';
 const CHOICES_HREF = process.env.CONSENT_CHOICES_HREF || '/privacy#analytics-choice';
-const ALLOWED_HOSTS = new Set((process.env.CONSENT_ALLOWED_HOSTS ?? 'locatefaith.com').split(',').filter(Boolean));
+const ALLOWED_HOSTS = new Set((process.env.CONSENT_ALLOWED_HOSTS ?? '').split(',').filter(Boolean));
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36';
 const GA_HOST = /(^|\.)(google-analytics\.com|analytics\.google\.com)$/;
 const fixture = (f) => readFileSync(new URL(`./fixtures/${f}`, import.meta.url), 'utf8');

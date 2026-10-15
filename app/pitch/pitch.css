@@ -757,17 +757,16 @@ html[data-dfp-pref="light"] .dfp .seg-theme { --i: 2; }
 @media (hover: hover) and (pointer: fine) { .dfp .f-col a:hover { color: var(--gold); } }
 .dfp .footer-bottom { margin-top: clamp(40px, 5vw, 64px); padding-top: 22px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: baseline; font: 400 0.72rem/1.5 var(--mono); letter-spacing: .04em; color: var(--ink-3); }
 .dfp .footer-bottom .f-motto { font: italic 400 1.05rem/1 var(--serif); letter-spacing: 0.02em; color: var(--gold); }
-.dfp .footer .locatefaith-badge { display: flex; justify-content: center; margin-top: 28px; }
-.dfp .footer .locatefaith-badge img { display: inline-block; }
+.dfp .footer .f-badges { display: flex; justify-content: center; margin-top: 28px; }
 
-/* NVIDIA Inception badge beside the LocateFaith badge, and NVIDIA's required trademark line. */
-:is(.dfs, .dfp) .footer .locatefaith-badge { align-items: center; flex-wrap: wrap; gap: 20px 36px; }
+/* The NVIDIA Inception badge, the footer's only badge, centred and sized as in components/site/site.css (2026-10-15). */
+:is(.dfs, .dfp) .footer .f-badges { align-items: center; }
 :is(.dfs, .dfp) .footer .nv-badge { display: inline-flex; border-radius: 2px; transition: opacity 150ms ease; }
-:is(.dfs, .dfp) .footer .locatefaith-badge .nv-badge img { width:93px; height:40px; display: block; }
+:is(.dfs, .dfp) .footer .f-badges .nv-badge img { height: clamp(64px, calc(40px + 6vw), 104px); width: auto; max-width: 100%; display: block; }
 :is(.dfs, .dfp) .footer .nv-badge:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) { :is(.dfs, .dfp) .footer .nv-badge:hover { opacity: 0.86; } }
 @media (prefers-reduced-motion: reduce) { :is(.dfs, .dfp) .footer .nv-badge { transition: none; } }
-:is(.dfs, .dfp) .footer .nv-legal { margin: 20px auto 0; max-width: 72ch; text-align: center; font: 400 0.66rem/1.6 var(--mono); letter-spacing: .03em; color: var(--ink-3); text-wrap: balance; }
+:is(.dfs, .dfp) .footer .nv-legal { margin: 20px auto 0; max-width: 72ch; text-align: center; font: 400 0.72rem/1.6 var(--mono); letter-spacing: .03em; color: var(--ink-3); text-wrap: balance; }
 @media (max-width: 700px) { :is(.dfs, .dfp) .footer .nv-legal { margin-bottom: 64px; } } /* clears the floating Ask Sabina button */
 @media (max-width: 960px) { .dfp .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .dfp .f-brand { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .dfp .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .dfp .f-col:last-child { grid-column: 1 / -1; } }
