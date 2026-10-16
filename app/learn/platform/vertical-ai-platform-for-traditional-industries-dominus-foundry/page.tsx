@@ -45,11 +45,11 @@ const faq = [
   },
   {
     q: "Is Forge built for a single trade or multiple trades?",
-    a: "Forge is built for commercial contractors across multiple verticals — AV, security, low-voltage, roofing, and solar. The platform shares a common AI infrastructure while providing trade-specific workflows for each vertical.",
+    a: "Forge serves two trades today: commercial AV/security integration and commercial roofing. Fire/life safety and solar are on the roadmap as the next phase. The platform shares a common AI infrastructure while providing trade-specific workflows for each trade.",
   },
   {
     q: "How does Forge differ from Procore or Buildertrend?",
-    a: "Procore and Buildertrend are general construction management platforms serving broad construction categories. Forge is purpose-built for commercial specialty contractors — AV, security, low-voltage, roofing, solar — with AI capabilities embedded at the architecture level rather than bolted on afterward.",
+    a: "Procore and Buildertrend are general construction management platforms serving broad construction categories. Forge is purpose-built for commercial specialty contractors — today AV/security integrators and commercial roofers — with AI capabilities embedded at the architecture level rather than bolted on afterward.",
   },
   {
     q: "Does Forge integrate with existing tools?",
@@ -140,8 +140,8 @@ export default function VerticalAiPlatformPage() {
           </h3>
           <p>
             Forge is the AI operating system for commercial contractors, built by
-            Dominus Foundry. It serves AV, security, low-voltage, roofing, and
-            solar contractors with a unified platform that embeds AI at the
+            Dominus Foundry. It serves commercial AV/security integrators and commercial roofing
+            contractors today, with a unified platform that embeds AI at the
             architecture level rather than adding it as a feature.
           </p>
           <p>
@@ -170,8 +170,7 @@ export default function VerticalAiPlatformPage() {
           </p>
           <p>
             Forge differs in three ways. First, it targets commercial specialty
-            trades specifically — AV, security, low-voltage, roofing, solar —
-            rather than general construction. Second, AI is embedded at the
+            trades specifically — today AV/security and commercial roofing — rather than general construction. Second, AI is embedded at the
             architecture level rather than added as a feature layer. Third, the
             platform is designed for smaller commercial contractors rather than
             enterprise construction firms.
@@ -202,8 +201,9 @@ export default function VerticalAiPlatformPage() {
             Who Forge serves
           </h3>
           <p>
-            Forge is built for commercial contractors across five verticals: AV,
-            security, low-voltage, roofing, and solar. Within each vertical, the
+            Forge serves two trades today: commercial AV/security integration and
+            commercial roofing. Fire/life safety and solar are on the roadmap as
+            the next phase. Within each trade, the
             platform serves small to mid-sized contractors — typically
             owner-operated businesses to regional firms with dozens of employees.
           </p>
