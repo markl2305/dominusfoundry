@@ -118,9 +118,16 @@ export default function RootLayout({
     // So the one loader the gate holds back also holds back Ads. The visitor's choice is "Allow analytics",
     // so ad storage, ad user data and ad personalization stay DENIED even after it: no _gcl cookies, no
     // remarketing. Turning Ads on needs its own choice in the gate (OPEN ON MARK), not this default.
+    // B-19 (Mark 2026-10-17, "Turn it off"): automatic user-provided-data collection is OFF in code, whatever the
+    // Google console says. The container (gtag/js?id=G-9J4GY8YZ6G) ships it ON (__ogt_1p_data_v2: auto email, phone
+    // and address) for G-9J4GY8YZ6G and the linked AW-17706960854. user_data: null declares "this page provides no
+    // user data", and the container's __ccd_add_1p_data then attaches nothing, automatic included. It is a global
+    // `set`, queued before the gate's one `config` call, so it holds for every config and event of both ids (the
+    // Ads id has no config call of its own; the container links it). tests/consent/user-data-off.mjs proves it.
     `(function(){var w=window;w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}` +
     `g('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});` +
-    `g('set','ads_data_redaction',true);})();` +
+    `g('set','ads_data_redaction',true);` +
+    `g('set','user_data',null);})();` +
     // The gate is loaded HERE, by this same inline script, after the config and the Consent Mode defaults above, so
     // it can never run without them (v2 sync review: Next/React hoists an <script async src> ahead of inline
     // scripts in the HTML, and with a delayed HTML chunk the gate ran with no config; reproduced by
