@@ -89,7 +89,7 @@ export default function AiSoftwareComparisonPage() {
           </p>
 
           <h3>Platform comparison</h3>
-          <div className="table-wrap">
+          <div className="table-wrap" tabIndex={0} role="region" aria-label="Platform comparison">
             <table>
               <thead>
                 <tr>

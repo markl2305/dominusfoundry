@@ -127,7 +127,7 @@ export default function AiVerticalSaasPage() {
           <h3>
             How vertical differs from horizontal
           </h3>
-          <div className="table-wrap">
+          <div className="table-wrap" tabIndex={0} role="region" aria-label="How vertical differs from horizontal">
             <table>
               <thead>
                 <tr>
@@ -182,7 +182,7 @@ export default function AiVerticalSaasPage() {
             Platform landscape by trade
           </h3>
           <p>Different trades have different dominant platforms:</p>
-          <div className="table-wrap">
+          <div className="table-wrap" tabIndex={0} role="region" aria-label="Platform landscape by trade">
             <table>
               <thead>
                 <tr>

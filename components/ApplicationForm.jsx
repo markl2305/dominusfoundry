@@ -103,30 +103,30 @@ export default function ApplicationForm() {
     <form onSubmit={submit} action="/careers" method="post" className="form pg-form">
       <div className="form-grid">
         <div className="field">
-          <label className={labelClass}>First name *</label>
-          <input name="firstName" required className={inputClass} autoComplete="given-name" />
+          <label className={labelClass} htmlFor="apply-firstName">First name *</label>
+          <input id="apply-firstName" name="firstName" required className={inputClass} autoComplete="given-name" />
         </div>
         <div className="field">
-          <label className={labelClass}>Last name *</label>
-          <input name="lastName" required className={inputClass} autoComplete="family-name" />
+          <label className={labelClass} htmlFor="apply-lastName">Last name *</label>
+          <input id="apply-lastName" name="lastName" required className={inputClass} autoComplete="family-name" />
         </div>
       </div>
 
       <div className="form-grid">
         <div className="field">
-          <label className={labelClass}>Email *</label>
-          <input name="email" type="email" required className={inputClass} autoComplete="email" />
+          <label className={labelClass} htmlFor="apply-email">Email *</label>
+          <input id="apply-email" name="email" type="email" required className={inputClass} autoComplete="email" />
         </div>
         <div className="field">
-          <label className={labelClass}>Phone *</label>
-          <input name="phone" type="tel" required className={inputClass} autoComplete="tel" />
+          <label className={labelClass} htmlFor="apply-phone">Phone *</label>
+          <input id="apply-phone" name="phone" type="tel" required className={inputClass} autoComplete="tel" />
         </div>
       </div>
 
       <div className="field">
-        <label className={labelClass}>LinkedIn profile URL</label>
+        <label className={labelClass} htmlFor="apply-linkedin">LinkedIn profile URL</label>
         <input
-          name="linkedin"
+          id="apply-linkedin" name="linkedin"
           type="url"
           className={inputClass}
           placeholder="https://linkedin.com/in/..."
@@ -134,11 +134,11 @@ export default function ApplicationForm() {
       </div>
 
       <div className="field">
-        <label className={labelClass}>
+        <label className={labelClass} htmlFor="apply-bestYear">
           Best commission year — what did you earn? (W-2 or 1099 figure) *
         </label>
         <input
-          name="bestYear"
+          id="apply-bestYear" name="bestYear"
           required
           className={inputClass}
           placeholder="e.g. $142,000 in 2024"
@@ -146,11 +146,11 @@ export default function ApplicationForm() {
       </div>
 
       <div className="field">
-        <label className={labelClass}>
+        <label className={labelClass} htmlFor="apply-biggestDeal">
           Largest deal you&apos;ve closed and how you found it *
         </label>
         <textarea
-          name="biggestDeal"
+          id="apply-biggestDeal" name="biggestDeal"
           required
           rows={3}
           className={inputClass}
@@ -159,11 +159,11 @@ export default function ApplicationForm() {
       </div>
 
       <div className="field">
-        <label className={labelClass}>
+        <label className={labelClass} htmlFor="apply-experience">
           Relevant experience — what have you sold and to whom? *
         </label>
         <textarea
-          name="experience"
+          id="apply-experience" name="experience"
           required
           rows={3}
           className={inputClass}
@@ -172,10 +172,10 @@ export default function ApplicationForm() {
       </div>
 
       <div className="field">
-        <label className={labelClass}>Resume *</label>
+        <label className={labelClass} htmlFor="apply-resume">Resume *</label>
         <div className="file-pick">
           <input
-            name="resume"
+            id="apply-resume" name="resume"
             type="file"
             required
             accept=".pdf,.doc,.docx"
