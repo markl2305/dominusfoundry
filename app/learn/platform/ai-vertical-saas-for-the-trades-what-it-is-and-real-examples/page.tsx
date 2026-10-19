@@ -92,8 +92,9 @@ export default function AiVerticalSaasPage() {
           AI Vertical SaaS for the Trades: What It Is and Real Examples
         </>}
         lead={<h2 className="lead">
-          Vertical SaaS built for commercial installation contractors — AV, security,
-          low-voltage, roofing — with AI layered into the native workflow.
+          Vertical SaaS built for commercial installation contractors — commercial
+          AV/security integration and commercial roofing — with AI layered into the
+          native workflow.
         </h2>}
       />
       <script
