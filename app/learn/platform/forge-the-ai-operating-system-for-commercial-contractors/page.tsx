@@ -49,7 +49,7 @@ const faq = [
   },
   {
     q: "What industries does Forge serve?",
-    a: "Forge serves commercial installation contractors across AV/security, low-voltage, and related fields. The platform is designed for organizations managing technical installations where estimating, project management, and field coordination are all critical to profitability.",
+    a: "Forge serves two trades today: commercial AV/security integration and commercial roofing. Fire/life safety and solar are on the roadmap as the next phase. The platform is designed for organizations managing technical installations where estimating, project management, and field coordination are all critical to profitability.",
   },
   {
     q: "Is training included?",

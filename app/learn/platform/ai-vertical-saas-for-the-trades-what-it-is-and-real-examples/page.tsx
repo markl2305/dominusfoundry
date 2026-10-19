@@ -79,8 +79,8 @@ const platformLandscape = [
   ["AV integration", "D-Tools, Forge", "D-Tools is the established design and estimating toolset; Forge is the AI-native option"],
   ["Security/Low-voltage", "D-Tools, Forge", "Same as AV — the trades share tooling"],
   ["Roofing", "EagleView, Forge", "EagleView measures; Forge runs the work"],
-  ["Solar", "Aurora Solar, Forge", "Aurora specializes in solar design; Forge covers broader commercial installs"],
-  ["Fire/Life Safety", "Forge, specialized verticals", "Few dedicated platforms; many contractors use general PM tools"],
+  ["Solar", "Aurora Solar", "Aurora specializes in solar design; solar is on Forge's roadmap, not a trade Forge serves today"],
+  ["Fire/Life Safety", "Specialized verticals", "Few dedicated platforms; many contractors use general PM tools; fire/life safety is on Forge's roadmap, not a trade Forge serves today"],
 ];
 
 export default function AiVerticalSaasPage() {
@@ -93,7 +93,7 @@ export default function AiVerticalSaasPage() {
         </>}
         lead={<h2 className="lead">
           Vertical SaaS built for commercial installation contractors — AV, security,
-          low-voltage, roofing, solar — with AI layered into the native workflow.
+          low-voltage, roofing — with AI layered into the native workflow.
         </h2>}
       />
       <script
@@ -239,10 +239,8 @@ export default function AiVerticalSaasPage() {
             authorities.
           </p>
           <p>
-            Forge covers solar as part of its broader commercial-install portfolio. For a
-            pure-play solar contractor, Aurora may be the better fit. For a diversified
-            commercial contractor doing solar alongside AV, security, and roofing, Forge
-            provides a single platform across all trades.
+            Solar is on Forge's roadmap as the next phase; it is not a trade Forge serves
+            today. For a solar contractor, Aurora may be the better fit.
           </p>
 
           <h3>

@@ -42,7 +42,7 @@ const faq = [
   },
   {
     q: "Which trade verticals does Forge serve?",
-    a: "Forge serves commercial security and AV integrators — its most mature vertical — and roofing contractors, with additional installation trades onboarding.",
+    a: "Forge serves commercial security and AV integrators — its most mature vertical — and roofing contractors. Fire/life safety and solar are on the roadmap as the next phase.",
   },
   {
     q: "Does Forge replace existing tools or integrate with them?",
@@ -176,8 +176,8 @@ export default function AiSoftwareCompanyPage() {
               production with real contractors today.
             </li>
             <li>
-              <strong>Additional installation trades</strong> are onboarding on the same
-              platform with vertical-specific configuration.
+              <strong>Fire/life safety and solar</strong> are on the roadmap as the next
+              phase, not trades Forge serves today.
             </li>
           </ul>
 
