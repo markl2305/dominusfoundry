@@ -1,25 +1,39 @@
 {
-  "asOf": "2026-10-12",
+  "asOf": "2026-10-19",
   "status": "Illustrative underwriting scenarios, not observed results or a new customer price",
   "months": 18,
-  "monthlyBlendedRevenue": 3100,
+  "foundingSeats": 10,
+  "foundingSeatsAlreadyTaken": 3,
+  "foundingMonthlyRevenue": 750,
+  "standardMonthlyRevenue": 1500,
   "monthlyChurn": 0.02,
   "newCustomerFirstMonthFraction": 0.5,
   "collectionLagMonths": 1,
   "incrementalDeliveryPerCompany": 200,
   "incrementalOnboardingPerActivation": 500,
+  "setupFee": 500,
+  "setupFeeWaivedShare": 0.5,
+  "aeMonthlyQuota": 2,
+  "aeRamp": [0, 0.5, 1],
+  "activationsPerDeliveryStaff": 2,
+  "additionalDeliveryStaffMonthlyLoaded": 6000,
+  "planningRaise": {"amount": 1000000, "postMoneyCap": 10000000},
+  "raiseReserveMonths": 3,
   "scenarios": [
-    {"id":"slower","label":"Slower activation","activations":[0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1],"description":"No new activations before month 6; one per month thereafter."},
-    {"id":"base","label":"Base planning case","activations":[0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2],"description":"One new activation per month in months 3–12; two per month in months 13–18."},
-    {"id":"faster","label":"Faster activation","activations":[0,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2],"description":"One new activation per month in months 2–6; two per month in months 7–18."}
+    {"id":"slower","aeScale":0.75,"label":"Slower activation","activations":[0,1,1,1,2,1,2,1,2,3,2,2,2,3,2,2,3,3],"description":"Three-quarters of the base case's cumulative activations in every month, account-executive sales included, rounded to whole companies: 57 activations by month 18."},
+    {"id":"base","aeScale":1,"label":"Base planning case","activations":[0,1,1,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4],"description":"Founder-led, one new activation a month in months 2–3, two a month in months 4–8, three a month in months 9–16 and four a month in months 17–18 (44 by month 18). On top, each of the two account executives adds new companies: none in their first month, half quota in the second and full quota from the third: 76 activations by month 18."},
+    {"id":"faster","aeScale":1.25,"label":"Faster activation","activations":[0,1,2,2,3,2,3,2,4,4,3,4,4,4,3,4,5,5],"description":"One and a quarter times the base case's cumulative activations in every month, account-executive sales included, rounded to whole companies: 95 activations by month 18."}
   ],
   "sources": {
-    "revenue": "$3,100 is the blended monthly company-revenue reference in the existing private October 5 meeting-preparation model. It is reused as an underwriting assumption, not a verified current realized average, contractual price, public rate card or claim of willingness to pay. Current company proposals govern commercial terms.",
+    "revenue": "Mark's 19 October 2026 planning prices (bridge 78a67459): $750 a month per company for the ten Founding Charter seats and $1,500 a month for every later company, chosen because velocity and data growth are the moat. Three of the ten seats are already taken (one signed, two verbal; Mark, 19 October), so the first seven modeled activations take founding seats and every later activation is standard. The founding price has no step-up within the horizon. Each company is still custom quoted; these are planning prices, not a public rate card, contractual terms or claim of willingness to pay. Replaces the earlier $3,100 blended reference from the private October 5 meeting-preparation model.",
     "retention": "2% monthly logo churn carried in the September floor and funded financial scenarios. It remains an assumption, not measured customer retention.",
-    "activation": "New analyst scenario schedules prepared October 12 in response to Mark's request for an income projection. These are neither achieved growth nor proven sales/onboarding capacity. Initial customers are cross-industry; no trades-first sequence is assumed.",
-    "costs": "Base spending imports financial-plan.json unchanged. $200 per billable-company-month and $500 per activation are additional variable delivery/onboarding cash allowances, beyond the fixed budget; they are not reallocations of the same salaries or AWS bill. Capacity and support scaling remain unverified.",
+    "activation": "Scenario schedules redrawn October 19 at Mark's direction so the base case reaches a positive monthly operating result by month 18 (before the round-3 hires); the slower and faster cases are about 25% below and above base. The earlier schedules were prepared October 12. These are neither achieved growth nor proven sales/onboarding capacity. Initial customers are cross-industry; no trades-first sequence is assumed.",
+    "costs": "Base spending imports financial-plan.json unchanged. $200 per billable-company-month and $500 per activation are additional variable delivery/onboarding cash allowances, beyond the fixed budget; they are not reallocations of the same salaries or AWS bill. Onboarding capacity: each budgeted onboarding staff member (founders, then the deployment lead from month seven, plus the implementation engineer from month six; Mark, 19 October, round 5) onboards two activations a month. A month needing more adds one delivery hire, at the deployment lead's loaded cost, for each further two activations; hires are kept for the rest of the horizon. Capacity and support scaling remain unverified.",
+    "setup": "Mark, 19 October: a setup fee per activation, waived on average half the time, so the model carries half the fee per activation. Setup income is collected in the activation month, is kept out of recurring revenue, MRR and ARR, and is included in operating result and cash.",
+    "raise": "Mark, 19 October: $1,000,000 on a $10,000,000 post-money cap (10.0% at the full raise), post-money SAFE with MFN, $25,000 minimum check. The cost plan (financial-plan.json) adds the sales and technical delivery hires the extra money pays for, so its financing target equals $1,000,000 and the page opens its cash chart there. The computed need reported beside it is the base case's deepest cash draw funded from zero, the budget's 10% contingency on its operating part, the founder repayment and three months of month-18 spending as an end-of-horizon reserve",
     "timing": "New customers contribute half a month of service revenue in their activation month. Churn applies at the start of each month to prior active customers. Collections lag recognized recurring-service revenue by one month, with no bad-debt assumption. ARR is month-end MRR times 12, not revenue earned during the period.",
     "cash": "The full financing target is received in month 1, with zero assumed existing cash. The cash scenario includes the $32,000 proposed founder-funding repayment in month 1, subject to the separately stated closing conditions. Financing and repayment are not operating income/expense. The $10,000 financing/corporate-work allowance is separately shown below operating result; actual accounting classification is not determined here.",
-    "exclusions": "Forecast covers new direct Sabina deployments only. No existing Forge revenue, setup-fee revenue, MSP revenue, new data-product revenue, tax, interest, depreciation, amortization, additional capital expenditure or further financing is modeled. Operating result is a planning measure before financing/corporate-work allowance and taxes, not GAAP net income or distributable profit. Additional legacy liabilities are not assumed settled."
+    "exclusions": "Forecast covers new direct Sabina deployments only. No existing Forge revenue, revenue from the three founding seats already taken, MSP revenue, new data-product revenue, tax, interest, depreciation, amortization, additional capital expenditure or further financing is modeled. Operating result is a planning measure before financing/corporate-work allowance and taxes, not GAAP net income or distributable profit. Additional legacy liabilities are not assumed settled.",
+    "salesLift": "Mark, 19 October (round 4): the two account executives exist to sell, so the model adds the companies they bring in on top of the founder-led schedule. Each executive adds nothing in their start month, half quota in the second month and full quota from the third. Quota is aeMonthlyQuota standard companies a month per executive, inside Mark's range of 1 to 2; the model refuses a quota outside it. Round 5 keeps 2 a month and moves the second executive to month 12, the latest start at which the base case is positive on recurring revenue by month 18. Planning assumption, not achieved sales or a commission plan."
   }
 }

@@ -22,10 +22,9 @@ const allow = new Map([
   ['company', [
     adjudicatedCompanyBio,
   ]],
+  // 2026-10-19 ship candidate: the reworked /pitch no longer renders three of the
+  // four adjudicated blocks, so their exceptions are removed (R12); nothing added.
   ['pitch', [
-    '7a2c05d10c0a235c76e8650626191e8a8ae25dfcc1805fc3d5bdbd9bbed7dc7c',
-    'a075efac3f754a6b319e80570dc788571adf5f62ea4b593936e417d4904a4ee3',
-    'c2871c91bce2335035bd84e054ea469a2cb8292d7bbfefd4b944cb6bd9f90f00',
     '06b27dd8956b9da87f12879de1407646f193c388d04d0cc5940b7f355b89a4f8',
   ]],
   ['press', [

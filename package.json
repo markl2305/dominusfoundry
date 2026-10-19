@@ -9,7 +9,8 @@
     "postbuild": "node scripts/check-founding-charter.mjs --render",
     "start": "next start",
     "check:founding-charter": "npm run build",
-    "test:responsive-gate": "node scripts/public-responsive-gate.cjs"
+    "test:responsive-gate": "node scripts/public-responsive-gate.cjs",
+    "test:income-model": "node tests/pitch/income-model-unit.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

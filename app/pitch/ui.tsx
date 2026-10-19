@@ -464,6 +464,7 @@ const ROWS: [string, (m: IncomeMonth) => string][] = [
   ['Month-end recurring revenue (MRR)', (m) => money(m.mrr)],
   ['Annualized recurring run rate (ARR)', (m) => money(m.arr)],
   ['Cumulative service revenue earned', (m) => money(m.cumulativeRevenue)],
+  ['Cumulative setup-fee income (not recurring)', (m) => money(m.cumulativeSetupIncome)],
   ['That month’s operating profit / (loss)', (m) => money(m.operatingResult)],
   ['Cumulative operating profit / (loss)', (m) => money(m.cumulativeOperatingResult)],
   ['Ending cash after financing and planned outflows', (m) => money(m.cash)],
@@ -502,8 +503,8 @@ export function IncomeCase() {
   const m = sel.months[month - 1]
   const tablePts = [6, 12, 18].map((mm) => sel.months[mm - 1])
   const desc = sel.id === 'base'
-    ? `${sel.description} The model applies ${a.monthlyChurn * 100}% monthly customer churn, half-month service revenue for new activations and collections one month after revenue is earned. The existing blended internal revenue assumption is an underwriting input, not a published customer rate. Current written proposals govern actual pricing.`
-    : `${sel.label}: ${sel.description} Same churn, collection timing, revenue assumption and fixed spending schedule as the base planning case.`
+    ? `${sel.description} The model applies ${a.monthlyChurn * 100}% monthly customer churn, half-month service revenue for new activations and collections one month after revenue is earned. The internal per-company revenue assumptions are underwriting inputs, not a published customer rate. Current written proposals govern actual pricing.`
+    : `${sel.label}: ${sel.description} Same churn, collection timing, revenue assumptions and fixed spending schedule as the base planning case, plus any delivery staff its activation pace needs.`
   return <>
     <div className="income-tools">
       <Segmented label="Scenario" id="scenarioSeg" value={selId} onChange={switchTo} items={incomeScenarios.map((s) => ({ v: s.id, label: s.id === 'base' ? 'Base' : s.id === 'slower' ? 'Slower' : 'Faster' }))} />
@@ -551,6 +552,6 @@ export function IncomeCase() {
 function IncomeNote2() {
   const base = incomeScenarios.find((s) => s.id === 'base')!
   const firstPos = base.months.find((m) => m.operatingResult >= 0)?.month
-  return <p className="note" id="incomeNote2">ARR is month-end MRR multiplied by twelve; it is not revenue earned during the period. Operating result is before taxes, interest, depreciation, amortization and the separately presented financing/corporate-work allowance. It is not GAAP net income or distributable profit. The base case first shows a positive monthly operating result in month {firstPos}; the cumulative operating result remains a loss at month {a.months}.</p>
+  return <p className="note" id="incomeNote2">ARR is month-end MRR multiplied by twelve; it is not revenue earned during the period. Operating result is before taxes, interest, depreciation, amortization and the separately presented financing/corporate-work allowance. It is not GAAP net income or distributable profit. {firstPos ? <>The base case first shows a positive monthly operating result in month {firstPos}; the cumulative operating result remains a loss at month {a.months}.</> : <>The base case does not reach a positive monthly operating result within the {a.months}-month horizon.</>}</p>
 }
 

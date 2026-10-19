@@ -12,6 +12,12 @@
    existing, verified pitch — floor case, funded case, raise terms, use of funds
    — rather than re-derived here. The raise number was reconciled against it
    before publication and agrees with the execution plan: $650,000.
+   ⭐ 2026-10-19: the raise is now $1,000,000 on a $10,000,000 post-money cap
+   (Mark, 19 October), and the costed plan in financial-plan.json carries the
+   sales and technical delivery hires it pays for. finance.ts still refuses to
+   render unless RAISE equals that budget's target. The 30 August terms are kept
+   below as RAISE_AUGUST_2026 for the historical section, beside the August
+   use-of-funds split they belong to.
 
    ⛔ THREE THINGS THAT DELIBERATELY DO NOT TRAVEL FROM THE SOURCE PITCH:
 
@@ -66,6 +72,8 @@ export interface PitchClaim {
   status: ClaimStatus;
   asOf: string;
   sourceLabel: string;
+  /* Measured figures the page renders from this row, so no component retypes them. */
+  figures?: Record<string, string>;
 }
 
 /* ── THE PROOF LEDGER (§9.7 "what is already real") ───────────────────────────
@@ -108,6 +116,54 @@ export const PROOF: PitchClaim[] = [
     status: 'live_internal',
     asOf: '2026-09-01',
     sourceLabel: 'Live line · production runtime',
+  },
+  /* 2026-10-19 (ship candidate): agents, model path and the mailbox counts, from the
+     reviewed /pitch rework. ⛔ The mail rows say "possible commitments", never "open
+     promises": there is no check for commitments later kept (qwen recount review). */
+  {
+    id: 'sabina-agents',
+    publicCopy: 'Agents built from Sabina — answering calls and email, follow-up, booking and promise tracking',
+    detailCopy:
+      'Her phone and email work is live on our own account and on Foundry’s own lines. No customer line is live yet.',
+    status: 'live_internal',
+    asOf: '2026-10-19',
+    sourceLabel: 'Mark Lord, 2026-10-19',
+  },
+  {
+    id: 'model-path',
+    publicCopy: 'Sabina runs on Foundry’s own platform and model path; customer data is not sent to an outside AI model company',
+    detailCopy: 'Owner attestation, not an independent audit.',
+    status: 'live_internal',
+    asOf: '2026-10-19',
+    sourceLabel: 'Mark Lord, 2026-10-19, owner attestation',
+  },
+  {
+    id: 'mail-overnight',
+    publicCopy: 'Overnight run on Foundry’s own mailbox — 196 commitments with no record of being closed',
+    detailCopy:
+      '10,909 emails; 196 commitments across 73 conversations with 63 people. Overnight run, 13 October 04:00–09:00 UTC.',
+    status: 'live_internal',
+    asOf: '2026-10-14',
+    sourceLabel: 'Foundry commitments table · measured 2026-10-14',
+    figures: { emails: '10,909', commitments: '196', conversations: '73', people: '63' },
+  },
+  {
+    id: 'mail-history-foundry',
+    publicCopy: 'Foundry full mailbox history — about 4,000 possible commitments',
+    detailCopy: '4,000 possible commitments across 1,466 threads with 650 people.',
+    status: 'live_internal',
+    asOf: '2026-10-17',
+    sourceLabel: '.sabina-master/callord-demo-1014/foundry-count-1017/RESULT-1017.md · qwen recount SHIP',
+    figures: { about: '4,000', commitments: '4,000', threads: '1,466', people: '650' },
+  },
+  {
+    id: 'mail-history-callord',
+    publicCopy: 'Related company (CalLord) full mailbox history — about 7,600 possible commitments',
+    detailCopy: '7,575 possible commitments across 2,096 threads with 922 people. Related-party, disclosed as such.',
+    status: 'live_internal',
+    asOf: '2026-10-16',
+    sourceLabel: '.sabina-master/callord-demo-1014/count-1015/RESULT-1016.md · qwen recount confirmed',
+    figures: { about: '7,600', commitments: '7,575', threads: '2,096', people: '922' },
   },
   {
     /* ⛔ THE ROW MOST AT RISK OF BEING OVERSTATED. A Founding Seat is signed.
@@ -321,12 +377,27 @@ export const HUMAN_COST = {
 
 export const RAISE = {
   instrument: 'Post-money SAFE with MFN',
+  amount: '$1,000,000',
+  cap: '$10,000,000 post-money',
+  dilution: '10.0% at the full raise',
+  minimum: '$25,000',
+  asOf: '2026-10-19',
+  sourceLabel: 'Terms ruled 19 October 2026',
+};
+// $1,000,000 ÷ $10,000,000 post-money: the dilution string must be that ratio, to one decimal.
+if (RAISE.dilution !== `${(100 * Number(RAISE.amount.replace(/[^0-9.]/g, '')) / Number(RAISE.cap.replace(/[^0-9.]/g, ''))).toFixed(1)}% at the full raise`)
+  throw new Error('/pitch: RAISE dilution does not equal amount over post-money cap')
+
+/* The 30 August 2026 terms, superseded 19 October. Kept only for the historical
+   section, where they sit beside the August use-of-funds split below. */
+export const RAISE_AUGUST_2026 = {
+  instrument: 'Post-money SAFE with MFN',
   amount: '$650,000',
   cap: '$8,000,000 post-money',
   dilution: 'approximately 8.1% at the full raise',
   minimum: '$25,000',
   asOf: '2026-08-30',
-  sourceLabel: 'Terms ruled 30 August 2026',
+  sourceLabel: 'Terms ruled 30 August 2026, superseded 19 October 2026',
 };
 
 export const USE_OF_FUNDS: { use: string; amount: string; share: number; note: string }[] = [

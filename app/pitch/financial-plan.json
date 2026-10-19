@@ -1,9 +1,9 @@
 {
-  "asOf": "2026-10-12",
+  "asOf": "2026-10-19",
   "status": "Proposed planning budget; not audited actuals or contracted vendor quotes",
   "horizonMonths": 18,
   "roundingIncrement": 25000,
-  "contingencyRate": 0.125,
+  "contingencyRate": 0.1,
   "founderAnnualCombined": 100000,
   "founderCostLoad": 0.12,
   "developerAiMonthly": 2000,
@@ -19,6 +19,13 @@
   "securityComplianceBudget": 30000,
   "securityStartMonth": 4,
   "securityEndMonth": 9,
+  "salesHires": [
+    {"role": "Account executive", "startMonth": 7, "monthlyLoaded": 10000},
+    {"role": "Account executive", "startMonth": 12, "monthlyLoaded": 10000}
+  ],
+  "technicalDeliveryHires": [
+    {"role": "Implementation engineer", "startMonth": 6, "monthlyLoaded": 11000}
+  ],
   "founderFundingRepayment": 32000,
   "repaymentMonth": 1,
   "sources": {
@@ -26,6 +33,7 @@
     "developerAi": "Founder reports well over $1,000 monthly for external AI tools used to build and maintain the product. $2,000 is an allowance, not a reconciled invoice total.",
     "production": "Founder confirms production AI uses Foundry-operated models on AWS, not external model APIs. AWS amounts are capacity allowances, not verified invoices or workload guarantees.",
     "repayment": "Founder confirms all $32,000 went into the business. Proposed repayment only, subject to records, accounting classification, applicable company/investor approvals and financing terms. This budget does not create or reclassify a liability.",
+    "hires": "Mark, 19 October: the $1,000,000 raise pays for a small sales team and a technical delivery team. Planning costs, not offers or market quotes: an SMB account executive at about $110,000 on-target earnings (base plus commission) with about 10% employer costs, $10,000 a month fully loaded; an implementation engineer at about $115,000 salary with about 15% employer costs, $11,000 a month. The first account executive starts in month 7, two months before the base case reaches three activations a month; the second in month 12 (round 5: the latest start month at which the base case is positive on recurring revenue by month 18; it was month 15). The implementation engineer starts in month 6, before the deployment lead (month 7); from round 5 the engineer counts as onboarding capacity (two activations a month), and the activation-driven delivery hires in the income model sit on top of that. Sized in round 3 so the financing target landed at $1,000,000. The month-12 start added $30,000 of payroll and took the unrounded budget to $1,020,313 at a 12.5% contingency, which rounded to $1,025,000; round 6 (seat ruling: the raise stays $1,000,000, the hires and the repayment stay) lowered the contingency allowance to 10.18%, the largest rate at two decimal places at which the budget fits $1,000,000. Ship candidate, 19 October (seat ruling): the contingency is a round 10.00%, which also fits (unrounded $998,350, rounded once to $1,000,000).",
     "otherCosts": "Planning allowances prepared 12 October. Deployment support is budgeted from month seven; hiring follows workload. No supplier contract, hire or compliance certification is represented as completed.",
     "cash": "Month one starts at financing close. Existing cash, forecast receipts, prospective credits and future data revenue are not deducted from the funding requirement. Other historical liabilities remain to be reconciled. Reserve is cash retained, not an expense."
   }
