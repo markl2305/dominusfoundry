@@ -25,6 +25,9 @@ function mailto(subject: string) {
 const Arr = () => <span className="arr" aria-hidden="true">→</span>
 const st = (i: number) => ({ '--i': i } as React.CSSProperties)
 
+/* the plan's milestone, from the base planning case rather than retyped: activations by month 18, to the nearest five */
+const BASE_BY_M18 = Math.round(incomeScenarios.find((s) => s.id === 'base')!.activations.reduce((t, n) => t + n, 0) / 5) * 5
+
 const CHAPTERS: (ChapterRef & { kicker: string })[] = [
   { id: 'story', n: 'I', name: 'One agent at work', kicker: 'One agent, worked through' },
   { id: 'problem', n: 'II', name: 'What it costs', kicker: 'The problem, in money' },
@@ -32,7 +35,7 @@ const CHAPTERS: (ChapterRef & { kicker: string })[] = [
   { id: 'record', n: 'IV', name: 'The long game', kicker: 'The data thesis' },
   { id: 'how', n: 'V', name: 'How it is built', kicker: 'How it is built' },
   { id: 'proof', n: 'VI', name: 'Proof so far', kicker: 'What is already operating' },
-  { id: 'plan', n: 'VII', name: 'The plan', kicker: '10–20 companies, then MSPs' },
+  { id: 'plan', n: 'VII', name: 'The plan', kicker: `About ${BASE_BY_M18} companies planned, then MSPs` },
   { id: 'position', n: 'VIII', name: 'Why we win', kicker: 'Why we win' },
   { id: 'economics', n: 'IX', name: 'The money', kicker: 'The raise and what it buys' },
   { id: 'founders', n: 'X', name: 'Founders', kicker: 'Founders and next step' },
@@ -125,7 +128,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
             <div><span>What we built</span><span>Sabina, a company’s own full AI, and the Managed AI service around her. She joins with her own email and phone line, and a place on the team; from her we build the agents the company needs, and we run them. Every agent acts only within the permissions the owner sets, and everything she does leaves a record. The business gets real AI without needing to become an AI company.</span></div>
             <div><span>Proof so far</span><span>One agent, the promise tracker, running on our own company today: pointed at {night.emails} of our own emails overnight, she found {night.commitments} commitments that had no record of being closed. Run across full mailbox histories, she flagged about {fh.about} possible commitments at our company and about {cl.about} at a related company. Our platform, Forge, is in paid production at an independent customer.</span></div>
             <div><span>Why it gets bigger</span><span>Every company she works in leaves behind a record of requests, promises and outcomes that nobody else captures. Across hundreds of companies — with their permission — that becomes data no one else has. We intend Dominus Foundry to become a data company; Sabina is how the record gets made.</span></div>
-            <div><span>The ask</span><span>{RAISE.amount} on a post-money SAFE at {RAISE.cap}, to put Sabina into 10–20 companies over {p.horizonMonths} months and make that repeatable.</span></div>
+            <div><span>The ask</span><span>{RAISE.amount} on a post-money SAFE at {RAISE.cap}, to make putting Sabina into companies repeatable: about {BASE_BY_M18} companies by month {p.horizonMonths} in the base planning case, a plan and not a result.</span></div>
           </div>
         </div>
       </section>
@@ -159,7 +162,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         </div>
         <div className="callout reveal">
           <p><strong>We did this to ourselves first.</strong> We connected {night.emails} of our own company emails overnight. By morning Sabina had found <strong>{night.commitments} commitments</strong> in them with no record of ever being closed, across {night.conversations} conversations with {night.people} different people. Run across each company’s full mailbox history, she flagged about <strong>{fh.about}</strong> possible commitments in ours ({fh.people} people) and about <strong>{cl.about}</strong> at a related company ({cl.people} people).</p>
-          <p className="note">Measured on Dominus Foundry’s own account, 14 October 2026.</p>
+          <p className="note">{night.emails} emails and {night.commitments} commitments: measured 14 October 2026 on Dominus Foundry’s own account. About {fh.about}: Dominus Foundry, full mailbox history, and about {cl.about}: a related company, full mailbox history, both measured 16–17 October 2026.</p>
         </div>
       </Chapter>
 
@@ -262,8 +265,8 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
       </Chapter>
 
       {/* VII — THE PLAN */}
-      <Chapter id="plan" className="on-dark" title={<>First 10–20 companies. <em>Then the partners who already serve thousands.</em></>}
-        lead="Step one is direct: put Sabina into 10–20 companies across industries and learn exactly what setup, support and results look like. Step two is distribution: managed IT providers (MSPs) offer her to the businesses they already look after.">
+      <Chapter id="plan" className="on-dark" title={<>First about {BASE_BY_M18} companies, direct. <em>Then the partners who already serve thousands.</em></>}
+        lead={`Step one is direct: put Sabina into companies across industries — about ${BASE_BY_M18} by month ${p.horizonMonths} in the base planning case — and learn exactly what setup, support and results look like. Step two is distribution: managed IT providers (MSPs) offer her to the businesses they already look after.`}>
         <ol className="sequence reveal" aria-label="The sequence">
           {['Direct company value', 'Repeatable setup and support', 'MSP distribution', 'The record grows into data'].map((s) => <li key={s}><span>{s}</span></li>)}
         </ol>
@@ -272,7 +275,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <div className="card reveal" style={st(1)}><p className="tile-k">They do</p><p className="who">MSP</p><p className="tile-p">The customer relationship, local systems, onboarding help and day-to-day support.</p></div>
           <div className="card joint reveal" style={st(2)}><p className="tile-k">Together</p><p className="who">Agreed per partner</p><p className="tile-p">Billing, support boundaries, service measurement and economics.</p></div>
         </div>
-        <p className="note reveal">The 10–20 companies are the milestone this raise funds, not customers we already have. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
+        <p className="note reveal">About {BASE_BY_M18} companies by month {p.horizonMonths} is the base planning case this raise funds — a plan, not a result, and not customers we already have. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
       </Chapter>
 
       {/* VIII — WHY WE WIN */}
@@ -306,7 +309,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
       {/* IX — THE MONEY (full depth kept; detail behind expanders) */}
       <Chapter id="economics" title={<>{RAISE.amount} to make it <em>repeatable.</em></>}
         lead={`The money pays for direct deployments, the people doing them — including ${hires} — and running Sabina’s model on our own servers. It is a costed operating plan, not a guess.`}>
-        <p className="note reveal" id="planningPrice">Planning price points: $750 a month for founding companies and $1,500 a month thereafter. Each company is custom quoted.</p>
+        <p className="note reveal" id="planningPrice">Planning price points: $750 a month for our first ten companies and $1,500 a month thereafter. Each company is custom quoted.</p>
         <div className="figures" id="figures">
           {[[usd(target), 'Proposed financing target', `planning budget · ${p.asOf}`], [`${p.horizonMonths} months`, 'Operating horizon from financing close', 'no forecast receipts required by this budget'], [usd(reserve), 'Reserve after planned outflows', 'cash retained, not operating expense']].map(([v, l, f]) =>
             <div className="card figure" key={l}><span className="v num">{v}</span><span className="l">{l}</span><span className="f">{f}</span></div>)}
