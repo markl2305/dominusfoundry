@@ -36,7 +36,7 @@ export default function CompanyContent() {
             Built by a family. <em>Held</em> for a generation.
           </>
         }
-        lead="Dominus Foundry is a family-owned Managed AI company in Albuquerque, New Mexico. We build and operate Sabina, your company's own AI, shaped around your systems, knowledge, people, and authority. Forge supplies the operating records and specialist tools beneath and alongside her, and DominusOS supplies the authority and execution control behind the work she is permitted to carry out."
+        lead="Dominus Foundry is a family-owned Managed AI company in Albuquerque, New Mexico. We build and operate Sabina, your company's own AI, shaped around your systems, knowledge, people, and authority. Forge comes with Sabina and supplies the structured operating workspace, and DominusOS supplies the authority and execution control behind the work she is permitted to carry out."
         actions={
           <>
             <a className="btn btn-solid" href="#leadership">
@@ -80,8 +80,8 @@ export default function CompanyContent() {
               </p>
               <p>
                 So we build and operate Sabina, your company&apos;s own AI, working on the responsibilities its owner grants her. Forge,
-                our operating platform, began with commercial trade contractors. We build it from Albuquerque, and we hold what we
-                build.
+                our operating workspace, began with commercial trade contractors and is in paid use at All Weather Roofing. That
+                is Forge evidence; Sabina has not yet onboarded there. We build and operate the agreed service from Albuquerque.
               </p>
             </div>
           </div>

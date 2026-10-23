@@ -31,7 +31,7 @@ const FILINGS = ['provisionals', 'nonprovisional', 'nonprovisional-2']
 const st = (i: number) => ({ '--i': i } as CSSProperties)
 
 export default function TechnologyContent(){return <div className="qp pg-technology-qp">
-<PageHero crest eyebrow="Technology · The system behind Sabina" title={<>One trained core.<br/><em>AI shaped around each company.</em></>} lead="Sabina runs on a core model trained and operated by Foundry. Our proprietary memory and teaching systems shape that foundation around your company, while your permissions define what she may do." actions={<><a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work</a><a className="btn btn-ghost" href="/governance">Explore governance →</a></>}/>
+<PageHero crest eyebrow="Technology · The system behind Sabina" title={<>One trained core.<br/><em>AI shaped around each company.</em></>} lead="Sabina runs on a core model trained and operated by Foundry. Our proprietary memory and teaching systems shape that foundation around your company, while your permissions define what she may do." actions={<><a className="btn btn-solid" href="https://withsabina.ai/evaluate">See Sabina work</a><a className="btn btn-ghost" href="/governance">Explore governance →</a></>}/>
 
 <Sec id="layers" name="Four layers" eyebrow="Four layers · reusable platform and private company state">
 <LayerStack layers={layers}/>
@@ -57,7 +57,7 @@ export default function TechnologyContent(){return <div className="qp pg-technol
 
 <Sec id="platform" name="Forge and DominusOS" className="band pg-technology" eyebrow="The platform beneath" title="Forge and DominusOS.">
 <div className="grid g2 products">
-<article className="card product reveal" style={st(0)}><h3 className="tile-t">Forge</h3><p className="tile-p">Forge supplies operating records and specialist tools beneath and alongside Sabina; some Forge tools are sold on their own.</p><p className="note">Forge tools are not automatically part of every Sabina deployment.</p><div className="actions pillar-a"><a className="btn btn-ghost btn-sm" href="https://buildwithforge.app">Explore Forge →</a></div></article>
+<article className="card product reveal" style={st(0)}><h3 className="tile-t">Forge</h3><p className="tile-p">Forge comes with Sabina and is available independently. It gives your team a workspace and the structured records the agreed work needs.</p><p className="note">Move agreed work into Forge, or assess the required API reads and updates in a retained system. Specialist tools have their own written scope.</p><div className="actions pillar-a"><a className="btn btn-ghost btn-sm" href="https://buildwithforge.app">Explore Forge →</a></div></article>
 <article className="card product reveal" style={st(1)}><h3 className="tile-t">DominusOS</h3><p className="tile-p">DominusOS supplies the authority and execution-control architecture behind what Sabina is permitted to do.</p></article>
 </div>
 </Sec>

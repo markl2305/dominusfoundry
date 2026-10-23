@@ -102,10 +102,10 @@ const HIRE = [
   },
   {
     n: 'Founding',
-    u: 'employers',
-    l: 'Founding employers',
-    d: 'Awarded by application. Start with agreed promise-to-completion work, then teach her additional supported responsibilities under explicit authority. Forge Core is included; it is not a second line, and it is never quoted separately. Held for as long as an operator holds the seat.',
-    q: <a href="https://hiresabina.ai/hire#founding">See current founding availability</a>,
+    u: 'companies',
+    l: 'Founding companies',
+    d: 'Awarded by application. Start with a useful task or supported responsibility. Forge is included; specialist tools and connections have an agreed scope. The founding term is held for as long as you hold the seat.',
+    q: <a href="https://withsabina.ai/hire#founding">See current founding availability</a>,
   },
   {
     n: 'Disclosed',
@@ -137,7 +137,7 @@ const LINES = [
 ]
 
 const EXAMPLES = [
-  { k: 'Recruit Sabina', v: 'Start with a short operational assessment of your business. Then Mark meets you to discuss the product and fit, and a written proposal follows.' },
+  { k: 'Explore Sabina', v: 'Start with a short operational assessment of your business. Then Mark meets you to discuss the product and fit, and a written proposal follows.' },
   { k: 'Run Forge tools', v: 'We scope the products and services your company needs and provide a custom quote.' },
 ]
 
@@ -148,10 +148,10 @@ export default function PricingContent() {
         eyebrow="Reference · What Forge costs"
         title={
           <>
-            Two doors, and they <em>are not the same door</em>.
+            One service. <em>Tools available independently.</em>
           </>
         }
-        lead="Dominus Foundry is the holding company behind Forge. This page is a reference — how we scope the work and prepare a custom quote. Forge itself is bought at buildwithforge.app."
+        lead="Dominus Foundry operates Sabina, with Forge included. This page explains service scope and independent Forge tools; every proposal states the work and terms for your company."
         meta={
           <>
             <span>
@@ -168,18 +168,18 @@ export default function PricingContent() {
         id="structure"
         name="Two doors"
         center
-        lead="Forge is sold two ways, and they are quoted separately on purpose. A business either hires its own AI or buys the tools. Those are different purchases, read against different budgets, and putting them on one list would misfile both."
+        lead="Forge comes with Sabina. A company can also use Forge tools independently. The written proposal identifies records, connections, specialist tools and responsibilities; inclusion does not make every tool or workflow available."
       >
         <div className="grid g2 doors">
           <article className="card door reveal" style={{ '--i': 0 } as CSSProperties}>
             <p className="tile-k">The first way</p>
             <h2 className="h2">
-              A hire is <em>not</em> a line item.
+              Sabina comes <em>with Forge.</em>
             </h2>
             <p className="tile-p">
-              The first way is a hire. One number covers her and the system of record she works inside; the record is not itemised, for the
-              same reason a salary is not quoted as base plus benefits plus payroll tax. The comparison it is meant to be read against is a
-              person, and the figure for that person appears as a reference for the work.
+              Sabina is your company’s own managed private AI, with Forge included. Begin with the assessment, prepare for Meet Sabina and
+              agree the written scope. Prefer moving the agreed work into Forge; assess a retained system’s API for the reads and updates
+              the work needs. A business AI subscription may be sufficient for occasional drafting or analysis.
             </p>
           </article>
           <article className="card door reveal" style={{ '--i': 1 } as CSSProperties}>
@@ -201,7 +201,7 @@ export default function PricingContent() {
       <section className="section band" id="hire" data-name="The first way">
         <div className="wrap">
           <div className="sec-head reveal">
-            <p className="eyebrow">The first way · a hire, quoted against a salary</p>
+            <p className="eyebrow">The Sabina service · scope agreed with your company</p>
           </div>
           <div className="sec-body">
             <div className="grid g3">
@@ -218,14 +218,14 @@ export default function PricingContent() {
             </div>
             <div className="stack reveal">
               <p className="note">
-                A founding seat and a standing arrangement buy the same Sabina; there is no second or third hire package to move up to.
+                A founding seat and a standing arrangement buy the same Sabina; Forge is included in each engagement.
                 Mark meets you to discuss the product and fit, and a written proposal follows. A business that also wants a tool from the
                 tool scope below is quoted for your company — product prices are not published on this page.
               </p>
               <p className="note">Start with a short operational assessment of your business.</p>
             </div>
             <div className="actions reveal">
-              <a className="btn btn-solid" href="https://hiresabina.ai/evaluate" target="_blank" rel="noopener">
+              <a className="btn btn-solid" href="https://withsabina.ai/evaluate" target="_blank" rel="noopener">
                 See Sabina work <span className="arr">→</span>
               </a>
             </div>
@@ -238,8 +238,8 @@ export default function PricingContent() {
           <div className="sec-head reveal">
             <p className="eyebrow">The second way · the tools</p>
             <p className="lead">
-              A separate door, for an operator who wants the system of record and is not hiring. The hire above is not on this card and is not
-              priced from it.
+              For an operator who wants Forge independently. The Sabina service includes Forge; it is not priced by adding tools from
+              this reference list.
             </p>
           </div>
           <div className="sec-body">

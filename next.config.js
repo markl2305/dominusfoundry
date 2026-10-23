@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       // Historical questionnaire carries retired commercial terms. Its exact
       // bytes remain in docs/archive; the current front door is the assessment.
-      { source: "/Dominus_Pre_Discovery_Questionnaire.pdf", destination: "https://hiresabina.ai/evaluate", permanent: false },
+      { source: "/Dominus_Pre_Discovery_Questionnaire.pdf", destination: "https://withsabina.ai/evaluate", permanent: false },
       // The retired product name. This 301 is the ONLY handler now: a
       // redundant app/iris/page.tsx calling permanentRedirect was deleted
       // 2026-09-16 — redirects() runs ahead of routing so that route file was

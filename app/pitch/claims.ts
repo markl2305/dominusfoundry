@@ -131,8 +131,8 @@ export const PROOF: PitchClaim[] = [
   },
   {
     id: 'model-path',
-    publicCopy: 'Sabina runs on Foundry’s own platform and model path; customer data is not sent to an outside AI model company',
-    detailCopy: 'Owner attestation, not an independent audit.',
+    publicCopy: 'Owner-attested internal model path: Foundry operates Sabina without sending customer data to an outside AI model company',
+    detailCopy: 'Owner attestation of the internal path, not an independent audit or evidence for every customer deployment. Confirm the actual processing path before sharing company data.',
     status: 'live_internal',
     asOf: '2026-10-19',
     sourceLabel: 'Mark Lord, 2026-10-19, owner attestation',

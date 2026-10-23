@@ -23,7 +23,7 @@ export default function GovernanceContent(){return <div className="qp pg-governa
 </Sec>
 <Sec id="demonstration" name="Try a grant" className="band pg-governance" eyebrow="Interactive illustration · No live business actions" title="Try a grant. Review a decision. Revoke it." lead="This simplified simulation runs only in your browser and resets on reload. It illustrates granting a responsibility, checking an example request, and preserving history after revocation. It does not connect to a company account or execute real work.">
 <RuleLedger/>
-<p className="fine">The examples are illustrative rules, not a demonstration of a live permission service. Discuss your actual workflow and its limits with the team.</p>
+<p className="fine">The examples are illustrative rules, not a demonstration of a live permission service. Foundry operates the agreed service. Confirm the supported workflow, approval path and failure handling for your company; this illustration is not production evidence.</p>
 </Sec>
-<ClosingCta title={<>Start with one <em>responsibility.</em></>} lead="Start with a short operational assessment of your business." actions={<><a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work</a><a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team →</a></>}/>
+<ClosingCta title={<>Start with one <em>responsibility.</em></>} lead="Start with a short operational assessment of your business." actions={<><a className="btn btn-solid" href="https://withsabina.ai/evaluate">See Sabina work</a><a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team →</a></>}/>
 </div>}

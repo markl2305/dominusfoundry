@@ -7,8 +7,8 @@ import { parseDocument, DomUtils } from 'htmlparser2'
 import { createHash } from 'node:crypto'
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
-const approved = '- Founding Seats: awarded by application (See current founding availability: https://hiresabina.ai/hire#founding)'
-const link = 'https://hiresabina.ai/hire#founding'
+const approved = '- Founding Seats: awarded by application (See current founding availability: https://withsabina.ai/hire#founding)'
+const link = 'https://withsabina.ai/hire#founding'
 const old = /Founding Seats:\s*ten total|The Founding Charter is ten seats/i
 const term = /\b(seats?|founding|cohort|openings?|slots?|spots?|charter|availability|remain|remaining|unclaimed|spoken for|signed)\b/i
 const num = /\b(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:zero|one|two|three|four|five|six|seven|eight|nine))?|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|zero|one|two|three|four|five|six|seven|eight|nine|hundreds?|thousands?|millions?|billions?|dozens?|several|few|half|handful|couple)\b/gi
@@ -84,6 +84,7 @@ function block(b, where, route) {
 }
 function source() {
   const llms = read('public/llms.txt').split(/\r?\n/)
+  check(!/recruited,\s*not sold|how hiring works|she is hired|the hire is the relationship/i.test(llms.join('\n')), 'COPY: retired Sabina hiring framing in served llms')
   check(llms.filter(l => l.trim() === approved).length === 1, 'S1: approved llms line must occur exactly once')
   check(llms.filter(l => /seat/i.test(l)).every(l => l.trim() === approved), 'S1: another llms seat line exists')
   check(!old.test(llms.join('\n')), 'S4: old founding count remains in llms')

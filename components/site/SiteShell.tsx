@@ -24,12 +24,14 @@ import SiteMenu from './SiteMenu'
 import SiteFooter from './SiteFooter'
 import { NAV_LINKS, CONTACT, activeFor } from './nav-links'
 import { SectionButton, SectionProgress, useSections } from './SectionNav'
+import ScrollMotion from './motion/ScrollMotion'
+import './motion/scroll-motion.css'
 
 const useIso = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 export type ShellVariant = 'foundry' | 'legacy' | 'bare'
 
-const FOUNDRY_BLURB = <>Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own AI, shaped around your systems, knowledge, people, and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>
+const FOUNDRY_BLURB = <>Dominus Foundry builds and operates Managed AI for businesses. Sabina is your company&apos;s own managed private AI, with Forge included and work scoped to your information and authority. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>
 const LEGACY_BLURB = <>We build Sabina, your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>
 const LEGACY_NOTE = <>&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information. <a href="/privacy">Privacy &amp; Data Use</a></>
 
@@ -127,5 +129,7 @@ export default function SiteShell({ variant, ribbon = false, closingCta = false,
       {closingCta && <ClosingCta />}
     </main>
     <SiteFooter blurb={variant === 'foundry' ? FOUNDRY_BLURB : LEGACY_BLURB} note={variant === 'foundry' ? undefined : LEGACY_NOTE} />
+    {/* Scroll-linked reveal on the public Foundry pages only (the route list lives in ScrollMotion). */}
+    <ScrollMotion />
   </div>
 }

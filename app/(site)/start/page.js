@@ -23,12 +23,12 @@ import "@/app/styles/pages/start.css";
 export const metadata = {
   title: "Start with Sabina — Dominus Foundry",
   description:
-    "Tell us where calls, follow-up, or recurring work are getting stuck. We'll use that context to discuss where Sabina, your company's own AI, could begin.",
+    "Explore useful company AI or agreed ongoing work, with Forge included. Begin at Sabina’s assessment, or use this form for company, technical and referral enquiries.",
 };
 
 const stuckPoints = [
-  "Calls that go unanswered",
-  "Follow-ups that get buried",
+  "Company information that is hard to use",
+  "Preparation and follow-through that lose context",
   "Questions your team keeps answering twice",
   "Work that keeps returning to the owner",
 ];
@@ -42,10 +42,10 @@ export default function StartPage() {
         title="Start with the work your team needs help carrying."
         lead={
           <p className="lead">
-            Tell us where calls, follow-up, or recurring work are getting stuck. We&apos;ll use that context to discuss where Sabina could begin in your company.
+            Start Sabina’s assessment for useful company AI or ongoing work, with Forge included. This company form also welcomes technical, partnership and referral enquiries.
           </p>
         }
-        actions={<Button href="https://hiresabina.ai/evaluate">See Sabina work</Button>}
+        actions={<Button href="https://withsabina.ai/evaluate">See Sabina work</Button>}
       />
 
       <section className="section" id="stuck" data-name="Where work gets stuck" aria-labelledby="h-stuck">
@@ -71,7 +71,7 @@ export default function StartPage() {
           <div className="card intake-card">
             <div className="intake-head">
               <p className="eyebrow">Tell us where work is stuck</p>
-              <h2 className="h2" id="h-tell-us">We&apos;ll discuss where Sabina could begin</h2>
+              <h2 className="h2" id="h-tell-us">Tell the Foundry what you need</h2>
             </div>
             <IntakeForm />
           </div>

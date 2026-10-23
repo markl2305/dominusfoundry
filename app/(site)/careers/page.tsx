@@ -154,7 +154,7 @@ export default function CareersPage() {
         title={<>What you&apos;d be selling</>}
         lead={
           <p className="lead">
-            A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong>, hired onto a founding seat (<a className="link" href="https://hiresabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
+            A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong> through a founding seat (<a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
           </p>
         }
       >
@@ -219,10 +219,10 @@ export default function CareersPage() {
                 published — reps see it on their onboarding call. Do not restore a dollar total
                 here; that is exactly what this rewrite removes. */}
             <p>
-              <strong>Every Sabina hire pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. Accounts differ in size, but the percentage is identical on all of them, so a book of accounts compounds the same way whichever rate closed each account &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
+              <strong>Every Sabina account pays the rep the same way</strong>: her full first month&apos;s subscription paid on collection, plus a <strong>15% residual on top of that for as long as the account stays active</strong> &mdash; no decay, no step-down, no production minimum to keep it. Accounts differ in size, but the percentage is identical on all of them, so a book of accounts compounds the same way whichever rate closed each account &mdash; the number to remember is 15%, forever, not a dollar total that depends on the mix. Your rate card for a given deal is confirmed before you quote it.
             </p>
             <p>
-              That structure is for <em>Sabina</em> hires specifically, not for accounts of any kind. Every tools deal is custom quoted, so commission follows the agreed amount for that account. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
+              That structure is for <em>Sabina</em> accounts specifically, not for accounts of any kind. Every tools deal is custom quoted, so commission follows the agreed amount for that account. The commission percentages are identical either way; only the per-account figure moves. Run your own mix.
             </p>
             <p>
               <strong>Separation tail: 6 months</strong> (industry standard is 90 days). This is not a commission plan. This is an equity-equivalent income stream without dilution.

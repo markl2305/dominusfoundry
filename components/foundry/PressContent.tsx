@@ -39,12 +39,12 @@ const KIT_PRODUCTS = [
   {
     k: 'Sabina',
     t: "your company's own AI",
-    d: "Sabina is a company’s own AI, shaped around its systems, knowledge, people, and authority. Foundry configures, deploys, and operates her; the company teaches her the business and decides what she may handle.",
+    d: "Sabina is a company’s own AI, shaped around its systems, knowledge, people, and authority. Foundry configures, deploys, and operates her, with Forge included; the company teaches her the business and decides what she may handle.",
   },
   {
     k: 'Forge',
     t: 'The operating platform',
-    d: 'Operating records and specialist tools beneath and alongside Sabina. Some Forge tools are sold independently. A Dominus Foundry product, not a separate company.',
+    d: 'Forge comes with Sabina and is available independently. The structured workspace, records and specialist tools have agreed scopes. A Dominus Foundry product, not a separate company.',
   },
   {
     k: 'Founders',

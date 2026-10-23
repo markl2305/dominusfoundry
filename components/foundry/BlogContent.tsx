@@ -108,7 +108,7 @@ export default function BlogContent() {
             <a className="btn btn-solid" href="#notes">
               Read the notes {Icon.arr}
             </a>
-            <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
+            <a className="btn btn-ghost" href="https://withsabina.ai/evaluate">
               See Sabina work {Icon.arr}
             </a>
           </>
@@ -171,7 +171,7 @@ export default function BlogContent() {
             <a className="btn btn-solid" href="mailto:foundry@dominusfoundry.com">
               Get in touch {Icon.arr}
             </a>
-            <a className="btn btn-ghost" href="https://hiresabina.ai/evaluate">
+            <a className="btn btn-ghost" href="https://withsabina.ai/evaluate">
               See Sabina work {Icon.arr}
             </a>
           </>

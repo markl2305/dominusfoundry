@@ -103,7 +103,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <img className="crest" src="/brand/crest-full.png" alt="Dominus Foundry crest, Fide et Familia" width="124" height="140" />
           <p className="eyebrow">Dominus Foundry · Sabina</p>
           <h1 className="display" id="hero-title">Sabina is a company’s own full AI. <em>We build the agents they need from her, and run them safely.</em></h1>
-          <p className="lead">Sabina joins a company with her own email and phone line, and a place on the team. From her we build the agents that business needs — answering calls and the inbox, following up, scheduling and booking, chasing quotes and reminders, keeping track of every promise — and we set them up, govern them and run them, so the business gets the help without having to become an AI company. Everything she handles becomes a record of how that company really works, and that record is the long-term asset.</p>
+          <p className="lead">Sabina is a company’s own managed private AI, with Forge included. We scope company understanding, useful preparation and ongoing work, then set up and operate supported workflows within the authority that company grants. The company gets a provider responsible for the agreed AI service. Everything she handles becomes a record of how that company really works, and that record is the long-term asset.</p>
           <div className="hero-actions">
             <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment <Arr /></a>
             <a className="btn btn-ghost" href="#thirty">The 30-second version <Arr /></a>
@@ -245,7 +245,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         <LayerStack layers={LAYERS} />
         <p className="note reveal"><strong>{modelPath.publicCopy}.</strong> <Badge status={modelPath.status} /> {modelPath.detailCopy}</p>
         <More summary="The operating platform and the economics of reuse" bodyClass="prose">
-          <p><strong>Forge</strong> is the operating platform beneath and alongside Sabina: the company’s records and specialist tools. Some Forge tools are sold on their own, and Forge is already in paid production at an independent customer.</p>
+          <p><strong>Forge</strong> comes with Sabina and is also available independently: the workspace and structured records for agreed work. Specialist tools have defined scopes. Paid Forge use at All Weather Roofing is distinct from Sabina, whose onboarding there has not begun.</p>
           <p>The trained model, memory machinery, permission system, integrations and deployment tools are reusable. Each new company brings its own context and rules to that shared platform. The scale opportunity is making each company-specific deployment repeatable while spreading the engineering across a growing customer base. Inference, onboarding and support stay real per-company costs, and the use of funds carries them.</p>
           <p>Company teaching and memory are not changes to the model itself, and Sabina’s permissions always come from the company.</p>
         </More>
@@ -370,7 +370,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <div className="ch-head reveal">
             <p className="eyebrow">Next step</p>
             <h2 className="h2" id="h-cta">Put Sabina to work today. <em>Own the record tomorrow.</em></h2>
-            <p className="lead">{awrSabina.publicCopy}. <a className="link" href="https://hiresabina.ai/hire#founding">See current founding availability</a>. We are glad to put you in front of the customer before we put you in front of the model.</p>
+            <p className="lead">{awrSabina.publicCopy}. <a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>. We are glad to put you in front of the customer before we put you in front of the model.</p>
             <div className="cta-actions">
               <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment <Arr /></a>
               <a className="btn btn-ghost" href={mailto('Reference call — All Weather Roofing')}>Request the customer reference <Arr /></a>

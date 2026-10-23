@@ -77,13 +77,13 @@ export default function HomeContent() {
           Your company’s AI.<br />
           <em>Built around your business.</em>
         </>}
-        lead="Dominus Foundry builds and manages Sabina, your company’s own AI. Start with calls, follow-up, and the workflows taking time from your team. She learns your business, works within the authority you define, and carries that understanding into the next responsibility."
+        lead="Dominus Foundry builds and operates Sabina, your company’s own managed private AI, with Forge included. Start with a question, a useful draft or ongoing work. Agree the information she may use, the responsibilities she should help carry and the actions that need approval."
         actions={<>
-          <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
+          <a className="btn btn-solid" href="https://withsabina.ai/evaluate">See Sabina work {Icon.arr}</a>
           <a className="btn btn-ghost" href="/pitch">Read the investor case {Icon.arr}</a>
         </>}
       >
-        <a className="hero-note" href="https://hiresabina.ai/evaluate">Start with a short operational assessment of your business. <span className="arr" aria-hidden="true">→</span></a>
+        <a className="hero-note" href="https://withsabina.ai/evaluate">Start with a short operational assessment of your business. <span className="arr" aria-hidden="true">→</span></a>
       </PageHero>
 
       <section className="section" id="how" aria-labelledby="h-how">
@@ -102,9 +102,9 @@ export default function HomeContent() {
             </p>
             <p>
               Foundry configures, deploys, and operates Sabina for your company. Your team teaches her the
-              business and decides what she may handle.
+              business and decides what she may handle. Move the agreed work into Forge, or assess whether a retained system supports the necessary API reads and updates.
             </p>
-            <a className="more-link" href="https://hiresabina.ai/evaluate">See Sabina work</a>
+            <a className="more-link" href="https://withsabina.ai/evaluate">See Sabina work</a>
           </div>
         </div>
       </section>
@@ -122,18 +122,18 @@ export default function HomeContent() {
           <article className="card reveal path-card" style={{ '--i': 0 } as CSSProperties}>
             <h3 className="h3">Sabina</h3>
             <p className="tile-p">
-              Sabina is your company&apos;s own AI, the one customers hire. Start with calls, follow-up, and
-              the workflows taking time from your team, then teach her more of the business. Agree each
-              responsibility and the authority she needs before she takes it on.
+              Sabina is your company&apos;s own managed private AI, with Forge included. Start with company
+              understanding, useful preparation or ongoing work. Agree the sources, supported
+              responsibility and authority before putting each workflow into use.
             </p>
-            <a className="more-link" href="https://hiresabina.ai/evaluate">See Sabina work</a>
+            <a className="more-link" href="https://withsabina.ai/evaluate">See Sabina work</a>
           </article>
           <article className="card reveal path-card" style={{ '--i': 1 } as CSSProperties}>
             <h3 className="h3">Forge</h3>
             <p className="tile-p">
-              Operating records and specialist tools beneath and alongside Sabina. Some Forge tools are
-              sold independently, and each has its own scope and readiness. Forge capabilities are not
-              automatically part of every Sabina deployment.
+              Forge comes with Sabina and is also available independently. It gives your team a workspace
+              and the structured records the agreed work needs. Specialist tools and connections have
+              their own scopes; Forge is in paid use at All Weather Roofing, where Sabina has not yet onboarded.
             </p>
             <a className="more-link" href="https://buildwithforge.app">Explore Forge →</a>
           </article>
@@ -224,7 +224,7 @@ export default function HomeContent() {
             <strong>Where the boundaries are.</strong> Any future use of eligible derived information beyond providing your company’s service
             requires separate, specific agreement. The value of Sabina’s work for your company does not depend on
             joining a broader intelligence program. Read how{' '}
-            <a className="link" href="https://hiresabina.ai/trust">company data and authority are handled</a>.
+            <a className="link" href="https://withsabina.ai/trust">company data and authority are handled</a>.
           </p>
         </div>
         <div className="prose reveal">
@@ -271,7 +271,7 @@ export default function HomeContent() {
         lead="Start with a short operational assessment of your business."
         actions={
           <>
-            <a className="btn btn-solid" href="https://hiresabina.ai/evaluate">See Sabina work {Icon.arr}</a>
+            <a className="btn btn-solid" href="https://withsabina.ai/evaluate">See Sabina work {Icon.arr}</a>
             <a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team {Icon.arr}</a>
           </>
         }
