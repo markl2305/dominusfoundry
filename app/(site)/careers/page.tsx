@@ -154,7 +154,7 @@ export default function CareersPage() {
         title={<>What you&apos;d be selling</>}
         lead={
           <p className="lead">
-            A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong> through a founding seat (<a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Her price is custom to each company and never published. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
+            A platform that service businesses actually need &mdash; not a nice-to-have. These companies are running on spreadsheets, disconnected apps, and paper. Reps sell <strong>Sabina</strong> through a founding seat (<a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>), with Forge Core included and never a separate line. Current Sabina pricing and custom pricing for larger accounts are described at withsabina.ai/hire. Supported work and any onboarding charges are confirmed in writing. <strong>The tools</strong> are likewise a custom quote based on the company&apos;s needs.
           </p>
         }
       >

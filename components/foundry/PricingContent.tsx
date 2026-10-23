@@ -1,4 +1,6 @@
-// CURRENT PUBLIC RULE: all products custom quoted — Mark, 2026-09-05.
+// Mark, October 22: Sabina public price $1,500/month; larger accounts custom.
+// This supersedes historical no-public-price notes below without revising signed terms.
+// HISTORICAL PUBLIC RULE (superseded for Sabina October 22): all products custom quoted — Mark, 2026-09-05.
 'use client'
 
 /* PricingContent.tsx - the holding company's reference page for what Forge costs.
@@ -91,7 +93,7 @@ import '@/app/styles/pages/pricing.css'
    already published on buildwithforge.app, and it renders first on purpose.
    RULED trio (2026-09-03/04): $5,500/mo headline · $32.50/hr at the desk ·
    BLS ECEC $5,474 as the citable method. This is the cost of a HUMAN hire, not
-   Sabina's price — she has no published price and this card must not read as one. */
+   Sabina's price. The October 22 public price is in a separate service card. */
 const HIRE = [
   {
     n: '~$5,500',
@@ -108,10 +110,11 @@ const HIRE = [
     q: <a href="https://withsabina.ai/hire#founding">See current founding availability</a>,
   },
   {
-    n: 'Disclosed',
-    u: 'not published',
+    n: '$1,500',
+    u: 'per month',
     l: 'What she costs',
-    /* ⛔ RULED 2026-09-15: pricing is CUSTOM TO EACH COMPANY, built from what the
+    /* Historical policy, superseded for Sabina by Mark on October 22.
+       ⛔ RULED 2026-09-15: pricing is CUSTOM TO EACH COMPANY, built from what the
        interview establishes about the job, and delivered afterwards as a written
        proposal. This field previously carried the sanctioned line "The founding
        rate is one number, and we quote it on the call because we take on two
@@ -119,8 +122,8 @@ const HIRE = [
        retired (rate disclosed at the job-description call, before the interview),
        and it is DEAD. ⛔ Do not restore it, and never a number, a range, or a
        "starting at" here. */
-    d: 'Her price is never published on a web surface. Start with a short operational assessment of your business. Then Mark meets you to discuss the product and fit, and a written proposal follows.',
-    q: 'Never on a web surface',
+    d: 'Sabina is $1,500/month with Forge included. Larger accounts receive custom pricing. Supported work, connections and specialist tools are confirmed in your written proposal.',
+    q: 'Custom pricing for larger accounts',
   },
 ]
 
@@ -155,10 +158,10 @@ export default function PricingContent() {
         meta={
           <>
             <span>
-              <b>Custom quotes</b> · scope and terms agreed up front
+              <b>Clear scope</b> · terms agreed up front
             </span>{' '}
             <span>
-              <b>Sabina and Forge tools</b> · quoted for your company
+              <b>Independent Forge tools</b> · quoted for your company
             </span>
           </>
         }
@@ -289,10 +292,10 @@ export default function PricingContent() {
           <p className="eyebrow">Terms, plainly</p>
           <h2 className="h2" id="h-terms">A quote for your company.</h2>
           <p className="lead">
-            Sabina and every Forge product are custom quoted. The proposal sets out the responsibilities, products, services and terms for your company.
+            Sabina is $1,500/month with Forge included; larger accounts receive custom pricing. Standalone Forge products are custom quoted. The proposal confirms the responsibilities, products, services and terms for your company.
           </p>
           <p className="lead">
-            We do not publish product prices or bundle discounts. We scope the work with you and give you a quote for the circumstances.
+            Standalone Forge tools have no public price list or bundle discounts. We scope those products with you and provide a quote for your circumstances.
           </p>
         </div>
       </Sec>
