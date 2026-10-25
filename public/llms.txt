@@ -18,7 +18,7 @@ Dominus Foundry LLC is a Wyoming Series LLC that builds and operates Managed AI 
 
 ## Trades Forge serves
 RULED 2026-08-23, and the tier boundary is the point.
-- Live in production today: commercial roofing (All Weather Roofing, in production since March 2026, invoiced and paid — the one arms-length named customer); AV and security, low voltage (in production on a founder-affiliated integrator, disclosed as such — dogfooding, not arms-length proof).
+- Live in production today: commercial roofing (All Weather Roofing, in production since March 2026, invoiced and paid — the one arms-length named customer); AV and security integration (in production on a founder-affiliated integrator, disclosed as such — dogfooding, not arms-length proof).
 - Next phase, NOT shipping, no production customer, stated only as roadmap: fire and life safety; solar.
 - Not served and not announced: HVAC; electrical. Earlier copy listed four or six trades as current. Those lists were wrong and are retired.
 

@@ -99,7 +99,7 @@ export default function AiSoftwareCompanyPage() {
             Forge by Dominus Foundry is an AI-native operating platform for commercial
             installation contractors. It consolidates field measurement, estimating,
             proposals, CRM, and project management into a single platform built
-            specifically for AV, security, low-voltage, and roofing contractors.
+            specifically for commercial AV/security integration and commercial roofing contractors.
           </p>
           <p>
             Unlike traditional construction software that adds AI features as

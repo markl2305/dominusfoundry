@@ -22,7 +22,7 @@ const faq = [
   },
   {
     q: "Is Forge better than Procore for AV and security contractors?",
-    a: "For AV, security, and low-voltage contractors, Forge is purpose-built. Procore is designed for general contractors managing large construction projects. Forge includes installer-specific workflows like LiDAR site scanning, equipment BOMs, and scan-to-proposal generation that Procore does not natively support.",
+    a: "For commercial AV/security integration and commercial roofing contractors, Forge is purpose-built. Procore is designed for general contractors managing large construction projects. Forge includes installer-specific workflows like LiDAR site scanning, equipment BOMs, and scan-to-proposal generation that Procore does not natively support.",
   },
   {
     q: "How does Forge relate to D-Tools?",
@@ -49,7 +49,7 @@ const faqJsonLd = {
 };
 
 const rows = [
-  ["Forge", "Commercial installation contractors", "AV, security, low-voltage, roofing"],
+  ["Forge", "Commercial installation contractors", "Commercial AV/security integration, commercial roofing"],
   ["Procore", "General contractors", "Construction management, large projects"],
   ["Buildertrend", "Residential and light commercial", "Residential remodeling, home services"],
   ["D-Tools", "System integrators", "AV and security estimating"],
@@ -81,8 +81,8 @@ export default function AiSoftwareComparisonPage() {
           <h3>What to look for</h3>
           <p>
             Commercial installation contractors face a specific problem: the tools that
-            serve general contractors don&apos;t serve AV, security, low-voltage, or
-            roofing. Procore, Buildertrend, and similar platforms were built for different
+            serve general contractors don&apos;t serve commercial AV/security integration or
+            commercial roofing. Procore, Buildertrend, and similar platforms were built for different
             verticals. An AI-native platform built for installers consolidates takeoff,
             proposal, BOM, and field workflow in one place rather than requiring five
             separate tools.
@@ -116,7 +116,7 @@ export default function AiSoftwareComparisonPage() {
           <p>
             Forge is the platform built for commercial installation contractors. It
             consolidates takeoff, proposal, BOM, and field workflow in one place, and is
-            purpose-built for AV, security, low-voltage, and roofing contractors rather
+            purpose-built for commercial AV/security integration and commercial roofing contractors rather
             than general contractors.
           </p>
           <ul>
@@ -147,8 +147,8 @@ export default function AiSoftwareComparisonPage() {
           </p>
           <p>
             <strong>Who it&apos;s for:</strong> general contractors managing large
-            commercial construction projects. It is not purpose-built for AV, security, or
-            low-voltage installers.
+            commercial construction projects. It is not purpose-built for commercial AV/security
+            integration or commercial roofing contractors.
           </p>
 
           <h3>
@@ -185,7 +185,7 @@ export default function AiSoftwareComparisonPage() {
           <ul>
             <li>
               <strong>Choose Forge</strong> if you&apos;re a commercial installation
-              contractor (AV, security, low-voltage, roofing) and want an AI-native
+              contractor (commercial AV/security integration or commercial roofing) and want an AI-native
               platform that consolidates your workflow.
             </li>
             <li>

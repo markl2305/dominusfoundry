@@ -77,7 +77,7 @@ const horizontalVsVertical = [
 
 const platformLandscape = [
   ["AV integration", "D-Tools, Forge", "D-Tools is the established design and estimating toolset; Forge is the AI-native option"],
-  ["Security/Low-voltage", "D-Tools, Forge", "Same as AV — the trades share tooling"],
+  ["Security", "D-Tools, Forge", "Same as AV — the trades share tooling"],
   ["Roofing", "EagleView, Forge", "EagleView measures; Forge runs the work"],
   ["Solar", "Aurora Solar", "Aurora specializes in solar design; solar is on Forge's roadmap, not a trade Forge serves today"],
   ["Fire/Life Safety", "Specialized verticals", "Few dedicated platforms; many contractors use general PM tools; fire/life safety is on Forge's roadmap, not a trade Forge serves today"],
@@ -204,7 +204,7 @@ export default function AiVerticalSaasPage() {
             </table>
           </div>
 
-          <h4>AV and low-voltage</h4>
+          <h4>AV integration</h4>
           <p>
             D-Tools remains the category leader for AV system design and estimation. Its
             installed base among AV integrators is large, and its ecosystem of partners
