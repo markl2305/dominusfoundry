@@ -1,19 +1,11 @@
 'use client'
-/* Dominus Foundry's Managed AI investor case, dominusfoundry.com/pitch.
-   2026-10-19 ship candidate: the reworked narrative (David Wu's feedback: answer
-   problem, solution, proof, why it grows and the ask in 30 seconds; tell it as a
-   story with the money in it; make the data thesis plain). Reframed on Mark's
-   direction the same day: Sabina is a company's own full AI and we build the
-   agents they need from her; the problem is two-fold (more help with the work,
-   and help deploying AI correctly and safely). Promise-keeping is one worked
-   example of one agent, and the basis of the data thesis.
-   Every claim, status and date comes from claims.ts; every figure from
-   financial-plan.json, income-assumptions.json and income-model.ts (finance.ts
-   throws if the raise and the budget disagree). The only price on the page is
-   the planning-price line in the economics chapter (Mark, 2026-10-19).
-   Cross-industry from the outset: see AGENTS.md; no trades-first proof lane. */
+/* October30: managed private company intelligence leads this investor case.
+   Promise tracking is one supporting example. Current standard-offer acquisitions
+   are modeled separately from signed founding agreements, whose terms are unchanged.
+   Claims, dated evidence and financial inputs retain their source ownership;
+   existing CSS, interaction logic, financing terms and cost plan are preserved. */
 import { useRef, type ReactNode } from 'react'
-import { PROOF, STATUS_LABEL, claim, AT_A_GLANCE, HUMAN_COST, RAISE, CONTACT_EMAIL } from './claims'
+import { PROOF, STATUS_LABEL, claim, AT_A_GLANCE, RAISE, CONTACT_EMAIL } from './claims'
 import { incomeAssumptions as a, incomeScenarios, financingTarget } from './income-model'
 import { plan as p, target, reserve, usd } from './finance'
 import SiteFooter from '@/components/site/SiteFooter'
@@ -25,17 +17,19 @@ function mailto(subject: string) {
 const Arr = () => <span className="arr" aria-hidden="true">→</span>
 const st = (i: number) => ({ '--i': i } as React.CSSProperties)
 
-/* the plan's milestone, from the base planning case rather than retyped: activations by month 18, to the nearest five */
-const BASE_BY_M18 = Math.round(incomeScenarios.find((s) => s.id === 'base')!.activations.reduce((t, n) => t + n, 0) / 5) * 5
+/* One model supplies both acquisition and retained-customer milestones. */
+const BASE_CASE = incomeScenarios.find((s) => s.id === 'base')!
+const BASE_GROSS_M18 = BASE_CASE.activations.reduce((t, n) => t + n, 0)
+const BASE_ACTIVE_M18 = BASE_CASE.months[BASE_CASE.months.length - 1].activeCompanies.toFixed(1)
 
 const CHAPTERS: (ChapterRef & { kicker: string })[] = [
-  { id: 'story', n: 'I', name: 'One agent at work', kicker: 'One agent, worked through' },
+  { id: 'story', n: 'I', name: 'Company intelligence', kicker: 'Company intelligence at work' },
   { id: 'problem', n: 'II', name: 'What it costs', kicker: 'The problem, in money' },
-  { id: 'solution', n: 'III', name: 'Sabina and her agents', kicker: 'The solution' },
+  { id: 'solution', n: 'III', name: 'The managed AI service', kicker: 'The solution' },
   { id: 'record', n: 'IV', name: 'The long game', kicker: 'The data thesis' },
   { id: 'how', n: 'V', name: 'How it is built', kicker: 'How it is built' },
   { id: 'proof', n: 'VI', name: 'Proof so far', kicker: 'What is already operating' },
-  { id: 'plan', n: 'VII', name: 'The plan', kicker: `About ${BASE_BY_M18} companies planned, then MSPs` },
+  { id: 'plan', n: 'VII', name: 'The plan', kicker: `${BASE_GROSS_M18} activations planned, then MSPs` },
   { id: 'position', n: 'VIII', name: 'Why we win', kicker: 'Why we win' },
   { id: 'economics', n: 'IX', name: 'The money', kicker: 'The raise and what it buys' },
   { id: 'founders', n: 'X', name: 'Founders', kicker: 'Founders and next step' },
@@ -61,10 +55,10 @@ const More = ({ summary, children, bodyClass = '' }: { summary: ReactNode; child
   <details className="more reveal"><summary>{summary} <span className="plus" aria-hidden="true" /></summary><div className={`more-body ${bodyClass}`.trim()}>{children}</div></details>
 
 const LAYERS: Layer[] = [
-  { t: 'One trained brain', what: 'Foundry trains and runs the core model behind every Sabina.', platform: 'Custom-trained weights, training and evaluation methods, serving software.', company: 'Any extra adaptation written into that company’s deployment.' },
-  { t: 'Her knowledge of your company', what: 'She starts out knowing your people, systems, customers and how the industry works.', platform: 'Memory, context assembly and onboarding machinery.', company: 'Identity, systems, people, records, relationships and private knowledge.' },
+  { t: 'Foundry-operated models', what: 'Foundry trains and operates the core models behind Sabina.', platform: 'Custom-trained weights, training and evaluation methods, serving software.', company: 'Any extra adaptation written into that company’s deployment.' },
+  { t: 'Her knowledge of your company', what: 'Configured with the approved company and industry context available for the agreed work.', platform: 'Memory, context assembly and onboarding machinery.', company: 'Identity, systems, people, records, relationships and private knowledge.' },
   { t: 'Your rules', what: 'You tell her, in plain English, how work is done and what she may and may not do.', platform: 'The teaching process and the permission system.', company: 'Instructions, responsibilities, approvals, and the ability to take any permission back.' },
-  { t: 'The record she builds', what: 'Every request, promise, decision and outcome she handles is written down as it happens.', platform: 'Capturing, maintaining and searching that record.', company: 'The company’s own history: what was promised, what happened, and why.' },
+  { t: 'The record she builds', what: 'Retain relevant sources, reviewed corrections, decisions and recorded outcomes for later questions and work.', platform: 'Capturing, maintaining and searching that record.', company: 'The company’s own history: what was promised, what happened, and why.' },
 ]
 const FILING_NOTES: Record<string, string> = {
   'nonprovisional': 'It covers how autonomous work is carried out only with a recorded permission, and how decision-grade insight is drawn from many companies’ records.',
@@ -101,9 +95,9 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         <div className="wrap hero-in">
           {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
           <img className="crest" src="/brand/crest-full.png" alt="Dominus Foundry crest, Fide et Familia" width="124" height="140" />
-          <p className="eyebrow">Dominus Foundry · Sabina</p>
-          <h1 className="display" id="hero-title">Sabina is a company’s own full AI. <em>We build the agents they need from her, and run them safely.</em></h1>
-          <p className="lead">Sabina is a company’s own managed private AI, with Forge included. We scope company understanding, useful preparation and ongoing work, then set up and operate supported workflows within the authority that company grants. The company gets a provider responsible for the agreed AI service. Everything she handles becomes a record of how that company really works, and that record is the long-term asset.</p>
+          <p className="eyebrow">Dominus Foundry · Managed private AI</p>
+          <h1 className="display" id="hero-title">Managed private AI. <em>Company intelligence that carries forward.</em></h1>
+          <p className="lead">Dominus Foundry builds and operates Sabina, a company’s own AI for small and midsize businesses. Approved records, what the team teaches her, and reviewed outcomes become useful company context for questions, analysis and work. Company knowledge is kept separately from the core model. Foundry runs the service; the business controls her authority.</p>
           <div className="hero-actions">
             <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment <Arr /></a>
             <a className="btn btn-ghost" href="#thirty">The 30-second version <Arr /></a>
@@ -124,11 +118,11 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
             <h2 className="h2" id="h-thirty">Five questions, <em>five answers.</em></h2>
           </div>
           <div className="rows reveal">
-            <div><span>The problem</span><span>Two of them. First, businesses lose on all of it, not just the missed call or the broken promise: they need more help with the everyday work — answering, following up, scheduling, quoting, chasing — and those tasks are what Sabina’s agents take on. Second, they need help deploying AI correctly and safely. Nobody on staff can choose it, connect it to the business, govern it and keep it running. That is Managed AI.</span></div>
-            <div><span>What we built</span><span>Sabina, a company’s own full AI, and the Managed AI service around her. She joins with her own email and phone line, and a place on the team; from her we build the agents the company needs, and we run them. Every agent acts only within the permissions the owner sets, and everything she does leaves a record. The business gets real AI without needing to become an AI company.</span></div>
-            <div><span>Proof so far</span><span>One agent, the promise tracker, running on our own company today: pointed at {night.emails} of our own emails overnight, she found {night.commitments} commitments that had no record of being closed. Run across full mailbox histories, she flagged about {fh.about} possible commitments at our company and about {cl.about} at a related company. Our platform, Forge, is in paid production at an independent customer.</span></div>
-            <div><span>Why it gets bigger</span><span>Every company she works in leaves behind a record of requests, promises and outcomes that nobody else captures. Across hundreds of companies — with their permission — that becomes data no one else has. We intend Dominus Foundry to become a data company; Sabina is how the record gets made.</span></div>
-            <div><span>The ask</span><span>{RAISE.amount} on a post-money SAFE at {RAISE.cap}, to make putting Sabina into companies repeatable: about {BASE_BY_M18} companies by month {p.horizonMonths} in the base planning case, a plan and not a result.</span></div>
+            <div><span>The problem</span><span>A business has years of knowledge spread across its people, inboxes and systems, but no dependable way to bring it together for the next question or decision. Most small and midsize companies also lack a team to choose, connect, govern and operate AI for that work.</span></div>
+            <div><span>What we built</span><span>Sabina, managed private company AI with Forge included. Foundry operates the models and supporting systems. Company-specific memory and teaching carry relevant context into questions, analysis, preparation and supported workflows. The company decides the sources, scope and authority.</span></div>
+            <div><span>Proof so far</span><span>Forge is in paid production at an independent customer. Internal Sabina work includes company mailbox analysis, with historical runs and their limits documented below. Internal use, a signed Sabina engagement and independently measured customer outcomes are separate stages.</span></div>
+            <div><span>Why it gets bigger</span><span>Each deployment can accumulate useful company knowledge, corrections and a record of outcomes, separately from the model underneath. The reusable model and platform support repeatable delivery; retained company context is the customer’s continuing value. Broader permissioned intelligence remains a separate, longer-term opportunity.</span></div>
+            <div><span>The ask</span><span>{RAISE.amount} on a post-money SAFE at {RAISE.cap}, to make direct delivery repeatable. The base planning case models {BASE_GROSS_M18} new activations and {BASE_ACTIVE_M18} active company equivalents after churn by month {p.horizonMonths}. These are projections, not current customers.</span></div>
           </div>
         </div>
       </section>
@@ -143,44 +137,47 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         </div>
       </section>
 
-      {/* I — THE STORY */}
-      <Chapter id="story" title={<>“Can you send me the deck <em>by tomorrow?”</em></>}
-        lead="An investor emails on a Tuesday afternoon. You reply “Absolutely.” Then forty more emails land, two customers call, and a supplier problem eats the evening. Wednesday comes and goes.">
-        <p className="note reveal">This is one of the agents we build from Sabina — the one that keeps track of promises — worked through end to end. It is the easiest one to show, and the one whose record feeds the data thesis in chapter IV.</p>
+      {/* I — COMPANY INTELLIGENCE; operational agents are supporting capabilities. */}
+      <Chapter id="story" title={<>Understand the business. <em>Then help run it.</em></>}
+        lead="A company should be able to ask about its customers, its work and its decisions without rebuilding the context for every question. Sabina brings relevant, authorized information into that work, with the sources and uncertainty available for review.">
         <div className="two-col reveal">
-          <h3 className="h3">Nobody forgot on purpose</h3>
+          <h3 className="h3">Company context is the starting point</h3>
           <div className="prose">
-            <p>The promise was made in writing, in your own inbox. It just had nowhere to live except your head. That is how most small businesses run: every “I’ll get back to you” is held by one busy person, and when they are busy, it drops.</p>
-            <p>With Sabina, the moment you write “Absolutely,” she notes it: <strong>who</strong> asked, <strong>what</strong> you promised, and <strong>by when</strong>. She watches your outbox. If the deck goes out, she quietly closes it. If it has not gone out by the deadline — or within 24 hours when no deadline was given — she sends you one short note with a link straight to the thread.</p>
+            <p>An owner asks why a customer relationship has stalled. The answer may span earlier conversations, a changed requirement, work already delivered and a decision nobody recorded in the main system. Reading one message is not enough; the useful task is connecting the relevant evidence and identifying what still needs an answer.</p>
+            <p>Start with the records and responsibilities the company approves. Retain useful instructions, reviewed corrections and outcomes with the work. That context can help with the next question, the next report and the next handoff, without granting any new permission to act.</p>
           </div>
         </div>
         <div className="grid g4">
-          <Tile i={0} k="01" t="She reads">Read-only access to the company mailbox, checked every minute.</Tile>
-          <Tile i={1} k="02" t="She spots the promise">“I’ll send it tomorrow” becomes an open commitment, with a due time.</Tile>
-          <Tile i={2} k="03" t="She watches for it to close">A reply, a sent file or a booked call closes it. No noise if it is done.</Tile>
-          <Tile i={3} k="04" t="She nudges">If it is not done in time, one reminder, with the link to pick it back up.</Tile>
+          <Tile i={0} k="01" t="Understand the company">Bring approved company records, people, decisions and operating instructions into relevant context.</Tile>
+          <Tile i={1} k="02" t="Find relationships">Examine information across available records for patterns, conflicting accounts and questions worth investigating. Show the supporting evidence.</Tile>
+          <Tile i={2} k="03" t="Prepare useful work">Develop answers, summaries, reports and options for the responsible person to review, within the supported scope.</Tile>
+          <Tile i={3} k="04" t="Carry agreed responsibilities">Use that context in supported calls, handoffs and follow-through. Actions remain bounded by the company’s authority.</Tile>
         </div>
+        <More summary="One supporting example: tracking a customer commitment" bodyClass="prose">
+          <p>Suppose someone asks for a document by tomorrow. A useful workflow identifies the request, its owner and due date; checks the relevant record for completion; and prepares a follow-up if the evidence is missing. Completion needs supporting evidence, not merely a plausible reply.</p>
+          <p>This describes a workflow to demonstrate within an agreed scope. The historical mailbox analyses below establish extraction results; they do not establish continuous monitoring, a polling frequency, automated closure or reminder delivery.</p>
+        </More>
         <div className="callout reveal">
-          <p><strong>We did this to ourselves first.</strong> We connected {night.emails} of our own company emails overnight. By morning Sabina had found <strong>{night.commitments} commitments</strong> in them with no record of ever being closed, across {night.conversations} conversations with {night.people} different people. Run across each company’s full mailbox history, she flagged about <strong>{fh.about}</strong> possible commitments in ours ({fh.people} people) and about <strong>{cl.about}</strong> at a related company ({cl.people} people).</p>
-          <p className="note">{night.emails} emails and {night.commitments} commitments: measured 14 October 2026 on Dominus Foundry’s own account. About {fh.about}: Dominus Foundry, full mailbox history, and about {cl.about}: a related company, full mailbox history, both measured 16–17 October 2026.</p>
+          <p><strong>Internal evidence, from company records.</strong> A historical analysis of {night.emails} Foundry emails identified {night.commitments} commitments without a recorded closure in the inspected data, across {night.conversations} conversations with {night.people} people. Separate full-history runs flagged about {fh.about} possible commitments at Foundry and about {cl.about} at related company CalLord.</p>
         </div>
+        <p className="note reveal">The overnight run is dated {claim('mail-overnight').asOf}; the Foundry full-history run is dated {claim('mail-history-foundry').asOf}, and CalLord’s is dated {claim('mail-history-callord').asOf}. These are internal historical analyses, not measured customer outcomes or a finding that every flagged commitment was unfulfilled.</p>
       </Chapter>
 
       {/* II — WHAT IT COSTS */}
-      <Chapter id="problem" className="on-dark" title={<>Two problems: they need more help with the work, <em>and help putting AI to work safely.</em></>}
-        lead="Businesses don’t lose only on the missed call or the broken promise; they lose on all of it, because there is more work than hands. The second problem is why it hasn’t been fixed: the tools exist, but a small business has no one to deploy them correctly and safely.">
-        <h3 className="h3 reveal">Problem one: more work than hands</h3>
+      <Chapter id="problem" className="on-dark" title={<>The knowledge is there. <em>The business needs a way to use it.</em></>}
+        lead="Important context is scattered across records and people. Teams spend time reconstructing it, miss relationships between events, and repeat decisions without the earlier lessons. Connecting and operating useful AI for that work is a second job most businesses are not equipped to take on.">
+        <h3 className="h3 reveal">Problem one: knowledge that is hard to put to work</h3>
         <div className="grid g2 problem-grid">
-          <div className="card reveal" style={st(0)}><span className="ix">01</span><p><strong>The hire.</strong> A fully loaded front-office coordinator — wage, employer tax, insurance, benefits, the desk — costs about <strong>{HUMAN_COST.monthly} a month</strong>, roughly {HUMAN_COST.hourly} an hour. Much of that day is answering, following up and remembering.</p></div>
-          <div className="card reveal" style={st(1)}><span className="ix">02</span><p><strong>The leak.</strong> The missed call goes to the next company on the list. The quote that never got its follow-up is a sale lost after all the work to win it. The appointment nobody confirmed, the reminder nobody sent. None of it shows up on a statement, so nobody totals it.</p></div>
-          <div className="card reveal" style={st(2)}><span className="ix">03</span><p><strong>The repeat.</strong> The same question gets answered again because the last answer was never written down.</p></div>
-          <div className="card reveal" style={st(3)}><span className="ix">04</span><p><strong>The owner.</strong> Everything that should move on its own comes back to the person running the business.</p></div>
+          <div className="card reveal" style={st(0)}><span className="ix">01</span><p><strong>The search.</strong> A useful answer requires reading several systems and asking the people who remember what happened. Context has to be assembled before the real work starts.</p></div>
+          <div className="card reveal" style={st(1)}><span className="ix">02</span><p><strong>The blind spots.</strong> A pattern can span customers, decisions and outcomes. Individual records tell only part of the story; teams need a way to connect the evidence.</p></div>
+          <div className="card reveal" style={st(2)}><span className="ix">03</span><p><strong>The repeat.</strong> The same explanation, correction or decision is reconstructed because the earlier context did not carry forward.</p></div>
+          <div className="card reveal" style={st(3)}><span className="ix">04</span><p><strong>The owner.</strong> The person running the business becomes its backup memory, while also deciding which tools can be trusted with its information.</p></div>
         </div>
         <div className="sub reveal">
           <h3 className="h3">Problem two: deploying AI correctly and safely</h3>
           <div className="prose">
-            <p>A large company that wants AI working inside its business hires people to choose the tools, connect them to email, phone and records, decide what the AI may and may not do, keep customer data safe, and fix it when it breaks. A 15-person company has none of those people. The owner is already the backup memory; they are not going to become the AI department too.</p>
-            <p>So small businesses end up with the worst of both: staff pasting company work into whatever free chatbot they found, with no rules and no record, while the real gains go to companies big enough to staff for them.</p>
+            <p>A large company that wants AI working inside its business hires people to choose the tools, connect them to email, phone and records, decide what the AI may and may not do, keep customer data safe, and fix it when it breaks. A smaller company often has no dedicated AI team. The owner needs a provider responsible for the supported service, its information boundaries and its ongoing operation.</p>
+            <p>A general AI subscription can help an individual. Company-specific intelligence also needs maintained records, permitted connections, reviewed changes and clear responsibility when something fails.</p>
           </div>
           <div className="rows">
             <div><span>They don’t know what’s possible</span><span>Which jobs AI can safely carry today, and which it can’t.</span></div>
@@ -191,47 +188,47 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <p className="note">That is the gap Managed AI fills: we do all four, for them.</p>
         </div>
         <div className="sub reveal">
-          <h3 className="h3">Do the math on one week (problem one)</h3>
+          <h3 className="h3">Choose a useful result and measure it</h3>
           <div className="rows">
-            <div><span>Calls missed</span><span>Five a week that never get a callback. If one in five would have become a $4,000 job, that is $4,000 a week walking to a competitor.</span></div>
-            <div><span>Follow-ups dropped</span><span>Three quotes a week with no second touch. Recover one a month and it pays for a year of most software.</span></div>
-            <div><span>Owner hours</span><span>Ten hours a week chasing what should have chased itself — a quarter of a full-time job, done by the most expensive person in the building.</span></div>
+            <div><span>Questions answered</span><span>Can the team get a supported answer across the relevant company records? Record correctness, missing evidence and time spent checking it.</span></div>
+            <div><span>Analysis prepared</span><span>Does a report reveal a relationship or decision worth investigating? Separate a plausible suggestion from a finding the team can verify.</span></div>
+            <div><span>Work carried forward</span><span>Does approved context reduce repeated explanation or make a handoff more useful? Compare the accepted result and review effort with the current process.</span></div>
           </div>
-          <p className="note">Illustrative arithmetic to show the shape of the cost, not customer results. The {HUMAN_COST.monthly} figure is a modeled cost of a human hire ({HUMAN_COST.methodLabel}: {HUMAN_COST.method}), not Sabina’s price, which is quoted per company.</p>
+          <p className="note">These are evaluation questions, not measured savings or guaranteed results. Start with representative work and agree how the result, review effort and service cost will be assessed.</p>
         </div>
       </Chapter>
 
       {/* III — WHAT SABINA DOES */}
-      <Chapter id="solution" title={<>A company’s own full AI, <em>and the agents built from her.</em></>}
-        lead="This answers both problems. Sabina joins the company with her own email and phone line, and a place on the team. From her we build the agents the work needs, agree with the owner exactly what each one handles, and run them for the company. She takes on the work; we carry the AI work they have no one to do.">
+      <Chapter id="solution" title={<>Company intelligence, <em>delivered as a managed service.</em></>}
+        lead="Foundry configures Sabina around the company’s information, people and approved work, with Forge included. We operate the models and supporting systems; the company supplies its expertise and decides her authority. Supported agents and connections serve that company context, from analysis and preparation to agreed operational work.">
         <div className="grid g3">
-          {[['Answers', 'The phone and the inbox, in the company’s name, around the clock.'], ['Books and follows up', 'Appointments, callbacks, quotes and reminders, within agreed limits.'], ['Keeps promises', 'Tracks every commitment, inbound and outbound, until it is closed.'], ['Learns the company', 'Remembers people, customers, past answers and corrections.'], ['Asks before she acts', 'Anything outside her permissions goes to a person for approval.'], ['Shows her work', 'Every action has a record: what she did, when, and on whose authority.']].map(([t, d], i) =>
+          {[['Company understanding', 'Relevant records and what the team teaches her inform the agreed work.'], ['Questions and analysis', 'Bring together available evidence, identify uncertainty and prepare useful answers.'], ['Preparation', 'Draft reports, summaries and options for the responsible person to review.'], ['Operational work', 'Support enabled communication, handoffs and follow-through within the written scope.'], ['Company control', 'Define permitted sources, approval requirements and the actions she may take.'], ['Managed operation', 'Foundry maintains the supported environment, connections and service.']].map(([t, d], i) =>
             <Tile key={t} i={i} k={`0${i + 1}`} t={t}>{d}</Tile>)}
         </div>
         <div className="callout reveal">
-          <p><strong>Agents, built from her.</strong> {agents.publicCopy}. <Badge status={agents.status} /> — {agents.detailCopy}</p>
+          <p><strong>Supporting agents and workflows.</strong> {agents.publicCopy}. <Badge status={agents.status} /> — {agents.detailCopy}</p>
           <p><strong>The owner’s rules, in plain English.</strong> {policy.publicCopy} <Badge status={policy.status} /> — {policy.detailCopy}</p>
         </div>
-        <p className="note reveal">Scope, terms and price are set in each company’s written proposal. There is no rate card.</p>
+        <p className="note reveal">The standard offer is $1,500/month with Forge included and no setup fee. Large accounts receive custom pricing. Supported work and connections are confirmed in the written proposal.</p>
         <More summary="Why now" bodyClass="prose">
-          <p>About eighteen months ago, AI models became good enough to carry real business work. What did not arrive with them was a practical way for a business to say in advance what the system may do, and to see afterwards what it did. Meanwhile employees are already pasting company work into unsanctioned AI tools because there is no good sanctioned option.</p>
-          <p>Running a trained model for many companies is now affordable in a way it was not eighteen months ago. Most small businesses still cannot build and operate that themselves. That is the gap.</p>
+          <p>Useful models alone do not create useful company intelligence. A business also needs the right records, a way to retain what it learns, evaluations drawn from its work, and control over access and actions.</p>
+          <p>The opportunity is to operate that whole service for businesses that do not want to assemble an AI department. Judge model and configuration changes against the company’s work while carrying its relevant knowledge forward.</p>
         </More>
       </Chapter>
 
       {/* IV — THE DATA THESIS */}
       <Chapter id="record" className="on-dark" title={<>The work is the business today. <em>The record is the business long term.</em></>}
-        lead="A call transcript tells you what was said. Sabina’s record tells you what was promised, by whom, by when — and whether it happened. Almost no business keeps that record, because until now nobody could afford to write it down.">
+        lead="Company information becomes more useful when its context survives: which source supported an answer, what the team corrected, why a decision was made and what followed. The opportunity is to connect that record with later questions, analysis and agreed work.">
         <ol className="horizon reveal">
-          <li><span className="when">Year one · one company</span><h3 className="h3">She remembers</h3><p>Every request, promise and outcome at that company is written down as it happens. The owner can ask “what did we tell this customer in March?” and get an answer. This is part of what a company hires her for.</p></li>
-          <li><span className="when">Years two and three · the same company</span><h3 className="h3">She notices</h3><p>With enough history she can show the owner patterns they could never see: which kinds of promises slip, which customers wait longest, where the work actually gets stuck. The company starts to run on its own evidence instead of memory.</p></li>
-          <li><span className="when">Long term · many companies, by agreement</span><h3 className="h3">The industry learns</h3><p>Across hundreds of companies, and only with each company’s separate agreement, derived patterns — never raw emails — become benchmarks nobody else has: what normal response times look like, what a healthy follow-up rate is, which practices win more work.</p></li>
+          <li><span className="when">Year one · one company</span><h3 className="h3">She remembers</h3><p>Relevant, authorized records and reviewed instructions can inform later questions and work. Keep their sources, access limits and corrections with them.</p></li>
+          <li><span className="when">Years two and three · the same company</span><h3 className="h3">She notices</h3><p>With sufficient relevant history, analysis can connect patterns across customers, decisions and outcomes. The team reviews the evidence and tests useful suggestions; stored history does not by itself establish accuracy or cause.</p></li>
+          <li><span className="when">Long term · many companies, by agreement</span><h3 className="h3">The industry learns</h3><p>A future permissioned network could compare eligible derived patterns across companies, such as response times or recurring sources of delay. It needs separate, specific agreements and validated methods; raw company email is not pooled or sold.</p></li>
         </ol>
         <div className="two-col reveal">
           <h3 className="h3">Why this is hard to copy</h3>
           <div className="prose">
-            <p><strong>It is written down before the outcome is known.</strong> You cannot go back and reconstruct when a promise was made and whether it was kept; the record has to be captured at the moment the work happens. That is why it only comes from being inside the work.</p>
-            <p><strong>Customers pay us to create it.</strong> Nobody hires Sabina for the data. They hire her to carry the work, and the record is a by-product of doing that work well.</p>
+            <p><strong>Context accumulates through use.</strong> Retaining the source, the instruction or decision, its timing and the later outcome provides a richer basis for review than an isolated answer. Provenance and recorded changes help inspection; a record alone is not a guarantee that history cannot be altered.</p>
+            <p><strong>The customer gets value first.</strong> The service must answer useful questions or carry worthwhile responsibilities. Relevant knowledge and reviewed outcomes can then improve the context for later work. Future network revenue is not needed to justify that service.</p>
             <p><strong>There is a precedent.</strong> Verisk and CoStar became data companies by standardizing a record created inside work their customers were already paying for. Those are business-model comparisons, not a claim that our future data products exist today.</p>
           </div>
         </div>
@@ -240,14 +237,15 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
       </Chapter>
 
       {/* V — HOW IT IS BUILT */}
-      <Chapter id="how" title={<>One brain we run. <em>A separate Sabina for every company.</em></>}
-        lead="Every company gets its own Sabina, with its own knowledge, rules and record. Underneath, they share one trained model and one platform that we build and run. That is what lets the hundredth deployment cost less than the first.">
+      <Chapter id="how" title={<>Models we operate. <em>Company knowledge that carries forward.</em></>}
+        lead="Foundry trains and operates Sabina’s core models and platform. Company-specific memory, instructions and permissions are kept separately from the core model. Shared engineering can support repeatable deployment while each company’s context and authority remain specific to its service.">
         <LayerStack layers={LAYERS} />
         <p className="note reveal"><strong>{modelPath.publicCopy}.</strong> <Badge status={modelPath.status} /> {modelPath.detailCopy}</p>
+        <div className="callout reveal"><p><strong>Better models should build on the company’s knowledge.</strong> Keep the company record, reviewed instructions and representative tasks when evaluating a core-model change. Check answers, permissions and regressions before accepting the change, with a recovery path if results worsen. This is the operating standard to evaluate, not a claim of automatic improvement.</p><p><a className="link" href="https://managedprivateai.com/#own-your-intelligence">Read our guide to owning useful company intelligence →</a>{' '}<a className="link" href="https://withsabina.ai/trust">Current architecture and data terms →</a></p></div>
         <More summary="The operating platform and the economics of reuse" bodyClass="prose">
           <p><strong>Forge</strong> comes with Sabina and is also available independently: the workspace and structured records for agreed work. Specialist tools have defined scopes. Paid Forge use at All Weather Roofing is distinct from Sabina, whose onboarding there has not begun.</p>
           <p>The trained model, memory machinery, permission system, integrations and deployment tools are reusable. Each new company brings its own context and rules to that shared platform. The scale opportunity is making each company-specific deployment repeatable while spreading the engineering across a growing customer base. Inference, onboarding and support stay real per-company costs, and the use of funds carries them.</p>
-          <p>Company teaching and memory are not changes to the model itself, and Sabina’s permissions always come from the company.</p>
+          <p>Company teaching and memory are distinct from model training. Retained company knowledge does not grant new authority or transfer ownership of Foundry’s model weights and software.</p>
         </More>
       </Chapter>
 
@@ -265,8 +263,8 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
       </Chapter>
 
       {/* VII — THE PLAN */}
-      <Chapter id="plan" className="on-dark" title={<>First about {BASE_BY_M18} companies, direct. <em>Then the partners who already serve thousands.</em></>}
-        lead={`Step one is direct: put Sabina into companies across industries — about ${BASE_BY_M18} by month ${p.horizonMonths} in the base planning case — and learn exactly what setup, support and results look like. Step two is distribution: managed IT providers (MSPs) offer her to the businesses they already look after.`}>
+      <Chapter id="plan" className="on-dark" title={<>First, repeatable direct delivery. <em>Then MSP distribution.</em></>}
+        lead={`The base planning case models ${BASE_GROSS_M18} new activations and ${BASE_ACTIVE_M18} active company equivalents after churn by month ${p.horizonMonths}. The work is to prove customer value and repeatable setup and support across industries. MSP distribution follows qualified direct delivery, not an assumed launch date.`}>
         <ol className="sequence reveal" aria-label="The sequence">
           {['Direct company value', 'Repeatable setup and support', 'MSP distribution', 'The record grows into data'].map((s) => <li key={s}><span>{s}</span></li>)}
         </ol>
@@ -275,17 +273,17 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <div className="card reveal" style={st(1)}><p className="tile-k">They do</p><p className="who">MSP</p><p className="tile-p">The customer relationship, local systems, onboarding help and day-to-day support.</p></div>
           <div className="card joint reveal" style={st(2)}><p className="tile-k">Together</p><p className="who">Agreed per partner</p><p className="tile-p">Billing, support boundaries, service measurement and economics.</p></div>
         </div>
-        <p className="note reveal">About {BASE_BY_M18} companies by month {p.horizonMonths} is the base planning case this raise funds — a plan, not a result, and not customers we already have. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
+        <p className="note reveal">The {BASE_GROSS_M18} activations are cumulative additions; {BASE_ACTIVE_M18} is the projected active customer base after churn. Neither is current traction or a capacity guarantee. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
       </Chapter>
 
       {/* VIII — WHY WE WIN */}
-      <Chapter id="position" title={<>Others sell a chatbot. <em>We deliver a running company system.</em></>}
-        lead="Plenty of tools answer a phone or draft an email. What a small business cannot get anywhere else is the whole thing done for them: a model, memory of their company, rules they control, and someone running it.">
+      <Chapter id="position" title={<>A company system. <em>With an operator accountable for it.</em></>}
+        lead="Our proposition combines Foundry-operated models, retained company context, defined authority and ongoing operation in a scoped service for small and midsize businesses. The investment case depends on delivering that combination repeatedly, with useful results and sustainable service costs.">
         <div className="grid g4">
-          <Tile i={0} k="01" t="She lives where the work is">Inside the company’s phone, email and records — not a one-task plug-in.</Tile>
-          <Tile i={1} k="02" t="Nothing happens without permission">Every consequential action passes through the owner’s rules first.</Tile>
-          <Tile i={2} k="03" t="The record comes first">Promises are captured as they are made, so the history cannot be faked later.</Tile>
-          <Tile i={3} k="04" t="She gets better at your company">Instructions, corrections and outcomes shape her next piece of work.</Tile>
+          <Tile i={0} k="01" t="She lives where the work is">Work with the company’s approved records and supported systems, in the responsibilities agreed for its service.</Tile>
+          <Tile i={1} k="02" t="Authority is defined">State which capabilities are enabled, what requires approval and how access or authority is withdrawn.</Tile>
+          <Tile i={2} k="03" t="The record comes first">Keep the source, relevant context, corrections and recorded outcome available for review. Integrity controls need their own evidence.</Tile>
+          <Tile i={3} k="04" t="She gets better at your company">Relevant instructions, reviewed corrections and outcomes can inform later work; evaluate whether the change helped.</Tile>
         </div>
         <More summary="Comparable companies">
           <ul className="comp-list">
@@ -308,8 +306,9 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
 
       {/* IX — THE MONEY (full depth kept; detail behind expanders) */}
       <Chapter id="economics" title={<>{RAISE.amount} to make it <em>repeatable.</em></>}
-        lead={`The money pays for direct deployments, the people doing them — including ${hires} — and running Sabina’s model on our own servers. It is a costed operating plan, not a guess.`}>
-        <p className="note reveal" id="planningPrice">Planning price points: $750 a month for our first ten companies and $1,500 a month thereafter. Each company is custom quoted.</p>
+        lead={`The money pays for direct deployments, the people doing them — including ${hires} — and running Sabina’s model on our own servers. The amounts are planning allowances with explicit assumptions.`}>
+        <p className="note reveal" id="planningPrice">Current standard offer: {usd(a.standardMonthlyRevenue)}/month with Forge included and no setup fee. Large accounts receive custom pricing. This forecast covers new standard-offer customers only; no custom-account premium is assumed.</p>
+        <p className="note reveal">Existing signed founding agreements and their revenue are outside this projection. Their signed terms are unchanged.</p>
         <div className="figures" id="figures">
           {[[usd(target), 'Proposed financing target', `planning budget · ${p.asOf}`], [`${p.horizonMonths} months`, 'Operating horizon from financing close', 'no forecast receipts required by this budget'], [usd(reserve), 'Reserve after planned outflows', 'cash retained, not operating expense']].map(([v, l, f]) =>
             <div className="card figure" key={l}><span className="v num">{v}</span><span className="l">{l}</span><span className="f">{f}</span></div>)}
@@ -342,7 +341,7 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           </ol>
         </div>
         <More summary="Revenue, operating income and cash — the full model" bodyClass="prose">
-          <p className="note">Illustrative planning scenarios dated {a.asOf}, not achieved results. Months begin at financing close; the model starts with zero new Sabina customers and does not restate current traction.</p>
+          <p className="note">Illustrative planning scenarios dated {a.asOf}, not achieved results. Months begin at financing close. The model starts with zero new standard-offer customers and assumes no premium from custom-priced large accounts.</p>
           <IncomeCase />
           <p id="cashConnect">Each scenario includes the full {money(financingTarget())} financing at the start and the proposed founder-funding repayment. Investment proceeds are not revenue. The base-case cash low is {money(trough.cash)} in month {trough.month}.</p>
           <p className="note">Slower activation: {incomeScenarios[0].description} Faster activation: {incomeScenarios[2].description}</p>
@@ -369,8 +368,8 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         <div className="wrap">
           <div className="ch-head reveal">
             <p className="eyebrow">Next step</p>
-            <h2 className="h2" id="h-cta">Put Sabina to work today. <em>Own the record tomorrow.</em></h2>
-            <p className="lead">{awrSabina.publicCopy}. <a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>. We are glad to put you in front of the customer before we put you in front of the model.</p>
+            <h2 className="h2" id="h-cta">Build useful company intelligence. <em>Make its delivery repeatable.</em></h2>
+            <p className="lead">{awrSabina.publicCopy}. <a className="link" href="https://withsabina.ai/hire#founding">See current founding availability</a>. The Forge reference is evidence of paid platform use; it is distinct from a Sabina customer outcome. Ask for the evidence behind the proposed service and the next deployment milestone.</p>
             <div className="cta-actions">
               <a className="btn btn-solid" href={mailto('Discuss the investment — Dominus Foundry')}>Discuss the investment <Arr /></a>
               <a className="btn btn-ghost" href={mailto('Reference call — All Weather Roofing')}>Request the customer reference <Arr /></a>

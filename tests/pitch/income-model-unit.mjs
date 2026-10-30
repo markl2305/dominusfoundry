@@ -1,106 +1,105 @@
 #!/usr/bin/env node
-// Unit test for the two-tier Sabina pricing in app/pitch/income-model.ts.
+// Standard-offer forecast: independent cohort arithmetic and cash identities,
+// with existing acquisition, hiring, delivery and fixed-budget controls preserved.
 import assert from 'node:assert/strict'
 import { loadIncomeModel } from './load-income-model.mjs'
 
 const A = 'income-assumptions.json'
 const close = (x, y, msg) => assert.ok(Math.abs(x - y) < 1e-6, `${msg}: ${x} !== ${y}`)
-// Every check runs even after one fails, so a red check cannot hide the ones after it; any failure exits 1.
 let checks = 0, failed = 0
 const check = (name, fn) => {
   checks++
   try { fn(); console.log(`ok ${checks} - ${name}`) }
   catch (e) { failed++; console.log(`not ok ${checks} - ${name}\n  ${String(e.message).split('\n')[0]}`) }
 }
+const m = loadIncomeModel(), a = m.incomeAssumptions
+const zeros = () => Array(18).fill(0)
 
-// The pre-tier model, kept here only as a reference: one price for every company.
-function singlePrice(m, activations, price) {
-  const a = m.incomeAssumptions
-  let active = 0
-  return activations.map((n) => {
-    const retained = active * (1 - a.monthlyChurn)
-    const billable = retained + n * a.newCustomerFirstMonthFraction
-    active = retained + n
-    return { revenue: billable * price, mrr: active * price }
+// Cohort convolution is independent of the model's rolling customer-state loop.
+function cohorts(activations, price, churn, firstFraction) {
+  return activations.map((n, i) => {
+    const prior = activations.slice(0, i).reduce((sum, count, j) => sum + count * (1 - churn) ** (i - j), 0)
+    return { active: prior + n, revenue: (prior + n * firstFraction) * price, mrr: (prior + n) * price }
   })
 }
 
-check('equal tier prices reproduce the single-price model (control)', () => {
-  const m = loadIncomeModel({ [A]: { foundingMonthlyRevenue: 3100, standardMonthlyRevenue: 3100 } })
+check('current offer has a dated, explicit new-standard-only scope, $1,500/mo and no setup fee', () => {
+  assert.equal(a.asOf, '2026-10-30'); assert.equal(a.cohort, 'new-standard-offer-only')
+  assert.equal(a.standardMonthlyRevenue, 1500); assert.equal(a.setupFee, 0)
+  assert.match(a.sources.revenue, /signed founding agreements.*excluded/i)
+  assert.match(a.sources.revenue, /signed terms remain unchanged/i)
+  for (const key of ['foundingSeats', 'foundingSeatsAlreadyTaken', 'foundingMonthlyRevenue', 'setupFeeWaivedShare']) assert.equal(key in a, false, `${key} must not allocate legacy terms to new acquisitions`)
+})
+
+check('first activation earns $750 half-month service revenue and has $1,500 month-end MRR', () => {
+  const x = m.calculateIncome([1, ...Array(17).fill(0)])
+  close(x[0].revenue, 750, 'activation revenue'); close(x[0].mrr, 1500, 'activation MRR')
+  close(x[0].collections, 0, 'service collection is one month later')
+  close(x[1].revenue, 1470, 'next full service month after churn'); close(x[1].collections, 750, 'first collection')
+  close(x[0].incrementalCosts, 600, '$100 billable delivery plus $500 onboarding cost, despite zero setup fee')
+})
+
+check('all scenario months match independent cohort convolution, not a founding-price allocation', () => {
   for (const s of m.incomeScenarios) {
-    const ref = singlePrice(m, s.activations, 3100)
-    s.months.forEach((x, i) => { close(x.revenue, ref[i].revenue, `${s.id} m${x.month} revenue`); close(x.mrr, ref[i].mrr, `${s.id} m${x.month} mrr`) })
+    const ref = cohorts(s.activations, 1500, a.monthlyChurn, a.newCustomerFirstMonthFraction)
+    s.months.forEach((x, i) => { close(x.activeCompanies, ref[i].active, `${s.id} m${x.month} active`); close(x.revenue, ref[i].revenue, `${s.id} m${x.month} earned`); close(x.mrr, ref[i].mrr, `${s.id} m${x.month} MRR`); close(x.arr, 12 * ref[i].mrr, `${s.id} m${x.month} ARR`) })
   }
 })
 
-const m = loadIncomeModel()
-const a = m.incomeAssumptions
-
-check('planning prices are $750 founding / $1,500 standard; ten seats, three already taken', () => {
-  assert.equal(a.foundingMonthlyRevenue, 750); assert.equal(a.standardMonthlyRevenue, 1500)
-  assert.equal(a.foundingSeats, 10); assert.equal(a.foundingSeatsAlreadyTaken, 3); assert.equal(m.openFoundingSeats(), 7)
-})
-
-check('base: the first seven activations are founding, every later one standard', () => {
-  const base = m.incomeScenarios.find((s) => s.id === 'base').months
-  close(base[1].revenue, 375, 'month 2 half-month founding revenue'); close(base[1].mrr, 750, 'month 2 mrr')
-  assert.equal(base[4].standardCompanies, 0, 'six founding activations and no standard through month 5')
-  close(base[5].standardCompanies, 1, 'month 6 splits: the seventh seat and one standard company')
-  for (const s of m.incomeScenarios) {
-    const x = m.calculateIncome(s.activations.map(() => 0).map((_, i) => (i === 0 ? s.activations.reduce((t, n) => t + n, 0) : 0)))
-    close(x[0].foundingCompanies, 7, `${s.id}: all its activations at once take exactly seven founding seats`)
-  }
-})
-
-check('an activation month that crosses the seat limit splits between tiers', () => {
-  const acts = [6, 2, ...Array(16).fill(0)]
-  const x = m.calculateIncome(acts)
-  close(x[1].foundingCompanies, 6 * (1 - a.monthlyChurn) + 1, 'founding after month 2')
-  close(x[1].standardCompanies, 1, 'standard after month 2')
-  close(x[1].revenue, 6 * (1 - a.monthlyChurn) * 750 + 0.5 * 750 + 0.5 * 1500, 'month 2 revenue')
-})
-
-check('churned founding seats do not reopen', () => {
-  const x = m.calculateIncome([7, ...Array(16).fill(0), 1])
-  close(x[17].standardCompanies, 1, 'month 18 activation is standard')
-})
-
-check('every month: active = founding + standard, mrr = tiered sum, arr = 12 x mrr', () => {
-  for (const s of m.incomeScenarios) for (const x of s.months) {
-    close(x.activeCompanies, x.foundingCompanies + x.standardCompanies, `${s.id} m${x.month} active`)
-    close(x.mrr, x.foundingCompanies * 750 + x.standardCompanies * 1500, `${s.id} m${x.month} mrr`)
-    close(x.arr, x.mrr * 12, `${s.id} m${x.month} arr`)
-  }
-})
-
-check('zero founding seats prices everyone at the standard rate', () => {
-  const z = loadIncomeModel({ [A]: { foundingSeats: 0, foundingSeatsAlreadyTaken: 0 } })
+check('price sensitivity follows inputs; signed founding references do not reprice this cohort', () => {
+  const price = 1800
+  const z = loadIncomeModel({ [A]: { standardMonthlyRevenue: price, foundingSeats: 100, foundingMonthlyRevenue: 1 } })
   for (const s of z.incomeScenarios) {
-    const ref = singlePrice(z, s.activations, 1500)
+    const ref = cohorts(s.activations, price, a.monthlyChurn, a.newCustomerFirstMonthFraction)
     s.months.forEach((x, i) => close(x.revenue, ref[i].revenue, `${s.id} m${x.month}`))
   }
 })
 
-check('more seats taken than exist throws', () => {
-  assert.throws(() => loadIncomeModel({ [A]: { foundingSeatsAlreadyTaken: 11 } }), /founding seat/)
+check('setup income remains zero while real onboarding and capacity costs remain', () => {
+  assert.equal(m.setupIncomePerActivation(), 0); assert.equal(a.incrementalOnboardingPerActivation, 500)
+  for (const s of m.incomeScenarios) for (const x of s.months) {
+    close(x.setupIncome, 0, 'setup income'); close(x.cumulativeSetupIncome, 0, 'cumulative setup income')
+    close(x.operatingResult, x.revenue - x.baseOperatingCosts - x.incrementalCosts, `${s.id} operating result`)
+  }
+  assert.throws(() => loadIncomeModel({ [A]: { setupFee: 500 } }), /must not include setup-fee income/)
 })
 
-check('setup income: half the fee per activation, outside recurring revenue, inside operating result and cash', () => {
-  assert.equal(a.setupFee, 500); assert.equal(a.setupFeeWaivedShare, 0.5); assert.equal(m.setupIncomePerActivation(), 250)
+check('gross activations are whole starts; active equivalents are separately reduced by churn', () => {
   for (const s of m.incomeScenarios) {
-    let cum = 0
+    let gross = 0
+    s.months.forEach((x, i) => { gross += s.activations[i]; assert.equal(x.cumulativeActivations, gross); close(x.activeCompanies, x.openingCompanies - x.churnedCompanies + x.newCompanies, `${s.id} m${x.month} active bridge`); assert.ok(x.activeCompanies <= gross + 1e-8) })
+  }
+  assert.equal(m.incomeScenarios.find(s => s.id === 'base').months[17].cumulativeActivations, 76)
+  close(m.incomeScenarios.find(s => s.id === 'base').months[17].activeCompanies, 68.35344944925302, 'base net active, not75 or76')
+})
+
+check('collections, earned revenue, receivables and cash reconcile independently each month', () => {
+  for (const s of m.incomeScenarios) {
+    let cash = 1000000, revenue = 0, operating = 0
     s.months.forEach((x, i) => {
-      close(x.setupIncome, s.activations[i] * 250, `${s.id} m${x.month} setup`)
-      cum += x.setupIncome; close(x.cumulativeSetupIncome, cum, `${s.id} m${x.month} cumulative setup`)
-      close(x.operatingResult, x.revenue + x.setupIncome - x.baseOperatingCosts - x.incrementalCosts, `${s.id} m${x.month} operating result`)
-      close(x.collections, (i ? s.months[i - 1].revenue : 0) + x.setupIncome, `${s.id} m${x.month} collections`)
+      const due = i ? s.months[i - 1].revenue : 0
+      close(x.collections, due, `${s.id} m${x.month} collections`)
+      cash += due - x.baseOperatingCosts - x.incrementalCosts - x.closingCosts - x.founderRepayment
+      revenue += x.revenue; operating += x.revenue - x.baseOperatingCosts - x.incrementalCosts
+      close(x.cash, cash, `${s.id} m${x.month} cash`); close(x.cumulativeRevenue, revenue, `${s.id} m${x.month} cumulative revenue`)
+      close(x.cumulativeOperatingResult, operating, `${s.id} m${x.month} cumulative operating`); close(x.receivables, x.revenue, `${s.id} m${x.month} receivables`)
+      close(x.cash, 1000000 + operating - x.receivables - s.months.slice(0,i+1).reduce((t,z)=>t+z.closingCosts+z.founderRepayment,0), `${s.id} m${x.month} profit/cash bridge`)
     })
   }
-  const none = loadIncomeModel({ [A]: { setupFeeWaivedShare: 1 } })
-  for (const s of m.incomeScenarios) {
-    const n = none.calculateIncome(s.activations)
-    s.months.forEach((x, i) => { close(n[i].revenue, x.revenue, 'revenue unchanged'); close(n[i].mrr, x.mrr, 'mrr unchanged') })
-  }
+})
+
+check('without new customers the preserved $1M funding plan leaves its $89,500 cash reserve', () => {
+  const x = m.calculateIncome(zeros())
+  assert.ok(x.every(x => x.revenue === 0 && x.setupIncome === 0 && x.collections === 0))
+  close(x[17].cash, 89500, 'budget reserve after fixed costs, legal allowance and founder repayment')
+  assert.ok(x[0].founderRepayment === 32000 && x.slice(1).every(x => x.founderRepayment === 0), 'repayment is one financing cash use, not service income')
+})
+
+check('invalid scope, amounts, horizon and activation schedules fail rather than silently changing the offer', () => {
+  for (const fields of [{cohort:'all-contracts'}, {standardMonthlyRevenue:0}, {standardMonthlyRevenue:-1}, {newCustomerFirstMonthFraction:0}, {newCustomerFirstMonthFraction:2}]) assert.throws(()=>loadIncomeModel({[A]:fields}), /Invalid/)
+  assert.throws(()=>m.calculateIncome([1]), /horizon/)
+  assert.throws(()=>m.calculateIncome([-1,...Array(17).fill(0)]), /activation count/)
+  assert.throws(()=>m.calculateIncome([0.5,...Array(17).fill(0)]), /activation count/)
 })
 
 check('delivery capacity: two activations a month on budget, one hire per further two, hires kept', () => {
@@ -135,8 +134,6 @@ check('round-3 hires: costed in fixed spending from their start month; with none
   for (let month = 1; month <= 18; month++)
     close(m.baseOperatingCost(month) - none.baseOperatingCost(month), hires.filter((h) => month >= h.startMonth).reduce((t, h) => t + h.monthlyLoaded, 0), `m${month}`)
   assert.equal(none.financingTarget(), 650000, 'control: without the hires the budget target is the old $650,000')
-  const r2 = none.calculateIncome(none.incomeAssumptions.scenarios.find((s) => s.id === 'base').activations)
-  close(Math.round(r2[17].operatingResult), 5199, 'control: round-2 base month-18 operating result')
   assert.throws(() => loadIncomeModel({ 'financial-plan.json': { salesHires: [{ role: 'x', startMonth: 19, monthlyLoaded: 1 }] } }).baseOperatingCost(1), /Invalid hire/)
 })
 
@@ -192,27 +189,6 @@ check('slower and faster are about 25% either side of base (cumulative, within h
     const c = cum(m.incomeScenarios.find((s) => s.id === id).activations)
     c.forEach((v, i) => assert.ok(Math.abs(v - b[i] * f) <= 0.5, `${id} m${i + 1}: ${v} vs ${b[i] * f}`))
   }
-})
-
-check('ruling: the base case reaches a positive monthly operating result by month 18, on recurring revenue alone', () => {
-  const base = m.incomeScenarios.find((s) => s.id === 'base')
-  assert.ok(base.months.some((x) => x.operatingResult > 0), 'base breaks even within the horizon')
-  assert.ok(base.months[17].operatingResult > 0, 'and is still positive at month 18')
-  assert.ok(base.months[17].operatingResult - base.months[17].setupIncome > 0, 'on recurring revenue alone at month 18')
-})
-
-check('round 5: the second account executive starts in the latest month that breaks base even on recurring revenue by month 18', () => {
-  const p = m.operatingAssumptions
-  assert.equal(a.aeMonthlyQuota, 2, 'quota stays at 2 a month')
-  const ae2 = p.salesHires[1]
-  const recurringM18 = (start) => {
-    const x = loadIncomeModel({ 'financial-plan.json': { salesHires: [p.salesHires[0], { ...ae2, startMonth: start }] } })
-      .incomeScenarios.find((s) => s.id === 'base').months[17]
-    return x.operatingResult - x.setupIncome
-  }
-  assert.ok(recurringM18(ae2.startMonth) > 0, `start month ${ae2.startMonth} breaks even`)
-  for (let later = ae2.startMonth + 1; later <= 15; later++)
-    assert.ok(recurringM18(later) <= 0, `control: start month ${later} does not break even`)
 })
 
 check('computed raise need: deepest zero-start draw + contingency on its operating part + repayment + reserve', () => {

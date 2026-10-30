@@ -45,6 +45,8 @@
 export type ClaimStatus =
   | 'live_customer'   // in customer production
   | 'live_internal'   // running on our own account, not a customer line
+  | 'measured_internal' // dated completed internal analysis, not an always-on service
+  | 'owner_attested' // operator-confirmed architecture, not an independent tenancy audit
   | 'contracted'      // signed, work not yet begun
   | 'proven_path'     // end-to-end path exists, not scaled
   | 'in_acceptance'   // under acceptance testing
@@ -56,6 +58,8 @@ export type ClaimStatus =
 export const STATUS_LABEL: Record<ClaimStatus, string> = {
   live_customer: 'Live · customer production',
   live_internal: 'Live · our own account',
+  measured_internal: 'Measured · internal analysis',
+  owner_attested: 'Owner-confirmed architecture',
   contracted:    'Contracted · not begun',
   proven_path:   'Proven path',
   in_acceptance: 'In acceptance',
@@ -122,27 +126,26 @@ export const PROOF: PitchClaim[] = [
      promises": there is no check for commitments later kept (qwen recount review). */
   {
     id: 'sabina-agents',
-    publicCopy: 'Agents built from Sabina — answering calls and email, follow-up, booking and promise tracking',
+    publicCopy: 'Internal Sabina phone and email use; workflow scope varies',
     detailCopy:
-      'Her phone and email work is live on our own account and on Foundry’s own lines. No customer line is live yet.',
+      'Owner-reported internal phone and email use on Foundry’s account. This does not establish every workflow, continuous commitment monitoring or reminder delivery. No customer line is claimed here.',
     status: 'live_internal',
     asOf: '2026-10-19',
     sourceLabel: 'Mark Lord, 2026-10-19',
   },
   {
     id: 'model-path',
-    publicCopy: 'Owner-attested internal model path: Foundry operates Sabina without sending customer data to an outside AI model company',
-    detailCopy: 'Owner attestation of the internal path, not an independent audit or evidence for every customer deployment. Confirm the actual processing path before sharing company data.',
-    status: 'live_internal',
-    asOf: '2026-10-19',
-    sourceLabel: 'Mark Lord, 2026-10-19, owner attestation',
+    publicCopy: 'Foundry-operated models and independent primary operational company databases',
+    detailCopy: 'Current deployments use Foundry-operated reasoning models and independent primary company databases. Shared platform records, carriers and enabled business services process feature data. Owner-attested; see Sabina Trust.',
+    status: 'owner_attested',
+    asOf: '2026-10-28',
+    sourceLabel: 'Owner attestation · Sabina Trust',
   },
   {
     id: 'mail-overnight',
-    publicCopy: 'Overnight run on Foundry’s own mailbox — 196 commitments with no record of being closed',
-    detailCopy:
-      '10,909 emails; 196 commitments across 73 conversations with 63 people. Overnight run, 13 October 04:00–09:00 UTC.',
-    status: 'live_internal',
+    publicCopy: 'Historical Foundry mailbox run — 196 commitments without recorded closure',
+    detailCopy: '10,909 emails; 196 commitments across 73 conversations with 63 people. Historical batch, 13 October 04:00–09:00 UTC; not proof of missed work.',
+    status: 'measured_internal',
     asOf: '2026-10-14',
     sourceLabel: 'Foundry commitments table · measured 2026-10-14',
     figures: { emails: '10,909', commitments: '196', conversations: '73', people: '63' },
@@ -151,18 +154,18 @@ export const PROOF: PitchClaim[] = [
     id: 'mail-history-foundry',
     publicCopy: 'Foundry full mailbox history — about 4,000 possible commitments',
     detailCopy: '4,000 possible commitments across 1,466 threads with 650 people.',
-    status: 'live_internal',
+    status: 'measured_internal',
     asOf: '2026-10-17',
-    sourceLabel: '.sabina-master/callord-demo-1014/foundry-count-1017/RESULT-1017.md · qwen recount SHIP',
+    sourceLabel: 'Internal mailbox count and recount review, 17 October 2026',
     figures: { about: '4,000', commitments: '4,000', threads: '1,466', people: '650' },
   },
   {
     id: 'mail-history-callord',
     publicCopy: 'Related company (CalLord) full mailbox history — about 7,600 possible commitments',
     detailCopy: '7,575 possible commitments across 2,096 threads with 922 people. Related-party, disclosed as such.',
-    status: 'live_internal',
+    status: 'measured_internal',
     asOf: '2026-10-16',
-    sourceLabel: '.sabina-master/callord-demo-1014/count-1015/RESULT-1016.md · qwen recount confirmed',
+    sourceLabel: 'Internal mailbox count and recount review, 16 October 2026',
     figures: { about: '7,600', commitments: '7,575', threads: '2,096', people: '922' },
   },
   {
@@ -189,7 +192,7 @@ export const PROOF: PitchClaim[] = [
       'None yet. Signature and activation are different milestones; the first signed engagement has not begun onboarding.',
     status: 'not_yet',
     asOf: '2026-09-16',
-    sourceLabel: 'Founding Seat record · hiresabina.ai current status line',
+    sourceLabel: 'Founding Seat record · published Sabina status line',
   },
   {
     id: 'sabina-outcomes',
@@ -256,9 +259,9 @@ export const PROOF: PitchClaim[] = [
   },
   {
     id: 'company-intelligence',
-    publicCopy: 'Company-specific decision insight and foresight',
+    publicCopy: 'Broader validated decision support and predictive foresight',
     detailCopy:
-      'The next layer turns eligible operating evidence into insight for the business that created it. Recommendations remain advisory until authorized. Not built.',
+      'The historical internal mailbox analyses above demonstrate a bounded analysis task. Broader predictive decision support with independently validated customer outcomes remains a roadmap objective; the internal runs do not establish that wider capability. Recommendations do not themselves authorize action.',
     status: 'roadmap',
     asOf: '2026-09-01',
     sourceLabel: 'Roadmap sequence',

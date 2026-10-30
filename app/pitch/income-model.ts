@@ -5,7 +5,7 @@ export const incomeAssumptions = a
 export const operatingAssumptions = p
 export type IncomeMonth = {
   month: number; newCompanies: number; openingCompanies: number; churnedCompanies: number;
-  activeCompanies: number; foundingCompanies: number; standardCompanies: number; billableCompanies: number; revenue: number; mrr: number; arr: number;
+  activeCompanies: number; cumulativeActivations: number; billableCompanies: number; revenue: number; mrr: number; arr: number;
   setupIncome: number; cumulativeSetupIncome: number; additionalDeliveryStaff: number; additionalDeliveryCosts: number;
   collections: number; baseOperatingCosts: number; incrementalCosts: number;
   operatingResult: number; cumulativeRevenue: number; cumulativeOperatingResult: number;
@@ -34,10 +34,9 @@ export function financingTarget(): number {
   return Math.ceil((forward * (1 + p.contingencyRate) + p.founderFundingRepayment)
     / p.roundingIncrement) * p.roundingIncrement
 }
-// Setup income per activation: the fee, less the share of activations where it is waived.
-export const setupIncomePerActivation = (): number => a.setupFee * (1 - a.setupFeeWaivedShare)
-// New founding seats open to the model: the seats left after those already signed or spoken for.
-export const openFoundingSeats = (): number => a.foundingSeats - a.foundingSeatsAlreadyTaken
+// This forward cohort is the current standard offer. Signed founding agreements are outside
+// its scope, not repriced or consumed as new discounted seats.
+export const setupIncomePerActivation = (): number => a.setupFee
 /* Budgeted onboarding staff in a month: the founders (then the deployment lead) plus each named
    technical delivery hire on payroll. Mark, 19 October (round 5): the implementation engineer is
    delivery and onboarding capacity. Their cost is already in baseOperatingCost, so they count here
@@ -49,38 +48,33 @@ export function calculateIncome(activations: number[], openingCash: number = fin
     throw new Error('Income forecast and the cost plan must use the same qualified 18-month horizon')
   if (a.collectionLagMonths !== 1 || a.monthlyChurn < 0 || a.monthlyChurn >= 1)
     throw new Error('Requalify the cash model before changing collection timing or churn semantics')
-  if (!Number.isInteger(a.foundingSeats) || !Number.isInteger(a.foundingSeatsAlreadyTaken)
-    || a.foundingSeatsAlreadyTaken < 0 || openFoundingSeats() < 0)
-    throw new Error('Invalid founding seat count')
-  if (a.setupFee < 0 || a.setupFeeWaivedShare < 0 || a.setupFeeWaivedShare > 1)
-    throw new Error('Invalid setup fee assumption')
+  if (a.cohort !== 'new-standard-offer-only' || !Number.isFinite(a.standardMonthlyRevenue) || a.standardMonthlyRevenue <= 0)
+    throw new Error('Invalid standard-offer cohort or monthly price')
+  if (a.setupFee !== 0)
+    throw new Error('The standard-offer forecast must not include setup-fee income')
+  if (!(a.newCustomerFirstMonthFraction > 0 && a.newCustomerFirstMonthFraction <= 1))
+    throw new Error('Invalid first-month service fraction')
   if (!Number.isInteger(a.activationsPerDeliveryStaff) || a.activationsPerDeliveryStaff < 1)
     throw new Error('Invalid delivery capacity')
-  // Two price tiers: the open founding seats go to the first activations, every later one is standard.
-  // Seats are counted by activation, so a churned founding company does not reopen a seat.
+  // Every modeled activation is a new standard-offer company. Existing signed founding
+  // contracts and any custom-priced large accounts are deliberately outside this cohort.
   // Delivery capacity: each budgeted onboarding staff member (budgetedDeliveryStaff) onboards
   // activationsPerDeliveryStaff a month. A month needing more adds staff, kept for the rest of the horizon.
-  let founding = 0, standard = 0, seatsTaken = 0, cumulativeRevenue = 0, cumulativeOperatingResult = 0, cumulativeSetupIncome = 0
+  let active = 0, cumulativeActivations = 0, cumulativeRevenue = 0, cumulativeOperatingResult = 0, cumulativeSetupIncome = 0
   let additionalDeliveryStaff = 0, cash = openingCash
   const months: IncomeMonth[] = []
   activations.forEach((newCompanies, i) => {
     if (!Number.isInteger(newCompanies) || newCompanies < 0) throw new Error('Invalid activation count')
     const month = i + 1
-    const openingCompanies = founding + standard
+    const openingCompanies = active
     const churnedCompanies = openingCompanies * a.monthlyChurn
     const retained = openingCompanies - churnedCompanies
-    const newFounding = Math.min(newCompanies, openFoundingSeats() - seatsTaken)
-    const newStandard = newCompanies - newFounding
-    seatsTaken += newFounding
-    const retainedFounding = founding * (1 - a.monthlyChurn), retainedStandard = standard * (1 - a.monthlyChurn)
     const billableCompanies = retained + newCompanies * a.newCustomerFirstMonthFraction
-    founding = retainedFounding + newFounding
-    standard = retainedStandard + newStandard
-    const active = founding + standard
-    const revenue = (retainedFounding + newFounding * a.newCustomerFirstMonthFraction) * a.foundingMonthlyRevenue
-      + (retainedStandard + newStandard * a.newCustomerFirstMonthFraction) * a.standardMonthlyRevenue
-    const mrr = founding * a.foundingMonthlyRevenue + standard * a.standardMonthlyRevenue
-    // Setup income is due before onboarding, so it is collected in the activation month. Not recurring revenue.
+    active = retained + newCompanies
+    cumulativeActivations += newCompanies
+    const revenue = billableCompanies * a.standardMonthlyRevenue
+    const mrr = active * a.standardMonthlyRevenue
+    // Zero for this standard-offer cohort; kept separate from recurring service revenue.
     const setupIncome = newCompanies * setupIncomePerActivation()
     additionalDeliveryStaff = Math.max(additionalDeliveryStaff, Math.ceil(newCompanies / a.activationsPerDeliveryStaff) - budgetedDeliveryStaff(month))
     const additionalDeliveryCosts = additionalDeliveryStaff * a.additionalDeliveryStaffMonthlyLoaded
@@ -95,7 +89,7 @@ export function calculateIncome(activations: number[], openingCash: number = fin
     cumulativeSetupIncome += setupIncome
     cumulativeOperatingResult += operatingResult
     cash += collections - baseOperatingCosts - incrementalCosts - closingCosts - founderRepayment
-    months.push({month, newCompanies, openingCompanies, churnedCompanies, activeCompanies: active, foundingCompanies: founding, standardCompanies: standard,
+    months.push({month, newCompanies, openingCompanies, churnedCompanies, activeCompanies: active, cumulativeActivations,
       billableCompanies, revenue, mrr, arr: mrr * 12, setupIncome, cumulativeSetupIncome, additionalDeliveryStaff, additionalDeliveryCosts,
       collections, baseOperatingCosts,
       incrementalCosts, operatingResult, cumulativeRevenue, cumulativeOperatingResult,

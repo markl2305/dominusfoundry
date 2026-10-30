@@ -28,7 +28,7 @@ const easeInOut = bezier(0.77, 0, 0.175, 1)
 const Chev = ({ className }: { className?: string }) => <svg className={className} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 2.5 9.5 7 5 11.5" /></svg>
 
 export function Badge({ status }: { status: PitchClaim['status'] }) {
-  return <span className={`badge ${status}`}>{STATUS_LABEL[status]}</span>
+  return <span className={`badge ${status === 'measured_internal' || status === 'owner_attested' ? 'proven_path' : status}`}>{STATUS_LABEL[status]}</span>
 }
 
 /* SEGMENTED CONTROL and THEME — moved to components/site/theme.tsx
@@ -460,11 +460,11 @@ export function UseOfFunds() {
    XI — income: scenario switch, scrubbable cash chart, tables.
    ========================================================================== */
 const ROWS: [string, (m: IncomeMonth) => string][] = [
+  ['Cumulative new-company activations', (m) => String(m.cumulativeActivations)],
   ['Active company equivalents at month end', (m) => m.activeCompanies.toFixed(1)],
   ['Month-end recurring revenue (MRR)', (m) => money(m.mrr)],
   ['Annualized recurring run rate (ARR)', (m) => money(m.arr)],
   ['Cumulative service revenue earned', (m) => money(m.cumulativeRevenue)],
-  ['Cumulative setup-fee income (not recurring)', (m) => money(m.cumulativeSetupIncome)],
   ['That month’s operating profit / (loss)', (m) => money(m.operatingResult)],
   ['Cumulative operating profit / (loss)', (m) => money(m.cumulativeOperatingResult)],
   ['Ending cash after financing and planned outflows', (m) => money(m.cash)],
@@ -503,7 +503,7 @@ export function IncomeCase() {
   const m = sel.months[month - 1]
   const tablePts = [6, 12, 18].map((mm) => sel.months[mm - 1])
   const desc = sel.id === 'base'
-    ? `${sel.description} The model applies ${a.monthlyChurn * 100}% monthly customer churn, half-month service revenue for new activations and collections one month after revenue is earned. The internal per-company revenue assumptions are underwriting inputs, not a published customer rate. Current written proposals govern actual pricing.`
+    ? `${sel.description} The model applies ${a.monthlyChurn * 100}% monthly customer churn, half-month service revenue for new activations and collections one month after revenue is earned. New standard-offer companies are modeled at ${usd(a.standardMonthlyRevenue)}/month with no setup fee. Existing agreements and their revenue are excluded without repricing; no custom-account premium is assumed. Gross activations and active companies after churn are reported separately.`
     : `${sel.label}: ${sel.description} Same churn, collection timing, revenue assumptions and fixed spending schedule as the base planning case, plus any delivery staff its activation pace needs.`
   return <>
     <div className="income-tools">
@@ -513,7 +513,7 @@ export function IncomeCase() {
     <div className="card chart-card">
       <div className="chart-head">
         <span className="k">Ending cash after financing and planned outflows</span>
-        <div className="readout" id="readout" aria-live="polite"><span className="m">Month {month}</span><span>Cash <b className="num">{money(m.cash)}</b></span><span>MRR <b className="num">{money(m.mrr)}</b></span><span>Companies <b className="num">{m.activeCompanies.toFixed(1)}</b></span></div>
+        <div className="readout" id="readout" aria-live="polite"><span className="m">Month {month}</span><span>Cash <b className="num">{money(m.cash)}</b></span><span>MRR <b className="num">{money(m.mrr)}</b></span><span>Active companies <b className="num">{m.activeCompanies.toFixed(1)}</b></span></div>
       </div>
       <svg className="chart" id="chart" ref={svg} viewBox={`0 0 ${W} ${HH}`} tabIndex={0} role="img" aria-label="Ending cash by month. Use left and right arrow keys to move between months."
         onPointerDown={(e) => { scrubbing.current = true; (e.currentTarget as SVGSVGElement).setPointerCapture(e.pointerId); setMonth(toMonth(e.clientX)) }}
@@ -552,6 +552,7 @@ export function IncomeCase() {
 function IncomeNote2() {
   const base = incomeScenarios.find((s) => s.id === 'base')!
   const firstPos = base.months.find((m) => m.operatingResult >= 0)?.month
-  return <p className="note" id="incomeNote2">ARR is month-end MRR multiplied by twelve; it is not revenue earned during the period. Operating result is before taxes, interest, depreciation, amortization and the separately presented financing/corporate-work allowance. It is not GAAP net income or distributable profit. {firstPos ? <>The base case first shows a positive monthly operating result in month {firstPos}; the cumulative operating result remains a loss at month {a.months}.</> : <>The base case does not reach a positive monthly operating result within the {a.months}-month horizon.</>}</p>
+  const finalOperating = base.months[base.months.length - 1].cumulativeOperatingResult
+  return <p className="note" id="incomeNote2">ARR is month-end MRR multiplied by twelve; it is not revenue earned during the period. Operating result is before taxes, interest, depreciation, amortization and the separately presented financing/corporate-work allowance. It is not GAAP net income or distributable profit. {firstPos ? <>The base case first shows a positive monthly operating result in month {firstPos}; the cumulative operating result is {money(finalOperating)} at month {a.months}.</> : <>The base case does not reach a positive monthly operating result within the {a.months}-month horizon.</>}</p>
 }
 
