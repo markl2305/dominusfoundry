@@ -884,3 +884,14 @@ html.dfp-js:not(.dfp-ready) .dfp .stack-wrap { animation: dfp-hide-failsafe 1ms 
 /* Sol r1 recheck: standalone links on /pitch got their 44px block padding only on touch screens; now every pointer
    (as on the main site). Inline padding does not move the line; the underline is text decoration. */
 .dfp .prose a, .dfp .link { padding-block: 14px; }
+
+/* Sol r5 M1 (2026-11-03): the closed chapter index is never invisible-but-focusable.
+   - Without JavaScript (the pre-paint script never adds dfp-js) the chapter button cannot open it, so it is a normal,
+     visible, usable list of the chapters in the page flow, just below the fixed header.
+   - With JavaScript, before the page script has run (dfp-ready), a closed index is visibility:hidden, which takes its
+     links out of the Tab order; from then on the scripted inert fence (PitchNav) holds it. */
+html:not(.dfp-js) .dfp .index {
+  position: static; opacity: 1; transform: none; pointer-events: auto;
+  margin: calc(var(--nav-h) + env(safe-area-inset-top) + 12px) auto 0; max-height: none; overflow: visible;
+}
+html.dfp-js:not(.dfp-ready) .dfp .index:not(.open) { visibility: hidden; }
