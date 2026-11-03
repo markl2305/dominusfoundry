@@ -68,8 +68,20 @@ export function SectionButton({ secs, solid }: { secs: Sec[]; solid: boolean }) 
     const i = links.indexOf(document.activeElement as HTMLElement)
     links[(i + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus(); e.preventDefault()
   }
-  // `inert` is not in React 18's DOM types; set it as an attribute.
-  const inertAttr = (open ? {} : { inert: '' }) as Record<string, string>
+  // Sol r4 M1: React 18 drops an empty-string `inert`, so the closed index was never fenced and Tab reached its
+  // invisible links. The attribute is now set on the element itself. Before an index closes with focus inside it
+  // (Escape, or closing on its own as the page returns to the hero), focus moves to a visible control first:
+  // the trigger while it is shown, otherwise <main> (without scrolling).
+  useIso(() => {
+    const p = idx.current; if (!p) return
+    const live = open
+    if (!live && p.contains(document.activeElement)) {
+      const b = btn.current
+      if (b && solid) b.focus({ preventScroll: true })
+      else { const m = document.querySelector<HTMLElement>('main'); if (m) { if (!m.hasAttribute('tabindex')) m.setAttribute('tabindex', '-1'); m.focus({ preventScroll: true }) } }
+    }
+    if (live) p.removeAttribute('inert'); else p.setAttribute('inert', '')
+  }, [open, solid])
   const c = secs[current] || secs[0]
 
   return <>
@@ -79,7 +91,7 @@ export function SectionButton({ secs, solid }: { secs: Sec[]; solid: boolean }) 
         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
       </button>
     </div>
-    <nav className={`sec-index${open ? ' open' : ''}`} id="sectionIndex" aria-label="Section index" ref={idx} {...inertAttr}>
+    <nav className={`sec-index${open ? ' open' : ''}`} id="sectionIndex" aria-label="Section index" ref={idx}>
       <ol onKeyDown={onListKey}>
         {secs.map((s, i) => <li key={`${s.n}-${s.name}`}><a href={s.href} aria-current={i === current ? 'true' : 'false'} onClick={(e) => go(e, s)}><span className="n">{s.n}</span>{s.name}</a></li>)}
       </ol>

@@ -1,9 +1,10 @@
 /* ============================================================================
    MOTION v2 + INTERACTION (family rules 11 and 12, Mark 2026-11-03). Shared by
    the main site (.dfs) and /pitch (.dfp); /pitch keeps its own design and only
-   receives the same timings. Only transform and opacity animate (the one
-   exception the rule names: a disclosure's height). Reduced motion makes every
-   change instant; print shows everything.
+   receives the same timings. Only transform and opacity animate, with no
+   exception (Sol r4 M7: disclosures no longer animate height). Reduced motion
+   makes every change instant (Sol r4 M3: one reset covers every element and
+   pseudo-element); print shows everything.
    ========================================================================== */
 :root {
   /* critically damped spring (no overshoot), ~0.25s settle, sampled as a linear() easing */
@@ -15,8 +16,10 @@
 /* ---- Rule 11: one-time entrances (Reveal.tsx). The hidden state exists only after the script has run. */
 @media screen and (prefers-reduced-motion: no-preference) {
   html[data-motion-ready] { --reveal-y: 20px; }
-  html[data-motion-ready] [data-reveal]:not([data-revealed]) { opacity: 0; transform: translateY(var(--reveal-y)); }
-  html[data-motion-ready] [data-reveal][data-revealed] { opacity: 1; transform: none; transition: opacity 700ms var(--apple) var(--reveal-delay, 0ms), transform 700ms var(--apple) var(--reveal-delay, 0ms); }
+  /* !important only while an entrance is pending or running (Reveal.tsx removes the attributes afterwards), so a
+     card's own interaction transition can never replace the entrance (Sol r4 M2). */
+  html[data-motion-ready] [data-reveal]:not([data-revealed]) { opacity: 0 !important; transform: translateY(var(--reveal-y)) !important; }
+  html[data-motion-ready] [data-reveal][data-revealed] { opacity: 1 !important; transform: none !important; transition: opacity 700ms var(--apple) var(--reveal-delay, 0ms), transform 700ms var(--apple) var(--reveal-delay, 0ms) !important; }
 }
 @media screen and (prefers-reduced-motion: no-preference) and (max-width: 760px) { html[data-motion-ready] { --reveal-y: 12px; } }
 [data-reveal]:focus-within { opacity: 1 !important; transform: none !important; }
@@ -33,12 +36,26 @@
 html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link) { transition: transform 250ms var(--spring); }
 html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link):active { transform: scale(.97); transition: transform 100ms ease-out; }
 
+/* The first-visit consent buttons (public/consent/consent.js, inline-styled, outside .dfs/.dfp) press the same way. */
+html [data-consent-bar] button { transition: transform 250ms var(--spring); }
+html [data-consent-bar] button:active { transform: scale(.97); transition: transform 100ms ease-out; }
+
+/* ---- Reading surfaces (Sol r4 M2, M5): cards, rows and layers that hold reading text never scale, move or fade on
+   press. Pointer-down answers with an instant tint behind the text; the text stays at scale 1 and full opacity. */
+html :is(.dfs, .dfp) :is(a.card, .qp-blog .note-card, .qp-learn .guide-card, a.list-row, .qpb .qp-flow-node a, .ledger-row, .funds-rows > div):active,
+html .dfs .pg-blog .list-rows > li:active .list-row { transform: none !important; opacity: 1 !important; background-color: color-mix(in srgb, var(--panel-2), var(--ink) 7%); }
+html :is(.dfs, .dfp) .layer:active { opacity: 1 !important; background-color: color-mix(in srgb, var(--panel-2), var(--ink) 7%); }
+/* The press tint is a step deeper than the hover and selected tint (--panel-2), so a press always shows; it is
+   written out in each rule so it uses the element's own colours (dark sections redefine them). */
+/* Standalone text links (CTA links, footer and legal links) dim for the press, at once, like a system link. */
+html :is(.dfs, .dfp) :is(a.more-link, a.link, .footer .f-col a, .footer-bottom a):active { opacity: .55; }
+html .dfs :is(.qp-blog .note-card, .qp-learn .guide-card, .qpb .qp-flow-node a) { transition: none; }
+
 /* ---- Hover, pointer devices only: link cards lift 2px (200ms); footer links grow an underline from their start. */
-html :is(.dfs, .dfp) a.card { transition: transform 200ms ease-out, opacity 100ms ease-out; }
+html :is(.dfs, .dfp) a.card { transition: transform 200ms ease-out; }
 @media (hover: hover) and (pointer: fine) {
-  html :is(.dfs, .dfp) a.card:hover { transform: translateY(-2px); }
+  html :is(.dfs, .dfp) a.card:hover:not(:active) { transform: translateY(-2px); }
 }
-html :is(.dfs, .dfp) a.card:active { transform: none; opacity: .78; }
 html :is(.dfs, .dfp) .footer .f-col a { position: relative; }
 html :is(.dfs, .dfp) .footer .f-col a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 10px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left center; transition: transform 200ms ease-out; pointer-events: none; }
 @media (hover: hover) and (pointer: fine) { html :is(.dfs, .dfp) .footer .f-col a:hover::after { transform: scaleX(1); } }
@@ -78,11 +95,13 @@ body:has([data-consent-bar]:not([data-consent-reopened])) :is(.dfs, .dfp) .menu 
 html .dfs .sec-index:not(.docked), html .dfp .index:not(.docked) { transition: opacity 150ms var(--exit), transform 150ms var(--exit); }
 html .dfs .sec-index.open, html .dfp .index.open:not(.docked) { transition: opacity 220ms ease-out, transform 220ms var(--spring); }
 
-/* ---- Disclosures: height + opacity in 250ms, the plus turning with it. Content never jumps. */
-@supports (interpolate-size: allow-keywords) {
-  html :is(.dfs, .dfp) details.more::details-content { height: 0; opacity: 0; overflow: clip; transition: height 250ms var(--spring), opacity 250ms ease-out, content-visibility 250ms allow-discrete; }
-  html :is(.dfs, .dfp) details.more[open]::details-content { height: auto; opacity: 1; }
-}
+/* ---- Disclosures (Sol r4 M7, transform/opacity only, no exception): the content opens at once (no height animation;
+   what follows moves once, without animating), and on a user's toggle its body fades in and rises 8px over 250ms
+   (Reveal.tsx adds .more-opening for that one open). Closing is instant. */
+html :is(.dfs, .dfp) details.more::details-content { transition: none !important; }
+html :is(.dfs, .dfp) details.more[open]::details-content { height: auto; opacity: 1; }
+html :is(.dfs, .dfp) details.more.more-opening > .more-body { animation: df-more-in 250ms var(--apple) both; }
+@keyframes df-more-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 html :is(.dfs, .dfp) details.more > summary .plus::after { transition: transform 250ms var(--spring); }
 
 /* ---- Segmented controls: the selected indicator slides on the critically damped spring (~250ms). */
@@ -91,7 +110,16 @@ html :is(.dfs, .dfp) .seg::before { transition: transform 250ms var(--spring); }
 /* ---- Sticky header: a constant translucent material with its hairline always shown, never animated by scroll.
    Over the dark hero the material is dark (the inks there are light in both themes). */
 html :is(.dfs, .dfp) .nav::before { opacity: 1; transition: none; }
-html :is(.dfs, .dfp) .nav:not(.solid)::before { background: rgba(8, 12, 15, 0.74); box-shadow: inset 0 -1px 0 rgba(240, 231, 215, 0.08); }
+@media (prefers-reduced-transparency: no-preference) {
+  html :is(.dfs, .dfp) .nav:not(.solid)::before { background: rgba(8, 12, 15, 0.74); box-shadow: inset 0 -1px 0 rgba(240, 231, 215, 0.08); }
+}
+/* Sol r4 M6: with reduced transparency the same material is opaque (same layout, same hairline): dark over the hero,
+   the page's own opaque ground once solid. */
+@media (prefers-reduced-transparency: reduce) {
+  html :is(.dfs, .dfp) .nav:not(.solid)::before { background: #080c0f; box-shadow: inset 0 -1px 0 rgba(240, 231, 215, 0.08); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  html :is(.dfs, .dfp) .nav.solid::before { background: var(--bg-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  html :is(.dfs, .dfp) .menu[open]::before { background: rgba(8, 12, 15, 0.5); }
+}
 
 /* ---- Anchor jumps scroll smoothly, natively; never under reduced motion. */
 html { scroll-behavior: smooth; }
@@ -100,18 +128,22 @@ html { scroll-behavior: smooth; }
    stylesheets declared change instantly instead. Theme switches are instant too. */
 html :is(body, header, section, footer) { transition: none; }
 html .foundry-tile-link { transition: none; }
-html .dfs .qp-blog .note-card, html .dfs .qp-learn .guide-card { transition: transform 160ms var(--ease-out); }
 html .dfp .funds-bar button { transition: opacity 200ms ease; }
 html .dfs .pg-technology-qp .layer, html .dfs .pg-technology-qp .layer .chev { transition: transform 250ms var(--ease-out); }
 html .dfs :is(.input, .composer-field, .form input, .form select, .form textarea) { transition: none !important; } /* the focus border and ring appear at once */
-html .dfs .qpb .qp-flow-node a { transition: transform 160ms var(--ease-out); }
 
 /* ---- Reduced motion: every change is instant; nothing enters. Last, so it outranks everything above. */
+/* Sol r4 M3: one reset for every element and pseudo-element on the page (children such as a CTA's arrow and the
+   index chevrons included): no transition, no animation, no press or hover transform. The only exceptions are the
+   layer stacks' no-script fallbacks (.layer-all / .stack-wrap: a 1ms keyframe behind a 2.5s delay that swaps in the
+   static list if the page script never runs; never visible motion). The chat widget has its own reset in its shadow
+   root (public/sabina-chat/sabina-chat.css). */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
-  html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link, a.card, .menu-panel, .sec-index, .index, .seg),
-  html :is(.dfs, .dfp) :is(.seg, .footer .f-col a, details.more > summary .plus, .menu)::before,
-  html :is(.dfs, .dfp) :is(.footer .f-col a, details.more > summary .plus)::after,
-  html :is(.dfs, .dfp) details.more::details-content, html main img { transition: none !important; }
-  html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link):active, html :is(.dfs, .dfp) a.card:hover { transform: none !important; }
+  /* :not(#_r) only lifts specificity to an id's, so older !important reduced-motion fades (e.g. the indexes' 150ms
+     opacity) cannot outrank this reset; no element has that id. */
+  html body *:not(.layer-all, .stack-wrap, #_r), html body *:not(#_r)::before, html body *:not(#_r)::after { transition: none !important; animation: none !important; }
+  html body details::details-content { transition: none !important; } /* own rule: a browser without ::details-content drops only this line */
+  html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link):active,
+  html [data-consent-bar] button:active, html :is(.dfs, .dfp) a.card:hover, html :is(.dfs, .dfp) :is(.btn, .link):hover .arr { transform: none !important; }
 }

@@ -34,3 +34,10 @@
 @media(prefers-reduced-transparency:reduce),(prefers-contrast:more){.label,.mark-shell{border-color:currentColor}}
 /* the panel's Close button is a 44x44 target (was 40x40) */
 .close{width:44px;height:44px;display:inline-grid;place-items:center}
+/* Sol r4 M4 (2026-11-03): no looping ambient animation. The open panel's orb is a still mark; it moves only while
+   Sabina is answering a message the visitor sent (:host(.responding), a user action), and never with reduced motion. */
+.orb-core{animation:none}
+/* Sol r4 M5: every control in the panel answers a press: scale .97 in 100ms, released on a critically damped spring. */
+.close,.starters button,.compose button,.error button{transition:transform .25s linear(0,.075,.228,.391,.537,.657,.751,.822,.874,.912,.939,.958,.971,.98,.987,.991,.994,.996,.997,.998,1)}
+.close:active,.starters button:active,.compose button:not(:disabled):active,.error button:active{transform:scale(.97);transition:transform .1s ease-out}
+@media(prefers-reduced-motion:reduce){.close,.starters button,.compose button,.error button,.launcher,.mark-shell,.label{transition:none!important}.close:active,.starters button:active,.compose button:active,.error button:active,.launcher:active{transform:none!important}:host(.responding) .orb-core{animation:none}}

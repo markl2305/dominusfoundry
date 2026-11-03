@@ -36,6 +36,19 @@ export default function Reveal() {
         cleanups.push(() => { img.removeEventListener('load', done); img.removeEventListener('error', done); done() })
       })
     }
+    // Disclosures (Sol r4 M7): the content opens at once; on a reader's own click or key on the summary of a closed
+    // disclosure its body fades in and rises 8px over 250ms (.more-opening). The class goes on in the click itself,
+    // before the browser opens it, so the body never shows for a frame before fading in. Never for one open at load.
+    if (!reduce.matches) {
+      const onSummaryClick = (e: Event) => {
+        const d = (e.target as Element | null)?.closest?.('details.more > summary')?.parentElement as HTMLDetailsElement | null
+        if (!d || d.open) return
+        d.classList.remove('more-opening'); void d.offsetWidth; d.classList.add('more-opening')
+        window.setTimeout(() => d.classList.remove('more-opening'), 320)
+      }
+      document.addEventListener('click', onSummaryClick, true)
+      cleanups.push(() => document.removeEventListener('click', onSummaryClick, true))
+    }
     if (reduce.matches) return () => cleanups.forEach((f) => f())
 
     const all = Array.from(document.querySelectorAll<HTMLElement>('main .reveal')).filter((el) => !el.closest(HERO))

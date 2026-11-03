@@ -94,6 +94,9 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
     return () => { mq.removeEventListener('change', evaluate); window.removeEventListener('resize', evaluate); ro.disconnect() }
   }, [])
 
+  // Over the hero the chapter button is hidden, so an open index closes there too (as on the main site); the fence
+  // above then moves focus to a visible place first.
+  useEffect(() => { if (!solid) setOpen(false) }, [solid])
   useEffect(() => {
     const hero = document.getElementById('top')
     const heroIo = hero ? new IntersectionObserver(([e]) => setSolid(!e.isIntersecting), { rootMargin: '-64px 0px 0px 0px', threshold: 0 }) : null
@@ -137,9 +140,21 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
     const i = links.indexOf(document.activeElement as HTMLElement)
     links[(i + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus(); e.preventDefault()
   }
-  // `inert` is not in React 18's DOM types; set it as an attribute.
   // Docked, the rail is live once the reader has left the hero (it is shown then).
-  const inertAttr = (open || (docked && solid) ? {} : { inert: '' }) as Record<string, string>
+  // Sol r4 M1: React 18 drops an empty-string `inert`, so the closed index was never fenced and Tab reached its
+  // invisible links. The attribute is now set on the element itself. Before an index closes with focus inside it
+  // (Escape, or closing on its own as the page returns to the hero), focus moves to a visible control first:
+  // the trigger while it is shown, otherwise <main> (without scrolling).
+  useIso(() => {
+    const p = idx.current; if (!p) return
+    const live = open || (docked && solid)
+    if (!live && p.contains(document.activeElement)) {
+      const b = btn.current
+      if (b && solid) b.focus({ preventScroll: true })
+      else { const m = document.querySelector<HTMLElement>('main'); if (m) { if (!m.hasAttribute('tabindex')) m.setAttribute('tabindex', '-1'); m.focus({ preventScroll: true }) } }
+    }
+    if (live) p.removeAttribute('inert'); else p.setAttribute('inert', '')
+  }, [open, solid, docked])
 
   return <>
     <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}`} id="nav">
@@ -164,7 +179,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
       </div>
       <div className="progress" ref={prog} />
     </header>
-    <nav className={`index${open ? ' open' : ''}${docked ? ' docked' : ''}`} id="chapterIndex" aria-label="Chapter index" ref={idx} {...inertAttr}>
+    <nav className={`index${open ? ' open' : ''}${docked ? ' docked' : ''}`} id="chapterIndex" aria-label="Chapter index" ref={idx}>
       <ol onKeyDown={onListKey}>
         {chapters.map((c) => <li key={c.id}><a href={`#${c.id}`} aria-current={c.id === current.id ? 'true' : 'false'} onClick={(e) => go(e, c.id)}><span className="n">{c.n}</span>{c.name}</a></li>)}
       </ol>
@@ -315,7 +330,8 @@ const ProofSheet = forwardRef<SheetApi, { rows: PitchClaim[] }>(function ProofSh
   const close = (velocity = 0) => {
     const s = st.current
     if (!s.isOpen) return; s.isOpen = false
-    if (reduced()) { if (sheetEl.current) sheetEl.current.style.opacity = '0'; if (scrimEl.current) scrimEl.current.style.opacity = '0'; window.setTimeout(finish, 200); return }
+    // Sol r4 M3: under reduced motion the close is an instant state change; focus returns at once.
+    if (reduced()) { if (sheetEl.current) sheetEl.current.style.opacity = '0'; if (scrimEl.current) scrimEl.current.style.opacity = '0'; finish(); return }
     s.h = sheetEl.current?.offsetHeight || s.h; spring(s.h, { response: 0.35, velocity }, finish)
   }
   useImperativeHandle(ref, () => ({
@@ -334,8 +350,9 @@ const ProofSheet = forwardRef<SheetApi, { rows: PitchClaim[] }>(function ProofSh
     document.documentElement.style.overflow = 'hidden'
     if (reduced()) {
       s.y = 0; s.v = 0
-      sheetEl.current.style.transition = 'opacity 200ms ease'; if (scrimEl.current) scrimEl.current.style.transition = 'opacity 200ms ease'
-      sheetEl.current.style.opacity = '0'; paint(); requestAnimationFrame(() => { if (sheetEl.current) sheetEl.current.style.opacity = '1' })
+      // Sol r4 M3: under reduced motion the sheet appears at once (no fade).
+      sheetEl.current.style.transition = 'none'; if (scrimEl.current) scrimEl.current.style.transition = 'none'
+      paint(); sheetEl.current.style.opacity = '1'; if (scrimEl.current) scrimEl.current.style.opacity = ''
     } else { if (!s.raf) { s.y = s.h; s.v = 0 } paint(); spring(0, { response: 0.4 }) }
     setBackgroundInert(true)
     sheetEl.current.focus({ preventScroll: true })
