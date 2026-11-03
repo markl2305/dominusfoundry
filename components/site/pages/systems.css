@@ -19,7 +19,7 @@
 
 /* the full chain: Intake → Revenue → Ops */
 .dfs .pg-systems .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.dfs .pg-systems .chain .step { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font-weight: 500; font-size: 0.95rem; text-decoration: none; }
+.dfs .pg-systems .chain .step { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font-weight: 500; font-size: 1.0625rem; text-decoration: none; }
 .dfs .pg-systems .chain .step.cur { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); color: var(--gold); }
 .dfs .pg-systems .chain .sep { color: var(--gold); }
 @media (hover: hover) and (pointer: fine) { .dfs .pg-systems .chain a.step:hover { border-color: var(--gold); } }
@@ -28,7 +28,7 @@
 /* /mentis journey: .sequence on divs, keeping the page's own step numbers */
 .dfs .pg-systems .sequence > div { position: relative; padding: 26px 24px 28px; background: var(--panel); min-width: 0; }
 .dfs .pg-systems .sequence > div + div { border-left: 1px solid var(--hair); }
-.dfs .pg-systems .sequence .s-n { display: block; font: 500 0.72rem/1 var(--mono); letter-spacing: .1em; color: var(--gold); }
+.dfs .pg-systems .sequence .s-n { display: block; font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; color: var(--gold); }
 .dfs .pg-systems .sequence .s-t, .dfs .pg-systems .sequence .s-p { margin-bottom: 0; }
 @media (max-width: 860px) { .dfs .pg-systems .sequence > div + div { border-left: 0; border-top: 1px solid var(--hair); } }
 

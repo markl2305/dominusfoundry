@@ -1,5 +1,4 @@
 import VisitorChatMount from './components/VisitorChatMount';
-import { Inter, Crimson_Pro } from 'next/font/google'
 import SiteAnalytics from './components/SiteAnalytics'
 import AppShell from '../components/AppShell'
 import { GA_MEASUREMENT_ID } from '@/lib/gtag'
@@ -8,12 +7,8 @@ import ConsentBar from './components/ConsentBar'
 import { fontVars } from '../components/site/fonts'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const crimson = Crimson_Pro({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-crimson',
-})
+// M-1 (Apple polish 2026-11-02): Inter and Crimson Pro are no longer loaded. No component used them (the
+// body now takes the system sans, as every .dfs/.dfp page already did), so they only cost two font downloads.
 
 export const metadata = {
   // RETOOL 2026-10-07 (HANDOFF §11): title/description follow the "Foundry
@@ -57,10 +52,6 @@ export const metadata = {
       "Customized company AI through Sabina, built and operated by Dominus Foundry on a reusable platform: a trained core, company memory, and the authority your company defines.",
     images: ['/og-image.png'],
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F4EBDD' },
-    { media: '(prefers-color-scheme: dark)', color: '#0B0F14' },
-  ],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -74,6 +65,16 @@ export const metadata = {
   },
   manifest: '/site.webmanifest',
   metadataBase: new URL('https://dominusfoundry.com'),
+}
+
+// L-2 (Apple polish 2026-11-02): theme-color, one per colour scheme. Next 16 reads it only from the
+// viewport export (metadata.themeColor above was silently dropped, so production carried no theme-color).
+// The values are the page grounds in components/site/site.css: #e9e3d7 light, #0c1115 dark.
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#e9e3d7' },
+    { media: '(prefers-color-scheme: dark)', color: '#0c1115' },
+  ],
 }
 
 export default function RootLayout({
@@ -140,7 +141,7 @@ export default function RootLayout({
     // legitimately differs from the client DOM by that one attribute.
     <html
       lang="en"
-      className={`${inter.variable} ${crimson.variable} ${fontVars} scroll-smooth`}
+      className={`${fontVars} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -170,7 +171,7 @@ export default function RootLayout({
             order is guaranteed by construction; a separate <script async src> would be hoisted ahead of it. */}
         <script id="consent-config" dangerouslySetInnerHTML={{ __html: CONSENT_CONFIG }} />
       </head>
-      <body className="antialiased font-inter">
+      <body className="antialiased font-sans">
         <script
           id="organization-schema"
           type="application/ld+json"

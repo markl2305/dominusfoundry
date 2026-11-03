@@ -7,7 +7,7 @@
    Every figure rendered here is read from claims.ts, finance.ts or
    income-model.ts — nothing is typed by hand. */
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react'
-import { Segmented, ThemeControl } from '@/components/site/theme'
+import { Segmented } from '@/components/site/theme'
 import SiteMenu from '@/components/site/SiteMenu'
 import { PROOF, STATUS_LABEL, type PitchClaim } from './claims'
 import { incomeAssumptions as a, incomeScenarios, type IncomeMonth } from './income-model'
@@ -61,6 +61,14 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
   const [scrolled, setScrolled] = useState(false)
   const [current, setCurrent] = useState(chapters[0])
   const [open, setOpen] = useState(false)
+  // M-4 (Apple polish 2026-11-02): from 1400px the same chapter index docks as a contents rail beside the page.
+  const [docked, setDocked] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1400px)')
+    const on = () => { setDocked(mq.matches); if (mq.matches) setOpen(false) }
+    on(); mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
   const btn = useRef<HTMLButtonElement>(null), idx = useRef<HTMLElement>(null), prog = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -98,7 +106,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
   const go = (e: React.MouseEvent, id: string) => {
     e.preventDefault(); setOpen(false)
     document.getElementById(id)?.scrollIntoView({ behavior: reduced() ? 'instant' as ScrollBehavior : 'smooth' })
-    btn.current?.focus({ preventScroll: true })
+    if (!docked) btn.current?.focus({ preventScroll: true })
   }
   const onListKey = (e: React.KeyboardEvent) => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return
@@ -107,7 +115,8 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
     links[(i + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus(); e.preventDefault()
   }
   // `inert` is not in React 18's DOM types; set it as an attribute.
-  const inertAttr = (open ? {} : { inert: '' }) as Record<string, string>
+  // Docked, the rail is live once the reader has left the hero (it is shown then).
+  const inertAttr = (open || (docked && solid) ? {} : { inert: '' }) as Record<string, string>
 
   return <>
     <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}`} id="nav">
@@ -123,15 +132,15 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
           </button>
         </div>
+        {/* The appearance control lives in the shared footer (Apple polish 2026-11-02). */}
         <div className="nav-right">
-          <ThemeControl />
           <SiteMenu />
           <a className="btn btn-solid nav-cta" href={ctaHref}>Discuss the investment</a>
         </div>
       </div>
       <div className="progress" ref={prog} />
     </header>
-    <nav className={`index${open ? ' open' : ''}`} id="chapterIndex" aria-label="Chapter index" ref={idx} {...inertAttr}>
+    <nav className={`index${open ? ' open' : ''}${docked ? ' docked' : ''}`} id="chapterIndex" aria-label="Chapter index" ref={idx} {...inertAttr}>
       <ol onKeyDown={onListKey}>
         {chapters.map((c) => <li key={c.id}><a href={`#${c.id}`} aria-current={c.id === current.id ? 'true' : 'false'} onClick={(e) => go(e, c.id)}><span className="n">{c.n}</span>{c.name}</a></li>)}
       </ol>

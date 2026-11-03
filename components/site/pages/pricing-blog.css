@@ -23,7 +23,7 @@
 .dfs .pg-pricing .pl-k { min-width: 0; font: 500 1.3rem/1.2 var(--serif); letter-spacing: -0.008em; color: var(--ink); overflow-wrap: anywhere; }
 .dfs .pg-pricing .pl-v { min-width: 0; font: 500 1.125rem/1.3 var(--serif); color: var(--gold); text-align: right; white-space: normal; overflow-wrap: anywhere; }
 .dfs .pg-pricing .pl-v.is-soon { color: var(--ink-3); }
-.dfs .pg-pricing .pl-d { grid-column: 1 / -1; min-width: 0; color: var(--ink-2); font-size: 0.975rem; line-height: 1.55; max-width: 66ch; }
+.dfs .pg-pricing .pl-d { grid-column: 1 / -1; min-width: 0; color: var(--ink-2); font-size: 1.0625rem; line-height: 1.55; max-width: 66ch; }
 @media (max-width: 480px) {
   .dfs .pg-pricing .pline { grid-template-columns: minmax(0, 1fr); padding: 16px 18px; }
   .dfs .pg-pricing .pl-v { text-align: left; }
@@ -39,12 +39,12 @@
 .dfs .pg-blog .list-row .lr-t { margin: 0; grid-column: 1; }
 .dfs .pg-blog .list-row .lr-t a { text-decoration: none; color: inherit; }
 .dfs .pg-blog .list-row .lr-t a::after { content: ""; position: absolute; inset: 0; } /* the whole row is the target */
-.dfs .pg-blog .n-meta { grid-column: 1; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font: 400 0.72rem/1.5 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
-.dfs .pg-blog .n-topic { letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.dfs .pg-blog .n-meta { grid-column: 1; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font: 400 0.75rem/1.5 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
+.dfs .pg-blog .n-topic { letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
 .dfs .pg-blog .list-rows > li:focus-within { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
 .dfs .pg-blog .list-row .lr-t a:focus-visible { outline: none; }
 .dfs .pg-blog .list-row .lr-p { margin: 0; max-width: 66ch; }
-.dfs .pg-blog .n-read { grid-column: 2; grid-row: 1; align-self: center; font: 500 0.75rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.dfs .pg-blog .n-read { grid-column: 2; grid-row: 1; align-self: center; font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
 .dfs .pg-blog .n-read .arr { display: inline-block; transition: transform 200ms var(--ease-out); }
 .dfs .pg-blog li.is-lead .lr-t { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.12; }
 .dfs .pg-blog li.is-lead .list-row { padding-block: 30px; }

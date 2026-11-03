@@ -14,6 +14,6 @@
 .dfs .pg-press-qp .boiler { display: grid; gap: 16px; }
 .dfs .pg-press-qp .boiler-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; }
 .dfs .pg-press-qp .boiler-p { margin: 0; max-width: 68ch; font: 400 clamp(1.15rem, 1.7vw, 1.3rem)/1.55 var(--serif); color: var(--ink); text-wrap: pretty; }
-.dfs .pg-press-qp .boiler-names { margin: 0; padding-top: 16px; border-top: 1px solid var(--hair); font-size: 0.925rem; line-height: 1.6; color: var(--ink-3); }
+.dfs .pg-press-qp .boiler-names { margin: 0; padding-top: 16px; border-top: 1px solid var(--hair); font-size: 0.875rem; line-height: 1.6; color: var(--ink-3); }
 .dfs .pg-press-qp .boiler-names b { color: var(--ink-2); font-weight: 600; }
 .dfs .pg-press-qp .copy-btn { min-width: 88px; }

@@ -5,6 +5,7 @@
    "Your privacy choices" link (2026-10-15). */
 import type { ReactNode } from 'react'
 import { FOOTER_COLS } from '@/components/foundry/footer-links'
+import { ThemeControl } from './theme'
 
 const CHOICES = <a href="/privacy#analytics-choice" data-consent-open="">Your privacy choices</a>
 
@@ -21,7 +22,8 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
           <p className="f-blurb">{blurb}</p>
         </div>
         {FOOTER_COLS.map((col) => <div className="f-col" key={col.h}>
-          <h4>{col.h}</h4>
+          {/* h3: the page's h2 sections come first, so the footer columns sit one level below (M-2, 2026-11-02) */}
+          <h3>{col.h}</h3>
           <ul>{col.links.map((l) => <li key={l.t}><a href={l.href} target={l.ext ? '_blank' : undefined} rel={l.ext ? 'noopener' : undefined}>{l.t}</a></li>)}</ul>
         </div>)}
       </div>
@@ -32,7 +34,8 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
             A plain <a>, not <Link>, so the gate's capture-phase handler sees the click before the client-side router.
             In the legal row, after the existing line, so the link columns above are unchanged. */}
         {note ? <p>{note}{' · '}{CHOICES}</p> : <span>{copyright}{' · '}{CHOICES}</span>}
-        <span className="f-motto">Fide et Familia</span>
+        {/* The System / Dark / Light control, moved here from the header (Apple polish 2026-11-02, H-2). */}
+        <span className="f-end"><span className="f-motto">Fide et Familia</span><ThemeControl /></span>
       </div>
       {/* The only footer badge (Mark 2026-10-15, bridge 6a899092: the former membership badge is removed, never
           re-added). NVIDIA Inception member badge: NVIDIA's official full-colour artwork, unmodified and self-hosted;

@@ -15,7 +15,7 @@
   .dfp .hero { align-items: start; padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 20px); padding-bottom: 96px; }
   .dfp .hero-in { gap: 14px; }
   .dfp .crest { width: 60px; }
-  .dfp .hero .display { font-size: 2.15rem; line-height: 1.02; }
+  .dfp .hero .display { font-size: 2.15rem; line-height: 1.05; }
   .dfp .hero .lead { font-size: 1.02rem; line-height: 1.5; }
   .dfp .hero-actions { display: grid; width: 100%; max-width: 360px; gap: 10px; margin-top: 2px; }
   .dfp .hero-actions .btn { width: 100%; }

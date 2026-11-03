@@ -19,7 +19,7 @@
    the link share the first row, the headline sits under them (same text, same
    44px link target) */
 @media (max-width: 640px) {
-  .dfs:has(.qpb) .ribbon-in { display: grid; grid-template-columns: auto auto; grid-template-areas: "tag link" "p p"; justify-content: space-between; align-items: center; gap: 0 12px; padding-block: 4px 12px; text-align: left; font-size: 0.8125rem; line-height: 1.4; }
+  .dfs:has(.qpb) .ribbon-in { display: grid; grid-template-columns: auto auto; grid-template-areas: "tag link" "p p"; justify-content: space-between; align-items: center; gap: 0 12px; padding-block: 4px 12px; text-align: left; font-size: 0.875rem; line-height: 1.4; }
   .dfs:has(.qpb) .ribbon .tag { grid-area: tag; justify-self: start; }
   .dfs:has(.qpb) .ribbon-in p { grid-area: p; }
   .dfs:has(.qpb) .ribbon a { grid-area: link; justify-self: end; }
@@ -61,7 +61,7 @@
 .dfs .qpb .qp-flow-name { font: 500 1.35rem/1.15 var(--serif); letter-spacing: -0.01em; }
 .dfs .qpb .qp-flow-arrow { position: absolute; z-index: 1; top: 50%; right: -12px; width: 12px; height: 1px; background: var(--gold); }
 .dfs .qpb .qp-flow-arrow::after { content: ""; position: absolute; right: -1px; top: -3px; border: 3.5px solid transparent; border-left: 5px solid var(--gold); border-right: 0; }
-.dfs .qpb .qp-flow-base { margin: 0; padding: 16px 22px; border-radius: var(--radius-sm); text-align: center; font: 500 0.75rem/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--hair)); background: linear-gradient(135deg, color-mix(in srgb, var(--copper) 16%, var(--panel)), var(--panel)); }
+.dfs .qpb .qp-flow-base { margin: 0; padding: 16px 22px; border-radius: var(--radius-sm); text-align: center; font: 500 0.75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--hair)); background: linear-gradient(135deg, color-mix(in srgb, var(--copper) 16%, var(--panel)), var(--panel)); }
 @media (max-width: 640px) {
   .dfs .qpb .qp-flow-row { grid-template-columns: 1fr; }
   .dfs .qpb .qp-flow-arrow { top: auto; bottom: -12px; right: auto; left: 50%; width: 1px; height: 12px; }
@@ -78,7 +78,7 @@
 .dfs .qpb .feature .ring-list { margin: 4px 0 0; }
 .dfs .qpb .feature .actions { margin: 0; }
 .dfs .qpb a.card.feature { color: inherit; text-decoration: none; }
-.dfs .qpb .go { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--gold); font-weight: 500; font-size: 0.975rem; text-decoration: none; align-self: flex-start; }
+.dfs .qpb .go { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--gold); font-weight: 500; font-size: 1.0625rem; text-decoration: none; align-self: flex-start; }
 @media (hover: hover) and (pointer: fine) { .dfs .qpb .go:hover { color: var(--gold-hi); } }
 .dfs .qpb .go-row { display: flex; flex-wrap: wrap; gap: 4px 22px; }
 
@@ -97,7 +97,7 @@
 
 /* chips used as a list (who we work with, where work gets stuck) */
 .dfs .qpb .chip-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.dfs .qpb .chip-list > li { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font-size: 0.95rem; line-height: 1.35; max-width: 100%; }
+.dfs .qpb .chip-list > li { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font-size: 1.0625rem; line-height: 1.35; max-width: 100%; }
 .dfs .qpb .chip-list .mk { color: var(--gold); font-weight: 600; }
 .dfs .qpb .chip-list .mk.no { color: var(--ember); }
 
@@ -105,7 +105,7 @@
 .dfs .qpb .qp-article-card { display: flex; flex-direction: column; gap: 10px; color: inherit; text-decoration: none; }
 .dfs .qpb .qp-article-card > * { margin: 0; }
 .dfs .qpb .qp-article-card .tile-t { margin: 0; font-size: 1.45rem; }
-.dfs .qpb .qp-article-meta { margin-top: auto !important; padding-top: 8px; font: 400 0.72rem/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
+.dfs .qpb .qp-article-meta { margin-top: auto !important; padding-top: 8px; font: 400 0.75rem/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-3); }
 @media (hover: hover) and (pointer: fine) { .dfs .qpb a.qp-article-card:hover { border-color: color-mix(in srgb, var(--gold) 55%, var(--hair)); } .dfs .qpb a.qp-article-card:hover .tile-t { color: var(--gold-hi); } }
 .dfs .qpb .group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 18px; }
 .dfs .qpb .group + .group { margin-top: clamp(40px, 6vw, 72px); }
@@ -125,11 +125,11 @@
 @media (min-width: 1100px) {
   .dfs .qpb .qp-index { display: block; position: sticky; top: calc(var(--nav-h) + 28px); align-self: start; justify-self: end; width: min(280px, 100%); }
 }
-.dfs .qpb .qp-index-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font: 500 0.72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; max-width: 100%; }
-.dfs .qpb .qp-index-btn .cur { color: var(--gold); text-transform: none; letter-spacing: 0; font: 500 0.95rem/1.2 var(--serif); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.dfs .qpb .qp-index-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel); color: var(--ink); font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; max-width: 100%; }
+.dfs .qpb .qp-index-btn .cur { color: var(--gold); text-transform: none; letter-spacing: 0; font: 500 1.0625rem/1.2 var(--serif); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .dfs .qpb .qp-index-list { list-style: none; margin: 10px 0 0; padding: 8px; border-radius: var(--radius-sm); border: 1px solid var(--hair); background: var(--panel); display: grid; gap: 2px; max-height: calc(100vh - var(--nav-h) - 140px); overflow-y: auto; }
 .dfs .qpb .qp-index-list[hidden] { display: none; }
-.dfs .qpb .qp-index-list a { display: flex; align-items: center; min-height: 40px; padding: 6px 10px; border-radius: 10px; color: var(--ink-2); text-decoration: none; font-size: 0.9rem; line-height: 1.35; }
+.dfs .qpb .qp-index-list a { display: flex; align-items: center; min-height: 40px; padding: 6px 10px; border-radius: 10px; color: var(--ink-2); text-decoration: none; font-size: 0.875rem; line-height: 1.35; }
 .dfs .qpb .qp-index-list a[aria-current="true"] { color: var(--gold); background: var(--panel-2); }
 @media (hover: hover) and (pointer: fine) { .dfs .qpb .qp-index-list a:hover { color: var(--ink); } }
 .dfs .qpb .article h2 { scroll-margin-top: calc(var(--nav-h) + 24px); }

@@ -27,7 +27,7 @@
 .dfs .pg-technology-qp .layer-detail { display: grid; gap: 14px; }
 .dfs .pg-technology-qp .layer-detail .what { margin: 0; font: 500 1.55rem/1.25 var(--serif); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .dfs .pg-technology-qp .layer-detail .split { display: block; margin: 0; color: var(--ink-2); line-height: 1.6; text-wrap: pretty; }
-.dfs .pg-technology-qp .layer-detail .split b { font: 500 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+.dfs .pg-technology-qp .layer-detail .split b { font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
 .dfs .pg-technology-qp .fade-swap { animation: qp-swap 220ms var(--ease-out); }
 @media (max-width: 480px) { .dfs .pg-technology-qp .seg button { padding: 0 9px; font-size: 0.78rem; } .dfs .pg-technology-qp .layer-panel { min-height: 0; } }
 
@@ -36,9 +36,9 @@
 .dfs .pg-technology-qp .layer-all { display: grid; }
 .dfs .pg-technology-qp .layer-all summary { font: 500 1.25rem/1.2 var(--serif); color: var(--ink); justify-content: flex-start; gap: 12px; }
 .dfs .pg-technology-qp .layer-all summary .plus { margin-left: auto; }
-.dfs .pg-technology-qp .layer-all .ln { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: inline-grid; place-items: center; font: 500 0.72rem/1 var(--mono); flex: none; }
+.dfs .pg-technology-qp .layer-all .ln { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: inline-grid; place-items: center; font: 500 0.75rem/1 var(--mono); flex: none; }
 .dfs .pg-technology-qp .layer-all .more-body p { margin: 0; color: var(--ink-2); max-width: 64ch; line-height: 1.6; }
-.dfs .pg-technology-qp .layer-all .more-body b { display: block; font: 500 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.dfs .pg-technology-qp .layer-all .more-body b { display: block; font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
 .dfs .pg-technology-qp .layer-all .layer-what { color: var(--ink) !important; font: 500 1.2rem/1.35 var(--serif); }
 html:not(.dfs-js) .dfs .pg-technology-qp .stack-wrap { display: none; }
 html.dfs-ready .dfs .pg-technology-qp .layer-all { display: none; }

@@ -12,14 +12,14 @@
 /* /technology — the four layers, numbered like /pitch's sequence */
 .dfs .pg-technology .layers { counter-reset: layer; }
 .dfs .pg-technology .layer { counter-increment: layer; display: grid; gap: 12px; align-content: start; }
-.dfs .pg-technology .layer::before { content: counter(layer, decimal-leading-zero); font: 500 0.72rem/1 var(--mono); letter-spacing: .1em; color: var(--gold); }
+.dfs .pg-technology .layer::before { content: counter(layer, decimal-leading-zero); font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; color: var(--gold); }
 
 /* /governance — the interactive ledger */
 .dfs .pg-governance .ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
 @media (max-width: 960px) { .dfs .pg-governance .ledger { grid-template-columns: minmax(0, 1fr); } }
 .dfs .pg-governance .ledger-pane { min-width: 0; }
 .dfs .pg-governance .lp-h-2 { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--hair); }
-.dfs .pg-governance .lp-note { margin: 20px 0 0; min-height: 44px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--hair); border-left: 2px solid var(--gold); background: var(--panel-2); color: var(--ink-2); font-size: 0.925rem; line-height: 1.55; }
+.dfs .pg-governance .lp-note { margin: 20px 0 0; min-height: 44px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--hair); border-left: 2px solid var(--gold); background: var(--panel-2); color: var(--ink-2); font-size: 0.875rem; line-height: 1.55; }
 
 .dfs .pg-governance .composer { margin-top: 22px; display: grid; gap: 16px; justify-items: start; }
 .dfs .pg-governance .composer-line { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font: 500 1.25rem/1.6 var(--serif); color: var(--ink); max-width: 100%; }
@@ -33,10 +33,10 @@
 .dfs .pg-governance .grant { display: grid; gap: 10px; justify-items: start; padding: 18px 20px; border-radius: var(--radius-sm); border: 1px solid var(--hair); border-left: 2px solid var(--gold); background: var(--bg-2); }
 .dfs .pg-governance .grant.revoked { border-left-color: var(--ink-3); }
 .dfs .pg-governance .grant-head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.dfs .pg-governance .grant-id { font: 500 0.72rem/1 var(--mono); letter-spacing: .16em; color: var(--ink-3); }
+.dfs .pg-governance .grant-id { font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; color: var(--ink-3); }
 .dfs .pg-governance .grant-text { margin: 0; font: 500 1.2rem/1.35 var(--serif); color: var(--ink); text-wrap: pretty; }
 .dfs .pg-governance .grant-text s { text-decoration-thickness: 1px; text-decoration-color: var(--ember); color: var(--ink-3); }
-.dfs .pg-governance .grant-meta { margin: 0; font: 400 0.72rem/1.6 var(--mono); letter-spacing: .06em; color: var(--ink-2); }
+.dfs .pg-governance .grant-meta { margin: 0; font: 400 0.75rem/1.6 var(--mono); letter-spacing: .06em; color: var(--ink-2); }
 .dfs .pg-governance .grant-annot { color: var(--ember); }
 .dfs .pg-governance .grant-btn { margin-top: 4px; }
 
@@ -46,9 +46,9 @@
 .dfs .pg-governance .record { list-style: none; margin: 22px 0 0; padding: 0; max-height: 420px; overflow-y: auto; border-radius: var(--radius-sm); border: 1px solid var(--hair); background: var(--bg-2); }
 .dfs .pg-governance .rec { display: grid; gap: 5px; padding: 14px 16px; border-left: 2px solid var(--hair-2); }
 .dfs .pg-governance .rec + .rec { border-top: 1px solid var(--hair); }
-.dfs .pg-governance .rec-when { font: 400 0.68rem/1.4 var(--mono); letter-spacing: .12em; color: var(--ink-3); }
-.dfs .pg-governance .rec-head { font: 500 0.75rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); overflow-wrap: anywhere; }
-.dfs .pg-governance .rec-detail { font-size: 0.925rem; line-height: 1.55; color: var(--ink-2); }
+.dfs .pg-governance .rec-when { font: 400 0.75rem/1.4 var(--mono); letter-spacing: .08em; color: var(--ink-3); }
+.dfs .pg-governance .rec-head { font: 500 0.75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); overflow-wrap: anywhere; }
+.dfs .pg-governance .rec-detail { font-size: 0.875rem; line-height: 1.55; color: var(--ink-2); }
 .dfs .pg-governance .rec-allow { border-left-color: var(--gold); }
 .dfs .pg-governance .rec-allow .rec-head { color: var(--gold); }
 .dfs .pg-governance .rec-refuse { border-left-color: var(--ember); }

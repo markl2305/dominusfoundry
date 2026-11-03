@@ -22,7 +22,7 @@
 .dfs .pg-governance-qp .rl-sheet[hidden] { display: none; }
 .dfs .pg-governance-qp .rl-sheet.swap { animation: qp-swap 220ms var(--ease-out); }
 .dfs .pg-governance-qp .rl-head { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--hair); }
-.dfs .pg-governance-qp .rl-of { font: 400 0.7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.dfs .pg-governance-qp .rl-of { font: 400 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
 .dfs .pg-governance-qp .rl-sheet .lp-lead { max-width: 62ch; }
 .dfs .pg-governance-qp .rl-sheet .lp-h { font-size: clamp(1.6rem, 2.6vw, 2rem); }
 .dfs .pg-governance-qp .rl-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--hair); }

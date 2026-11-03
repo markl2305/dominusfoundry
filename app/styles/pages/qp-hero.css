@@ -18,12 +18,12 @@
 /* the parts these pages share with /pitch that site.css does not carry, ported
    from app/pitch/pitch.css with the same values, scoped to .qp */
 .dfs .qp .founders .card { display: grid; gap: 10px; align-content: start; }
-.dfs .qp .founders .role { font: 500 0.7rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0; }
+.dfs .qp .founders .role { font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin: 0; }
 .dfs .qp .founders h3 { font: 500 2rem/1.05 var(--serif); letter-spacing: -0.015em; margin: 0; }
 .dfs .qp .founders p { color: var(--ink-2); line-height: 1.6; margin: 0; }
 .dfs .qp .motto { text-align: center; display: grid; justify-items: center; gap: 14px; padding-top: 12px; }
 .dfs .qp .motto .latin { margin: 0; font: italic 400 clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--serif); color: var(--gold); letter-spacing: -0.01em; }
-.dfs .qp .motto .motto-line { margin: 0; max-width: 60ch; color: var(--ink-3); font-size: 0.9rem; line-height: 1.6; }
+.dfs .qp .motto .motto-line { margin: 0; max-width: 60ch; color: var(--ink-3); font-size: 0.875rem; line-height: 1.6; }
 .dfs .qp .ip-card { display: grid; gap: 18px; }
 .dfs .qp .filings { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--hair); }
 .dfs .qp .filings li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
@@ -34,7 +34,7 @@
 .dfs .qp .statement em { color: var(--gold); }
 .dfs .qp .center .statement, .dfs .qp .statement.center { margin-inline: auto; text-align: center; }
 /* numbered problem-style cards (/pitch chapter II) */
-.dfs .qp .ix { font: 500 0.72rem/1 var(--mono); color: var(--gold); letter-spacing: .1em; display: block; margin-bottom: 14px; }
+.dfs .qp .ix { font: 500 0.75rem/1 var(--mono); color: var(--gold); letter-spacing: .08em; display: block; margin-bottom: 14px; }
 /* segmented panels (components/foundry/qp-parts.tsx): the control, then the selected panel */
 .dfs .qp .segp { display: grid; gap: 22px; min-width: 0; }
 .dfs .qp .segp > .seg { justify-self: start; max-width: 100%; }

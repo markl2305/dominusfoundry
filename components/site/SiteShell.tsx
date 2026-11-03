@@ -19,7 +19,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import './site.css'
-import { ThemeControl } from './theme'
 import SiteMenu from './SiteMenu'
 import SiteFooter from './SiteFooter'
 import { NAV_LINKS, CONTACT, activeFor } from './nav-links'
@@ -82,8 +81,8 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
         {NAV_LINKS.map((l) => <a key={l.id} className="nav-link" href={l.href} aria-current={active === l.id ? 'page' : undefined}>{l.label}</a>)}
       </nav>}
       {hasSecs && <SectionButton secs={secs} solid={solid} />}
+      {/* The appearance control lives in the footer (Apple polish 2026-11-02, H-2). */}
       <div className="nav-right">
-        <ThemeControl />
         {!bare && <a className="btn btn-solid nav-cta" href={CONTACT.href}>{CONTACT.label}</a>}
         {!bare && <SiteMenu />}
       </div>
