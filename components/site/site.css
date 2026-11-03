@@ -308,6 +308,12 @@ body:has([data-consent-bar]:not([data-consent-reopened])) .dfs .nav { top: var(-
    accessible name stays "Menu"), so brand, theme control and menu always fit */
 @media (max-width: 560px) { .dfs .brand-text { display: none; } .dfs .menu > summary .lbl { display: none; } .dfs .menu > summary { padding: 0 11px; } }
 @media (max-width: 420px) { .dfs .nav-in { gap: 8px; } .dfs .nav-right { gap: 6px; } }
+/* Sol r1 M1: the same compact forms, chosen by fit rather than by window width (SiteShell measures the row), so the
+   bar reflows when enlarged text no longer fits. Cumulative classes; every label and target stays in the menu. */
+.dfs .nav.fit-1 .nav-links { display: none; }
+.dfs .nav.fit-1 .menu { display: block; }
+.dfs .nav.fit-2 .nav-cta { display: none; }
+.dfs .nav.fit-3 .brand-text { display: none; }
 
 /* section button — /pitch's chapter button on every page with three or more
    data-name sections (SectionNav.tsx). Shown once the nav has its material. */
@@ -686,7 +692,7 @@ html[data-df-theme="light"] .dfs .section.on-dark, html[data-df-theme="light"] .
 .dfs .f-col a { color: var(--ink-2); text-decoration: none; font-size: 0.875rem; line-height: 1.5; padding-block: 3px; overflow-wrap: anywhere; transition: color 150ms ease; }
 .dfs .f-col a:active { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) { .dfs .f-col a:hover { color: var(--gold); } }
-.dfs .footer-bottom { margin-top: clamp(40px, 5vw, 64px); padding-top: 22px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: baseline; font: 400 0.75rem/1.5 var(--mono); letter-spacing: .04em; color: var(--ink-3); }
+.dfs .footer-bottom { margin-top: clamp(40px, 5vw, 64px); padding-top: 22px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 20px 24px; /* Sol r1 S3: row gap > the legal link's 15px hit padding, so the next item cannot sit over it */ justify-content: space-between; align-items: baseline; font: 400 0.75rem/1.5 var(--mono); letter-spacing: .04em; color: var(--ink-3); }
 .dfs .footer-bottom p { margin: 0; }
 .dfs .footer-bottom a { color: var(--gold); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
 .dfs .footer-bottom .f-motto { font: italic 400 1.05rem/1 var(--serif); letter-spacing: 0.02em; color: var(--gold); }
@@ -736,6 +742,9 @@ html:has(.dfs)::view-transition-old(root), html:has(.dfs)::view-transition-new(r
 /* links in prose, articles and legal pages: block padding grows the hit area to 44px for every pointer; inline
    padding does not move the line, and the underline is text decoration so it stays under the words */
 .dfs .prose a, .dfs .link, .dfs .article a { padding-block: 14px; }
+/* Sol r2 recheck: short "Email: / Phone:" contact lines stack two links whose padding overlapped (33px hittable).
+   Each contact link gets a real 44px line box instead of padding, so neighbours cannot cut into it. */
+.dfs .lp-contact a, .dfs .pg-legal .article li > a:is([href^="mailto:"], [href^="tel:"]) { display: inline-block; padding-block: 0; line-height: 44px; }
 .dfs .list-row { min-height: 44px; }
 /* a checkbox's hit area is its whole label row */
 .dfs .form label:has(> input[type="checkbox"]), .dfs .check-row { min-height: 44px; }
@@ -838,3 +847,10 @@ body:has(.dfs [data-hero]) sabina-visitor-chat { transition: opacity 200ms ease,
    so the line stays under the words instead of moving down with the padding. Same colour and weight as before. */
 .dfs .prose a, .dfs .link, .dfs .article a, .dfs .footer-bottom a { border-bottom: 0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--gold) 35%, transparent); }
 @media (hover: hover) and (pointer: fine) { .dfs .prose a:hover, .dfs .link:hover, .dfs .article a:hover { text-decoration-color: var(--gold); } }
+
+/* Sol r1 (P4, same gap on the main site): reduced motion covers every control this pass styled. Placed last so it
+   outranks the MOTION block above, which came after the earlier preference block and overrode it. */
+@media (prefers-reduced-motion: reduce) {
+  .dfs .btn, .dfs .nav-link, .dfs .seg button, :is(.dfs, .dfp) .menu > summary, .dfs .sec-btn, .dfs a.card, .dfs .list-row, .dfs details.more > summary .plus { transition: none !important; }
+  .dfs .btn:active, .dfs .nav-link:active, .dfs .seg button:active, :is(.dfs, .dfp) .menu > summary:active, .dfs .sec-btn:active, .dfs a.list-row:active { transform: none !important; }
+}

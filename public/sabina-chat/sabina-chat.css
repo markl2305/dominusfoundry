@@ -24,7 +24,8 @@
 .mark{width:30px;height:30px;object-fit:contain;display:block}
 .label{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:22px;box-shadow:0 6px 18px -8px #0008}
 .launcher:active{transform:scale(.97)}
-:host(.cta-visible) .launcher,:host(.over-content) .launcher{opacity:0;pointer-events:none;visibility:hidden;transition:opacity .2s ease-out,visibility 0s linear .2s}
+/* Sol r1 S2: stepping aside is instant (no fade, so it is never over content in any frame); coming back fades in. */
+:host(.cta-visible) .launcher,:host(.over-content) .launcher{opacity:0;pointer-events:none;visibility:hidden;transition:none}
 .note,.speaker{font-size:12px}
 @media(max-width:600px){.launcher{right:calc(env(safe-area-inset-right) + 16px);bottom:calc(env(safe-area-inset-bottom) + 16px);min-height:44px}.label{font-size:14px;padding:0 12px}}
 @media(prefers-reduced-motion:reduce){.launcher,:host(.cta-visible) .launcher,:host(.over-content) .launcher{transition:none}.launcher:active{transform:none}}

@@ -9,7 +9,9 @@
 .dfs .pg-pricing .fg-l { margin-top: 4px; }
 .dfs .pg-pricing .fg-d { margin-top: 0; }
 .dfs .pg-pricing .fg-src { margin-top: 4px; overflow-wrap: anywhere; }
-.dfs .pg-pricing .fg-src a { color: var(--gold); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+/* Apple polish r2 (2026-11-03): a 44px box for every pointer (it was touch-only), the underline drawn as text
+   decoration so it stays under the words inside the taller box. */
+.dfs .pg-pricing .fg-src a { color: var(--gold); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--gold) 35%, transparent); display: inline-flex; align-items: center; min-height: 44px; }
 .dfs .pg-pricing .figure .v { font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
 .dfs .pg-pricing #hire .actions .btn { max-width: 100%; }
 
@@ -60,4 +62,4 @@
 }
 @media (prefers-reduced-motion: reduce) { .dfs .pg-blog .n-read .arr, .dfs .pg-blog .list-row { transition: none; } }
 /* the founding card's source line is a lone link (its own control, not running text): 44px tall on touch */
-@media (pointer: coarse) { .dfs .pg-pricing .fg-src a { display: inline-flex; align-items: center; min-height: 44px; } }
+/* (2026-11-03) the 44px box now applies to every pointer, above */

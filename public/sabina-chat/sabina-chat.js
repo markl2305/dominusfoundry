@@ -9,8 +9,11 @@
   const endpoint = '/api/visitor-chat';
   if(/^\/(interview|evaluate)(\/|$)/.test(location.pathname))return;
   const host = document.createElement('sabina-visitor-chat');
+  // Sol r1 S2: hidden from the first frame. The launcher may appear only once its stylesheet has loaded and a
+  // collision check on real (finite) geometry has passed; until then nothing of it can paint over the page.
+  host.style.visibility='hidden';host.classList.add('over-content');
   const root = host.attachShadow({mode:'open'});
-  root.innerHTML = `<link rel="stylesheet" href="${new URL('sabina-chat.css?v=6',assetBase)}">
+  root.innerHTML = `<link rel="stylesheet" href="${new URL('sabina-chat.css?v=7',assetBase)}">
     <button class="launcher" aria-label="Ask Sabina — help and support" aria-haspopup="dialog"><span class="label">Ask Sabina</span><span class="mark-shell" aria-hidden="true"><img class="mark" alt="" width="44" height="44" decoding="async"></span></button>
     <dialog class="panel" aria-labelledby="chat-title"><header class="header"><span class="orb-mark" aria-hidden="true"><img class="orb" alt="" width="42" height="42" loading="lazy"><span class="orb-core"></span></span><div><h2 id="chat-title">Ask Sabina</h2><p>Help, support, and questions</p></div><button class="close" aria-label="Close chat">×</button></header>
     <div class="conversation" role="log" aria-live="polite" aria-relevant="additions"><div class="welcome"><h3>What would you like to know?</h3><p>Ask about Sabina, how she works, or finding your way around.</p><div class="starters"><button>What can Sabina help with?</button><button>How does hiring Sabina work?</button><button>I need help using the site</button></div></div><div class="messages"></div><p class="progress" role="status" hidden>Sabina is responding…</p><div class="error" role="alert" hidden><p></p><button type="button">Try again</button><button type="button" class="restart" hidden>Start a new chat</button><a href="mailto:mark@dominusfoundry.com">Contact the team</a></div></div>
@@ -23,10 +26,21 @@
   const dialog=$('dialog'), input=$('textarea'), launcher=$('.launcher'), conversation=$('.conversation');
   let ended=false, busy=false, session=null, failed=null, controller=null;
   function controls(){ $('.send').disabled=ended||busy||!input.value.trim(); root.querySelectorAll('.starters button,.error button').forEach(b=>b.disabled=busy); }
-  function close(){dialog.close();launcher.focus();}
+  function close(){dialog.close();}
+  // Sol r1 S1: closing used to focus the launcher unconditionally. If the page behind the panel was scrolled while it
+  // was open, the launcher may now be hidden (hero CTA in view, or content under it) and focus fell to BODY. Its state
+  // is re-evaluated now (checks pause while the panel is open); focus returns to it only if it is available, otherwise,
+  // without scrolling, to the hero CTA when fully in view, else to the last control fully in view.
+  function returnFocus(){
+    const blocked=host.classList.contains('cta-visible')||!styled||blockedAt(LOOK);
+    if(blocked){hidden=true;clearSince=0;host.classList.add('over-content');}
+    if(!blocked&&!hidden){launcher.focus();if(root.activeElement===launcher){schedule();return}}
+    const vh=document.documentElement.clientHeight;
+    if(heroCta){const q=heroCta.getBoundingClientRect();if(q.width&&q.height&&q.top>=0&&q.bottom<=vh){heroCta.focus({preventScroll:true});if(document.activeElement===heroCta){schedule();return}}}
+    handOffFocus();schedule();}
   launcher.addEventListener('click',()=>{dialog.showModal();input.focus();});
   $('.close').addEventListener('click',close);
-  dialog.addEventListener('close',()=>launcher.focus());
+  dialog.addEventListener('close',returnFocus);
   dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();});
   input.addEventListener('input',controls);
   function append(role,text){const row=document.createElement('div');row.className=role==='user'?'user':'answer';const label=document.createElement('span');label.className='speaker';label.textContent=role==='user'?'You':'Sabina';const p=document.createElement('p');p.textContent=text;row.append(label,p);$('.messages').append(row);conversation.scrollTop=conversation.scrollHeight;}
@@ -82,6 +96,11 @@
     const left=vw-parseFloat(cs.right)-w,top=vh-parseFloat(cs.bottom)-h;
     // Until the launcher's stylesheet has loaded its offsets read 'auto': there is no footprint yet.
     if(!Number.isFinite(left)||!Number.isFinite(top))return null;return {left:left-pad,top:top-pad,width:w+2*pad,height:h+2*pad};}
+  // Sol r1 S2: never over content in any frame. It hides (instantly, see the CSS) when content comes within LOOK px of
+  // its footprint, so it is gone before content reaches it, and returns only when a wider CLEAR margin has stayed
+  // clear for 400ms. No geometry (stylesheet not loaded) counts as blocked, never as clear.
+  const LOOK=12, CLEAR=20;
+  function blockedAt(pad){const f=footprint(pad);return !f||covers(f)}
   // Sample every 12px across and every 8px down: a short word (an <em>) is wider than 12px and a line of text taller
   // than 8px, so neither can sit between two samples (a coarser grid let a 15px eyebrow line slip between rows).
   function covers(f){if(!f)return false;const xs=[],ys=[];for(let x=f.left;x<f.left+f.width;x+=12)xs.push(x);xs.push(f.left+f.width);
@@ -95,19 +114,26 @@
       const st=getComputedStyle(e);return q.width>0&&q.height>0&&q.top>=0&&q.bottom<=vh&&st.visibility!=='hidden'&&st.display!=='none'});
     const target=list[list.length-1];if(target){target.focus({preventScroll:true});if(document.activeElement===target)return}
     const main=document.querySelector('main')||document.body;if(!main.hasAttribute('tabindex'))main.setAttribute('tabindex','-1');main.focus({preventScroll:true});}
-  let pending=0,hidden=false,clearSince=0,recheck=0;
-  function check(){pending=0;if(dialog.open||!launcher.offsetWidth)return;const now=performance.now();
-    if(!hidden){if(covers(footprint(0))){if(focused())handOffFocus();hidden=true;clearSince=0;host.classList.add('over-content');}return}
-    if(covers(footprint(6))){clearSince=0;return}
+  let pending=0,hidden=true,clearSince=0,recheck=0,styled=false;
+  function check(){pending=0;if(dialog.open||!styled||!launcher.offsetWidth)return;const now=performance.now();
+    if(!hidden){if(blockedAt(LOOK)){if(focused())handOffFocus();hidden=true;clearSince=0;host.classList.add('over-content');}return}
+    if(blockedAt(CLEAR)){clearSince=0;return}
     if(!clearSince)clearSince=now;
     if(now-clearSince>=400){hidden=false;clearSince=0;host.classList.remove('over-content');}
     else{clearTimeout(recheck);recheck=setTimeout(schedule,420-(now-clearSince));}}
   const schedule=()=>{if(!pending)pending=requestAnimationFrame(check);};
-  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);
+  // Sol r1 S2: on scroll the check runs synchronously in the scroll handler (scroll events fire once per frame, before
+  // any animation-frame callback or paint), so the launcher is already hidden in the first frame content reaches it.
+  const onScroll=()=>{if(pending){cancelAnimationFrame(pending);pending=0;}check();};
+  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',schedule);
   // content can also move under the launcher without a scroll (scroll reveals, opened disclosures): re-check when it settles
   document.addEventListener('transitionend',schedule,true);document.addEventListener('animationend',schedule,true);document.addEventListener('toggle',schedule,true);
-  const settle=setInterval(schedule,1000);schedule();
-  dispose=()=>{abort();window.removeEventListener('pagehide',abort);ctaWatch?.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);document.removeEventListener('transitionend',schedule,true);document.removeEventListener('animationend',schedule,true);document.removeEventListener('toggle',schedule,true);clearInterval(settle);clearTimeout(recheck);if(pending)cancelAnimationFrame(pending);clearance.remove();host.remove();};
+  const settle=setInterval(schedule,1000);
+  // the stylesheet decides the launcher's geometry: start checking once it has loaded
+  const sheet=root.querySelector('link[rel="stylesheet"]');
+  const onStyled=()=>{if(styled)return;styled=true;host.style.visibility='';schedule();};
+  if(sheet.sheet)onStyled();else sheet.addEventListener('load',onStyled,{once:true});
+  dispose=()=>{abort();window.removeEventListener('pagehide',abort);ctaWatch?.disconnect();window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',schedule);document.removeEventListener('transitionend',schedule,true);document.removeEventListener('animationend',schedule,true);document.removeEventListener('toggle',schedule,true);clearInterval(settle);clearTimeout(recheck);if(pending)cancelAnimationFrame(pending);clearance.remove();host.remove();};
   document.body.append(host);
   }
   window.addEventListener('sabina-visitor-chat:mount',mount);

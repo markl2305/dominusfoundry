@@ -48,10 +48,16 @@ function useReveal(pathname: string | null) {
   }, [pathname])
 }
 
+const LEVEL_CLASSES = ['fit-1', 'fit-2', 'fit-3']
 function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | null }) {
   const [solid, setSolid] = useState(false)
   // Material as soon as the page moves, so content never scrolls visibly through a clear bar (Mark, 2026-10-14).
   const [scrolled, setScrolled] = useState(false)
+  // Sol r1 M1: the bar is one fixed-height row. When its contents no longer fit (narrow window or enlarged text), it
+  // steps down, one level at a time and only as far as needed: 1 links move into the menu, 2 the CTA moves into the
+  // menu, 3 the crest alone carries the brand. Labels and targets never change; they move to the menu, which holds both.
+  const [fit, setFit] = useState(0)
+  const navRef = useRef<HTMLElement>(null), probeRef = useRef<HTMLSpanElement>(null)
   const active = activeFor(pathname)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -67,10 +73,53 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
     return () => io.disconnect()
   }, [pathname])
   const bare = variant === 'bare'
+  useLayoutEffect(() => {
+    const h = navRef.current, inner = h?.querySelector<HTMLElement>('.nav-in')
+    if (!h || !inner) return
+    const LEVELS = ['fit-1', 'fit-2', 'fit-3']
+    // Collision, not arithmetic: take the row's in-flow items (dropdowns and other positioned layers are not part of
+    // the row), measure what each one actually paints (for the links, the span from first to last link), and the row
+    // fails if two neighbours come within 4px, anything leaves the row, or anything is taller than the bar.
+    const overflows = () => {
+      const row = inner.getBoundingClientRect()
+      const boxes: DOMRect[] = []
+      for (const c of Array.from(inner.children) as HTMLElement[]) {
+        const cs = getComputedStyle(c)
+        if (cs.display === 'none' || cs.position === 'absolute' || cs.position === 'fixed') continue
+        if (c.offsetHeight > inner.clientHeight + 1) return true
+        const parts = c.classList.contains('nav-links') ? Array.from(c.children).map((a) => a.getBoundingClientRect()) : [c.getBoundingClientRect()]
+        const vis = parts.filter((q) => q.width > 0)
+        if (!vis.length) continue
+        boxes.push(new DOMRect(Math.min(...vis.map((q) => q.left)), row.top, Math.max(...vis.map((q) => q.right)) - Math.min(...vis.map((q) => q.left)), row.height))
+      }
+      boxes.sort((a, b) => a.left - b.left)
+      for (let i = 0; i < boxes.length; i++) {
+        if (boxes[i].left < row.left - 1 || boxes[i].right > row.right + 1) return true
+        if (i && boxes[i].left < boxes[i - 1].right + 4) return true
+      }
+      return false
+    }
+    const measure = () => {
+      const had = LEVELS.filter((c) => h.classList.contains(c))
+      h.classList.remove(...LEVELS)
+      let level = 0
+      while (level < LEVELS.length && overflows()) h.classList.add(LEVELS[level++])
+      h.classList.remove(...LEVELS); h.classList.add(...had)
+      setFit(level)
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(inner); if (probeRef.current) ro.observe(probeRef.current)
+    document.fonts?.ready.then(measure)
+    return () => ro.disconnect()
+  }, [bare, pathname])
   // The "where am I" section button, as on /pitch, on any page with three or more data-name sections.
   const secs = useSections(pathname)
   const hasSecs = !bare && secs.length > 0
-  return <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}${bare ? ' bare' : ''}${hasSecs ? ' has-secs' : ''}`} id="nav">
+  const fitCls = LEVEL_CLASSES.slice(0, fit).map((c) => ' ' + c).join('')
+  return <header ref={navRef} className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}${bare ? ' bare' : ''}${hasSecs ? ' has-secs' : ''}${fitCls}`} id="nav">
+    {/* 1em wide and invisible: its size changes when the text size does, which re-runs the fit check */}
+    <span ref={probeRef} aria-hidden="true" style={{ position: 'absolute', width: '1em', height: 0, overflow: 'hidden', visibility: 'hidden', pointerEvents: 'none' }} />
     <div className="wrap nav-in">
       <a className="brand" href="/" aria-label="Dominus Foundry home">
         {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}

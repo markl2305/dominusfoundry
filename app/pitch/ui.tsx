@@ -62,14 +62,30 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
   const [current, setCurrent] = useState(chapters[0])
   const [open, setOpen] = useState(false)
   // M-4 (Apple polish 2026-11-02): from 1400px the same chapter index docks as a contents rail beside the page.
+  // Sol r1 P2: it docks only when the rail has room for its text: at least 9em wide at the rail's own text size, and
+  // no chapter name wider than its row. Measured with the docked styles applied (synchronously, before paint), and
+  // again on resize and whenever the text size changes (the 1em probe). Otherwise it stays the sheet.
   const [docked, setDocked] = useState(false)
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1400px)')
-    const on = () => { setDocked(mq.matches); if (mq.matches) setOpen(false) }
-    on(); mq.addEventListener('change', on)
-    return () => mq.removeEventListener('change', on)
-  }, [])
   const btn = useRef<HTMLButtonElement>(null), idx = useRef<HTMLElement>(null), prog = useRef<HTMLDivElement>(null)
+  const emProbe = useRef<HTMLSpanElement>(null)
+  useLayoutEffect(() => {
+    const mq = window.matchMedia('(min-width: 1400px)')
+    const evaluate = () => {
+      const el = idx.current
+      if (!el || !mq.matches) { setDocked(false); return }
+      const had = el.classList.contains('docked'); el.classList.add('docked')
+      const links = Array.from(el.querySelectorAll('a'))
+      const em = links[0] ? parseFloat(getComputedStyle(links[0]).fontSize) : 14
+      const fits = el.clientWidth >= 9 * em && links.every((a) => a.scrollWidth <= a.clientWidth + 1)
+      if (!had) el.classList.remove('docked')
+      setDocked(fits); if (fits) setOpen(false)
+    }
+    evaluate()
+    mq.addEventListener('change', evaluate); window.addEventListener('resize', evaluate)
+    const ro = new ResizeObserver(evaluate); if (emProbe.current) ro.observe(emProbe.current)
+    document.fonts?.ready.then(evaluate)
+    return () => { mq.removeEventListener('change', evaluate); window.removeEventListener('resize', evaluate); ro.disconnect() }
+  }, [])
 
   useEffect(() => {
     const hero = document.getElementById('top')
@@ -120,6 +136,7 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
 
   return <>
     <header className={`nav${solid ? ' solid' : ''}${scrolled ? ' scrolled' : ''}`} id="nav">
+      <span ref={emProbe} aria-hidden="true" style={{ position: 'absolute', width: '1em', height: 0, overflow: 'hidden', visibility: 'hidden', pointerEvents: 'none' }} />
       <div className="wrap nav-in">
         <a className="brand" href="/" aria-label="Dominus Foundry home">
           {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
@@ -478,12 +495,16 @@ const ROWS: [string, (m: IncomeMonth) => string][] = [
   ['Cumulative operating profit / (loss)', (m) => money(m.cumulativeOperatingResult)],
   ['Ending cash after financing and planned outflows', (m) => money(m.cash)],
 ]
-const W = 720, HH = 270, L = 70, R = 16, T = 14, B = 34
+// Sol r1 P3: the chart is drawn 1:1 with the screen (viewBox = rendered width in CSS px), so its 12px axis labels
+// render at 12px at every width instead of scaling down with a fixed 720-unit drawing (5px at 390). It keeps the
+// 720:270 proportion where there is room and a 270px minimum height on narrow screens. 720 x 270 is the first render.
+const W0 = 720, HH0 = 270, L = 70, R = 16, T = 14, B = 34
+const chartHeight = (w: number) => Math.max(HH0, Math.round((w * HH0) / W0))
 const ALL_CASH = incomeScenarios.flatMap((s) => s.months.map((m) => m.cash))
 const STEP = 100000
 const Y_MIN = Math.floor(Math.min(0, ...ALL_CASH) / STEP) * STEP, Y_MAX = Math.ceil(Math.max(...ALL_CASH) / STEP) * STEP
-const X = (m: number) => L + ((m - 1) / (a.months - 1)) * (W - L - R)
-const Yf = (v: number) => T + (1 - (v - Y_MIN) / (Y_MAX - Y_MIN)) * (HH - T - B)
+const xAt = (W: number) => (m: number) => L + ((m - 1) / (a.months - 1)) * (W - L - R)
+const yAt = (HH: number) => (v: number) => T + (1 - (v - Y_MIN) / (Y_MAX - Y_MIN)) * (HH - T - B)
 const TICKS: number[] = []; for (let v = Y_MIN; v <= Y_MAX + 1; v += STEP) TICKS.push(v)
 const kfmt = (v: number) => (v === 0 ? '$0' : `$${Math.round(v / 1000)}K`)
 
@@ -495,6 +516,15 @@ export function IncomeCase() {
   const [shown, setShown] = useState<number[]>(() => base.months.map((m) => m.cash))
   const anim = useRef(0), svg = useRef<SVGSVGElement>(null), scrubbing = useRef(false), shownRef = useRef(shown)
   shownRef.current = shown
+  const [W, setW] = useState(W0)
+  const HH = chartHeight(W), X = xAt(W), Yf = yAt(HH)
+  useLayoutEffect(() => {
+    const el = svg.current; if (!el) return
+    const measure = () => { const w = Math.round(el.getBoundingClientRect().width); if (w > 0) setW(w) }
+    measure()
+    const ro = new ResizeObserver(measure); ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
   useEffect(() => () => cancelAnimationFrame(anim.current), [])
   const switchTo = (id: string) => {
     const to = incomeScenarios.find((s) => s.id === id)!.months.map((m) => m.cash), from = shownRef.current.slice()
