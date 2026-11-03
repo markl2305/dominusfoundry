@@ -19,12 +19,14 @@
 /* Apple polish 2026-11-02 (family rule 5). The launcher is a 44px flat Sabina mark inset by the safe area + 16px.
    It steps out of the way while the hero CTA is on screen (:host(.cta-visible), set by the IntersectionObserver in
    sabina-chat.js), so it never covers content or a call to action. The label text and accessible name are unchanged. */
-.launcher{right:calc(env(safe-area-inset-right) + 16px);bottom:calc(env(safe-area-inset-bottom) + 16px);min-height:44px;gap:8px;padding:0;-webkit-tap-highlight-color:transparent;transition:opacity .2s ease-out,transform .1s ease-out}
+.launcher{right:calc(env(safe-area-inset-right) + 16px);bottom:calc(env(safe-area-inset-bottom) + 16px);min-height:44px;gap:8px;padding:0;-webkit-tap-highlight-color:transparent;transition:transform .1s ease-out}
+/* Rule 11 (2026-11-03): stepping aside and coming back are both instant; its showing or hiding depends on scroll
+   position, so it never fades. Only the press (user-started) animates. */
 .mark-shell{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border-radius:50%;background:var(--paper,#17130d);border:1px solid #9c795b66;box-shadow:0 6px 18px -8px #0008}
 .mark{width:30px;height:30px;object-fit:contain;display:block}
 .label{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:22px;box-shadow:0 6px 18px -8px #0008}
 .launcher:active{transform:scale(.97)}
-/* Sol r1 S2: stepping aside is instant (no fade, so it is never over content in any frame); coming back fades in. */
+/* Sol r1 S2: stepping aside is instant (no fade, so it is never over content in any frame). */
 :host(.cta-visible) .launcher,:host(.over-content) .launcher{opacity:0;pointer-events:none;visibility:hidden;transition:none}
 .note,.speaker{font-size:12px}
 @media(max-width:600px){.launcher{right:calc(env(safe-area-inset-right) + 16px);bottom:calc(env(safe-area-inset-bottom) + 16px);min-height:44px}.label{font-size:14px;padding:0 12px}}

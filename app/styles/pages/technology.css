@@ -18,7 +18,7 @@
 .dfs .pg-technology-qp .layer .ln { width: 30px; height: 30px; border-radius: 50%; border: 1px solid currentColor; color: var(--gold); display: grid; place-items: center; font: 500 0.75rem/1 var(--mono); }
 .dfs .pg-technology-qp .layer .lt { font: 500 1.3rem/1.15 var(--serif); letter-spacing: -0.008em; }
 .dfs .pg-technology-qp .layer .chev { width: 14px; height: 14px; color: var(--ink-3); transition: transform 250ms var(--ease-out), color 200ms ease; }
-.dfs .pg-technology-qp .layer[aria-selected="true"] { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background: var(--panel-2); box-shadow: var(--shadow), var(--panel-highlight); transform: translateX(calc(var(--d) * 14px)) scale(1.015); }
+.dfs .pg-technology-qp .layer[aria-selected="true"] { border-color: color-mix(in srgb, var(--gold) 55%, transparent); background: var(--panel-2); box-shadow: var(--shadow), var(--panel-highlight); transform: translateX(calc(var(--d) * 14px)); } /* no scale on a layer that holds reading text (as /pitch, Sol r1 P4) */
 .dfs .pg-technology-qp .layer[aria-selected="true"] .chev { color: var(--gold); transform: translateX(3px); }
 .dfs .pg-technology-qp .layer:active { transform: translateX(calc(var(--d) * 14px)) scale(0.985); }
 @media (max-width: 900px) { .dfs .pg-technology-qp .layer, .dfs .pg-technology-qp .layer[aria-selected="true"] { transform: none; } .dfs .pg-technology-qp .layer:active { transform: scale(0.985); } }

@@ -23,8 +23,6 @@ import SiteMenu from './SiteMenu'
 import SiteFooter from './SiteFooter'
 import { NAV_LINKS, CONTACT, activeFor } from './nav-links'
 import { SectionButton, SectionProgress, useSections } from './SectionNav'
-import ScrollMotion from './motion/ScrollMotion'
-import './motion/scroll-motion.css'
 
 const useIso = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
@@ -34,17 +32,12 @@ const FOUNDRY_BLURB = <>Dominus Foundry builds and operates Managed AI for busin
 const LEGACY_BLURB = <>We build Sabina, your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>
 const LEGACY_NOTE = <>&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information. <a href="/privacy">Privacy &amp; Data Use</a></>
 
-/* Reveal once, as each block arrives. Anything already on screen is marked
-   before paint; the rest on first intersection. Re-run on every route. */
+/* Rule 11 (Mark, 2026-11-03): no scroll-driven reveals. This used to hide each .reveal block until it scrolled into
+   view; now it only marks the page as scripted and ready (other features key off dfs-js / dfs-ready). Every block is
+   visible and in place from the first paint. */
 function useReveal(pathname: string | null) {
   useIso(() => {
-    const html = document.documentElement
-    html.classList.add('dfs-js', 'dfs-ready')
-    const els = Array.from(document.querySelectorAll<HTMLElement>('.dfs .reveal:not([data-in])'))
-    const vh = window.innerHeight
-    const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-in', ''); io.unobserve(e.target) } }), { rootMargin: '0px 0px -6% 0px' })
-    els.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < vh && r.bottom > 0) el.setAttribute('data-in', ''); else io.observe(el) })
-    return () => io.disconnect()
+    document.documentElement.classList.add('dfs-js', 'dfs-ready')
   }, [pathname])
 }
 
@@ -177,7 +170,5 @@ export default function SiteShell({ variant, ribbon = false, closingCta = false,
       {closingCta && <ClosingCta />}
     </main>
     <SiteFooter blurb={variant === 'foundry' ? FOUNDRY_BLURB : LEGACY_BLURB} note={variant === 'foundry' ? undefined : LEGACY_NOTE} />
-    {/* Scroll-linked reveal on the public Foundry pages only (the route list lives in ScrollMotion). */}
-    <ScrollMotion />
   </div>
 }

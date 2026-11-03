@@ -37,17 +37,16 @@ export { Segmented, useThemePref, ThemeControl } from '@/components/site/theme'
 export { default as HeroEmbers } from '@/components/site/HeroEmbers'
 
 /* ============================================================================
-   REVEAL — once per element. data-in is written imperatively so React never
-   touches it; anything already on screen is revealed before first paint.
+   Rule 11 (Mark, 2026-11-03): no scroll-driven reveals. This used to hide each .reveal block until it scrolled into
+   view; now it only marks the page as scripted and ready (the layer stack keys off dfp-js / dfp-ready). Every
+   block is visible and in place from the first paint. The signature is kept so callers are unchanged.
    ========================================================================== */
-export function useReveal(root: RefObject<HTMLElement>) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function useReveal(_root: RefObject<HTMLElement>) {
   useIso(() => {
     const html = document.documentElement
     html.classList.add('dfp-js', 'dfp-ready')
-    const els = Array.from(root.current?.querySelectorAll<HTMLElement>('.reveal') || [])
-    const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-in', ''); io.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
-    els.forEach((el) => io.observe(el))
-    return () => { io.disconnect(); html.classList.remove('dfp-js', 'dfp-ready') }
+    return () => { html.classList.remove('dfp-js', 'dfp-ready') }
   }, [])
 }
 

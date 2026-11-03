@@ -204,7 +204,7 @@ html[data-df-theme="light"] .dfp .btn-solid:not(.on-dark .btn-solid):not(.nav-ct
   background: var(--material);
   -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
   box-shadow: inset 0 -1px 0 var(--material-edge);
-  opacity: 0; transition: opacity 200ms ease;
+  opacity: 0; /* rule 11: the material switches on with the first scroll, without a fade */
 }
 .dfp .nav.solid::before, .dfp .nav.scrolled::before { opacity: 1; }
 /* Over the dark hero the inks are light in both themes, so the material is dark there too. */
@@ -222,8 +222,7 @@ html[data-df-theme="light"] .dfp .btn-solid:not(.on-dark .btn-solid):not(.nav-ct
   display: inline-flex; align-items: center; gap: 10px; height: 36px; padding: 0 14px 0 12px;
   border-radius: 999px; border: 1px solid var(--hair-2); background: var(--panel);
   font-size: 0.875rem; font-weight: 500; white-space: nowrap; max-width: 100%;
-  opacity: 0; transform: translateY(-4px); pointer-events: none;
-  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), border-color 200ms ease;
+  opacity: 0; pointer-events: none; /* rule 11: appears with the nav's material, no fade or slide */
 }
 .dfp .nav.solid .chapter-btn { opacity: 1; transform: none; pointer-events: auto; }
 .dfp .chapter-btn .num-tag { font: 500 0.75rem/1 var(--data); letter-spacing: .08em; color: var(--gold); min-width: 2.4ch; }
@@ -231,6 +230,8 @@ html[data-df-theme="light"] .dfp .btn-solid:not(.on-dark .btn-solid):not(.nav-ct
 .dfp .chapter-btn svg { width: 12px; height: 12px; flex: none; color: var(--ink-3); transition: transform 200ms var(--ease-out); }
 .dfp .chapter-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
 .dfp .chapter-btn:active { transform: scale(0.97); }
+/* Rule 11 (Mark, 2026-11-03): no scroll-driven reveals or scroll-linked motion. The reading-progress bar scaled with scroll position, so it is not shown. */
+.dfp .progress { display: none !important; }
 .dfp .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--copper), var(--gold)); opacity: 0; transition: opacity 200ms ease; }
 .dfp .nav.solid .progress { opacity: .9; }
 
@@ -644,11 +645,7 @@ html:not([data-df-theme="light"]) .dfp .sheet { background: rgba(20, 29, 34, 0.8
 .dfp .sheet-nav .btn[disabled] { opacity: .35; pointer-events: none; }
 .dfp .hint { font: 400 0.75rem/1.4 var(--mono); color: var(--ink-3); letter-spacing: .03em; }
 
-/* ============================================================================
-   REVEAL — once, as each chapter arrives. Never blocks interaction.
-   ========================================================================== */
-html.dfp-js .dfp .reveal { opacity: 0; transform: translateY(8px); transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); transition-delay: calc(var(--i, 0) * 50ms); }
-html.dfp-js .dfp .reveal[data-in] { opacity: 1; transform: none; }
+/* Rule 11 (Mark, 2026-11-03): no scroll-driven reveals or scroll-linked motion. The reveal-once hidden state is gone: every chapter is visible and in place from the first paint. */
 
 /* theme cross-fade (View Transitions) */
 html:has(.dfp)::view-transition-old(root), html:has(.dfp)::view-transition-new(root) { animation-duration: 250ms; animation-timing-function: ease; }
@@ -657,7 +654,6 @@ html:has(.dfp)::view-transition-old(root), html:has(.dfp)::view-transition-new(r
    ACCESSIBILITY PREFERENCES
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  html.dfp-js .dfp .reveal { transform: none; transition: opacity 200ms ease; transition-delay: 0ms; }
   .dfp .seg::before, .dfp .layer, .dfp .chapter-btn, .dfp .index, .dfp .btn, .dfp .layer .chev { transition-duration: 0ms !important; }
   .dfp .index { transform: none; transition: opacity 150ms ease !important; }
   .dfp .fade-swap, .dfp .ledger li.enter { animation: none; }
@@ -795,8 +791,7 @@ html[data-dfp-pref="light"] .dfp .seg-theme { --i: 2; }
 html:not(.dfp-js) .dfp .stack-wrap { display: none; }
 html.dfp-ready .dfp .layer-all { display: none; }
 
-/* Failsafe: if the page script never runs, revealed content still appears. */
-html.dfp-js:not(.dfp-ready) .dfp .reveal { animation: dfp-failsafe 1ms 2.5s forwards; }
+/* (rule 11) the .reveal failsafe is gone with the reveal; the layer-stack failsafe below stays. */
 @keyframes dfp-failsafe { to { opacity: 1; transform: none; } }
 html.dfp-js:not(.dfp-ready) .dfp .layer-all { visibility: hidden; position: absolute; height: 0; overflow: hidden; animation: dfp-failsafe 1ms 2.5s forwards, dfp-show-failsafe 1ms 2.5s forwards; }
 html.dfp-js:not(.dfp-ready) .dfp .stack-wrap { animation: dfp-hide-failsafe 1ms 2.5s forwards; }
@@ -830,8 +825,7 @@ html.dfp-js:not(.dfp-ready) .dfp .stack-wrap { animation: dfp-hide-failsafe 1ms 
    move transform and opacity only; nothing that holds reading text scales. */
 .dfp .btn, .dfp .seg button, .dfp .sheet-close { transition: transform 100ms ease-out; }
 .dfp .seg button:active, .dfp .sheet-close:active { transform: scale(0.97); }
-.dfp .chapter-btn { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
-.dfp .chapter-btn:active { transition-duration: 100ms; }
+.dfp .chapter-btn { transition: transform 100ms ease-out; } /* press only; appearing is instant (rule 11) */
 .dfp .layer { transition: transform 250ms var(--ease-out), opacity 100ms ease-out; }
 .dfp .layer:active { transform: translateX(calc(var(--d) * 14px)); opacity: .82; }
 @media (max-width: 900px) { .dfp .layer:active { transform: none; } }
@@ -867,6 +861,7 @@ html.dfp-js:not(.dfp-ready) .dfp .stack-wrap { animation: dfp-hide-failsafe 1ms 
   .dfp .index.docked a .n { min-width: 3.4ch; }
   .dfp .index.docked a[aria-current="true"] { background: var(--panel-2); color: var(--ink); }
   html:has(.dfp > .nav.solid) .dfp .index.docked { opacity: 1; pointer-events: auto; }
+  .dfp .index.docked { transition: none; } /* rule 11: the rail appears with the nav's material, no fade */
 }
 @media (prefers-reduced-motion: reduce) { .dfp .index.docked { transition: none !important; } }
 @media (min-width: 1400px) and (prefers-reduced-transparency: reduce), (min-width: 1400px) and (prefers-contrast: more) {

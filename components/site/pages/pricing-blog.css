@@ -5,7 +5,7 @@
 .dfs .pg-pricing .two-col > .h2 { max-width: 14ch; }
 .dfs .pg-pricing .figure.card { gap: 10px; }
 .dfs .pg-pricing .fg-n { overflow-wrap: anywhere; }
-.dfs .pg-pricing .fg-u { font: 400 0.34em/1 var(--mono); letter-spacing: .04em; color: var(--ink-2); }
+.dfs .pg-pricing .fg-u { font: 400 max(12px, 0.34em)/1 var(--mono); letter-spacing: .04em; color: var(--ink-2); } /* 12px floor (it rendered 10.3px on phones; hidden from the round-1 audit by the scroll reveal) */
 .dfs .pg-pricing .fg-l { margin-top: 4px; }
 .dfs .pg-pricing .fg-d { margin-top: 0; }
 .dfs .pg-pricing .fg-src { margin-top: 4px; overflow-wrap: anywhere; }
