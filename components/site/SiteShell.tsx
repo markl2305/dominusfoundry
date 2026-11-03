@@ -32,9 +32,8 @@ const FOUNDRY_BLURB = <>Dominus Foundry builds and operates Managed AI for busin
 const LEGACY_BLURB = <>We build Sabina, your company&apos;s own AI, shaped around your business, its knowledge, its work, and the authority you give her. Built and held by Mark &amp; Bri Lord in Albuquerque, New Mexico.</>
 const LEGACY_NOTE = <>&copy; {new Date().getFullYear()} Dominus Foundry. Built and run by the Lord family. We do not sell your personal information. <a href="/privacy">Privacy &amp; Data Use</a></>
 
-/* Rule 11 (Mark, 2026-11-03): no scroll-driven reveals. This used to hide each .reveal block until it scrolled into
-   view; now it only marks the page as scripted and ready (other features key off dfs-js / dfs-ready). Every block is
-   visible and in place from the first paint. */
+/* Marks the page as scripted and ready (other features key off dfs-js / dfs-ready). Entrances are not here: the
+   one-time, time-based entrances of motion v2 (rule 11 as rewritten 2026-11-03) live in motion/Reveal.tsx. */
 function useReveal(pathname: string | null) {
   useIso(() => {
     document.documentElement.classList.add('dfs-js', 'dfs-ready')

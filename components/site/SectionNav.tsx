@@ -9,7 +9,9 @@
    sections. Like /pitch, the button only takes focus and shows once the nav has
    its material (`solid`). ⛔ No copy lives here: every label is a section's own
    data-name. */
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+
+const useIso = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 type Sec = { el: HTMLElement; n: string; name: string; href: string }
 const MIN_SECTIONS = 3
@@ -29,6 +31,13 @@ export function SectionButton({ secs, solid }: { secs: Sec[]; solid: boolean }) 
   const [current, setCurrent] = useState(0)
   const [open, setOpen] = useState(false)
   const btn = useRef<HTMLButtonElement>(null), idx = useRef<HTMLElement>(null)
+  // Rule 12: the index opens from its trigger. Its transform origin is the button's centre (just above the panel),
+  // measured whenever it opens, so it grows out of the button wherever the button sits.
+  useIso(() => {
+    const p = idx.current, b = btn.current; if (!p || !b || !open) return
+    const pr = p.getBoundingClientRect(), br = b.getBoundingClientRect()
+    p.style.transformOrigin = `${Math.round(br.left + br.width / 2 - pr.left)}px ${Math.round(br.bottom - pr.top - 8)}px`
+  }, [open])
 
   useEffect(() => {
     const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { const i = secs.findIndex((s) => s.el === e.target); if (i >= 0) setCurrent(i) } }), { rootMargin: '-40% 0px -55% 0px' })

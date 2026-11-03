@@ -1,0 +1,117 @@
+/* ============================================================================
+   MOTION v2 + INTERACTION (family rules 11 and 12, Mark 2026-11-03). Shared by
+   the main site (.dfs) and /pitch (.dfp); /pitch keeps its own design and only
+   receives the same timings. Only transform and opacity animate (the one
+   exception the rule names: a disclosure's height). Reduced motion makes every
+   change instant; print shows everything.
+   ========================================================================== */
+:root {
+  /* critically damped spring (no overshoot), ~0.25s settle, sampled as a linear() easing */
+  --spring: linear(0, 0.075, 0.228, 0.391, 0.537, 0.657, 0.751, 0.822, 0.874, 0.912, 0.939, 0.958, 0.971, 0.98, 0.987, 0.991, 0.994, 0.996, 0.997, 0.998, 1);
+  --exit: cubic-bezier(.4, 0, 1, 1);
+  --apple: cubic-bezier(.25, .1, .25, 1);
+}
+
+/* ---- Rule 11: one-time entrances (Reveal.tsx). The hidden state exists only after the script has run. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html[data-motion-ready] { --reveal-y: 20px; }
+  html[data-motion-ready] [data-reveal]:not([data-revealed]) { opacity: 0; transform: translateY(var(--reveal-y)); }
+  html[data-motion-ready] [data-reveal][data-revealed] { opacity: 1; transform: none; transition: opacity 700ms var(--apple) var(--reveal-delay, 0ms), transform 700ms var(--apple) var(--reveal-delay, 0ms); }
+}
+@media screen and (prefers-reduced-motion: no-preference) and (max-width: 760px) { html[data-motion-ready] { --reveal-y: 12px; } }
+[data-reveal]:focus-within { opacity: 1 !important; transform: none !important; }
+@media print { [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* ---- Rule 12: images that finish loading after first paint fade in (300ms) from the page ground. */
+@media (prefers-reduced-motion: no-preference) {
+  html main img { transition: opacity 300ms ease-out; }
+  html main img[data-img-loading] { opacity: 0; }
+}
+
+/* ---- Press: scale .97 on pointer-down in 100ms ease-out, released on the critically damped spring (~250ms).
+   Controls only; cards, rows and layers that hold reading text never scale (they answer with opacity or a tint). */
+html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link) { transition: transform 250ms var(--spring); }
+html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link):active { transform: scale(.97); transition: transform 100ms ease-out; }
+
+/* ---- Hover, pointer devices only: link cards lift 2px (200ms); footer links grow an underline from their start. */
+html :is(.dfs, .dfp) a.card { transition: transform 200ms ease-out, opacity 100ms ease-out; }
+@media (hover: hover) and (pointer: fine) {
+  html :is(.dfs, .dfp) a.card:hover { transform: translateY(-2px); }
+}
+html :is(.dfs, .dfp) a.card:active { transform: none; opacity: .78; }
+html :is(.dfs, .dfp) .footer .f-col a { position: relative; }
+html :is(.dfs, .dfp) .footer .f-col a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 10px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left center; transition: transform 200ms ease-out; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { html :is(.dfs, .dfp) .footer .f-col a:hover::after { transform: scaleX(1); } }
+html :is(.dfs, .dfp) .footer .f-col a:focus-visible::after { transform: scaleX(1); }
+
+/* ---- Site menu (SiteMenu.tsx): opens from its trigger, scale .96 -> 1 + opacity, ~220ms on the spring, its
+   material arriving with it; closes along the same path in 150ms. [data-closing] keeps it rendered while it leaves;
+   reopening mid-close carries on from the current value. */
+html :is(.dfs, .dfp) .menu-panel { animation: none; transform-origin: calc(100% - 22px) -8px; transition: opacity 150ms var(--exit), transform 150ms var(--exit); }
+html :is(.dfs, .dfp) .menu:not([open]) .menu-panel { opacity: 0; transform: scale(.96); } /* a closed <details> keeps its content styled, so this, not @starting-style, is the start state */
+html :is(.dfs, .dfp) .menu[open]:not([data-closing]) .menu-panel { opacity: 1; transform: none; transition: opacity 220ms ease-out, transform 220ms var(--spring); }
+@starting-style { html :is(.dfs, .dfp) .menu[open] .menu-panel { opacity: 0; transform: scale(.96); } }
+html :is(.dfs, .dfp) .menu[data-closing] .menu-panel { opacity: 0; transform: scale(.96); }
+html :is(.dfs, .dfp) .menu[open][data-opening] .menu-panel { opacity: 0; transform: scale(.96); transition: none; }
+/* Phones: a sheet that drops from the header's edge over a dimming scrim; tap the scrim or swipe the sheet up to
+   dismiss, and it leaves along the same path. */
+@media (max-width: 760px) {
+  html :is(.dfs, .dfp) .menu-panel { transform-origin: 50% 0; }
+  @starting-style { html :is(.dfs, .dfp) .menu[open] .menu-panel { opacity: 0; transform: translateY(-16px); } }
+  html :is(.dfs, .dfp) .menu[open]:not([data-closing]) .menu-panel { transition: opacity 200ms ease-out, transform 320ms var(--spring); }
+  html :is(.dfs, .dfp) .menu:not([open]) .menu-panel { transform: translateY(-16px); }
+  html :is(.dfs, .dfp) .menu[data-closing] .menu-panel { opacity: 0; transform: translateY(-16px); }
+  html :is(.dfs, .dfp) .menu[open][data-opening] .menu-panel { transform: translateY(-16px); }
+  html :is(.dfs, .dfp) .menu[open][data-opening]::before { opacity: 0; transition: none; }
+  html :is(.dfs, .dfp) .menu[open]::before {
+    content: ""; position: fixed; left: 0; right: 0; bottom: 0; z-index: 98;
+    top: calc(var(--nav-h) + env(safe-area-inset-top) + var(--menu-top, 0px));
+    background: rgba(8, 12, 15, 0.36); opacity: 1; transition: opacity 220ms ease-out;
+  }
+  @starting-style { html :is(.dfs, .dfp) .menu[open]::before { opacity: 0; } }
+  html :is(.dfs, .dfp) .menu[data-closing]::before { opacity: 0; transition-duration: 150ms; }
+}
+body:has([data-consent-bar]:not([data-consent-reopened])) :is(.dfs, .dfp) .menu { --menu-top: var(--consent-bar-visible, 0px); }
+
+/* ---- Section index (main) and chapter index (/pitch): open from their trigger (the origin is set from the button
+   when it opens) on the spring in ~220ms; close along the same path in 150ms. Class-driven, so interruptible. */
+html .dfs .sec-index:not(.docked), html .dfp .index:not(.docked) { transition: opacity 150ms var(--exit), transform 150ms var(--exit); }
+html .dfs .sec-index.open, html .dfp .index.open:not(.docked) { transition: opacity 220ms ease-out, transform 220ms var(--spring); }
+
+/* ---- Disclosures: height + opacity in 250ms, the plus turning with it. Content never jumps. */
+@supports (interpolate-size: allow-keywords) {
+  html :is(.dfs, .dfp) details.more::details-content { height: 0; opacity: 0; overflow: clip; transition: height 250ms var(--spring), opacity 250ms ease-out, content-visibility 250ms allow-discrete; }
+  html :is(.dfs, .dfp) details.more[open]::details-content { height: auto; opacity: 1; }
+}
+html :is(.dfs, .dfp) details.more > summary .plus::after { transition: transform 250ms var(--spring); }
+
+/* ---- Segmented controls: the selected indicator slides on the critically damped spring (~250ms). */
+html :is(.dfs, .dfp) .seg::before { transition: transform 250ms var(--spring); }
+
+/* ---- Sticky header: a constant translucent material with its hairline always shown, never animated by scroll.
+   Over the dark hero the material is dark (the inks there are light in both themes). */
+html :is(.dfs, .dfp) .nav::before { opacity: 1; transition: none; }
+html :is(.dfs, .dfp) .nav:not(.solid)::before { background: rgba(8, 12, 15, 0.74); box-shadow: inset 0 -1px 0 rgba(240, 231, 215, 0.08); }
+
+/* ---- Anchor jumps scroll smoothly, natively; never under reduced motion. */
+html { scroll-behavior: smooth; }
+
+/* ---- Transform and opacity only (sister-build defect B2): the colour, border, shadow and filter transitions older
+   stylesheets declared change instantly instead. Theme switches are instant too. */
+html :is(body, header, section, footer) { transition: none; }
+html .foundry-tile-link { transition: none; }
+html .dfs .qp-blog .note-card, html .dfs .qp-learn .guide-card { transition: transform 160ms var(--ease-out); }
+html .dfp .funds-bar button { transition: opacity 200ms ease; }
+html .dfs .pg-technology-qp .layer, html .dfs .pg-technology-qp .layer .chev { transition: transform 250ms var(--ease-out); }
+html .dfs :is(.input, .composer-field, .form input, .form select, .form textarea) { transition: none !important; } /* the focus border and ring appear at once */
+html .dfs .qpb .qp-flow-node a { transition: transform 160ms var(--ease-out); }
+
+/* ---- Reduced motion: every change is instant; nothing enters. Last, so it outranks everything above. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link, a.card, .menu-panel, .sec-index, .index, .seg),
+  html :is(.dfs, .dfp) :is(.seg, .footer .f-col a, details.more > summary .plus, .menu)::before,
+  html :is(.dfs, .dfp) :is(.footer .f-col a, details.more > summary .plus)::after,
+  html :is(.dfs, .dfp) details.more::details-content, html main img { transition: none !important; }
+  html :is(.dfs, .dfp) :is(.btn, .seg button, .menu > summary, .sec-btn, .chapter-btn, .sheet-close, .nav-link):active, html :is(.dfs, .dfp) a.card:hover { transform: none !important; }
+}

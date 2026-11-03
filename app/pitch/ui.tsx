@@ -67,6 +67,14 @@ export function PitchNav({ chapters, ctaHref }: { chapters: ChapterRef[]; ctaHre
   const [docked, setDocked] = useState(false)
   const btn = useRef<HTMLButtonElement>(null), idx = useRef<HTMLElement>(null), prog = useRef<HTMLDivElement>(null)
   const emProbe = useRef<HTMLSpanElement>(null)
+  // Rule 12: the index opens from its trigger. Its transform origin is the button's centre (just above the panel),
+  // measured whenever it opens, so it grows out of the button wherever the button sits.
+  useIso(() => {
+    const p = idx.current, b = btn.current; if (!p || !b) return
+    if (!open || docked) { p.style.removeProperty('transform-origin'); return }
+    const pr = p.getBoundingClientRect(), br = b.getBoundingClientRect()
+    p.style.transformOrigin = `${Math.round(br.left + br.width / 2 - pr.left)}px ${Math.round(br.bottom - pr.top - 8)}px`
+  }, [open, docked])
   useLayoutEffect(() => {
     const mq = window.matchMedia('(min-width: 1400px)')
     const evaluate = () => {

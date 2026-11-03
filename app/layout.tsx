@@ -6,6 +6,8 @@ import GAPageview from './components/GAPageview'
 import ConsentBar from './components/ConsentBar'
 import { fontVars } from '../components/site/fonts'
 import './globals.css'
+import '../components/site/motion/motion.css'
+import Reveal from '../components/site/motion/Reveal'
 
 // M-1 (Apple polish 2026-11-02): Inter and Crimson Pro are no longer loaded. No component used them (the
 // body now takes the system sans, as every .dfs/.dfp page already did), so they only cost two font downloads.
@@ -321,6 +323,8 @@ export default function RootLayout({
             (no query string or fragment), the same rule the previous inline bootstrap enforced. */}
         <GAPageview />
         <ConsentBar />
+        {/* Motion v2 (family rule 11): one-time entrances; also fades late-loading images (rule 12). */}
+        <Reveal />
         <VisitorChatMount />
         {/* Vercel Web Analytics (Mark 2026-10-01), rendered only after accept (Mark 2026-10-12). */}
         <SiteAnalytics />
