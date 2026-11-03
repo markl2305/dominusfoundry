@@ -105,6 +105,34 @@ export default function Reveal() {
       entries.forEach((e) => { const el = e.target as HTMLElement; if (e.isIntersecting && pending.has(el)) { showNow(el); drop(el) } })
     }, { threshold: 0 })
     waiting.forEach((el) => { observer.observe(el); jumpObserver.observe(el) })
+    // Backstop (Sol r6; the same rule as dominus-os 8159fac). The observer only rescues skipped blocks that come
+    // before the first entering block of its own batch; under load a batch can span several frames, and in a
+    // multi-column layout a later block can sit higher on screen, so a block could be left hidden for good. Whenever
+    // scrolling ends (scrollend, or a debounced scroll where it is missing), on resize, and once 1s after load,
+    // every pending block whose top is above the viewport's bottom edge is revealed, whatever its DOM order or batch:
+    // blocks carried past show at once; blocks on screen start their normal entrance (still within 800ms). It only
+    // reads positions after scrolling stops, never follows them, and waits a frame so the observer goes first.
+    const sweepNow = () => {
+      if (!pending.size) return
+      const bottom = window.innerHeight, onScreen: HTMLElement[] = []
+      Array.from(pending).forEach((el) => {
+        const r = el.getBoundingClientRect()
+        if (r.top >= bottom) return
+        drop(el)
+        if (r.bottom <= 0) showNow(el); else onScreen.push(el)
+      })
+      onScreen.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
+      const step = onScreen.length > 1 ? Math.min(STAGGER, WINDOW / (onScreen.length - 1)) : 0
+      onScreen.forEach((el, i) => show(el, Math.round(i * step)))
+    }
+    let sweepFrame = 0, settleTimer = 0, safetyTimer = 0
+    const sweep = () => { window.cancelAnimationFrame(sweepFrame); sweepFrame = window.requestAnimationFrame(sweepNow) }
+    const onScrollSettle = () => { window.clearTimeout(settleTimer); settleTimer = window.setTimeout(sweep, 150) }
+    const safety = () => { safetyTimer = window.setTimeout(sweep, 1000) }
+    window.addEventListener('scrollend', sweep, { passive: true })
+    window.addEventListener('scroll', onScrollSettle, { passive: true })
+    window.addEventListener('resize', sweep)
+    if (document.readyState === 'complete') safety(); else window.addEventListener('load', safety, { once: true })
     // Keyboard focus never waits for an entrance.
     const onFocus = (e: FocusEvent) => { const el = (e.target as Element | null)?.closest?.('[data-reveal]') as HTMLElement | null; if (el && pending.has(el)) { showNow(el); drop(el) } }
     document.addEventListener('focusin', onFocus)
@@ -114,6 +142,8 @@ export default function Reveal() {
       observer.disconnect(); jumpObserver.disconnect(); reduce.removeEventListener('change', stop)
       window.removeEventListener('hashchange', startJump); window.removeEventListener('scrollend', endJump); window.clearTimeout(jumpTimer)
       document.removeEventListener('click', onAnchor, true); document.removeEventListener('focusin', onFocus)
+      window.removeEventListener('scrollend', sweep); window.removeEventListener('scroll', onScrollSettle); window.removeEventListener('resize', sweep)
+      window.removeEventListener('load', safety); window.cancelAnimationFrame(sweepFrame); window.clearTimeout(settleTimer); window.clearTimeout(safetyTimer)
       cleanups.forEach((f) => f()); timers.forEach((t) => window.clearTimeout(t))
     }
   }, [route])
