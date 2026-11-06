@@ -895,3 +895,95 @@ html:not(.dfp-js) .dfp .index {
   margin: calc(var(--nav-h) + env(safe-area-inset-top) + 12px) auto 0; max-height: none; overflow: visible;
 }
 html.dfp-js:not(.dfp-ready) .dfp .index:not(.open) { visibility: hidden; }
+
+/* ============================================================================
+   2026-11-06 — afore deck fixes, carried to the site: entity plan in the
+   terms, grouped proof and use of funds (detail one level deeper), founder
+   headshots, and real product screenshots when supplied. Larger text.
+   ========================================================================== */
+/* terms: six cells, three across */
+.dfp .terms { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dfp .terms > div:nth-child(3n+1) { border-left: 0; }
+.dfp .terms > div:nth-child(n+4) { border-top: 1px solid var(--hair); }
+.dfp .terms strong { font-size: 1.45rem; }
+.dfp .terms strong small { display: block; margin-top: 4px; font: 400 0.875rem/1.3 var(--sans); color: var(--ink-3); }
+.dfp .entity-note { font-size: 1rem; color: var(--ink-2); }
+.dfp .entity-note strong { color: var(--ink); }
+@media (max-width: 960px) {
+  .dfp .terms { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dfp .terms > div { border-left: 0; border-top: 1px solid var(--hair); }
+  .dfp .terms > div:nth-child(-n+2) { border-top: 0; }
+  .dfp .terms > div:nth-child(even) { border-left: 1px solid var(--hair); }
+}
+
+/* VI — proof, grouped */
+.dfp .proof-sum { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.dfp .proof-group { display: grid; gap: 12px; align-content: start; }
+.dfp .pg-head { display: flex; align-items: baseline; gap: 14px; }
+.dfp .pg-n { font: 500 clamp(2.6rem, 5vw, 3.4rem)/1 var(--serif); color: var(--ink-3); font-variant-numeric: lining-nums tabular-nums; }
+.dfp .pg-live .pg-n { color: var(--gold); }
+.dfp .pg-measured .pg-n, .dfp .pg-progress .pg-n { color: var(--ember); }
+.dfp .pg-t { font: 500 1.6rem/1.1 var(--serif); letter-spacing: -0.01em; }
+.dfp .pg-d { color: var(--ink-3); font-size: 1rem; line-height: 1.5; }
+.dfp .pg-list { list-style: none; display: grid; gap: 10px; border-top: 1px solid var(--hair); padding-top: 14px; }
+.dfp .pg-list li { color: var(--ink); font-size: 1.0625rem; line-height: 1.45; padding-left: 16px; position: relative; }
+.dfp .pg-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--hair-2); }
+.dfp .pg-live .pg-list li::before { background: var(--gold); }
+
+/* IX — use of funds, grouped */
+.dfp .funds-sum { display: grid; gap: 16px; }
+.dfp .funds-sum-bar { display: flex; height: 22px; border-radius: 11px; overflow: hidden; gap: 2px; background: var(--hair); }
+.dfp .funds-sum-bar span { flex-basis: 0; min-width: 4px; }
+.dfp .funds-sum-rows { list-style: none; border-radius: var(--radius); border: 1px solid var(--hair); background: var(--panel); overflow: hidden; }
+.dfp .funds-sum-rows li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 6px 18px; align-items: baseline; padding: 20px 24px; }
+.dfp .funds-sum-rows li + li { border-top: 1px solid var(--hair); }
+.dfp .funds-sum-rows .sw { width: 12px; height: 12px; border-radius: 3px; align-self: center; }
+.dfp .funds-sum-rows .t { font: 500 1.45rem/1.2 var(--serif); letter-spacing: -0.005em; }
+.dfp .funds-sum-rows .a { font: 500 1.125rem/1.3 var(--data); color: var(--gold); text-align: right; white-space: nowrap; }
+.dfp .funds-sum-rows .pct { color: var(--ink-3); font-size: 0.9375rem; margin-left: 8px; }
+.dfp .funds-sum-rows .d { grid-column: 2 / -1; color: var(--ink-2); font-size: 1rem; line-height: 1.5; max-width: 68ch; }
+.dfp .funds-sum-rows .disclosed .t::after { content: "Disclosed"; margin-left: 10px; vertical-align: middle; font: 500 0.75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ember); border: 1px solid color-mix(in srgb, var(--ember) 45%, transparent); border-radius: 999px; padding: 4px 9px; }
+.dfp .funds-sum-rows .total { background: color-mix(in srgb, var(--panel-2) 60%, var(--panel)); }
+@media (max-width: 640px) { .dfp .funds-sum-rows li { padding: 16px 18px; } .dfp .funds-sum-rows .t { font-size: 1.25rem; } }
+
+/* product screenshots (real captures only) */
+.dfp .shots { display: grid; gap: 14px; }
+.dfp .shots-n { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.dfp .shot { display: grid; gap: 10px; margin: 0; }
+.dfp .shot img { width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--hair-2); box-shadow: var(--shadow); background: var(--panel); }
+.dfp .shot figcaption { color: var(--ink-3); font-size: 0.9375rem; line-height: 1.5; }
+
+/* X — founders */
+.dfp .founders .headshot { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; border: 1px solid var(--hair-2); margin-bottom: 6px; }
+.dfp .founders p { font-size: 1.0625rem; }
+@media (max-width: 640px) { .dfp .terms strong { font-size: 1.2rem; } }
+
+/* ============================================================================
+   2026-11-06 (round 3) — thesis.json-led page: market context, early value,
+   managed delivery, delivery economics. Larger type at the top of the case.
+   ========================================================================== */
+.dfp .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.dfp .rows-five > div > span:last-child { font-size: 1.0625rem; line-height: 1.6; }
+
+/* why now — independent market theses */
+.dfp .market-grid { align-items: stretch; }
+.dfp .market-card { display: grid; gap: 10px; align-content: start; }
+.dfp .mk-pub { font: 500 0.75rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.dfp .mk-t { font: 500 clamp(1.6rem, 2.6vw, 2rem)/1.15 var(--serif); letter-spacing: -0.01em; }
+.dfp .mk-t a { color: var(--ink); text-decoration: none; }
+.dfp .mk-t a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.dfp .mk-d { font: 400 0.875rem/1.4 var(--data); color: var(--ink-3); }
+.dfp .mk-s { color: var(--ink-2); font-size: 1.0625rem; line-height: 1.6; }
+.dfp .mk-link { margin-top: 4px; }
+
+/* managed delivery band */
+.dfp .band-line { border-left: 2px solid var(--gold); padding: 6px 0 6px 22px; }
+.dfp .band-line p { font: italic 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.3 var(--serif); color: var(--ink); max-width: 40ch; }
+
+/* delivery economics */
+.dfp .h3-lg { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+.dfp .lead-sm { color: var(--ink-2); font-size: 1.125rem; line-height: 1.6; max-width: 62ch; }
+
+/* stage disclosure and CTA support line */
+.dfp .stage-note { font-size: 1rem; color: var(--ink-2); }
+.dfp .cta .cta-note { margin-inline: auto; max-width: 62ch; text-align: center; border-left: 0; padding-left: 0; }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { fontVars } from '@/components/site/fonts'
 import PitchContent from './PitchContent'
+import T from './thesis.json'
 import './pitch.css'
 import '@/app/styles/pages/pitch.css'
 
@@ -10,13 +11,16 @@ import '@/app/styles/pages/pitch.css'
    makes no request to fonts.googleapis.com or fonts.gstatic.com. */
 
 /* §15 META for dominusfoundry.com/pitch. The OpenGraph description explains the
-   governed-AI + compounding-intelligence thesis rather than saying "pitch deck"
+   owned, managed company-intelligence thesis rather than saying "pitch deck"
    — this is the link an investor forwards, and the preview is the first
-   sentence of the argument. */
+   sentence of the argument. 6 Nov 2026: title and description are assembled
+   from thesis.json (the hero lines) so the preview matches the page. */
+const TITLE = `Dominus Foundry — ${T.hero.line1.replace(/\.$/, '')}`
+const DESCRIPTION = `${T.hero.line1} ${T.hero.line2} Sabina is a company’s own AI, operated by Dominus Foundry as a managed service. Evidence, current offer and planning scenarios are stated separately.`
 export const metadata: Metadata = {
-  title: 'Dominus Foundry — Managed Private Company Intelligence',
+  title: TITLE,
   description:
-    'Managed private AI through Sabina: retained company intelligence, controlled model upgrades and repeatable service delivery for small and midsize businesses. Evidence, current offer and planning scenarios are stated separately.',
+    DESCRIPTION,
   alternates: { canonical: 'https://dominusfoundry.com/pitch' },
   // ⛔ RULED 2026-09-16 (round 2, R5): NOT INDEXED BY SEARCH ENGINES, and out
   // of the sitemap. That is the whole claim and the only true one — the page is
@@ -45,18 +49,18 @@ export const metadata: Metadata = {
        ⛔ Next page author: copy this object whole, then edit. Do not start
        from the two or three fields you happen to be changing. */
     siteName: 'Dominus Foundry',
-    title: 'Dominus Foundry — Managed Private Company Intelligence',
+    title: TITLE,
     description:
-      'Managed private AI through Sabina: retained company intelligence, controlled model upgrades and repeatable service delivery for small and midsize businesses. Evidence, current offer and planning scenarios are stated separately.',
+      DESCRIPTION,
     url: 'https://dominusfoundry.com/pitch',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Dominus Foundry' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dominus Foundry — Managed Private Company Intelligence',
+    title: TITLE,
     description:
-      'Managed private AI through Sabina: retained company intelligence, controlled model upgrades and repeatable service delivery for small and midsize businesses. Evidence, current offer and planning scenarios are stated separately.',
+      DESCRIPTION,
     // ⛔ Same replacement rule as openGraph above: `summary_large_image`
     // without an image is a card that promises a picture and renders none.
     images: ['/og-image.png'],

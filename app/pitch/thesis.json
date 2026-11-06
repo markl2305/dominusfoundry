@@ -1,0 +1,126 @@
+{
+  "asOf": "2026-11-06",
+  "eyebrow": "Dominus Foundry · Managed company AI",
+  "hero": {
+    "line1": "Own your company’s intelligence.",
+    "line2": "We make it attainable.",
+    "lead": "Sabina is your company’s own AI, built around its knowledge, people and way of working. Dominus Foundry operates the models, memory and governance behind her. Our distributed delivery combines a reusable AI platform with company-specific knowledge and authority, so businesses can build persistent company intelligence without building an AI department."
+  },
+  "five": [
+    {
+      "question": "Where is the market going?",
+      "answer": "Our thesis: as AI becomes a core business capability, companies will want intelligence they can control, govern and develop around their own expertise. The company knowledge and operating experience should become a lasting business asset."
+    },
+    {
+      "question": "What have we built?",
+      "answer": "Sabina: persistent company intelligence, with memory, teachable rules and explicit authority controls. Company knowledge is held separately from the model, so it can carry forward as models change. Foundry operates the AI platform; Forge provides the company records and workspace."
+    },
+    {
+      "question": "Why can ordinary businesses buy it?",
+      "answer": "Our distributed delivery model combines reusable engineering with company-specific knowledge and authority. We carry the setup and ongoing AI operation, making the capability attainable beyond businesses that can staff an AI department."
+    },
+    {
+      "question": "What does a customer get early?",
+      "answer": "Useful company-specific answers, analysis and prepared work, grounded in the information and expertise brought into the system. Start with work the company can review; retain the knowledge, instructions and corrections for the next task."
+    },
+    {
+      "question": "What does this round unlock?",
+      "answer": "{raise} to commercialize the foundation already built: direct deployments, technical and commercial capacity, and the operating evidence to make delivery repeatable. Early deployments help us develop the product and establish adoption across industries."
+    }
+  ],
+  "market": {
+    "eyebrow": "Why now · Independent market theses",
+    "title": "The market is beginning to ask for owned intelligence.",
+    "lead": "We began with a belief: companies would need persistent, governed intelligence of their own. These two independent market theses now articulate that direction.",
+    "sources": [
+      {
+        "publisher": "Y Combinator",
+        "author": "Jon Xu",
+        "title": "Own Your Intelligence",
+        "date": "Winter 2027 RFS · video 28 October 2026",
+        "url": "https://www.ycombinator.com/rfs#own-your-intelligence",
+        "summary": "YC calls for startups that help companies own and improve their intelligence: turn work into evaluations, expertise into training data, and production failures into improvements that carry across base models."
+      },
+      {
+        "publisher": "Sequoia Capital",
+        "author": "Sonya Huang",
+        "title": "Own Your Intelligence: A How-To Guide",
+        "date": "19 August 2026",
+        "url": "https://sequoiacap.com/article/own-your-intelligence-a-how-to-guide",
+        "summary": "Huang describes competition moving into the intelligence layer, with companies building domain-specific capability through their models, data, evaluations and learning systems. Her guide treats ownership as a strategic choice alongside frontier services."
+      }
+    ],
+    "bet": "Our opportunity: make company-owned intelligence attainable well beyond the largest enterprises.",
+    "note": "These sources establish external market context. They are not product evaluations or endorsements of Dominus Foundry."
+  },
+  "earlyValue": {
+    "title": "The company gets useful intelligence now. The knowledge becomes the asset.",
+    "lead": "Start with the company’s information and expertise: understand a customer, prepare a decision, develop a useful report, or carry an agreed responsibility. The value is both the work in front of the team and the company context retained for the next piece of work.",
+    "items": [
+      {
+        "title": "Understand the business",
+        "body": "Bring relevant company records and people’s expertise together for a question that matters. Keep the sources and the unresolved questions available for review."
+      },
+      {
+        "title": "Prepare better-informed work",
+        "body": "Use that context in answers, analysis, reports and options. Judge the result with the people who know the business."
+      },
+      {
+        "title": "Keep what the company teaches",
+        "body": "Retain relevant instructions, reviewed corrections and recorded outcomes. That company knowledge is held separately from the underlying model."
+      }
+    ]
+  },
+  "delivery": {
+    "title": "An AI department’s capability. Delivered as a managed service.",
+    "lead": "Owning useful company intelligence takes more than model access. It needs models, memory, integrations, governance and an operator responsible for the whole service. We built those layers together so the customer can teach the business and use the system while we run the AI.",
+    "band": "Managed AI is how businesses obtain and develop their own company intelligence."
+  },
+  "compounding": {
+    "title": "The durable asset is the intelligence the company builds.",
+    "lead": "The opportunity is to preserve the company’s expertise, the way it works and the evidence of what happened, so future work starts with more of the business behind it.",
+    "items": [
+      {
+        "title": "Company knowledge",
+        "body": "Relevant records, relationships, decisions and context remain connected to their sources and the company’s access rules."
+      },
+      {
+        "title": "Ways of working",
+        "body": "Reviewed instructions and corrections make expertise usable beyond the conversation in which it was explained."
+      },
+      {
+        "title": "Operating experience",
+        "body": "Keep the task, the result and the review together. Use representative work to evaluate changes as the system develops."
+      }
+    ],
+    "note": "Company memory and teaching are separate from training model weights. Broader permissioned cross-company intelligence remains a future opportunity; the service and this raise do not depend on its revenue."
+  },
+  "deliveryEconomics": {
+    "title": "The delivery model makes the capability attainable.",
+    "lead": "Our ambition is to make persistent company intelligence a foundational business capability across industries, accessible well beyond the largest enterprises.",
+    "items": [
+      {
+        "title": "Reusable foundation",
+        "body": "Foundry operates the trained models, memory machinery, permission system, integrations and deployment tools across the platform."
+      },
+      {
+        "title": "Company-specific intelligence",
+        "body": "Each company brings its own knowledge, people, instructions and authority. Those remain specific to its service."
+      },
+      {
+        "title": "Managed delivery",
+        "body": "We carry deployment, updates and ongoing operation. Inference, onboarding and support remain real per-company costs to measure and improve."
+      }
+    ]
+  },
+  "investment": {
+    "title": "Capital to bring the foundation into the market.",
+    "lead": "We are raising to commercialize an existing technical foundation and help establish managed company intelligence as a buying category. Direct deployments will give us the operating evidence to develop the product, the commercial model and repeatable delivery.",
+    "stage": "We do not yet have meaningful Sabina revenue. Forge’s paid customer use, internal Sabina work and the evidence still needed from Sabina customer deployments are reported separately."
+  },
+  "cta": {
+    "line1": "Help make company-owned intelligence",
+    "line2": "attainable across industries.",
+    "lead": "We are seeking investors who can assess the foundation already built and help bring this category into practical use."
+  }
+}

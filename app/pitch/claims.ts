@@ -96,7 +96,10 @@ export const PROOF: PitchClaim[] = [
   },
   {
     id: 'awr-forge',
-    publicCopy: 'All Weather Roofing — on Forge since March 2026, invoiced and paid',
+    /* 2026-11-06 (Mark): the 'since March 2026' start date was removed. Payment
+       began later (he recalls May or June); no month is stated until a record
+       confirms it. Operational start and payment start are separate facts. */
+    publicCopy: 'All Weather Roofing — paying Forge customer',
     detailCopy:
       'Commercial roofing, Albuquerque, at design-partner pricing. They had never run the business on a digital system before. Independent: no ownership overlap.',
     status: 'live_customer',
@@ -376,6 +379,16 @@ export const HUMAN_COST = {
   methodLabel: 'BLS Employer Costs for Employee Compensation',
   asOf: '2026-08-26',
   sourceLabel: 'CSR_LOADED_COST_RESEARCH_2026-08-26.md · BLS ECEC',
+};
+
+/* 2026-11-06: the corporate plan, in the investor wording Mark asked for. It is
+   a plan: the current legal entity is disclosed separately and is NOT yet
+   converted. Single source for the page and the deck. */
+export const ENTITY = {
+  plan: 'Converting to a Delaware C-corp at close',
+  today: 'Dominus Foundry, LLC',
+  note: 'The current legal entity is Dominus Foundry, LLC. The conversion to a Delaware C-corporation is planned for the financing close and has not yet occurred; the financing documents govern its timing and mechanics.',
+  asOf: '2026-11-06',
 };
 
 export const RAISE = {
