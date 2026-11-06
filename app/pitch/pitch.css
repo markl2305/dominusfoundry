@@ -987,3 +987,14 @@ html.dfp-js:not(.dfp-ready) .dfp .index:not(.open) { visibility: hidden; }
 /* stage disclosure and CTA support line */
 .dfp .stage-note { font-size: 1rem; color: var(--ink-2); }
 .dfp .cta .cta-note { margin-inline: auto; max-width: 62ch; text-align: center; border-left: 0; padding-left: 0; }
+
+/* 2026-11-06 (market revision) — bottom-up TAM / SAM / SOM cards in #market.
+   Same card, figure and label styles as the rest of the page; no new palette. */
+.dfp .sizing-card { display: grid; gap: 10px; align-content: start; }
+.dfp .sz-v { font: 500 clamp(2.2rem, 4vw, 3.1rem)/1 var(--serif); letter-spacing: -0.02em; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
+.dfp .sz-u { font: 400 1rem/1 var(--sans); letter-spacing: 0; color: var(--ink-3); }
+/* 2026-11-06 (final market framing) — the broader U.S. case leads at full width; the entry
+   case and the company-scale illustration sit beneath it. Existing tokens only. */
+.dfp .sizing-lead { gap: 12px; }
+.dfp .sz-v-lg { font-size: clamp(3rem, 7vw, 4.6rem); }
+.dfp .sz-limits { color: var(--ink-3); font-size: 0.9375rem; }

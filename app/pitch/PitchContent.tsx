@@ -7,6 +7,7 @@
    keep their own sources; financing terms and the cost plan are unchanged. */
 import { useRef, type ReactNode } from 'react'
 import T from './thesis.json'
+import { market as MS, annualPrice, tam, sam, som, somSensitivity, samSensitivity, illustrativeArr, companiesForIllustration, fmtBillions, fmtMillions, fmtInt, fmtUsd } from './market-sizing'
 import { PROOF, STATUS_LABEL, claim, AT_A_GLANCE, RAISE, ENTITY, CONTACT_EMAIL } from './claims'
 import { incomeAssumptions as a, incomeScenarios, financingTarget } from './income-model'
 import { plan as p, target, reserve, usd, budgetRows } from './finance'
@@ -72,6 +73,10 @@ const two = (t: string) => { const i = t.indexOf('. '); return i < 0 ? t : <>{t.
 /* The one token thesis.json carries; any other unreplaced token stops the page. */
 const FIVE = T.five.map((f) => ({ q: f.question, a: f.answer.replaceAll('{raise}', RAISE.amount) }))
 if (FIVE.some((f) => /[{}]/.test(f.a))) throw new Error('/pitch: unreplaced token in thesis.json five answers')
+/* The market title carries one token, the broader U.S. case at one decimal. */
+const MARKET_TITLE = T.market.title.replaceAll('{tam}', fmtBillions(tam.value, 1))
+if (/[{}]/.test(MARKET_TITLE)) throw new Error('/pitch: unreplaced token in thesis.json market title')
+const OPP = T.market.opportunity
 
 /* Proof, grouped for reading. Same rows as the detailed ledger (filings sit in
    the IP card); every row must land in exactly one group or the page refuses. */
@@ -200,10 +205,45 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
         <div className="wrap">
           <div className="ch-head reveal">
             <p className="eyebrow">{T.market.eyebrow}</p>
-            <h2 className="h2" id="h-market">{T.market.title}</h2>
+            <h2 className="h2" id="h-market">{MARKET_TITLE}</h2>
             <p className="lead">{T.market.lead}</p>
           </div>
           <div className="ch-body">
+          {/* Market framing (Mark, 6 Nov 2026): the broader U.S. case leads; the professional-
+              services entry case and the company-scale illustration support it. Figures come
+              from market-sizing.ts (2022 Census firm counts x the current standard price). The
+              18-month operating scenario is shown in the plan chapter, not as a market figure. */}
+          <article className="card sizing-card sizing-lead reveal">
+            <p className="mk-pub">{OPP.label}</p>
+            <p className="sz-v sz-v-lg num">{fmtBillions(tam.value, 1)}<span className="sz-u"> potential annual spend</span></p>
+            <p className="mk-s">{fmtInt(tam.firms)} U.S. employer firms with {MS.employeeMin}–{MS.employeeMax} employees in {MS.tamName} × {fmtUsd(annualPrice)} a year, the current standard price.</p>
+            <p className="mk-s sz-limits">{OPP.limits}</p>
+          </article>
+          <div className="grid g2 sizing-grid">
+            <article className="card sizing-card reveal" style={st(0)}>
+              <p className="mk-pub">{OPP.entryLabel}</p>
+              <p className="sz-v num">{fmtBillions(sam.value)}<span className="sz-u"> / year</span></p>
+              <p className="mk-s">{fmtInt(sam.firms)} U.S. {MS.samName.toLowerCase()} firms (NAICS {MS.samNaics}, a measurable proxy) with {MS.employeeMin}–{MS.employeeMax} employees × the same price.</p>
+              <p className="mk-s">{OPP.entryBody}</p>
+            </article>
+            <article className="card sizing-card reveal" style={st(1)}>
+              <p className="mk-pub">{OPP.scaleLabel}</p>
+              <p className="sz-v num">≈{fmtInt(companiesForIllustration)}<span className="sz-u"> active companies</span></p>
+              <p className="mk-s">≈ {fmtMillions(illustrativeArr, 0)} ARR at {fmtUsd(annualPrice)} a year each.</p>
+              <p className="mk-s">{OPP.scaleBody}</p>
+            </article>
+          </div>
+          <p className="lead-sm reveal">{OPP.expansion}</p>
+          <More summary="Method, definitions, source and sensitivity" bodyClass="prose">
+            <p><strong>Definitions.</strong> TAM here is the broader U.S. case, {fmtBillions(tam.value, 1)} a year. SAM is the professional-services entry case, {fmtBillions(sam.value)}. SOM is the {som.month}-month operating plan’s company ARR in its base scenario, about {fmtMillions(som.arr)}, shown with the <a className="link" href="#plan">operating milestones</a>. TAM and SAM are population-based spending envelopes at the current price, not proven budgets, willingness to pay or revenue.</p>
+            <p><strong>Source.</strong> <a className="link" href={MS.sourceUrl} target="_blank" rel="noopener noreferrer">{MS.sourceTitle}</a>, U.S. totals by detailed enterprise size (<a className="link" href={MS.dataUrl} target="_blank" rel="noopener noreferrer">raw data file</a>). Counts are {MS.unit}: each company is counted once, however many locations it has. They are {MS.dataYear} observations, not {MS.asOf.slice(0, 4)} counts.</p>
+            <p><strong>Boundary.</strong> The enterprise size classes from 10–14 through 400–499 employees are added; overlapping totals such as “under 20” and “under 500” are not. {MS.basis} Custom-price premiums for large accounts and any future data revenue are also excluded.</p>
+            <p><strong>Starting market.</strong> {MS.samLimit}</p>
+            <p><strong>Plan.</strong> {MS.somLimit}</p>
+            <p><strong>Plan sensitivity.</strong> The slower scenario gives {somSensitivity[0].gross} gross activations, ~{somSensitivity[0].active.toFixed(1)} active after churn and ~{fmtMillions(somSensitivity[0].arr)} ARR; the faster scenario {somSensitivity[1].gross}, ~{somSensitivity[1].active.toFixed(1)} and ~{fmtMillions(somSensitivity[1].arr)}. Gross activations count every start; active companies are net of assumed churn.</p>
+            <p><strong>Qualification, not a forecast.</strong> How many firms qualify is unmeasured. If half of the entry population qualified at the current price, the envelope would be {fmtUsd(samSensitivity[0].value)} a year; at a quarter, {fmtUsd(samSensitivity[1].value)}. No share of either population is assumed in the plan, and the company-scale illustration is not an acquisition forecast or valuation.</p>
+          </More>
+          <h3 className="h3 reveal">Independent market theses</h3>
           <div className="grid g2 market-grid">
             {T.market.sources.map((m, i) => <article className="card market-card reveal" style={st(i)} key={m.url}>
               <p className="mk-pub">{m.publisher} · {m.author}</p>
@@ -385,14 +425,22 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
 
       {/* VII — THE PLAN */}
       <Chapter id="plan" className="on-dark" title={<>First, repeatable direct delivery. <em>Then MSP distribution.</em></>}
-        lead={`The base planning case models ${BASE_GROSS_M18} new activations and ${BASE_ACTIVE_M18} active company equivalents after churn by month ${p.horizonMonths}. The work is to prove customer value and repeatable setup and support across industries. MSP distribution follows qualified direct delivery, not an assumed launch date.`}>
+        lead={`The base planning case models ${BASE_GROSS_M18} new activations and ${BASE_ACTIVE_M18} active company equivalents after churn by month ${p.horizonMonths}. The work is to prove customer value and repeatable setup and support with professional-services businesses first, then expand into other industries as delivery repeats. MSP distribution follows qualified direct delivery, not an assumed launch date.`}>
         <ol className="sequence reveal" aria-label="The sequence">
-          {['Direct company value', 'Repeatable setup and support', 'MSP distribution', 'The record grows into data'].map((s) => <li key={s}><span>{s}</span></li>)}
+          {['Professional services first', 'Repeatable setup and support', 'Other industries and MSPs', 'The record grows into data'].map((s) => <li key={s}><span>{s}</span></li>)}
         </ol>
         <div className="grid g3 split3">
           <div className="card reveal" style={st(0)}><p className="tile-k">We do</p><p className="who">Foundry</p><p className="tile-p">The model, the platform, running it, updates, and escalated support.</p></div>
           <div className="card reveal" style={st(1)}><p className="tile-k">They do</p><p className="who">MSP</p><p className="tile-p">The customer relationship, local systems, onboarding help and day-to-day support.</p></div>
           <div className="card joint reveal" style={st(2)}><p className="tile-k">Together</p><p className="who">Agreed per partner</p><p className="tile-p">Billing, support boundaries, service measurement and economics.</p></div>
+        </div>
+        <div className="sub reveal">
+          <h3 className="h3">Operating milestones in the {som.month}-month plan</h3>
+          <div className="figures">
+            {[[String(som.gross), 'Gross activations by month ' + som.month, 'base scenario · every start counted'], ['~' + som.active.toFixed(1), 'Active companies after churn', 'base scenario · net of assumed churn'], ['~' + fmtMillions(som.arr), 'Company ARR in month ' + som.month, 'base scenario · not achieved revenue']].map(([v, l, f]) =>
+              <div className="card figure" key={l}><span className="v num">{v}</span><span className="l">{l}</span><span className="f">{f}</span></div>)}
+          </div>
+          <p className="note">Planning scenario dated {a.asOf} at the current {fmtUsd(a.standardMonthlyRevenue)}/month standard price, from the <a className="link" href="#economics">financial model</a>. The plan is not allocated by industry sector, so its professional-services mix is unverified.</p>
         </div>
         <p className="note reveal">The {BASE_GROSS_M18} activations are cumulative additions; {BASE_ACTIVE_M18} is the projected active customer base after churn. Neither is current traction or a capacity guarantee. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
       </Chapter>

@@ -25,13 +25,13 @@
     },
     {
       "question": "What does this round unlock?",
-      "answer": "{raise} to commercialize the foundation already built: direct deployments, technical and commercial capacity, and the operating evidence to make delivery repeatable. Early deployments help us develop the product and establish adoption across industries."
+      "answer": "{raise} to commercialize the foundation already built: professional-services deployments, technical and commercial capacity, and the operating evidence to make delivery repeatable. Start with professional services, then expand into other industries as delivery is proven."
     }
   ],
   "market": {
-    "eyebrow": "Why now · Independent market theses",
-    "title": "The market is beginning to ask for owned intelligence.",
-    "lead": "We began with a belief: companies would need persistent, governed intelligence of their own. These two independent market theses now articulate that direction.",
+    "eyebrow": "Why now · Company intelligence as business infrastructure",
+    "title": "A {tam} U.S. opportunity. Professional services first.",
+    "lead": "Managed company intelligence is a business capability that can extend across industries. We start with professional-services businesses and expand as direct delivery becomes repeatable.",
     "sources": [
       {
         "publisher": "Y Combinator",
@@ -51,7 +51,16 @@
       }
     ],
     "bet": "Our opportunity: make company-owned intelligence attainable well beyond the largest enterprises.",
-    "note": "These sources establish external market context. They are not product evaluations or endorsements of Dominus Foundry."
+    "note": "These sources establish external market context. They are not product evaluations or endorsements of Dominus Foundry.",
+    "opportunity": {
+      "label": "Broader U.S. opportunity",
+      "entryLabel": "Starting market · professional services",
+      "entryBody": "A measurable entry case, not the limit of the platform. Customer fit, budget and deployment scope still need to be established.",
+      "scaleLabel": "Company-scale illustration",
+      "scaleBody": "At today’s standard price, about 5,600 active companies would represent $100M ARR. A scale illustration, not a forecast or valuation promise.",
+      "expansion": "Prove customer value and repeatable delivery in professional services. Reuse the company-intelligence platform as we expand into other industries and distribution. International reach and larger deployments are further dimensions, not counted in this U.S. case.",
+      "limits": "Potential annual spend at the current standard price, not observed demand. The U.S. calculation covers firms with 10–499 employees in SUSB-covered industries; it is not a worldwide market ceiling."
+    }
   },
   "earlyValue": {
     "title": "The company gets useful intelligence now. The knowledge becomes the asset.",
@@ -115,7 +124,7 @@
   },
   "investment": {
     "title": "Capital to bring the foundation into the market.",
-    "lead": "We are raising to commercialize an existing technical foundation and help establish managed company intelligence as a buying category. Direct deployments will give us the operating evidence to develop the product, the commercial model and repeatable delivery.",
+    "lead": "We are raising to commercialize an existing technical foundation and help establish managed company intelligence as a buying category. Start with professional-services businesses; use direct deployments to develop the product, commercial model and repeatable delivery before expanding outward.",
     "stage": "We do not yet have meaningful Sabina revenue. Forge’s paid customer use, internal Sabina work and the evidence still needed from Sabina customer deployments are reported separately."
   },
   "cta": {

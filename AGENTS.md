@@ -1,5 +1,9 @@
 # Repository instructions
 
+## Owner decision — 6 November 2026
+
+Mark’s current go-to-market plan is to start Sabina with professional-services businesses and grow outward into other industries after delivery is repeatable. This supersedes the 12 October cross-industry-from-the-outset sequencing below. The platform ambition remains broader than its starting market. Forge customer history remains distinct from Sabina market validation. Market sizing uses sourced counts and the current standard price, with assumptions and planning scenarios labeled. Do not change financial inputs merely to size the market.
+
 ## Owner decision — 12 October 2026
 
 Dominus Foundry delivers Managed AI through Sabina, a company's own AI, to businesses across industries **from the outset**.
