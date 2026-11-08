@@ -127,6 +127,19 @@ export default function BlogContent() {
         <div className="wrap">
           <p className="note reveal blog-start">Start with a short operational assessment of your business.</p>
 
+          <article className="notes-block" id="sequoia-editorial" aria-labelledby="h-sequoia-editorial">
+            <div className="sec-head reveal">
+              <p className="eyebrow">Our view · Dominus Foundry</p>
+              <h2 className="h2" id="h-sequoia-editorial">Owning intelligence should be practical.</h2>
+            </div>
+            <div className="card reveal">
+              <p className="tile-p">Sonya Huang’s “Own Your Intelligence” describes the work around a useful model: evaluations, company expertise and learning from experience. Our view is that smaller businesses should be able to build that capability without becoming AI infrastructure companies. Foundry operates the model and supporting systems; the business supplies its knowledge, teaches how work should be handled and decides what Sabina may do.</p>
+              <p className="tile-p">The lasting value should be a company record that carries forward: useful context, reviewed corrections, decisions and outcomes. Keeping that record is different from training a model. Both need to be judged against real work, and a model change should not mean starting the company’s knowledge over.</p>
+              <p><a className="link" href="https://sequoiacap.com/article/own-your-intelligence-a-how-to-guide" target="_blank" rel="noopener noreferrer">Read “Own Your Intelligence: A How-To Guide” by Sonya Huang at Sequoia Capital ↗</a> · August 19, 2026</p>
+              <p className="note">Independent commentary; Sequoia has not endorsed or evaluated Sabina.</p>
+            </div>
+          </article>
+
           {lead && (
             <div className="notes-block">
               <div className="sec-head reveal">
