@@ -187,7 +187,7 @@ export default function ForgeAiOperatingSystemPage() {
             first few weeks. Teams that maintain parallel systems tend to delay
             realizing the benefits. Visit{" "}
             <a href="/technology">
-              buildwithforge.app
+              Forge
             </a>{" "}
             to explore the platform. For a Forge quote, {" "}
             <a href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">

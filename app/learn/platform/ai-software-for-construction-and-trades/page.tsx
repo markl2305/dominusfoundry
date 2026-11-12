@@ -132,7 +132,7 @@ export default function AiSoftwareComparisonPage() {
             multiple tools. <strong>Pricing:</strong> Forge Core and every product are custom quoted
             for the company and the work required — see{" "}
             <a href="/technology">
-              buildwithforge.app/pricing
+              Forge
             </a>
             .
           </p>

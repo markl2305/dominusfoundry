@@ -5,7 +5,7 @@ export const FOOTER_COLS: { h: string; links: { t: string; href: string; ext?: b
   {
     h: 'Explore',
     links: [
-      { t: 'Forge ↗', href: '/technology', ext: false },
+      { t: 'Forge', href: '/technology', ext: false },
       { t: 'Sabina', href: '/sabina' },
       { t: 'Technology', href: '/technology' },
       { t: 'Governance', href: '/governance' },

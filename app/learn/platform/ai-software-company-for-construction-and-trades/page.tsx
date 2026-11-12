@@ -209,7 +209,7 @@ export default function AiSoftwareCompanyPage() {
             The fastest way to evaluate Forge is a live demo — scan a room and watch it
             become a proposal in real time. Visit{" "}
             <a href="/technology">
-              buildwithforge.app
+              Forge
             </a>{" "}
             to explore the platform. For a Forge quote, {" "}
             <a href="mailto:mark@dominusfoundry.com?subject=Ask%20about%20Forge%20tools">

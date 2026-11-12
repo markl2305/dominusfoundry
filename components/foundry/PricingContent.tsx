@@ -318,7 +318,7 @@ export default function PricingContent() {
             </p>
             <div className="actions">
               <a className="btn btn-ghost" href="/technology">
-                buildwithforge.app <span className="arr">→</span>
+                Forge <span className="arr">→</span>
               </a>
             </div>
           </div>
