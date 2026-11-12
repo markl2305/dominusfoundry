@@ -88,3 +88,7 @@ html body :is(.dfs, .dfp) .layer:active { background-color: color-mix(in srgb, v
 /* …and on that pressed ledger row (light mode) the ember status badges were 4.24-4.44:1: same hue, lightness only,
    #924d1b -> #8a4819 for the press (4.63:1 on the deepest pressed tint; 6.17:1 at rest on the panel). */
 html[data-df-theme="light"] body .dfp .ledger-row:active .badge:is(.contracted, .in_acceptance, .proven_path, .filed) { color: #8a4819; }
+
+/* fix2 R6 (Sol r2, inherited): the opened article-index links (blog, legal and notice pages) were 40px tall. 44px
+   minimum, nothing else changes: same labels, links, padding and type; the rows grow 4px each. */
+html body .dfs .qpb .qp-index-list a { min-height: 44px; }
