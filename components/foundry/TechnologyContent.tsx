@@ -57,7 +57,7 @@ export default function TechnologyContent(){return <div className="qp pg-technol
 
 <Sec id="platform" name="Forge and DominusOS" className="band pg-technology" eyebrow="The platform beneath" title="Forge and DominusOS.">
 <div className="grid g2 products">
-<article className="card product reveal" style={st(0)}><h3 className="tile-t">Forge</h3><p className="tile-p">Forge comes with Sabina and is available independently. It gives your team a workspace and the structured records the agreed work needs.</p><p className="note">Move agreed work into Forge, or assess the required API reads and updates in a retained system. Specialist tools have their own written scope.</p><div className="actions pillar-a"><a className="btn btn-ghost btn-sm" href="/technology">Explore Forge →</a></div></article>
+<article className="card product reveal" style={st(0)}><h3 className="tile-t">Forge</h3><p className="tile-p">Forge comes with Sabina and is available independently. It gives your team a workspace and the structured records the agreed work needs.</p><p className="note">Move agreed work into Forge, or assess the required API reads and updates in a retained system. Specialist tools have their own written scope.</p></article>
 <article className="card product reveal" style={st(1)}><h3 className="tile-t">DominusOS</h3><p className="tile-p">DominusOS supplies the authority and execution-control architecture behind what Sabina is permitted to do.</p></article>
 </div>
 </Sec>
