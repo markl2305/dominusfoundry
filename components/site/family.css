@@ -32,27 +32,6 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
 }
 :is(.dfs, .dfp) .footer .f-endorse img { width: 14px; height: 16px; flex: none; }
 
-/* ---------------------------------------------------------------- FOOTNOTES (family v2, item 5)
-   At the foot of the section: a hairline, then the numbered notes, 12px+ and muted (measured >= 4.5:1, see REPORT).
-   The marker sits after the figure or claim; it scrolls to its note and the note's marker scrolls back. */
-:is(.dfs, .dfp) .fn-ref { font: 600 12px/0 var(--sans); vertical-align: super; letter-spacing: 0; margin-left: 2px; }
-:is(.dfs, .dfp) .fn-ref a { color: var(--gold); text-decoration: none; padding: 0 2px; }
-:is(.dfs, .dfp) .fn-ref a:focus-visible, :is(.dfs, .dfp) .footnotes .fn-back:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 3px; }
-:is(.dfs, .dfp) .footnotes { margin-top: clamp(28px, 4vw, 44px); padding-top: 16px; border-top: 1px solid var(--hair-2); max-width: 110ch; }
-:is(.dfs, .dfp) .footnotes ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-:is(.dfs, .dfp) .footnotes li { display: grid; grid-template-columns: 1.6em 1fr; align-items: baseline; font: 400 0.8125rem/1.55 var(--sans); letter-spacing: 0; color: var(--ink-2); margin: 0; }
-:is(.dfs, .dfp) .footnotes .fn-back { color: var(--gold); font-weight: 600; text-decoration: none; }
-:is(.dfs, .dfp) [id^="fn-"], :is(.dfs, .dfp) [id^="fnref-"] { scroll-margin-top: 96px; }
-
-/* fix1 R1 (Sol r1): every footnote link gets a 44px hit region while the marker keeps its small superscript look.
-   Invisible ::after boxes; the return link's box sits mostly in the gutter (10px over the note's first letters, never over a link), on screen at 390. */
-:is(.dfs, .dfp) .fn-ref a, :is(.dfs, .dfp) .footnotes .fn-back { position: relative; }
-/* the marker is one atomic box (an inline link with side padding could split its padding onto the next line, and the
-   hit box then anchored to a 2px fragment: measured at 390 on /pitch and /governance) */
-:is(.dfs, .dfp) .fn-ref a { display: inline-block; line-height: 1; }
-:is(.dfs, .dfp) .fn-ref a::after { content: ""; position: absolute; z-index: 1; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
-:is(.dfs, .dfp) .footnotes .fn-back::after { content: ""; position: absolute; z-index: 1; right: -10px; top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }
-
 /* fix1 R2: utility buttons keep their compact look; in the fallbacks their translucent fill becomes the opaque
    equivalent (the same 40% panel over the page ground), so they are opaque in every state like the other glass. */
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
@@ -95,3 +74,9 @@ html body .dfs .qpb .qp-index-list a { min-height: 44px; }
 
 /* credit (Mark 2026-11-12 16:13Z): the footer lockup is the crest alone now; keep its home link a 44px target */
 html body :is(.dfs, .dfp) .footer .f-lock { min-width: 44px; }
+
+/* footnotes-final (Mark 2026-11-12, family-v2-footnotes-final): claim qualifiers are not footnotes. The /pitch plan
+   notes and the /governance illustration note are back inline where live has them, every word kept, at the body size
+   of their sections (17px, as .tile-p / .s-p). Colour unchanged. This site has no third-party study sections, so no
+   numbered notes remain. */
+html body .dfp #plan .note.qualifier, html body .dfs #demonstration .fine.qualifier { font-size: 1.0625rem; line-height: 1.55; letter-spacing: 0; }

@@ -8,7 +8,6 @@ import '@/app/styles/pages/qp-hero.css'
 import '@/app/styles/pages/governance.css'
 import RuleLedger from './RuleLedger'
 import { Sec } from './qp-parts'
-import { FnRef, Footnotes } from '@/components/site/footnotes'
 const STEPS: [string, string][] = [
   ['Scope the work.', 'A responsibility needs explicit limits: the action, the information it may use, and the circumstances that require a person’s decision.'],
   ['Make decisions traceable.', 'The record should connect a decision to the instruction and authority behind it, with a clear outcome a business owner can understand.'],
@@ -22,10 +21,9 @@ export default function GovernanceContent(){return <div className="qp pg-governa
 {STEPS.map(([t, p]) => <li key={t}><h2 className="s-t">{t}</h2><p className="s-p">{p}</p></li>)}
 </ol>
 </Sec>
-<Sec id="demonstration" name="Try a grant" className="band pg-governance" eyebrow={<>Interactive illustration · No live business actions<FnRef n="*" id="gov-demo" /></>} title="Try a grant. Review a decision. Revoke it." lead="This simplified simulation runs only in your browser and resets on reload. It illustrates granting a responsibility, checking an example request, and preserving history after revocation. It does not connect to a company account or execute real work.">
+<Sec id="demonstration" name="Try a grant" className="band pg-governance" eyebrow="Interactive illustration · No live business actions" title="Try a grant. Review a decision. Revoke it." lead="This simplified simulation runs only in your browser and resets on reload. It illustrates granting a responsibility, checking an example request, and preserving history after revocation. It does not connect to a company account or execute real work.">
 <RuleLedger/>
-{/* Family v2 item 5: this section-wide caveat, verbatim, as the section's footnote (was <p className="fine">) */}
-<Footnotes items={[{ n: '*', id: 'gov-demo', body: <>The examples are illustrative rules, not a demonstration of a live permission service. Foundry operates the agreed service. Confirm the supported workflow, approval path and failure handling for your company; this illustration is not production evidence.</> }]} />
+<p className="fine qualifier">The examples are illustrative rules, not a demonstration of a live permission service. Foundry operates the agreed service. Confirm the supported workflow, approval path and failure handling for your company; this illustration is not production evidence.</p>
 </Sec>
 <ClosingCta title={<>Start with one <em>responsibility.</em></>} lead="Start with a short operational assessment of your business." actions={<><a className="btn btn-solid" href="https://withsabina.ai/evaluate">See Sabina work</a><a className="btn btn-ghost" href="mailto:foundry@dominusfoundry.com">Contact the team →</a></>}/>
 </div>}

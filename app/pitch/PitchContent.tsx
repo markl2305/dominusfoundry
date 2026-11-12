@@ -12,7 +12,6 @@ import { PROOF, STATUS_LABEL, claim, AT_A_GLANCE, RAISE, ENTITY, CONTACT_EMAIL }
 import { incomeAssumptions as a, incomeScenarios, financingTarget } from './income-model'
 import { plan as p, target, reserve, usd, budgetRows } from './finance'
 import SiteFooter from '@/components/site/SiteFooter'
-import { FnRef, Footnotes } from '@/components/site/footnotes'
 import { Badge, HeroEmbers, IncomeCase, LayerStack, PitchNav, ProofLedger, UseOfFunds, money, useReveal, type ChapterRef, type Layer } from './ui'
 
 function mailto(subject: string) {
@@ -436,18 +435,14 @@ export default function PitchContent({ fontClass = '' }: { fontClass?: string })
           <div className="card joint reveal" style={st(2)}><p className="tile-k">Together</p><p className="who">Agreed per partner</p><p className="tile-p">Billing, support boundaries, service measurement and economics.</p></div>
         </div>
         <div className="sub reveal">
-          <h3 className="h3">Operating milestones in the {som.month}-month plan<FnRef n="*" id="plan-scenario" /></h3>
+          <h3 className="h3">Operating milestones in the {som.month}-month plan</h3>
           <div className="figures">
-            {[[String(som.gross), 'Gross activations by month ' + som.month, 'base scenario · every start counted'], ['~' + som.active.toFixed(1), 'Active companies after churn', 'base scenario · net of assumed churn'], ['~' + fmtMillions(som.arr), 'Company ARR in month ' + som.month, 'base scenario · not achieved revenue']].map(([v, l, f], i) =>
-              <div className="card figure" key={l}><span className="v num">{v}{i < 2 && <FnRef n="1" id="plan-counts" second={i === 1} />}</span><span className="l">{l}</span><span className="f">{f}</span></div>)}
+            {[[String(som.gross), 'Gross activations by month ' + som.month, 'base scenario · every start counted'], ['~' + som.active.toFixed(1), 'Active companies after churn', 'base scenario · net of assumed churn'], ['~' + fmtMillions(som.arr), 'Company ARR in month ' + som.month, 'base scenario · not achieved revenue']].map(([v, l, f]) =>
+              <div className="card figure" key={l}><span className="v num">{v}</span><span className="l">{l}</span><span className="f">{f}</span></div>)}
           </div>
-          {/* Family v2 item 5: the two caveat paragraphs under these figures, verbatim, as this section's footnotes
-              (* section-wide, 1 on the two counts it qualifies). The second note used to sit just outside this block. */}
-          <Footnotes items={[
-            { n: '*', id: 'plan-scenario', body: <>Planning scenario dated {a.asOf} at the current {fmtUsd(a.standardMonthlyRevenue)}/month standard price, from the <a className="link" href="#economics">financial model</a>. The plan is not allocated by industry sector, so its professional-services mix is unverified.</> },
-            { n: '1', id: 'plan-counts', body: <>The {BASE_GROSS_M18} activations are cumulative additions; {BASE_ACTIVE_M18} is the projected active customer base after churn. Neither is current traction or a capacity guarantee. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</> },
-          ]} />
+          <p className="note qualifier">Planning scenario dated {a.asOf} at the current {fmtUsd(a.standardMonthlyRevenue)}/month standard price, from the <a className="link" href="#economics">financial model</a>. The plan is not allocated by industry sector, so its professional-services mix is unverified.</p>
         </div>
+        <p className="note reveal qualifier">The {BASE_GROSS_M18} activations are cumulative additions; {BASE_ACTIVE_M18} is the projected active customer base after churn. Neither is current traction or a capacity guarantee. The MSP split is the intended model, not a live program; there are no published partner terms, rates or dates.</p>
       </Chapter>
 
       {/* VIII — WHY WE WIN */}
