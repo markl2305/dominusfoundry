@@ -131,7 +131,7 @@ export default function AiSoftwareComparisonPage() {
             an AI-native platform that consolidates their workflow rather than managing
             multiple tools. <strong>Pricing:</strong> Forge Core and every product are custom quoted
             for the company and the work required — see{" "}
-            <a href="https://buildwithforge.app/pricing" rel="noopener">
+            <a href="/technology">
               buildwithforge.app/pricing
             </a>
             .

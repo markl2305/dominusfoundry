@@ -317,7 +317,7 @@ export default function PricingContent() {
               Your quote sets out the price, billing terms and any onboarding work before you commit. Treasury remains in development.
             </p>
             <div className="actions">
-              <a className="btn btn-ghost" href="https://buildwithforge.app" target="_blank" rel="noopener">
+              <a className="btn btn-ghost" href="/technology">
                 buildwithforge.app <span className="arr">→</span>
               </a>
             </div>

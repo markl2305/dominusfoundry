@@ -135,7 +135,7 @@ export default function HomeContent() {
               and the structured records the agreed work needs. Specialist tools and connections have
               their own scopes; Forge is in paid use at All Weather Roofing, where Sabina has not yet onboarded.
             </p>
-            <a className="more-link" href="https://buildwithforge.app">Explore Forge →</a>
+            <a className="more-link" href="/technology">Explore Forge →</a>
           </article>
           <article className="card reveal path-card" style={{ '--i': 2 } as CSSProperties}>
             <h3 className="h3">DominusOS</h3>
@@ -153,7 +153,7 @@ export default function HomeContent() {
               into roof geometry, a bill of materials and a proposal. Independently useful, hosted under
               Forge, and not part of Sabina’s general capability set.
             </p>
-            <a className="more-link" href="https://buildwithforge.app/hyperion">See Hyperion →</a>
+            <a className="more-link" href="/technology">See Hyperion →</a>
           </article>
         </div>
       </Section>

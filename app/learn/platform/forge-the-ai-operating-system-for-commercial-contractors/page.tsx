@@ -186,7 +186,7 @@ export default function ForgeAiOperatingSystemPage() {
             to the native workflows typically see operational improvements within the
             first few weeks. Teams that maintain parallel systems tend to delay
             realizing the benefits. Visit{" "}
-            <a href="https://buildwithforge.app" rel="noopener">
+            <a href="/technology">
               buildwithforge.app
             </a>{" "}
             to explore the platform. For a Forge quote, {" "}
