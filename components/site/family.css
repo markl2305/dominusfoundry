@@ -92,3 +92,6 @@ html[data-df-theme="light"] body .dfp .ledger-row:active .badge:is(.contracted, 
 /* fix2 R6 (Sol r2, inherited): the opened article-index links (blog, legal and notice pages) were 40px tall. 44px
    minimum, nothing else changes: same labels, links, padding and type; the rows grow 4px each. */
 html body .dfs .qpb .qp-index-list a { min-height: 44px; }
+
+/* credit (Mark 2026-11-12 16:13Z): the footer lockup is the crest alone now; keep its home link a 44px target */
+html body :is(.dfs, .dfp) .footer .f-lock { min-width: 44px; }

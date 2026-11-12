@@ -17,7 +17,8 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
           <a className="f-lock" href="/" aria-label="Dominus Foundry home">
             {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the site already serves */}
             <img src="/brand/crest-full.png" alt="" width="32" height="36" />
-            <span>Dominus Foundry</span>
+            {/* Mark 2026-11-12 16:13Z: the family endorsement line (last row) is the footer's one Dominus Foundry credit;
+                the wordmark text that stood here is removed. The crest stays the home link, named by aria-label. */}
           </a>
           <p className="f-blurb">{blurb}</p>
         </div>
