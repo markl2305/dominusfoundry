@@ -9,7 +9,9 @@
    The footer endorsement line (SiteFooter.tsx): 13px, system UI, muted.
    ⛔ No copy, labels or targets live here.
    ========================================================================== */
-html body :is(.dfs, .dfp) .btn:not(.btn-sm):not(.nav-cta):not(.sheet-nav .btn) {
+/* fix1 R2 (Sol r1): the exception is the utility controls (the <button> .btn-sm: Copy, Previous/Next, Grant), the bar CTA
+   and the proof-sheet nav, not every .btn-sm: a link styled .btn-sm (/technology "Explore Forge") is a product CTA. */
+html body :is(.dfs, .dfp) .btn:not(button.btn-sm):not(.nav-cta):not(.sheet-nav .btn) {
   height: auto; min-height: 48px; padding-block: 0; padding-inline: 24px; border-radius: 999px; gap: 8px; max-width: 100%;
   overflow-wrap: break-word; /* 48px on one line (every CTA at 1440 and 390); a label that cannot fit at 320 (an email address) wraps instead of clipping */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -47,3 +49,9 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
 :is(.dfs, .dfp) .fn-ref a, :is(.dfs, .dfp) .footnotes .fn-back { position: relative; }
 :is(.dfs, .dfp) .fn-ref a::after { content: ""; position: absolute; z-index: 1; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
 :is(.dfs, .dfp) .footnotes .fn-back::after { content: ""; position: absolute; z-index: 1; right: 0; top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }
+
+/* fix1 R2: utility buttons keep their compact look; in the fallbacks their translucent fill becomes the opaque
+   equivalent (the same 40% panel over the page ground), so they are opaque in every state like the other glass. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  html body .dfs button.btn-ghost.btn-sm { background: color-mix(in srgb, var(--panel) 40%, var(--bg)); }
+}

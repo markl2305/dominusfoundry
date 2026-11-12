@@ -224,16 +224,16 @@ html[data-df-theme="light"] body :is(.dfs, .dfp) { --g-btn-sheen: rgb(255 255 25
 html[data-df-theme="light"] body :is(.dfs, .dfp) .on-dark, html[data-df-theme="light"] body .dfs .nav:not(.solid) { --g-btn-sheen: var(--g-sheen); }
 html[data-df-theme="light"] body :is(.dfs, .dfp) .btn-solid:not(.on-dark .btn-solid):not(.nav-cta) { border-color: rgb(255 255 255 / .12); }
 
-html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm) {
+html body :is(.dfs, .dfp) .btn-ghost:not(button.btn-sm) {
   background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill);
   -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
   border-color: var(--g-edge);
   box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-rim-low), var(--g-lift);
 }
 @media (hover: hover) and (pointer: fine) {
-  html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm):hover { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-h); border-color: var(--gold); }
+  html body :is(.dfs, .dfp) .btn-ghost:not(button.btn-sm):hover { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-h); border-color: var(--gold); }
 }
-html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm):active { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-p); }
+html body :is(.dfs, .dfp) .btn-ghost:not(button.btn-sm):active { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-p); }
 
 /* ---------------------------------------------------------------- MENUS AND POPOVERS
    The site menu (desktop dropdown, phone sheet), the section index (main) and
