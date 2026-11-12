@@ -41,3 +41,9 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
 :is(.dfs, .dfp) .footnotes li { display: grid; grid-template-columns: 1.6em 1fr; align-items: baseline; font: 400 0.8125rem/1.55 var(--sans); letter-spacing: 0; color: var(--ink-2); margin: 0; }
 :is(.dfs, .dfp) .footnotes .fn-back { color: var(--gold); font-weight: 600; text-decoration: none; }
 :is(.dfs, .dfp) [id^="fn-"], :is(.dfs, .dfp) [id^="fnref-"] { scroll-margin-top: 96px; }
+
+/* fix1 R1 (Sol r1): every footnote link gets a 44px hit region while the marker keeps its small superscript look.
+   Invisible ::after boxes; the return link's box extends left into the gutter, never over the note text. */
+:is(.dfs, .dfp) .fn-ref a, :is(.dfs, .dfp) .footnotes .fn-back { position: relative; }
+:is(.dfs, .dfp) .fn-ref a::after { content: ""; position: absolute; z-index: 1; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
+:is(.dfs, .dfp) .footnotes .fn-back::after { content: ""; position: absolute; z-index: 1; right: 0; top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }
