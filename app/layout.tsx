@@ -7,6 +7,7 @@ import ConsentBar from './components/ConsentBar'
 import { fontVars } from '../components/site/fonts'
 import './globals.css'
 import '../components/site/motion/motion.css'
+import '../components/site/glass.css'
 import Reveal from '../components/site/motion/Reveal'
 
 // M-1 (Apple polish 2026-11-02): Inter and Crimson Pro are no longer loaded. No component used them (the

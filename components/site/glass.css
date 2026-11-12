@@ -1,0 +1,344 @@
+/* ============================================================================
+   GLASS — family rule 13 (Mark, 2026-11-04). A translucent material on the
+   chrome layer only: the header bar, the CTA pills, menus and popovers, the
+   /pitch proof sheet and the small proof chips that sit over the hero. Never
+   on reading text, page grounds or cards.
+
+   Two palettes, one recipe:
+   - the main site (.dfs): cool slate glass, a copper accent (its primary
+     button colour), fields of copper and slate;
+   - /pitch (.dfp), its own design: warm forge glass with a champagne rim, a
+     gold accent and fields of ember and gold, as its hero already glows.
+
+   Material: blur 20px, saturate 160%, hairline border, inset top highlight,
+   faint inset bottom shade, soft lift. It is constant: nothing here is
+   animated or tied to scroll position (rules 11, 12 unchanged). Colour fields
+   are static gradients that scroll with the page like any content.
+
+   Fallbacks: every fill is written rgb(channels / max(alpha, --g-floor)).
+   --g-floor is 0 normally, .94 without backdrop-filter support and 1 under
+   reduced transparency or more contrast, so every state (rest, hover, press,
+   a retained touch hover) keeps a near-opaque or opaque fill without any
+   state rule having to win the cascade. Print shows no glass.
+   ⛔ No copy, labels, targets or figures live here.
+   ========================================================================== */
+:root { --g-floor: 0; }
+
+@media screen {
+
+/* ---------------------------------------------------------------- TOKENS
+   Fills are channel triplets plus an alpha, so the floor can apply to all. */
+.dfs, .dfs .nav:not(.solid), .dfs .on-dark {
+  --g-bar-c: 12 17 21;     --g-bar-a: .74;
+  --g-panel-c: 16 23 27;   --g-panel-a: .76;
+  --g-pill-c: 20 29 34;    --g-pill-a: .34;
+  --g-pill-h-c: 30 41 47;  --g-pill-h-a: .52;
+  --g-pill-p-c: 36 48 55;  --g-pill-p-a: .62;
+  --g-chip-c: 12 17 21;    --g-chip-a: .28;
+  --g-edge: rgb(240 231 215 / .14);
+  --g-rim: rgb(240 231 215 / .22);
+  --g-rim-low: rgb(0 0 0 / .28);
+  --g-hair: rgb(240 231 215 / .10);
+  --g-lift: 0 10px 32px -14px rgb(0 0 0 / .6);
+  --g-glow: rgb(200 127 74 / .34);          /* copper */
+  --g-inner: rgb(246 214 182 / .30);
+  --g-sheen: rgb(255 255 255 / .16);
+  --g-field-a: rgb(200 127 74 / .20);       /* copper */
+  --g-field-b: rgb(58 86 100 / .30);        /* slate, the band hue lifted */
+  --g-field-c: rgb(227 203 168 / .08);      /* gold */
+}
+/* over the hero the bar is darker glass (its inks are light in both themes) */
+.dfs .nav:not(.solid) { --g-bar-c: 8 12 15; --g-bar-a: .60; }
+html[data-df-theme="light"] .dfs,
+html[data-df-theme="light"] .dfs .nav:not(.solid) .menu-panel {
+  --g-bar-c: 239 233 220;   --g-bar-a: .86;
+  --g-panel-c: 241 236 225; --g-panel-a: .90;
+  --g-pill-c: 248 245 238;  --g-pill-a: .62;
+  --g-pill-h-c: 255 253 249; --g-pill-h-a: .80;
+  --g-pill-p-c: 228 220 203; --g-pill-p-a: .86;
+  --g-chip-c: 246 241 231;  --g-chip-a: .60;
+  --g-edge: rgb(31 47 56 / .12);
+  --g-rim: rgb(255 255 255 / .78);
+  --g-rim-low: rgb(31 47 56 / .10);
+  --g-hair: rgb(31 47 56 / .10);
+  --g-lift: 0 10px 30px -16px rgb(36 54 65 / .34);
+  --g-glow: rgb(143 79 34 / .26);
+  --g-inner: rgb(255 255 255 / .16);
+  --g-sheen: rgb(255 255 255 / .12);
+  --g-field-a: rgb(143 79 34 / .16);
+  --g-field-b: rgb(24 37 44 / .12);
+  --g-field-c: rgb(111 86 42 / .10);
+}
+/* the bands that stay a dark forge in light mode take the dark set back */
+html[data-df-theme="light"] .dfs .on-dark, html[data-df-theme="light"] .dfs .nav:not(.solid) {
+  --g-panel-c: 16 23 27;   --g-panel-a: .76;
+  --g-pill-c: 20 29 34;    --g-pill-a: .34;
+  --g-pill-h-c: 30 41 47;  --g-pill-h-a: .52;
+  --g-pill-p-c: 36 48 55;  --g-pill-p-a: .62;
+  --g-chip-c: 12 17 21;    --g-chip-a: .28;
+  --g-edge: rgb(240 231 215 / .14);
+  --g-rim: rgb(240 231 215 / .22);
+  --g-rim-low: rgb(0 0 0 / .28);
+  --g-hair: rgb(240 231 215 / .10);
+  --g-lift: 0 10px 32px -14px rgb(0 0 0 / .6);
+  --g-glow: rgb(200 127 74 / .34);
+  --g-inner: rgb(246 214 182 / .30);
+  --g-sheen: rgb(255 255 255 / .16);
+  --g-field-a: rgb(200 127 74 / .20);
+  --g-field-b: rgb(58 86 100 / .30);
+  --g-field-c: rgb(227 203 168 / .08);
+}
+html[data-df-theme="light"] .dfs .nav:not(.solid) { --g-bar-c: 8 12 15; --g-bar-a: .60; }
+
+/* /pitch — its own palette: warm forge glass, champagne rim, gold accent. */
+.dfp, .dfp .nav:not(.solid), .dfp .on-dark {
+  --g-bar-c: 10 12 13;     --g-bar-a: .74;
+  --g-panel-c: 18 20 20;   --g-panel-a: .78;
+  --g-pill-c: 24 24 22;    --g-pill-a: .34;
+  --g-pill-h-c: 38 36 32;  --g-pill-h-a: .54;
+  --g-pill-p-c: 46 43 38;  --g-pill-p-a: .64;
+  --g-chip-c: 14 14 13;    --g-chip-a: .28;
+  --g-edge: rgb(239 226 201 / .16);
+  --g-rim: rgb(239 226 201 / .30);
+  --g-rim-low: rgb(0 0 0 / .30);
+  --g-hair: rgb(227 203 168 / .14);
+  --g-lift: 0 10px 34px -14px rgb(0 0 0 / .65);
+  --g-glow: rgb(227 203 168 / .30);          /* gold */
+  --g-inner: rgb(239 226 201 / .32);
+  --g-sheen: rgb(255 248 232 / .18);
+  --g-field-a: rgb(221 146 68 / .22);        /* ember */
+  --g-field-b: rgb(227 203 168 / .14);       /* gold */
+  --g-field-c: rgb(200 127 74 / .10);        /* copper */
+}
+.dfp .nav:not(.solid) { --g-bar-c: 6 8 9; --g-bar-a: .60; }
+html[data-df-theme="light"] .dfp {
+  --g-bar-c: 246 241 231;   --g-bar-a: .86;
+  --g-panel-c: 247 242 232; --g-panel-a: .90;
+  --g-pill-c: 251 247 238;  --g-pill-a: .62;
+  --g-pill-h-c: 255 252 245; --g-pill-h-a: .80;
+  --g-pill-p-c: 232 222 202; --g-pill-p-a: .86;
+  --g-chip-c: 250 245 235;  --g-chip-a: .60;
+  --g-edge: rgb(111 86 42 / .16);
+  --g-rim: rgb(255 252 244 / .85);
+  --g-rim-low: rgb(111 86 42 / .12);
+  --g-hair: rgb(111 86 42 / .16);
+  --g-lift: 0 10px 30px -16px rgb(70 52 24 / .30);
+  --g-glow: rgb(111 86 42 / .26);
+  --g-inner: rgb(255 248 232 / .16);
+  --g-sheen: rgb(255 252 244 / .14);
+  --g-field-a: rgb(146 77 27 / .14);
+  --g-field-b: rgb(111 86 42 / .12);
+  --g-field-c: rgb(143 79 34 / .08);
+}
+html[data-df-theme="light"] .dfp .on-dark, html[data-df-theme="light"] .dfp .nav:not(.solid) {
+  --g-panel-c: 18 20 20;   --g-panel-a: .78;
+  --g-pill-c: 24 24 22;    --g-pill-a: .34;
+  --g-pill-h-c: 38 36 32;  --g-pill-h-a: .54;
+  --g-pill-p-c: 46 43 38;  --g-pill-p-a: .64;
+  --g-chip-c: 14 14 13;    --g-chip-a: .28;
+  --g-edge: rgb(239 226 201 / .16);
+  --g-rim: rgb(239 226 201 / .30);
+  --g-rim-low: rgb(0 0 0 / .30);
+  --g-hair: rgb(227 203 168 / .14);
+  --g-lift: 0 10px 34px -14px rgb(0 0 0 / .65);
+  --g-glow: rgb(227 203 168 / .30);
+  --g-inner: rgb(239 226 201 / .32);
+  --g-sheen: rgb(255 248 232 / .18);
+  --g-field-a: rgb(221 146 68 / .22);
+  --g-field-b: rgb(227 203 168 / .14);
+  --g-field-c: rgb(200 127 74 / .10);
+}
+html[data-df-theme="light"] .dfp .nav:not(.solid) { --g-bar-c: 6 8 9; --g-bar-a: .60; }
+
+/* the fill helpers every surface below uses */
+:is(.dfs, .dfp) {
+  --g-filter: blur(20px) saturate(160%);
+  --g-bar: rgb(var(--g-bar-c) / max(var(--g-bar-a), var(--g-floor)));
+  --g-panel: rgb(var(--g-panel-c) / max(var(--g-panel-a), var(--g-floor)));
+  --g-pill: rgb(var(--g-pill-c) / max(var(--g-pill-a), var(--g-floor)));
+  --g-pill-h: rgb(var(--g-pill-h-c) / max(var(--g-pill-h-a), var(--g-floor)));
+  --g-pill-p: rgb(var(--g-pill-p-c) / max(var(--g-pill-p-a), var(--g-floor)));
+  --g-chip: rgb(var(--g-chip-c) / max(var(--g-chip-a), var(--g-floor)));
+}
+/* a custom property's var() resolves where it is declared, so each scope that re-points a channel also re-declares
+   the helpers (otherwise the nav would inherit fills computed from the page's channels) */
+:is(.dfs, .dfp) :is(.nav, .on-dark, .menu-panel) {
+  --g-bar: rgb(var(--g-bar-c) / max(var(--g-bar-a), var(--g-floor)));
+  --g-panel: rgb(var(--g-panel-c) / max(var(--g-panel-a), var(--g-floor)));
+  --g-pill: rgb(var(--g-pill-c) / max(var(--g-pill-a), var(--g-floor)));
+  --g-pill-h: rgb(var(--g-pill-h-c) / max(var(--g-pill-h-a), var(--g-floor)));
+  --g-pill-p: rgb(var(--g-pill-p-c) / max(var(--g-pill-p-a), var(--g-floor)));
+  --g-chip: rgb(var(--g-chip-c) / max(var(--g-chip-a), var(--g-floor)));
+}
+
+/* ---------------------------------------------------------------- HEADER BAR
+   The material sits on .nav::before (never on .nav itself: a filtered parent is
+   a backdrop root, and the menu inside it could then blur only the bar). */
+html body :is(.dfs, .dfp) .nav::before,
+html body :is(.dfs, .dfp) .nav:not(.solid)::before {
+  background: linear-gradient(180deg, var(--g-sheen), transparent 70%), var(--g-bar);
+  -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
+  box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-hair), var(--g-lift);
+  opacity: 1; transition: none;
+}
+/* the bar's muted inks take one step more contrast, so they pass over the brightest content that can scroll under the
+   glass (measured: crest artwork, photographs, the light page in light mode). Colour only; hover/current still read. */
+html body :is(.dfs, .dfp) > .nav { --ink-2: #cdd3cf; --ink-3: #adb5b0; }
+html body :is(.dfs, .dfp) > .nav:not(.solid) { --ink-2: #d4cebf; --ink-3: #b6bbb5; }
+html[data-df-theme="light"] body :is(.dfs, .dfp) > .nav.solid { --ink-2: #33444d; --ink-3: #404e56; }
+
+/* the bar over the hero re-points --copper and --on-accent (dark ink on bright copper) but not --copper-hi, so in light
+   mode the header CTA's hover/press took light mode's DEEP copper under the dark ink (measured 2.12:1, live and local).
+   Colour only: the hover keeps the bright copper step that matches this ink (measured after: passes, see REPORT). */
+html body .dfs .nav:not(.solid) { --copper-hi: #d79a6c; }
+
+/* controls on the bar are glass pills without a blur of their own: they already sit on the bar's glass */
+html body :is(.dfs, .dfp) .nav :is(.menu > summary, .sec-btn, .chapter-btn) {
+  background: var(--g-pill); border-color: var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-rim-low);
+}
+@media (hover: hover) and (pointer: fine) {
+  html body :is(.dfs, .dfp) .nav :is(.menu > summary, .sec-btn, .chapter-btn):hover { background: var(--g-pill-h); }
+  html body :is(.dfs, .dfp) .nav .menu > summary:hover { border-color: var(--gold); }
+}
+html body :is(.dfs, .dfp) .nav :is(.menu > summary, .sec-btn, .chapter-btn):active,
+html body :is(.dfs, .dfp) .nav .menu[open] > summary { background: var(--g-pill-p); }
+
+/* ---------------------------------------------------------------- CTA PILLS
+   Primary: the site's own solid fill (opaque, so its text contrast never
+   depends on what is behind it), with a sheen, a bright rim, a faint inner
+   light and a soft outer glow in the accent. No blur: at this fill a blur
+   cannot show, and it would cost a filtered layer per button.
+   Secondary: real glass, blurred. */
+html body :is(.dfs, .dfp) .btn-solid {
+  position: relative; isolation: isolate;
+  border-color: rgb(255 255 255 / .18);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .34), inset 0 -1px 0 rgb(0 0 0 / .18), inset 0 0 16px var(--g-inner), 0 0 24px var(--g-glow), 0 6px 18px -10px rgb(0 0 0 / .5);
+}
+html body :is(.dfs, .dfp) .btn-solid::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, var(--g-btn-sheen, var(--g-sheen)), transparent 58%);
+}
+/* light mode's primaries carry light text on a deep fill: a fainter sheen keeps that text's contrast (measured 4.49 → pass) */
+html[data-df-theme="light"] body :is(.dfs, .dfp) { --g-btn-sheen: rgb(255 255 255 / .05); }
+html[data-df-theme="light"] body :is(.dfs, .dfp) .on-dark, html[data-df-theme="light"] body .dfs .nav:not(.solid) { --g-btn-sheen: var(--g-sheen); }
+html[data-df-theme="light"] body :is(.dfs, .dfp) .btn-solid:not(.on-dark .btn-solid):not(.nav-cta) { border-color: rgb(255 255 255 / .12); }
+
+html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm) {
+  background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill);
+  -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
+  border-color: var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-rim-low), var(--g-lift);
+}
+@media (hover: hover) and (pointer: fine) {
+  html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm):hover { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-h); border-color: var(--gold); }
+}
+html body :is(.dfs, .dfp) .btn-ghost:not(.btn-sm):active { background: linear-gradient(180deg, var(--g-sheen), transparent 60%), var(--g-pill-p); }
+
+/* ---------------------------------------------------------------- MENUS AND POPOVERS
+   The site menu (desktop dropdown, phone sheet), the section index (main) and
+   the chapter index and its docked rail (/pitch). Open/close motion unchanged. */
+html body :is(.dfs, .dfp) .menu-panel,
+html body .dfs .sec-index,
+html body .dfp .index {
+  background: linear-gradient(180deg, var(--g-sheen), transparent 120px), var(--g-panel);
+  -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
+  border: 1px solid var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-rim-low), var(--shadow-lg);
+}
+html body :is(.dfs, .dfp) .menu-panel .menu-cta { box-shadow: inset 0 1px 0 rgb(255 255 255 / .3), 0 0 20px var(--g-glow); }
+
+/* /pitch's proof sheet: a sheet, so glass, with its own fill */
+html body .dfp .sheet, html:not([data-df-theme="light"]) body .dfp .sheet {
+  background: linear-gradient(180deg, var(--g-sheen), transparent 160px), var(--g-panel);
+  -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
+  border-color: var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), var(--shadow-lg);
+}
+
+/* ---------------------------------------------------------------- PROOF CHIPS
+   The small proof chips in the hero sit over the forge's glow. */
+html body :is(.dfs, .dfp) .chip {
+  background: linear-gradient(180deg, var(--g-sheen), transparent 70%), var(--g-chip);
+  -webkit-backdrop-filter: var(--g-filter); backdrop-filter: var(--g-filter);
+  border-color: var(--g-edge);
+  box-shadow: inset 0 1px 0 var(--g-rim), inset 0 -1px 0 var(--g-rim-low);
+}
+
+/* ---------------------------------------------------------------- COLOUR FIELDS
+   Glass needs colour directly behind it. Static, soft, from each palette only:
+   - behind the header at rest: the top of every page hero / press ribbon;
+   - behind every CTA group.
+   Never animated, never fixed, never filtered, never scroll-linked. */
+html body .dfs :is(.page-hero, .ribbon), html body .dfp .hero { isolation: isolate; }
+html body .dfs .page-hero::before, html body .dfs .ribbon::before, html body .dfp .hero::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 220px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(34% 80% at 16% 0%, var(--g-field-a), transparent 72%),
+    radial-gradient(38% 90% at 84% 0%, var(--g-field-b), transparent 72%),
+    radial-gradient(30% 70% at 50% 0%, var(--g-field-c), transparent 72%);
+}
+/* a press ribbon above the hero carries the header's field, so the hero's own top stays as it was */
+html body .dfs .ribbon ~ .page-hero::before, html body .dfs .ribbon ~ * .page-hero::before { content: none; }
+html body :is(.dfs, .dfp) :is(.actions, .hero-actions) { position: relative; isolation: isolate; }
+html body :is(.dfs, .dfp) :is(.actions, .hero-actions)::before {
+  content: ""; position: absolute; inset: -28px -48px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 60% at 30% 50%, var(--g-field-a), transparent 75%),
+    radial-gradient(40% 60% at 72% 50%, var(--g-field-b), transparent 75%);
+}
+@media (max-width: 480px) {
+  /* inside the 16px phone gutter, so nothing reaches past the screen edge */
+  html body :is(.dfs, .dfp) :is(.actions, .hero-actions)::before { inset: -20px 0; }
+}
+
+} /* end @media screen */
+
+/* ---------------------------------------------------------------- FALLBACKS
+   No backdrop-filter: near-opaque fills. Reduced transparency, more contrast:
+   no blur, opaque fills, a visible border. Because every fill reads --g-floor,
+   hover, press and a retained touch hover stay opaque as well. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --g-floor: .94; }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root { --g-floor: 1; }
+  html body :is(.dfs, .dfp) :is(.nav, .menu-panel, .sec-index, .index, .sheet, .chip, .btn-ghost, .nav .menu > summary, .nav .sec-btn, .nav .chapter-btn),
+  html body :is(.dfs, .dfp) .nav::before, html body :is(.dfs, .dfp) .nav:not(.solid)::before {
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  }
+  html body :is(.dfs, .dfp) :is(.menu-panel, .sec-index, .index, .sheet, .chip, .btn-ghost, .nav .menu > summary, .nav .sec-btn, .nav .chapter-btn) { border-color: var(--hair-2); }
+  html body :is(.dfs, .dfp) .nav::before, html body :is(.dfs, .dfp) .nav:not(.solid)::before { box-shadow: inset 0 -1px 0 var(--hair-2); }
+  /* no colour fields: the ground behind is plain */
+  html body .dfs .page-hero::before, html body .dfs .ribbon::before, html body .dfp .hero::before,
+  html body :is(.dfs, .dfp) :is(.actions, .hero-actions)::before { content: none; }
+}
+/* Item tints in fallbacks (pressed, current page, hover): the site's --panel-2 is a 10% tint, so over the opaque
+   fallback bar/panel an item carried a translucent fill of its own. In the fallbacks every item tint is an OPAQUE blend
+   of the same ink into the surface it sits on, so every state keeps an opaque (or >= .9 without backdrop-filter) fill. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html body :is(.dfs, .dfp) .nav .nav-link:is(:active, [aria-current="page"]) { background: color-mix(in srgb, var(--ink) 10%, var(--g-bar)); }
+  html body :is(.dfs, .dfp) :is(.menu-panel a:is(:active, [aria-current="page"]), .sec-index a:is(:active, [aria-current="true"]), .index a:is(:active, [aria-current="true"])) { background: color-mix(in srgb, var(--ink) 10%, var(--g-panel)); }
+  @media (hover: hover) and (pointer: fine) {
+    html body :is(.dfs, .dfp) :is(.menu-panel, .sec-index, .index) a:hover { background: color-mix(in srgb, var(--ink) 10%, var(--g-panel)); }
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  html body :is(.dfs, .dfp) .nav .nav-link:is(:active, [aria-current="page"]) { background: color-mix(in srgb, var(--ink) 10%, var(--g-bar)); }
+  html body :is(.dfs, .dfp) :is(.menu-panel a:is(:active, [aria-current="page"]), .sec-index a:is(:active, [aria-current="true"]), .index a:is(:active, [aria-current="true"])) { background: color-mix(in srgb, var(--ink) 10%, var(--g-panel)); }
+}
+@media (prefers-reduced-transparency: reduce) and (hover: hover) and (pointer: fine), (prefers-contrast: more) and (hover: hover) and (pointer: fine) {
+  html body :is(.dfs, .dfp) :is(.menu-panel, .sec-index, .index) a:hover { background: color-mix(in srgb, var(--ink) 10%, var(--g-panel)); }
+}
+
+/* more contrast also drops the accent glow, and the hairlines read as lines */
+@media (prefers-contrast: more) {
+  html body :is(.dfs, .dfp) .btn-solid { box-shadow: none; border-color: currentColor; }
+  html body :is(.dfs, .dfp) .btn-solid::before { content: none; }
+}
+
+/* ---------------------------------------------------------------- PRINT: no glass */
+@media print {
+  :is(.dfs, .dfp) *, :is(.dfs, .dfp) *::before, :is(.dfs, .dfp) *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  :is(.dfs, .dfp) .chip { background: none; }
+}
