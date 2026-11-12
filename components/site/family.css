@@ -55,3 +55,14 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
   html body .dfs button.btn-ghost.btn-sm { background: color-mix(in srgb, var(--panel) 40%, var(--bg)); }
 }
+
+/* fix1 R3 (Sol r1, inherited): standalone links pressed. motion.css dims them to opacity .55 for the press, which
+   took the footer "Forge ↗" to 2.33:1 (light) / 4.27:1 (dark). The press still responds at once, but by moving the
+   link's own colour AWAY from its ground (same hue, lightness only): darker on light grounds, lighter on dark ones,
+   so the pressed state has more contrast than rest, never less. No transition (instant, as before). */
+html body :is(.dfs, .dfp) :is(a.more-link, a.link, .footer .f-col a, .footer-bottom a):active { opacity: 1; filter: brightness(1.32); }
+html[data-df-theme="light"] body :is(.dfs, .dfp) :is(a.more-link, a.link, .footer .f-col a, .footer-bottom a):active { filter: brightness(.72); }
+html[data-df-theme="light"] body :is(.dfs, .dfp) .on-dark :is(a.more-link, a.link):active { filter: brightness(1.32); }
+/* fix1 R3: the /sabina film caption (12px) sits over the video frame's shadow in light mode; its ink keeps its hue
+   and takes the lightness that passes against the darkest shadow pixel behind it (3.50 -> 4.76:1). */
+html[data-df-theme="light"] body .dfs .pg-sabina .film figcaption { color: #40494f; }
