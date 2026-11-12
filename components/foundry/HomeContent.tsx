@@ -153,7 +153,6 @@ export default function HomeContent() {
               into roof geometry, a bill of materials and a proposal. Independently useful, hosted under
               Forge, and not part of Sabina’s general capability set.
             </p>
-            <a className="more-link" href="/technology">See Hyperion →</a>
           </article>
         </div>
       </Section>
