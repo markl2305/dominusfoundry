@@ -50,7 +50,7 @@ const faq = [
   },
   {
     q: "Is Forge suitable for small contracting businesses?",
-    a: "Yes. Forge products are custom quoted for each company. Scope and terms are agreed before you commit. See buildwithforge.app/pricing.",
+    a: "Yes. Forge products are custom quoted for each company. Scope and terms are agreed before you commit.",
   },
   {
     q: "How does Forge handle data security?",
