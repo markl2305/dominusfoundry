@@ -29,3 +29,15 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
   letter-spacing: 0; color: var(--ink-2);
 }
 :is(.dfs, .dfp) .footer .f-endorse img { width: 14px; height: 16px; flex: none; }
+
+/* ---------------------------------------------------------------- FOOTNOTES (family v2, item 5)
+   At the foot of the section: a hairline, then the numbered notes, 12px+ and muted (measured >= 4.5:1, see REPORT).
+   The marker sits after the figure or claim; it scrolls to its note and the note's marker scrolls back. */
+:is(.dfs, .dfp) .fn-ref { font: 600 12px/0 var(--sans); vertical-align: super; letter-spacing: 0; margin-left: 2px; }
+:is(.dfs, .dfp) .fn-ref a { color: var(--gold); text-decoration: none; padding: 0 2px; }
+:is(.dfs, .dfp) .fn-ref a:focus-visible, :is(.dfs, .dfp) .footnotes .fn-back:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 3px; }
+:is(.dfs, .dfp) .footnotes { margin-top: clamp(28px, 4vw, 44px); padding-top: 16px; border-top: 1px solid var(--hair-2); max-width: 110ch; }
+:is(.dfs, .dfp) .footnotes ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+:is(.dfs, .dfp) .footnotes li { display: grid; grid-template-columns: 1.6em 1fr; align-items: baseline; font: 400 0.8125rem/1.55 var(--sans); letter-spacing: 0; color: var(--ink-2); margin: 0; }
+:is(.dfs, .dfp) .footnotes .fn-back { color: var(--gold); font-weight: 600; text-decoration: none; }
+:is(.dfs, .dfp) [id^="fn-"], :is(.dfs, .dfp) [id^="fnref-"] { scroll-margin-top: 96px; }
