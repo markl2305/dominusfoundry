@@ -45,10 +45,13 @@ html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; lef
 :is(.dfs, .dfp) [id^="fn-"], :is(.dfs, .dfp) [id^="fnref-"] { scroll-margin-top: 96px; }
 
 /* fix1 R1 (Sol r1): every footnote link gets a 44px hit region while the marker keeps its small superscript look.
-   Invisible ::after boxes; the return link's box extends left into the gutter, never over the note text. */
+   Invisible ::after boxes; the return link's box sits mostly in the gutter (10px over the note's first letters, never over a link), on screen at 390. */
 :is(.dfs, .dfp) .fn-ref a, :is(.dfs, .dfp) .footnotes .fn-back { position: relative; }
+/* the marker is one atomic box (an inline link with side padding could split its padding onto the next line, and the
+   hit box then anchored to a 2px fragment: measured at 390 on /pitch and /governance) */
+:is(.dfs, .dfp) .fn-ref a { display: inline-block; line-height: 1; }
 :is(.dfs, .dfp) .fn-ref a::after { content: ""; position: absolute; z-index: 1; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
-:is(.dfs, .dfp) .footnotes .fn-back::after { content: ""; position: absolute; z-index: 1; right: 0; top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }
+:is(.dfs, .dfp) .footnotes .fn-back::after { content: ""; position: absolute; z-index: 1; right: -10px; top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }
 
 /* fix1 R2: utility buttons keep their compact look; in the fallbacks their translucent fill becomes the opaque
    equivalent (the same 40% panel over the page ground), so they are opaque in every state like the other glass. */
