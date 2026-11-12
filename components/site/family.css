@@ -1,0 +1,31 @@
+/* ============================================================================
+   FAMILY V2, item 4 (Mark, 2026-11-12: "fix 4 and 5"). One primary/secondary
+   CTA spec on every family site: 48px, full pill, 24px inline padding, system
+   UI 17/600, -0.01em, the existing arrow with an 8px gap, press scale(.97)
+   100ms ease-out (that press already lives in site.css / pitch.css, motion v2,
+   and is not redefined here). Geometry and type only: the copper / gold
+   accents and the glass material (glass.css) are unchanged.
+   The nav CTA stays compact (36px visual) with a 44px hit area.
+   The footer endorsement line (SiteFooter.tsx): 13px, system UI, muted.
+   ⛔ No copy, labels or targets live here.
+   ========================================================================== */
+html body :is(.dfs, .dfp) .btn:not(.btn-sm):not(.nav-cta):not(.sheet-nav .btn) {
+  height: auto; min-height: 48px; padding-block: 0; padding-inline: 24px; border-radius: 999px; gap: 8px; max-width: 100%;
+  overflow-wrap: break-word; /* 48px on one line (every CTA at 1440 and 390); a label that cannot fit at 320 (an email address) wraps instead of clipping */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2;
+}
+html body :is(.dfs, .dfp) .nav-cta {
+  position: relative; border-radius: 999px; gap: 8px; font-weight: 600; letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* 44px hit area around the compact bar CTA (the glass sheen uses ::before; this is ::after, invisible) */
+html body :is(.dfs, .dfp) .nav-cta::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: max(44px, 100%); transform: translateY(-50%); }
+
+/* the endorsement line: the last row of the footer, left-aligned */
+:is(.dfs, .dfp) .footer .f-endorse {
+  display: flex; align-items: center; gap: 8px; margin: 24px 0 0; text-align: left;
+  font: 400 13px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0; color: var(--ink-2);
+}
+:is(.dfs, .dfp) .footer .f-endorse img { width: 14px; height: 16px; flex: none; }

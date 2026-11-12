@@ -46,6 +46,13 @@ export default function SiteFooter({ blurb, note, copyright = <>© 2026 Dominus 
         <a className="nv-badge" href="https://www.nvidia.com/en-us/startups/" rel="noopener"><img src="/brand/nvidia-inception-program-badge.svg" alt="Dominus Foundry is a member of NVIDIA Inception" width="93" height="40" /></a>
       </div>
       <p className="nv-legal">© 2026 NVIDIA, the NVIDIA logo, and NVIDIA Inception are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries.</p>
+      {/* Family v2, item 4 (Mark, 2026-11-12): the one endorsement line every family site carries, as the footer's last
+          row. Exact text per the order; the crest is decorative. Added, nothing above it removed. */}
+      <p className="f-endorse">
+        {/* eslint-disable-next-line @next/next/no-img-element -- same crest file the footer already serves */}
+        <img src="/brand/crest-full.png" alt="" width="14" height="16" aria-hidden="true" />
+        <span>Dominus Foundry · Fide et Familia</span>
+      </p>
     </div>
   </footer>
 }
