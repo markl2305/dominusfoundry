@@ -284,9 +284,11 @@ export default function RootLayout({
               // engines do read sameAs that way. It was added in round 1 and is
               // struck. ⛔ Do not re-add it; the company→Sabina relation lives
               // in makesOffer above.
+              // buildwithforge.app is NOT in sameAs either (Mark 2026-11-12 16:13Z: it is no longer a public marketing site;
+              // its marketing paths redirect to the login). Same reasoning as hiresabina.ai above: a product's site is not
+              // identity-equivalent to the company. The #forge / #forge-brand @id identifiers above are unchanged.
               sameAs: [
                 "https://dominusfoundry.com",
-                "https://buildwithforge.app",
                 "https://www.linkedin.com/company/dominus-foundry",
                 "https://www.youtube.com/@Forge-DF",
               ],
