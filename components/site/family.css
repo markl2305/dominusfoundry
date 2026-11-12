@@ -70,3 +70,7 @@ html[data-df-theme="light"] body .dfs .pg-sabina .film figcaption { color: #4049
 /* fix1 R4 (Sol r1, inherited): the /pitch market-source heading links ("Own Your Intelligence" …) were 39px (1440) /
    31px (390) tall. Padding grows the hit area, an equal negative margin keeps the layout exactly where it was. */
 html body .dfp .mk-t a { display: inline-block; padding-block: 8px; margin-block: -8px; }
+
+/* fix1 R5 (Sol r1): over the new proof-sheet glass (dark mode) the "Not yet" / "Roadmap" status badges' 12px ink-3
+   fell to 3.73:1. Same hue, lightness only: #8b948e -> #9fa9a2 (4.81:1 on the brightest sheet pixel). */
+html:not([data-df-theme="light"]) body .dfp .sheet .badge:is(.not_yet, .roadmap) { color: #9fa9a2; }
