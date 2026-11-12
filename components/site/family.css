@@ -74,3 +74,14 @@ html body .dfp .mk-t a { display: inline-block; padding-block: 8px; margin-block
 /* fix1 R5 (Sol r1): over the new proof-sheet glass (dark mode) the "Not yet" / "Roadmap" status badges' 12px ink-3
    fell to 3.73:1. Same hue, lightness only: #8b948e -> #9fa9a2 (4.81:1 on the brightest sheet pixel). */
 html:not([data-df-theme="light"]) body .dfp .sheet .badge:is(.not_yet, .roadmap) { color: #9fa9a2; }
+
+/* fix1 R3, part 2 (found by the all-states rerun; inherited from motion.css): the press tint on reading surfaces
+   (cards, list rows, ledger rows, use-of-funds rows, layers) was --panel-2 + 7% ink. In both themes that took their
+   small gold / ember / muted text to 4.05-4.49:1. Same hue, a shallower step (3% ink): still one step deeper than the
+   hover/selected tint (--panel-2), so the press still shows, and every text on it passes. */
+html body :is(.dfs, .dfp) :is(a.card, .qp-blog .note-card, .qp-learn .guide-card, a.list-row, .qpb .qp-flow-node a, .ledger-row, .funds-rows > div):active,
+html body .dfs .pg-blog .list-rows > li:active .list-row,
+html body :is(.dfs, .dfp) .layer:active { background-color: color-mix(in srgb, var(--panel-2), var(--ink) 3%); }
+/* …and on that pressed ledger row (light mode) the ember status badges were 4.24-4.44:1: same hue, lightness only,
+   #924d1b -> #8a4819 for the press (4.63:1 on the deepest pressed tint; 6.17:1 at rest on the panel). */
+html[data-df-theme="light"] body .dfp .ledger-row:active .badge:is(.contracted, .in_acceptance, .proven_path, .filed) { color: #8a4819; }
