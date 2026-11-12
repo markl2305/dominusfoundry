@@ -66,3 +66,7 @@ html[data-df-theme="light"] body :is(.dfs, .dfp) .on-dark :is(a.more-link, a.lin
 /* fix1 R3: the /sabina film caption (12px) sits over the video frame's shadow in light mode; its ink keeps its hue
    and takes the lightness that passes against the darkest shadow pixel behind it (3.50 -> 4.76:1). */
 html[data-df-theme="light"] body .dfs .pg-sabina .film figcaption { color: #40494f; }
+
+/* fix1 R4 (Sol r1, inherited): the /pitch market-source heading links ("Own Your Intelligence" …) were 39px (1440) /
+   31px (390) tall. Padding grows the hit area, an equal negative margin keeps the layout exactly where it was. */
+html body .dfp .mk-t a { display: inline-block; padding-block: 8px; margin-block: -8px; }
