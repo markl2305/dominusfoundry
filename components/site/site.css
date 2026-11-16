@@ -299,6 +299,21 @@ body:has([data-consent-bar]:not([data-consent-reopened])) .dfs .nav { top: var(-
 .dfs .nav-right { display: flex; align-items: center; gap: 10px; flex: none; margin-left: auto; }
 .dfs .nav-cta { height: 36px; min-height: 36px; padding: 0 16px; font-size: 0.875rem; }
 .dfs .nav.bare .nav-right { margin-left: auto; }
+/* .nav-end groups the section button and the right-hand controls. Below the desktop layout it fills the space after
+   the brand, exactly as the two did on their own. */
+.dfs .nav-end { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 16px; min-width: 0; }
+/* Desktop, links showing: three columns, the outer two equal, so the links are centred on the page and nothing on
+   either side can move them (Mark, 2026-11-16: they shifted left on pages with a section button). If the row stops
+   fitting, the fit check adds .fit-1 and the bar returns to the compact layout below. */
+@media (min-width: 1200px) {
+  .dfs .nav:not(.fit-1):not(.bare) .nav-in { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); column-gap: 16px; }
+  .dfs .nav:not(.fit-1):not(.bare) .brand { justify-self: start; }
+  .dfs .nav:not(.fit-1):not(.bare) .nav-links { flex: none; }
+  /* With the links centred, the right column (about 290px in the 1180px bar) holds Sites and Contact the team but not
+     the section button as well (137 to 187px). On desktop the highlighted tab already says where you are, so the
+     section button is shown only in the compact layout, where the links have gone into the menu. */
+  .dfs .nav:not(.fit-1):not(.bare) .sec-mid { display: none; }
+}
 
 /* below the desktop breakpoint the links move into the menu */
 @media (max-width: 1199px) { .dfs .nav-links { display: none; } }
@@ -442,6 +457,24 @@ body:has([data-consent-bar]:not([data-consent-reopened])) :is(.dfs, .dfp) .menu-
 @media (hover: hover) and (pointer: fine) { :is(.dfs, .dfp) .menu-panel a:hover { background: var(--panel-2); color: var(--ink); } }
 :is(.dfs, .dfp) .menu-panel .menu-sep { height: 1px; background: var(--hair); margin: 6px 10px; }
 :is(.dfs, .dfp) .menu-panel .menu-cta { justify-content: center; margin-top: 6px; background: var(--copper); color: var(--on-accent); font-weight: 600; border-radius: 999px; }
+/* Mark's sites (2026-11-16). In the site menu: a small caption, then compact two-line rows. */
+:is(.dfs, .dfp) .menu-panel .menu-cap { padding: 8px 14px 4px; font: 500 0.75rem/1.2 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+:is(.dfs, .dfp) .menu-panel .site-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+:is(.dfs, .dfp) .menu-panel .site-row a { min-height: 44px; font-size: 0.9375rem; }
+:is(.dfs, .dfp) .menu-panel .site-row .site-host { font-size: 0.8125rem; font-weight: 400; color: var(--ink-3); }
+:is(.dfs, .dfp) .menu-panel .site-row a[aria-current="true"] { color: var(--ink); }
+:is(.dfs, .dfp) .menu-panel .site-row a[aria-current="true"] .site-name::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 10px; vertical-align: 2px; border-radius: 50%; background: var(--gold); }
+/* The header's Sites menu: desktop with the links showing; otherwise the same rows are in the site menu. It opens
+   under its own trigger. */
+.dfs .menu.sites-menu { display: none; position: relative; }
+@media (min-width: 1200px) { .dfs .nav:not(.fit-1) .menu.sites-menu { display: block; } }
+.dfs .menu.sites-menu > summary { padding: 0 12px 0 14px; gap: 6px; }
+.dfs .menu.sites-menu > summary .chev { width: 12px; height: 12px; color: var(--ink-3); transition: transform 200ms var(--ease-out); }
+.dfs .menu.sites-menu[open]:not([data-closing]) > summary .chev { transform: rotate(180deg); }
+.dfs .menu.sites-menu .sites-panel { position: absolute; top: calc(100% + 12px); left: 50%; right: auto; margin-left: -130px; width: 260px; max-height: none; transform-origin: 50% 0; }
+.dfs .menu.sites-menu .sites-panel .site-row a { flex-direction: column; align-items: flex-start; justify-content: center; gap: 3px; min-height: 52px; padding: 8px 14px; }
+.dfs .menu.sites-menu .sites-panel .site-row .site-name { line-height: 1.2; }
+.dfs .menu.sites-menu .sites-panel .site-row .site-host { line-height: 1.2; }
 :is(.dfs, .dfp) .menu-panel .ext { font: 400 0.875rem/1 var(--mono); color: var(--ink-3); }
 /* the /pitch nav: the menu sits beside the theme control at every width */
 .dfp .menu > summary .lbl { display: none; }

@@ -5,9 +5,16 @@
    press, and closing when a link is followed. */
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
-import { NAV_LINKS, MENU_EXTRA, CONTACT, activeFor } from './nav-links'
+import { NAV_LINKS, MENU_EXTRA, CONTACT, FAMILY_SITES, activeFor } from './nav-links'
 
-export default function SiteMenu() {
+/* Mark's public sites as menu rows: name, then the address in small type. This site's own row goes home and is
+   marked as the current one. */
+function SiteRows() {
+  return <>{FAMILY_SITES.map((f) => <li key={f.id} className="site-row"><a href={'current' in f && f.current ? '/' : f.href} aria-current={'current' in f && f.current ? 'true' : undefined}><span className="site-name">{f.label}</span><span className="site-host">{f.host}</span></a></li>)}</>
+}
+
+/* kind="sites" is the header's Sites menu (desktop only): the same disclosure, listing Mark's sites. */
+export default function SiteMenu({ kind = 'site' }: { kind?: 'site' | 'sites' }) {
   const ref = useRef<HTMLDetailsElement>(null)
   const pathname = usePathname()
   const active = activeFor(pathname)
@@ -75,6 +82,16 @@ export default function SiteMenu() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   const onClick = (e: React.MouseEvent) => { if ((e.target as HTMLElement).closest('a') && ref.current) closeMenu({ instant: true }) }
 
+  if (kind === 'sites') return <details className="menu sites-menu" ref={ref} onClick={onClick}>
+    <summary aria-label="Our sites">
+      <span className="lbl">Sites</span>
+      <svg className="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
+    </summary>
+    <nav className="menu-panel sites-panel" aria-label="Our sites">
+      <ul><SiteRows /></ul>
+    </nav>
+  </details>
+
   return <details className="menu" ref={ref} onClick={onClick}>
     <summary aria-label="Menu">
       <svg className="bars" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2.5 5h11M2.5 11h11" /></svg>
@@ -86,6 +103,9 @@ export default function SiteMenu() {
         {NAV_LINKS.map((l) => <li key={l.id}><a href={l.href} aria-current={active === l.id ? 'page' : undefined}>{l.label}</a></li>)}
         <li className="menu-sep" aria-hidden="true" />
         {MENU_EXTRA.map((l) => <li key={l.id}><a href={l.href} aria-current={active === l.id ? 'page' : undefined}>{l.label}</a></li>)}
+        <li className="menu-sep" aria-hidden="true" />
+        <li className="menu-cap" id="menu-sites-cap">Our sites</li>
+        <li><ul className="site-list" aria-labelledby="menu-sites-cap"><SiteRows /></ul></li>
         <li><a className="menu-cta" href={CONTACT.href}>{CONTACT.label}</a></li>
       </ul>
     </nav>

@@ -75,7 +75,10 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
     const overflows = () => {
       const row = inner.getBoundingClientRect()
       const boxes: DOMRect[] = []
-      for (const c of Array.from(inner.children) as HTMLElement[]) {
+      // .nav-end only groups the section button and the right-hand controls into one grid column; they are still
+      // separate row items, so they are measured one by one.
+      const items = (Array.from(inner.children) as HTMLElement[]).flatMap((c) => c.classList.contains('nav-end') ? Array.from(c.children) as HTMLElement[] : [c])
+      for (const c of items) {
         const cs = getComputedStyle(c)
         if (cs.display === 'none' || cs.position === 'absolute' || cs.position === 'fixed') continue
         if (c.offsetHeight > inner.clientHeight + 1) return true
@@ -121,11 +124,17 @@ function Nav({ variant, pathname }: { variant: ShellVariant; pathname: string | 
       {!bare && <nav className="nav-links" aria-label="Primary">
         {NAV_LINKS.map((l) => <a key={l.id} className="nav-link" href={l.href} aria-current={active === l.id ? 'page' : undefined}>{l.label}</a>)}
       </nav>}
-      {hasSecs && <SectionButton secs={secs} solid={solid} />}
-      {/* The appearance control lives in the footer (Apple polish 2026-11-02, H-2). */}
-      <div className="nav-right">
-        {!bare && <a className="btn btn-solid nav-cta" href={CONTACT.href}>{CONTACT.label}</a>}
-        {!bare && <SiteMenu />}
+      {/* Brand, links and this group are the bar's three columns. On desktop the outer two share the leftover width
+          equally, so the links sit on the page's centre line whatever the page adds on the right (the section button
+          used to push them left on /company and /technology; Mark, 2026-11-16). */}
+      <div className="nav-end">
+        {hasSecs && <SectionButton secs={secs} solid={solid} />}
+        {/* The appearance control lives in the footer (Apple polish 2026-11-02, H-2). */}
+        <div className="nav-right">
+          {!bare && <SiteMenu kind="sites" />}
+          {!bare && <a className="btn btn-solid nav-cta" href={CONTACT.href}>{CONTACT.label}</a>}
+          {!bare && <SiteMenu />}
+        </div>
       </div>
     </div>
     {hasSecs && <SectionProgress pathname={pathname} />}

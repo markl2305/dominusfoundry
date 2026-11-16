@@ -23,3 +23,14 @@ export function activeFor(pathname: string | null): string | null {
   const hit = [...NAV_LINKS, ...MENU_EXTRA].find((l) => l.href === first)
   return hit ? hit.id : null
 }
+
+/* Mark's public sites, listed in the header's Sites menu and in the site menu (Mark, 2026-11-16). Forge is
+   sign-in only and is not listed. No prices here. */
+export const FAMILY_SITES = [
+  { id: 'foundry', label: 'Dominus Foundry', host: 'dominusfoundry.com', href: 'https://dominusfoundry.com', current: true },
+  { id: 'sabina', label: 'Sabina', host: 'withsabina.ai', href: 'https://withsabina.ai' },
+  { id: 'mpai', label: 'Managed Private AI', host: 'managedprivateai.com', href: 'https://managedprivateai.com' },
+  { id: 'dominusos', label: 'DominusOS', host: 'dominusos.ai', href: 'https://dominusos.ai' },
+  { id: 'crucible', label: 'Decision Crucible', host: 'decisioncrucible.com', href: 'https://decisioncrucible.com' },
+  { id: 'mark', label: 'Mark Lord', host: 'markflord.com', href: 'https://markflord.com' },
+] as const
